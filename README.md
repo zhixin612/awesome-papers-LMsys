@@ -22,6 +22,9 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-01
+* `serving` `offloading` `storage` [Tangram: Accelerating Serverless LLM Loading through GPU Memory Reuse and Affinity](http://arxiv.org/abs/2512.01357v1)
+  > **TL;DR**: Tackles high cold-start latency in serverless LLM serving via GPU memory reuse. Proposes Tangram with unified GPU memory pool, on-demand KV cache allocation, and affinity-aware scheduling. Achieves 6.2x faster model loading and 23-55% lower Time-To-First-Token.
 
 ### 2025-11-29
 * `serving` `edge` `offloading` [IslandRun: Privacy-Aware Multi-Objective Orchestration for Distributed AI Inference](http://arxiv.org/abs/2512.00595v1)
