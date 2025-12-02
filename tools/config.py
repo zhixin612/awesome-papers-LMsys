@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()  # Load .env for local runs (no-op in CI when env vars already exist)
 
 # --- Basic Setup --------------------------------------------------------------
-README_FILE = Path("daily-arxiv-llm.md")
+README_FILE = Path("README.md")
 
 # FIXME: Adding cs.LG/cs.AI can bring in many irrelevant papers (need stronger LLM filtering)
 ARXIV_CATEGORIES: List[str] = ["cs.DC", "cs.OS"]
@@ -21,7 +21,8 @@ DEFAULT_START_DATE = "20250101"  # YYYYMMDD
 API_KEY = os.environ["API_KEY"]  # required
 BASE_URL = "https://api.siliconflow.cn/v1"
 # MODEL = "Qwen/Qwen3-Next-80B-A3B-Instruct"
-MODEL = "deepseek-ai/DeepSeek-V3.1-Terminus"
+# MODEL = "deepseek-ai/DeepSeek-V3.1-Terminus"
+MODEL = "deepseek-ai/DeepSeek-R1"
 
 # TODO: Subscribers (e-mail) ---------------------------------------------------
 SUBSCRIBER: Final[dict[str, list[str]]] = {

@@ -1,0 +1,303 @@
+# awesome papers on LMSys
+
+
+
+<details>
+<summary><span style="font-size: 20px;">👍useful website to find / read papers (click)</span></summary>
+
+  * Connect Papers: [https://www.connectedpapers.com/](https://www.connectedpapers.com)
+  * Sematic Scholar: [https://www.semanticscholar.org/](https://www.semanticscholar.org)
+  * Arxiv-CS-RAG: [https://huggingface.co/spaces/bishmoy/Arxiv-CS-RAG](https://huggingface.co/spaces/bishmoy/Arxiv-CS-RAG)
+  * Conference List with Link [https://paper.lingyunyang.com/reading-notes/conference](https://paper.lingyunyang.com/reading-notes/conference)
+  * Papes.cool:
+    * [https://papers.cool/arxiv/cs.LG](https://papers.cool/arxiv/cs.LG): Machine Learning
+    * [https://papers.cool/arxiv/cs.DC](https://papers.cool/arxiv/cs.DC): Distributed, Parallel, and Cluster Computing
+</details>
+
+<details>
+<summary><span style="font-size: 20px;">👍conference list on LMSys (click)</span></summary>
+
+* Most Relevant (system): **NSDI**; **OSDI**; **SOSP**; **EuroSys**; **ASPLOS**; **~~ATC~~**; (CCF-none) **MLSys**
+* Other (networking, storage, architectures): **SIGCOMM**; **SC**; **ISCA**; **HPCA**; **MICRO**; **PPoPP**; **FAST**; **VLDB**
+* Other (AI): **NeruIPS**; **ICML**; (CCF-none) **ICLR**
+
+</details>
+
+---
+## [🔥Daily Arxiv Papers on LMSys🔥](daily-arxiv-llm.md)
+
+[https://github.com/TJU-NSL/awesome-papers/README.md](daily-arxiv-llm.md)
+
+
+<!-- -------------------------------------------------------------------------- Template (DE NOT DELETE) -----------------------------------------------------------------------------
+[Template] * (conf/trans/arxiv) Paper title [link](http_source_link) [NOTE: key words / author / affiliation]
+[Examples] * (NIPS'17) Attention Is All You Need [link](https://arxiv.org/abs/1706.03762) [Attention | Google]
+[Examples] * (Arxiv'24) Optimal Block-Level Draft Verification for Accelerating Speculative Decoding [link](https://arxiv.org/abs/2403.10444) [Speculative Decoding | Google]
+------------------------------------------------------------------------------- Template (DE NOT DELETE) ----------------------------------------------------------------------------- -->
+
+
+---
+## [MLSys 2025](https://mlsys.org/virtual/2025/papers.html?filter=titles&layout=mini)
+
+### LLM and Diffusion Model Serving  
++ DiffServe: Efficiently Serving Text-to-Image Diffusion Models with Query-Aware Model Scaling
++ FastTree: Optimizing Attention Kernel and Runtime for Tree-Structured LLM Inference
++ FlashInfer: Efficient and Customizable Attention Engine for LLM Inference Serving
++ LeanAttention: Hardware-Aware Scalable Attention Mechanism for the Decode-Phase of Transformers
++ Rethinking Key-Value Cache Compression Techniques for Large Language Model Serving
++ FlexInfer: Flexible LLM Inference with CPU Computations
++ ScaleFusion: Scalable Inference of Spatial-Temporal Diffusion Transformers for High-Resolution Long Video Generation
++ Seesaw: High-throughput LLM Inference via Model Re-sharding
++ SOLA: Optimizing SLO Attainment for Large Language Model Serving with State-Aware Scheduling
++ TurboAttention: Efficient attention approximation for high throughputs llm
++ FlexAttention: A Programming Model for Generating Fused Attention Variants.
++ Marconi: Prefix Caching for the Era of Hybrid LLMs
++ NEO: Saving GPU Memory Crisis with CPU Offloading for Online LLM Inference
++ ThunderServe: High-performance and Cost-efficient LLM Serving in Cloud Environments
++ XGrammar: Flexible and Efficient Structured Generation Engine for Large Language Models
+
+### Parallel and Distributed Systems  
++ Context Parallelism for Scalable Million-Token Inference
++ PipeFill: Using GPUs During Bubbles in Pipeline-parallel LLM Training
++ Balancing Pipeline Parallelism with Vocabulary Parallelism
++ COMET: Fine-grained Computation-communication Overlapping for Mixture-of-Experts
++ On Distributed Larger-Than-Memory Subset Selection With Pairwise Submodular Functions
++ Scaling Deep Learning Training with MPMD Pipeline Parallelism
++ TileLink: Generating Efficient Compute-Communication Overlapping Kernels using Tile-Centric Primitives
+
+### Quantization and Sparsity  
++ Enabling Unstructured Sparse Acceleration on Structured Sparse Accelerators
++ MiLo: Efficient Quantized MoE Inference with Mixture of Low-Rank Compensators
++ QServe:W4A8KV4 Quantization and System Co-design for Efficient LLM Serving
++ Radius: Range-based Gradient Sparsity for Large Foundation Model Pre-training
++ Self-Data Distillation for Recovering Quality in Pruned Large Language Models
++ Efficient LLM Inference using Dynamic Input Pruning and Cache-Aware Masking
++ Lightweight Software Kernels and Hardware Extensions for Efficient Sparse Deep Neural Networks on Microcontrollers
++ LServe: Efficient Long-sequence LLM Serving with Unified Sparse Attention
++ SampleAttention: Near-Lossless Acceleration of Long Context LLM Inference with Adaptive Structured Sparse Attention
++ SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations
+
+### LLM training and fine-tuning  
++ HyC-LoRA: Memory Efficient LoRA Fine-tuning with Hybrid Activation Compression
++ Lumos: Efficient Performance Modeling and Estimation for Large-scale LLM Training
++ ReaL: Efficient RLHF Training of Large Language Models with Parameter Reallocation
++ Training Ultra Long Context Language Model with Fully Pipelined Distributed Transformer
++ Youmu: Efficient Columnar Data Pipeline for LLM Training
+
+### Edge and Cloud Systems  
++ MEADOW: Memory-efficient Dataflow and Data Packing for Low Power Edge LLMs
+
+
+---
+## [EuroSys 2025 Spring](https://2025.eurosys.org/accepted-papers.html)
+
++ Flex: Fast, Accurate DNN Inference on Low-Cost Edges Using Heterogeneous Accelerator Execution
++ Fast State Restoration in LLM Serving with HCache
++ Multiplexing Dynamic Deep Learning Workloads with SLO-awareness in GPU Clusters
++ JABAS: Joint Adaptive Batching and Automatic Scaling for DNN Training on Heterogeneous GPUs
++ Stateful Large Language Model Serving with Pensieve
++ CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion
++ SimAI: Unifying Architecture Design and Performance Tunning for Large-Scale Large Language Model Training with Scalability and Precision
++ BCP: A Unified Checkpointing System for Large Foundation Model Development
+
+---
+## [NSDI 2025](https://www.usenix.org/conference/nsdi25/technical-sessions)
+
++ Accelerating Design Space Exploration for LLM Training Systems with Multi-experiment Parallel Simulation
++ Optimizing RLHF Training for Large Language Models with Stage Fusion
++ Minder: Faulty Machine Detection for Large-scale Distributed Model Training
++ Holmes: Localizing Irregularities in LLM Training with Mega-scale GPU Clusters
+
+---
+## [PPoPP 2025](https://ppopp25.sigplan.org/track/PPoPP-2025-Main-Conference-1?#event-overview)
+
+### Deep Neural Networks
+
++ FlashTensor: Optimizing Tensor Programs by Leveraging Fine-grained Tensor Property
++ Mario: Near Zero-cost Activation Checkpointing in Pipeline Parallelism
++ COMPSO: Optimizing Gradient Compression for Distributed Training with Second-Order Optimizers
+
+### Large Language Models
+
++ WeiPipe: Weight Pipeline Parallelism for Communication-Effective Long-Context Large Model Training
++ MARLIN: Mixed-Precision Auto-Regressive Parallel Inference on Large Language Models
++ ATTNChecker: Highly-Optimized Fault Tolerant Attention for Large Language Model Training
+
+
+---
+## [HPCA 2025](https://hpca-conf.org/2025/main-program/)
+
++ Adyna: Accelerating Dynamic Neural Networks with Adaptive Scheduling
++ EDA: Energy-Efficient Inter-Layer Model Compilation for Edge DNN Inference Acceleration
++ BitMoD: Bit-serial Mixture-of-Datatype LLM Acceleration
++ DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency
++ Anda: Unlocking Efficient LLM Inference with a Variable-Length Grouped Activation Data Format
++ LAD: Efficient Accelerator for Generative Inference of LLM with Locality Aware Decoding
++ PAISE: PIM-Accelerated Inference Scheduling Engine for Transformer-based LLM
+
+
+---
+## [SIGCOMM 2024](https://conferences.sigcomm.org/sigcomm/2024/accepted-papers/)
+* CacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving
+### Networking and Training
+* NetLLM: Adapting Large Language Models for Networking
+* Accelerating Model Training in Multi-cluster Environments with Consumer-grade GPUs
+* Alibaba HPN: A Data Center Network for Large Language Model Training
+* Crux: GPU-Efficient Communication Scheduling for Deep Learning Training
+
+---
+## [HPCA 2024](https://ieeexplore.ieee.org/document/10476401)
+* Smart-Infinity: Fast **Large Language Model Training** using Near-Storage Processing on a Real System
+* ASADI: Accelerating **Sparse Attention** Using Diagonal-based In-Situ Computing
+* Tessel: Boosting **Distributed Execution** of Large DNN Models via **Flexible Schedule Search**
+* Enabling Large Dynamic **Neural Network Training** with Learning-based **Memory Management**
+* LibPreemptible: Enabling Fast, Adaptive, and Hardware-Assisted User-Space Scheduling
+* TinyTS: Memory-Efficient **TinyML Model Compiler** Framework on Microcontrollers
+* GPU Scale-Model Simulation
+
+
+---
+## [SOSP 2024](https://sigops.org/s/conferences/sosp/2024/accepted.html)
+### ML Inference
+* LoongServe: Efficiently Serving **Long-Context Large Language Models** with Elastic Sequence Parallelism
+* PowerInfer: Fast **Large Language Model Serving** with a **Consumer-grade GPU**
+* Apparate: Rethinking **Early Exits** to Tame Latency-Throughput Tensions in **ML Serving**
+* Improving **DNN Inference Throughput** Using Practical, Per-Input Compute Adaptation
+### ML Training
+* Enabling Parallelism **Hot Switching** for Efficient **Training of Large Language Models**
+* Reducing Energy Bloat in **Large Model Training**
+* ReCycle: Pipeline Adaptation for the Resilient Distributed **Training of Large DNNs**
+### Other
+* Tenplex: Dynamic Parallelism for Deep Learning using Parallelizable Tensor Collections
+* Scaling Deep Learning Computation over the Inter-Core Connected Intelligence Processor with T10
+* Uncovering Nested Data Parallelism and Data Reuse in DNN Computation with FractalTensor
+
+
+---
+## [ATC 2024](https://www.usenix.org/conference/atc24/technical-sessions)
+### ML Inference
+* Power-aware Deep Learning Model Serving with μ-Serve
+* Cost-Efficient Large Language Model Serving for Multi-turn Conversations with CachedAttention
+* PUZZLE: Efficiently Aligning Large Language Models through Light-Weight Context Switch
+* Quant-LLM: Accelerating the Serving of Large Language Models via FP6-Centric Algorithm-System Co-Design on Modern GPUs
+## ML Training
+* Accelerating the Training of Large Language Models using Efficient Activation Rematerialization and Optimal Hybrid Parallelism
+* Metis: Fast Automatic Distributed Training on Heterogeneous GPUs
+* FwdLLM: Efficient Federated Finetuning of Large Language Models with Perturbed Inferences
+
+
+---
+## [EuroSys 2024](https://dl.acm.org/doi/proceedings/10.1145/3627703)
+* Aceso: Efficient Parallel DNN Training through Iterative Bottleneck Alleviation
+* Model Selection for Latency-Critical Inference Serving
+* Optimus: Warming Serverless ML Inference via Inter-Function Model Transformation
+* CDMPP: A Device-Model Agnostic Framework for Latency Prediction of Tensor Programs
+* Orion: Interference-aware, Fine-grained GPU Sharing for ML Applications
+* HAP: SPMD DNN Training on Heterogeneous GPU Clusters with Automated Program Synthesis
+* Blox: A Modular Toolkit for Deep Learning Schedulers
+* DynaPipe: Optimizing Multi-task Training through Dynamic Pipelines
+* GMorph: Accelerating Multi-DNN Inference via Model Fusion
+* ScheMoE: An Extensible Mixture-of-Experts Distributed Training System with Tasks Scheduling
+* ZKML: An Optimizing System for ML Inference in Zero-Knowledge Proofs
+
+
+---
+## [ASPLOS 2024](https://dl.acm.org/doi/proceedings/10.1145/3620666)
+* 8-bit Transformer Inference and Fine-tuning for Edge Accelerators
+* AdaPipe: Optimizing Pipeline Parallelism with Adaptive Recomputation and Partitioning
+* Centauri: Enabling Efficient Scheduling for Communication-Computation Overlap in Large Model Training via Communication Partitioning
+* Characterizing Power Management Opportunities for LLMs in the Cloud
+* FaaSMem: Improving Memory Efficiency of Serverless Computing with Memory Pool Architecture
+* Fractal: Joint Multi-Level Sparse Pattern Tuning of Accuracy and Performance for DNN Pruning
+* FUYAO: DPU-enabled Direct Data Transfer for Serverless Computing
+* NeuPIMs: NPU-PIM Heterogeneous Acceleration for Batched LLM Inferencing
+* PrimePar: Efficient Spatial-temporal Tensor Partitioning for Large Transformer Model Training
+* SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification
+* SpecPIM: Accelerating Speculative Inference on PIM-Enabled System via Architecture-Dataflow Co-Exploration
+
+
+---
+## [OSDI 2024](https://www.usenix.org/conference/osdi24)
+
+### LLM Serving 
+* Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve [link](https://arxiv.org/abs/2403.02310)
+* DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving [link](https://arxiv.org/pdf/2401.09670.pdf) [PKU]
+* Fairness in Serving Large Language Models [link](https://arxiv.org/abs/2401.00588)[Ion Stoica]
+* ServerlessLLM: Locality-Enhanced Serverless Inference for Large Language Models [link]([https://arxiv.org/abs/2401.00588](https://arxiv.org/abs/2401.14351))[Serveless]
+* InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management
+* Llumnix: Dynamic Scheduling for Large Language Model Serving
+### ML Scheduling
+* Parrot: Efficient Serving of LLM-based Applications with Semantic Variable
+* USHER: Holistic Interference Avoidance for Resource Optimized ML Inference
+* Fairness in Serving Large Language Models
+* MonoNN: Enabling a New Monolithic Optimization Space for Neural Network Inference Tasks on Modern GPU-Centric Architectures
+* MAST: Global Scheduling of ML Training across Geo-Distributed Datacenters at Hyperscale
+
+
+---
+## [NSDI 2024](https://)
+
+* to be updated
+* (NSDI'24) MegaScale: Scaling Large Language Model Training to More Than 10,000 GPUs [link](https://arxiv.org/abs/2402.15627) [Training|Bytedance]
+* (NSDI'24) DISTMM: Accelerating Distributed Multimodal Model Training [link](https://www.amazon.science/publications/distmm-accelerating-distributed-multimodal-model-training) [multi-model|Amazon]
+* (NSDI'24) Approximate Caching for Efficiently Serving Text-to-Image Diffusion Models [link](https://arxiv.org/abs/2312.04429#:~:text=In%20this%20paper%2C%20we%20introduce,image%20generation%20for%20similar%20prompts.) []
+* (NSDI'24) Swing: Short-cutting Rings for Higher Bandwidth Allreduce [link](https://arxiv.org/abs/2401.09356) [Allreduce]
+* (NSDI'24) Vulcan: Automatic Query Planning for Live ML Analytics [link](https://yiwenzhang92.github.io/assets/docs/vulcan-nsdi24.pdf) [Planning]
+* (NSDI'24) CASSINI: Network-Aware Job Scheduling in Machine Learning Clusters [link](https://arxiv.org/abs/2308.00852) [Communication]
+* (NSDI'24) Towards Domain-Specific Network Transport for Distributed DNN Training [link](https://arxiv.org/abs/2008.08445) [Training | DNN]
+
+
+---
+## [MLSys 2024](https://mlsys.org/virtual/2024/papers.html?filter=titles)
+
+* [Accepted Papers](https://mlsys.org/Conferences/2024/AcceptedPapers)
+
+#### LLM - serving
+* (MLSys'24) HeteGen: Efficient Heterogeneous Parallel Inference for Large Language Models on Resource-Constrained Devices [paper](https://arxiv.org/abs/2403.01164) **Inference** | **Parallelism** | NUS]
+* (MLSys'24) FlashDecoding++: Faster Large Language Model Inference with Asynchronization, Flat GEMM Optimization, and Heuristics [paper](https://arxiv.org/abs/2311.01282) **Inference** | Tsinghua | SJTU]
+* (MLSys'24) VIDUR: A LARGE-SCALE SIMULATION FRAMEWORK FOR LLM INFERENCE [-]() **Inference** | **Simulation Framework** | Microsoft]
+* (MLSys'24) UniDM: A Unified Framework for Data Manipulation with Large Language Models [paper](https://arxiv.org/abs/2402.03009) **Inference** | **Memory** | **Long Context** | Alibaba]
+* (MLSys'24) SiDA: Sparsity-Inspired Data-Aware Serving for Efficient and Scalable Large Mixture-of-Experts Models [paper](https://arxiv.org/abs/2310.18859) **Serving** | **MoE**
+* (MLSys'24) Keyformer: KV Cache reduction through key tokens selection for Efficient Generative Inference [paper](https://arxiv.org/abs/2403.09054) **Inference** | **KV Cache**
+* (MLSys'24) Q-Hitter: A Better Token Oracle for Efficient LLM Inference via Sparse-Quantized KV Cache [paper](https://arxiv.org/abs/2306.14048) **Inference** | **KV Cache**
+* (MLSys'24) Prompt Cache: Modular Attention Reuse for Low-Latency Inference [paper](https://arxiv.org/abs/2311.04934) **Inference** | **KV Cache** | Yale]
+* (MLSys'24) SLoRA: Scalable Serving of Thousands of LoRA Adapters [paper](https://arxiv.org/abs/2311.03285) [code](https://github.com/S-LoRA/S-LoRA) **Serving** | **LoRA** | Stanford | Berkerley]
+* (MLSys'24) Punica: Multi-Tenant LoRA Serving [paper](https://arxiv.org/abs/2310.18547) [code](https://github.com/punica-ai/punica) **Serving** | **LoRA** | Tianqi Chen]
+
+#### LLM - training and quantization
+* (MLSys'24) AWQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration [paper](https://arxiv.org/abs/2306.00978) [code](https://github.com/mit-han-lab/llm-awq) **Quantization** | MIT]
+* (MLSys'24) Efficient Post-training Quantization with FP8 Formats [paper](https://arxiv.org/abs/2309.14592) **Quantization** | Intel]
+* (MLSys'24) Does Compressing Activations Help Model Parallel Training? [paper](https://arxiv.org/abs/2301.02654) **Quantization**
+* (MLSys'24) Atom: Low-Bit Quantization for Efficient and Accurate LLM Serving [paper](https://arxiv.org/abs/2310.19102) [code](https://github.com/efeslab/Atom) **Quantization** | **Serving** | SJTU | CMU]
+* (MLSys'24) QMoE: Sub-1-Bit Compression of Trillion Parameter Models [paper](https://arxiv.org/abs/2310.16795) [code](https://github.com/IST-DASLab/qmoe) **Quantization** | **MoE** | Google]
+* (MLSys'24) Lancet: Accelerating Mixture-of-Experts Training by Overlapping Weight Gradient Computation and All-to-All Communication [-]() **Training** | **MoE** | HKU]
+* (MLSys'24) DiffusionPipe: Training Large Diffusion Models with Efficient Pipelines [-]() **Training** | **Diffusion** | HKU]
+
+#### ML Serving
+* (MLSys'24) FLASH: Fast Model Adaptation in ML-Centric Cloud Platforms [paper](https://haoran-qiu.com/publication/mlsys-2024/) [code](https://gitlab.engr.illinois.edu/DEPEND/flash) [MLsys | UIUC]
+* (MLSys'24) ACROBAT: Optimizing Auto-batching of Dynamic Deep Learning at Compile Time [paper](https://arxiv.org/abs/2305.10611) **Compiling** | **Batching** | CMU]
+* (MLSys'24) On Latency Predictors for Neural Architecture Search [paper](https://arxiv.org/abs/2403.02446) [Google]
+* (MLSys'24) vMCU: Coordinated Memory Management and Kernel Optimization for DNN Inference on MCUs [paper](https://arxiv.org/abs/2001.03288) **DNN Inference** | PKU]
+
+## Retrieval-Augmented Generation
+* (arxiv) RAGCache: Efficient Knowledge Caching for Retrieval-Augmented Generation [paper](https://arxiv.org/abs/2404.12457)
+* (NSDI'24) Fast Vector Query Processing for Large Datasets Beyond GPU Memory with Reordered Pipelining [paper](https://www.usenix.org/conference/nsdi24/presentation/zhang-zili-pipelining)
+* (Sigcomm'24) CacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving [paper](https://arxiv.org/abs/2310.07240)
+* (EuroSys'25) CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion [paper](https://arxiv.org/abs/2405.16444) [code](https://github.com/YaoJiayi/CacheBlend)
+* (EuroSys'25) Fast State Restoration in LLM Serving with HCache [paper](https://arxiv.org/abs/2410.05004)
+* (OSDI'24) Parrot: Efficient Serving of LLM-based Applications with Semantic Variable [paper](https://arxiv.org/abs/2405.19888)
+* (arxiv) RAT: Retrieval Augmented Thoughts Elicit Context-Aware Reasoning in Long-Horizon Generation [paper](https://arxiv.org/pdf/2403.05313) [code](https://github.com/CraftJarvis/RAT)
+* (MLSys'24) Prompt Cache: Modular Attention Reuse for Low-Latency Inference [paper](https://arxiv.org/abs/2311.04934) **Inference** | **KV Cache** | Yale]
+
+
+
+
+
+
+
+
+
+
+
+
+
