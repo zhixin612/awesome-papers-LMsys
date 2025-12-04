@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-791-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.02-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-793-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-02
+* `serving` `kernel` `inference` [TokenPowerBench: Benchmarking the Power Consumption of LLM Inference](http://arxiv.org/abs/2512.03024v1)
+  > **TL;DR**: Investigators tackle the lack of power consumption benchmarks for LLM inference by introducing TokenPowerBench, a tool enabling configuration of model, prompt, and engine; capturing multi-level power metrics and attributing energy per request phase. It quantifies joules per token across varying settings, achieving measurable energy efficiency assessment without specialized hardware.
+* `offloading` `training` `storage` [Offloading Artificial Intelligence Workloads across the Computing Continuum by means of Active Storage Systems](http://arxiv.org/abs/2512.02646v1)
+  > **TL;DR**: Proposes an active storage architecture for offloading AI workloads across heterogeneous devices. Embeds computation in storage to reduce data transfer and uses dataClay platform. Achieves improved memory efficiency and training speeds while maintaining accuracy.
+
 ### 2025-12-01
 * `serving` `offloading` `storage` [Tangram: Accelerating Serverless LLM Loading through GPU Memory Reuse and Affinity](http://arxiv.org/abs/2512.01357v1)
   > **TL;DR**: Tackles high cold-start latency in serverless LLM serving via GPU memory reuse. Proposes Tangram with unified GPU memory pool, on-demand KV cache allocation, and affinity-aware scheduling. Achieves 6.2x faster model loading and 23-55% lower Time-To-First-Token.
