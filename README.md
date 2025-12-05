@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-793-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-796-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.04-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-03
+* `MoE` `edge` `offloading` [OD-MoE: On-Demand Expert Loading for Cacheless Edge-Distributed MoE Inference](http://arxiv.org/abs/2512.03927v1)
+  > **TL;DR**: Proposes OD-MoE, a distributed MoE inference framework for edge devices that eliminates expert caching via on-demand expert loading and an emulative predictor. Achieves 99.94% expert prediction accuracy and 75% decoding speed of fully GPU-cached deployment with only 1/3 GPU memory, enabling sub-1GB deployments.
+* `training` `storage` `networking` [FFTrainer: Fast Failover in Large-Language Model Training with Almost-Free State Management](http://arxiv.org/abs/2512.03644v1)
+  > **TL;DR**: Addresses recovery inefficiencies and storage overhead in large-scale LLM training. FFTrainer uses surplus network bandwidth for fast state management and failure rollback reduction. Achieves up to 98% faster recovery time and 68% higher GPU utilization preservation.
+* `serving` `autoscaling` `resource management` [TokenScale: Timely and Accurate Autoscaling for Disaggregated LLM Serving with Token Velocity](http://arxiv.org/abs/2512.03416v1)
+  > **TL;DR**: Proposes TokenScale for autoscaling disaggregated LLM serving using Token Velocity metric and convertible decoders to handle bursty workloads. Achieves SLO attainment up to 96% and reduces costs by 4-14%.
+
 ### 2025-12-02
 * `serving` `kernel` `inference` [TokenPowerBench: Benchmarking the Power Consumption of LLM Inference](http://arxiv.org/abs/2512.03024v1)
   > **TL;DR**: Investigators tackle the lack of power consumption benchmarks for LLM inference by introducing TokenPowerBench, a tool enabling configuration of model, prompt, and engine; capturing multi-level power metrics and attributing energy per request phase. It quantifies joules per token across varying settings, achieving measurable energy efficiency assessment without specialized hardware.
