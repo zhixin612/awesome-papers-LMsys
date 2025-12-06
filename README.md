@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-796-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.04-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-797-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-04
+* `offloading` `hardware` `kernel` [Offloading to CXL-based Computational Memory](http://arxiv.org/abs/2512.04449v1)
+  > **TL;DR**: Proposes KAI, a system using Asynchronous Back-Streaming protocol to offload operations to CXL-based Computational Memory. Utilizes layered data/control transfers for async data movement and pipelining, reducing end-to-end runtime by up to 50.4% and idle times by 22.11x/3.85x.
+
 ### 2025-12-03
 * `MoE` `edge` `offloading` [OD-MoE: On-Demand Expert Loading for Cacheless Edge-Distributed MoE Inference](http://arxiv.org/abs/2512.03927v1)
   > **TL;DR**: Proposes OD-MoE, a distributed MoE inference framework for edge devices that eliminates expert caching via on-demand expert loading and an emulative predictor. Achieves 99.94% expert prediction accuracy and 75% decoding speed of fully GPU-cached deployment with only 1/3 GPU memory, enabling sub-1GB deployments.
