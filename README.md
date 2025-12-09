@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-797-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.07-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-799-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.08-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-05
+* `serving` `offloading` `networking` [Metronome: Differentiated Delay Scheduling for Serverless Functions](http://arxiv.org/abs/2512.05703v1)
+  > **TL;DR**: Proposes differentiated delay scheduling for serverless FaaS to optimize locality-aware execution. Metronome uses online Random Forest Regression to predict function times and select optimal nodes. Achieves 64.88%-95.83% reduction in mean execution time over baselines.
+* `serving` `RL` `RAG` [Model Gateway: Model Management Platform for Model-Driven Drug Discovery](http://arxiv.org/abs/2512.05462v1)
+  > **TL;DR**: Proposes Model Gateway, a management platform for ML models in drug discovery. It integrates LLM Agents for dynamic consensus model, model registration, asynchronous execution, and result retrieval. Achieves 0% failure rate with 10k simultaneous clients.
+
 ### 2025-12-04
 * `offloading` `hardware` `kernel` [Offloading to CXL-based Computational Memory](http://arxiv.org/abs/2512.04449v1)
   > **TL;DR**: Proposes KAI, a system using Asynchronous Back-Streaming protocol to offload operations to CXL-based Computational Memory. Utilizes layered data/control transfers for async data movement and pipelining, reducing end-to-end runtime by up to 50.4% and idle times by 22.11x/3.85x.
