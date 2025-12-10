@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-799-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.08-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-810-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.09-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-08
+* `offline` `training` `sparse` [Quantifying the Carbon Reduction of DAG Workloads: A Job Shop Scheduling Perspective](http://arxiv.org/abs/2512.07799v1)
+  > **TL;DR**: Quantifies carbon reduction for DAG workloads (e.g., video encoding, offline inference) by modeling as job-shop scheduling. Uses offline solver to compute upper bounds, achieving 25% lower carbon emissions without increased makespan; doubling makespan nearly doubles savings.
+* `training` `serving` `networking` [Designing Co-operation in Systems of Hierarchical, Multi-objective Schedulers for Stream Processing](http://arxiv.org/abs/2512.07792v1)
+  > **TL;DR**: Investigates scheduling co-operation to optimize resource allocation in hierarchical stream processing systems at Meta. Proposes integration of new schedulers into existing hierarchies for effective load balancing across compute resources. Enables processing terabytes of data within seconds.
+* `training` `networking` [Bandwidth-Aware Network Topology Optimization for Decentralized Learning](http://arxiv.org/abs/2512.07536v1)
+  > **TL;DR**: Proposes bandwidth-aware network topology optimization for decentralized learning to maximize consensus speed under edge constraints. Uses Mixed-Integer SDP reformulation and ADMM with conjugate gradient for scalability. Reduces training time by 1.21× for heterogeneous bandwidth settings.
+* `video` `diffusion` `serving` [Communication-Efficient Serving for Video Diffusion Models with Latent Parallelism](http://arxiv.org/abs/2512.07350v1)
+  > **TL;DR**: Addresses communication bottlenecks in video diffusion model serving. Proposes Latent Parallelism (LP), which dynamically rotates partitioning dimensions in latent space to reduce transfers. Achieves up to 97% communication overhead reduction while maintaining generation quality.
+* `edge` `RAG` `video` [Venus: An Efficient Edge Memory-and-Retrieval System for VLM-based Online Video Understanding](http://arxiv.org/abs/2512.07344v1)
+  > **TL;DR**: Addresses high deployment overhead for VLM-based online video understanding. Proposes Venus, an edge-cloud disaggregated system with hierarchical memory construction and threshold-based sampling for adaptive cost-accuracy tradeoff. Achieves 15x-131x latency speedup while maintaining accuracy.
+* `hardware` `offloading` `kernel` [DCO: Dynamic Cache Orchestration for LLM Accelerators through Predictive Management](http://arxiv.org/abs/2512.07312v1)
+  > **TL;DR**: Proposes DCO, a shared system-level cache with predictive management for LLM accelerators, using dataflow-guided cache replacement and thrashing mitigation. Achieves up to 1.80x speedup over conventional cache architectures and is validated with RTL implementation at 2 GHz.
+
+### 2025-12-07
+* `video` `serving` `offline` [Optimizing video analytics inference pipelines: a case study](http://arxiv.org/abs/2512.07009v1)
+  > **TL;DR**: Optimizes video analytics inference pipelines for livestock monitoring. Introduces multi-level parallelization, GPU acceleration, vectorized clustering, and memory-efficient post-processing. Achieves 2x speedup across pipelines without accuracy loss.
+* `storage` `serving` [A Chunked-Object Pattern for Multi-Region Large Payload Storage in Managed NoSQL Databases](http://arxiv.org/abs/2512.06852v1)
+  > **TL;DR**: Proposes a 'chunked-object' pattern for storing large payloads exceeding NoSQL item size limits using chunking within the database. Eliminates replication lag risks by avoiding offloading to object storage, reducing p99 cross-region consistency latency for 1 MB payloads by keeping data in a single consistency domain.
+* `MoE` `edge` `training` [Stable-MoE: Lyapunov-based Token Routing for Distributed Mixture-of-Experts Training over Edge Networks](http://arxiv.org/abs/2512.06784v1)
+  > **TL;DR**: Proposes Lyapunov-based token routing for distributed MoE training on edge networks with heterogeneous resources. Formulates stochastic optimization for throughput and gating consistency via online routing/resource allocation. Gains 40% throughput and 5% accuracy on SVHN/CIFAR-100.
+
+### 2025-12-06
+* `training` `RL` `sparse` [A-3PO: Accelerating Asynchronous LLM Training with Staleness-aware Proximal Policy Approximation](http://arxiv.org/abs/2512.06547v1)
+  > **TL;DR**: Addresses computational bottleneck in asynchronous RL training for LLMs caused by proximal policy. Proposes A-3PO, which approximates the proximal policy via interpolation instead of extra forward pass. Reduces training time by 18%.
+* `offline` `quantization` `edge` [Vec-LUT: Vector Table Lookup for Parallel Ultra-Low-Bit LLM Inference on Edge Devices](http://arxiv.org/abs/2512.06443v1)
+  > **TL;DR**: Proposes Vec-LUT for efficient parallel ultra-low-bit LLM inference. Replaces scalar LUTs with a vector lookup to reduce bandwidth underutilization via tensor layout and cache-aware techniques. On 5 edge devices, achieves up to 4.2× speedup over baselines.
+
 ### 2025-12-05
 * `serving` `offloading` `networking` [Metronome: Differentiated Delay Scheduling for Serverless Functions](http://arxiv.org/abs/2512.05703v1)
   > **TL;DR**: Proposes differentiated delay scheduling for serverless FaaS to optimize locality-aware execution. Metronome uses online Random Forest Regression to predict function times and select optimal nodes. Achieves 64.88%-95.83% reduction in mean execution time over baselines.
