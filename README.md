@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-810-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.09-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-812-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-09
+* `training` `serving` `kernel` [Magneton: Optimizing Energy Efficiency of ML Systems via Differential Energy Debugging](http://arxiv.org/abs/2512.08365v1)
+  > **TL;DR**: Proposes differential energy debugging to identify software-caused energy waste in ML systems. Magneton compares energy use at operator level across similar systems to pinpoint inefficient code/configuration. Applied to LLM inference, reduces energy consumption by up to 47% in diagnosed cases.
+* `training` `kernel` [Chopper: A Multi-Level GPU Characterization Tool & Derived Insights Into LLM Training Inefficiency](http://arxiv.org/abs/2512.08242v1)
+  > **TL;DR**: Introduces Chopper, a multi-level GPU profiling tool for LLM training analysis. Collects and aligns kernel traces and hardware performance counters across granularities to identify bottlenecks in FSDP. Identifies frequency overhead (DVFS) as largest inefficiency source (exceeding MFMA utilization loss etc.) in Llama 3 8B training.
+
 ### 2025-12-08
 * `offline` `training` `sparse` [Quantifying the Carbon Reduction of DAG Workloads: A Job Shop Scheduling Perspective](http://arxiv.org/abs/2512.07799v1)
   > **TL;DR**: Quantifies carbon reduction for DAG workloads (e.g., video encoding, offline inference) by modeling as job-shop scheduling. Uses offline solver to compute upper bounds, achieving 25% lower carbon emissions without increased makespan; doubling makespan nearly doubles savings.
