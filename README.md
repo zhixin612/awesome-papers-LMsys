@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-812-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-818-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-10
+* `edge` `kernel` [Ariel-ML: Computing Parallelization with Embedded Rust for Neural Networks on Heterogeneous Multi-core Microcontrollers](http://arxiv.org/abs/2512.09800v1)
+  > **TL;DR**: Presents Ariel-ML, a Rust toolkit for parallelized ANN inference on multi-core microcontrollers. Combines a generic TinyML pipeline with embedded Rust to utilize multi-core capabilities. Achieves lower inference latency than prior art while maintaining comparable memory footprint to C/C++ toolkits.
+* `training` `optimization` `scheduling` [Straggler Tolerant and Resilient DL Training on Homogeneous GPUs](http://arxiv.org/abs/2512.09685v1)
+  > **TL;DR**: Investigate stragglers in distributed training on GPU clusters. Propose STAR with adaptive synchronization modes and resource reallocation to mitigate stragglers caused by CPU/bandwidth imbalance. Reduces Time-To-Accuracy by 70% compared to state-of-the-art.
+* `serving` `offloading` [WarmServe: Enabling One-for-Many GPU Prewarming for Multi-LLM Serving](http://arxiv.org/abs/2512.09472v1)
+  > **TL;DR**: Addresses performance degradation in multi-LLM GPU serving due to cold starts. Proposes WarmServe with universal GPU workers, evict-aware placement, proactive prewarming, and zero-overhead memory switching. Achieves 50.8× TTFT improvement and 2.5× request capacity.
+* `RAG` `storage` `networking` [Passing the Baton: High Throughput Distributed Disk-Based Vector Search with BatANN](http://arxiv.org/abs/2512.09331v1)
+  > **TL;DR**: Presents BatANN, a distributed disk-based ANN system for scalable vector search using batched query state handoff between servers to maintain locality. Achieves 2.5-6.49x higher throughput over baseline while keeping mean latency below 6ms on billion-point datasets.
+* `edge` `offloading` `multi-modal` [A Distributed Framework for Privacy-Enhanced Vision Transformers on the Edge](http://arxiv.org/abs/2512.09309v1)
+  > **TL;DR**: Proposes a distributed framework for privacy-enhanced Vision Transformers on edge devices. Uses hierarchical offloading to partition visual data across untrusted clouds and aggregates results locally on a trusted edge device. Reduces reconstruction risk while maintaining near-baseline segmentation performance in SAM case study.
+* `training` `MoE` `offloading` [Efficient MoE Serving in the Memory-Bound Regime: Balance Activated Experts, Not Tokens](http://arxiv.org/abs/2512.09277v1)
+  > **TL;DR**: Proposes METRO for efficient MoE serving in memory-bound regimes; balances activated experts per GPU instead of tokens to reduce memory pressure and improve performance. Achieves up to 22% lower decode latency and 4.11x higher throughput.
+
 ### 2025-12-09
 * `training` `serving` `kernel` [Magneton: Optimizing Energy Efficiency of ML Systems via Differential Energy Debugging](http://arxiv.org/abs/2512.08365v1)
   > **TL;DR**: Proposes differential energy debugging to identify software-caused energy waste in ML systems. Magneton compares energy use at operator level across similar systems to pinpoint inefficient code/configuration. Applied to LLM inference, reduces energy consumption by up to 47% in diagnosed cases.
