@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-818-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-821-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-11
+* `serving` `offloading` [ESS: An Offload-Centric Latent-Cache Management Architecture for DeepSeek-V3.2-Exp](http://arxiv.org/abs/2512.10576v1)
+  > **TL;DR**: Addresses GPU memory bottleneck in DeepSeek-V3.2-Exp's decode stage caused by linear growth of latent-cache. Proposes ESS, an offload-centric system that selectively moves latent-cache to CPU memory to enable larger batch sizes. Achieves up to 123% throughput improvement at 128K context length.
+* `training` `RL` `offline` [Hybrid Learning and Optimization-Based Dynamic Scheduling for DL Workloads on Heterogeneous GPU Clusters](http://arxiv.org/abs/2512.10271v1)
+  > **TL;DR**: Proposes RLTune, an RL-based scheduling framework with MILP job mapping for DL workloads on heterogeneous GPU clusters. Aims to optimize GPU utilization, queueing delay, and JCT without per-job profiling. Achieves up to 20% higher GPU utilization, 81% lower queueing delay, and 70% shorter JCT.
+* `training` `networking` `kernel` [Design Space Exploration of DMA based Finer-Grain Compute Communication Overlap](http://arxiv.org/abs/2512.10236v1)
+  > **TL;DR**: Proposes FiCCO, a finer-grain compute-communication overlap method using DMA offloading for distributed ML training. Introduces heuristics to select optimal schedules by characterizing inefficiencies, achieving up to 1.6× speedup and 81% accuracy in unseen scenarios.
+
 ### 2025-12-10
 * `edge` `kernel` [Ariel-ML: Computing Parallelization with Embedded Rust for Neural Networks on Heterogeneous Multi-core Microcontrollers](http://arxiv.org/abs/2512.09800v1)
   > **TL;DR**: Presents Ariel-ML, a Rust toolkit for parallelized ANN inference on multi-core microcontrollers. Combines a generic TinyML pipeline with embedded Rust to utilize multi-core capabilities. Achieves lower inference latency than prior art while maintaining comparable memory footprint to C/C++ toolkits.
