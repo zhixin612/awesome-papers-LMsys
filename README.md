@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-821-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.14-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-825-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.15-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-12
+* `video` `training` `RAG` [ECCO: Leveraging Cross-Camera Correlations for Efficient Live Video Continuous Learning](http://arxiv.org/abs/2512.11727v1)
+  > **TL;DR**: Introduces ECCO, a framework for efficient continuous learning in multi-camera systems by grouping cameras with correlated data drift for shared model retraining. ECCO includes dynamic grouping, GPU allocation, and transmission control. Achieves 6.7%-18.1% higher accuracy or supports 3.3× more cameras at same resource.
+* `serving` `edge` `kernel` [Parallax: Runtime Parallelization for Operator Fallbacks in Heterogeneous Edge Systems](http://arxiv.org/abs/2512.11532v1)
+  > **TL;DR**: Addresses inefficient CPU fallbacks for unsupported DNN operators on edge devices. Proposes Parallax, a framework with DAG partitioning, branch-aware memory management, and an adaptive scheduler. Achieves up to 46% latency reduction compared to state-of-the-art frameworks.
+* `training` `RL` `offloading` [RollMux: Phase-Level Multiplexing for Disaggregated RL Post-Training](http://arxiv.org/abs/2512.11306v1)
+  > **TL;DR**: Proposes RollMux, a cluster scheduling framework for disaggregated RL post-training to reclaim dependency bubbles through cross-cluster orchestration. Uses co-execution groups for two-tier scheduling and warm caching. Achieves 1.84x higher cost efficiency than standard disaggregation on a 656-GPU testbed.
+* `kernel` `hardware` `training` [Theoretical Foundations of GPU-Native Compilation for Rapid Code Iteration](http://arxiv.org/abs/2512.11200v1)
+  > **TL;DR**: Proposes GPU-native compilation to eliminate CPU-GPU data transfer bottlenecks. Introduces parallel traditional, neural, and hybrid compilation strategies with probabilistic verification. Achieves 10-100x speedups in code iteration cycles through massive parallelism and transfer elimination.
+
 ### 2025-12-11
 * `serving` `offloading` [ESS: An Offload-Centric Latent-Cache Management Architecture for DeepSeek-V3.2-Exp](http://arxiv.org/abs/2512.10576v1)
   > **TL;DR**: Addresses GPU memory bottleneck in DeepSeek-V3.2-Exp's decode stage caused by linear growth of latent-cache. Proposes ESS, an offload-centric system that selectively moves latent-cache to CPU memory to enable larger batch sizes. Achieves up to 123% throughput improvement at 128K context length.
