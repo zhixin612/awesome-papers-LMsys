@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-825-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.15-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-838-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,38 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-15
+* `MoE` `serving` `networking` [Janus: Disaggregating Attention and Experts for Scalable MoE Inference](http://arxiv.org/abs/2512.13525v1)
+  > **TL;DR**: Proposes Janus, a scalable MoE inference system that disaggregates attention and experts across GPU sub-clusters. Key designs include adaptive communication, lightweight scheduling, and dynamic resource scaling. Achieves up to 3.9× higher per-GPU throughput with latency guarantees.
+* `training` `MoE` `storage` [SIGMA: An AI-Empowered Training Stack on Early-Life Hardware](http://arxiv.org/abs/2512.13488v1)
+  > **TL;DR**: Proposes SIGMA, a training stack for large-scale distributed training on early-life AI accelerators. Combines LTP platform for reliability and LTF framework for efficient MoE model training. Achieves 94.45% accelerator utilization and trains 200B MoE model with 21.08% MFU.
+* `kernel` `quantization` `hardware` [FlashFuser: Expanding the Scale of Kernel Fusion for Compute-Intensive Operators via Inter-Core Connection](http://arxiv.org/abs/2512.12949v1)
+  > **TL;DR**: Proposes FlashFuser, a compiler framework for kernel fusion using GPU inter-core connections to overcome memory limits. Utilizes Distributed Shared Memory (DSM) for complex operators, optimizing data movement and tile selection. Achieves 58% less memory access, 3.3x kernel speedup against tuned libraries.
+* `serving` [PROSERVE: Unified Multi-Priority Request Scheduling for LLM Serving](http://arxiv.org/abs/2512.12928v1)
+  > **TL;DR**: Addresses multi-priority request scheduling in LLM serving to maximize service gain balancing SLO attainment and client priority. Proposes PROSERVE, a two-tier scheduler with SlideBatching for batch formation and GoRouting for request dispatching. Achieves up to 35% higher system gain and 52% better SLO attainment.
+
+### 2025-12-14
+* `serving` `offline` `training` [Fine-Grained Energy Prediction For Parallellized LLM Inference With PIE-P](http://arxiv.org/abs/2512.12801v1)
+  > **TL;DR**: Proposes PIE-P, a framework for fine-grained energy prediction in multi-GPU parallellized LLM inference. Uses precise sampling and modeling of inter-GPU communication to account for parallelism overhead. Achieves accurate energy predictions, significantly outperforming baselines in parallelized settings.
+* `training` `networking` `quantization` [SPARK: Igniting Communication-Efficient Decentralized Learning via Stage-wise Projected NTK and Accelerated Regularization](http://arxiv.org/abs/2512.12737v1)
+  > **TL;DR**: Addresses communication overhead in decentralized federated learning with statistical heterogeneity. Proposes SPARK, integrating Jacobian compression via random projection, stage-wise distillation, and Nesterov momentum. Reduces communication by 98.7% compared to NTK-DFL with 3× faster convergence.
+* `edge` `networking` `storage` [Strategic Server Deployment under Uncertainty in Mobile Edge Computing](http://arxiv.org/abs/2512.12532v1)
+  > **TL;DR**: Addresses strategic server deployment in mobile edge computing under uncertainty. Formulates as stochastic bilevel optimization and uses submodular approximation with greedy algorithms. Achieves up to 55% improvement over alternatives in real-world evaluations.
+* `training` `serving` `kernel` [gpu_ext: Extensible OS Policies for GPUs via eBPF](http://arxiv.org/abs/2512.12615v1)
+  > **TL;DR**: Addresses inflexible GPU resource management policies for diverse workloads. Proposes gpu_ext, an eBPF-based runtime enabling programmable GPU driver/device policies. Achieves up to 4.8x higher throughput and 2x lower tail latency for inference/training workloads.
+* `kernel` `serving` [Principled Performance Tunability in Operating System Kernels](http://arxiv.org/abs/2512.12530v1)
+  > **TL;DR**: Addresses the problem of safely tuning Linux kernel performance constants (perf-consts). Proposes KernelX, using Scoped Indirect Execution (SIE) to enable live updates without rebuilds. Achieves millisecond-scale updates and significant performance improvements in case studies.
+
+### 2025-12-13
+* `training` `RL` `networking` [HetRL: Efficient Reinforcement Learning for LLMs in Heterogeneous Environments](http://arxiv.org/abs/2512.12476v1)
+  > **TL;DR**: Addresses efficient RL training for LLMs in heterogeneous GPU environments. Proposes HetRL system with a constrained joint optimization formulation and a multi-level search scheduling algorithm. Achieves up to 9.17x higher throughput over state-of-the-art systems.
+* `edge` `RL` `serving` [A Conflict-Aware Resource Management Framework for the Computing Continuum](http://arxiv.org/abs/2512.12299v1)
+  > **TL;DR**: Proposes a DRL-based framework for conflict-aware resource orchestration across edge, fog, and cloud. Integrates real-time performance feedback and historical data to mediate resource conflicts. Achieves efficient resource reallocation and adaptive learning in dynamic Kubernetes environments.
+* `inference-side model updates` `resource efficiency` `latency reduction` [Near-Zero-Overhead Freshness for Recommendation Systems via Inference-Side Model Updates](http://arxiv.org/abs/2512.12295v1)
+  > **TL;DR**: LiveUpdate introduces inference-side model updates for recommendation systems using Low-Rank Adaptation, reducing synchronization costs and improving freshness with minimal latency impact (<20ms P99) and higher accuracy (0.04-0.24% gain).
+* `training` `sparse` [BOOST: BOttleneck-Optimized Scalable Training Framework for Low-Rank Large Language Models](http://arxiv.org/abs/2512.12131v1)
+  > **TL;DR**: Proposes BOOST, a training framework for low-rank LLMs with bottleneck-aware tensor parallelism and other optimizations. Addresses poor scalability of low-rank architectures by reducing communication and improving GPU utilization. Achieves 1.46-1.91× speedup over full-rank baselines.
+
 ### 2025-12-12
 * `video` `training` `RAG` [ECCO: Leveraging Cross-Camera Correlations for Efficient Live Video Continuous Learning](http://arxiv.org/abs/2512.11727v1)
   > **TL;DR**: Introduces ECCO, a framework for efficient continuous learning in multi-camera systems by grouping cameras with correlated data drift for shared model retraining. ECCO includes dynamic grouping, GPU allocation, and transmission control. Achieves 6.7%-18.1% higher accuracy or supports 3.3× more cameras at same resource.
