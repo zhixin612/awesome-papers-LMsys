@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-838-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-841-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-16
+* `training` `sparse` `offloading` [Performance and Stability of Barrier Mode Parallel Systems with Heterogeneous and Redundant Jobs](http://arxiv.org/abs/2512.14445v1)
+  > **TL;DR**: Analyzes stability and performance overhead of barrier synchronization in parallel ML training systems. Models (s,k,l) barrier systems that allow partial task completion and hybrid workloads. Validated against Apache Spark, showing overhead from dual event/polling mechanisms with quantified performance bounds.
+* `edge` `serving` [A Hybrid Reactive-Proactive Auto-scaling Algorithm for SLA-Constrained Edge Computing](http://arxiv.org/abs/2512.14290v1)
+  > **TL;DR**: Proposes a hybrid reactive-proactive auto-scaling algorithm for SLA-constrained edge computing. Combines ML-based demand forecasting with reactive resource adjustment, integrated into Kubernetes. Reduces SLA violation rate from 23% to 6% compared to baselines.
+* `serving` `multi-modal` `kernel` [Cornserve: Efficiently Serving Any-to-Any Multimodal Models](http://arxiv.org/abs/2512.14098v1)
+  > **TL;DR**: Proposes Cornserve, a system for efficient online serving of multimodal Any-to-Any models. Automatically optimizes deployment plans by disaggregating models and handling heterogeneous components. Achieves up to 3.81× throughput improvement and 5.79× tail latency reduction over existing solutions.
+
 ### 2025-12-15
 * `MoE` `serving` `networking` [Janus: Disaggregating Attention and Experts for Scalable MoE Inference](http://arxiv.org/abs/2512.13525v1)
   > **TL;DR**: Proposes Janus, a scalable MoE inference system that disaggregates attention and experts across GPU sub-clusters. Key designs include adaptive communication, lightweight scheduling, and dynamic resource scaling. Achieves up to 3.9× higher per-GPU throughput with latency guarantees.
