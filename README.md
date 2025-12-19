@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-841-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.17-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-845-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.18-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-17
+* `serving` `offloading` [Dynamic Rebatching for Efficient Early-Exit Inference with DREX](http://arxiv.org/abs/2512.15705v1)
+  > **TL;DR**: Addresses inefficiency in Early-Exit LLM inference due to static batching. Proposes DREX system with copy-free dynamic rebatching and scheduler to optimally regroup requests at exit points. Achieves 2-12% higher throughput while eliminating involuntary exits and preserving quality.
+* `serving` `kernel` `offloading` [Optimizing Bloom Filters for Modern GPU Architectures](http://arxiv.org/abs/2512.15595v1)
+  > **TL;DR**: Explores GPU-optimized Bloom filters to accelerate approximate membership queries. Introduces designs leveraging vectorization, thread cooperation, and compute latency optimization. Achieves up to 15.4× faster construction and 92% of practical speed-of-light throughput on B200 GPU.
+* `training` `offloading` `quantization` [LLMQ: Efficient Lower-Precision Pretraining for Consumer GPUs](http://arxiv.org/abs/2512.15306v1)
+  > **TL;DR**: Proposes LLMQ, a CUDA/C++ system for efficient 8-bit LLM training on consumer GPUs with limited memory. Uses activation checkpointing, weight offloading, and copy-engine collectives to handle memory and communication bottlenecks. Trains a 7B model on a single 16GB GPU and maintains 50% FLOP utilization.
+* `hardware` `storage` `networking` [Reexamining Paradigms of End-to-End Data Movement](http://arxiv.org/abs/2512.15028v1)
+  > **TL;DR**: Examines end-to-end data movement bottlenecks beyond raw bandwidth. Proposes holistic hardware-software co-design addressing host CPU, virtualization, and congestion control. Achieves consistent performance across 1-100 Gbps links, reducing latency and throughput disparities in edge-to-core transfers.
+
 ### 2025-12-16
 * `training` `sparse` `offloading` [Performance and Stability of Barrier Mode Parallel Systems with Heterogeneous and Redundant Jobs](http://arxiv.org/abs/2512.14445v1)
   > **TL;DR**: Analyzes stability and performance overhead of barrier synchronization in parallel ML training systems. Models (s,k,l) barrier systems that allow partial task completion and hybrid workloads. Validated against Apache Spark, showing overhead from dual event/polling mechanisms with quantified performance bounds.
