@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-845-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.18-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-854-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-18
+* `edge` `offloading` `training` [Delay-Aware Multi-Stage Edge Server Upgrade with Budget Constraint](http://arxiv.org/abs/2512.16792v1)
+  > **TL;DR**: Proposes M-ESU algorithm for multi-stage edge server upgrade and task offloading under budget constraints. Optimizes deployment/upgrade decisions and offloading to maximize tasks meeting delay requirements. Achieves 21.57% higher task satisfaction with efficient heuristic for large networks.
+* `MoE` `offloading` `serving` [Efficient CPU-GPU Collaborative Inference for MoE-based LLMs on Memory-Limited Systems](http://arxiv.org/abs/2512.16473v1)
+  > **TL;DR**: Proposes a CPU-GPU collaborative inference framework for memory-limited systems running MoE-based LLMs. Uses expert caching on GPU and CPU offloading with multithreading to minimize data transfer. Achieves faster inference with reduced latency compared to traditional offloading methods.
+* `training` `offline` `storage` [AI4EOSC: a Federated Cloud Platform for Artificial Intelligence in Scientific Research](http://arxiv.org/abs/2512.16455v1)
+  > **TL;DR**: Presents a federated cloud platform for AI in science, offering integrated tools for the ML lifecycle including distributed GPU training, model deployment, and storage resources. Achieves reproducible deployments across distributed infrastructures with unified service catalog.
+* `serving` `kernel` `sparse` [Kascade: A Practical Sparse Attention Method for Long-Context LLM Inference](http://arxiv.org/abs/2512.16391v1)
+  > **TL;DR**: Proposes Kascade, a training-free sparse attention method for long-context LLM inference. It reuses top-k indices across anchor and reuse layers with head-aware selection, optimizing tile-level operations. Achieves up to 4.1x decode attention speedup over FlashAttention-3 on H100 GPUs with minimal accuracy loss.
+* `storage` `networking` `hardware` [Lotus: Optimizing Disaggregated Transactions with Disaggregated Locks](http://arxiv.org/abs/2512.16136v1)
+  > **TL;DR**: Addresses the bottleneck of RDMA NICs in disaggregated memory transaction systems by disaggregating locks to compute nodes. Introduces Lotus with application-aware lock sharding, lock-first protocol, and lock-rebuild-free recovery. Achieves 2.1× higher throughput and 49.4% lower latency.
+* `serving` `networking` [Staggered Batch Scheduling: Co-optimizing Time-to-First-Token and Throughput for High-Efficiency LLM Inference](http://arxiv.org/abs/2512.16134v1)
+  > **TL;DR**: Optimizes scheduling in P/D-separated LLM inference systems to reduce Time-to-First-Token (TTFT) and boost throughput. Proposes Staggered Batch Scheduling (SBS) with Load-Aware Global Allocation to eliminate queuing bubbles and balance DP load. Achieves 30-40% TTFT reduction and 15-20% throughput gain.
+* `serving` `offline` `networking` [An Online Fragmentation-Aware Scheduler for Managing GPU-Sharing Workloads on Multi-Instance GPUs](http://arxiv.org/abs/2512.16099v1)
+  > **TL;DR**: Addresses GPU fragmentation and resource contention in MIG-enabled clusters. Proposes an online scheduler integrating load balancing, dynamic partitioning, and migration for efficient GPU-sharing. Achieves up to 35% makespan improvement.
+* `serving` `offloading` `kernel` [MultiPath Transfer Engine: Breaking GPU and Host-Memory Bandwidth Bottlenecks in LLM Services](http://arxiv.org/abs/2512.16056v1)
+  > **TL;DR**: Proposes Multipath Memory Access (MMA) to overcome PCIe bandwidth bottlenecks for GPU-host data transfer in LLM serving. Utilizes dynamic library injection for deployment transparency. Achieves up to 4.62x higher bandwidth and reduces TTFT by up to 2.38x in vLLM.
+* `serving` `offloading` `RAG` [Trustworthy and Controllable Professional Knowledge Utilization in Large Language Models with TEE-GPU Execution](http://arxiv.org/abs/2512.16238v1)
+  > **TL;DR**: Proposes PKUS, a system for trustworthy and controllable utilization of professional knowledge adapters in LLM serving. Uses TEE-GPU split execution with attested adapters, hardware-rooted protocols, and scheduling to isolate knowledge. Achieves 8.1-11.9x speedup over CPU-only TEE inference while matching fine-tuning accuracy.
+
 ### 2025-12-17
 * `serving` `offloading` [Dynamic Rebatching for Efficient Early-Exit Inference with DREX](http://arxiv.org/abs/2512.15705v1)
   > **TL;DR**: Addresses inefficiency in Early-Exit LLM inference due to static batching. Proposes DREX system with copy-free dynamic rebatching and scheduler to optimally regroup requests at exit points. Achieves 2-12% higher throughput while eliminating involuntary exits and preserving quality.
