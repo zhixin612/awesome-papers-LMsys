@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- 添加了一个动态的 Favicon (芯片图标) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡️</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daily ArXiv: LLM Systems</title>
-    <!-- 引入 Tailwind CSS (在实际开发中推荐通过 PostCSS 引入，这里为了简化演示直接用 CDN 用于快速预览，建议后续按标准 npm 方式配置) -->
+    <title>Daily MLsys</title>
+    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -22,6 +23,7 @@
   </head>
   <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
     <div id="root"></div>
+    <!-- 引用主程序 -->
     <script type="module" src="./src/main.jsx"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import {
   Search,
   ExternalLink,
@@ -10,6 +10,7 @@ import {
   Calendar,
   ChevronLeft,
   ChevronRight,
+  ChevronDown, // 新增：用于下拉菜单
   FileText,
   User,
   X,
@@ -17,7 +18,8 @@ import {
   Copy,
   Github,
   Check,
-  GripHorizontal
+  GripHorizontal,
+  Bot
 } from 'lucide-react';
 
 // --- Components ---
@@ -25,7 +27,7 @@ import {
 const Badge = ({ children, className = "", onClick }) => (
   <span
     onClick={onClick}
-    className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium transition-colors border ${onClick ? 'cursor-pointer hover:opacity-80' : ''} ${className}`}
+    className={`inline-flex items-center px-2 py-0.5 rounded text-sm font-medium transition-colors border ${onClick ? 'cursor-pointer hover:opacity-80' : ''} ${className}`}
   >
     {children}
   </span>
@@ -130,7 +132,7 @@ const extractCodeLink = (abstract) => {
 
 // --- Paper Card Component ---
 
-const PaperCard = ({ paper, language, isStarred, toggleStar }) => {
+const PaperCard = ({ paper, language, isStarred, toggleStar, aiModel }) => {
   const [showPdf, setShowPdf] = useState(false);
   const [copied, setCopied] = useState(null);
 
@@ -144,21 +146,43 @@ const PaperCard = ({ paper, language, isStarred, toggleStar }) => {
   const authors = Array.isArray(paper.authors) && paper.authors.length > 0 ? paper.authors : ["Unknown Author"];
   const categories = Array.isArray(paper.categories) && paper.categories.length > 0 ? paper.categories : ["Uncategorized"];
   const tags = Array.isArray(paper.tags) ? paper.tags : [];
-  const indexedDate = paper.submit_date || "Unknown Date";
+  const submitDate = paper.submit_date || "Unknown Date";
 
   // Logic
-  // Fix 5: Remove Abstract Fallback. If missing, just null or placeholder.
   const tldrEn = paper.tldr || null;
   const tldrZh = paper.tldr_zh || tldrEn;
   const tldrText = language === 'zh' ? tldrZh : tldrEn;
 
+  // AI Prompt & Link Generation
   const prompt = `Please analyze this paper for me based on its application in Large Model System Optimization: ${title}. Link: ${link}`;
-  const geminiUrl = `https://gemini.google.com/app?text=${encodeURIComponent(prompt)}`;
+
+  const handleAskAI = (e) => {
+    e.preventDefault();
+    if (aiModel !== 'gemini') {
+        navigator.clipboard.writeText(prompt);
+    }
+
+    let url = "";
+    switch (aiModel) {
+        case 'gemini':
+            url = `https://gemini.google.com/app?text=${encodeURIComponent(prompt)}`;
+            break;
+        case 'gpt':
+            url = `https://chatgpt.com/`;
+            break;
+        case 'kimi':
+            url = `https://kimi.moonshot.cn/`;
+            break;
+        default:
+            url = `https://gemini.google.com/app?text=${encodeURIComponent(prompt)}`;
+    }
+    window.open(url, '_blank');
+  };
+
   const pdfUrl = link.replace(/^http:/, 'https:').replace('/abs/', '/pdf/') + ".pdf";
   const formatCategory = (cat) => cat ? cat.replace(/^cs\./, '') : 'N/A';
   const codeLink = extractCodeLink(paper.abstract || "");
 
-  // Handlers
   const handleCopyShare = () => {
     const text = `${title}\n${link}`;
     navigator.clipboard.writeText(text);
@@ -169,16 +193,12 @@ const PaperCard = ({ paper, language, isStarred, toggleStar }) => {
   // --- Resizable Logic ---
   const handleMouseDown = useCallback((e) => {
     isResizing.current = true;
-    e.preventDefault(); // Prevent text selection
+    e.preventDefault();
   }, []);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!isResizing.current) return;
-      // Calculate new height based on mouse Y movement (simplified for vertical stack)
-      // Since we don't know the exact top offset easily without refs, we use movementY or clientY relative to previous
-      // Better approach: track Y changes.
-      // But for simplicity in this component, let's just add movementY.
       setPdfHeight(prev => Math.max(200, Math.min(1200, prev + e.movementY)));
     };
 
@@ -198,25 +218,25 @@ const PaperCard = ({ paper, language, isStarred, toggleStar }) => {
 
   return (
     <div className={`group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm border transition-all duration-200 overflow-hidden ${showPdf ? 'ring-2 ring-blue-500/20 border-blue-500/30' : 'hover:shadow-md border-gray-200 dark:border-gray-700'}`}>
-      <div className="p-4 flex flex-col gap-3">
+      <div className="p-5 flex flex-col gap-4">
 
         {/* --- Top Row: Metadata (Left) + Actions (Right) --- */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-y-3 gap-x-2 border-b border-gray-100 dark:border-gray-700/50 pb-3">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-3 gap-x-2 border-b border-gray-100 dark:border-gray-700/50 pb-3">
 
-          {/* Left: Date | Categories | Tags (Fix 1) */}
-          <div className="flex items-center flex-wrap gap-2 text-xs text-gray-500 dark:text-gray-400">
-            {/* Date */}
-            <div className="flex items-center whitespace-nowrap">
-              <Calendar className="w-3.5 h-3.5 mr-1" />
-              <span>{indexedDate}</span>
+          {/* Left: Date | Categories | Tags (Updated Fonts) */}
+          <div className="flex items-center flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400">
+            {/* Date (Bold & Larger) */}
+            <div className="flex items-center whitespace-nowrap font-bold text-gray-800 dark:text-gray-200">
+              <Calendar className="w-4 h-4 mr-1.5 text-blue-600" />
+              <span>{submitDate}</span>
             </div>
 
             <span className="text-gray-300 dark:text-gray-600">|</span>
 
             {/* Categories */}
-            <div className="flex gap-1">
+            <div className="flex gap-1.5">
               {categories.map(cat => (
-                <span key={cat} className="font-mono bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded text-[10px] font-bold text-gray-700 dark:text-gray-300">
+                <span key={cat} className="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded text-xs font-bold text-gray-700 dark:text-gray-300">
                   {formatCategory(cat)}
                 </span>
               ))}
@@ -224,18 +244,18 @@ const PaperCard = ({ paper, language, isStarred, toggleStar }) => {
 
             <span className="text-gray-300 dark:text-gray-600">|</span>
 
-            {/* Tags (Moved here) */}
-            <div className="flex flex-wrap gap-1">
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1.5">
                 {tags.map(tag => (
-                <Badge key={tag} className="bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border-blue-100 dark:border-blue-800">
+                <Badge key={tag} className="bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border-blue-100 dark:border-blue-800 text-xs">
                     {tag}
                 </Badge>
                 ))}
             </div>
           </div>
 
-          {/* Right: Action Buttons Group (Fix 3) */}
-          <div className="flex items-center justify-end gap-1.5 shrink-0">
+          {/* Right: Action Buttons Group */}
+          <div className="flex items-center justify-end gap-2 shrink-0">
              {/* Copy Title & Link */}
              <button
                 onClick={handleCopyShare}
@@ -257,60 +277,77 @@ const PaperCard = ({ paper, language, isStarred, toggleStar }) => {
              {/* Toggle PDF */}
              <Button
                 variant={showPdf ? "danger" : "secondary"}
-                className="h-7 text-[10px] px-2"
+                className="h-8 text-xs px-2.5"
                 onClick={() => setShowPdf(!showPdf)}
                 icon={showPdf ? X : FileText}
              >
-                {showPdf ? "Close" : "Read"}
+                {showPdf ? "Close" : "Read PDF"}
              </Button>
 
              {/* Actions Group (Bordered) */}
-             <div className="flex items-center bg-gray-50 dark:bg-gray-700/50 rounded-md border border-gray-200 dark:border-gray-600 h-7 overflow-hidden">
+             <div className="flex items-center bg-gray-50 dark:bg-gray-700/50 rounded-md border border-gray-200 dark:border-gray-600 h-8 overflow-hidden">
                  {/* External Link */}
-                 <a href={link} target="_blank" rel="noopener noreferrer" className="h-full flex items-center px-2 hover:bg-white dark:hover:bg-gray-600 border-r border-gray-200 dark:border-gray-600 transition-colors text-gray-500 dark:text-gray-300" title="ArXiv Page">
-                    <ExternalLink className="w-3.5 h-3.5" />
+                 <a href={link} target="_blank" rel="noopener noreferrer" className="h-full flex items-center px-2.5 hover:bg-white dark:hover:bg-gray-600 border-r border-gray-200 dark:border-gray-600 transition-colors text-gray-500 dark:text-gray-300" title="ArXiv Page">
+                    <ExternalLink className="w-4 h-4" />
                  </a>
 
-                 {/* Ask Gemini */}
-                 <a href={geminiUrl} target="_blank" rel="noopener noreferrer" className="h-full flex items-center px-2 hover:bg-white dark:hover:bg-gray-600 border-r border-gray-200 dark:border-gray-600 transition-colors text-purple-600 dark:text-purple-400" title="Ask Gemini">
-                    <Sparkles className="w-3.5 h-3.5" />
-                 </a>
+                 {/* Ask AI (Dynamic) */}
+                 <button
+                    onClick={handleAskAI}
+                    className="h-full flex items-center px-2.5 hover:bg-white dark:hover:bg-gray-600 border-r border-gray-200 dark:border-gray-600 transition-colors text-purple-600 dark:text-purple-400 group/ai"
+                    title={`Ask ${aiModel.toUpperCase()}`}
+                 >
+                    <Sparkles className="w-4 h-4 mr-1 group-hover/ai:animate-pulse" />
+                    <span className="text-xs font-bold uppercase hidden xl:inline">{aiModel}</span>
+                 </button>
 
-                 {/* Star (Fix 2: Prominent & Last) */}
+                 {/* Star */}
                  <button
                     onClick={toggleStar}
-                    className={`h-full flex items-center px-2 transition-colors ${isStarred ? 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-500 hover:bg-yellow-100 dark:hover:bg-yellow-900/40' : 'hover:bg-white dark:hover:bg-gray-600 text-gray-400 hover:text-yellow-500'}`}
+                    className={`h-full flex items-center px-2.5 transition-colors ${isStarred ? 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-500 hover:bg-yellow-100 dark:hover:bg-yellow-900/40' : 'hover:bg-white dark:hover:bg-gray-600 text-gray-400 hover:text-yellow-500'}`}
                     title={isStarred ? "Remove from favorites" : "Save for later"}
                  >
-                    <Star className={`w-3.5 h-3.5 ${isStarred ? 'fill-current' : ''}`} />
+                    <Star className={`w-4 h-4 ${isStarred ? 'fill-current' : ''}`} />
                  </button>
              </div>
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 leading-snug">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 leading-snug">
             <a href={link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             {title}
             </a>
         </h3>
 
         {/* Authors */}
-        <div className="text-sm text-gray-600 dark:text-gray-400 overflow-x-auto whitespace-nowrap pb-1 -mb-1 scrollbar-hide flex items-center">
-          <User className="w-3.5 h-3.5 mr-1.5 shrink-0 opacity-50" />
-          {authors.join(', ')}
+        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          <User className="w-4 h-4 mr-1 shrink-0 opacity-50" />
+          {authors.map((author, index) => (
+            <React.Fragment key={index}>
+                <a
+                    href={`https://arxiv.org/search/?searchtype=author&query=${encodeURIComponent(author)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline decoration-blue-300 underline-offset-2 transition-colors"
+                >
+                    {author}
+                </a>
+                {index < authors.length - 1 && <span className="text-gray-400">,</span>}
+            </React.Fragment>
+          ))}
         </div>
 
-        {/* TLDR (Fix 5: No Abstract fallback) */}
+        {/* TLDR */}
         <div className="bg-gray-50 dark:bg-gray-700/30 rounded-lg px-4 py-3 border border-gray-100 dark:border-gray-700 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
           <span className="inline-flex items-center font-bold text-gray-900 dark:text-gray-100 mr-2 select-none">
-              <Sparkles className="w-3.5 h-3.5 text-yellow-500 mr-1" />
+              <Sparkles className="w-4 h-4 text-yellow-500 mr-1" />
               TL;DR:
           </span>
           {tldrText ? tldrText : <span className="italic text-gray-400">No TL;DR available for this paper.</span>}
         </div>
 
-        {/* PDF Viewer (Fix 4: Resizable) */}
+        {/* PDF Viewer */}
         {showPdf && (
             <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div
@@ -356,6 +393,7 @@ const App = () => {
     return false;
   });
   const [language, setLanguage] = useState('en');
+  const [aiModel, setAiModel] = useState('gemini'); // Default AI Model
 
   // Filter State
   const [searchQuery, setSearchQuery] = useState('');
@@ -392,7 +430,6 @@ const App = () => {
         setLoading(true);
         setError(null);
 
-        // 优先使用 Raw URL 实现免 Build 更新
         const pathsToTry = [
             'https://raw.githubusercontent.com/zhixin612/awesome-papers-LMsys/main/tools/index.json',
             './index.json',
@@ -405,13 +442,11 @@ const App = () => {
 
         for (const path of pathsToTry) {
             try {
-                // console.log(`Trying to fetch from: ${path}`);
                 const res = await fetch(path);
                 if (res.ok) {
                     const text = await res.text();
                     try {
                         data = JSON.parse(text);
-                        // console.log(`Success loading from ${path}`);
                         break;
                     } catch (parseErr) {
                         console.warn(`Failed to parse JSON from ${path}:`, parseErr);
@@ -545,23 +580,54 @@ const App = () => {
             <div className="bg-blue-600 p-1.5 rounded-lg">
                 <Calendar className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight hidden sm:block">
-              Daily <span className="text-blue-600 dark:text-blue-400">System Opt</span>
-            </h1>
+            {/* Updated Title with Link */}
+            <a
+              href="https://github.com/zhixin612"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2 group cursor-pointer"
+            >
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                Daily Arxiv: LLM Systems
+                </h1>
+                <span className="text-xs text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    by zhixin
+                </span>
+            </a>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            {/* AI Model Selector (Beautified) */}
+            <div className="relative group">
+                <div className="hidden sm:flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg pl-2 pr-1 border border-gray-200 dark:border-gray-700 h-8 hover:border-gray-300 dark:hover:border-gray-600 transition-colors cursor-pointer">
+                    <Bot className="w-3.5 h-3.5 text-gray-500 mr-1.5" />
+                    <select
+                        value={aiModel}
+                        onChange={(e) => setAiModel(e.target.value)}
+                        className="bg-transparent text-xs font-semibold text-gray-700 dark:text-gray-300 outline-none cursor-pointer appearance-none pr-6 z-10"
+                    >
+                        <option value="gemini">Gemini</option>
+                        <option value="gpt">GPT</option>
+                        <option value="kimi">Kimi</option>
+                    </select>
+                    {/* Custom Arrow Icon */}
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                        <ChevronDown className="w-3 h-3" />
+                    </div>
+                </div>
+            </div>
+
             <button
               onClick={() => setLanguage(l => l === 'en' ? 'zh' : 'en')}
-              className="px-3 py-1.5 text-xs font-bold rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700"
+              className="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700"
             >
               {language === 'en' ? '中' : 'EN'}
             </button>
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
           </div>
         </div>
@@ -603,15 +669,15 @@ const App = () => {
 
           {allTags.length > 0 && (
             <div className="flex flex-wrap gap-2 items-center pt-2 border-t border-gray-100 dark:border-gray-700">
-              <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide">
-                <Filter className="w-3 h-3 mr-1" />
+              <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide">
+                <Filter className="w-4 h-4 mr-1.5" />
                 Tags:
               </span>
               {allTags.map(tag => (
                 <button
                   key={tag}
                   onClick={() => toggleTag(tag)}
-                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+                  className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${
                     selectedTags.includes(tag)
                       ? 'bg-blue-600 text-white shadow-sm'
                       : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -621,7 +687,7 @@ const App = () => {
                 </button>
               ))}
               {selectedTags.length > 0 && (
-                <button onClick={() => setSelectedTags([])} className="text-xs text-red-500 hover:text-red-600 font-medium ml-2 underline decoration-dashed underline-offset-4">
+                <button onClick={() => setSelectedTags([])} className="text-sm text-red-500 hover:text-red-600 font-medium ml-2 underline decoration-dashed underline-offset-4">
                   Reset
                 </button>
               )}
@@ -652,6 +718,7 @@ const App = () => {
                 language={language}
                 isStarred={favorites.includes(paper.id)}
                 toggleStar={() => toggleFavorite(paper.id)}
+                aiModel={aiModel}
             />
           ))}
         </div>
@@ -687,7 +754,7 @@ const App = () => {
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
