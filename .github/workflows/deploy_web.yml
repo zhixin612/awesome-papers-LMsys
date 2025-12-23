@@ -1,0 +1,47 @@
+name: Build and Deploy Web
+
+on:
+  workflow_dispatch:
+
+  # Run when there are changes in the data or web files (for development convenience)
+  push:
+    paths:
+      - 'web/**'
+      - 'tools/index.json'
+
+  # Run when the crawler workflow completes successfully
+  workflow_run:
+    workflows: ["Arxiv Paper Crawler"] # This should match the name of your crawler workflow
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Build Frontend
+        run: |
+          cd web
+          npm install
+          npm run build
+          
+          cp ../tools/index.json dist/index.json
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web/dist
+          force_orphan: true

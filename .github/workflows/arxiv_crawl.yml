@@ -4,10 +4,14 @@ on:
   schedule:
     - cron: '0 0 */1 * *'  # Runs at UTC 00:00, every day. --> UTC+8 08:00
   workflow_dispatch:
+
+permissions:
+  contents: write
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   crawl:
+    name: Crawl and Update Data
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -39,26 +43,3 @@ jobs:
           git push
         env: 
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # ------------------------------------------------------
-      # Setup Node.js for frontend build
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      # Build the frontend
-      - name: Build Frontend
-        run: |
-          cd web
-          npm install
-          npm run build
-          cp ../tools/index.json dist/index.json
-
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web/dist
-          force_orphan: true # Ensure a fresh history for gh-pages branch

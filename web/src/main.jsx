@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   Search,
@@ -8,118 +8,167 @@ import {
   Sun,
   Filter,
   Calendar,
-  Tag,
-  BookOpen,
-  Github
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
-
 
 // --- Components ---
 
 const Badge = ({ children, className = "", onClick }) => (
   <span
     onClick={onClick}
-    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors ${onClick ? 'cursor-pointer hover:opacity-80' : ''} ${className}`}
+    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors border ${onClick ? 'cursor-pointer hover:opacity-80' : ''} ${className}`}
   >
     {children}
   </span>
 );
 
-const Button = ({ children, onClick, variant = 'primary', className = "", icon: Icon }) => {
-  const baseStyle = "inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200";
+const Button = ({ children, onClick, variant = 'primary', className = "", icon: Icon, disabled }) => {
+  const baseStyle = "inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed";
   const variants = {
-    primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500",
+    primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500 border-transparent",
     secondary: "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700",
-    ghost: "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800",
+    ghost: "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 border-transparent",
     outline: "border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
   };
 
   return (
-    <button onClick={onClick} className={`${baseStyle} ${variants[variant]} ${className}`}>
+    <button onClick={onClick} disabled={disabled} className={`${baseStyle} ${variants[variant]} ${className}`}>
       {Icon && <Icon className="w-4 h-4 mr-2" />}
       {children}
     </button>
   );
 };
 
+// 分页组件
+const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPage, onItemsPerPageChange }) => {
+  if (totalPages <= 1 && itemsPerPage >= 100) return null; // 如果只有一页且不是因为没数据，隐藏（可选）
+
+  return (
+    <div className="flex flex-wrap items-center gap-4 text-sm">
+      {/* Items Per Page Select */}
+      <div className="flex items-center gap-2">
+        <span className="text-gray-500 dark:text-gray-400 hidden sm:inline">Show:</span>
+        <select
+          value={itemsPerPage}
+          onChange={(e) => onItemsPerPageChange(Number(e.target.value))}
+          className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 text-xs rounded-md py-1 px-2 focus:ring-1 focus:ring-blue-500 outline-none cursor-pointer"
+        >
+          <option value={10}>10</option>
+          <option value={30}>30</option>
+          <option value={50}>50</option>
+          <option value={100}>100</option>
+        </select>
+      </div>
+
+      {/* Page Navigation */}
+      <div className="flex items-center bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-700 shadow-sm">
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="p-1.5 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-l-md disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+        >
+          <ChevronLeft className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+        </button>
+        <span className="px-3 py-1 font-medium text-gray-700 dark:text-gray-200 min-w-[80px] text-center border-x border-gray-300 dark:border-gray-700">
+          {currentPage} / {totalPages || 1}
+        </span>
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === totalPages || totalPages === 0}
+          className="p-1.5 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-r-md disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+        >
+          <ChevronRight className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const PaperCard = ({ paper, language }) => {
-  // Construct Gemini URL
   const prompt = `Please analyze this paper for me based on its application in Large Model System Optimization: ${paper.title}. Link: ${paper.link}`;
   const geminiUrl = `https://gemini.google.com/app?text=${encodeURIComponent(prompt)}`;
 
-  // Handle TLDR display based on availability
   const tldrText = language === 'zh' && paper.tldr_zh ? paper.tldr_zh : paper.tldr;
+
+  // Format Category: remove "cs." prefix
+  const formatCategory = (cat) => cat.replace(/^cs\./, '');
 
   return (
     <div className="group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 transition-all duration-200 overflow-hidden">
-      <div className="p-5 flex-1">
-        {/* Date & Categories */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
-            <Calendar className="w-3.5 h-3.5" />
-            <span>{paper.indexed_date}</span>
+      <div className="p-5 flex flex-col gap-3">
+
+        {/* Top Row: Date, Categories, Tags */}
+        <div className="flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+          <div className="flex items-center gap-3 text-xs overflow-hidden">
+            {/* Date: Fixed width or whitespace-nowrap to prevent wrapping */}
+            <div className="flex items-center text-gray-500 dark:text-gray-400 whitespace-nowrap shrink-0">
+              <Calendar className="w-3.5 h-3.5 mr-1" />
+              <span>{paper.indexed_date}</span>
+            </div>
+
             <span className="text-gray-300 dark:text-gray-600">|</span>
-            <span className="truncate max-w-[150px]">{paper.categories.join(', ')}</span>
+
+            {/* Categories */}
+            <div className="flex gap-1 shrink-0">
+              {paper.categories.map(cat => (
+                <span key={cat} className="font-mono text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-1.5 rounded text-[10px] font-bold">
+                  {formatCategory(cat)}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="flex space-x-1">
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1">
              {paper.tags && paper.tags.map(tag => (
-               <Badge key={tag} className="bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800">
+               <Badge key={tag} className="bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border-blue-100 dark:border-blue-800">
                  {tag}
                </Badge>
              ))}
           </div>
         </div>
 
-        {/* Title */}
-        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-          <a href={paper.link} target="_blank" rel="noopener noreferrer">
-            {paper.title}
-          </a>
-        </h3>
+        {/* Title & Actions */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex-1">
+              <a href={paper.link} target="_blank" rel="noopener noreferrer">
+                {paper.title}
+              </a>
+            </h3>
 
-        {/* Authors */}
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-1" title={paper.authors.join(', ')}>
-          {paper.authors.join(', ')}
-        </p>
-
-        {/* TLDR Section */}
-        {tldrText && (
-          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 mb-4 border border-gray-100 dark:border-gray-700">
-            <div className="flex items-center mb-1 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-              <Sparkles className="w-3 h-3 mr-1 text-yellow-500" />
-              TL;DR
+            {/* Desktop Actions (Right Aligned) */}
+            <div className="flex gap-2 shrink-0">
+                <a href={paper.link} target="_blank" rel="noopener noreferrer">
+                    <Button variant="secondary" className="h-8 text-xs" icon={ExternalLink}>PDF</Button>
+                </a>
+                <a href={geminiUrl} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="h-8 text-xs group/gemini" icon={Sparkles}>
+                        <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-bold">Ask AI</span>
+                    </Button>
+                </a>
             </div>
-            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-              {tldrText}
-            </p>
+        </div>
+
+        {/* Authors: Scrollable container */}
+        <div
+          className="text-sm text-gray-600 dark:text-gray-400 overflow-x-auto whitespace-nowrap pb-1 -mb-1 scrollbar-hide"
+          title={paper.authors.join(', ')}
+        >
+          <span className="font-semibold text-gray-500 dark:text-gray-500 mr-2">Authors:</span>
+          {paper.authors.join(', ')}
+        </div>
+
+        {/* TLDR Section: Inline Style */}
+        {tldrText && (
+          <div className="bg-gray-50 dark:bg-gray-700/30 rounded-lg px-4 py-3 border border-gray-100 dark:border-gray-700 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+            <span className="inline-flex items-center font-bold text-gray-900 dark:text-gray-100 mr-2 select-none">
+                <Sparkles className="w-3.5 h-3.5 text-yellow-500 mr-1" />
+                TL;DR:
+            </span>
+            {tldrText}
           </div>
         )}
-      </div>
-
-      {/* Footer Actions */}
-      <div className="p-4 bg-gray-50 dark:bg-gray-800/80 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between gap-3">
-        <a
-          href={paper.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1"
-        >
-          <Button variant="secondary" className="w-full text-xs" icon={ExternalLink}>
-            ArXiv PDF
-          </Button>
-        </a>
-        <a
-          href={geminiUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1"
-        >
-          <Button variant="outline" className="w-full text-xs group/gemini" icon={Sparkles}>
-            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-bold group-hover/gemini:opacity-80">
-              Ask AI
-            </span>
-          </Button>
-        </a>
       </div>
     </div>
   );
@@ -130,24 +179,31 @@ const PaperCard = ({ paper, language }) => {
 const App = () => {
   const [papers, setPapers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   // UI State
-  const [darkMode, setDarkMode] = useState(() => window.matchMedia('(prefers-color-scheme: dark)').matches);
-  const [language, setLanguage] = useState('en'); // 'en' or 'zh'
+  const [darkMode, setDarkMode] = useState(() => {
+    // Check local storage or system preference
+    if (typeof window !== 'undefined') {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+  const [language, setLanguage] = useState('en');
 
   // Filter State
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
-  const [sortOrder, setSortOrder] = useState('newest'); // 'newest' | 'oldest'
+  const [sortOrder, setSortOrder] = useState('newest');
+
+  // Pagination State
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(30);
 
   // Load Data
   useEffect(() => {
     const loadData = async () => {
       try {
-        // Try fetching from root first (production), then fallback to tools (development)
-        // In GitHub Pages production, index.json will be copied to root or accessible path
-        const pathsToTry = ['./index.json', '../tools/index.json', 'https://raw.githubusercontent.com/USER/REPO/main/tools/index.json'];
+        const pathsToTry = ['./index.json', '../tools/index.json', 'https://raw.githubusercontent.com/zhixin612/awesome-papers-LMsys/main/tools/index.json'];
 
         let data = null;
         for (const path of pathsToTry) {
@@ -164,13 +220,10 @@ const App = () => {
 
         if (!data) throw new Error("Could not load paper data.");
 
-        // Convert Object to Array and filter only relevant if needed
-        // Assuming the JSON is keyed by ID
-        const paperArray = Object.values(data).filter(p => p.relevant !== false); // Default show true or undefined
+        const paperArray = Object.values(data).filter(p => p.relevant !== false);
         setPapers(paperArray);
       } catch (err) {
         console.error(err);
-        setError("Failed to load papers. Please check the network.");
       } finally {
         setLoading(false);
       }
@@ -178,7 +231,7 @@ const App = () => {
     loadData();
   }, []);
 
-  // Toggle Dark Mode
+  // Dark Mode Effect
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -198,31 +251,53 @@ const App = () => {
   const filteredPapers = useMemo(() => {
     return papers
       .filter(paper => {
-        // Search Filter
         const query = searchQuery.toLowerCase();
         const matchesSearch =
           paper.title.toLowerCase().includes(query) ||
           paper.abstract.toLowerCase().includes(query) ||
           paper.authors.some(a => a.toLowerCase().includes(query));
 
-        // Tag Filter (Union / OR logic)
         const matchesTags = selectedTags.length === 0 ||
           (paper.tags && paper.tags.some(t => selectedTags.includes(t)));
 
         return matchesSearch && matchesTags;
       })
       .sort((a, b) => {
-        // Sort by Date
         const dateA = new Date(a.indexed_date);
         const dateB = new Date(b.indexed_date);
         return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
       });
   }, [papers, searchQuery, selectedTags, sortOrder]);
 
+  // Pagination Logic
+  const totalPages = Math.ceil(filteredPapers.length / itemsPerPage);
+
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedTags, sortOrder, itemsPerPage]);
+
+  const currentPapers = useMemo(() => {
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    return filteredPapers.slice(indexOfFirstItem, indexOfLastItem);
+  }, [filteredPapers, currentPage, itemsPerPage]);
+
   const toggleTag = (tag) => {
     setSelectedTags(prev =>
       prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
     );
+  };
+
+  // Scroll to top on page change
+  const mainRef = useRef(null);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    if (mainRef.current) {
+        mainRef.current.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   if (loading) return (
@@ -232,27 +307,29 @@ const App = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20 font-sans transition-colors duration-200">
       {/* Navbar */}
-      <header className="sticky top-0 z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">
-              Daily ArXiv <span className="text-gray-400 font-normal">System Opt</span>
+      <header className="sticky top-0 z-30 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => {window.scrollTo({top:0, behavior:'smooth'})}}>
+            <div className="bg-blue-600 p-1.5 rounded-lg">
+                <Calendar className="w-5 h-5 text-white" />
+            </div>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight hidden sm:block">
+              Daily <span className="text-blue-600 dark:text-blue-400">System Opt</span>
             </h1>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => setLanguage(l => l === 'en' ? 'zh' : 'en')}
-              className="px-3 py-1 text-xs font-medium rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="px-3 py-1.5 text-xs font-bold rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700"
             >
               {language === 'en' ? '中' : 'EN'}
             </button>
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
@@ -260,9 +337,9 @@ const App = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main ref={mainRef} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
         {/* Controls Section */}
-        <div className="mb-8 space-y-4">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-200 dark:border-gray-700 space-y-4">
 
           {/* Search & Sort */}
           <div className="flex flex-col md:flex-row gap-4">
@@ -273,7 +350,7 @@ const App = () => {
                 placeholder={language === 'en' ? "Search title, abstract, authors..." : "搜索标题、摘要、作者..."}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
               />
             </div>
 
@@ -281,7 +358,7 @@ const App = () => {
                <select
                  value={sortOrder}
                  onChange={(e) => setSortOrder(e.target.value)}
-                 className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                 className="px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-sm focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer"
                >
                  <option value="newest">Latest First</option>
                  <option value="oldest">Oldest First</option>
@@ -291,19 +368,19 @@ const App = () => {
 
           {/* Tags Filter */}
           {allTags.length > 0 && (
-            <div className="flex flex-wrap gap-2 items-center">
-              <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                <Filter className="w-4 h-4 mr-1" />
-                Filter:
+            <div className="flex flex-wrap gap-2 items-center pt-2 border-t border-gray-100 dark:border-gray-700">
+              <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide">
+                <Filter className="w-3 h-3 mr-1" />
+                Tags:
               </span>
               {allTags.map(tag => (
                 <button
                   key={tag}
                   onClick={() => toggleTag(tag)}
-                  className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${
+                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
                     selectedTags.includes(tag)
-                      ? 'bg-blue-600 text-white border-blue-600'
-                      : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700'
+                      ? 'bg-blue-600 text-white shadow-sm'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                   }`}
                 >
                   {tag}
@@ -312,31 +389,52 @@ const App = () => {
               {selectedTags.length > 0 && (
                 <button
                   onClick={() => setSelectedTags([])}
-                  className="text-xs text-red-500 hover:underline ml-2"
+                  className="text-xs text-red-500 hover:text-red-600 font-medium ml-2 underline decoration-dashed underline-offset-4"
                 >
-                  Clear
+                  Reset
                 </button>
               )}
             </div>
           )}
         </div>
 
-        {/* Stats */}
-        <div className="mb-6 text-sm text-gray-500 dark:text-gray-400">
-          Showing {filteredPapers.length} papers
+        {/* Stats & Pagination (Top) */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-1">
+            <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                Found <span className="text-gray-900 dark:text-white font-bold">{filteredPapers.length}</span> papers
+            </div>
+
+            <PaginationControls
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                itemsPerPage={itemsPerPage}
+                onItemsPerPageChange={setItemsPerPage}
+            />
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {filteredPapers.map(paper => (
+        {/* List View */}
+        <div className="flex flex-col gap-4">
+          {currentPapers.map(paper => (
             <PaperCard key={paper.id} paper={paper} language={language} />
           ))}
         </div>
 
+        {/* Bottom Pagination */}
+        <div className="flex justify-center pt-8 pb-4">
+             <PaginationControls
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                itemsPerPage={itemsPerPage}
+                onItemsPerPageChange={setItemsPerPage}
+            />
+        </div>
+
         {/* Empty State */}
         {filteredPapers.length === 0 && (
-          <div className="text-center py-20">
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <div className="text-center py-20 bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-300 dark:border-gray-700">
+            <div className="bg-gray-50 dark:bg-gray-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <Search className="w-8 h-8 text-gray-400" />
             </div>
             <h3 className="text-lg font-medium text-gray-900 dark:text-white">No papers found</h3>
