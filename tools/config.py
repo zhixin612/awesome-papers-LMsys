@@ -11,18 +11,22 @@ load_dotenv()  # Load .env for local runs (no-op in CI when env vars already exi
 
 # --- Basic Setup --------------------------------------------------------------
 README_FILE = Path("README.md")
+# Index file to store all processed papers
+INDEX_FILE = Path("tools/index.json")
 
 # FIXME: Adding cs.LG/cs.AI can bring in many irrelevant papers (need stronger LLM filtering)
 ARXIV_CATEGORIES: List[str] = ["cs.DC", "cs.OS"]
 
-DEFAULT_START_DATE = "20250101"  # YYYYMMDD
-
 # Use SiliconFlow by default; keep names consistent with original script
-API_KEY = os.environ["API_KEY"]  # required
+API_KEY = os.environ["API_KEY"]  # Use .get to avoid error if not set locally
 BASE_URL = "https://api.siliconflow.cn/v1"
 # MODEL = "Qwen/Qwen3-Next-80B-A3B-Instruct"
 # MODEL = "deepseek-ai/DeepSeek-V3.1-Terminus"
 MODEL = "deepseek-ai/DeepSeek-R1"
+
+# --- Crawling Config ----------------------------------------------------------
+# How many days back to look for delayed papers
+LOOKBACK_DAYS = 7
 
 # TODO: Subscribers (e-mail) ---------------------------------------------------
 SUBSCRIBER: Final[dict[str, list[str]]] = {
@@ -32,10 +36,6 @@ SUBSCRIBER: Final[dict[str, list[str]]] = {
 
 
 # --- Logging ------------------------------------------------------------------
-# LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
-# logging.basicConfig(level=LOG_LEVEL, format="[%(levelname)s] %(asctime)s - %(name)s - %(message)s")
-# logger = logging.getLogger("daily-arxiv-llm")
-
 class LOGGER:
     # fallback to print since logging will output too much information
     def debug(self, msg: str):

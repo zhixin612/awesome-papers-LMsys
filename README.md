@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-857-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.22-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-887-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,67 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-20
+* `training` `serving` `networking` [RAPID-LLM: Resilience-Aware Performance analysis of Infrastructure for Distributed LLM Training and Inference](http://arxiv.org/abs/2512.19606v1)
+  > **TL;DR**: Proposes RAPID-LLM, a unified performance modeling framework for LLM training and inference on GPU clusters. Combines DeepFlow-based frontend and Astra-Sim backend to simulate hardware-aware execution with network faults. Predicts latency within 10.4% of measurements, enabling configuration sweeps and resilience analysis.
+* `serving` `offline` `networking` [Faster Distributed Inference-Only Recommender Systems via Bounded Lag Synchronous Collectives](http://arxiv.org/abs/2512.19342v1)
+  > **TL;DR**: Addresses communication bottlenecks in distributed recommender system inference. Proposes bounded lag synchronous (BLS) alltoallv collective with adjustable lag bounds to mask process delays. Achieves improved latency and throughput in unbalanced scenarios, masking delays entirely in best cases.
+* `serving` `offloading` `scheduling` [L4: Low-Latency and Load-Balanced LLM Serving via Length-Aware Scheduling](http://arxiv.org/abs/2512.19179v1)
+  > **TL;DR**: Addresses GPU underutilization and latency in LLM serving due to request-length heterogeneity. Proposes L4, a runtime system for dynamic request rescheduling and instance partitioning based on length groups. Achieves up to 69% lower tail latency and 2.89× throughput improvement over state-of-the-art schedulers.
+* `edge` `offline` `RL` [Evidential Trust-Aware Model Personalization in Decentralized Federated Learning for Wearable IoT](http://arxiv.org/abs/2512.19131v1)
+  > **TL;DR**: Proposes Murmura, a trust-aware model personalization framework for decentralized federated learning on edge devices. Uses evidential deep learning to compute compatibility scores via cross-evaluation and adaptive aggregation. Achieves 7.4× faster convergence vs IID degradation in wearable IoT datasets.
+* `edge` `networking` `serving` [QoS-Aware Load Balancing in the Computing Continuum via Multi-Player Bandits](http://arxiv.org/abs/2512.18915v1)
+  > **TL;DR**: Proposes QEdgeProxy, a decentralized QoS-aware load balancer for edge computing, modeled as a Multi-Player MAB with kernel density estimation for per-client QoS. Kubernetes implementation achieves improved per-client QoS satisfaction in latency-sensitive workloads.
+* `MoE` `offloading` `serving` [Remoe: Towards Efficient and Low-Cost MoE Inference in Serverless Computing](http://arxiv.org/abs/2512.18674v1)
+  > **TL;DR**: Addresses high cost and memory overhead in MoE inference for serverless computing. Proposes Remoe, a heterogeneous system that assigns non-expert modules to GPUs and experts to CPUs, with SPS for activation prediction and MMP for SLO compliance. Reduces cost by 57% and cold start latency by 47%.
+* `serving` `offloading` `kernel` [Asynchronous Pipeline Parallelism for Real-Time Multilingual Lip Synchronization in Video Communication Systems](http://arxiv.org/abs/2512.18318v1)
+  > **TL;DR**: Proposes an asynchronous pipeline-parallel Transformer framework for real-time multilingual lip synchronization. Employs message-queue decoupling, low-level graph compilation, mixed-precision quantization, and kernel fusion to reduce latency. Achieves up to 3.1× lower end-to-end latency than sequential approaches.
+* `serving` `offloading` `networking` [TraCT: Disaggregated LLM Serving with CXL Shared Memory KV Cache at Rack-Scale](http://arxiv.org/abs/2512.18194v1)
+  > **TL;DR**: Proposes TraCT, a rack-scale LLM serving system using CXL shared memory for KV cache, avoiding RDMA networks. Addresses synchronization and consistency via software solutions like two-tier synchronization. Achieves 9.8x lower TTFT, 6.2x lower P99 latency, and 1.6x higher throughput.
+* `training` `networking` `sparse` [ACE-Sync: An Adaptive Cloud-Edge Synchronization Framework for Communication-Efficient Large-Scale Distributed Model Training](http://arxiv.org/abs/2512.18127v1)
+  > **TL;DR**: Proposes ACE-Sync, an adaptive cloud-edge synchronization framework with attention-based gradient importance prediction, differentiated compression, and hierarchical coordination to reduce communication in distributed training. Reduces communication cost from 112.5 GB to 44.7 GB (60% reduction) while maintaining model accuracy within 0.3%.
+* `serving` `training` `multi-modal` [Enabling Disaggregated Multi-Stage MLLM Inference via GPU-Internal Scheduling and Resource Sharing](http://arxiv.org/abs/2512.17574v1)
+  > **TL;DR**: Addresses bottlenecks in multi-stage MLLM inference pipelines. Proposes FlashCodec for GPU-accelerated video decoding and UnifiedServe for resource sharing and decoupled execution. Achieves up to 4.4× higher throughput and serves 3.0× more requests compared to SOTA systems.
+* `edge` `sparse` `networking` [Adaptive Graph Pruning with Sudden-Events Evaluation for Traffic Prediction using Online Semi-Decentralized ST-GNNs](http://arxiv.org/abs/2512.17352v1)
+  > **TL;DR**: Proposes adaptive graph pruning to reduce communication overhead in online semi-decentralized ST-GNNs for traffic prediction. Dynamically filters redundant neighbor features based on model performance and event responsiveness. Reduces communication cost by 20-40% while maintaining accuracy via novel SEPA metric.
+* `storage` `offline` `serving` [Scalable Distributed Vector Search via Accuracy Preserving Index Construction](http://arxiv.org/abs/2512.17264v1)
+  > **TL;DR**: Addresses scalable distributed vector search for ANNS with accuracy-latency-throughput tradeoffs. Proposes SPIRE via balanced partition granularity and accuracy-preserving recursive index construction. Achieves 9.64x higher throughput vs state-of-the-art at 8B vector scale.
+* `serving` `diffusion` `sparse` [Taming the Memory Footprint Crisis: System Design for Production Diffusion LLM Serving](http://arxiv.org/abs/2512.17077v1)
+  > **TL;DR**: Addresses the memory footprint crisis in serving diffusion LLMs. Proposes dLLM-Serve with Logit-Aware Activation Budgeting, Phase-Multiplexed Scheduler, and Head-Centric Sparse Attention. Achieves up to 1.81× higher throughput and 4× lower tail latency versus baselines.
+* `multi-modal` [LLM-HPC++: Evaluating LLM-Generated Modern C++ and MPI+OpenMP Codes for Scalable Mandelbrot Set Computation](http://arxiv.org/abs/2512.17023v1)
+* `serving` `offloading` `MoE` [Efficient CPU-GPU Collaborative Inference for MoE-based LLMs on Memory-Limited Systems](http://arxiv.org/abs/2512.16473v1)
+  > **TL;DR**: Proposes CPU-GPU collaborative inference for MoE-based LLMs to overcome GPU memory limits. Introduces GPU expert caching to reduce transfers, offloads cache misses to optimized CPU threads. On consumer hardware, achieves up to 5.6x speedup over full offloading with minimal accuracy loss.
+* `kernel` `inference` [Kascade: A Practical Sparse Attention Method for Long-Context LLM Inference](http://arxiv.org/abs/2512.16391v1)
+  > **TL;DR**: Proposes Kascade, a training-free sparse attention method for accelerating long-context LLM inference. Reuses Top-k indices from anchor layers through algorithmic layer selection and head-aware reuse, optimized for tile-level GPU operations. Achieves 4.1× decode attention speedup over FlashAttention-3 with matching accuracy on benchmarks.
+* `offloading` `storage` `networking` [FlexKV: Flexible Index Offloading for Memory-Disaggregated Key-Value Store](http://arxiv.org/abs/2512.16148v1)
+  > **TL;DR**: Proposes FlexKV, a memory-disaggregated key-value store with index proxying to address poor performance. Dynamically offloads index to compute nodes with load balancing, memory optimization, and RPC-aggregated cache coherence. Achieves up to 2.94× higher throughput and 85.2% lower latency.
+* `serving` `storage` `networking` [Lotus: Optimizing Disaggregated Transactions with Disaggregated Locks](http://arxiv.org/abs/2512.16136v1)
+  > **TL;DR**: Proposes Lotus, a distributed transaction system for disaggregated memory that moves lock management to compute nodes. Introduces lock-first protocol and application-aware lock partitioning to reduce RDMA bottlenecks. Achieves 1.5× higher throughput and 49.4% lower latency than state-of-the-art systems.
+* `serving` `offloading` [Staggered Batch Scheduling: Co-optimizing Time-to-First-Token and Throughput for High-Efficiency LLM Inference](http://arxiv.org/abs/2512.16134v1)
+  > **TL;DR**: Identifies queuing bubbles from immediate scheduling in distributed DP+EP LLM serving systems. Proposes Staggered Batch Scheduling that buffers and batches requests to eliminate queuing. Reduces TTFT by 30-40% and improves throughput by 15-20% on Deepseek-V3 serving.
+* `serving` `offloading` `kernel` [An Online Fragmentation-Aware Scheduler for Managing GPU-Sharing Workloads on Multi-Instance GPUs](http://arxiv.org/abs/2512.16099v1)
+  > **TL;DR**: Addresses GPU fragmentation and resource contention in Multi-Instance GPUs for efficient sharing. Proposes an online scheduler with dynamic partitioning, job migration, and load balancing to minimize contention and combat fragmentation. Achieves up to 35% makespan improvement.
+* `serving` `offloading` `kernel` [MultiPath Transfer Engine: Breaking GPU and Host-Memory Bandwidth Bottlenecks in LLM Services](http://arxiv.org/abs/2512.16056v1)
+  > **TL;DR**: Proposes Multipath Memory Access (MMA) to overcome PCIe bandwidth bottlenecks in GPU-host data transfer for LLM serving. Uses multipath data transfer via dynamic library injection to increase bandwidth. Achieves peak bandwidth of 245 GB/s (4.62x speedup) and reduces TTFT by up to 2.38x.
+* `training` `storage` `offline` [LOG.io: Unified Rollback Recovery and Data Lineage Capture for Distributed Data Pipelines](http://arxiv.org/abs/2512.16038v1)
+  > **TL;DR**: Introduces LOG.io, a log-based system for rollback recovery and data lineage in distributed data pipelines. It supports non-deterministic operators and dynamic scaling, with non-blocking recovery. Achieves marginal overhead (≤1.5%) for lineage capture and outperforms ABS in straggler scenarios.
+* `serving` `offline` [Dynamic Rebatching for Efficient Early-Exit Inference with DREX](http://arxiv.org/abs/2512.15705v1)
+  > **TL;DR**: Addresses inefficient batching for Early-Exit LLM inference. Proposes Dynamic Rebatching via DREX, featuring copy-free buffering and EE/SLA-aware scheduling. Achieves 2-12% higher throughput while eliminating involuntary exits.
+* `offline` `agentic` `serving` [Optimizing Agentic Language Model Inference via Speculative Tool Calls](http://arxiv.org/abs/2512.15834v1)
+  > **TL;DR**: Addresses performance bottlenecks in tool-using agentic LMs via speculative tool calls and sequence residency. Optimizations include speculative execution and tool caching to reduce inference overheads. Achieves hundreds of tokens per second throughput improvement over baselines.
+* `kernel` `storage` `hardware` [Optimizing Bloom Filters for Modern GPU Architectures](http://arxiv.org/abs/2512.15595v1)
+  > **TL;DR**: Explores Bloom filter optimization on GPUs for high-throughput approximate membership queries. Proposes a GPU design with vectorization, thread cooperation, and compute latency tuning. Achieves 11.35× faster lookups and above 92% of practical speed limit at iso error rate on a B200 GPU.
+* `training` `offloading` `quantization` [LLMQ: Efficient Lower-Precision Pretraining for Consumer GPUs](http://arxiv.org/abs/2512.15306v1)
+  > **TL;DR**: Introduces LLMQ, an efficient CUDA/C++ system for LLM training on consumer GPUs with low memory. Combines 8-bit quantization, activation checkpointing, weight offloading, and optimized collectives. Achieves 50% FLOP utilization when training a 7B model on a single 16GB GPU.
+* `training` `sparse` `networking` [PruneX: A Hierarchical Communication-Efficient System for Distributed CNN Training with Structured Pruning](http://arxiv.org/abs/2512.14628v1)
+  > **TL;DR**: Addresses high communication overhead in distributed CNN training. Proposes hierarchical structured pruning with buffer compaction for reduced inter-node transmissions. Reduces inter-node communication volume by 60% and achieves 6.75x speedup on ResNet at 64 GPUs.
+* `serving` `multi-modal` [Cornserve: Efficiently Serving Any-to-Any Multimodal Models](http://arxiv.org/abs/2512.14098v2)
+  > **TL;DR**: Proposes Cornserve, a serving system for Any-to-Any multimodal models that optimizes deployment by disaggregating components. Introduces a planner and runtime for efficient handling of heterogeneous computations. Achieves up to 3.81× higher throughput and 5.79× lower tail latency.
+* `serving` `offloading` `RAG` [Trustworthy and Controllable Professional Knowledge Utilization in Large Language Models with TEE-GPU Execution](http://arxiv.org/abs/2512.16238v2)
+  > **TL;DR**: Proposes PKUS, a system for trustworthy professional knowledge integration in LLMs, using TEE-GPU co-execution with separable adapters. Implements hardware-rooted protocols and split-execution scheduling. Achieves 8.1-11.9x speedup over CPU-only TEE inference with comparable accuracy.
+* `serving` `offloading` `compression` [EVICPRESS: Joint KV-Cache Compression and Eviction for Efficient LLM Serving](http://arxiv.org/abs/2512.14946v1)
+  > **TL;DR**: Addresses KV-cache management inefficiencies in LLM inference. Proposes EVICPRESS, which jointly optimizes lossy compression and adaptive eviction across storage tiers via a unified utility function. Achieves up to 2.19x faster time-to-first-token while maintaining generation quality.
+
 ### 2025-12-19
 * `serving` `multi-modal` `video` [Enabling Disaggregated Multi-Stage MLLM Inference via GPU-Internal Scheduling and Resource Sharing](http://arxiv.org/abs/2512.17574v1)
   > **TL;DR**: Addresses latency and throughput bottlenecks in multi-stage multimodal LLM (MLLM) serving. Proposes FlashCodec for GPU-accelerated video decoding and UnifiedServe for resource sharing and inter-stage optimization. Achieves up to 4.4× higher throughput and 3.0× more requests served vs. SOTA.

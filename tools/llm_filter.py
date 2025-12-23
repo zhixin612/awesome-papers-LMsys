@@ -7,7 +7,7 @@ from typing import List
 from openai import OpenAI, RateLimitError, APIConnectionError
 
 from config import API_KEY, BASE_URL, MODEL, logger
-from utils import SYSTEM_PROMPT, USER_PROMPT, TAGS
+from statics import SYSTEM_PROMPT, USER_PROMPT, TAGS
 
 
 def llm_filter(papers: List[dict]) -> List[dict]:

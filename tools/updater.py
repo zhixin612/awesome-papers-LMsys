@@ -1,82 +1,106 @@
 from __future__ import annotations
 
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List
 
-from config import DEFAULT_START_DATE, README_FILE, logger
-from utils import README_HEADER
+import json
+from config import README_FILE, INDEX_FILE, logger
+from statics import README_HEADER
 
 
 def _parse_date(text: str, fmt: str) -> datetime:
     return datetime.strptime(text, fmt)
 
 
-def get_date_range() -> tuple[str | None, str | None]:
-    """Determine the [start, end] date window to fetch.
-      - Start = the day after the latest date in README (or DEFAULT_START_DATE if the file is missing)
-      - End = yesterday (local machine time) in YYYYMMDD
-    """
-    start = DEFAULT_START_DATE
-    end = (datetime.today() - timedelta(days=1)).strftime("%Y%m%d")
+def format_relevant_paper(paper: dict) -> str:
+    """Format a single relevant paper entry for README."""
+    tags = paper.get("tags", []) or []
+    title = paper["title"]
+    link = paper["link"]
 
-    # Read README to find the latest date header
-    if README_FILE.exists():
-        for line in README_FILE.read_text(encoding="utf-8").splitlines():
-            if line.startswith("### "):  # slice YYYY-MM-DD then +1 day
-                start = (_parse_date(line[4:14], "%Y-%m-%d") + timedelta(days=1)).strftime("%Y%m%d")
-                break
+    if tags:
+        entry = "* " + " ".join(f"`{t}`" for t in tags) + f" [{title}]({link})\n"
+    else:
+        entry = f"* [{title}]({link})\n"
 
-    if start > end:
-        logger.warning(f"start_date ({start}) is later than end_date ({end}); skip update")
-        return None, None
+    if tldr := paper.get("tldr", ""):
+        entry += f"  > **TL;DR**: {tldr}\n"
 
-    return start, end
+    return entry
 
 
-def update_daily_arxiv(papers: List[dict], date: str) -> None:
-    """Prepend a new section into README with filtered papers for a given date.
-    - Skips creating an empty section so the next run can retry the same date
-    """
-    logger.info(f"Updating README for date={date}")
+def update_daily_arxiv(papers: List[dict], date_str: str) -> None:
+    """Prepend a new section into README for the *current execution date*.
 
-    date_str = _parse_date(date, "%Y%m%d").strftime("%Y-%m-%d")
+        Args:
+            papers: List of paper dicts that are NEW and RELEVANT.
+            date_str: The date string to display in header (e.g. "2025-10-11").
+        """
+    logger.info(f"Updating README with {len(papers)} new papers under date {date_str}")
 
     lines: list[str] = []
     if README_FILE.exists():
         lines = README_FILE.read_text(encoding="utf-8").splitlines(keepends=True)
 
     # 1) Drop the previous header block (everything before first ###)
-    for i, line in enumerate(lines):
+    #    This ensures we always use the latest README_HEADER template from statics.py
+    body_lines = []
+    found_first_header = False
+    for line in lines:
         if line.startswith("###"):
-            lines = lines[i:]
-            break
+            found_first_header = True
 
-    # 2) Build new section (only if we have at least one relevant paper)
+        if found_first_header:
+            body_lines.append(line)
+
+    # 2) Build new section
     new_section: list[str] = []
     if papers:
         section_lines: list[str] = [f"### {date_str}\n"]
         for p in papers:
+            # Double check relevance just in case, though main.py handles it
             if not p.get("relevant", False):
                 continue
-            tags = p.get("tags", []) or []
-            title = p["title"]
-            link = p["link"]
-            if tags:
-                section_lines.append(
-                    "* " + " ".join(f"`{t}`" for t in tags) + f" [{title}]({link})\n"
-                )
-            else:
-                section_lines.append(f"* [{title}]({link})\n")
-            if tldr := p.get("tldr", ""):
-                section_lines.append(f"  > **TL;DR**: {tldr}\n")
-        if len(section_lines) > 1:  # at least header + 1 paper
+            section_lines.append(format_relevant_paper(p))
+        # Only add the section if we actually added paper lines
+        if len(section_lines) > 1:
             new_section = section_lines + ["\n"]
 
-    # 3) Count papers currently in content & rebuild header
-    paper_count = sum(1 for l in (new_section + lines) if l.startswith("* "))
+    # 3) Rebuild Content
+    #    Header -> New Section -> Existing Body
+    paper_count = sum(1 for l in (new_section + body_lines) if l.strip().startswith("* "))
     header = README_HEADER.format(papers=paper_count, update=date_str.replace("-", "."))
+    full_content = header + "".join(new_section + body_lines)
+    README_FILE.write_text(full_content, encoding="utf-8")
 
-    # 5) Write back
-    README_FILE.write_text(header + "".join(new_section + lines), encoding="utf-8")
+    logger.info(f"README updated: Added {len(new_section) - 2 if new_section else 0} entries. Total: {paper_count}")
 
-    logger.info(f"README updated: {paper_count} papers total")
+
+def load_index() -> dict[str, dict]:
+    """Load the paper index from JSON file.
+    Returns: dict mapping arxiv_id -> paper_info_dict
+    """
+    if not INDEX_FILE.exists():
+        logger.warning(f"Index file {INDEX_FILE} not found. Creating a new one.")
+        return {}
+
+    try:
+        data = json.loads(INDEX_FILE.read_text(encoding="utf-8"))
+        # Ensure it's a dict (in case it was saved as list previously, though we design it as dict)
+        if isinstance(data, dict):
+            return data
+        else:
+            logger.error("Index file format incorrect (expected dict). Resetting index.")
+            return {}
+    except Exception as e:
+        logger.error(f"Failed to load index: {e}")
+        return {}
+
+
+def save_index(index_data: dict[str, dict]) -> None:
+    """Save the paper index to JSON file."""
+    try:
+        INDEX_FILE.write_text(json.dumps(index_data, indent=4, ensure_ascii=False), encoding="utf-8")
+        logger.info(f"Index saved. Total entries: {len(index_data)}")
+    except Exception as e:
+        logger.error(f"Failed to save index: {e}")
