@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-854-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.21-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-857-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.22-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-19
+* `serving` `multi-modal` `video` [Enabling Disaggregated Multi-Stage MLLM Inference via GPU-Internal Scheduling and Resource Sharing](http://arxiv.org/abs/2512.17574v1)
+  > **TL;DR**: Addresses latency and throughput bottlenecks in multi-stage multimodal LLM (MLLM) serving. Proposes FlashCodec for GPU-accelerated video decoding and UnifiedServe for resource sharing and inter-stage optimization. Achieves up to 4.4× higher throughput and 3.0× more requests served vs. SOTA.
+* `offline` `network` `edge` [Adaptive Graph Pruning with Sudden-Events Evaluation for Traffic Prediction using Online Semi-Decentralized ST-GNNs](http://arxiv.org/abs/2512.17352v1)
+  > **TL;DR**: Proposes adaptive graph pruning to reduce communication in distributed ST-GNNs for traffic prediction. Dynamically adjusts pruning based on performance and introduces SEPA metric. Achieves reduced communication costs by 27% while maintaining accuracy in semi-decentralized edge settings.
+* `storage` `offline` `networking` [Scalable Distributed Vector Search via Accuracy Preserving Index Construction](http://arxiv.org/abs/2512.17264v1)
+  > **TL;DR**: Scaling distributed ANN search for billion-scale vectors. Proposes SPIRE with balanced partition granularity and recursive accuracy-preserving index construction. Achieves up to 9.64x higher throughput vs. SOTA.
+
 ### 2025-12-18
 * `edge` `offloading` `training` [Delay-Aware Multi-Stage Edge Server Upgrade with Budget Constraint](http://arxiv.org/abs/2512.16792v1)
   > **TL;DR**: Proposes M-ESU algorithm for multi-stage edge server upgrade and task offloading under budget constraints. Optimizes deployment/upgrade decisions and offloading to maximize tasks meeting delay requirements. Achieves 21.57% higher task satisfaction with efficient heuristic for large networks.
