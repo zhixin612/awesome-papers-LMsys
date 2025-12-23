@@ -114,6 +114,7 @@ TAGS = {  # tags that relate to LLM systems
     "thinking":         "designed for reasoning or thinking LLMs",
     "RL":               "designed for reinforcement learning or post training",
     "MoE":              "designed for mixture-of-experts models",
+    "LoRA":             "designed for low-rank adaptation models",
     "RAG":              "designed for retrieval-augmented generation",
     "video":            "designed for video generation models",
     "multi-modal":      "designed for multi-modal models",
@@ -129,6 +130,9 @@ TAGS = {  # tags that relate to LLM systems
     "edge":             "designed for LLM inference on edge or mobile devices",
     "networking":       "leverage or introduce new networking or transfer techniques",
     # "others":           "other LLM system topics not covered above",
+    "disaggregation":   "leverage prefill/decode disaggregation or attention/ffn disaggregation techniques",
+    "autoscaling":      "targeted at LLM autoscaling techniques to serve dynamic workloads",
+    "recommendation":   "optimize the inference or training efficiency of generative recommendation models",
 }
 
 SAMPLE_PAPERS = [

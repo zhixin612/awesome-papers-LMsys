@@ -9,7 +9,11 @@ import {
   Filter,
   Calendar,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  FileText,
+  User,
+  X,
+  Maximize2
 } from 'lucide-react';
 
 // --- Components ---
@@ -23,30 +27,50 @@ const Badge = ({ children, className = "", onClick }) => (
   </span>
 );
 
-const Button = ({ children, onClick, variant = 'primary', className = "", icon: Icon, disabled }) => {
+const Button = ({ children, onClick, variant = 'primary', className = "", icon: Icon, disabled, title }) => {
   const baseStyle = "inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed";
   const variants = {
     primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500 border-transparent",
     secondary: "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700",
     ghost: "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 border-transparent",
-    outline: "border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+    outline: "border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800",
+    danger: "bg-red-50 text-red-600 hover:bg-red-100 border border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800"
   };
 
   return (
-    <button onClick={onClick} disabled={disabled} className={`${baseStyle} ${variants[variant]} ${className}`}>
+    <button onClick={onClick} disabled={disabled} className={`${baseStyle} ${variants[variant]} ${className}`} title={title}>
       {Icon && <Icon className="w-4 h-4 mr-2" />}
       {children}
     </button>
   );
 };
 
-// 分页组件
+// 分页组件 (支持输入跳转)
 const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPage, onItemsPerPageChange }) => {
-  if (totalPages <= 1 && itemsPerPage >= 100) return null; // 如果只有一页且不是因为没数据，隐藏（可选）
+  const [inputPage, setInputPage] = useState(currentPage);
+
+  // Sync input when currentPage changes externally
+  useEffect(() => {
+    setInputPage(currentPage);
+  }, [currentPage]);
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      const page = parseInt(inputPage);
+      if (!isNaN(page) && page >= 1 && page <= totalPages) {
+        onPageChange(page);
+      } else {
+        // Reset if invalid
+        setInputPage(currentPage);
+      }
+    }
+  };
+
+  if (totalPages <= 1 && itemsPerPage >= 100) return null;
 
   return (
     <div className="flex flex-wrap items-center gap-4 text-sm">
-      {/* Items Per Page Select */}
+      {/* Items Per Page */}
       <div className="flex items-center gap-2">
         <span className="text-gray-500 dark:text-gray-400 hidden sm:inline">Show:</span>
         <select
@@ -61,22 +85,34 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPag
         </select>
       </div>
 
-      {/* Page Navigation */}
+      {/* Navigation */}
       <div className="flex items-center bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-700 shadow-sm">
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="p-1.5 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-l-md disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+          className="p-1.5 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-l-md disabled:opacity-30 transition-colors"
         >
           <ChevronLeft className="w-4 h-4 text-gray-600 dark:text-gray-300" />
         </button>
-        <span className="px-3 py-1 font-medium text-gray-700 dark:text-gray-200 min-w-[80px] text-center border-x border-gray-300 dark:border-gray-700">
-          {currentPage} / {totalPages || 1}
-        </span>
+
+        {/* Go to Page Input */}
+        <div className="flex items-center border-x border-gray-300 dark:border-gray-700 px-1">
+            <input
+                type="number"
+                min="1"
+                max={totalPages}
+                value={inputPage}
+                onChange={(e) => setInputPage(e.target.value)}
+                onKeyDown={handleKeyDown}
+                className="w-10 text-center py-1 text-gray-700 dark:text-gray-200 bg-transparent outline-none appearance-none font-medium"
+            />
+            <span className="text-gray-400 dark:text-gray-500 px-1">/ {totalPages || 1}</span>
+        </div>
+
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages || totalPages === 0}
-          className="p-1.5 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-r-md disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+          className="p-1.5 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-r-md disabled:opacity-30 transition-colors"
         >
           <ChevronRight className="w-4 h-4 text-gray-600 dark:text-gray-300" />
         </button>
@@ -86,32 +122,47 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPag
 };
 
 const PaperCard = ({ paper, language }) => {
-  const prompt = `Please analyze this paper for me based on its application in Large Model System Optimization: ${paper.title}. Link: ${paper.link}`;
+  const [showPdf, setShowPdf] = useState(false);
+
+  // --- 1. Robust Data Handling (Safe Access) ---
+  const title = paper.title || "Untitled Paper";
+  const link = paper.link || "#";
+  const authors = Array.isArray(paper.authors) && paper.authors.length > 0 ? paper.authors : ["Unknown Author"];
+  const categories = Array.isArray(paper.categories) && paper.categories.length > 0 ? paper.categories : ["Uncategorized"];
+  const tags = Array.isArray(paper.tags) ? paper.tags : [];
+  const indexedDate = paper.indexed_date || "Unknown Date";
+
+  // Safe TLDR
+  const tldrEn = paper.tldr || paper.abstract || "No summary available.";
+  const tldrZh = paper.tldr_zh || tldrEn; // Fallback to EN if ZH missing
+  const tldrText = language === 'zh' ? tldrZh : tldrEn;
+
+  // --- 2. Logic Construction ---
+  const prompt = `Please analyze this paper for me based on its application in Large Model System Optimization: ${title}. Link: ${link}`;
   const geminiUrl = `https://gemini.google.com/app?text=${encodeURIComponent(prompt)}`;
 
-  const tldrText = language === 'zh' && paper.tldr_zh ? paper.tldr_zh : paper.tldr;
+  // PDF Link Logic: Convert /abs/ to /pdf/ and ensure HTTPS
+  // ArXiv Link: http://arxiv.org/abs/2512.19606v1 -> https://arxiv.org/pdf/2512.19606v1.pdf
+  const pdfUrl = link.replace(/^http:/, 'https:').replace('/abs/', '/pdf/') + ".pdf";
 
-  // Format Category: remove "cs." prefix
-  const formatCategory = (cat) => cat.replace(/^cs\./, '');
+  const formatCategory = (cat) => cat ? cat.replace(/^cs\./, '') : 'N/A';
 
   return (
-    <div className="group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 transition-all duration-200 overflow-hidden">
+    <div className={`group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm border transition-all duration-200 overflow-hidden ${showPdf ? 'ring-2 ring-blue-500/20 border-blue-500/30' : 'hover:shadow-md border-gray-200 dark:border-gray-700'}`}>
       <div className="p-5 flex flex-col gap-3">
 
         {/* Top Row: Date, Categories, Tags */}
         <div className="flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
           <div className="flex items-center gap-3 text-xs overflow-hidden">
-            {/* Date: Fixed width or whitespace-nowrap to prevent wrapping */}
             <div className="flex items-center text-gray-500 dark:text-gray-400 whitespace-nowrap shrink-0">
               <Calendar className="w-3.5 h-3.5 mr-1" />
-              <span>{paper.indexed_date}</span>
+              <span>{indexedDate}</span>
             </div>
 
             <span className="text-gray-300 dark:text-gray-600">|</span>
 
-            {/* Categories */}
             <div className="flex gap-1 shrink-0">
-              {paper.categories.map(cat => (
+              {categories.map(cat => (
                 <span key={cat} className="font-mono text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-1.5 rounded text-[10px] font-bold">
                   {formatCategory(cat)}
                 </span>
@@ -119,9 +170,8 @@ const PaperCard = ({ paper, language }) => {
             </div>
           </div>
 
-          {/* Tags */}
           <div className="flex flex-wrap gap-1">
-             {paper.tags && paper.tags.map(tag => (
+             {tags.map(tag => (
                <Badge key={tag} className="bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border-blue-100 dark:border-blue-800">
                  {tag}
                </Badge>
@@ -132,43 +182,67 @@ const PaperCard = ({ paper, language }) => {
         {/* Title & Actions */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
             <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex-1">
-              <a href={paper.link} target="_blank" rel="noopener noreferrer">
-                {paper.title}
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                {title}
               </a>
             </h3>
 
-            {/* Desktop Actions (Right Aligned) */}
+            {/* Actions */}
             <div className="flex gap-2 shrink-0">
-                <a href={paper.link} target="_blank" rel="noopener noreferrer">
-                    <Button variant="secondary" className="h-8 text-xs" icon={ExternalLink}>PDF</Button>
+                {/* Embed PDF Toggle */}
+                <Button
+                    variant={showPdf ? "danger" : "secondary"}
+                    className="h-8 text-xs w-24"
+                    onClick={() => setShowPdf(!showPdf)}
+                    icon={showPdf ? X : FileText}
+                >
+                    {showPdf ? "Close" : "Read PDF"}
+                </Button>
+
+                {/* External Links */}
+                <a href={link} target="_blank" rel="noopener noreferrer" title="Open ArXiv Abstract">
+                    <Button variant="ghost" className="h-8 w-8 p-0" icon={ExternalLink} />
                 </a>
-                <a href={geminiUrl} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="h-8 text-xs group/gemini" icon={Sparkles}>
-                        <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-bold">Ask AI</span>
-                    </Button>
+                <a href={geminiUrl} target="_blank" rel="noopener noreferrer" title="Ask Gemini">
+                    <Button variant="outline" className="h-8 w-8 p-0 group/gemini text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800" icon={Sparkles} />
                 </a>
             </div>
         </div>
 
-        {/* Authors: Scrollable container */}
+        {/* Authors */}
         <div
-          className="text-sm text-gray-600 dark:text-gray-400 overflow-x-auto whitespace-nowrap pb-1 -mb-1 scrollbar-hide"
-          title={paper.authors.join(', ')}
+          className="text-sm text-gray-600 dark:text-gray-400 overflow-x-auto whitespace-nowrap pb-1 -mb-1 scrollbar-hide flex items-center"
         >
-          <span className="font-semibold text-gray-500 dark:text-gray-500 mr-2">Authors:</span>
-          {paper.authors.join(', ')}
+          <User className="w-3.5 h-3.5 mr-1.5 shrink-0 opacity-50" />
+          {authors.join(', ')}
         </div>
 
-        {/* TLDR Section: Inline Style */}
-        {tldrText && (
-          <div className="bg-gray-50 dark:bg-gray-700/30 rounded-lg px-4 py-3 border border-gray-100 dark:border-gray-700 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-            <span className="inline-flex items-center font-bold text-gray-900 dark:text-gray-100 mr-2 select-none">
-                <Sparkles className="w-3.5 h-3.5 text-yellow-500 mr-1" />
-                TL;DR:
-            </span>
-            {tldrText}
-          </div>
+        {/* TLDR */}
+        <div className="bg-gray-50 dark:bg-gray-700/30 rounded-lg px-4 py-3 border border-gray-100 dark:border-gray-700 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+          <span className="inline-flex items-center font-bold text-gray-900 dark:text-gray-100 mr-2 select-none">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-500 mr-1" />
+              TL;DR:
+          </span>
+          {tldrText}
+        </div>
+
+        {/* --- 3. Embedded PDF Viewer --- */}
+        {showPdf && (
+            <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
+                <div className="relative w-full h-[600px] bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <iframe
+                        src={pdfUrl}
+                        className="w-full h-full"
+                        title="PDF Viewer"
+                    />
+                    {/* Fallback Overlay (in case iframe is blocked by X-Frame-Options) */}
+                    <div className="absolute top-0 right-0 p-2 opacity-0 hover:opacity-100 transition-opacity bg-black/50 backdrop-blur-sm rounded-bl-lg pointer-events-none">
+                        <span className="text-white text-xs">If PDF fails to load, click external icon</span>
+                    </div>
+                </div>
+            </div>
         )}
+
       </div>
     </div>
   );
@@ -182,7 +256,6 @@ const App = () => {
 
   // UI State
   const [darkMode, setDarkMode] = useState(() => {
-    // Check local storage or system preference
     if (typeof window !== 'undefined') {
         return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
@@ -220,7 +293,8 @@ const App = () => {
 
         if (!data) throw new Error("Could not load paper data.");
 
-        const paperArray = Object.values(data).filter(p => p.relevant !== false);
+        // Robust filter: handle potential malformed entries
+        const paperArray = Object.values(data).filter(p => p && typeof p === 'object' && p.relevant !== false);
         setPapers(paperArray);
       } catch (err) {
         console.error(err);
@@ -240,10 +314,14 @@ const App = () => {
     }
   }, [darkMode]);
 
-  // Derived Data: Unique Tags
+  // Derived Data: Unique Tags (Safe Access)
   const allTags = useMemo(() => {
     const tags = new Set();
-    papers.forEach(p => p.tags && p.tags.forEach(t => tags.add(t)));
+    papers.forEach(p => {
+        if (Array.isArray(p.tags)) {
+            p.tags.forEach(t => tags.add(t));
+        }
+    });
     return Array.from(tags).sort();
   }, [papers]);
 
@@ -251,20 +329,27 @@ const App = () => {
   const filteredPapers = useMemo(() => {
     return papers
       .filter(paper => {
+        // Safe Access for filter properties
+        const title = (paper.title || "").toLowerCase();
+        const abstract = (paper.abstract || "").toLowerCase();
+        const authors = Array.isArray(paper.authors) ? paper.authors : [];
+        const paperTags = Array.isArray(paper.tags) ? paper.tags : [];
+
         const query = searchQuery.toLowerCase();
         const matchesSearch =
-          paper.title.toLowerCase().includes(query) ||
-          paper.abstract.toLowerCase().includes(query) ||
-          paper.authors.some(a => a.toLowerCase().includes(query));
+          title.includes(query) ||
+          abstract.includes(query) ||
+          authors.some(a => a.toLowerCase().includes(query));
 
         const matchesTags = selectedTags.length === 0 ||
-          (paper.tags && paper.tags.some(t => selectedTags.includes(t)));
+          paperTags.some(t => selectedTags.includes(t));
 
         return matchesSearch && matchesTags;
       })
       .sort((a, b) => {
-        const dateA = new Date(a.indexed_date);
-        const dateB = new Date(b.indexed_date);
+        // Safe Date parsing
+        const dateA = new Date(a.indexed_date || 0);
+        const dateB = new Date(b.indexed_date || 0);
         return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
       });
   }, [papers, searchQuery, selectedTags, sortOrder]);
@@ -289,7 +374,6 @@ const App = () => {
     );
   };
 
-  // Scroll to top on page change
   const mainRef = useRef(null);
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -338,10 +422,8 @@ const App = () => {
       </header>
 
       <main ref={mainRef} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        {/* Controls Section */}
+        {/* Controls */}
         <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-200 dark:border-gray-700 space-y-4">
-
-          {/* Search & Sort */}
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -350,10 +432,9 @@ const App = () => {
                 placeholder={language === 'en' ? "Search title, abstract, authors..." : "搜索标题、摘要、作者..."}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
               />
             </div>
-
             <div className="flex gap-2 shrink-0">
                <select
                  value={sortOrder}
@@ -366,7 +447,6 @@ const App = () => {
             </div>
           </div>
 
-          {/* Tags Filter */}
           {allTags.length > 0 && (
             <div className="flex flex-wrap gap-2 items-center pt-2 border-t border-gray-100 dark:border-gray-700">
               <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide">
@@ -387,10 +467,7 @@ const App = () => {
                 </button>
               ))}
               {selectedTags.length > 0 && (
-                <button
-                  onClick={() => setSelectedTags([])}
-                  className="text-xs text-red-500 hover:text-red-600 font-medium ml-2 underline decoration-dashed underline-offset-4"
-                >
+                <button onClick={() => setSelectedTags([])} className="text-xs text-red-500 hover:text-red-600 font-medium ml-2 underline decoration-dashed underline-offset-4">
                   Reset
                 </button>
               )}
@@ -398,12 +475,11 @@ const App = () => {
           )}
         </div>
 
-        {/* Stats & Pagination (Top) */}
+        {/* Top Pagination */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-1">
             <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">
                 Found <span className="text-gray-900 dark:text-white font-bold">{filteredPapers.length}</span> papers
             </div>
-
             <PaginationControls
                 currentPage={currentPage}
                 totalPages={totalPages}
@@ -413,10 +489,11 @@ const App = () => {
             />
         </div>
 
-        {/* List View */}
+        {/* Cards */}
         <div className="flex flex-col gap-4">
-          {currentPapers.map(paper => (
-            <PaperCard key={paper.id} paper={paper} language={language} />
+          {currentPapers.map((paper, idx) => (
+            // Use ID if available, otherwise fallback to index to prevent crash
+            <PaperCard key={paper.id || idx} paper={paper} language={language} />
           ))}
         </div>
 
@@ -432,7 +509,7 @@ const App = () => {
         </div>
 
         {/* Empty State */}
-        {filteredPapers.length === 0 && (
+        {filteredPapers.length === 0 && !loading && (
           <div className="text-center py-20 bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-300 dark:border-gray-700">
             <div className="bg-gray-50 dark:bg-gray-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <Search className="w-8 h-8 text-gray-400" />
@@ -446,7 +523,6 @@ const App = () => {
   );
 };
 
-// Create Root
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

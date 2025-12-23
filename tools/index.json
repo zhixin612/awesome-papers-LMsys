@@ -6189,9 +6189,7 @@
         ],
         "id": "http://arxiv.org/abs/2511.19847v1",
         "relevant": true,
-        "tags": [
-            "batch_denoising"
-        ],
+        "tags": [],
         "tldr": "Proposes a batch denoising framework for AI-generated image services in edge networks. Develops STACKING algorithm to optimize batch processing and transmission, reducing per-step delay and improving parallelism. Achieves up to 40% lower latency and higher quality within service delay constraints.",
         "indexed_date": "2025-12-23"
     },
@@ -10981,8 +10979,7 @@
         "id": "http://arxiv.org/abs/2511.03941v1",
         "relevant": true,
         "tags": [
-            "edge",
-            "scaling"
+            "edge"
         ],
         "tldr": "Addresses energy efficiency in edge computing via AI-driven predictive power scaling. Uses Markov Chains for modeling power state transitions and optimizes workload distribution to minimize unnecessary transitions. Reduces energy consumption disparities by 30% and improves system responsiveness.",
         "indexed_date": "2025-12-23"
@@ -11850,8 +11847,7 @@
         "id": "http://arxiv.org/abs/2511.00807v2",
         "relevant": true,
         "tags": [
-            "serving",
-            "energy"
+            "serving"
         ],
         "tldr": "Proposes FREESH for energy-efficient LLM serving on heterogeneous GPUs by jointly optimizing query routing, scheduling, and GPU frequency scaling. Matches GPU power-throughput characteristics with query workloads to reduce carbon and energy. Achieves 28.6% energy reduction and 45.45% emissions reduction while improving SLO attainment.",
         "indexed_date": "2025-12-23"
@@ -12900,8 +12896,7 @@
         "relevant": true,
         "tags": [
             "MoE",
-            "hardware",
-            "offlining"
+            "hardware"
         ],
         "tldr": "Addresses imbalanced communication and expert migration overhead in wafer-scale chips for mixture-of-expert parallelism. Proposes entwined ring mapping and non-invasive balancer to optimize layer mapping and split migration steps. Achieves up to 62% communication reduction and 54% faster MoE computation.",
         "indexed_date": "2025-12-23"
@@ -23596,7 +23591,6 @@
         "link": "http://arxiv.org/abs/2512.09685v1",
         "tags": [
             "training",
-            "optimization",
             "scheduling"
         ],
         "relevant": true,
@@ -24210,8 +24204,7 @@
         "link": "http://arxiv.org/abs/2512.03416v1",
         "tags": [
             "serving",
-            "autoscaling",
-            "resource management"
+            "disaggregation"
         ],
         "relevant": true,
         "indexed_date": "2025-12-03",
@@ -26554,8 +26547,7 @@
         "title": "Stochastic Modeling for Energy-Efficient Edge Infrastructure",
         "link": "http://arxiv.org/abs/2511.03941v1",
         "tags": [
-            "edge",
-            "scaling"
+            "edge"
         ],
         "relevant": true,
         "indexed_date": "2025-12-23",
@@ -26810,8 +26802,7 @@
         "title": "FREESH: Fair, Resource- and Energy-Efficient Scheduling for LLM Serving on Heterogeneous GPUs",
         "link": "http://arxiv.org/abs/2511.00807v2",
         "tags": [
-            "serving",
-            "energy"
+            "serving"
         ],
         "relevant": true,
         "indexed_date": "2025-12-23",
@@ -27580,8 +27571,7 @@
         "link": "http://arxiv.org/abs/2510.18830v1",
         "tags": [
             "training",
-            "sparse",
-            "distributed"
+            "sparse"
         ],
         "relevant": true,
         "indexed_date": "2025-10-21",
@@ -29707,8 +29697,7 @@
         "link": "http://arxiv.org/abs/2510.03293v1",
         "tags": [
             "MoE",
-            "serving",
-            "load-balancing"
+            "serving"
         ],
         "relevant": true,
         "indexed_date": "2025-09-16",
@@ -31570,20 +31559,14 @@
         "title": "Near-Zero-Overhead Freshness for Recommendation Systems via Inference-Side Model Updates",
         "link": "http://arxiv.org/abs/2512.12295v1",
         "tags": [
-            "inference-side model updates",
-            "resource efficiency",
-            "latency reduction"
+            "serving",
+            "recommendation",
+            "LoRA"
         ],
         "relevant": true,
         "indexed_date": "2025-12-13",
         "tldr": "LiveUpdate introduces inference-side model updates for recommendation systems using Low-Rank Adaptation, reducing synchronization costs and improving freshness with minimal latency impact (<20ms P99) and higher accuracy (0.04-0.24% gain).",
         "abstract": "No abstract available.",
-        "authors": [
-            "Unknown Author"
-        ],
-        "categories": [
-            "Uncategorized"
-        ]
     },
     "2512.11306v1": {
         "id": "2512.11306v1",
