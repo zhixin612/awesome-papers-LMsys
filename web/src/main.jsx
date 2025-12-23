@@ -13,7 +13,11 @@ import {
   FileText,
   User,
   X,
-  Maximize2
+  Star,
+  Quote,
+  Copy,
+  Github,
+  Check
 } from 'lucide-react';
 
 // --- Components ---
@@ -45,11 +49,10 @@ const Button = ({ children, onClick, variant = 'primary', className = "", icon: 
   );
 };
 
-// 分页组件 (支持输入跳转)
+// 分页组件
 const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPage, onItemsPerPageChange }) => {
   const [inputPage, setInputPage] = useState(currentPage);
 
-  // Sync input when currentPage changes externally
   useEffect(() => {
     setInputPage(currentPage);
   }, [currentPage]);
@@ -60,7 +63,6 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPag
       if (!isNaN(page) && page >= 1 && page <= totalPages) {
         onPageChange(page);
       } else {
-        // Reset if invalid
         setInputPage(currentPage);
       }
     }
@@ -70,7 +72,6 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPag
 
   return (
     <div className="flex flex-wrap items-center gap-4 text-sm">
-      {/* Items Per Page */}
       <div className="flex items-center gap-2">
         <span className="text-gray-500 dark:text-gray-400 hidden sm:inline">Show:</span>
         <select
@@ -85,7 +86,6 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPag
         </select>
       </div>
 
-      {/* Navigation */}
       <div className="flex items-center bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-700 shadow-sm">
         <button
           onClick={() => onPageChange(currentPage - 1)}
@@ -95,7 +95,6 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPag
           <ChevronLeft className="w-4 h-4 text-gray-600 dark:text-gray-300" />
         </button>
 
-        {/* Go to Page Input */}
         <div className="flex items-center border-x border-gray-300 dark:border-gray-700 px-1">
             <input
                 type="number"
@@ -121,10 +120,36 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPag
   );
 };
 
-const PaperCard = ({ paper, language }) => {
-  const [showPdf, setShowPdf] = useState(false);
+// --- Helper Functions ---
 
-  // --- 1. Robust Data Handling (Safe Access) ---
+const generateBibTeX = (paper) => {
+  const year = paper.indexed_date ? paper.indexed_date.split('-')[0] : new Date().getFullYear();
+  const firstAuthor = paper.authors && paper.authors.length > 0 ? paper.authors[0].split(' ').pop() : 'Unknown';
+  const id = paper.id ? paper.id.split('/').pop() : 'unknown';
+  const citeKey = `${firstAuthor}${year}${paper.title.split(' ')[0].replace(/[^a-zA-Z]/g, '')}`;
+
+  return `@article{${citeKey},
+  title={${paper.title}},
+  author={${paper.authors.join(' and ')}},
+  journal={arXiv preprint arXiv:${id}},
+  year={${year}},
+  url={${paper.link}}
+}`;
+};
+
+const extractCodeLink = (abstract) => {
+    const githubRegex = /https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9-._]+/gi;
+    const match = abstract.match(githubRegex);
+    return match ? match[0] : null;
+};
+
+// --- Paper Card Component ---
+
+const PaperCard = ({ paper, language, isStarred, toggleStar }) => {
+  const [showPdf, setShowPdf] = useState(false);
+  const [copied, setCopied] = useState(null); // 'bibtex' or 'share'
+
+  // Safe Access
   const title = paper.title || "Untitled Paper";
   const link = paper.link || "#";
   const authors = Array.isArray(paper.authors) && paper.authors.length > 0 ? paper.authors : ["Unknown Author"];
@@ -134,33 +159,43 @@ const PaperCard = ({ paper, language }) => {
 
   // Safe TLDR
   const tldrEn = paper.tldr || paper.abstract || "No summary available.";
-  const tldrZh = paper.tldr_zh || tldrEn; // Fallback to EN if ZH missing
+  const tldrZh = paper.tldr_zh || tldrEn;
   const tldrText = language === 'zh' ? tldrZh : tldrEn;
 
-  // --- 2. Logic Construction ---
+  // Logic
   const prompt = `Please analyze this paper for me based on its application in Large Model System Optimization: ${title}. Link: ${link}`;
   const geminiUrl = `https://gemini.google.com/app?text=${encodeURIComponent(prompt)}`;
-
-  // PDF Link Logic: Convert /abs/ to /pdf/ and ensure HTTPS
-  // ArXiv Link: http://arxiv.org/abs/2512.19606v1 -> https://arxiv.org/pdf/2512.19606v1.pdf
   const pdfUrl = link.replace(/^http:/, 'https:').replace('/abs/', '/pdf/') + ".pdf";
-
   const formatCategory = (cat) => cat ? cat.replace(/^cs\./, '') : 'N/A';
+  const codeLink = extractCodeLink(paper.abstract || "");
+
+  // Handlers
+  const handleCopyBibtex = () => {
+    const bib = generateBibTeX(paper);
+    navigator.clipboard.writeText(bib);
+    setCopied('bibtex');
+    setTimeout(() => setCopied(null), 2000);
+  };
+
+  const handleCopyShare = () => {
+    const text = `${title}\n${link}`;
+    navigator.clipboard.writeText(text);
+    setCopied('share');
+    setTimeout(() => setCopied(null), 2000);
+  };
 
   return (
     <div className={`group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm border transition-all duration-200 overflow-hidden ${showPdf ? 'ring-2 ring-blue-500/20 border-blue-500/30' : 'hover:shadow-md border-gray-200 dark:border-gray-700'}`}>
       <div className="p-5 flex flex-col gap-3">
 
-        {/* Top Row: Date, Categories, Tags */}
+        {/* Top Row */}
         <div className="flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
           <div className="flex items-center gap-3 text-xs overflow-hidden">
             <div className="flex items-center text-gray-500 dark:text-gray-400 whitespace-nowrap shrink-0">
               <Calendar className="w-3.5 h-3.5 mr-1" />
               <span>{indexedDate}</span>
             </div>
-
             <span className="text-gray-300 dark:text-gray-600">|</span>
-
             <div className="flex gap-1 shrink-0">
               {categories.map(cat => (
                 <span key={cat} className="font-mono text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-1.5 rounded text-[10px] font-bold">
@@ -170,26 +205,45 @@ const PaperCard = ({ paper, language }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-1">
-             {tags.map(tag => (
-               <Badge key={tag} className="bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border-blue-100 dark:border-blue-800">
-                 {tag}
-               </Badge>
-             ))}
+          <div className="flex items-center gap-2">
+             <div className="flex flex-wrap gap-1">
+                {tags.map(tag => (
+                <Badge key={tag} className="bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border-blue-100 dark:border-blue-800">
+                    {tag}
+                </Badge>
+                ))}
+             </div>
+             {/* Star Button */}
+             <button
+                onClick={toggleStar}
+                className={`p-1 rounded-full transition-colors ${isStarred ? 'text-yellow-400 bg-yellow-400/10' : 'text-gray-300 hover:text-yellow-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                title={isStarred ? "Remove from favorites" : "Save for later"}
+             >
+                <Star className={`w-4 h-4 ${isStarred ? 'fill-yellow-400' : ''}`} />
+             </button>
           </div>
         </div>
 
         {/* Title & Actions */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex-1">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex-1 flex items-start gap-2">
               <a href={link} target="_blank" rel="noopener noreferrer">
                 {title}
               </a>
+              <button onClick={handleCopyShare} className="opacity-0 group-hover:opacity-100 transition-opacity p-1 text-gray-400 hover:text-blue-500" title="Copy Title & Link">
+                 {copied === 'share' ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+              </button>
             </h3>
 
-            {/* Actions */}
             <div className="flex gap-2 shrink-0">
-                {/* Embed PDF Toggle */}
+                {codeLink && (
+                    <a href={codeLink} target="_blank" rel="noopener noreferrer">
+                        <Button variant="secondary" className="h-8 text-xs border-green-200 dark:border-green-900 text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/20" icon={Github}>
+                            Code
+                        </Button>
+                    </a>
+                )}
+
                 <Button
                     variant={showPdf ? "danger" : "secondary"}
                     className="h-8 text-xs w-24"
@@ -199,20 +253,22 @@ const PaperCard = ({ paper, language }) => {
                     {showPdf ? "Close" : "Read PDF"}
                 </Button>
 
-                {/* External Links */}
-                <a href={link} target="_blank" rel="noopener noreferrer" title="Open ArXiv Abstract">
-                    <Button variant="ghost" className="h-8 w-8 p-0" icon={ExternalLink} />
-                </a>
-                <a href={geminiUrl} target="_blank" rel="noopener noreferrer" title="Ask Gemini">
-                    <Button variant="outline" className="h-8 w-8 p-0 group/gemini text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800" icon={Sparkles} />
-                </a>
+                <div className="flex items-center bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-600 h-8">
+                     <a href={link} target="_blank" rel="noopener noreferrer" className="h-full flex items-center px-2.5 hover:bg-gray-50 dark:hover:bg-gray-700 border-r border-gray-300 dark:border-gray-600 transition-colors" title="ArXiv Page">
+                        <ExternalLink className="w-4 h-4 text-gray-500" />
+                     </a>
+                     <button onClick={handleCopyBibtex} className="h-full flex items-center px-2.5 hover:bg-gray-50 dark:hover:bg-gray-700 border-r border-gray-300 dark:border-gray-600 transition-colors" title="Copy BibTeX">
+                        {copied === 'bibtex' ? <Check className="w-4 h-4 text-green-500" /> : <Quote className="w-4 h-4 text-gray-500" />}
+                     </button>
+                     <a href={geminiUrl} target="_blank" rel="noopener noreferrer" className="h-full flex items-center px-2.5 hover:bg-gray-50 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400 transition-colors" title="Ask Gemini">
+                        <Sparkles className="w-4 h-4" />
+                     </a>
+                </div>
             </div>
         </div>
 
         {/* Authors */}
-        <div
-          className="text-sm text-gray-600 dark:text-gray-400 overflow-x-auto whitespace-nowrap pb-1 -mb-1 scrollbar-hide flex items-center"
-        >
+        <div className="text-sm text-gray-600 dark:text-gray-400 overflow-x-auto whitespace-nowrap pb-1 -mb-1 scrollbar-hide flex items-center">
           <User className="w-3.5 h-3.5 mr-1.5 shrink-0 opacity-50" />
           {authors.join(', ')}
         </div>
@@ -226,23 +282,17 @@ const PaperCard = ({ paper, language }) => {
           {tldrText}
         </div>
 
-        {/* --- 3. Embedded PDF Viewer --- */}
+        {/* PDF Viewer */}
         {showPdf && (
             <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="relative w-full h-[600px] bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
-                    <iframe
-                        src={pdfUrl}
-                        className="w-full h-full"
-                        title="PDF Viewer"
-                    />
-                    {/* Fallback Overlay (in case iframe is blocked by X-Frame-Options) */}
+                    <iframe src={pdfUrl} className="w-full h-full" title="PDF Viewer" />
                     <div className="absolute top-0 right-0 p-2 opacity-0 hover:opacity-100 transition-opacity bg-black/50 backdrop-blur-sm rounded-bl-lg pointer-events-none">
                         <span className="text-white text-xs">If PDF fails to load, click external icon</span>
                     </div>
                 </div>
             </div>
         )}
-
       </div>
     </div>
   );
@@ -267,6 +317,27 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
   const [sortOrder, setSortOrder] = useState('newest');
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // New Filter
+
+  // User Preferences State (LocalStorage)
+  const [favorites, setFavorites] = useState(() => {
+    if (typeof window !== 'undefined') {
+        const saved = localStorage.getItem('daily_arxiv_favorites');
+        return saved ? JSON.parse(saved) : [];
+    }
+    return [];
+  });
+
+  // Save favorites to localStorage
+  useEffect(() => {
+    localStorage.setItem('daily_arxiv_favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  const toggleFavorite = (id) => {
+    setFavorites(prev =>
+        prev.includes(id) ? prev.filter(fid => fid !== id) : [...prev, id]
+    );
+  };
 
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
@@ -293,7 +364,6 @@ const App = () => {
 
         if (!data) throw new Error("Could not load paper data.");
 
-        // Robust filter: handle potential malformed entries
         const paperArray = Object.values(data).filter(p => p && typeof p === 'object' && p.relevant !== false);
         setPapers(paperArray);
       } catch (err) {
@@ -305,7 +375,6 @@ const App = () => {
     loadData();
   }, []);
 
-  // Dark Mode Effect
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -314,7 +383,6 @@ const App = () => {
     }
   }, [darkMode]);
 
-  // Derived Data: Unique Tags (Safe Access)
   const allTags = useMemo(() => {
     const tags = new Set();
     papers.forEach(p => {
@@ -325,11 +393,13 @@ const App = () => {
     return Array.from(tags).sort();
   }, [papers]);
 
-  // Filter & Sort Logic
   const filteredPapers = useMemo(() => {
     return papers
       .filter(paper => {
-        // Safe Access for filter properties
+        // ID safe check for favorites
+        const paperId = paper.id || "";
+        if (showFavoritesOnly && !favorites.includes(paperId)) return false;
+
         const title = (paper.title || "").toLowerCase();
         const abstract = (paper.abstract || "").toLowerCase();
         const authors = Array.isArray(paper.authors) ? paper.authors : [];
@@ -347,20 +417,17 @@ const App = () => {
         return matchesSearch && matchesTags;
       })
       .sort((a, b) => {
-        // Safe Date parsing
         const dateA = new Date(a.indexed_date || 0);
         const dateB = new Date(b.indexed_date || 0);
         return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
       });
-  }, [papers, searchQuery, selectedTags, sortOrder]);
+  }, [papers, searchQuery, selectedTags, sortOrder, showFavoritesOnly, favorites]);
 
-  // Pagination Logic
   const totalPages = Math.ceil(filteredPapers.length / itemsPerPage);
 
-  // Reset page when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, selectedTags, sortOrder, itemsPerPage]);
+  }, [searchQuery, selectedTags, sortOrder, itemsPerPage, showFavoritesOnly]);
 
   const currentPapers = useMemo(() => {
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -392,7 +459,6 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20 font-sans transition-colors duration-200">
-      {/* Navbar */}
       <header className="sticky top-0 z-30 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => {window.scrollTo({top:0, behavior:'smooth'})}}>
@@ -436,6 +502,13 @@ const App = () => {
               />
             </div>
             <div className="flex gap-2 shrink-0">
+               <button
+                 onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                 className={`px-4 py-2.5 rounded-lg border text-sm font-medium transition-all flex items-center gap-2 ${showFavoritesOnly ? 'bg-yellow-50 border-yellow-200 text-yellow-700 dark:bg-yellow-900/20 dark:border-yellow-800 dark:text-yellow-400' : 'bg-gray-50 border-gray-200 text-gray-700 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300'}`}
+               >
+                 <Star className={`w-4 h-4 ${showFavoritesOnly ? 'fill-current' : ''}`} />
+                 <span className="hidden sm:inline">Favorites</span>
+               </button>
                <select
                  value={sortOrder}
                  onChange={(e) => setSortOrder(e.target.value)}
@@ -492,8 +565,13 @@ const App = () => {
         {/* Cards */}
         <div className="flex flex-col gap-4">
           {currentPapers.map((paper, idx) => (
-            // Use ID if available, otherwise fallback to index to prevent crash
-            <PaperCard key={paper.id || idx} paper={paper} language={language} />
+            <PaperCard
+                key={paper.id || idx}
+                paper={paper}
+                language={language}
+                isStarred={favorites.includes(paper.id)}
+                toggleStar={() => toggleFavorite(paper.id)}
+            />
           ))}
         </div>
 
@@ -512,10 +590,12 @@ const App = () => {
         {filteredPapers.length === 0 && !loading && (
           <div className="text-center py-20 bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-300 dark:border-gray-700">
             <div className="bg-gray-50 dark:bg-gray-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <Search className="w-8 h-8 text-gray-400" />
+              {showFavoritesOnly ? <Star className="w-8 h-8 text-yellow-400" /> : <Search className="w-8 h-8 text-gray-400" />}
             </div>
             <h3 className="text-lg font-medium text-gray-900 dark:text-white">No papers found</h3>
-            <p className="text-gray-500 dark:text-gray-400">Try adjusting your search or filters.</p>
+            <p className="text-gray-500 dark:text-gray-400">
+                {showFavoritesOnly ? "You haven't stared any papers yet." : "Try adjusting your search or filters."}
+            </p>
           </div>
         )}
       </main>
