@@ -144,7 +144,7 @@ const PaperCard = ({ paper, language, isStarred, toggleStar }) => {
   const authors = Array.isArray(paper.authors) && paper.authors.length > 0 ? paper.authors : ["Unknown Author"];
   const categories = Array.isArray(paper.categories) && paper.categories.length > 0 ? paper.categories : ["Uncategorized"];
   const tags = Array.isArray(paper.tags) ? paper.tags : [];
-  const indexedDate = paper.indexed_date || "Unknown Date";
+  const indexedDate = paper.submit_date || "Unknown Date";
 
   // Logic
   // Fix 5: Remove Abstract Fallback. If missing, just null or placeholder.
@@ -484,8 +484,8 @@ const App = () => {
         return matchesSearch && matchesTags;
       })
       .sort((a, b) => {
-        const dateA = new Date(a.indexed_date || 0);
-        const dateB = new Date(b.indexed_date || 0);
+        const dateA = new Date(a.submit_date || 0);
+        const dateB = new Date(b.submit_date || 0);
         return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
       });
   }, [papers, searchQuery, selectedTags, sortOrder, showFavoritesOnly, favorites]);
