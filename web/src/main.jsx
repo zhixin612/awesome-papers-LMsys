@@ -10,7 +10,7 @@ import {
   Calendar,
   ChevronLeft,
   ChevronRight,
-  ChevronDown, // 新增：用于下拉菜单
+  ChevronDown,
   FileText,
   User,
   X,
@@ -462,7 +462,8 @@ const App = () => {
         }
 
         const rawArray = Array.isArray(data) ? data : Object.values(data);
-        const validPapers = rawArray.filter(p => p && typeof p === 'object');
+        // 修改点：增加 p.relevant !== false 过滤条件
+        const validPapers = rawArray.filter(p => p && typeof p === 'object' && p.relevant !== false);
 
         console.log(`Loaded ${validPapers.length} papers`);
         setDebugInfo(`Source loaded: ${validPapers.length} items`);
