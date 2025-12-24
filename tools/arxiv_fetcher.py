@@ -63,6 +63,7 @@ def fetch_arxiv_papers(
                     "authors": [a.name for a in r.authors],
                     "categories": r.categories,
                     "id": r.entry_id,
+                    "submit_date": r.updated.strftime("%Y-%m-%d")
                 }
             )
 

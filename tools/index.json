@@ -7270,19 +7270,19 @@
         "tags": [],
         "submit_date": "2025-11-20"
     },
-    "http://arxiv.org/abs/2511.16193v2": {
-        "id": "http://arxiv.org/abs/2511.16193v2",
-        "title": "Fast LLM Post-training via Decoupled and Best-of-N Speculation",
-        "link": "http://arxiv.org/abs/2511.16193v2",
+    "http://arxiv.org/abs/2511.16193v3": {
+        "id": "http://arxiv.org/abs/2511.16193v3",
+        "title": "Fast LLM Post-training via Decoupled and Fastest-of-N Speculation",
+        "link": "http://arxiv.org/abs/2511.16193v3",
         "tags": [
-            "training",
             "RL",
-            "sparse"
+            "serving",
+            "offloading"
         ],
         "relevant": true,
         "indexed_date": "2025-11-20",
-        "tldr": "Accelerates RLHF-like post-training rollout via decoupled speculation and best-of-N drafting. Designs dynamic methods to maximize GPU efficiency and improve speculation accuracy for large batches. Achieves 1.3–1.5× faster speculative decoding than baselines.",
-        "abstract": "Rollout dominates the training time in large language model (LLM) post-training, where the trained model is used to generate tokens given a batch of prompts. SpecActor achieves fast rollout with speculative decoding that deploys a fast path (e.g., a smaller model) to accelerate the unparallelizable generation, while the correctness is guaranteed by fast parallel verification of the outputs with the original model. SpecActor addresses two foundational challenges in speculative rollout by (1) a \\emph{dynamic decoupled speculation} execution method that maximizes the GPU computational efficiency to realize speedup for large-batch execution -- a configuration common in training but unfriendly to speculative execution and (2) a \\emph{dynamic Best-of-N speculation} method that selects and combines different drafting methods according to the rollout progress. It substantially improves the speculation accuracy even when the best drafting method is unknown a priori, meanwhile without requiring adding extra computation resources. {\\sys} is {1.7}\\,$\\times$ faster than veRL in end-to-end training, and is {1.3--1.5}\\,$\\times$ faster compared to baselines with speculative decoding.",
+        "tldr": "Addresses slow rollout in LLM post-training via speculative decoding. Proposes Decoupled and Fastest-of-N methods to improve speculation efficiency and adaptivity. Accelerates mean rollout speed by 2.0-2.4x and end-to-end training by 1.4-2.3x.",
+        "abstract": "Rollout dominates the training time in large language model (LLM) post-training, where the trained model is used to generate tokens given a batch of prompts. This work, SpecActor, achieves fast rollout with speculative decoding that deploys a fast draft path to accelerate the unparallelizable generation, while the correctness is guaranteed by fast parallel verification of the outputs with the original model. SpecActor addresses two foundational challenges that hinder speculation efficiency: (1) a Decoupled speculation method that overcomes the computation inefficiency issue when executing speculative decoding with relative large per-worker batch size -- a common configuration in training but unfriendly to speculation, and (2) a Fastest-of-N speculation method that selects and combines different draft methods according to the rollout progress to approximate the optimal draft method even when the best one is unknown a priori. Extensive evaluations on production traces show that SpecActor accelerates mean rollout speed by 2.0--2.4x, with up to 2.7x speedup, over common post-training baselines. The results are consistent across both dense and MoE models and across different RL algorithms. Notably, SpecActor is 1.1--2.6x faster compared to vanilla speculative rollout in different traces. The accelerated rollout achieves 1.4--2.3x faster end-to-end training time.",
         "authors": [
             "Rongxin Cheng",
             "Kai Zhou",
@@ -31578,7 +31578,7 @@
         ],
         "relevant": true,
         "indexed_date": "2025-08-08",
-        "tldr": null,
+        "tldr": "Proposes a heterogeneity-aware simulator for distributed LLM training to predict training time on heterogeneous compute and network infrastructure. Introduces abstractions for custom device groups and non-uniform workload partitioning. Initial results quantify impact of heterogeneity on computation and communication time.",
         "abstract": "The growing demand for large-scale GPU clusters in distributed model training presents a significant barrier to innovation, particularly in model optimization, performance tuning, and system-level enhancements. To address this challenge, LLM training simulators are employed to estimate training time and guide design decisions. However, the state-of-the-art LLM training simulators assume homogeneous compute and network infrastructure. In practice, device heterogeneity is inevitable due to resource sharing in cloud environments, frequent shifts in device generations, and inherent intra-chip interconnect heterogeneity. To address the gap between state-of-the-art and practical requirements, we propose the design of a heterogeneity-aware distributed LLM simulator capable of predicting training time while enabling abstractions to specify custom configurations for device groups and device-to-parallelism mapping. We present the design requirements and challenges in building a heterogeneity-aware distributed ML training simulator, and design components such as non-uniform workload partitioning. Our initial simulation results demonstrate the impact of heterogeneity on the model computation and communication time.",
         "authors": [
             "Sumit Kumar",
@@ -40721,7 +40721,8 @@
             "diffusion"
         ],
         "tldr": "Proposes FailFast, a diffusion LLM-based speculative decoding framework that dynamically adapts draft length to accelerate autoregressive LLM inference. Achieves up to 4.9× speedup over vanilla decoding with lossless quality.",
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20485v1": {
         "title": "WOC: Dual-Path Weighted Object Consensus Made Efficient",
@@ -40741,7 +40742,8 @@
             "storage"
         ],
         "tldr": "Addresses consensus protocols' inability to handle node heterogeneity and workload independence. Proposes WOC with dual-fast/slow paths using object-specific weighted quorums and leader coordination. Achieves 4× higher throughput than Cabinet for low-contention workloads.",
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20394v1": {
         "title": "Resilient Packet Forwarding: A Reinforcement Learning Approach to Routing in Gaussian Interconnected Networks with Clustered Faults",
@@ -40756,7 +40758,8 @@
         ],
         "id": "http://arxiv.org/abs/2512.20394v1",
         "relevant": false,
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20363v1": {
         "title": "Clust-PSI-PFL: A Population Stability Index Approach for Clustered Non-IID Personalized Federated Learning",
@@ -40778,7 +40781,8 @@
         ],
         "id": "http://arxiv.org/abs/2512.20363v1",
         "relevant": false,
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20210v1": {
         "title": "Predictive-LoRA: A Proactive and Fragmentation-Aware Serverless Inference System for LLMs",
@@ -40802,12 +40806,13 @@
             "serving"
         ],
         "tldr": "Addresses latency and fragmentation in serverless LLM serving with multiple LoRA adapters. Proposes proactive adapter prefetching and page-based memory management. Achieves 35% reduction in average TTFT and 1.52x throughput improvement over prior system.",
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20184v1": {
         "title": "Reaching Agreement Among Reasoning LLM Agents",
         "link": "http://arxiv.org/abs/2512.20184v1",
-        "abstract": "Multi-agent systems have extended the capability of agentic AI. Instead of single inference passes, multiple agents perform collective reasoning to derive high quality answers. However, existing multi-agent orchestration relies on static heuristic workflows such as fixed loop limits and barrier synchronization. These ad-hoc approaches waste computational resources, incur high latency due to stragglers, and risk finalizing transient agreements. We argue that reliable multi-agent reasoning requires a formal foundation analogous to classical distributed consensus problem.\n  To that end, we propose a formal model of the multi-agent refinement problem. The model includes definitions of the correctness guarantees and formal semantics of agent reasoning. We then introduce Aegean, a consensus protocol designed for stochastic reasoning agents that solves multi-agent refinement. We implement the protocol in Aegean-Serve, a consensus-aware serving engine that performs incremental quorum detection across concurrent agent executions, enabling early termination when sufficient agents converge. Evaluation using four mathematical reasoning benchmarks shows that Aegean provides provable safety and liveness guarantees while reducing latency by 1.2--20$\\times$ compared to state-of-the-art baselines, maintaining answer quality within 2.5%. Consistent gains across both local GPU deployments and commercial API providers validate that consensus-based orchestration eliminates straggler delays without sacrificing correctness.",
+        "abstract": "Multi-agent systems have extended the capability of agentic AI. Instead of single inference passes, multiple agents perform collective reasoning to derive high quality answers. However, existing multi-agent orchestration relies on static heuristic workflows such as fixed loop limits and barrier synchronization. These ad-hoc approaches waste computational resources, incur high latency due to stragglers, and risk finalizing transient agreements. We argue that reliable multi-agent reasoning requires a formal foundation analogous to classical distributed consensus problem.   To that end, we propose a formal model of the multi-agent refinement problem. The model includes definitions of the correctness guarantees and formal semantics of agent reasoning. We then introduce Aegean, a consensus protocol designed for stochastic reasoning agents that solves multi-agent refinement. We implement the protocol in Aegean-Serve, a consensus-aware serving engine that performs incremental quorum detection across concurrent agent executions, enabling early termination when sufficient agents converge. Evaluation using four mathematical reasoning benchmarks shows that Aegean provides provable safety and liveness guarantees while reducing latency by 1.2--20$\\times$ compared to state-of-the-art baselines, maintaining answer quality within 2.5%. Consistent gains across both local GPU deployments and commercial API providers validate that consensus-based orchestration eliminates straggler delays without sacrificing correctness.",
         "authors": [
             "Chaoyi Ruan",
             "Yiliang Wang",
@@ -40825,7 +40830,8 @@
             "RL"
         ],
         "tldr": "Proposes Aegean, a consensus protocol for multi-agent reasoning to ensure reliable agreement while reducing latency. Implements a serving engine with incremental quorum detection for early termination. Cuts latency by 1.2-20× compared to baselines while maintaining answer quality within 2.5%.",
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20178v1": {
         "title": "SHIRO: Near-Optimal Communication Strategies for Distributed Sparse Matrix Multiplication",
@@ -40853,12 +40859,13 @@
             "kernel"
         ],
         "tldr": "Addresses high communication overhead in distributed sparse matrix multiplication. Proposes fine-grained sparsity-aware communication and hierarchical strategies leveraging GPU network topologies. Achieves up to 221.5× speedup over baselines at 128-GPU scale.",
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20163v1": {
         "title": "Population Protocols Revisited: Parity and Beyond",
         "link": "http://arxiv.org/abs/2512.20163v1",
-        "abstract": "For nearly two decades, population protocols have been extensively studied, yielding efficient solutions for central problems in distributed computing, including leader election, and majority computation, a predicate type in Presburger Arithmetic closely tied to population protocols. Surprisingly, no protocols have achieved both time- and space-efficiency for congruency predicates, such as parity computation, which are complementary in this arithmetic framework. This gap highlights a significant challenge in the field. To address this gap, we explore the parity problem, where agents are tasked with computing the parity of the given sub-population size. Then we extend the solution for parity to compute congruences modulo an arbitrary $m$.\n  Previous research on efficient population protocols has focused on protocols that minimise both stabilisation time and state utilisation for specific problems. In contrast, this work slightly relaxes this expectation, permitting protocols to place less emphasis on full optimisation and more on universality, robustness, and probabilistic guarantees. This allows us to propose a novel computing paradigm that integrates population weights (or simply weights), a robust clocking mechanism, and efficient anomaly detection coupled with a switching mechanism (which ensures slow but always correct solutions). This paradigm facilitates universal design of efficient multistage stable population protocols. Specifically, the first efficient parity and congruence protocols introduced here use both $O(\\log^3 n)$ states and achieve silent stabilisation in $O(\\log^3 n)$ time. We conclude by discussing the impact of implicit conversion between unary and binary representations enabled by the weight system, with applications to other problems, including the computation and representation of (sub-)population sizes.",
+        "abstract": "For nearly two decades, population protocols have been extensively studied, yielding efficient solutions for central problems in distributed computing, including leader election, and majority computation, a predicate type in Presburger Arithmetic closely tied to population protocols. Surprisingly, no protocols have achieved both time- and space-efficiency for congruency predicates, such as parity computation, which are complementary in this arithmetic framework. This gap highlights a significant challenge in the field. To address this gap, we explore the parity problem, where agents are tasked with computing the parity of the given sub-population size. Then we extend the solution for parity to compute congruences modulo an arbitrary $m$.   Previous research on efficient population protocols has focused on protocols that minimise both stabilisation time and state utilisation for specific problems. In contrast, this work slightly relaxes this expectation, permitting protocols to place less emphasis on full optimisation and more on universality, robustness, and probabilistic guarantees. This allows us to propose a novel computing paradigm that integrates population weights (or simply weights), a robust clocking mechanism, and efficient anomaly detection coupled with a switching mechanism (which ensures slow but always correct solutions). This paradigm facilitates universal design of efficient multistage stable population protocols. Specifically, the first efficient parity and congruence protocols introduced here use both $O(\\log^3 n)$ states and achieve silent stabilisation in $O(\\log^3 n)$ time. We conclude by discussing the impact of implicit conversion between unary and binary representations enabled by the weight system, with applications to other problems, including the computation and representation of (sub-)population sizes.",
         "authors": [
             "Leszek Gąsieniec",
             "Tytus Grodzicki",
@@ -40871,7 +40878,8 @@
         ],
         "id": "http://arxiv.org/abs/2512.20163v1",
         "relevant": false,
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20064v1": {
         "title": "FastMPS: Revisit Data Parallel in Large-scale Matrix Product State Sampling",
@@ -40898,7 +40906,8 @@
             "quantization"
         ],
         "tldr": "Addresses high memory and I/O overhead in large-scale Matrix Product State (MPS) sampling. Proposes Fast-MPS, combining data and tensor parallelism with compression and overlapping techniques. Achieves over 10× speedup and scales to thousands of processes, handling 8,176 sites.",
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.20017v1": {
         "title": "Scaling Point-based Differentiable Rendering for Large-scale Reconstruction",
@@ -40927,7 +40936,8 @@
             "networking"
         ],
         "tldr": "Addresses distributed training inefficiencies in Point-based Differentiable Rendering (PBDR) for large-scale 3D reconstruction. Introduces Gaian, a system unifying PBDR APIs and optimizing data locality to reduce communication. Achieves up to 91% communication reduction and 1.50x-3.71x throughput improvement.",
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.19972v1": {
         "title": "Rethinking Knowledge Distillation in Collaborative Machine Learning: Memory, Knowledge, and Their Interactions",
@@ -40944,7 +40954,8 @@
         ],
         "id": "http://arxiv.org/abs/2512.19972v1",
         "relevant": false,
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-23"
     },
     "http://arxiv.org/abs/2512.19851v1": {
         "title": "An Adaptive Distributed Stencil Abstraction for GPUs",
@@ -40959,12 +40970,13 @@
         ],
         "id": "http://arxiv.org/abs/2512.19851v1",
         "relevant": false,
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-22"
     },
     "http://arxiv.org/abs/2512.19849v1": {
         "title": "UCCL-EP: Portable Expert-Parallel Communication",
         "link": "http://arxiv.org/abs/2512.19849v1",
-        "abstract": "Mixture-of-Experts (MoE) workloads rely on expert parallelism (EP) to achieve high GPU efficiency. State-of-the-art EP communication systems such as DeepEP demonstrate strong performance but exhibit poor portability across heterogeneous GPU and NIC platforms. The poor portability is rooted in architecture: GPU-initiated token-level RDMA communication requires tight vertical integration between GPUs and NICs, e.g., GPU writes to NIC driver/MMIO interfaces.\n  We present UCCL-EP, a portable EP communication system that delivers DeepEP-level performance across heterogeneous GPU and NIC hardware. UCCL-EP replaces GPU-initiated RDMA with a high-throughput GPU-CPU control channel: compact token-routing commands are transferred to multithreaded CPU proxies, which then issue GPUDirect RDMA operations on behalf of GPUs. UCCL-EP further emulates various ordering semantics required by specialized EP communication modes using RDMA immediate data, enabling correctness on NICs that lack such ordering, e.g., AWS EFA. We implement UCCL-EP on NVIDIA and AMD GPUs with EFA and Broadcom NICs. On EFA, it outperforms the best existing EP solution by up to $2.1\\times$ for dispatch and combine throughput. On NVIDIA-only platform, UCCL-EP achieves comparable performance to the original DeepEP. UCCL-EP also improves token throughput on SGLang by up to 40% on the NVIDIA+EFA platform, and improves DeepSeek-V3 training throughput over the AMD Primus/Megatron-LM framework by up to 45% on a 16-node AMD+Broadcom platform.",
+        "abstract": "Mixture-of-Experts (MoE) workloads rely on expert parallelism (EP) to achieve high GPU efficiency. State-of-the-art EP communication systems such as DeepEP demonstrate strong performance but exhibit poor portability across heterogeneous GPU and NIC platforms. The poor portability is rooted in architecture: GPU-initiated token-level RDMA communication requires tight vertical integration between GPUs and NICs, e.g., GPU writes to NIC driver/MMIO interfaces.   We present UCCL-EP, a portable EP communication system that delivers DeepEP-level performance across heterogeneous GPU and NIC hardware. UCCL-EP replaces GPU-initiated RDMA with a high-throughput GPU-CPU control channel: compact token-routing commands are transferred to multithreaded CPU proxies, which then issue GPUDirect RDMA operations on behalf of GPUs. UCCL-EP further emulates various ordering semantics required by specialized EP communication modes using RDMA immediate data, enabling correctness on NICs that lack such ordering, e.g., AWS EFA. We implement UCCL-EP on NVIDIA and AMD GPUs with EFA and Broadcom NICs. On EFA, it outperforms the best existing EP solution by up to $2.1\\times$ for dispatch and combine throughput. On NVIDIA-only platform, UCCL-EP achieves comparable performance to the original DeepEP. UCCL-EP also improves token throughput on SGLang by up to 40% on the NVIDIA+EFA platform, and improves DeepSeek-V3 training throughput over the AMD Primus/Megatron-LM framework by up to 45% on a 16-node AMD+Broadcom platform.",
         "authors": [
             "Ziming Mao",
             "Yihan Zhang",
@@ -40991,7 +41003,8 @@
             "networking"
         ],
         "tldr": "Addresses poor portability of expert-parallel (EP) communication systems across heterogeneous GPU/NIC platforms. Proposes UCCL-EP with GPU-CPU control channel and RDMA emulation for ordering semantics. Achieves up to 2.1× dispatch/combine throughput and 45% training throughput improvement.",
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-22"
     },
     "http://arxiv.org/abs/2512.19842v1": {
         "title": "Holoscope: Open and Lightweight Distributed Telescope & Honeypot Platform",
@@ -41014,7 +41027,8 @@
         ],
         "id": "http://arxiv.org/abs/2512.19842v1",
         "relevant": false,
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-22"
     },
     "http://arxiv.org/abs/2512.19777v1": {
         "title": "Learned Digital Codes for Over-the-Air Computation in Federated Edge Learning",
@@ -41032,6 +41046,7 @@
         ],
         "id": "http://arxiv.org/abs/2512.19777v1",
         "relevant": false,
-        "indexed_date": "2025-12-24"
+        "indexed_date": "2025-12-24",
+        "submit_date": "2025-12-22"
     }
 }
