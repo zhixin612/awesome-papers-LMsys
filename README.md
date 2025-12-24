@@ -11,6 +11,8 @@
 
 `Fetch from arxiv` → `LLM Filter` → `GitHub workflow update`
 
+### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](daily-arxiv-llm.md)
+
 </div>
 
 **👍Conference Papers on LMSys**: [conference.md](conference.md)

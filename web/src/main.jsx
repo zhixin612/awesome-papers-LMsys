@@ -39,7 +39,7 @@ const API_PROVIDERS = {
   siliconflow: {
     name: "SiliconFlow",
     url: "https://api.siliconflow.cn/v1/chat/completions",
-    defaultModel: "deepseek-ai/DeepSeek-V3.2",
+    defaultModel: "moonshotai/Kimi-K2-Thinking",
     models: [
       "moonshotai/Kimi-K2-Thinking",
       "deepseek-ai/DeepSeek-V3.2",
@@ -50,7 +50,7 @@ const API_PROVIDERS = {
   openrouter: {
     name: "OpenRouter",
     url: "https://openrouter.ai/api/v1/chat/completions",
-    defaultModel: "x-ai/grok-code-fast-1",
+    defaultModel: "openai/gpt-5.2",
     models: [
       "openai/gpt-5.2",
       "google/gemini-3-pro-preview",
@@ -851,22 +851,7 @@ const App = () => {
         customPrompt: '',
         redirectionModel: 'chatgpt'
     };
-
-    if (!saved) return defaultSettings;
-
-    // Merge saved settings with default structure to ensure apiKeys exists
-    const parsedSaved = JSON.parse(saved);
-    const merged = { ...defaultSettings, ...parsedSaved };
-
-    // Migration: If user has old 'apiKey' but empty 'apiKeys', migrate it
-    if (parsedSaved.apiKey && (!parsedSaved.apiKeys || !parsedSaved.apiKeys[parsedSaved.provider])) {
-        merged.apiKeys = {
-            ...defaultSettings.apiKeys,
-            [parsedSaved.provider || 'siliconflow']: parsedSaved.apiKey
-        };
-    }
-
-    return merged;
+    return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
   });
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
@@ -1036,6 +1021,10 @@ const App = () => {
             <button onClick={() => setDarkMode(!darkMode)} className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
+
+            <a href="[https://github.com/zhixin612/awesome-papers-LMsys](https://github.com/zhixin612/awesome-papers-LMsys)" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="View on GitHub">
+                <Github className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </header>
