@@ -617,7 +617,11 @@ const PaginationControls = React.memo(({ currentPage, totalPages, onPageChange, 
 const extractCodeLink = (abstract) => {
     const githubRegex = /https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9-._]+/gi;
     const match = abstract.match(githubRegex);
-    return match ? match[0] : null;
+    if (match) {
+        // Fix: Remove trailing dot if captured (common when URL is at the end of a sentence)
+        return match[0].replace(/\.$/, '');
+    }
+    return null;
 };
 
 // --- Paper Card Component ---
