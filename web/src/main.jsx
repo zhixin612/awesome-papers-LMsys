@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
+  ChevronUp,
   FileText,
   User,
   X,
@@ -23,7 +24,6 @@ import {
   Settings,
   MessageSquareText,
   Send,
-  Loader2,
   RefreshCw
 } from 'lucide-react';
 
@@ -35,12 +35,12 @@ const API_PROVIDERS = {
   siliconflow: {
     name: "SiliconFlow",
     url: "https://api.siliconflow.cn/v1/chat/completions",
-    defaultModel: "deepseek-ai/DeepSeek-V2.5"
+    defaultModel: "moonshotai/Kimi-K2-Thinking"
   },
   openrouter: {
     name: "OpenRouter",
     url: "https://openrouter.ai/api/v1/chat/completions",
-    defaultModel: "google/gemini-2.0-flash-exp:free"
+    defaultModel: "openai/gpt-5.2"
   }
 };
 
@@ -176,8 +176,9 @@ const ExplainPanel = ({ paper, settings }) => {
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState(null);
   const abortControllerRef = useRef(null);
+  const hasAutoStarted = useRef(false);
 
-  const handleExplain = async () => {
+  const handleExplain = useCallback(async () => {
     if (!settings.apiKey) {
       setError("Please configure your API Key in Settings first.");
       return;
@@ -186,6 +187,11 @@ const ExplainPanel = ({ paper, settings }) => {
     setIsStreaming(true);
     setResponse("");
     setError(null);
+
+    // Cancel previous request if any
+    if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+    }
     abortControllerRef.current = new AbortController();
 
     const providerConfig = API_PROVIDERS[settings.provider];
@@ -197,7 +203,6 @@ const ExplainPanel = ({ paper, settings }) => {
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${settings.apiKey}`,
-          // OpenRouter specific headers
           ...(settings.provider === 'openrouter' && {
             "HTTP-Referer": window.location.href,
             "X-Title": "Daily MLsys"
@@ -233,7 +238,7 @@ const ExplainPanel = ({ paper, settings }) => {
               const content = data.choices?.[0]?.delta?.content || "";
               setResponse(prev => prev + content);
             } catch (e) {
-              console.warn("Stream parse error", e);
+              // Ignore parse errors for partial chunks
             }
           }
         }
@@ -245,7 +250,7 @@ const ExplainPanel = ({ paper, settings }) => {
     } finally {
       setIsStreaming(false);
     }
-  };
+  }, [paper, settings]);
 
   const handleStop = () => {
     if (abortControllerRef.current) {
@@ -254,14 +259,19 @@ const ExplainPanel = ({ paper, settings }) => {
     }
   };
 
-  // Auto start if empty
+  // Auto start on mount
   useEffect(() => {
-    if (!response && !isStreaming && !error) {
-        // Optional: Auto start. For now let's require a click to save cost,
-        // or we can simulate a click. Let's make it manual for safety/cost but show a big button.
-        // handleExplain();
+    if (!hasAutoStarted.current) {
+        hasAutoStarted.current = true;
+        handleExplain();
     }
-  }, []);
+    return () => {
+        // Cleanup on unmount
+        if (abortControllerRef.current) {
+            abortControllerRef.current.abort();
+        }
+    };
+  }, [handleExplain]);
 
   return (
     <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
@@ -271,7 +281,7 @@ const ExplainPanel = ({ paper, settings }) => {
           {response || (!isStreaming && !error && (
             <div className="flex flex-col items-center justify-center h-40 text-gray-400">
               <Bot className="w-8 h-8 mb-2 opacity-50" />
-              <p>Click "Generate" to explain this paper using {API_PROVIDERS[settings.provider].name}.</p>
+              <p>Waiting to start...</p>
             </div>
           ))}
           {error && (
@@ -301,7 +311,7 @@ const ExplainPanel = ({ paper, settings }) => {
   );
 };
 
-// --- Pagination (Unchanged) ---
+// --- Pagination ---
 const PaginationControls = React.memo(({ currentPage, totalPages, onPageChange, itemsPerPage, onItemsPerPageChange }) => {
   const [inputPage, setInputPage] = useState(currentPage);
   useEffect(() => { setInputPage(currentPage); }, [currentPage]);
@@ -349,8 +359,8 @@ const extractCodeLink = (abstract) => {
 
 // --- Paper Card Component ---
 
-const PaperCard = React.memo(({ paper, language, isStarred, toggleStar, askAiModel, aiSettings }) => {
-  const [activeView, setActiveView] = useState('none'); // 'none', 'pdf', 'explain'
+const PaperCard = React.memo(({ paper, isStarred, toggleStar, askAiModel, aiSettings }) => {
+  const [activeView, setActiveView] = useState('none');
   const [copied, setCopied] = useState(null);
 
   // Resizable PDF
@@ -364,10 +374,7 @@ const PaperCard = React.memo(({ paper, language, isStarred, toggleStar, askAiMod
   const categories = Array.isArray(paper.categories) && paper.categories.length > 0 ? paper.categories : ["Uncategorized"];
   const tags = Array.isArray(paper.tags) ? paper.tags : [];
   const submitDate = paper.submit_date || "Unknown Date";
-
-  const tldrEn = paper.tldr || null;
-  const tldrZh = paper.tldr_zh || tldrEn;
-  const tldrText = language === 'zh' ? tldrZh : tldrEn;
+  const tldrText = paper.tldr || null;
 
   // Prompt Construction for External Links
   const prompt = `${aiSettings.customPrompt || DEFAULT_PROMPT}\n\nPaper Title: ${title}\nLink: ${link}`;
@@ -382,7 +389,6 @@ const PaperCard = React.memo(({ paper, language, isStarred, toggleStar, askAiMod
             url = `http://kimi.com/_prefill_chat?prefill_prompt=${encodedPrompt}&send_immediately=true&force_search=false&enable_reasoning=false`;
             break;
         case 'chatgpt':
-            // ChatGPT via query param usually puts it in the box but might not send
             url = `https://chatgpt.com/?q=${encodedPrompt}`;
             break;
         default:
@@ -491,8 +497,7 @@ const PaperCard = React.memo(({ paper, language, isStarred, toggleStar, askAiMod
                     <ExternalLink className="w-4 h-4" />
                  </a>
                  <button onClick={handleAskAI} className="h-full flex items-center px-2.5 hover:bg-white dark:hover:bg-gray-600 border-r border-gray-200 dark:border-gray-600 transition-colors text-purple-600 dark:text-purple-400 group/ai" title={`Ask ${askAiModel.toUpperCase()}`}>
-                    <Sparkles className="w-4 h-4 mr-1 group-hover/ai:animate-pulse" />
-                    <span className="text-xs font-bold uppercase hidden xl:inline">{askAiModel}</span>
+                    <Bot className="w-4 h-4 group-hover/ai:animate-bounce" />
                  </button>
                  <button onClick={toggleStar} className={`h-full flex items-center px-2.5 transition-colors ${isStarred ? 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-500 hover:bg-yellow-100 dark:hover:bg-yellow-900/40' : 'hover:bg-white dark:hover:bg-gray-600 text-gray-400 hover:text-yellow-500'}`} title={isStarred ? "Remove from favorites" : "Save for later"}>
                     <Star className={`w-4 h-4 ${isStarred ? 'fill-current' : ''}`} />
@@ -555,18 +560,18 @@ const App = () => {
   const [debugInfo, setDebugInfo] = useState("");
 
   const [darkMode, setDarkMode] = useState(() => window.matchMedia('(prefers-color-scheme: dark)').matches);
-  const [language, setLanguage] = useState('en');
+  // Removed language state as requested
 
   // Ask AI External Model Selection
   const [askAiModel, setAskAiModel] = useState('chatgpt');
 
-  // AI API Settings (SiliconFlow / OpenRouter)
+  // AI API Settings
   const [aiSettings, setAiSettings] = useState(() => {
     const saved = localStorage.getItem('daily_arxiv_ai_settings');
     return saved ? JSON.parse(saved) : {
         provider: 'siliconflow',
         apiKey: '',
-        model: 'deepseek-ai/DeepSeek-V2.5',
+        model: 'moonshotai/Kimi-K2-Thinking',
         customPrompt: ''
     };
   });
@@ -587,6 +592,7 @@ const App = () => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [sortOrder, setSortOrder] = useState('newest');
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const [tagsExpanded, setTagsExpanded] = useState(false);
 
   // Favorites
   const [favorites, setFavorites] = useState(() => {
@@ -644,11 +650,21 @@ const App = () => {
     loadData();
   }, []);
 
-  // Filtering
+  // Sorted Tags
   const allTags = useMemo(() => {
-    const tags = new Set();
-    papers.forEach(p => { if (Array.isArray(p.tags)) p.tags.forEach(t => tags.add(t)); });
-    return Array.from(tags).sort();
+    const counts = {};
+    papers.forEach(p => {
+        if (Array.isArray(p.tags)) {
+            p.tags.forEach(t => {
+                counts[t] = (counts[t] || 0) + 1;
+            });
+        }
+    });
+    // Sort by count desc, then alpha
+    return Object.keys(counts).sort((a, b) => {
+        const diff = counts[b] - counts[a];
+        return diff !== 0 ? diff : a.localeCompare(b);
+    });
   }, [papers]);
 
   const filteredPapers = useMemo(() => {
@@ -720,7 +736,6 @@ const App = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Ask AI Model Selector */}
             <div className="relative group">
                 <div className="hidden sm:flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg pl-2 pr-1 border border-gray-200 dark:border-gray-700 h-8 hover:border-gray-300 dark:hover:border-gray-600 transition-colors cursor-pointer">
                     <Bot className="w-3.5 h-3.5 text-gray-500 mr-1.5" />
@@ -732,14 +747,10 @@ const App = () => {
                 </div>
             </div>
 
-            {/* AI Settings Button */}
             <button onClick={() => setIsSettingsOpen(true)} className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Configure AI Settings">
                 <Settings className="w-4 h-4" />
             </button>
 
-            <button onClick={() => setLanguage(l => l === 'en' ? 'zh' : 'en')} className="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700">
-              {language === 'en' ? '中' : 'EN'}
-            </button>
             <button onClick={() => setDarkMode(!darkMode)} className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -752,7 +763,7 @@ const App = () => {
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input type="text" placeholder={language === 'en' ? "Search title, abstract, authors..." : "搜索标题、摘要、作者..."} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
+              <input type="text" placeholder="Search title, abstract, authors..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
             </div>
             <div className="flex gap-2 shrink-0">
                <button onClick={() => setShowFavoritesOnly(!showFavoritesOnly)} className={`px-4 py-2.5 rounded-lg border text-sm font-medium transition-all flex items-center gap-2 ${showFavoritesOnly ? 'bg-yellow-50 border-yellow-200 text-yellow-700 dark:bg-yellow-900/20 dark:border-yellow-800 dark:text-yellow-400' : 'bg-gray-50 border-gray-200 text-gray-700 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300'}`}>
@@ -766,12 +777,30 @@ const App = () => {
             </div>
           </div>
           {allTags.length > 0 && (
-            <div className="flex flex-wrap gap-2 items-center pt-2 border-t border-gray-100 dark:border-gray-700">
-              <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide"><Filter className="w-4 h-4 mr-1.5" />Tags:</span>
-              {allTags.map(tag => (
-                <button key={tag} onClick={() => toggleTag(tag)} className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${selectedTags.includes(tag) ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}>{tag}</button>
-              ))}
-              {selectedTags.length > 0 && <button onClick={() => setSelectedTags([])} className="text-sm text-red-500 hover:text-red-600 font-medium ml-2 underline decoration-dashed underline-offset-4">Reset</button>}
+            <div className="pt-2 border-t border-gray-100 dark:border-gray-700 flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide shrink-0"><Filter className="w-4 h-4 mr-1.5" />Tags:</span>
+                  <button onClick={() => setSelectedTags([])} className="text-sm text-red-500 hover:text-red-600 font-medium ml-auto underline decoration-dashed underline-offset-4">Reset</button>
+              </div>
+
+              <div className={`flex flex-wrap gap-2 transition-all duration-300 ease-in-out overflow-hidden ${tagsExpanded ? 'max-h-[500px]' : 'max-h-[32px]'}`}>
+                {allTags.map(tag => (
+                    <button key={tag} onClick={() => toggleTag(tag)} className={`px-3 py-1 rounded-md text-sm font-medium transition-all h-[32px] whitespace-nowrap ${selectedTags.includes(tag) ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}>{tag}</button>
+                ))}
+              </div>
+
+              {/* Expand/Collapse Button */}
+              {allTags.length > 0 && (
+                  <div className="flex justify-center -mt-1">
+                      <button
+                        onClick={() => setTagsExpanded(!tagsExpanded)}
+                        className="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 transition-colors"
+                        title={tagsExpanded ? "Show Less" : "Show More"}
+                      >
+                          {tagsExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </button>
+                  </div>
+              )}
             </div>
           )}
         </div>
@@ -783,7 +812,7 @@ const App = () => {
 
         <div className="flex flex-col gap-4">
           {currentPapers.map((paper, idx) => (
-            <PaperCard key={paper.id || idx} paper={paper} language={language} isStarred={favorites.includes(paper.id)} toggleStar={() => toggleFavorite(paper.id)} askAiModel={askAiModel} aiSettings={aiSettings} />
+            <PaperCard key={paper.id || idx} paper={paper} isStarred={favorites.includes(paper.id)} toggleStar={() => toggleFavorite(paper.id)} askAiModel={askAiModel} aiSettings={aiSettings} />
           ))}
         </div>
 
