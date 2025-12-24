@@ -28,7 +28,7 @@ import {
   Zap,
   RotateCcw,
   ShieldCheck,
-  AlertCircle
+  Loader2 // Imported Loader2 for spinner
 } from 'lucide-react';
 
 // --- Constants ---
@@ -65,6 +65,46 @@ const REDIRECTION_MODELS = {
   kimi: "Kimi"
 };
 
+// --- Helper Functions ---
+
+// Fetch paper content using Jina Reader to bypass CORS and get Markdown
+const fetchPaperContent = async (link, abstract) => {
+    if (!link) return abstract;
+
+    // Convert /abs/ to /html/ for better full text extraction
+    // Example: https://arxiv.org/abs/2512.19342 -> https://arxiv.org/html/2512.19342
+    const htmlLink = link.replace('/abs/', '/html/');
+    const jinaUrl = `https://r.jina.ai/${htmlLink}`;
+
+    try {
+        console.log(`Fetching content from ${jinaUrl}...`);
+        const res = await fetch(jinaUrl);
+        if (!res.ok) throw new Error("Failed to fetch via Jina");
+
+        const text = await res.text();
+
+        // Basic validation: If text is too short or looks like an error page, fallback
+        if (text.length < 500 || text.includes("404 Not Found") || text.includes("ArXiv HTML")) {
+             console.warn("Fetched content seems invalid or short, falling back to abstract.");
+             return `(Full text fetch failed, using abstract)\n\n${abstract}`;
+        }
+
+        return text;
+    } catch (e) {
+        console.warn("Failed to fetch full paper content, falling back to abstract.", e);
+        return `(Full text fetch failed, using abstract)\n\n${abstract}`;
+    }
+};
+
+const extractCodeLink = (abstract) => {
+    const githubRegex = /https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9-._]+/gi;
+    const match = abstract.match(githubRegex);
+    if (match) {
+        return match[0].replace(/\.$/, '');
+    }
+    return null;
+};
+
 // --- Components ---
 
 const Badge = React.memo(({ children, className = "", onClick }) => (
@@ -94,19 +134,14 @@ const Button = React.memo(({ children, onClick, variant = 'primary', className =
   );
 });
 
-// --- Enhanced Markdown Renderer ---
-// Supports: Headers, Lists, Code Blocks, Bold, Inline Code, Horizontal Rules, Blockquotes, Basic Math
+// --- Simple Markdown Renderer ---
 const SimpleMarkdown = React.memo(({ text }) => {
   if (!text) return null;
-
-  // 1. Pre-process: Handle Code Blocks first to avoid formatting inside them
   const parts = text.split(/(```[\s\S]*?```)/g);
-
   return (
     <div className="space-y-2 text-sm leading-relaxed text-gray-800 dark:text-gray-200 markdown-body">
       {parts.map((part, index) => {
         if (part.startsWith('```')) {
-          // Code Block
           const content = part.replace(/^```\w*\n?|```$/g, '');
           return (
             <div key={index} className="bg-gray-100 dark:bg-gray-800 p-3 rounded-md overflow-x-auto border border-gray-200 dark:border-gray-700 my-2">
@@ -114,52 +149,31 @@ const SimpleMarkdown = React.memo(({ text }) => {
             </div>
           );
         }
-
-        // Process non-code text line by line for block elements
         const lines = part.split('\n');
         const elements = [];
-        let currentList = null; // 'ul' or 'ol'
-
+        let currentList = null;
         lines.forEach((line, i) => {
           const trimmed = line.trim();
-
-          // Horizontal Rule
           if (trimmed === '---' || trimmed === '***') {
              elements.push(<hr key={i} className="my-4 border-gray-200 dark:border-gray-700" />);
              return;
           }
-
-          // Headers
           if (trimmed.startsWith('#')) {
             const level = trimmed.match(/^#+/)[0].length;
             const content = trimmed.replace(/^#+\s*/, '');
             const fontSize = level === 1 ? 'text-xl' : level === 2 ? 'text-lg' : 'text-base';
-            elements.push(
-                <div key={i} className={`${fontSize} font-bold mt-4 mb-2 text-gray-900 dark:text-white`}>
-                    {renderInline(content)}
-                </div>
-            );
+            elements.push(<div key={i} className={`${fontSize} font-bold mt-4 mb-2 text-gray-900 dark:text-white`}>{renderInline(content)}</div>);
             return;
           }
-
-          // Blockquote
           if (trimmed.startsWith('>')) {
-              elements.push(
-                  <div key={i} className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 py-1 my-2 text-gray-600 dark:text-gray-400 italic">
-                      {renderInline(trimmed.replace(/^>\s*/, ''))}
-                  </div>
-              );
+              elements.push(<div key={i} className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 py-1 my-2 text-gray-600 dark:text-gray-400 italic">{renderInline(trimmed.replace(/^>\s*/, ''))}</div>);
               return;
           }
-
-          // Lists
           const isUl = trimmed.startsWith('- ') || trimmed.startsWith('* ');
           const isOl = /^\d+\.\s/.test(trimmed);
-
           if (isUl || isOl) {
              const content = trimmed.replace(/^([-*]|\d+\.)\s+/, '');
              const item = <li key={`li-${i}`} className="ml-4">{renderInline(content)}</li>;
-
              if (!currentList || currentList.type !== (isUl ? 'ul' : 'ol')) {
                  currentList = { type: isUl ? 'ul' : 'ol', items: [item], key: i };
                  elements.push(currentList);
@@ -167,15 +181,12 @@ const SimpleMarkdown = React.memo(({ text }) => {
                  currentList.items.push(item);
              }
           } else {
-             // Reset list if line is empty or normal text
              currentList = null;
              if (trimmed.length > 0) {
                  elements.push(<p key={i} className="my-1.5 min-h-[1em]">{renderInline(line)}</p>);
              }
           }
         });
-
-        // Render collected elements (expanding the list objects)
         return (
             <div key={index}>
                 {elements.map((el, idx) => {
@@ -190,23 +201,14 @@ const SimpleMarkdown = React.memo(({ text }) => {
   );
 });
 
-// Helper for inline formatting (Bold, Code, Math)
 const renderInline = (text) => {
     if (!text) return null;
-    // Regex for: **Bold**, `Code`, $Math$
     const regex = /(\*\*.*?\*\*|`.*?`|\$.*?\$)/g;
     const parts = text.split(regex);
-
     return parts.map((part, i) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-            return <strong key={i}>{part.slice(2, -2)}</strong>;
-        }
-        if (part.startsWith('`') && part.endsWith('`')) {
-            return <code key={i} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{part.slice(1, -1)}</code>;
-        }
-        if (part.startsWith('$') && part.endsWith('$')) {
-             return <span key={i} className="font-serif italic text-blue-600 dark:text-blue-400 px-0.5">{part.slice(1, -1)}</span>;
-        }
+        if (part.startsWith('**') && part.endsWith('**')) return <strong key={i}>{part.slice(2, -2)}</strong>;
+        if (part.startsWith('`') && part.endsWith('`')) return <code key={i} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{part.slice(1, -1)}</code>;
+        if (part.startsWith('$') && part.endsWith('$')) return <span key={i} className="font-serif italic text-blue-600 dark:text-blue-400 px-0.5">{part.slice(1, -1)}</span>;
         return part;
     });
 };
@@ -218,29 +220,19 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
   const [showModelDropdown, setShowModelDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Initialize missing apiKeys structure if old version exists
   useEffect(() => {
     if (isOpen) {
         let initializedSettings = { ...settings };
         if (!initializedSettings.apiKeys) {
-            initializedSettings.apiKeys = {
-                siliconflow: '',
-                openrouter: ''
-            };
-            // Migrating old single key if needed, or just leave blank
-            if (initializedSettings.apiKey) {
-               // Try to guess or just let user re-enter to be safe/clean
-               // For now, let's assume if provider matches, assign it
-               if (initializedSettings.provider) {
+            initializedSettings.apiKeys = { siliconflow: '', openrouter: '' };
+            if (initializedSettings.apiKey && initializedSettings.provider) {
                    initializedSettings.apiKeys[initializedSettings.provider] = initializedSettings.apiKey;
-               }
             }
         }
         setFormData(initializedSettings);
     }
   }, [isOpen, settings]);
 
-  // Click outside to close custom dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -260,24 +252,15 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
   const handleApiKeyChange = (value) => {
       setFormData(prev => ({
           ...prev,
-          apiKeys: {
-              ...prev.apiKeys,
-              [prev.provider]: value
-          }
+          apiKeys: { ...prev.apiKeys, [prev.provider]: value }
       }));
   };
 
   const currentProviderConfig = API_PROVIDERS[formData.provider];
-  // Get current key based on provider
   const currentApiKey = formData.apiKeys ? formData.apiKeys[formData.provider] : '';
 
-  const handleResetModel = () => {
-    handleChange('model', currentProviderConfig.defaultModel);
-  };
-
-  const handleResetPrompt = () => {
-    handleChange('customPrompt', "");
-  };
+  const handleResetModel = () => { handleChange('model', currentProviderConfig.defaultModel); };
+  const handleResetPrompt = () => { handleChange('customPrompt', ""); };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200">
@@ -293,7 +276,6 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
         </div>
 
         <div className="p-6 overflow-y-auto space-y-8">
-          {/* Explain Settings */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-800">
                 <MessageSquareText className="w-4 h-4 text-blue-500" />
@@ -307,8 +289,6 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
                 onChange={(e) => {
                   const newProvider = e.target.value;
                   handleChange('provider', newProvider);
-                  // Auto switch model if needed, or keep current if valid?
-                  // Better to switch to default to ensure compatibility
                   handleChange('model', API_PROVIDERS[newProvider].defaultModel);
                 }}
                 className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white cursor-pointer"
@@ -393,7 +373,6 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
             </div>
           </div>
 
-          {/* Redirection Settings */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-800">
                 <ExternalLink className="w-4 h-4 text-purple-500" />
@@ -428,7 +407,7 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
 
 const ExplainPanel = ({ paper, settings, className }) => {
   const [response, setResponse] = useState("");
-  const [isStreaming, setIsStreaming] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle, fetching_content, generating
   const [error, setError] = useState(null);
   const abortControllerRef = useRef(null);
   const hasAutoStarted = useRef(false);
@@ -439,10 +418,11 @@ const ExplainPanel = ({ paper, settings, className }) => {
 
     if (!currentKey) {
       setError("Please configure your API Key in Settings first.");
+      setStatus("idle");
       return;
     }
 
-    setIsStreaming(true);
+    setStatus("fetching_content");
     setResponse("");
     setError(null);
 
@@ -451,68 +431,82 @@ const ExplainPanel = ({ paper, settings, className }) => {
     }
     abortControllerRef.current = new AbortController();
 
-    const providerConfig = API_PROVIDERS[settings.provider];
-    const promptText = (settings.customPrompt || DEFAULT_PROMPT) + `\n\nPaper Title: ${paper.title}\nLink: ${paper.link}`;
-
     try {
-      const res = await fetch(providerConfig.url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${currentKey}`,
-          ...(settings.provider === 'openrouter' && {
-            "HTTP-Referer": window.location.href,
-            "X-Title": "Daily MLsys"
-          })
-        },
-        body: JSON.stringify({
-          model: settings.model,
-          messages: [{ role: "user", content: promptText }],
-          stream: true
-        }),
-        signal: abortControllerRef.current.signal
-      });
+        // 1. Fetch content (bypass CORS via Jina)
+        const content = await fetchPaperContent(paper.link, paper.abstract);
 
-      if (!res.ok) {
-        const errData = await res.json().catch(() => ({}));
-        throw new Error(errData.error?.message || `API Error: ${res.status}`);
-      }
+        // Check if aborted during fetch
+        if (abortControllerRef.current.signal.aborted) return;
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder("utf-8");
+        setStatus("generating");
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+        const providerConfig = API_PROVIDERS[settings.provider];
+        const systemPrompt = settings.customPrompt || DEFAULT_PROMPT;
+        const userPrompt = `Title: ${paper.title}\nURL: ${paper.link}\n\nContent:\n${content}`;
 
-        const chunk = decoder.decode(value, { stream: true });
-        const lines = chunk.split("\n");
+        const res = await fetch(providerConfig.url, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${currentKey}`,
+            ...(settings.provider === 'openrouter' && {
+                "HTTP-Referer": window.location.href,
+                "X-Title": "Daily MLsys"
+            })
+            },
+            body: JSON.stringify({
+            model: settings.model,
+            messages: [
+                { role: "system", content: systemPrompt },
+                { role: "user", content: userPrompt }
+            ],
+            stream: true
+            }),
+            signal: abortControllerRef.current.signal
+        });
 
-        for (const line of lines) {
-          if (line.startsWith("data: ") && line !== "data: [DONE]") {
-            try {
-              const data = JSON.parse(line.slice(6));
-              const content = data.choices?.[0]?.delta?.content || "";
-              setResponse(prev => prev + content);
-            } catch (e) {
-              // Ignore partial chunks
-            }
-          }
+        if (!res.ok) {
+            const errData = await res.json().catch(() => ({}));
+            throw new Error(errData.error?.message || `API Error: ${res.status}`);
         }
-      }
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunk = decoder.decode(value, { stream: true });
+            const lines = chunk.split("\n");
+
+            for (const line of lines) {
+                if (line.startsWith("data: ") && line !== "data: [DONE]") {
+                    try {
+                        const data = JSON.parse(line.slice(6));
+                        const content = data.choices?.[0]?.delta?.content || "";
+                        setResponse(prev => prev + content);
+                    } catch (e) {
+                        // Ignore partial chunks
+                    }
+                }
+            }
+        }
     } catch (err) {
       if (err.name !== 'AbortError') {
         setError(err.message);
       }
     } finally {
-      setIsStreaming(false);
+      if (abortControllerRef.current && !abortControllerRef.current.signal.aborted) {
+          setStatus("idle");
+      }
     }
   }, [paper, settings]);
 
   const handleStop = () => {
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
-      setIsStreaming(false);
+      setStatus("idle");
     }
   };
 
@@ -535,12 +529,20 @@ const ExplainPanel = ({ paper, settings, className }) => {
         <div className="flex-1 font-sans">
           {response ? (
             <SimpleMarkdown text={response} />
-          ) : (!isStreaming && !error && (
+          ) : (status !== 'idle' && !error && (
             <div className="flex flex-col items-center justify-center h-40 text-gray-400">
-              <Bot className="w-8 h-8 mb-2 opacity-50" />
-              <p>Waiting to start...</p>
+              <Loader2 className="w-8 h-8 mb-2 animate-spin text-blue-500" />
+              <p className="text-sm font-medium">
+                  {status === 'fetching_content' ? "Reading paper content..." : "Thinking..."}
+              </p>
             </div>
           ))}
+          {!response && status === 'idle' && !error && (
+             <div className="flex flex-col items-center justify-center h-40 text-gray-400">
+                <Bot className="w-8 h-8 mb-2 opacity-50" />
+                <p>Waiting to start...</p>
+             </div>
+          )}
           {error && (
             <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-md text-sm border border-red-200 dark:border-red-800">
               Error: {error}
@@ -555,12 +557,13 @@ const ExplainPanel = ({ paper, settings, className }) => {
                 {settings.model}
             </div>
             <div className="flex items-center gap-3">
-                {isStreaming && (
-                    <span className="text-xs text-gray-400 animate-pulse hidden sm:inline">
-                        Waiting long? Try switching models.
+                {status === 'generating' && (
+                    <span className="text-xs text-gray-400 animate-pulse hidden sm:inline flex items-center">
+                        <AlertCircle className="w-3 h-3 mr-1" />
+                        Slow? Try switching models.
                     </span>
                 )}
-                {isStreaming ? (
+                {status !== 'idle' ? (
                     <Button onClick={handleStop} variant="danger" icon={X}>Stop</Button>
                 ) : (
                     <Button onClick={handleExplain} variant="primary" icon={response ? RefreshCw : Send}>
@@ -614,15 +617,7 @@ const PaginationControls = React.memo(({ currentPage, totalPages, onPageChange, 
 });
 
 // --- Helper Functions ---
-const extractCodeLink = (abstract) => {
-    const githubRegex = /https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9-._]+/gi;
-    const match = abstract.match(githubRegex);
-    if (match) {
-        // Fix: Remove trailing dot if captured (common when URL is at the end of a sentence)
-        return match[0].replace(/\.$/, '');
-    }
-    return null;
-};
+// (Already updated above)
 
 // --- Paper Card Component ---
 
@@ -851,7 +846,22 @@ const App = () => {
         customPrompt: '',
         redirectionModel: 'chatgpt'
     };
-    return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
+
+    if (!saved) return defaultSettings;
+
+    // Merge saved settings with default structure to ensure apiKeys exists
+    const parsedSaved = JSON.parse(saved);
+    const merged = { ...defaultSettings, ...parsedSaved };
+
+    // Migration: If user has old 'apiKey' but empty 'apiKeys', migrate it
+    if (parsedSaved.apiKey && (!parsedSaved.apiKeys || !parsedSaved.apiKeys[parsedSaved.provider])) {
+        merged.apiKeys = {
+            ...defaultSettings.apiKeys,
+            [parsedSaved.provider || 'siliconflow']: parsedSaved.apiKey
+        };
+    }
+
+    return merged;
   });
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
