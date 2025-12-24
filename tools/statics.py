@@ -131,7 +131,7 @@ TAGS = {  # tags that relate to LLM systems
     "networking":       "leverage or introduce new networking or transfer techniques",
     # "others":           "other LLM system topics not covered above",
     "disaggregation":   "leverage prefill/decode disaggregation or attention/ffn disaggregation techniques",
-    "autoscaling":      "targeted at LLM autoscaling techniques to serve dynamic workloads",
+    "scaling":      "targeted at LLM resource scaling techniques to serve dynamic workloads",
     "recommendation":   "optimize the inference or training efficiency of generative recommendation models",
 }
 

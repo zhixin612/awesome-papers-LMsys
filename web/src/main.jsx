@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback, useDeferredValue } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   Search,
@@ -22,18 +22,18 @@ import {
   Bot
 } from 'lucide-react';
 
-// --- Components ---
+// --- Components (Optimized with React.memo) ---
 
-const Badge = ({ children, className = "", onClick }) => (
+const Badge = React.memo(({ children, className = "", onClick }) => (
   <span
     onClick={onClick}
     className={`inline-flex items-center px-2 py-0.5 rounded text-sm font-medium transition-colors border ${onClick ? 'cursor-pointer hover:opacity-80' : ''} ${className}`}
   >
     {children}
   </span>
-);
+));
 
-const Button = ({ children, onClick, variant = 'primary', className = "", icon: Icon, disabled, title }) => {
+const Button = React.memo(({ children, onClick, variant = 'primary', className = "", icon: Icon, disabled, title }) => {
   const baseStyle = "inline-flex items-center justify-center px-2 py-1 text-xs font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed";
   const variants = {
     primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500 border-transparent",
@@ -49,10 +49,10 @@ const Button = ({ children, onClick, variant = 'primary', className = "", icon: 
       {children}
     </button>
   );
-};
+});
 
 // 分页组件
-const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPage, onItemsPerPageChange }) => {
+const PaginationControls = React.memo(({ currentPage, totalPages, onPageChange, itemsPerPage, onItemsPerPageChange }) => {
   const [inputPage, setInputPage] = useState(currentPage);
 
   useEffect(() => {
@@ -120,7 +120,7 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange, itemsPerPag
       </div>
     </div>
   );
-};
+});
 
 // --- Helper Functions ---
 
@@ -130,9 +130,9 @@ const extractCodeLink = (abstract) => {
     return match ? match[0] : null;
 };
 
-// --- Paper Card Component ---
+// --- Paper Card Component (Optimized with React.memo) ---
 
-const PaperCard = ({ paper, language, isStarred, toggleStar, aiModel }) => {
+const PaperCard = React.memo(({ paper, language, isStarred, toggleStar, aiModel }) => {
   const [showPdf, setShowPdf] = useState(false);
   const [copied, setCopied] = useState(null);
 
@@ -156,7 +156,7 @@ const PaperCard = ({ paper, language, isStarred, toggleStar, aiModel }) => {
   // AI Prompt & Link Generation
   const prompt = `Please analyze this paper for me based on its application in Large Model System Optimization: ${title}. Link: ${link}`;
 
-  const handleAskAI = (e) => {
+  const handleAskAI = useCallback((e) => {
     e.preventDefault();
     if (aiModel !== 'gemini') {
         navigator.clipboard.writeText(prompt);
@@ -177,18 +177,18 @@ const PaperCard = ({ paper, language, isStarred, toggleStar, aiModel }) => {
             url = `https://gemini.google.com/app?text=${encodeURIComponent(prompt)}`;
     }
     window.open(url, '_blank');
-  };
+  }, [aiModel, prompt]);
 
   const pdfUrl = link.replace(/^http:/, 'https:').replace('/abs/', '/pdf/') + ".pdf";
   const formatCategory = (cat) => cat ? cat.replace(/^cs\./, '') : 'N/A';
   const codeLink = extractCodeLink(paper.abstract || "");
 
-  const handleCopyShare = () => {
+  const handleCopyShare = useCallback(() => {
     const text = `${title}\n${link}`;
     navigator.clipboard.writeText(text);
     setCopied('share');
     setTimeout(() => setCopied(null), 2000);
-  };
+  }, [title, link]);
 
   // --- Resizable Logic ---
   const handleMouseDown = useCallback((e) => {
@@ -375,7 +375,7 @@ const PaperCard = ({ paper, language, isStarred, toggleStar, aiModel }) => {
       </div>
     </div>
   );
-};
+});
 
 // --- Main Application ---
 
@@ -397,6 +397,9 @@ const App = () => {
 
   // Filter State
   const [searchQuery, setSearchQuery] = useState('');
+  // 1. Performance: Use DeferredValue for search input to prevent UI blocking
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+
   const [selectedTags, setSelectedTags] = useState([]);
   const [sortOrder, setSortOrder] = useState('newest');
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
@@ -414,11 +417,12 @@ const App = () => {
     localStorage.setItem('daily_arxiv_favorites', JSON.stringify(favorites));
   }, [favorites]);
 
-  const toggleFavorite = (id) => {
+  // 2. Performance: useCallback guarantees the function reference is stable
+  const toggleFavorite = useCallback((id) => {
     setFavorites(prev =>
         prev.includes(id) ? prev.filter(fid => fid !== id) : [...prev, id]
     );
-  };
+  }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(30);
@@ -462,7 +466,6 @@ const App = () => {
         }
 
         const rawArray = Array.isArray(data) ? data : Object.values(data);
-        // 修改点：增加 p.relevant !== false 过滤条件
         const validPapers = rawArray.filter(p => p && typeof p === 'object' && p.relevant !== false);
 
         console.log(`Loaded ${validPapers.length} papers`);
@@ -508,7 +511,8 @@ const App = () => {
         const authors = Array.isArray(paper.authors) ? paper.authors : [];
         const paperTags = Array.isArray(paper.tags) ? paper.tags : [];
 
-        const query = searchQuery.toLowerCase();
+        // 3. Performance: Use deferred value for filtering
+        const query = deferredSearchQuery.toLowerCase();
         const matchesSearch =
           title.includes(query) ||
           abstract.includes(query) ||
@@ -524,13 +528,13 @@ const App = () => {
         const dateB = new Date(b.submit_date || 0);
         return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
       });
-  }, [papers, searchQuery, selectedTags, sortOrder, showFavoritesOnly, favorites]);
+  }, [papers, deferredSearchQuery, selectedTags, sortOrder, showFavoritesOnly, favorites]);
 
   const totalPages = Math.ceil(filteredPapers.length / itemsPerPage);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, selectedTags, sortOrder, itemsPerPage, showFavoritesOnly]);
+  }, [deferredSearchQuery, selectedTags, sortOrder, itemsPerPage, showFavoritesOnly]);
 
   const currentPapers = useMemo(() => {
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -538,21 +542,21 @@ const App = () => {
     return filteredPapers.slice(indexOfFirstItem, indexOfLastItem);
   }, [filteredPapers, currentPage, itemsPerPage]);
 
-  const toggleTag = (tag) => {
+  const toggleTag = useCallback((tag) => {
     setSelectedTags(prev =>
       prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
     );
-  };
+  }, []);
 
   const mainRef = useRef(null);
-  const handlePageChange = (page) => {
+  const handlePageChange = useCallback((page) => {
     setCurrentPage(page);
     if (mainRef.current) {
         mainRef.current.scrollIntoView({ behavior: 'smooth' });
     } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  };
+  }, []);
 
   // --- Error View ---
   if (error) return (

@@ -24934,7 +24934,6 @@
         "title": "Barycentric Coded Distributed Computing with Flexible Recovery Threshold for Collaborative Mobile Edge Computing",
         "link": "http://arxiv.org/abs/2509.09435v1",
         "tags": [
-            "distributed_computing",
             "edge",
             "RL"
         ],
@@ -32332,7 +32331,7 @@
         "tags": [
             "RL",
             "training",
-            "scalability"
+            "scaling"
         ],
         "relevant": true,
         "indexed_date": "2025-07-21",
@@ -33244,7 +33243,6 @@
         "link": "http://arxiv.org/abs/2507.00672v1",
         "tags": [
             "edge",
-            "orchestration",
             "multi-modal"
         ],
         "relevant": true,
@@ -35342,8 +35340,7 @@
         "title": "ServeGen: Workload Characterization and Generation of Large Language Model Serving in Production",
         "link": "http://arxiv.org/abs/2505.09999v2",
         "tags": [
-            "serving",
-            "workload_generation"
+            "serving"
         ],
         "relevant": true,
         "indexed_date": "2025-05-16",
@@ -35597,9 +35594,7 @@
         "title": "Understanding Stragglers in Large Model Training Using What-if Analysis",
         "link": "http://arxiv.org/abs/2505.05713v2",
         "tags": [
-            "training",
-            "efficiency",
-            "straggler mitigation"
+            "training"
         ],
         "relevant": true,
         "indexed_date": "2025-05-12",
@@ -38017,8 +38012,7 @@
         "title": "LLMPerf: GPU Performance Modeling meets Large Language Models",
         "link": "http://arxiv.org/abs/2503.11244v1",
         "tags": [
-            "LLM systems",
-            "performance modeling"
+            "modeling"
         ],
         "relevant": true,
         "indexed_date": "2025-03-17",
@@ -40090,9 +40084,7 @@
         "title": "Aging-aware CPU Core Management for Embodied Carbon Amortization in Cloud LLM Inference",
         "link": "http://arxiv.org/abs/2501.15829v1",
         "tags": [
-            "inference",
-            "sustainability",
-            "resource management"
+            "inference"
         ],
         "relevant": true,
         "indexed_date": "2025-01-28",
