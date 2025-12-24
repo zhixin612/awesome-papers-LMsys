@@ -25,23 +25,36 @@ import {
   MessageSquareText,
   Send,
   RefreshCw,
-  Zap
+  Zap,
+  RotateCcw
 } from 'lucide-react';
 
 // --- Constants ---
 
-const DEFAULT_PROMPT = "把你自己当成论文作者，用费曼学习法向我解释一下这篇论文，不要用类比";
+const DEFAULT_PROMPT = "把你自己当成论文作者，运用费曼学习法简洁清晰地向我解释一下这篇论文，不要用类比";
 
 const API_PROVIDERS = {
   siliconflow: {
     name: "SiliconFlow",
     url: "https://api.siliconflow.cn/v1/chat/completions",
-    defaultModel: "moonshotai/Kimi-K2-Thinking"
+    defaultModel: "moonshotai/Kimi-K2-Thinking",
+    models: [
+      "moonshotai/Kimi-K2-Thinking",
+      "deepseek-ai/DeepSeek-V3.2",
+      "deepseek-ai/DeepSeek-R1",
+      "Qwen/Qwen3-Next-80B-A3B-Thinking"
+    ]
   },
   openrouter: {
     name: "OpenRouter",
     url: "https://openrouter.ai/api/v1/chat/completions",
-    defaultModel: "openai/gpt-5.2"
+    defaultModel: "openai/gpt-5.2",
+    models: [
+      "openai/gpt-5.2",
+      "google/gemini-3-pro-preview",
+      "x-ai/grok-code-fast-1",
+      "deepseek/deepseek-v3.2"
+    ]
   }
 };
 
@@ -180,10 +193,17 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Model Name</label>
               <input
                 type="text"
+                list="model-suggestions"
                 value={formData.model}
                 onChange={(e) => handleChange('model', e.target.value)}
                 className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                placeholder="Select or type model..."
               />
+              <datalist id="model-suggestions">
+                {(API_PROVIDERS[formData.provider]?.models || []).map((model) => (
+                  <option key={model} value={model} />
+                ))}
+              </datalist>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Custom System Prompt</label>
@@ -836,26 +856,32 @@ const App = () => {
             </div>
           </div>
           {allTags.length > 0 && (
-            <div className="pt-2 border-t border-gray-100 dark:border-gray-700 relative">
-              <div className={`flex flex-wrap gap-2 items-center text-sm transition-all duration-300 ease-in-out overflow-hidden ${tagsExpanded ? 'max-h-[1000px]' : 'max-h-[32px]'}`}>
-                  <span className="font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide shrink-0 mr-1">
-                    <Filter className="w-4 h-4 mr-1.5" />Tags:
-                  </span>
-                  {allTags.map(tag => (
-                    <button key={tag} onClick={() => toggleTag(tag)} className={`px-2 py-0.5 rounded-md text-xs font-medium transition-all border ${selectedTags.includes(tag) ? 'bg-blue-600 text-white border-blue-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'}`}>{tag}</button>
-                  ))}
-                  <button onClick={() => setSelectedTags([])} className="text-xs text-red-500 hover:text-red-600 font-medium underline decoration-dashed underline-offset-4 ml-2">Reset</button>
+            <div className="pt-2 border-t border-gray-100 dark:border-gray-700 flex items-start gap-2">
+              <div className="flex items-center h-8 shrink-0">
+                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide"><Filter className="w-4 h-4 mr-1.5" />Tags:</span>
               </div>
 
-              {/* Expand/Collapse Button - Centered and Larger */}
-              <div className="flex justify-center mt-1 border-t border-dashed border-gray-100 dark:border-gray-800 pt-1">
-                  <button
-                    onClick={() => setTagsExpanded(!tagsExpanded)}
-                    className="w-full flex justify-center py-1 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors rounded-b-lg group"
-                    title={tagsExpanded ? "Show Less" : "Show More"}
-                  >
-                      {tagsExpanded ? <ChevronUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" /> : <ChevronDown className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />}
-                  </button>
+              <div className={`flex flex-wrap gap-2 items-center text-sm transition-all duration-300 ease-in-out overflow-hidden flex-1 ${tagsExpanded ? 'max-h-[1000px]' : 'max-h-[32px]'}`}>
+                {allTags.map(tag => (
+                    <button key={tag} onClick={() => toggleTag(tag)} className={`px-2 py-0.5 rounded-md text-xs font-medium transition-all border ${selectedTags.includes(tag) ? 'bg-blue-600 text-white border-blue-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'}`}>{tag}</button>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-1 shrink-0 h-8 ml-auto">
+                  {selectedTags.length > 0 && (
+                      <button onClick={() => setSelectedTags([])} className="flex items-center justify-center p-1.5 rounded-md text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors" title="Reset Tags">
+                          <RotateCcw className="w-4 h-4" />
+                      </button>
+                  )}
+                  {allTags.length > 0 && (
+                      <button
+                        onClick={() => setTagsExpanded(!tagsExpanded)}
+                        className="flex items-center justify-center p-1.5 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        title={tagsExpanded ? "Show Less" : "Show More"}
+                      >
+                          {tagsExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                      </button>
+                  )}
               </div>
             </div>
           )}
