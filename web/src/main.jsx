@@ -33,13 +33,13 @@ import {
 
 // --- Constants ---
 
-const DEFAULT_PROMPT = "把你自己当成论文作者，运用费曼学习法简洁清晰地向我解释一下这篇论文，不要用类比";
+const DEFAULT_PROMPT = "把你自己当成论文作者，运用费曼学习法简洁清晰地向我解释一下这篇论文，不要用类比，用中文回答";
 
 const API_PROVIDERS = {
   siliconflow: {
     name: "SiliconFlow",
     url: "https://api.siliconflow.cn/v1/chat/completions",
-    defaultModel: "moonshotai/Kimi-K2-Thinking",
+    defaultModel: "deepseek-ai/DeepSeek-V3.2",
     models: [
       "moonshotai/Kimi-K2-Thinking",
       "deepseek-ai/DeepSeek-V3.2",
@@ -50,7 +50,7 @@ const API_PROVIDERS = {
   openrouter: {
     name: "OpenRouter",
     url: "https://openrouter.ai/api/v1/chat/completions",
-    defaultModel: "openai/gpt-5.2",
+    defaultModel: "x-ai/grok-code-fast-1",
     models: [
       "openai/gpt-5.2",
       "google/gemini-3-pro-preview",
