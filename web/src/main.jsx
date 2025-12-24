@@ -80,18 +80,13 @@ const Button = React.memo(({ children, onClick, variant = 'primary', className =
 });
 
 // --- Simple Markdown Renderer ---
-// A lightweight renderer to avoid heavy dependencies like react-markdown
 const SimpleMarkdown = React.memo(({ text }) => {
   if (!text) return null;
-
-  // Split text by code blocks first
   const parts = text.split(/(```[\s\S]*?```)/g);
-
   return (
     <div className="space-y-3 text-sm leading-relaxed text-gray-800 dark:text-gray-200">
       {parts.map((part, index) => {
         if (part.startsWith('```')) {
-          // Code Block
           const content = part.replace(/^```\w*\n?|```$/g, '');
           return (
             <div key={index} className="bg-gray-100 dark:bg-gray-800 p-3 rounded-md overflow-x-auto border border-gray-200 dark:border-gray-700">
@@ -99,38 +94,20 @@ const SimpleMarkdown = React.memo(({ text }) => {
             </div>
           );
         }
-
-        // Normal Text: Process Paragraphs
         return part.split(/\n\n+/).map((paragraph, pIndex) => {
           if (!paragraph.trim()) return null;
-
-          // Inline formatting: Bold (**text**) and Code (`text`)
           const elements = [];
           let lastIndex = 0;
-          // Regex for **bold** and `code`
           const regex = /(\*\*.*?\*\*|`.*?`)/g;
           let match;
-
           while ((match = regex.exec(paragraph)) !== null) {
-            // Push preceding text
-            if (match.index > lastIndex) {
-              elements.push(paragraph.substring(lastIndex, match.index));
-            }
-
+            if (match.index > lastIndex) elements.push(paragraph.substring(lastIndex, match.index));
             const matchedStr = match[0];
-            if (matchedStr.startsWith('**')) {
-              elements.push(<strong key={match.index}>{matchedStr.slice(2, -2)}</strong>);
-            } else if (matchedStr.startsWith('`')) {
-              elements.push(<code key={match.index} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{matchedStr.slice(1, -1)}</code>);
-            }
-
+            if (matchedStr.startsWith('**')) elements.push(<strong key={match.index}>{matchedStr.slice(2, -2)}</strong>);
+            else if (matchedStr.startsWith('`')) elements.push(<code key={match.index} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{matchedStr.slice(1, -1)}</code>);
             lastIndex = regex.lastIndex;
           }
-          // Push remaining text
-          if (lastIndex < paragraph.length) {
-            elements.push(paragraph.substring(lastIndex));
-          }
-
+          if (lastIndex < paragraph.length) elements.push(paragraph.substring(lastIndex));
           return <p key={`${index}-${pIndex}`}>{elements}</p>;
         });
       })}
@@ -167,14 +144,12 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
         </div>
 
         <div className="p-6 overflow-y-auto space-y-8">
-
-          {/* Section 1: Explain Settings */}
+          {/* Explain Settings */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-800">
                 <MessageSquareText className="w-4 h-4 text-blue-500" />
                 <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">AI Settings for Explain</h4>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Provider</label>
               <select
@@ -191,7 +166,6 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
                 ))}
               </select>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Key</label>
               <input
@@ -202,7 +176,6 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
                 className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Model Name</label>
               <input
@@ -212,7 +185,6 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
                 className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Custom System Prompt</label>
               <textarea
@@ -225,13 +197,12 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
             </div>
           </div>
 
-          {/* Section 2: Redirection Settings */}
+          {/* Redirection Settings */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-800">
                 <ExternalLink className="w-4 h-4 text-purple-500" />
                 <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">AI Settings for Redirection</h4>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Target Model</label>
               <select
@@ -246,7 +217,6 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
               <p className="text-xs text-gray-500 mt-1">Controls where the robot icon button redirects.</p>
             </div>
           </div>
-
         </div>
 
         <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 flex justify-end gap-2">
@@ -260,7 +230,7 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
 
 // --- Explain Panel Component ---
 
-const ExplainPanel = ({ paper, settings }) => {
+const ExplainPanel = ({ paper, settings, className }) => {
   const [response, setResponse] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState(null);
@@ -352,6 +322,10 @@ const ExplainPanel = ({ paper, settings }) => {
         hasAutoStarted.current = true;
         handleExplain();
     }
+    // Cleanup implies aborting, BUT we want caching.
+    // Since we are using "hidden" display style in parent instead of unmounting,
+    // this component will stay mounted, so we don't need to abort on "view switch".
+    // We only abort on unmount (e.g. pagination change).
     return () => {
         if (abortControllerRef.current) {
             abortControllerRef.current.abort();
@@ -360,7 +334,7 @@ const ExplainPanel = ({ paper, settings }) => {
   }, [handleExplain]);
 
   return (
-    <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
+    <div className={`mt-2 animate-in fade-in slide-in-from-top-2 duration-300 ${className}`}>
       <div className="relative w-full bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col p-4 min-h-[200px]">
         {/* Output Area (Markdown Supported) */}
         <div className="flex-1 font-sans">
@@ -450,6 +424,7 @@ const extractCodeLink = (abstract) => {
 
 const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
   const [activeView, setActiveView] = useState('none');
+  const [hasExplainStarted, setHasExplainStarted] = useState(false); // Cache: Track if explain has started
   const [copied, setCopied] = useState(null);
 
   // Resizable PDF
@@ -473,7 +448,6 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
     const encodedPrompt = encodeURIComponent(prompt);
     let url = "";
 
-    // Use redirection setting from aiSettings
     switch (aiSettings.redirectionModel) {
         case 'kimi':
             url = `http://kimi.com/_prefill_chat?prefill_prompt=${encodedPrompt}&send_immediately=true&force_search=false&enable_reasoning=false`;
@@ -521,6 +495,10 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
   }, [activeView]);
 
   const toggleView = (view) => {
+    // If switching to explain, mark as started to keep it mounted
+    if (view === 'explain') {
+        setHasExplainStarted(true);
+    }
     setActiveView(prev => prev === view ? 'none' : view);
   };
 
@@ -618,7 +596,8 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
           {tldrText ? tldrText : <span className="italic text-gray-400">No TL;DR available for this paper.</span>}
         </div>
 
-        {/* Dynamic Content Area: PDF or Explain */}
+        {/* Dynamic Content Area */}
+        {/* PDF View (Conditional Render to save memory on close) */}
         {activeView === 'pdf' && (
             <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="relative w-full bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col" style={{ height: `${pdfHeight}px` }}>
@@ -633,8 +612,11 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
             </div>
         )}
 
-        {activeView === 'explain' && (
-            <ExplainPanel paper={paper} settings={aiSettings} />
+        {/* Explain View (Hidden Render for Caching) */}
+        {hasExplainStarted && (
+            <div className={activeView === 'explain' ? 'block' : 'hidden'}>
+                <ExplainPanel paper={paper} settings={aiSettings} />
+            </div>
         )}
       </div>
     </div>
@@ -659,7 +641,7 @@ const App = () => {
         apiKey: '',
         model: 'moonshotai/Kimi-K2-Thinking',
         customPrompt: '',
-        redirectionModel: 'chatgpt' // Added default redirection
+        redirectionModel: 'chatgpt'
     };
     return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
   });
@@ -854,30 +836,27 @@ const App = () => {
             </div>
           </div>
           {allTags.length > 0 && (
-            <div className="pt-2 border-t border-gray-100 dark:border-gray-700 flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide shrink-0"><Filter className="w-4 h-4 mr-1.5" />Tags:</span>
-                  <button onClick={() => setSelectedTags([])} className="text-sm text-red-500 hover:text-red-600 font-medium ml-auto underline decoration-dashed underline-offset-4">Reset</button>
+            <div className="pt-2 border-t border-gray-100 dark:border-gray-700 relative">
+              <div className={`flex flex-wrap gap-2 items-center text-sm transition-all duration-300 ease-in-out overflow-hidden ${tagsExpanded ? 'max-h-[1000px]' : 'max-h-[32px]'}`}>
+                  <span className="font-semibold text-gray-500 dark:text-gray-400 flex items-center uppercase tracking-wide shrink-0 mr-1">
+                    <Filter className="w-4 h-4 mr-1.5" />Tags:
+                  </span>
+                  {allTags.map(tag => (
+                    <button key={tag} onClick={() => toggleTag(tag)} className={`px-2 py-0.5 rounded-md text-xs font-medium transition-all border ${selectedTags.includes(tag) ? 'bg-blue-600 text-white border-blue-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'}`}>{tag}</button>
+                  ))}
+                  <button onClick={() => setSelectedTags([])} className="text-xs text-red-500 hover:text-red-600 font-medium underline decoration-dashed underline-offset-4 ml-2">Reset</button>
               </div>
 
-              <div className={`flex flex-wrap gap-2 transition-all duration-300 ease-in-out overflow-hidden ${tagsExpanded ? 'max-h-[500px]' : 'max-h-[32px]'}`}>
-                {allTags.map(tag => (
-                    <button key={tag} onClick={() => toggleTag(tag)} className={`px-3 py-1 rounded-md text-sm font-medium transition-all h-[32px] whitespace-nowrap ${selectedTags.includes(tag) ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}>{tag}</button>
-                ))}
+              {/* Expand/Collapse Button - Centered and Larger */}
+              <div className="flex justify-center mt-1 border-t border-dashed border-gray-100 dark:border-gray-800 pt-1">
+                  <button
+                    onClick={() => setTagsExpanded(!tagsExpanded)}
+                    className="w-full flex justify-center py-1 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors rounded-b-lg group"
+                    title={tagsExpanded ? "Show Less" : "Show More"}
+                  >
+                      {tagsExpanded ? <ChevronUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" /> : <ChevronDown className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />}
+                  </button>
               </div>
-
-              {/* Expand/Collapse Button */}
-              {allTags.length > 0 && (
-                  <div className="flex justify-center -mt-1">
-                      <button
-                        onClick={() => setTagsExpanded(!tagsExpanded)}
-                        className="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 transition-colors"
-                        title={tagsExpanded ? "Show Less" : "Show More"}
-                      >
-                          {tagsExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                      </button>
-                  </div>
-              )}
             </div>
           )}
         </div>
