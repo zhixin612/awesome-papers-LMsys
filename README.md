@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1275-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1283-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -22,6 +22,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-24
+* `serving` `quantization` `diffusion` [Fail Fast, Win Big: Rethinking the Drafting Strategy in Speculative Decoding via Diffusion LLMs](http://arxiv.org/abs/2512.20573v1)
+  > **TL;DR**: Proposes FailFast, a diffusion LLM-based speculative decoding framework that dynamically adapts draft length to accelerate autoregressive LLM inference. Achieves up to 4.9× speedup over vanilla decoding with lossless quality.
+* `networking` `storage` [WOC: Dual-Path Weighted Object Consensus Made Efficient](http://arxiv.org/abs/2512.20485v1)
+  > **TL;DR**: Addresses consensus protocols' inability to handle node heterogeneity and workload independence. Proposes WOC with dual-fast/slow paths using object-specific weighted quorums and leader coordination. Achieves 4× higher throughput than Cabinet for low-contention workloads.
+* `LoRA` `serving` [Predictive-LoRA: A Proactive and Fragmentation-Aware Serverless Inference System for LLMs](http://arxiv.org/abs/2512.20210v1)
+  > **TL;DR**: Addresses latency and fragmentation in serverless LLM serving with multiple LoRA adapters. Proposes proactive adapter prefetching and page-based memory management. Achieves 35% reduction in average TTFT and 1.52x throughput improvement over prior system.
+* `serving` `thinking` `RL` [Reaching Agreement Among Reasoning LLM Agents](http://arxiv.org/abs/2512.20184v1)
+  > **TL;DR**: Proposes Aegean, a consensus protocol for multi-agent reasoning to ensure reliable agreement while reducing latency. Implements a serving engine with incremental quorum detection for early termination. Cuts latency by 1.2-20× compared to baselines while maintaining answer quality within 2.5%.
+* `sparse` `training` `kernel` [SHIRO: Near-Optimal Communication Strategies for Distributed Sparse Matrix Multiplication](http://arxiv.org/abs/2512.20178v1)
+  > **TL;DR**: Addresses high communication overhead in distributed sparse matrix multiplication. Proposes fine-grained sparsity-aware communication and hierarchical strategies leveraging GPU network topologies. Achieves up to 221.5× speedup over baselines at 128-GPU scale.
+* `offline` `scaling` `quantization` [FastMPS: Revisit Data Parallel in Large-scale Matrix Product State Sampling](http://arxiv.org/abs/2512.20064v1)
+  > **TL;DR**: Addresses high memory and I/O overhead in large-scale Matrix Product State (MPS) sampling. Proposes Fast-MPS, combining data and tensor parallelism with compression and overlapping techniques. Achieves over 10× speedup and scales to thousands of processes, handling 8,176 sites.
+* `training` `storage` `networking` [Scaling Point-based Differentiable Rendering for Large-scale Reconstruction](http://arxiv.org/abs/2512.20017v1)
+  > **TL;DR**: Addresses distributed training inefficiencies in Point-based Differentiable Rendering (PBDR) for large-scale 3D reconstruction. Introduces Gaian, a system unifying PBDR APIs and optimizing data locality to reduce communication. Achieves up to 91% communication reduction and 1.50x-3.71x throughput improvement.
+* `MoE` `training` `networking` [UCCL-EP: Portable Expert-Parallel Communication](http://arxiv.org/abs/2512.19849v1)
+  > **TL;DR**: Addresses poor portability of expert-parallel (EP) communication systems across heterogeneous GPU/NIC platforms. Proposes UCCL-EP with GPU-CPU control channel and RDMA emulation for ordering semantics. Achieves up to 2.1× dispatch/combine throughput and 45% training throughput improvement.
+
 ### 2025-12-23
 * `serving` `RL` `edge` [Q-IRIS: The Evolution of the IRIS Task-Based Runtime to Enable Classical-Quantum Workflows](http://arxiv.org/abs/2512.13931v1)
   > **TL;DR**: Proposes Q-IRIS, a hybrid runtime for classical-quantum workflows integrating IRIS task-based runtime with XACC quantum framework. Enables asynchronous scheduling of QIR programs across heterogeneous backends (including quantum simulators). Demonstrates circuit cutting to reduce per-task simulation load, improving throughput and reducing queueing behavior.

@@ -40698,5 +40698,340 @@
             "cs.LG"
         ],
         "submit_date": "2024-12-29"
+    },
+    "http://arxiv.org/abs/2512.20573v1": {
+        "title": "Fail Fast, Win Big: Rethinking the Drafting Strategy in Speculative Decoding via Diffusion LLMs",
+        "link": "http://arxiv.org/abs/2512.20573v1",
+        "abstract": "Diffusion Large Language Models (dLLMs) offer fast, parallel token generation, but their standalone use is plagued by an inherent efficiency-quality tradeoff. We show that, if carefully applied, the attributes of dLLMs can actually be a strength for drafters in speculative decoding with autoregressive (AR) verifiers. Our core insight is that dLLM's speed from parallel decoding drastically lowers the risk of costly rejections, providing a practical mechanism to effectively realize the (elusive) lengthy drafts that lead to large speedups with speculative decoding. We present FailFast, a dLLM-based speculative decoding framework that realizes this approach by dynamically adapting its speculation length. It \"fails fast\" by spending minimal compute in hard-to-speculate regions to shrink speculation latency and \"wins big\" by aggressively extending draft lengths in easier regions to reduce verification latency (in many cases, speculating and accepting 70 tokens at a time!). Without any fine-tuning, FailFast delivers lossless acceleration of AR LLMs and achieves up to 4.9$\\times$ speedup over vanilla decoding, 1.7$\\times$ over the best naive dLLM drafter, and 1.4$\\times$ over EAGLE-3 across diverse models and workloads. We open-source FailFast at https://github.com/ruipeterpan/failfast.",
+        "authors": [
+            "Rui Pan",
+            "Zhuofu Chen",
+            "Ravi Netravali"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20573v1",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "quantization",
+            "diffusion"
+        ],
+        "tldr": "Proposes FailFast, a diffusion LLM-based speculative decoding framework that dynamically adapts draft length to accelerate autoregressive LLM inference. Achieves up to 4.9× speedup over vanilla decoding with lossless quality.",
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20485v1": {
+        "title": "WOC: Dual-Path Weighted Object Consensus Made Efficient",
+        "link": "http://arxiv.org/abs/2512.20485v1",
+        "abstract": "Modern distributed systems face a critical challenge: existing consensus protocols optimize for either node heterogeneity or workload independence, but not both. For example, Cabinet leverages weighted quorums to handle node heterogeneity but serializes all operations through a global leader, limiting parallelism. EPaxos enables parallel execution for independent operations but treats all nodes uniformly, ignoring performance differences. To tackle this problem, we present WOC, a dual-path consensus protocol that dynamically routes operations into two paths based on their access patterns. Independent operations execute through a fast path that uses object-specific weighted quorums and completes in one network round-trip. Conflicting or shared objects route through a leader-coordinated slow path employing node-weighted consensus. Our evaluation demonstrates that WOC achieves up to 4X higher throughput than Cabinet for workloads with >70% independent objects, while maintaining equivalent performance under high contention.",
+        "authors": [
+            "Tanisha Fonseca",
+            "Gengrui Zhang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20485v1",
+        "relevant": true,
+        "tags": [
+            "networking",
+            "storage"
+        ],
+        "tldr": "Addresses consensus protocols' inability to handle node heterogeneity and workload independence. Proposes WOC with dual-fast/slow paths using object-specific weighted quorums and leader coordination. Achieves 4× higher throughput than Cabinet for low-contention workloads.",
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20394v1": {
+        "title": "Resilient Packet Forwarding: A Reinforcement Learning Approach to Routing in Gaussian Interconnected Networks with Clustered Faults",
+        "link": "http://arxiv.org/abs/2512.20394v1",
+        "abstract": "As Network-on-Chip (NoC) and Wireless Sensor Network architectures continue to scale, the topology of the underlying network becomes a critical factor in performance. Gaussian Interconnected Networks based on the arithmetic of Gaussian integers, offer attractive properties regarding diameter and symmetry. Despite their attractive theoretical properties, adaptive routing techniques in these networks are vulnerable to node and link faults, leading to rapid degradation in communication reliability. Node failures (particularly those following Gaussian distributions, such as thermal hotspots or physical damage clusters) pose severe challenges to traditional deterministic routing. This paper proposes a fault-aware Reinforcement Learning (RL) routing scheme tailored for Gaussian Interconnected Networks. By utilizing a PPO (Proximal Policy Optimization) agent with a specific reward structure designed to penalize fault proximity, the system dynamically learns to bypass faulty regions. We compare our proposed RL-based routing protocol against a greedy adaptive shortest-path routing algorithm. Experimental results demonstrate that the RL agent significantly outperforms the adaptive routing sustaining a Packet Delivery Ratio (PDR) of 0.95 at 40% fault density compared to 0.66 for the greedy. Furthermore, the RL approach exhibits effective delivery rates compared to the greedy adaptive routing, particularly under low network load of 20% at 0.57 vs. 0.43, showing greater proficiency in managing congestion, validating its efficacy in stochastic, fault-prone topologies",
+        "authors": [
+            "Mohammad Walid Charrwi",
+            "Zaid Hussain"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20394v1",
+        "relevant": false,
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20363v1": {
+        "title": "Clust-PSI-PFL: A Population Stability Index Approach for Clustered Non-IID Personalized Federated Learning",
+        "link": "http://arxiv.org/abs/2512.20363v1",
+        "abstract": "Federated learning (FL) supports privacy-preserving, decentralized machine learning (ML) model training by keeping data on client devices. However, non-independent and identically distributed (non-IID) data across clients biases updates and degrades performance. To alleviate these issues, we propose Clust-PSI-PFL, a clustering-based personalized FL framework that uses the Population Stability Index (PSI) to quantify the level of non-IID data. We compute a weighted PSI metric, $WPSI^L$, which we show to be more informative than common non-IID metrics (Hellinger, Jensen-Shannon, and Earth Mover's distance). Using PSI features, we form distributionally homogeneous groups of clients via K-means++; the number of optimal clusters is chosen by a systematic silhouette-based procedure, typically yielding few clusters with modest overhead. Across six datasets (tabular, image, and text modalities), two partition protocols (Dirichlet with parameter $α$ and Similarity with parameter S), and multiple client sizes, Clust-PSI-PFL delivers up to 18% higher global accuracy than state-of-the-art baselines and markedly improves client fairness by a relative improvement of 37% under severe non-IID data. These results establish PSI-guided clustering as a principled, lightweight mechanism for robust PFL under label skew.",
+        "authors": [
+            "Daniel M. Jimenez-Gutierrez",
+            "Mehrdad Hassanzadeh",
+            "Aris Anagnostopoulos",
+            "Ioannis Chatzigiannakis",
+            "Andrea Vitaletti"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC",
+            "stat.AP",
+            "stat.ML"
+        ],
+        "id": "http://arxiv.org/abs/2512.20363v1",
+        "relevant": false,
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20210v1": {
+        "title": "Predictive-LoRA: A Proactive and Fragmentation-Aware Serverless Inference System for LLMs",
+        "link": "http://arxiv.org/abs/2512.20210v1",
+        "abstract": "The serverless computing paradigm offers compelling advantages for deploying Large Language Model (LLM) inference services, including elastic scaling and pay-per-use billing. However, serving multiple fine-tuned LLMs via Low-Rank Adaptation (LoRA) in serverless environments faces critical challenges: reactive adapter loading causes significant cold start latency, and frequent adapter swapping leads to severe GPU memory fragmentation. In this paper, we present Predictive-LoRA (P-LoRA), a proactive and fragmentation-aware serverless inference system for LoRA-based LLMs. P-LoRA introduces two key innovations: (1) a lightweight LSTM-based traffic predictor that forecasts adapter demand and proactively prefetches hot adapters from host memory to GPU, reducing cold start latency by up to 68%; and (2) a page-based adapter memory management mechanism inspired by operating system virtual memory, which keeps GPU memory utilization above 87% even under heterogeneous adapter ranks. We evaluate P-LoRA using production-like workloads derived from the Azure Functions trace. Experimental results demonstrate that P-LoRA achieves 1.52x higher throughput than S-LoRA while reducing the average Time-To-First-Token (TTFT) by 35% under high concurrency scenarios.",
+        "authors": [
+            "Yinan Ni",
+            "Xiao Yang",
+            "Yuqi Tang",
+            "Zhimin Qiu",
+            "Chen Wang",
+            "Tingzhou Yuan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20210v1",
+        "relevant": true,
+        "tags": [
+            "LoRA",
+            "serving"
+        ],
+        "tldr": "Addresses latency and fragmentation in serverless LLM serving with multiple LoRA adapters. Proposes proactive adapter prefetching and page-based memory management. Achieves 35% reduction in average TTFT and 1.52x throughput improvement over prior system.",
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20184v1": {
+        "title": "Reaching Agreement Among Reasoning LLM Agents",
+        "link": "http://arxiv.org/abs/2512.20184v1",
+        "abstract": "Multi-agent systems have extended the capability of agentic AI. Instead of single inference passes, multiple agents perform collective reasoning to derive high quality answers. However, existing multi-agent orchestration relies on static heuristic workflows such as fixed loop limits and barrier synchronization. These ad-hoc approaches waste computational resources, incur high latency due to stragglers, and risk finalizing transient agreements. We argue that reliable multi-agent reasoning requires a formal foundation analogous to classical distributed consensus problem.\n  To that end, we propose a formal model of the multi-agent refinement problem. The model includes definitions of the correctness guarantees and formal semantics of agent reasoning. We then introduce Aegean, a consensus protocol designed for stochastic reasoning agents that solves multi-agent refinement. We implement the protocol in Aegean-Serve, a consensus-aware serving engine that performs incremental quorum detection across concurrent agent executions, enabling early termination when sufficient agents converge. Evaluation using four mathematical reasoning benchmarks shows that Aegean provides provable safety and liveness guarantees while reducing latency by 1.2--20$\\times$ compared to state-of-the-art baselines, maintaining answer quality within 2.5%. Consistent gains across both local GPU deployments and commercial API providers validate that consensus-based orchestration eliminates straggler delays without sacrificing correctness.",
+        "authors": [
+            "Chaoyi Ruan",
+            "Yiliang Wang",
+            "Ziji Shi",
+            "Jialin Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20184v1",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "thinking",
+            "RL"
+        ],
+        "tldr": "Proposes Aegean, a consensus protocol for multi-agent reasoning to ensure reliable agreement while reducing latency. Implements a serving engine with incremental quorum detection for early termination. Cuts latency by 1.2-20× compared to baselines while maintaining answer quality within 2.5%.",
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20178v1": {
+        "title": "SHIRO: Near-Optimal Communication Strategies for Distributed Sparse Matrix Multiplication",
+        "link": "http://arxiv.org/abs/2512.20178v1",
+        "abstract": "Distributed Sparse Matrix-Matrix Multiplication (SpMM) is a fundamental operation in numerous high-performance computing and deep learning applications. The major performance bottleneck in distributed SpMM lies in the substantial communication overhead, which limits both performance and scalability. In this paper, we identify and analyze sources of inefficient communication in existing distributed SpMM implementations at two levels and address these inefficiencies by proposing: (1) a fine-grained, sparsity-aware communication strategy that reduces communication overhead by exploiting the sparsity pattern of the sparse matrix, and (2) a hierarchical communication strategy that integrates the sparsity-aware strategy with the common two-tier network architectures in GPU-accelerated systems, to reduce redundant communication across slow network links. We implement these optimizations in a comprehensive distributed SpMM framework, \\method{}. Extensive evaluations on real-world datasets show that our framework demonstrates strong scalability up to 128 GPUs, achieving geometric mean speedups of 221.5$\\times$, 56.0$\\times$, 23.4$\\times$, and 8.8$\\times$ over four state-of-the-art baselines (CAGNET, SPA, BCL, and CoLa, respectively) at this scale.",
+        "authors": [
+            "Chen Zhuang",
+            "Lingqi Zhang",
+            "Benjamin Brock",
+            "Du Wu",
+            "Peng Chen",
+            "Toshio Endo",
+            "Satoshi Matsuoka",
+            "Mohamed Wahib"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2512.20178v1",
+        "relevant": true,
+        "tags": [
+            "sparse",
+            "training",
+            "kernel"
+        ],
+        "tldr": "Addresses high communication overhead in distributed sparse matrix multiplication. Proposes fine-grained sparsity-aware communication and hierarchical strategies leveraging GPU network topologies. Achieves up to 221.5× speedup over baselines at 128-GPU scale.",
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20163v1": {
+        "title": "Population Protocols Revisited: Parity and Beyond",
+        "link": "http://arxiv.org/abs/2512.20163v1",
+        "abstract": "For nearly two decades, population protocols have been extensively studied, yielding efficient solutions for central problems in distributed computing, including leader election, and majority computation, a predicate type in Presburger Arithmetic closely tied to population protocols. Surprisingly, no protocols have achieved both time- and space-efficiency for congruency predicates, such as parity computation, which are complementary in this arithmetic framework. This gap highlights a significant challenge in the field. To address this gap, we explore the parity problem, where agents are tasked with computing the parity of the given sub-population size. Then we extend the solution for parity to compute congruences modulo an arbitrary $m$.\n  Previous research on efficient population protocols has focused on protocols that minimise both stabilisation time and state utilisation for specific problems. In contrast, this work slightly relaxes this expectation, permitting protocols to place less emphasis on full optimisation and more on universality, robustness, and probabilistic guarantees. This allows us to propose a novel computing paradigm that integrates population weights (or simply weights), a robust clocking mechanism, and efficient anomaly detection coupled with a switching mechanism (which ensures slow but always correct solutions). This paradigm facilitates universal design of efficient multistage stable population protocols. Specifically, the first efficient parity and congruence protocols introduced here use both $O(\\log^3 n)$ states and achieve silent stabilisation in $O(\\log^3 n)$ time. We conclude by discussing the impact of implicit conversion between unary and binary representations enabled by the weight system, with applications to other problems, including the computation and representation of (sub-)population sizes.",
+        "authors": [
+            "Leszek Gąsieniec",
+            "Tytus Grodzicki",
+            "Tomasz Jurdziński",
+            "Jakub Kowalski",
+            "Grzegorz Stachowiak"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20163v1",
+        "relevant": false,
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20064v1": {
+        "title": "FastMPS: Revisit Data Parallel in Large-scale Matrix Product State Sampling",
+        "link": "http://arxiv.org/abs/2512.20064v1",
+        "abstract": "Matrix Product State (MPS) is a versatile tensor network representation widely applied in quantum physics, quantum chemistry, and machine learning, etc. MPS sampling serves as a critical fundamental operation in these fields. As the problems become more complex, the scale of MPS is rapidly increasing. Traditional data parallelism is limited by memory and heavy I/O in large-scale MPS. Model parallelism that can handle large-scale MPS imposes rigid process bindings and lacks scalability. This work proposes Fast-MPS, a multi-level parallel framework for scalable MPS sampling. Our design combines data parallelism across samples with tensor parallelism along bond dimensions. We eliminate memory and I/O pressure through compression and overlapping, and revive data parallel in large-scale MPS sampling. We evaluate our approach on Gaussian Boson Sampling, a representative and demanding application. Fast-MPS achieves over 10x speedup compared to existing simulators, scales to thousands of processes, and enables simulations with 8,176 sites and bond dimension chi = 10^4, significantly outperforming the state of the art. Fast-MPS has demonstrated great potential in high-performance tensor network applications.",
+        "authors": [
+            "Yaojian Chen",
+            "Si-Qiu Gong",
+            "Lin Gan",
+            "Yanfei Liu",
+            "An Yang",
+            "Yinuo Wang",
+            "Chao-yang Lu",
+            "Guangwen Yang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20064v1",
+        "relevant": true,
+        "tags": [
+            "offline",
+            "scaling",
+            "quantization"
+        ],
+        "tldr": "Addresses high memory and I/O overhead in large-scale Matrix Product State (MPS) sampling. Proposes Fast-MPS, combining data and tensor parallelism with compression and overlapping techniques. Achieves over 10× speedup and scales to thousands of processes, handling 8,176 sites.",
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.20017v1": {
+        "title": "Scaling Point-based Differentiable Rendering for Large-scale Reconstruction",
+        "link": "http://arxiv.org/abs/2512.20017v1",
+        "abstract": "Point-based Differentiable Rendering (PBDR) enables high-fidelity 3D scene reconstruction, but scaling PBDR to high-resolution and large scenes requires efficient distributed training systems. Existing systems are tightly coupled to a specific PBDR method. And they suffer from severe communication overhead due to poor data locality. In this paper, we present Gaian, a general distributed training system for PBDR. Gaian provides a unified API expressive enough to support existing PBDR methods, while exposing rich data-access information, which Gaian leverages to optimize locality and reduce communication. We evaluated Gaian by implementing 4 PBDR algorithms. Our implementations achieve high performance and resource efficiency: across six datasets and up to 128 GPUs, it reduces communication by up to 91% and improves training throughput by 1.50x-3.71x.",
+        "authors": [
+            "Hexu Zhao",
+            "Xiaoteng Liu",
+            "Xiwen Min",
+            "Jianhao Huang",
+            "Youming Deng",
+            "Yanfei Li",
+            "Ang Li",
+            "Jinyang Li",
+            "Aurojit Panda"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.GR"
+        ],
+        "id": "http://arxiv.org/abs/2512.20017v1",
+        "relevant": true,
+        "tags": [
+            "training",
+            "storage",
+            "networking"
+        ],
+        "tldr": "Addresses distributed training inefficiencies in Point-based Differentiable Rendering (PBDR) for large-scale 3D reconstruction. Introduces Gaian, a system unifying PBDR APIs and optimizing data locality to reduce communication. Achieves up to 91% communication reduction and 1.50x-3.71x throughput improvement.",
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.19972v1": {
+        "title": "Rethinking Knowledge Distillation in Collaborative Machine Learning: Memory, Knowledge, and Their Interactions",
+        "link": "http://arxiv.org/abs/2512.19972v1",
+        "abstract": "Collaborative learning has emerged as a key paradigm in large-scale intelligent systems, enabling distributed agents to cooperatively train their models while addressing their privacy concerns. Central to this paradigm is knowledge distillation (KD), a technique that facilitates efficient knowledge transfer among agents. However, the underlying mechanisms by which KD leverages memory and knowledge across agents remain underexplored. This paper aims to bridge this gap by offering a comprehensive review of KD in collaborative learning, with a focus on the roles of memory and knowledge. We define and categorize memory and knowledge within the KD process and explore their interrelationships, providing a clear understanding of how knowledge is extracted, stored, and shared in collaborative settings. We examine various collaborative learning patterns, including distributed, hierarchical, and decentralized structures, and provide insights into how memory and knowledge dynamics shape the effectiveness of KD in collaborative learning. Particularly, we emphasize task heterogeneity in distributed learning pattern covering federated learning (FL), multi-agent domain adaptation (MADA), federated multi-modal learning (FML), federated continual learning (FCL), federated multi-task learning (FMTL), and federated graph knowledge embedding (FKGE). Additionally, we highlight model heterogeneity, data heterogeneity, resource heterogeneity, and privacy concerns of these tasks. Our analysis categorizes existing work based on how they handle memory and knowledge. Finally, we discuss existing challenges and propose future directions for advancing KD techniques in the context of collaborative learning.",
+        "authors": [
+            "Pengchao Han",
+            "Xi Huang",
+            "Yi Fang",
+            "Guojun Han"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.19972v1",
+        "relevant": false,
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.19851v1": {
+        "title": "An Adaptive Distributed Stencil Abstraction for GPUs",
+        "link": "http://arxiv.org/abs/2512.19851v1",
+        "abstract": "The scientific computing ecosystem in Python is largely confined to single-node parallelism, creating a gap between high-level prototyping in NumPy and high-performance execution on modern supercomputers. The increasing prevalence of hardware accelerators and the need for energy efficiency have made resource adaptivity a critical requirement, yet traditional HPC abstractions remain rigid. To address these challenges, we present an adaptive, distributed abstraction for stencil computations on multi-node GPUs. This abstraction is built using CharmTyles, a framework based on the adaptive Charm++ runtime, and features a familiar NumPy-like syntax to minimize the porting effort from prototype to production code. We showcase the resource elasticity of our abstraction by dynamically rescaling a running application across a different number of nodes and present a performance analysis of the associated overheads. Furthermore, we demonstrate that our abstraction achieves significant performance improvements over both a specialized, high-performance stencil DSL and a generalized NumPy replacement.",
+        "authors": [
+            "Aditya Bhosale",
+            "Laxmikant Kale"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.19851v1",
+        "relevant": false,
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.19849v1": {
+        "title": "UCCL-EP: Portable Expert-Parallel Communication",
+        "link": "http://arxiv.org/abs/2512.19849v1",
+        "abstract": "Mixture-of-Experts (MoE) workloads rely on expert parallelism (EP) to achieve high GPU efficiency. State-of-the-art EP communication systems such as DeepEP demonstrate strong performance but exhibit poor portability across heterogeneous GPU and NIC platforms. The poor portability is rooted in architecture: GPU-initiated token-level RDMA communication requires tight vertical integration between GPUs and NICs, e.g., GPU writes to NIC driver/MMIO interfaces.\n  We present UCCL-EP, a portable EP communication system that delivers DeepEP-level performance across heterogeneous GPU and NIC hardware. UCCL-EP replaces GPU-initiated RDMA with a high-throughput GPU-CPU control channel: compact token-routing commands are transferred to multithreaded CPU proxies, which then issue GPUDirect RDMA operations on behalf of GPUs. UCCL-EP further emulates various ordering semantics required by specialized EP communication modes using RDMA immediate data, enabling correctness on NICs that lack such ordering, e.g., AWS EFA. We implement UCCL-EP on NVIDIA and AMD GPUs with EFA and Broadcom NICs. On EFA, it outperforms the best existing EP solution by up to $2.1\\times$ for dispatch and combine throughput. On NVIDIA-only platform, UCCL-EP achieves comparable performance to the original DeepEP. UCCL-EP also improves token throughput on SGLang by up to 40% on the NVIDIA+EFA platform, and improves DeepSeek-V3 training throughput over the AMD Primus/Megatron-LM framework by up to 45% on a 16-node AMD+Broadcom platform.",
+        "authors": [
+            "Ziming Mao",
+            "Yihan Zhang",
+            "Chihan Cui",
+            "Kaichao You",
+            "Zhongjie Chen",
+            "Zhiying Xu",
+            "Scott Shenker",
+            "Costin Raiciu",
+            "Yang Zhou",
+            "Ion Stoica"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2512.19849v1",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "training",
+            "networking"
+        ],
+        "tldr": "Addresses poor portability of expert-parallel (EP) communication systems across heterogeneous GPU/NIC platforms. Proposes UCCL-EP with GPU-CPU control channel and RDMA emulation for ordering semantics. Achieves up to 2.1× dispatch/combine throughput and 45% training throughput improvement.",
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.19842v1": {
+        "title": "Holoscope: Open and Lightweight Distributed Telescope & Honeypot Platform",
+        "link": "http://arxiv.org/abs/2512.19842v1",
+        "abstract": "The complexity and scale of Internet attacks call for distributed, cooperative observatories capable of monitoring malicious traffic across diverse networks. Holoscope is a lightweight, cloud-native platform designed to simplify the deployment and management of distributed telescope (passive) and honeypot (active) sensors, used to collect and analyse attack traffic by exposing or simulating vulnerable systems. Built upon K3s and WireGuard, Holoscope offers secure connectivity, automated node onboarding, and resilient operation even in resource-constrained environments. Through modular design and Infrastructure-as-Code principles, it supports dynamic sensor orchestration, automated recovery and processing. We build, deploy and operate Holoscope across multiple institutions and cloud networks in Europe and Brazil, enabling unified visibility into large-scale attack phenomena while maintaining ease of integration and security compliance.",
+        "authors": [
+            "Andrea Sordello",
+            "Marco Mellia",
+            "Idilio Drago",
+            "Rodolfo Valentim",
+            "Francesco Musumeci",
+            "Massimo Tornatore",
+            "Federico Cerutti",
+            "Martino Trevisan",
+            "Alessio Botta",
+            "Willen Borges Coelho"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.19842v1",
+        "relevant": false,
+        "indexed_date": "2025-12-24"
+    },
+    "http://arxiv.org/abs/2512.19777v1": {
+        "title": "Learned Digital Codes for Over-the-Air Computation in Federated Edge Learning",
+        "link": "http://arxiv.org/abs/2512.19777v1",
+        "abstract": "Federated edge learning (FEEL) enables wireless devices to collaboratively train a centralised model without sharing raw data, but repeated uplink transmission of model updates makes communication the dominant bottleneck. Over-the-air (OTA) aggregation alleviates this by exploiting the superposition property of the wireless channel, enabling simultaneous transmission and merging communication with computation. Digital OTA schemes extend this principle by incorporating the robustness of conventional digital communication, but current designs remain limited in low signal-to-noise ratio (SNR) regimes. This work proposes a learned digital OTA framework that improves recovery accuracy, convergence behaviour, and robustness to challenging SNR conditions while maintaining the same uplink overhead as state-of-the-art methods. The design integrates an unsourced random access (URA) codebook with vector quantisation and AMP-DA-Net, an unrolled approximate message passing (AMP)-style decoder trained end-to-end with the digital codebook and parameter server local training statistics. The proposed design extends OTA aggregation beyond averaging to a broad class of symmetric functions, including trimmed means and majority-based rules. Experiments on highly heterogeneous device datasets and varying numbers of active devices show that the proposed design extends reliable digital OTA operation by more than 10 dB into low SNR regimes while matching or improving performance across the full SNR range. The learned decoder remains effective under message corruption and nonlinear aggregation, highlighting the broader potential of end-to-end learned design for digital OTA communication in FEEL.",
+        "authors": [
+            "Antonio Tarizzo",
+            "Mohammad Kazemi",
+            "Deniz Gündüz"
+        ],
+        "categories": [
+            "cs.IT",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.19777v1",
+        "relevant": false,
+        "indexed_date": "2025-12-24"
     }
 }
