@@ -132,15 +132,38 @@ const SimpleMarkdown = React.memo(({ text }) => {
 
 const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
   const [formData, setFormData] = useState(settings);
+  const [showModelDropdown, setShowModelDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) setFormData(settings);
   }, [isOpen, settings]);
 
+  // Click outside to close custom dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowModelDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   if (!isOpen) return null;
 
   const handleChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const currentProviderConfig = API_PROVIDERS[formData.provider];
+
+  const handleResetModel = () => {
+    handleChange('model', currentProviderConfig.defaultModel);
+  };
+
+  const handleResetPrompt = () => {
+    handleChange('customPrompt', "");
   };
 
   return (
@@ -163,6 +186,7 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
                 <MessageSquareText className="w-4 h-4 text-blue-500" />
                 <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">AI Settings for Explain</h4>
             </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Provider</label>
               <select
@@ -172,13 +196,14 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
                   handleChange('provider', newProvider);
                   handleChange('model', API_PROVIDERS[newProvider].defaultModel);
                 }}
-                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white cursor-pointer"
               >
                 {Object.entries(API_PROVIDERS).map(([key, val]) => (
                   <option key={key} value={key}>{val.name}</option>
                 ))}
               </select>
             </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Key</label>
               <input
@@ -189,24 +214,51 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
                 className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Model Name</label>
-              <input
-                type="text"
-                list="model-suggestions"
-                value={formData.model}
-                onChange={(e) => handleChange('model', e.target.value)}
-                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
-                placeholder="Select or type model..."
-              />
-              <datalist id="model-suggestions">
-                {(API_PROVIDERS[formData.provider]?.models || []).map((model) => (
-                  <option key={model} value={model} />
-                ))}
-              </datalist>
+
+            <div className="relative" ref={dropdownRef}>
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Model Name</label>
+                <button onClick={handleResetModel} className="text-xs text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 flex items-center transition-colors" title="Reset to default">
+                    <RotateCcw className="w-3 h-3 mr-1"/> Reset
+                </button>
+              </div>
+              <div className="relative">
+                <input
+                    type="text"
+                    value={formData.model}
+                    onChange={(e) => handleChange('model', e.target.value)}
+                    className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 pl-3 pr-8 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                    placeholder="Enter or select model..."
+                />
+                <button
+                    onClick={() => setShowModelDropdown(!showModelDropdown)}
+                    className="absolute right-1 top-1 bottom-1 px-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                >
+                    <ChevronDown className="w-4 h-4" />
+                </button>
+                {showModelDropdown && (
+                    <ul className="absolute z-20 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 max-h-48 overflow-y-auto shadow-lg rounded-lg">
+                        {currentProviderConfig.models.map((model) => (
+                            <li
+                                key={model}
+                                onClick={() => { handleChange('model', model); setShowModelDropdown(false); }}
+                                className={`px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer text-sm text-gray-700 dark:text-gray-200 ${formData.model === model ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : ''}`}
+                            >
+                                {model}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+              </div>
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Custom System Prompt</label>
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Custom System Prompt</label>
+                <button onClick={handleResetPrompt} className="text-xs text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 flex items-center transition-colors" title="Reset to default">
+                    <RotateCcw className="w-3 h-3 mr-1"/> Reset
+                </button>
+              </div>
               <textarea
                 value={formData.customPrompt}
                 onChange={(e) => handleChange('customPrompt', e.target.value)}
@@ -228,7 +280,7 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
               <select
                 value={formData.redirectionModel}
                 onChange={(e) => handleChange('redirectionModel', e.target.value)}
-                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white cursor-pointer"
               >
                 {Object.entries(REDIRECTION_MODELS).map(([key, name]) => (
                   <option key={key} value={key}>{name}</option>
@@ -342,10 +394,6 @@ const ExplainPanel = ({ paper, settings, className }) => {
         hasAutoStarted.current = true;
         handleExplain();
     }
-    // Cleanup implies aborting, BUT we want caching.
-    // Since we are using "hidden" display style in parent instead of unmounting,
-    // this component will stay mounted, so we don't need to abort on "view switch".
-    // We only abort on unmount (e.g. pagination change).
     return () => {
         if (abortControllerRef.current) {
             abortControllerRef.current.abort();
