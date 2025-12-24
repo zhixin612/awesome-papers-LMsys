@@ -28,7 +28,8 @@ import {
   Zap,
   RotateCcw,
   ShieldCheck,
-  Loader2 // Imported Loader2 for spinner
+  AlertCircle,
+  Loader2
 } from 'lucide-react';
 
 // --- Constants ---
@@ -67,32 +68,54 @@ const REDIRECTION_MODELS = {
 
 // --- Helper Functions ---
 
-// Fetch paper content using Jina Reader to bypass CORS and get Markdown
-const fetchPaperContent = async (link, abstract) => {
+// Fetch paper content using Jina Reader with timeout and signal
+const fetchPaperContent = async (link, abstract, signal) => {
     if (!link) return abstract;
 
-    // Convert /abs/ to /html/ for better full text extraction
-    // Example: https://arxiv.org/abs/2512.19342 -> https://arxiv.org/html/2512.19342
+    // Convert /abs/ to /html/ for better text extraction
     const htmlLink = link.replace('/abs/', '/html/');
     const jinaUrl = `https://r.jina.ai/${htmlLink}`;
 
     try {
+        // Set a 10s timeout for the fetch
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+        // Combine user signal with timeout signal
+        const combinedSignal = signal || controller.signal;
+        // Note: Basic fetch doesn't support combined signals natively in all browsers,
+        // so we mainly rely on the internal timeout here, but check user signal before returning.
+
         console.log(`Fetching content from ${jinaUrl}...`);
-        const res = await fetch(jinaUrl);
-        if (!res.ok) throw new Error("Failed to fetch via Jina");
+        const res = await fetch(jinaUrl, {
+            signal: combinedSignal,
+            headers: {
+                'X-Return-Format': 'markdown'
+            }
+        });
+
+        clearTimeout(timeoutId);
+
+        if (!res.ok) throw new Error(`Jina Error: ${res.status}`);
 
         const text = await res.text();
 
-        // Basic validation: If text is too short or looks like an error page, fallback
+        // Check if aborted after await
+        if (signal?.aborted) throw new Error('Aborted');
+
+        // Validation
         if (text.length < 500 || text.includes("404 Not Found") || text.includes("ArXiv HTML")) {
-             console.warn("Fetched content seems invalid or short, falling back to abstract.");
-             return `(Full text fetch failed, using abstract)\n\n${abstract}`;
+             console.warn("Fetched content invalid, using abstract.");
+             return `(Full text unavailable, using abstract)\n\n${abstract}`;
         }
 
-        return text;
+        // Truncate if too long (to prevent context overflow)
+        return text.length > 50000 ? text.substring(0, 50000) + "\n...(truncated)..." : text;
+
     } catch (e) {
-        console.warn("Failed to fetch full paper content, falling back to abstract.", e);
-        return `(Full text fetch failed, using abstract)\n\n${abstract}`;
+        if (e.name === 'AbortError') throw e; // Re-throw abort to be handled by caller
+        console.warn("Failed to fetch content:", e);
+        return `(Fetch failed: ${e.message}, using abstract)\n\n${abstract}`;
     }
 };
 
@@ -134,10 +157,12 @@ const Button = React.memo(({ children, onClick, variant = 'primary', className =
   );
 });
 
-// --- Simple Markdown Renderer ---
+// --- Enhanced Markdown Renderer ---
 const SimpleMarkdown = React.memo(({ text }) => {
   if (!text) return null;
+
   const parts = text.split(/(```[\s\S]*?```)/g);
+
   return (
     <div className="space-y-2 text-sm leading-relaxed text-gray-800 dark:text-gray-200 markdown-body">
       {parts.map((part, index) => {
@@ -149,31 +174,47 @@ const SimpleMarkdown = React.memo(({ text }) => {
             </div>
           );
         }
+
         const lines = part.split('\n');
         const elements = [];
         let currentList = null;
+
         lines.forEach((line, i) => {
           const trimmed = line.trim();
+
           if (trimmed === '---' || trimmed === '***') {
              elements.push(<hr key={i} className="my-4 border-gray-200 dark:border-gray-700" />);
              return;
           }
+
           if (trimmed.startsWith('#')) {
             const level = trimmed.match(/^#+/)[0].length;
             const content = trimmed.replace(/^#+\s*/, '');
             const fontSize = level === 1 ? 'text-xl' : level === 2 ? 'text-lg' : 'text-base';
-            elements.push(<div key={i} className={`${fontSize} font-bold mt-4 mb-2 text-gray-900 dark:text-white`}>{renderInline(content)}</div>);
+            elements.push(
+                <div key={i} className={`${fontSize} font-bold mt-4 mb-2 text-gray-900 dark:text-white`}>
+                    {renderInline(content)}
+                </div>
+            );
             return;
           }
+
           if (trimmed.startsWith('>')) {
-              elements.push(<div key={i} className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 py-1 my-2 text-gray-600 dark:text-gray-400 italic">{renderInline(trimmed.replace(/^>\s*/, ''))}</div>);
+              elements.push(
+                  <div key={i} className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 py-1 my-2 text-gray-600 dark:text-gray-400 italic">
+                      {renderInline(trimmed.replace(/^>\s*/, ''))}
+                  </div>
+              );
               return;
           }
+
           const isUl = trimmed.startsWith('- ') || trimmed.startsWith('* ');
           const isOl = /^\d+\.\s/.test(trimmed);
+
           if (isUl || isOl) {
              const content = trimmed.replace(/^([-*]|\d+\.)\s+/, '');
              const item = <li key={`li-${i}`} className="ml-4">{renderInline(content)}</li>;
+
              if (!currentList || currentList.type !== (isUl ? 'ul' : 'ol')) {
                  currentList = { type: isUl ? 'ul' : 'ol', items: [item], key: i };
                  elements.push(currentList);
@@ -187,6 +228,7 @@ const SimpleMarkdown = React.memo(({ text }) => {
              }
           }
         });
+
         return (
             <div key={index}>
                 {elements.map((el, idx) => {
@@ -205,10 +247,17 @@ const renderInline = (text) => {
     if (!text) return null;
     const regex = /(\*\*.*?\*\*|`.*?`|\$.*?\$)/g;
     const parts = text.split(regex);
+
     return parts.map((part, i) => {
-        if (part.startsWith('**') && part.endsWith('**')) return <strong key={i}>{part.slice(2, -2)}</strong>;
-        if (part.startsWith('`') && part.endsWith('`')) return <code key={i} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{part.slice(1, -1)}</code>;
-        if (part.startsWith('$') && part.endsWith('$')) return <span key={i} className="font-serif italic text-blue-600 dark:text-blue-400 px-0.5">{part.slice(1, -1)}</span>;
+        if (part.startsWith('**') && part.endsWith('**')) {
+            return <strong key={i}>{part.slice(2, -2)}</strong>;
+        }
+        if (part.startsWith('`') && part.endsWith('`')) {
+            return <code key={i} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{part.slice(1, -1)}</code>;
+        }
+        if (part.startsWith('$') && part.endsWith('$')) {
+             return <span key={i} className="font-serif italic text-blue-600 dark:text-blue-400 px-0.5">{part.slice(1, -1)}</span>;
+        }
         return part;
     });
 };
@@ -432,10 +481,10 @@ const ExplainPanel = ({ paper, settings, className }) => {
     abortControllerRef.current = new AbortController();
 
     try {
-        // 1. Fetch content (bypass CORS via Jina)
-        const content = await fetchPaperContent(paper.link, paper.abstract);
+        // 1. Fetch content (bypass CORS via Jina) with signal
+        const content = await fetchPaperContent(paper.link, paper.abstract, abortControllerRef.current.signal);
 
-        // Check if aborted during fetch
+        // Double check aborted
         if (abortControllerRef.current.signal.aborted) return;
 
         setStatus("generating");
@@ -494,7 +543,8 @@ const ExplainPanel = ({ paper, settings, className }) => {
         }
     } catch (err) {
       if (err.name !== 'AbortError') {
-        setError(err.message);
+        // Safety: Ensure error is always a string to prevent rendering crash
+        setError(err.message || String(err) || "Unknown error occurred");
       }
     } finally {
       if (abortControllerRef.current && !abortControllerRef.current.signal.aborted) {
@@ -545,7 +595,7 @@ const ExplainPanel = ({ paper, settings, className }) => {
           )}
           {error && (
             <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-md text-sm border border-red-200 dark:border-red-800">
-              Error: {error}
+              Error: {typeof error === 'string' ? error : 'An error occurred'}
             </div>
           )}
         </div>
@@ -559,7 +609,6 @@ const ExplainPanel = ({ paper, settings, className }) => {
             <div className="flex items-center gap-3">
                 {status === 'generating' && (
                     <span className="text-xs text-gray-400 animate-pulse hidden sm:inline flex items-center">
-                        <AlertCircle className="w-3 h-3 mr-1" />
                         Slow? Try switching models.
                     </span>
                 )}
