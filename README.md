@@ -11,7 +11,7 @@
 
 `Fetch from arxiv` → `LLM Filter` → `GitHub workflow update`
 
-### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](daily-arxiv-llm.md)
+### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](https://paper.tju.chat)
 
 </div>
 

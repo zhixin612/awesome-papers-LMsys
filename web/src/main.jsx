@@ -1022,7 +1022,7 @@ const App = () => {
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
 
-            <a href="[https://github.com/zhixin612/awesome-papers-LMsys](https://github.com/zhixin612/awesome-papers-LMsys)" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="View on GitHub">
+            <a href="https://github.com/zhixin612/awesome-papers-LMsys" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="View on GitHub">
                 <Github className="w-5 h-5" />
             </a>
           </div>
