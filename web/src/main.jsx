@@ -26,7 +26,9 @@ import {
   Send,
   RefreshCw,
   Zap,
-  RotateCcw
+  RotateCcw,
+  ShieldCheck,
+  AlertCircle
 } from 'lucide-react';
 
 // --- Constants ---
@@ -92,41 +94,122 @@ const Button = React.memo(({ children, onClick, variant = 'primary', className =
   );
 });
 
-// --- Simple Markdown Renderer ---
+// --- Enhanced Markdown Renderer ---
+// Supports: Headers, Lists, Code Blocks, Bold, Inline Code, Horizontal Rules, Blockquotes, Basic Math
 const SimpleMarkdown = React.memo(({ text }) => {
   if (!text) return null;
+
+  // 1. Pre-process: Handle Code Blocks first to avoid formatting inside them
   const parts = text.split(/(```[\s\S]*?```)/g);
+
   return (
-    <div className="space-y-3 text-sm leading-relaxed text-gray-800 dark:text-gray-200">
+    <div className="space-y-2 text-sm leading-relaxed text-gray-800 dark:text-gray-200 markdown-body">
       {parts.map((part, index) => {
         if (part.startsWith('```')) {
+          // Code Block
           const content = part.replace(/^```\w*\n?|```$/g, '');
           return (
-            <div key={index} className="bg-gray-100 dark:bg-gray-800 p-3 rounded-md overflow-x-auto border border-gray-200 dark:border-gray-700">
-              <pre className="text-xs font-mono text-gray-800 dark:text-gray-200">{content}</pre>
+            <div key={index} className="bg-gray-100 dark:bg-gray-800 p-3 rounded-md overflow-x-auto border border-gray-200 dark:border-gray-700 my-2">
+              <pre className="text-xs font-mono text-gray-800 dark:text-gray-200 whitespace-pre">{content}</pre>
             </div>
           );
         }
-        return part.split(/\n\n+/).map((paragraph, pIndex) => {
-          if (!paragraph.trim()) return null;
-          const elements = [];
-          let lastIndex = 0;
-          const regex = /(\*\*.*?\*\*|`.*?`)/g;
-          let match;
-          while ((match = regex.exec(paragraph)) !== null) {
-            if (match.index > lastIndex) elements.push(paragraph.substring(lastIndex, match.index));
-            const matchedStr = match[0];
-            if (matchedStr.startsWith('**')) elements.push(<strong key={match.index}>{matchedStr.slice(2, -2)}</strong>);
-            else if (matchedStr.startsWith('`')) elements.push(<code key={match.index} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{matchedStr.slice(1, -1)}</code>);
-            lastIndex = regex.lastIndex;
+
+        // Process non-code text line by line for block elements
+        const lines = part.split('\n');
+        const elements = [];
+        let currentList = null; // 'ul' or 'ol'
+
+        lines.forEach((line, i) => {
+          const trimmed = line.trim();
+
+          // Horizontal Rule
+          if (trimmed === '---' || trimmed === '***') {
+             elements.push(<hr key={i} className="my-4 border-gray-200 dark:border-gray-700" />);
+             return;
           }
-          if (lastIndex < paragraph.length) elements.push(paragraph.substring(lastIndex));
-          return <p key={`${index}-${pIndex}`}>{elements}</p>;
+
+          // Headers
+          if (trimmed.startsWith('#')) {
+            const level = trimmed.match(/^#+/)[0].length;
+            const content = trimmed.replace(/^#+\s*/, '');
+            const fontSize = level === 1 ? 'text-xl' : level === 2 ? 'text-lg' : 'text-base';
+            elements.push(
+                <div key={i} className={`${fontSize} font-bold mt-4 mb-2 text-gray-900 dark:text-white`}>
+                    {renderInline(content)}
+                </div>
+            );
+            return;
+          }
+
+          // Blockquote
+          if (trimmed.startsWith('>')) {
+              elements.push(
+                  <div key={i} className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 py-1 my-2 text-gray-600 dark:text-gray-400 italic">
+                      {renderInline(trimmed.replace(/^>\s*/, ''))}
+                  </div>
+              );
+              return;
+          }
+
+          // Lists
+          const isUl = trimmed.startsWith('- ') || trimmed.startsWith('* ');
+          const isOl = /^\d+\.\s/.test(trimmed);
+
+          if (isUl || isOl) {
+             const content = trimmed.replace(/^([-*]|\d+\.)\s+/, '');
+             const item = <li key={`li-${i}`} className="ml-4">{renderInline(content)}</li>;
+
+             if (!currentList || currentList.type !== (isUl ? 'ul' : 'ol')) {
+                 currentList = { type: isUl ? 'ul' : 'ol', items: [item], key: i };
+                 elements.push(currentList);
+             } else {
+                 currentList.items.push(item);
+             }
+          } else {
+             // Reset list if line is empty or normal text
+             currentList = null;
+             if (trimmed.length > 0) {
+                 elements.push(<p key={i} className="my-1.5 min-h-[1em]">{renderInline(line)}</p>);
+             }
+          }
         });
+
+        // Render collected elements (expanding the list objects)
+        return (
+            <div key={index}>
+                {elements.map((el, idx) => {
+                    if (el.type === 'ul') return <ul key={el.key} className="list-disc list-inside my-2 space-y-1">{el.items}</ul>;
+                    if (el.type === 'ol') return <ol key={el.key} className="list-decimal list-inside my-2 space-y-1">{el.items}</ol>;
+                    return el;
+                })}
+            </div>
+        );
       })}
     </div>
   );
 });
+
+// Helper for inline formatting (Bold, Code, Math)
+const renderInline = (text) => {
+    if (!text) return null;
+    // Regex for: **Bold**, `Code`, $Math$
+    const regex = /(\*\*.*?\*\*|`.*?`|\$.*?\$)/g;
+    const parts = text.split(regex);
+
+    return parts.map((part, i) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+            return <strong key={i}>{part.slice(2, -2)}</strong>;
+        }
+        if (part.startsWith('`') && part.endsWith('`')) {
+            return <code key={i} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{part.slice(1, -1)}</code>;
+        }
+        if (part.startsWith('$') && part.endsWith('$')) {
+             return <span key={i} className="font-serif italic text-blue-600 dark:text-blue-400 px-0.5">{part.slice(1, -1)}</span>;
+        }
+        return part;
+    });
+};
 
 // --- Settings Modal ---
 
@@ -135,8 +218,26 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
   const [showModelDropdown, setShowModelDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
+  // Initialize missing apiKeys structure if old version exists
   useEffect(() => {
-    if (isOpen) setFormData(settings);
+    if (isOpen) {
+        let initializedSettings = { ...settings };
+        if (!initializedSettings.apiKeys) {
+            initializedSettings.apiKeys = {
+                siliconflow: '',
+                openrouter: ''
+            };
+            // Migrating old single key if needed, or just leave blank
+            if (initializedSettings.apiKey) {
+               // Try to guess or just let user re-enter to be safe/clean
+               // For now, let's assume if provider matches, assign it
+               if (initializedSettings.provider) {
+                   initializedSettings.apiKeys[initializedSettings.provider] = initializedSettings.apiKey;
+               }
+            }
+        }
+        setFormData(initializedSettings);
+    }
   }, [isOpen, settings]);
 
   // Click outside to close custom dropdown
@@ -156,7 +257,19 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const handleApiKeyChange = (value) => {
+      setFormData(prev => ({
+          ...prev,
+          apiKeys: {
+              ...prev.apiKeys,
+              [prev.provider]: value
+          }
+      }));
+  };
+
   const currentProviderConfig = API_PROVIDERS[formData.provider];
+  // Get current key based on provider
+  const currentApiKey = formData.apiKeys ? formData.apiKeys[formData.provider] : '';
 
   const handleResetModel = () => {
     handleChange('model', currentProviderConfig.defaultModel);
@@ -194,6 +307,8 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
                 onChange={(e) => {
                   const newProvider = e.target.value;
                   handleChange('provider', newProvider);
+                  // Auto switch model if needed, or keep current if valid?
+                  // Better to switch to default to ensure compatibility
                   handleChange('model', API_PROVIDERS[newProvider].defaultModel);
                 }}
                 className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white cursor-pointer"
@@ -205,19 +320,28 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Key</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 flex items-center justify-between">
+                  <span>API Key</span>
+                  <span className="flex items-center text-[10px] text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-1.5 py-0.5 rounded">
+                      <ShieldCheck className="w-3 h-3 mr-1" />
+                      Local Only
+                  </span>
+              </label>
               <input
                 type="password"
-                value={formData.apiKey}
-                onChange={(e) => handleChange('apiKey', e.target.value)}
-                placeholder="sk-..."
+                value={currentApiKey}
+                onChange={(e) => handleApiKeyChange(e.target.value)}
+                placeholder={`sk-... (${API_PROVIDERS[formData.provider].name} key)`}
                 className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
               />
+              <p className="text-[10px] text-gray-400 mt-1 flex items-center">
+                  Key is stored locally in your browser and never sent to our servers.
+              </p>
             </div>
 
             <div className="relative" ref={dropdownRef}>
               <div className="flex justify-between items-center mb-1">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Model Name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Model Name (editable)</label>
                 <button onClick={handleResetModel} className="text-xs text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 flex items-center transition-colors" title="Reset to default">
                     <RotateCcw className="w-3 h-3 mr-1"/> Reset
                 </button>
@@ -310,7 +434,10 @@ const ExplainPanel = ({ paper, settings, className }) => {
   const hasAutoStarted = useRef(false);
 
   const handleExplain = useCallback(async () => {
-    if (!settings.apiKey) {
+    // Get the correct key for the current provider
+    const currentKey = settings.apiKeys ? settings.apiKeys[settings.provider] : settings.apiKey;
+
+    if (!currentKey) {
       setError("Please configure your API Key in Settings first.");
       return;
     }
@@ -332,7 +459,7 @@ const ExplainPanel = ({ paper, settings, className }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${settings.apiKey}`,
+          "Authorization": `Bearer ${currentKey}`,
           ...(settings.provider === 'openrouter' && {
             "HTTP-Referer": window.location.href,
             "X-Title": "Daily MLsys"
@@ -427,7 +554,12 @@ const ExplainPanel = ({ paper, settings, className }) => {
                 <Zap className="w-3 h-3 mr-1" />
                 {settings.model}
             </div>
-            <div className="flex gap-2">
+            <div className="flex items-center gap-3">
+                {isStreaming && (
+                    <span className="text-xs text-gray-400 animate-pulse hidden sm:inline">
+                        Waiting long? Try switching models.
+                    </span>
+                )}
                 {isStreaming ? (
                     <Button onClick={handleStop} variant="danger" icon={X}>Stop</Button>
                 ) : (
@@ -706,12 +838,31 @@ const App = () => {
     const saved = localStorage.getItem('daily_arxiv_ai_settings');
     const defaultSettings = {
         provider: 'siliconflow',
-        apiKey: '',
+        apiKey: '', // Backwards compatibility field (not used in new flow but kept for structure)
+        apiKeys: {
+            siliconflow: '',
+            openrouter: ''
+        },
         model: 'moonshotai/Kimi-K2-Thinking',
         customPrompt: '',
         redirectionModel: 'chatgpt'
     };
-    return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
+
+    if (!saved) return defaultSettings;
+
+    // Merge saved settings with default structure to ensure apiKeys exists
+    const parsedSaved = JSON.parse(saved);
+    const merged = { ...defaultSettings, ...parsedSaved };
+
+    // Migration: If user has old 'apiKey' but empty 'apiKeys', migrate it
+    if (parsedSaved.apiKey && (!parsedSaved.apiKeys || !parsedSaved.apiKeys[parsedSaved.provider])) {
+        merged.apiKeys = {
+            ...defaultSettings.apiKeys,
+            [parsedSaved.provider || 'siliconflow']: parsedSaved.apiKey
+        };
+    }
+
+    return merged;
   });
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
