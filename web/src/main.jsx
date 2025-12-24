@@ -24,7 +24,8 @@ import {
   Settings,
   MessageSquareText,
   Send,
-  RefreshCw
+  RefreshCw,
+  Zap
 } from 'lucide-react';
 
 // --- Constants ---
@@ -42,6 +43,11 @@ const API_PROVIDERS = {
     url: "https://openrouter.ai/api/v1/chat/completions",
     defaultModel: "openai/gpt-5.2"
   }
+};
+
+const REDIRECTION_MODELS = {
+  chatgpt: "ChatGPT",
+  kimi: "Kimi"
 };
 
 // --- Components ---
@@ -73,6 +79,65 @@ const Button = React.memo(({ children, onClick, variant = 'primary', className =
   );
 });
 
+// --- Simple Markdown Renderer ---
+// A lightweight renderer to avoid heavy dependencies like react-markdown
+const SimpleMarkdown = React.memo(({ text }) => {
+  if (!text) return null;
+
+  // Split text by code blocks first
+  const parts = text.split(/(```[\s\S]*?```)/g);
+
+  return (
+    <div className="space-y-3 text-sm leading-relaxed text-gray-800 dark:text-gray-200">
+      {parts.map((part, index) => {
+        if (part.startsWith('```')) {
+          // Code Block
+          const content = part.replace(/^```\w*\n?|```$/g, '');
+          return (
+            <div key={index} className="bg-gray-100 dark:bg-gray-800 p-3 rounded-md overflow-x-auto border border-gray-200 dark:border-gray-700">
+              <pre className="text-xs font-mono text-gray-800 dark:text-gray-200">{content}</pre>
+            </div>
+          );
+        }
+
+        // Normal Text: Process Paragraphs
+        return part.split(/\n\n+/).map((paragraph, pIndex) => {
+          if (!paragraph.trim()) return null;
+
+          // Inline formatting: Bold (**text**) and Code (`text`)
+          const elements = [];
+          let lastIndex = 0;
+          // Regex for **bold** and `code`
+          const regex = /(\*\*.*?\*\*|`.*?`)/g;
+          let match;
+
+          while ((match = regex.exec(paragraph)) !== null) {
+            // Push preceding text
+            if (match.index > lastIndex) {
+              elements.push(paragraph.substring(lastIndex, match.index));
+            }
+
+            const matchedStr = match[0];
+            if (matchedStr.startsWith('**')) {
+              elements.push(<strong key={match.index}>{matchedStr.slice(2, -2)}</strong>);
+            } else if (matchedStr.startsWith('`')) {
+              elements.push(<code key={match.index} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{matchedStr.slice(1, -1)}</code>);
+            }
+
+            lastIndex = regex.lastIndex;
+          }
+          // Push remaining text
+          if (lastIndex < paragraph.length) {
+            elements.push(paragraph.substring(lastIndex));
+          }
+
+          return <p key={`${index}-${pIndex}`}>{elements}</p>;
+        });
+      })}
+    </div>
+  );
+});
+
 // --- Settings Modal ---
 
 const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
@@ -89,75 +154,99 @@ const AISettingsModal = ({ isOpen, onClose, settings, onSave }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200">
       <div className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-md overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col max-h-[90vh]">
         <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-800/50">
           <h3 className="font-bold text-lg text-gray-900 dark:text-white flex items-center">
             <Settings className="w-5 h-5 mr-2 text-blue-600" />
-            AI Settings
+            AI Configuration
           </h3>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="p-6 space-y-4 overflow-y-auto">
-          {/* Provider */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Provider</label>
-            <select
-              value={formData.provider}
-              onChange={(e) => {
-                const newProvider = e.target.value;
-                handleChange('provider', newProvider);
-                // Auto switch default model example
-                handleChange('model', API_PROVIDERS[newProvider].defaultModel);
-              }}
-              className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
-            >
-              {Object.entries(API_PROVIDERS).map(([key, val]) => (
-                <option key={key} value={key}>{val.name}</option>
-              ))}
-            </select>
+        <div className="p-6 overflow-y-auto space-y-8">
+
+          {/* Section 1: Explain Settings */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-800">
+                <MessageSquareText className="w-4 h-4 text-blue-500" />
+                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">AI Settings for Explain</h4>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Provider</label>
+              <select
+                value={formData.provider}
+                onChange={(e) => {
+                  const newProvider = e.target.value;
+                  handleChange('provider', newProvider);
+                  handleChange('model', API_PROVIDERS[newProvider].defaultModel);
+                }}
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+              >
+                {Object.entries(API_PROVIDERS).map(([key, val]) => (
+                  <option key={key} value={key}>{val.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Key</label>
+              <input
+                type="password"
+                value={formData.apiKey}
+                onChange={(e) => handleChange('apiKey', e.target.value)}
+                placeholder="sk-..."
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Model Name</label>
+              <input
+                type="text"
+                value={formData.model}
+                onChange={(e) => handleChange('model', e.target.value)}
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Custom System Prompt</label>
+              <textarea
+                value={formData.customPrompt}
+                onChange={(e) => handleChange('customPrompt', e.target.value)}
+                rows={3}
+                placeholder={DEFAULT_PROMPT}
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white resize-none"
+              />
+            </div>
           </div>
 
-          {/* API Key */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">API Key</label>
-            <input
-              type="password"
-              value={formData.apiKey}
-              onChange={(e) => handleChange('apiKey', e.target.value)}
-              placeholder="sk-..."
-              className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
-            />
-            <p className="text-xs text-gray-500 mt-1">Stored locally in your browser.</p>
+          {/* Section 2: Redirection Settings */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-800">
+                <ExternalLink className="w-4 h-4 text-purple-500" />
+                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">AI Settings for Redirection</h4>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Target Model</label>
+              <select
+                value={formData.redirectionModel}
+                onChange={(e) => handleChange('redirectionModel', e.target.value)}
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+              >
+                {Object.entries(REDIRECTION_MODELS).map(([key, name]) => (
+                  <option key={key} value={key}>{name}</option>
+                ))}
+              </select>
+              <p className="text-xs text-gray-500 mt-1">Controls where the robot icon button redirects.</p>
+            </div>
           </div>
 
-          {/* Model Name */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Model Name</label>
-            <input
-              type="text"
-              value={formData.model}
-              onChange={(e) => handleChange('model', e.target.value)}
-              placeholder="e.g. deepseek-ai/DeepSeek-V2.5"
-              className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
-            />
-          </div>
-
-          {/* Custom Prompt */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Custom System Prompt</label>
-            <textarea
-              value={formData.customPrompt}
-              onChange={(e) => handleChange('customPrompt', e.target.value)}
-              rows={4}
-              placeholder={DEFAULT_PROMPT}
-              className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white resize-none"
-            />
-            <p className="text-xs text-gray-500 mt-1">Paper title and link will be appended automatically.</p>
-          </div>
         </div>
 
         <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 flex justify-end gap-2">
@@ -188,7 +277,6 @@ const ExplainPanel = ({ paper, settings }) => {
     setResponse("");
     setError(null);
 
-    // Cancel previous request if any
     if (abortControllerRef.current) {
         abortControllerRef.current.abort();
     }
@@ -238,7 +326,7 @@ const ExplainPanel = ({ paper, settings }) => {
               const content = data.choices?.[0]?.delta?.content || "";
               setResponse(prev => prev + content);
             } catch (e) {
-              // Ignore parse errors for partial chunks
+              // Ignore partial chunks
             }
           }
         }
@@ -259,14 +347,12 @@ const ExplainPanel = ({ paper, settings }) => {
     }
   };
 
-  // Auto start on mount
   useEffect(() => {
     if (!hasAutoStarted.current) {
         hasAutoStarted.current = true;
         handleExplain();
     }
     return () => {
-        // Cleanup on unmount
         if (abortControllerRef.current) {
             abortControllerRef.current.abort();
         }
@@ -276,9 +362,11 @@ const ExplainPanel = ({ paper, settings }) => {
   return (
     <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
       <div className="relative w-full bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col p-4 min-h-[200px]">
-        {/* Output Area */}
-        <div className="flex-1 whitespace-pre-wrap font-sans text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
-          {response || (!isStreaming && !error && (
+        {/* Output Area (Markdown Supported) */}
+        <div className="flex-1 font-sans">
+          {response ? (
+            <SimpleMarkdown text={response} />
+          ) : (!isStreaming && !error && (
             <div className="flex flex-col items-center justify-center h-40 text-gray-400">
               <Bot className="w-8 h-8 mb-2 opacity-50" />
               <p>Waiting to start...</p>
@@ -293,8 +381,9 @@ const ExplainPanel = ({ paper, settings }) => {
 
         {/* Controls */}
         <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
-            <div className="text-xs text-gray-400">
-                Model: {settings.model}
+            <div className="text-xs text-gray-400 flex items-center">
+                <Zap className="w-3 h-3 mr-1" />
+                {settings.model}
             </div>
             <div className="flex gap-2">
                 {isStreaming ? (
@@ -311,7 +400,7 @@ const ExplainPanel = ({ paper, settings }) => {
   );
 };
 
-// --- Pagination ---
+// --- Pagination (Unchanged) ---
 const PaginationControls = React.memo(({ currentPage, totalPages, onPageChange, itemsPerPage, onItemsPerPageChange }) => {
   const [inputPage, setInputPage] = useState(currentPage);
   useEffect(() => { setInputPage(currentPage); }, [currentPage]);
@@ -359,7 +448,7 @@ const extractCodeLink = (abstract) => {
 
 // --- Paper Card Component ---
 
-const PaperCard = React.memo(({ paper, isStarred, toggleStar, askAiModel, aiSettings }) => {
+const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
   const [activeView, setActiveView] = useState('none');
   const [copied, setCopied] = useState(null);
 
@@ -384,7 +473,8 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, askAiModel, aiSett
     const encodedPrompt = encodeURIComponent(prompt);
     let url = "";
 
-    switch (askAiModel) {
+    // Use redirection setting from aiSettings
+    switch (aiSettings.redirectionModel) {
         case 'kimi':
             url = `http://kimi.com/_prefill_chat?prefill_prompt=${encodedPrompt}&send_immediately=true&force_search=false&enable_reasoning=false`;
             break;
@@ -395,7 +485,7 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, askAiModel, aiSett
             url = `https://chatgpt.com/?q=${encodedPrompt}`;
     }
     window.open(url, '_blank');
-  }, [askAiModel, prompt]);
+  }, [aiSettings.redirectionModel, prompt]);
 
   const pdfUrl = link.replace(/^http:/, 'https:').replace('/abs/', '/pdf/') + ".pdf";
   const formatCategory = (cat) => cat ? cat.replace(/^cs\./, '') : 'N/A';
@@ -496,7 +586,7 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, askAiModel, aiSett
                  <a href={link} target="_blank" rel="noopener noreferrer" className="h-full flex items-center px-2.5 hover:bg-white dark:hover:bg-gray-600 border-r border-gray-200 dark:border-gray-600 transition-colors text-gray-500 dark:text-gray-300" title="ArXiv Page">
                     <ExternalLink className="w-4 h-4" />
                  </a>
-                 <button onClick={handleAskAI} className="h-full flex items-center px-2.5 hover:bg-white dark:hover:bg-gray-600 border-r border-gray-200 dark:border-gray-600 transition-colors text-purple-600 dark:text-purple-400 group/ai" title={`Ask ${askAiModel.toUpperCase()}`}>
+                 <button onClick={handleAskAI} className="h-full flex items-center px-2.5 hover:bg-white dark:hover:bg-gray-600 border-r border-gray-200 dark:border-gray-600 transition-colors text-purple-600 dark:text-purple-400 group/ai" title={`Ask ${aiSettings.redirectionModel === 'kimi' ? 'Kimi' : 'ChatGPT'}`}>
                     <Bot className="w-4 h-4 group-hover/ai:animate-bounce" />
                  </button>
                  <button onClick={toggleStar} className={`h-full flex items-center px-2.5 transition-colors ${isStarred ? 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-500 hover:bg-yellow-100 dark:hover:bg-yellow-900/40' : 'hover:bg-white dark:hover:bg-gray-600 text-gray-400 hover:text-yellow-500'}`} title={isStarred ? "Remove from favorites" : "Save for later"}>
@@ -560,20 +650,18 @@ const App = () => {
   const [debugInfo, setDebugInfo] = useState("");
 
   const [darkMode, setDarkMode] = useState(() => window.matchMedia('(prefers-color-scheme: dark)').matches);
-  // Removed language state as requested
-
-  // Ask AI External Model Selection
-  const [askAiModel, setAskAiModel] = useState('chatgpt');
 
   // AI API Settings
   const [aiSettings, setAiSettings] = useState(() => {
     const saved = localStorage.getItem('daily_arxiv_ai_settings');
-    return saved ? JSON.parse(saved) : {
+    const defaultSettings = {
         provider: 'siliconflow',
         apiKey: '',
         model: 'moonshotai/Kimi-K2-Thinking',
-        customPrompt: ''
+        customPrompt: '',
+        redirectionModel: 'chatgpt' // Added default redirection
     };
+    return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
   });
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
@@ -619,7 +707,7 @@ const App = () => {
         setLoading(true);
         setError(null);
         const pathsToTry = [
-            'https://raw.githubusercontent.com/zhixin612/awesome-papers-LMsys/main/tools/index.json',
+            '[https://raw.githubusercontent.com/zhixin612/awesome-papers-LMsys/main/tools/index.json](https://raw.githubusercontent.com/zhixin612/awesome-papers-LMsys/main/tools/index.json)',
             './index.json', '/index.json', '../tools/index.json',
         ];
         let data = null;
@@ -729,30 +817,19 @@ const App = () => {
             <div className="bg-blue-600 p-1.5 rounded-lg">
                 <Calendar className="w-5 h-5 text-white" />
             </div>
-            <a href="https://github.com/zhixin612" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2 group cursor-pointer">
+            <a href="[https://github.com/zhixin612](https://github.com/zhixin612)" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2 group cursor-pointer">
                 <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Daily Arxiv: LLM Systems</h1>
                 <span className="text-xs text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">by zhixin</span>
             </a>
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="relative group">
-                <div className="hidden sm:flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg pl-2 pr-1 border border-gray-200 dark:border-gray-700 h-8 hover:border-gray-300 dark:hover:border-gray-600 transition-colors cursor-pointer">
-                    <Bot className="w-3.5 h-3.5 text-gray-500 mr-1.5" />
-                    <select value={askAiModel} onChange={(e) => setAskAiModel(e.target.value)} className="bg-transparent text-xs font-semibold text-gray-700 dark:text-gray-300 outline-none cursor-pointer appearance-none pr-6 z-10">
-                        <option value="chatgpt">ChatGPT</option>
-                        <option value="kimi">Kimi</option>
-                    </select>
-                    <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500"><ChevronDown className="w-3 h-3" /></div>
-                </div>
-            </div>
-
-            <button onClick={() => setIsSettingsOpen(true)} className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Configure AI Settings">
-                <Settings className="w-4 h-4" />
+            <button onClick={() => setIsSettingsOpen(true)} className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Configure AI Settings">
+                <Settings className="w-5 h-5" />
             </button>
 
-            <button onClick={() => setDarkMode(!darkMode)} className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            <button onClick={() => setDarkMode(!darkMode)} className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -812,7 +889,7 @@ const App = () => {
 
         <div className="flex flex-col gap-4">
           {currentPapers.map((paper, idx) => (
-            <PaperCard key={paper.id || idx} paper={paper} isStarred={favorites.includes(paper.id)} toggleStar={() => toggleFavorite(paper.id)} askAiModel={askAiModel} aiSettings={aiSettings} />
+            <PaperCard key={paper.id || idx} paper={paper} isStarred={favorites.includes(paper.id)} toggleStar={() => toggleFavorite(paper.id)} aiSettings={aiSettings} />
           ))}
         </div>
 

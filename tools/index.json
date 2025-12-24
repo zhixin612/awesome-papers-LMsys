@@ -24444,8 +24444,7 @@
         "link": "http://arxiv.org/abs/2509.16293v4",
         "tags": [
             "training",
-            "RL",
-            null
+            "RL"
         ],
         "relevant": true,
         "indexed_date": "2025-09-16",
@@ -33477,8 +33476,7 @@
         "title": "MNN-AECS: Energy Optimization for LLM Decoding on Mobile Devices via Adaptive Core Selection",
         "link": "http://arxiv.org/abs/2506.19884v1",
         "tags": [
-            "edge",
-            "energy"
+            "edge"
         ],
         "relevant": true,
         "indexed_date": "2025-06-26",
@@ -35569,8 +35567,7 @@
         "link": "http://arxiv.org/abs/2505.06252v3",
         "tags": [
             "storage",
-            "compression",
-            "deduplication"
+            "compression"
         ],
         "relevant": true,
         "indexed_date": "2025-05-13",
@@ -36747,8 +36744,7 @@
         "link": "http://arxiv.org/abs/2504.10013v1",
         "tags": [
             "training",
-            "scalability",
-            "HPC"
+            "scalability"
         ],
         "relevant": true,
         "indexed_date": "2025-04-15",
