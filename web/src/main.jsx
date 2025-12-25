@@ -30,7 +30,7 @@ import {
   ShieldCheck,
   AlertCircle,
   Loader2,
-  CircleHelp,
+  HelpCircle,
   Info,
   Layers,
   Cpu,
@@ -51,12 +51,12 @@ const SITE_METADATA = {
     {
       title: "Daily Updates",
       icon: Calendar,
-      description: "Automatically crawls and filters latest ArXiv papers (cs.DC, cs.AI) related to LLM systems."
+      description: "Automatically crawls and filters latest ArXiv papers (cs.DC, cs.OS) related to LLM systems."
     },
     {
       title: "AI Explanation",
       icon: MessageSquareText,
-      description: "Integrated AI agents (SiliconFlow/OpenRouter) to explain papers using the Feynman technique. Supports full-text context fetching via Jina Reader."
+      description: "Integrated AI agents (SiliconFlow/OpenRouter) to explain papers."
     },
     {
       title: "Easy Reading",
@@ -66,34 +66,37 @@ const SITE_METADATA = {
     {
       title: "Efficiency Tools",
       icon: Zap,
-      description: "One-click 'Ask AI' redirection (ChatGPT/Kimi), copy citation/links, and favorites management."
+      description: "One-click 'Ask AI' redirection (ChatGPT/Kimi), copy title&links, and favorites management."
     }
   ]
 };
 
-const DEFAULT_PROMPT = "把你自己当成论文作者，运用费曼学习法简洁清晰地向我解释一下这篇论文，不要用类比，用中文回答";
+const DEFAULT_PROMPT = "你是这篇论文的作者，运用费曼学习法简洁清晰地向我解释一下这篇论文，不要用类比，用中文回答";
 
 const API_PROVIDERS = {
   siliconflow: {
     name: "SiliconFlow",
     url: "https://api.siliconflow.cn/v1/chat/completions",
-    defaultModel: "moonshotai/Kimi-K2-Thinking",
+    defaultModel: "deepseek-ai/DeepSeek-V3.2",
     models: [
       "moonshotai/Kimi-K2-Thinking",
       "deepseek-ai/DeepSeek-V3.2",
       "deepseek-ai/DeepSeek-R1",
-      "Qwen/Qwen3-Next-80B-A3B-Thinking"
+      "Qwen/Qwen3-Next-80B-A3B-Thinking",
+      "MiniMaxAI/MiniMax-M2"
     ]
   },
   openrouter: {
     name: "OpenRouter",
     url: "https://openrouter.ai/api/v1/chat/completions",
-    defaultModel: "openai/gpt-5.2",
+    defaultModel: "google/gemini-3-flash-preview",
     models: [
       "openai/gpt-5.2",
       "google/gemini-3-pro-preview",
-      "x-ai/grok-code-fast-1",
-      "deepseek/deepseek-v3.2"
+      "google/gemini-3-flash-preview",
+      "x-ai/grok-4.1-fast",
+      "deepseek/deepseek-v3.2",
+      "minimax/minimax-m2"
     ]
   }
 };
@@ -259,8 +262,14 @@ const AboutModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-md overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col max-h-[90vh]">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+      onClick={onClose} // Click outside to close
+    >
+      <div
+        className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-md overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col max-h-[90vh]"
+        onClick={(e) => e.stopPropagation()} // Prevent close on inner click
+      >
         <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-800/50">
           <h3 className="font-bold text-lg text-gray-900 dark:text-white flex items-center">
             <Info className="w-5 h-5 mr-2 text-blue-600" />
@@ -272,23 +281,7 @@ const AboutModal = ({ isOpen, onClose }) => {
         </div>
 
         <div className="p-6 overflow-y-auto space-y-6">
-          {/* Header Info */}
-          <div className="text-center space-y-2">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{SITE_METADATA.about.title}</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{SITE_METADATA.about.description}</p>
-            <div className="flex justify-center gap-3 pt-2">
-                <a href={SITE_METADATA.about.repoUrl} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" icon={Github}>GitHub Repo</Button>
-                </a>
-                <a href={SITE_METADATA.about.authorUrl} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" icon={User}>Developer</Button>
-                </a>
-            </div>
-          </div>
-
-          <hr className="border-gray-100 dark:border-gray-800" />
-
-          {/* Features List */}
+          {/* Features List (Moved to top) */}
           <div className="space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Key Features</h4>
             {SITE_METADATA.features.map((feature, index) => (
@@ -308,7 +301,23 @@ const AboutModal = ({ isOpen, onClose }) => {
             ))}
           </div>
 
-          <div className="pt-4 text-center">
+          <hr className="border-gray-100 dark:border-gray-800" />
+
+          {/* About Info (Moved to bottom) */}
+          <div className="text-center space-y-2">
+            {/* Removed the large redundant title from body */}
+            <p className="text-sm text-gray-500 dark:text-gray-400">{SITE_METADATA.about.description}</p>
+            <div className="flex justify-center gap-3 pt-2">
+                <a href={SITE_METADATA.about.repoUrl} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" icon={Github}>GitHub Repo</Button>
+                </a>
+                <a href={SITE_METADATA.about.authorUrl} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" icon={User}>Developer</Button>
+                </a>
+            </div>
+          </div>
+
+          <div className="pt-2 text-center">
              <span className="text-[10px] text-gray-400 font-mono">Built by {SITE_METADATA.about.author}</span>
           </div>
         </div>
@@ -517,6 +526,7 @@ const ExplainPanel = ({ paper, settings, className }) => {
   const hasAutoStarted = useRef(false);
 
   const handleExplain = useCallback(async () => {
+    // Get the correct key for the current provider
     const currentKey = settings.apiKeys ? settings.apiKeys[settings.provider] : settings.apiKey;
 
     if (!currentKey) {
@@ -535,8 +545,10 @@ const ExplainPanel = ({ paper, settings, className }) => {
     abortControllerRef.current = new AbortController();
 
     try {
+        // 1. Fetch content (bypass CORS via Jina) with signal
         const content = await fetchPaperContent(paper.link, paper.abstract, abortControllerRef.current.signal);
 
+        // Double check aborted
         if (abortControllerRef.current.signal.aborted) return;
 
         setStatus("generating");
@@ -595,6 +607,7 @@ const ExplainPanel = ({ paper, settings, className }) => {
         }
     } catch (err) {
       if (err.name !== 'AbortError') {
+        // Safety: Ensure error is always a string to prevent rendering crash
         setError(err.message || String(err) || "Unknown error occurred");
       }
     } finally {
@@ -626,6 +639,7 @@ const ExplainPanel = ({ paper, settings, className }) => {
   return (
     <div className={`mt-2 animate-in fade-in slide-in-from-top-2 duration-300 ${className}`}>
       <div className="relative w-full bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col p-4 min-h-[200px]">
+        {/* Output Area (Markdown Supported) */}
         <div className="flex-1 font-sans">
           {response ? (
             <SimpleMarkdown text={response} />
@@ -650,6 +664,7 @@ const ExplainPanel = ({ paper, settings, className }) => {
           )}
         </div>
 
+        {/* Controls */}
         <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
             <div className="text-xs text-gray-400 flex items-center">
                 <Zap className="w-3 h-3 mr-1" />
@@ -719,12 +734,14 @@ const PaginationControls = React.memo(({ currentPage, totalPages, onPageChange, 
 
 const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
   const [activeView, setActiveView] = useState('none');
-  const [hasExplainStarted, setHasExplainStarted] = useState(false);
+  const [hasExplainStarted, setHasExplainStarted] = useState(false); // Cache: Track if explain has started
   const [copied, setCopied] = useState(null);
 
+  // Resizable PDF
   const [pdfHeight, setPdfHeight] = useState(600);
   const isResizing = useRef(false);
 
+  // Data
   const title = paper.title || "Untitled Paper";
   const link = paper.link || "#";
   const authors = Array.isArray(paper.authors) && paper.authors.length > 0 ? paper.authors : ["Unknown Author"];
@@ -733,6 +750,7 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
   const submitDate = paper.submit_date || "Unknown Date";
   const tldrText = paper.tldr || null;
 
+  // Prompt Construction for External Links
   const prompt = `${aiSettings.customPrompt || DEFAULT_PROMPT}\n\nPaper Title: ${title}\nLink: ${link}`;
 
   const handleAskAI = useCallback((e) => {
@@ -764,6 +782,7 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
     setTimeout(() => setCopied(null), 2000);
   }, [title, link]);
 
+  // Resizing logic
   const handleMouseDown = useCallback((e) => {
     isResizing.current = true;
     e.preventDefault();
@@ -796,6 +815,7 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
     <div className={`group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm border transition-all duration-200 overflow-hidden ${activeView !== 'none' ? 'ring-2 ring-blue-500/20 border-blue-500/30' : 'hover:shadow-md border-gray-200 dark:border-gray-700'}`}>
       <div className="p-5 flex flex-col gap-4">
 
+        {/* Top Row */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-3 gap-x-2 border-b border-gray-100 dark:border-gray-700/50 pb-3">
           <div className="flex items-center flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center whitespace-nowrap font-bold text-gray-800 dark:text-gray-200">
@@ -829,6 +849,7 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
                 </a>
              )}
 
+             {/* Unified PDF/Explain Group */}
              <div className="flex items-center bg-white dark:bg-gray-700/50 rounded-md border border-gray-200 dark:border-gray-600 h-8 overflow-hidden">
                 <Button
                     variant={activeView === 'pdf' ? "danger" : "ghost"}
@@ -885,6 +906,7 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
         </div>
 
         {/* Dynamic Content Area */}
+        {/* PDF View (Conditional Render to save memory on close) */}
         {activeView === 'pdf' && (
             <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="relative w-full bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col" style={{ height: `${pdfHeight}px` }}>
@@ -899,6 +921,7 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
             </div>
         )}
 
+        {/* Explain View (Hidden Render for Caching) */}
         {hasExplainStarted && (
             <div className={activeView === 'explain' ? 'block' : 'hidden'}>
                 <ExplainPanel paper={paper} settings={aiSettings} />
@@ -919,6 +942,7 @@ const App = () => {
 
   const [darkMode, setDarkMode] = useState(() => window.matchMedia('(prefers-color-scheme: dark)').matches);
 
+  // AI API Settings
   const [aiSettings, setAiSettings] = useState(() => {
     const saved = localStorage.getItem('daily_arxiv_ai_settings');
     const defaultSettings = {
@@ -959,6 +983,7 @@ const App = () => {
     else document.documentElement.classList.remove('dark');
   }, [darkMode]);
 
+  // Filter State
   const [searchQuery, setSearchQuery] = useState('');
   const deferredSearchQuery = useDeferredValue(searchQuery);
   const [selectedTags, setSelectedTags] = useState([]);
@@ -966,6 +991,7 @@ const App = () => {
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [tagsExpanded, setTagsExpanded] = useState(false);
 
+  // Favorites
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem('daily_arxiv_favorites');
     return saved ? JSON.parse(saved) : [];
@@ -979,9 +1005,11 @@ const App = () => {
     setFavorites(prev => prev.includes(id) ? prev.filter(fid => fid !== id) : [...prev, id]);
   }, []);
 
+  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(30);
 
+  // Load Data
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -1019,6 +1047,7 @@ const App = () => {
     loadData();
   }, []);
 
+  // Sorted Tags
   const allTags = useMemo(() => {
     const counts = {};
     papers.forEach(p => {
@@ -1028,6 +1057,7 @@ const App = () => {
             });
         }
     });
+    // Sort by count desc, then alpha
     return Object.keys(counts).sort((a, b) => {
         const diff = counts[b] - counts[a];
         return diff !== 0 ? diff : a.localeCompare(b);
@@ -1096,7 +1126,7 @@ const App = () => {
             <div className="bg-blue-600 p-1.5 rounded-lg">
                 <Calendar className="w-5 h-5 text-white" />
             </div>
-            <a href="[https://github.com/zhixin612](https://github.com/zhixin612)" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2 group cursor-pointer">
+            <a href="https://github.com/zhixin612" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2 group cursor-pointer">
                 <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Daily Arxiv: LLM Systems</h1>
                 <span className="text-xs text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">by zhixin</span>
             </a>
@@ -1104,7 +1134,7 @@ const App = () => {
 
           <div className="flex items-center gap-2">
             <button onClick={() => setIsAboutOpen(true)} className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="About & Help">
-                <CircleHelp className="w-5 h-5" />
+                <Info className="w-5 h-5" />
             </button>
 
             <button onClick={() => setIsSettingsOpen(true)} className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Configure AI Settings">
