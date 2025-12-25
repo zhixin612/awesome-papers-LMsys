@@ -672,7 +672,7 @@ const ExplainPanel = ({ paper, settings, className }) => {
             </div>
             <div className="flex items-center gap-3">
                 {status === 'generating' && (
-                    <span className="text-xs text-gray-400 animate-pulse hidden sm:inline flex items-center">
+                    <span className="text-xs text-gray-400 animate-pulse hidden sm:flex items-center whitespace-nowrap">
                         <AlertCircle className="w-3 h-3 mr-1" />
                         Slow? Try switching models.
                     </span>
@@ -729,6 +729,9 @@ const PaginationControls = React.memo(({ currentPage, totalPages, onPageChange, 
     </div>
   );
 });
+
+// --- Helper Functions ---
+// (Already updated above)
 
 // --- Paper Card Component ---
 
