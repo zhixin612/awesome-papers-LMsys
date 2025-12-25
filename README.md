@@ -38,19 +38,7 @@
 * `serving` `offloading` `kernel` [PHOTON: Hierarchical Autoregressive Modeling for Lightspeed and Memory-Efficient Language Generation](http://arxiv.org/abs/2512.20687v1)
   > **TL;DR**: Addresses memory inefficiency and latency in Transformer decoding by proposing PHOTON, a hierarchical model with compressed contextual states. Reduces KV-cache traffic through multi-resolution context access. Achieves up to 1000× higher throughput per unit memory for long-context tasks.
 
-### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](https://paper.tju.chat)
 
-</div>
-
-**👍Conference Papers on LMSys**: [conference.md](conference.md)
-
-**⚠️NOTE**: Update papers up to last day every morning (8:00 UTC+8) automatically.
-
-**🙋WANT**: Keyword subscription (email); Functional web page.
-
-**🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
-
----
 ### 2025-12-24
 * `serving` `quantization` `diffusion` [Fail Fast, Win Big: Rethinking the Drafting Strategy in Speculative Decoding via Diffusion LLMs](http://arxiv.org/abs/2512.20573v1)
   > **TL;DR**: Proposes FailFast, a diffusion LLM-based speculative decoding framework that dynamically adapts draft length to accelerate autoregressive LLM inference. Achieves up to 4.9× speedup over vanilla decoding with lossless quality.
