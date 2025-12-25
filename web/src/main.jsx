@@ -29,10 +29,47 @@ import {
   RotateCcw,
   ShieldCheck,
   AlertCircle,
-  Loader2
+  Loader2,
+  CircleHelp,
+  Info,
+  Layers,
+  Cpu,
+  BookOpen
 } from 'lucide-react';
 
-// --- Constants ---
+// --- CONFIGURATION ZONE (Edit this section to update About/Help info) ---
+
+const SITE_METADATA = {
+  about: {
+    title: "About",
+    description: "A daily updated feed of Large Model Systems papers.",
+    author: "Zhixin Zhao",
+    authorUrl: "https://github.com/zhixin612",
+    repoUrl: "https://github.com/zhixin612/awesome-papers-LMsys",
+  },
+  features: [
+    {
+      title: "Daily Updates",
+      icon: Calendar,
+      description: "Automatically crawls and filters latest ArXiv papers (cs.DC, cs.AI) related to LLM systems."
+    },
+    {
+      title: "AI Explanation",
+      icon: MessageSquareText,
+      description: "Integrated AI agents (SiliconFlow/OpenRouter) to explain papers using the Feynman technique. Supports full-text context fetching via Jina Reader."
+    },
+    {
+      title: "Easy Reading",
+      icon: BookOpen,
+      description: "Embedded PDF viewer with resizable layout. Markdown rendering for AI outputs."
+    },
+    {
+      title: "Efficiency Tools",
+      icon: Zap,
+      description: "One-click 'Ask AI' redirection (ChatGPT/Kimi), copy citation/links, and favorites management."
+    }
+  ]
+};
 
 const DEFAULT_PROMPT = "把你自己当成论文作者，运用费曼学习法简洁清晰地向我解释一下这篇论文，不要用类比，用中文回答";
 
@@ -68,53 +105,35 @@ const REDIRECTION_MODELS = {
 
 // --- Helper Functions ---
 
-// Fetch paper content using Jina Reader with timeout and signal
 const fetchPaperContent = async (link, abstract, signal) => {
     if (!link) return abstract;
-
-    // Convert /abs/ to /html/ for better text extraction
     const htmlLink = link.replace('/abs/', '/html/');
     const jinaUrl = `https://r.jina.ai/${htmlLink}`;
 
     try {
-        // Set a 10s timeout for the fetch
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-        // Combine user signal with timeout signal
         const combinedSignal = signal || controller.signal;
-        // Note: Basic fetch doesn't support combined signals natively in all browsers,
-        // so we mainly rely on the internal timeout here, but check user signal before returning.
 
         console.log(`Fetching content from ${jinaUrl}...`);
         const res = await fetch(jinaUrl, {
             signal: combinedSignal,
-            headers: {
-                'X-Return-Format': 'markdown'
-            }
+            headers: { 'X-Return-Format': 'markdown' }
         });
-
         clearTimeout(timeoutId);
 
         if (!res.ok) throw new Error(`Jina Error: ${res.status}`);
-
         const text = await res.text();
 
-        // Check if aborted after await
         if (signal?.aborted) throw new Error('Aborted');
 
-        // Validation
         if (text.length < 500 || text.includes("404 Not Found") || text.includes("ArXiv HTML")) {
-             console.warn("Fetched content invalid, using abstract.");
              return `(Full text unavailable, using abstract)\n\n${abstract}`;
         }
-
-        // Truncate if too long (to prevent context overflow)
         return text.length > 50000 ? text.substring(0, 50000) + "\n...(truncated)..." : text;
 
     } catch (e) {
-        if (e.name === 'AbortError') throw e; // Re-throw abort to be handled by caller
-        console.warn("Failed to fetch content:", e);
+        if (e.name === 'AbortError') throw e;
         return `(Fetch failed: ${e.message}, using abstract)\n\n${abstract}`;
     }
 };
@@ -122,9 +141,7 @@ const fetchPaperContent = async (link, abstract, signal) => {
 const extractCodeLink = (abstract) => {
     const githubRegex = /https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9-._]+/gi;
     const match = abstract.match(githubRegex);
-    if (match) {
-        return match[0].replace(/\.$/, '');
-    }
+    if (match) return match[0].replace(/\.$/, '');
     return null;
 };
 
@@ -157,12 +174,10 @@ const Button = React.memo(({ children, onClick, variant = 'primary', className =
   );
 });
 
-// --- Enhanced Markdown Renderer ---
+// --- Simple Markdown Renderer ---
 const SimpleMarkdown = React.memo(({ text }) => {
   if (!text) return null;
-
   const parts = text.split(/(```[\s\S]*?```)/g);
-
   return (
     <div className="space-y-2 text-sm leading-relaxed text-gray-800 dark:text-gray-200 markdown-body">
       {parts.map((part, index) => {
@@ -174,47 +189,31 @@ const SimpleMarkdown = React.memo(({ text }) => {
             </div>
           );
         }
-
         const lines = part.split('\n');
         const elements = [];
         let currentList = null;
-
         lines.forEach((line, i) => {
           const trimmed = line.trim();
-
           if (trimmed === '---' || trimmed === '***') {
              elements.push(<hr key={i} className="my-4 border-gray-200 dark:border-gray-700" />);
              return;
           }
-
           if (trimmed.startsWith('#')) {
             const level = trimmed.match(/^#+/)[0].length;
             const content = trimmed.replace(/^#+\s*/, '');
             const fontSize = level === 1 ? 'text-xl' : level === 2 ? 'text-lg' : 'text-base';
-            elements.push(
-                <div key={i} className={`${fontSize} font-bold mt-4 mb-2 text-gray-900 dark:text-white`}>
-                    {renderInline(content)}
-                </div>
-            );
+            elements.push(<div key={i} className={`${fontSize} font-bold mt-4 mb-2 text-gray-900 dark:text-white`}>{renderInline(content)}</div>);
             return;
           }
-
           if (trimmed.startsWith('>')) {
-              elements.push(
-                  <div key={i} className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 py-1 my-2 text-gray-600 dark:text-gray-400 italic">
-                      {renderInline(trimmed.replace(/^>\s*/, ''))}
-                  </div>
-              );
+              elements.push(<div key={i} className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 py-1 my-2 text-gray-600 dark:text-gray-400 italic">{renderInline(trimmed.replace(/^>\s*/, ''))}</div>);
               return;
           }
-
           const isUl = trimmed.startsWith('- ') || trimmed.startsWith('* ');
           const isOl = /^\d+\.\s/.test(trimmed);
-
           if (isUl || isOl) {
              const content = trimmed.replace(/^([-*]|\d+\.)\s+/, '');
              const item = <li key={`li-${i}`} className="ml-4">{renderInline(content)}</li>;
-
              if (!currentList || currentList.type !== (isUl ? 'ul' : 'ol')) {
                  currentList = { type: isUl ? 'ul' : 'ol', items: [item], key: i };
                  elements.push(currentList);
@@ -228,7 +227,6 @@ const SimpleMarkdown = React.memo(({ text }) => {
              }
           }
         });
-
         return (
             <div key={index}>
                 {elements.map((el, idx) => {
@@ -247,19 +245,76 @@ const renderInline = (text) => {
     if (!text) return null;
     const regex = /(\*\*.*?\*\*|`.*?`|\$.*?\$)/g;
     const parts = text.split(regex);
-
     return parts.map((part, i) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-            return <strong key={i}>{part.slice(2, -2)}</strong>;
-        }
-        if (part.startsWith('`') && part.endsWith('`')) {
-            return <code key={i} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{part.slice(1, -1)}</code>;
-        }
-        if (part.startsWith('$') && part.endsWith('$')) {
-             return <span key={i} className="font-serif italic text-blue-600 dark:text-blue-400 px-0.5">{part.slice(1, -1)}</span>;
-        }
+        if (part.startsWith('**') && part.endsWith('**')) return <strong key={i}>{part.slice(2, -2)}</strong>;
+        if (part.startsWith('`') && part.endsWith('`')) return <code key={i} className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono text-xs text-red-500 dark:text-red-400">{part.slice(1, -1)}</code>;
+        if (part.startsWith('$') && part.endsWith('$')) return <span key={i} className="font-serif italic text-blue-600 dark:text-blue-400 px-0.5">{part.slice(1, -1)}</span>;
         return part;
     });
+};
+
+// --- About Modal ---
+
+const AboutModal = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-md overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col max-h-[90vh]">
+        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-800/50">
+          <h3 className="font-bold text-lg text-gray-900 dark:text-white flex items-center">
+            <Info className="w-5 h-5 mr-2 text-blue-600" />
+            About
+          </h3>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="p-6 overflow-y-auto space-y-6">
+          {/* Header Info */}
+          <div className="text-center space-y-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{SITE_METADATA.about.title}</h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{SITE_METADATA.about.description}</p>
+            <div className="flex justify-center gap-3 pt-2">
+                <a href={SITE_METADATA.about.repoUrl} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" icon={Github}>GitHub Repo</Button>
+                </a>
+                <a href={SITE_METADATA.about.authorUrl} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" icon={User}>Developer</Button>
+                </a>
+            </div>
+          </div>
+
+          <hr className="border-gray-100 dark:border-gray-800" />
+
+          {/* Features List */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Key Features</h4>
+            {SITE_METADATA.features.map((feature, index) => (
+                <div key={index} className="flex gap-3">
+                    <div className="shrink-0 mt-0.5">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <feature.icon className="w-4 h-4" />
+                        </div>
+                    </div>
+                    <div>
+                        <h5 className="text-sm font-bold text-gray-900 dark:text-white">{feature.title}</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mt-0.5">
+                            {feature.description}
+                        </p>
+                    </div>
+                </div>
+            ))}
+          </div>
+
+          <div className="pt-4 text-center">
+             <span className="text-[10px] text-gray-400 font-mono">Built by {SITE_METADATA.about.author}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 // --- Settings Modal ---
@@ -462,7 +517,6 @@ const ExplainPanel = ({ paper, settings, className }) => {
   const hasAutoStarted = useRef(false);
 
   const handleExplain = useCallback(async () => {
-    // Get the correct key for the current provider
     const currentKey = settings.apiKeys ? settings.apiKeys[settings.provider] : settings.apiKey;
 
     if (!currentKey) {
@@ -481,10 +535,8 @@ const ExplainPanel = ({ paper, settings, className }) => {
     abortControllerRef.current = new AbortController();
 
     try {
-        // 1. Fetch content (bypass CORS via Jina) with signal
         const content = await fetchPaperContent(paper.link, paper.abstract, abortControllerRef.current.signal);
 
-        // Double check aborted
         if (abortControllerRef.current.signal.aborted) return;
 
         setStatus("generating");
@@ -543,7 +595,6 @@ const ExplainPanel = ({ paper, settings, className }) => {
         }
     } catch (err) {
       if (err.name !== 'AbortError') {
-        // Safety: Ensure error is always a string to prevent rendering crash
         setError(err.message || String(err) || "Unknown error occurred");
       }
     } finally {
@@ -575,7 +626,6 @@ const ExplainPanel = ({ paper, settings, className }) => {
   return (
     <div className={`mt-2 animate-in fade-in slide-in-from-top-2 duration-300 ${className}`}>
       <div className="relative w-full bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col p-4 min-h-[200px]">
-        {/* Output Area (Markdown Supported) */}
         <div className="flex-1 font-sans">
           {response ? (
             <SimpleMarkdown text={response} />
@@ -600,7 +650,6 @@ const ExplainPanel = ({ paper, settings, className }) => {
           )}
         </div>
 
-        {/* Controls */}
         <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
             <div className="text-xs text-gray-400 flex items-center">
                 <Zap className="w-3 h-3 mr-1" />
@@ -609,6 +658,7 @@ const ExplainPanel = ({ paper, settings, className }) => {
             <div className="flex items-center gap-3">
                 {status === 'generating' && (
                     <span className="text-xs text-gray-400 animate-pulse hidden sm:inline flex items-center">
+                        <AlertCircle className="w-3 h-3 mr-1" />
                         Slow? Try switching models.
                     </span>
                 )}
@@ -665,21 +715,16 @@ const PaginationControls = React.memo(({ currentPage, totalPages, onPageChange, 
   );
 });
 
-// --- Helper Functions ---
-// (Already updated above)
-
 // --- Paper Card Component ---
 
 const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
   const [activeView, setActiveView] = useState('none');
-  const [hasExplainStarted, setHasExplainStarted] = useState(false); // Cache: Track if explain has started
+  const [hasExplainStarted, setHasExplainStarted] = useState(false);
   const [copied, setCopied] = useState(null);
 
-  // Resizable PDF
   const [pdfHeight, setPdfHeight] = useState(600);
   const isResizing = useRef(false);
 
-  // Data
   const title = paper.title || "Untitled Paper";
   const link = paper.link || "#";
   const authors = Array.isArray(paper.authors) && paper.authors.length > 0 ? paper.authors : ["Unknown Author"];
@@ -688,7 +733,6 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
   const submitDate = paper.submit_date || "Unknown Date";
   const tldrText = paper.tldr || null;
 
-  // Prompt Construction for External Links
   const prompt = `${aiSettings.customPrompt || DEFAULT_PROMPT}\n\nPaper Title: ${title}\nLink: ${link}`;
 
   const handleAskAI = useCallback((e) => {
@@ -720,7 +764,6 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
     setTimeout(() => setCopied(null), 2000);
   }, [title, link]);
 
-  // Resizing logic
   const handleMouseDown = useCallback((e) => {
     isResizing.current = true;
     e.preventDefault();
@@ -743,7 +786,6 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
   }, [activeView]);
 
   const toggleView = (view) => {
-    // If switching to explain, mark as started to keep it mounted
     if (view === 'explain') {
         setHasExplainStarted(true);
     }
@@ -754,7 +796,6 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
     <div className={`group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm border transition-all duration-200 overflow-hidden ${activeView !== 'none' ? 'ring-2 ring-blue-500/20 border-blue-500/30' : 'hover:shadow-md border-gray-200 dark:border-gray-700'}`}>
       <div className="p-5 flex flex-col gap-4">
 
-        {/* Top Row */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-3 gap-x-2 border-b border-gray-100 dark:border-gray-700/50 pb-3">
           <div className="flex items-center flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center whitespace-nowrap font-bold text-gray-800 dark:text-gray-200">
@@ -788,7 +829,6 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
                 </a>
              )}
 
-             {/* Unified PDF/Explain Group */}
              <div className="flex items-center bg-white dark:bg-gray-700/50 rounded-md border border-gray-200 dark:border-gray-600 h-8 overflow-hidden">
                 <Button
                     variant={activeView === 'pdf' ? "danger" : "ghost"}
@@ -845,7 +885,6 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
         </div>
 
         {/* Dynamic Content Area */}
-        {/* PDF View (Conditional Render to save memory on close) */}
         {activeView === 'pdf' && (
             <div className="mt-2 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="relative w-full bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col" style={{ height: `${pdfHeight}px` }}>
@@ -860,7 +899,6 @@ const PaperCard = React.memo(({ paper, isStarred, toggleStar, aiSettings }) => {
             </div>
         )}
 
-        {/* Explain View (Hidden Render for Caching) */}
         {hasExplainStarted && (
             <div className={activeView === 'explain' ? 'block' : 'hidden'}>
                 <ExplainPanel paper={paper} settings={aiSettings} />
@@ -881,12 +919,11 @@ const App = () => {
 
   const [darkMode, setDarkMode] = useState(() => window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-  // AI API Settings
   const [aiSettings, setAiSettings] = useState(() => {
     const saved = localStorage.getItem('daily_arxiv_ai_settings');
     const defaultSettings = {
         provider: 'siliconflow',
-        apiKey: '', // Backwards compatibility field (not used in new flow but kept for structure)
+        apiKey: '',
         apiKeys: {
             siliconflow: '',
             openrouter: ''
@@ -898,11 +935,9 @@ const App = () => {
 
     if (!saved) return defaultSettings;
 
-    // Merge saved settings with default structure to ensure apiKeys exists
     const parsedSaved = JSON.parse(saved);
     const merged = { ...defaultSettings, ...parsedSaved };
 
-    // Migration: If user has old 'apiKey' but empty 'apiKeys', migrate it
     if (parsedSaved.apiKey && (!parsedSaved.apiKeys || !parsedSaved.apiKeys[parsedSaved.provider])) {
         merged.apiKeys = {
             ...defaultSettings.apiKeys,
@@ -913,6 +948,7 @@ const App = () => {
     return merged;
   });
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('daily_arxiv_ai_settings', JSON.stringify(aiSettings));
@@ -923,7 +959,6 @@ const App = () => {
     else document.documentElement.classList.remove('dark');
   }, [darkMode]);
 
-  // Filter State
   const [searchQuery, setSearchQuery] = useState('');
   const deferredSearchQuery = useDeferredValue(searchQuery);
   const [selectedTags, setSelectedTags] = useState([]);
@@ -931,7 +966,6 @@ const App = () => {
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [tagsExpanded, setTagsExpanded] = useState(false);
 
-  // Favorites
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem('daily_arxiv_favorites');
     return saved ? JSON.parse(saved) : [];
@@ -945,11 +979,9 @@ const App = () => {
     setFavorites(prev => prev.includes(id) ? prev.filter(fid => fid !== id) : [...prev, id]);
   }, []);
 
-  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(30);
 
-  // Load Data
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -987,7 +1019,6 @@ const App = () => {
     loadData();
   }, []);
 
-  // Sorted Tags
   const allTags = useMemo(() => {
     const counts = {};
     papers.forEach(p => {
@@ -997,7 +1028,6 @@ const App = () => {
             });
         }
     });
-    // Sort by count desc, then alpha
     return Object.keys(counts).sort((a, b) => {
         const diff = counts[b] - counts[a];
         return diff !== 0 ? diff : a.localeCompare(b);
@@ -1073,6 +1103,10 @@ const App = () => {
           </div>
 
           <div className="flex items-center gap-2">
+            <button onClick={() => setIsAboutOpen(true)} className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="About & Help">
+                <CircleHelp className="w-5 h-5" />
+            </button>
+
             <button onClick={() => setIsSettingsOpen(true)} className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Configure AI Settings">
                 <Settings className="w-5 h-5" />
             </button>
@@ -1166,6 +1200,7 @@ const App = () => {
       </main>
 
       <AISettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} settings={aiSettings} onSave={setAiSettings} />
+      <AboutModal isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
     </div>
   );
 };
