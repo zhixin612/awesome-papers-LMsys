@@ -3,13 +3,40 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1283-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1289-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
 
 `Fetch from arxiv` → `LLM Filter` → `GitHub workflow update`
+
+### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](https://paper.tju.chat)
+
+</div>
+
+**👍Conference Papers on LMSys**: [conference.md](conference.md)
+
+**⚠️NOTE**: Update papers up to last day every morning (8:00 UTC+8) automatically.
+
+**🙋WANT**: Keyword subscription (email); Functional web page.
+
+**🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
+
+---
+### 2025-12-25
+* `training` `scaling` `networking` [Mesh-Attention: A New Communication-Efficient Distributed Attention with Improved Data Locality](http://arxiv.org/abs/2512.20968v1)
+  > **TL;DR**: Proposes Mesh-Attention, a distributed attention algorithm using 2D tile assignment and a greedy scheduler for communication efficiency. Reduces communication volume by up to 85.4% and achieves 3.4x speedup on 256 GPUs compared to Ring-Attention during LLM training.
+* `training` `scaling` [Deadline-Aware Online Scheduling for LLM Fine-Tuning with Spot Market Predictions](http://arxiv.org/abs/2512.20967v1)
+  > **TL;DR**: Proposes deadline-aware scheduling for LLM fine-tuning using spot instances with predictive models. Designs mixed online algorithms with prediction and policy selection to handle price and availability uncertainties. Achieves up to 54.8% utility improvement over baselines.
+* `training` `scaling` `quantization` [Diving into 3D Parallelism with Heterogeneous Spot Instance GPUs: Design and Implications](http://arxiv.org/abs/2512.20953v1)
+  > **TL;DR**: Addresses efficient distributed training of LLMs across heterogeneous GPUs. Presents AutoHet, a system for automating optimal 3D parallelism plan selection and recovery upon spot preemption. Achieves up to 1.79× training throughput speedup and 4.38× faster recovery.
+* `video` `training` `networking` [AirGS: Real-Time 4D Gaussian Streaming for Free-Viewpoint Video Experiences](http://arxiv.org/abs/2512.20943v1)
+  > **TL;DR**: Proposes AirGS, a streaming-optimized 4D Gaussian Splatting framework for free-viewpoint video. Rearchitects training with multi-channel conversion and keyframe identification, and optimizes delivery via adaptive pruning. Reduces transmission size by ~50% and training time by 6x while maintaining PSNR above 30.
+* `serving` `RL` `scaling` [RHAPSODY: Execution of Hybrid AI-HPC Workflows at Scale](http://arxiv.org/abs/2512.20795v1)
+  > **TL;DR**: Enables concurrent execution of heterogeneous AI-HPC workflows (simulation, training, inference, agentic control). Proposes RHAPSODY, a multi-runtime middleware coordinating existing runtimes. Achieves near-linear scaling for high-throughput inference and minimal overhead with Dragon/vLLM on HPC systems.
+* `serving` `offloading` `kernel` [PHOTON: Hierarchical Autoregressive Modeling for Lightspeed and Memory-Efficient Language Generation](http://arxiv.org/abs/2512.20687v1)
+  > **TL;DR**: Addresses memory inefficiency and latency in Transformer decoding by proposing PHOTON, a hierarchical model with compressed contextual states. Reduces KV-cache traffic through multi-resolution context access. Achieves up to 1000× higher throughput per unit memory for long-context tasks.
 
 ### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](https://paper.tju.chat)
 

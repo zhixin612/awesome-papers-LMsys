@@ -41048,5 +41048,282 @@
         "relevant": false,
         "indexed_date": "2025-12-24",
         "submit_date": "2025-12-22"
+    },
+    "http://arxiv.org/abs/2512.21137v1": {
+        "title": "Declarative distributed broadcast using three-valued modal logic and semitopologies",
+        "link": "http://arxiv.org/abs/2512.21137v1",
+        "abstract": "We demonstrate how to formally specify distributed algorithms as declarative axiomatic theories in a modal logic. We exhibit the method on a simple voting protocol, a simple broadcast protocol, and a simple agreement protocol. The methods scale well and have been used to find errors in a proposed industrial protocol. The key novelty is to use modal logic to capture a declarative, high-level representation of essential system properties -- the logical essence of the algorithm -- while abstracting away from transitions of an abstract machine that implements it. It is like the difference between specifying code in a functional or logic programming language, versus specifying code in an imperative one.\n  A logical axiomatisation in the style we propose provides a precise, compact, human-readable specification that abstractly captures essential system properties, while eliding low-level implementation details; it is more precise than a natural language description, yet more abstract than source code or a logical specification thereof. This creates new opportunities for reasoning about correctness, resilience, and failure, and could serve as a foundation for human- and machine verification efforts, design improvements, and even alternative protocol implementations.",
+        "authors": [
+            "Murdoch J. Gabbay"
+        ],
+        "categories": [
+            "cs.LO",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.21137v1",
+        "submit_date": "2025-12-24",
+        "relevant": false,
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.21048v1": {
+        "title": "zkFL-Health: Blockchain-Enabled Zero-Knowledge Federated Learning for Medical AI Privacy",
+        "link": "http://arxiv.org/abs/2512.21048v1",
+        "abstract": "Healthcare AI needs large, diverse datasets, yet strict privacy and governance constraints prevent raw data sharing across institutions. Federated learning (FL) mitigates this by training where data reside and exchanging only model updates, but practical deployments still face two core risks: (1) privacy leakage via gradients or updates (membership inference, gradient inversion) and (2) trust in the aggregator, a single point of failure that can drop, alter, or inject contributions undetected. We present zkFL-Health, an architecture that combines FL with zero-knowledge proofs (ZKPs) and Trusted Execution Environments (TEEs) to deliver privacy-preserving, verifiably correct collaborative training for medical AI. Clients locally train and commit their updates; the aggregator operates within a TEE to compute the global update and produces a succinct ZK proof (via Halo2/Nova) that it used exactly the committed inputs and the correct aggregation rule, without revealing any client update to the host. Verifier nodes validate the proof and record cryptographic commitments on-chain, providing an immutable audit trail and removing the need to trust any single party. We outline system and threat models tailored to healthcare, the zkFL-Health protocol, security/privacy guarantees, and a performance evaluation plan spanning accuracy, privacy risk, latency, and cost. This framework enables multi-institutional medical AI with strong confidentiality, integrity, and auditability, key properties for clinical adoption and regulatory compliance.",
+        "authors": [
+            "Savvy Sharma",
+            "George Petrovic",
+            "Sarthak Kaushik"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2512.21048v1",
+        "submit_date": "2025-12-24",
+        "relevant": false,
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.21009v1": {
+        "title": "ESCHER: Efficient and Scalable Hypergraph Evolution Representation with Application to Triad Counting",
+        "link": "http://arxiv.org/abs/2512.21009v1",
+        "abstract": "Higher-order interactions beyond pairwise relationships in large complex networks are often modeled as hypergraphs. Analyzing hypergraph properties such as triad counts is essential, as hypergraphs can reveal intricate group interaction patterns that conventional graphs fail to capture. In real-world scenarios, these networks are often large and dynamic, introducing significant computational challenges. Due to the absence of specialized software packages and data structures, the analysis of large dynamic hypergraphs remains largely unexplored. Motivated by this gap, we propose ESCHER, a GPU-centric parallel data structure for Efficient and Scalable Hypergraph Evolution Representation, designed to manage large scale hypergraph dynamics efficiently. We also design a hypergraph triad-count update framework that minimizes redundant computation while fully leveraging the capabilities of ESCHER for dynamic operations. We validate the efficacy of our approach across multiple categories of hypergraph triad counting, including hyperedge-based, incident-vertex-based, and temporal triads. Empirical results on both large real-world and synthetic datasets demonstrate that our proposed method outperforms existing state-of-the-art methods, achieving speedups of up to 104.5x, 473.7x, and 112.5x for hyperedge-based, incident-vertex-based, and temporal triad types, respectively.",
+        "authors": [
+            "S. M. Shovan",
+            "Arindam Khanda",
+            "Sanjukta Bhowmick",
+            "Sajal K. Das"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2512.21009v1",
+        "submit_date": "2025-12-24",
+        "relevant": false,
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20968v1": {
+        "title": "Mesh-Attention: A New Communication-Efficient Distributed Attention with Improved Data Locality",
+        "link": "http://arxiv.org/abs/2512.20968v1",
+        "abstract": "Distributed attention is a fundamental problem for scaling context window for Large Language Models (LLMs). The state-of-the-art method, Ring-Attention, suffers from scalability limitations due to its excessive communication traffic. This paper proposes a new distributed attention algorithm, Mesh-Attention, by rethinking the design space of distributed attention with a new matrix-based model. Our method assigns a two-dimensional tile -- rather than one-dimensional row or column -- of computation blocks to each GPU to achieve higher efficiency through lower communication-computation (CommCom) ratio. The general approach covers Ring-Attention as a special case, and allows the tuning of CommCom ratio with different tile shapes. Importantly, we propose a greedy algorithm that can efficiently search the scheduling space within the tile with restrictions that ensure efficient communication among GPUs. The theoretical analysis shows that Mesh-Attention leads to a much lower communication complexity and exhibits good scalability comparing to other current algorithms.\n  Our extensive experiment results show that Mesh-Attention can achieve up to 3.4x speedup (2.9x on average) and reduce the communication volume by up to 85.4% (79.0% on average) on 256 GPUs. Our scalability results further demonstrate that Mesh-Attention sustains superior performance as the system scales, substantially reducing overhead in large-scale deployments. The results convincingly confirm the advantage of Mesh-Attention.",
+        "authors": [
+            "Sirui Chen",
+            "Jingji Chen",
+            "Siqi Zhu",
+            "Ziheng Jiang",
+            "Yanghua Peng",
+            "Xuehai Qian"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2512.20968v1",
+        "submit_date": "2025-12-24",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling",
+            "networking"
+        ],
+        "tldr": "Proposes Mesh-Attention, a distributed attention algorithm using 2D tile assignment and a greedy scheduler for communication efficiency. Reduces communication volume by up to 85.4% and achieves 3.4x speedup on 256 GPUs compared to Ring-Attention during LLM training.",
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20967v1": {
+        "title": "Deadline-Aware Online Scheduling for LLM Fine-Tuning with Spot Market Predictions",
+        "link": "http://arxiv.org/abs/2512.20967v1",
+        "abstract": "As foundation models grow in size, fine-tuning them becomes increasingly expensive. While GPU spot instances offer a low-cost alternative to on-demand resources, their volatile prices and availability make deadline-aware scheduling particularly challenging. We tackle this difficulty by using a mix of spot and on-demand instances. Distinctively, we show the predictability of prices and availability in a spot instance market, the power of prediction in enabling cost-efficient scheduling and its sensitivity to estimation errors. An integer programming problem is formulated to capture the use of mixed instances under both the price and availability dynamics. We propose an online allocation algorithm with prediction based on the committed horizon control approach that leverages a \\emph{commitment level} to enforce the partial sequence of decisions. When this prediction becomes inaccurate, we further present a complementary online algorithm without predictions. An online policy selection algorithm is developed that learns the best policy from a pool constructed by varying the parameters of both algorithms. We prove that the prediction-based algorithm achieves tighter performance bounds as prediction error decreases, while the policy selection algorithm possesses a regret bound of $\\mathcal{O}(\\sqrt{T})$. Experimental results demonstrate that our online framework can adaptively select the best policy under varying spot market dynamics and prediction quality, consistently outperforming baselines and improving utility by up to 54.8\\%.",
+        "authors": [
+            "Linggao Kong",
+            "Yuedong Xu",
+            "Lei Jiao",
+            "Chuan Xu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2512.20967v1",
+        "submit_date": "2025-12-24",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling"
+        ],
+        "tldr": "Proposes deadline-aware scheduling for LLM fine-tuning using spot instances with predictive models. Designs mixed online algorithms with prediction and policy selection to handle price and availability uncertainties. Achieves up to 54.8% utility improvement over baselines.",
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20953v1": {
+        "title": "Diving into 3D Parallelism with Heterogeneous Spot Instance GPUs: Design and Implications",
+        "link": "http://arxiv.org/abs/2512.20953v1",
+        "abstract": "The rapid growth of large language models (LLMs) and the continuous release of new GPU products have significantly increased the demand for distributed training across heterogeneous GPU environments. In this paper, we present a comprehensive analysis of the challenges involved in implementing 3D parallelism in such environments, addressing critical issues such as the need for symmetric tensor parallelism, efficient gradient synchronization in asymmetric pipeline parallelism, and the trade-offs between memory utilization and computational efficiency. Building upon these insights, we introduce AutoHet, a novel system that automatically identifies the optimal parallelism plan for distributed training on heterogeneous GPUs. AutoHet supports asymmetric 3D parallelism structures and facilitates fine-grained workload distribution. We propose a theoretical model that frames the device grouping and load balancing as an optimization problem to minimize per-iteration training time, thus effectively balancing computing power and memory usage across GPUs with diverse capabilities. To enable elastic training upon spot instance preemption, AutoHet presents an efficient recovery strategy that prioritizes to retrieve training states from local nodes, and only downloads the missing checkpoints from the cloud storage. Our extensive evaluation, conducted on three large-scale models and utilizing combinations of three different GPU types, demonstrates that AutoHet outperforms existing DNN training systems, achieving up to a 1.79$\\times$ speedup in training throughput compared with Megatron-LM and Whale, and a 4.38$\\times$ speedup of recovery speed compared to a spot instance baseline.",
+        "authors": [
+            "Yuxiao Wang",
+            "Yuedong Xu",
+            "Qingyang Duan",
+            "Yuxuan Liu",
+            "Lei Jiao",
+            "Yinghao Yu",
+            "Jun Wu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2512.20953v1",
+        "submit_date": "2025-12-24",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling",
+            "quantization"
+        ],
+        "tldr": "Addresses efficient distributed training of LLMs across heterogeneous GPUs. Presents AutoHet, a system for automating optimal 3D parallelism plan selection and recovery upon spot preemption. Achieves up to 1.79× training throughput speedup and 4.38× faster recovery.",
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20943v1": {
+        "title": "AirGS: Real-Time 4D Gaussian Streaming for Free-Viewpoint Video Experiences",
+        "link": "http://arxiv.org/abs/2512.20943v1",
+        "abstract": "Free-viewpoint video (FVV) enables immersive viewing experiences by allowing users to view scenes from arbitrary perspectives. As a prominent reconstruction technique for FVV generation, 4D Gaussian Splatting (4DGS) models dynamic scenes with time-varying 3D Gaussian ellipsoids and achieves high-quality rendering via fast rasterization. However, existing 4DGS approaches suffer from quality degradation over long sequences and impose substantial bandwidth and storage overhead, limiting their applicability in real-time and wide-scale deployments. Therefore, we present AirGS, a streaming-optimized 4DGS framework that rearchitects the training and delivery pipeline to enable high-quality, low-latency FVV experiences. AirGS converts Gaussian video streams into multi-channel 2D formats and intelligently identifies keyframes to enhance frame reconstruction quality. It further combines temporal coherence with inflation loss to reduce training time and representation size. To support communication-efficient transmission, AirGS models 4DGS delivery as an integer linear programming problem and design a lightweight pruning level selection algorithm to adaptively prune the Gaussian updates to be transmitted, balancing reconstruction quality and bandwidth consumption. Extensive experiments demonstrate that AirGS reduces quality deviation in PSNR by more than 20% when scene changes, maintains frame-level PSNR consistently above 30, accelerates training by 6 times, reduces per-frame transmission size by nearly 50% compared to the SOTA 4DGS approaches.",
+        "authors": [
+            "Zhe Wang",
+            "Jinghang Li",
+            "Yifei Zhu"
+        ],
+        "categories": [
+            "cs.GR",
+            "cs.DC",
+            "cs.LG",
+            "cs.MM",
+            "cs.NI",
+            "eess.IV"
+        ],
+        "id": "http://arxiv.org/abs/2512.20943v1",
+        "submit_date": "2025-12-24",
+        "relevant": true,
+        "tags": [
+            "video",
+            "training",
+            "networking"
+        ],
+        "tldr": "Proposes AirGS, a streaming-optimized 4D Gaussian Splatting framework for free-viewpoint video. Rearchitects training with multi-channel conversion and keyframe identification, and optimizes delivery via adaptive pruning. Reduces transmission size by ~50% and training time by 6x while maintaining PSNR above 30.",
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20939v1": {
+        "title": "Stochastic well-structured transition systems",
+        "link": "http://arxiv.org/abs/2512.20939v1",
+        "abstract": "Extending well-structured transition systems to incorporate a probabilistic scheduling rule, we define a new class of stochastic well-structured transition systems that includes population protocols, chemical reaction networks, and many common gossip models; as well as augmentations of these systems by an oracle that exposes a total order on agents as in population protocols in the comparison model or an equivalence relation as in population protocols with unordered data.\n  We show that any implementation of a phase clock in these systems either stops or ticks too fast after polynomially many expected steps, and that any terminating computation in these systems finishes or fails in expected polynomial time. This latter property allows an exact characterization of the computational power of many stochastic well-structured transition systems augmented with a total order or equivalence relation on agents, showing that these compute exactly the languages in BPP, while the corresponding unaugmented systems compute just the symmetric languages in BPL.",
+        "authors": [
+            "James Aspnes"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20939v1",
+        "submit_date": "2025-12-24",
+        "relevant": false,
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20795v1": {
+        "title": "RHAPSODY: Execution of Hybrid AI-HPC Workflows at Scale",
+        "link": "http://arxiv.org/abs/2512.20795v1",
+        "abstract": "Hybrid AI-HPC workflows combine large-scale simulation, training, high-throughput inference, and tightly coupled, agent-driven control within a single execution campaign. These workflows impose heterogeneous and often conflicting requirements on runtime systems, spanning MPI executables, persistent AI services, fine-grained tasks, and low-latency AI-HPC coupling. Existing systems typically address only subsets of these requirements, limiting their ability to support emerging AI-HPC applications at scale. We present RHAPSODY, a multi-runtime middleware that enables concurrent execution of heterogeneous AI-HPC workloads through uniform abstractions for tasks, services, resources, and execution policies. Rather than replacing existing runtimes, RHAPSODY composes and coordinates them, allowing simulation codes, inference services, and agentic workflows to coexist within a single job allocation on leadership-class HPC platforms. We evaluate RHAPSODY with Dragon and vLLM on multiple HPC systems using representative heterogeneous, inference-at-scale, and tightly coupled AI-HPC workflows. Our results show that RHAPSODY introduces minimal runtime overhead, sustains increasing heterogeneity at scale, achieves near-linear scaling for high-throughput inference workloads, and data- and control-efficient coupling between AI and HPC tasks in agentic workflows.",
+        "authors": [
+            "Aymen Alsaadi",
+            "Mason Hooten",
+            "Mariya Goliyad",
+            "Andre Merzky",
+            "Andrew Shao",
+            "Mikhail Titov",
+            "Tianle Wang",
+            "Yian Chen",
+            "Maria Kalantzi",
+            "Kent Lee",
+            "Andrew Park",
+            "Indira Pimpalkhare",
+            "Nick Radcliffe",
+            "Colin Wahl",
+            "Pete Mendygral",
+            "Matteo Turilli",
+            "Shantenu Jha"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20795v1",
+        "submit_date": "2025-12-23",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "RL",
+            "scaling"
+        ],
+        "tldr": "Enables concurrent execution of heterogeneous AI-HPC workflows (simulation, training, inference, agentic control). Proposes RHAPSODY, a multi-runtime middleware coordinating existing runtimes. Achieves near-linear scaling for high-throughput inference and minimal overhead with Dragon/vLLM on HPC systems.",
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20715v1": {
+        "title": "SoK: Speedy Secure Finality",
+        "link": "http://arxiv.org/abs/2512.20715v1",
+        "abstract": "While Ethereum has successfully achieved dynamic availability together with safety, a fundamental delay remains between transaction execution and immutable finality. In Ethereum's current Gasper protocol, this latency is on the order of 15 minutes, exposing the network to ex ante reorganization attacks, enabling MEV extraction, and limiting the efficiency of economic settlement. These limitations have motivated a growing body of work on Speedy Secure Finality (SSF), which aims to minimize confirmation latency without weakening formal security guarantees.\n  This paper surveys the state of the art in fast finality protocol design. We introduce the core theoretical primitives underlying this space, including reorganization resilience and the generalized sleepy model, and trace their development from Goldfish to RLMD-GHOST. We then analyze the communication and aggregation bottlenecks faced by single-slot finality protocols in large validator settings. Finally, we survey the 3-slot finality (3SF) protocol as a practical synthesis that balances fast finality with the engineering constraints of the Ethereum network.",
+        "authors": [
+            "Yash Saraswat",
+            "Abhimanyu Nag"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20715v1",
+        "submit_date": "2025-12-23",
+        "relevant": false,
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20687v1": {
+        "title": "PHOTON: Hierarchical Autoregressive Modeling for Lightspeed and Memory-Efficient Language Generation",
+        "link": "http://arxiv.org/abs/2512.20687v1",
+        "abstract": "Transformers operate as horizontal token-by-token scanners; at each generation step, the model attends to an ever-growing sequence of token-level states. This access pattern increases prefill latency and makes long-context decoding increasingly memory-bound, as KV-cache reads and writes dominate inference throughput rather than arithmetic computation. We propose Parallel Hierarchical Operation for Top-down Networks (PHOTON), a hierarchical autoregressive model that replaces flat scanning with vertical, multi-resolution context access. PHOTON maintains a hierarchy of latent streams: a bottom-up encoder progressively compresses tokens into low-rate contextual states, while lightweight top-down decoders reconstruct fine-grained token representations. Experimental results show that PHOTON is superior to competitive Transformer-based language models regarding the throughput-quality trade-off, offering significant advantages in long-context and multi-query tasks. This reduces decode-time KV-cache traffic, yielding up to $10^{3}\\times$ higher throughput per unit memory.",
+        "authors": [
+            "Yuma Ichikawa",
+            "Naoya Takagi",
+            "Takumi Nakagawa",
+            "Yuzi Kanazawa",
+            "Akira Sakai"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2512.20687v1",
+        "submit_date": "2025-12-22",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "kernel"
+        ],
+        "tldr": "Addresses memory inefficiency and latency in Transformer decoding by proposing PHOTON, a hierarchical model with compressed contextual states. Reduces KV-cache traffic through multi-resolution context access. Achieves up to 1000× higher throughput per unit memory for long-context tasks.",
+        "indexed_date": "2025-12-25"
+    },
+    "http://arxiv.org/abs/2512.20860v1": {
+        "title": "pokiSEC: A Multi-Architecture, Containerized Ephemeral Malware Detonation Sandbox",
+        "link": "http://arxiv.org/abs/2512.20860v1",
+        "abstract": "Dynamic malware analysis requires executing untrusted binaries inside strongly isolated, rapidly resettable environments. In practice, many detonation workflows remain tied to heavyweight hypervisors or dedicated bare-metal labs, limiting portability and automation. This challenge has intensified with the adoption of ARM64 developer hardware (e.g., Apple Silicon), where common open-source sandbox recipes and pre-built environments frequently assume x86_64 hosts and do not translate cleanly across architectures. This paper presents pokiSEC, a lightweight, ephemeral malware detonation sandbox that packages the full virtualization and access stack inside a Docker container. pokiSEC integrates QEMU with hardware acceleration (KVM when available) and exposes a browser-based workflow that supports bring-your-own Windows disk images. The key contribution is a Universal Entrypoint that performs runtime host-architecture detection and selects validated hypervisor configurations (machine types, acceleration modes, and device profiles), enabling a single container image and codebase to launch Windows guests on both ARM64 and x86_64 hosts. We validate pokiSEC on Apple Silicon (ARM64) and Ubuntu (AMD64), demonstrating interactive performance suitable for analyst workflows and consistent teardown semantics via ephemeral container lifecycles.",
+        "authors": [
+            "Alejandro Avina",
+            "Yashas Hariprasad",
+            "Naveen Kumar Chaudhary"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2512.20860v1",
+        "submit_date": "2025-12-24",
+        "relevant": false,
+        "indexed_date": "2025-12-25"
     }
 }
