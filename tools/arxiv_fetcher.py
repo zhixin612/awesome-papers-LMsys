@@ -37,7 +37,7 @@ def fetch_arxiv_papers(
         # arXiv range filter uses HHMM; we construct [YYYYMMDD0000, (end+1)0000)
         search = arxiv.Search(
             query=f"cat:{cat} AND submittedDate:[{start_date}0000 TO {str(int(end) + 1)}0000]",
-            sort_by=arxiv.SortCriterion.SubmittedDate,
+            sort_by=arxiv.SortCriterion.LastUpdatedDate,
             sort_order=arxiv.SortOrder.Descending,
             max_results=5000,
         )
@@ -54,7 +54,7 @@ def fetch_arxiv_papers(
                 time.sleep(3)
 
         for r in results:
-            logger.debug(f"Found paper: {r.title}")
+            logger.debug(f"Found paper: [{r.updated.strftime("%Y-%m-%d")}] {r.title}")
             papers.append(
                 {
                     "title": r.title,
