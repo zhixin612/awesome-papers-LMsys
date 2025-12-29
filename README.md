@@ -11,7 +11,7 @@
 
 `Fetch from arxiv` → `LLM Filter` → `GitHub workflow update`
 
-### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](https://paper.tju.chat)
+## [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](https://paper.tju.chat)
 
 </div>
 
@@ -1035,19 +1035,6 @@
 * `serving` `networking` `offloading` [GPUs, CPUs, and... NICs: Rethinking the Network's Role in Serving Complex AI Pipelines](http://arxiv.org/abs/2502.15712v1)
   > **TL;DR**: Investigates reducing resource overheads in complex AI inference pipelines by offloading data processing tasks to SmartNICs. Proposes leveraging network hardware packet processing pipelines for computational tasks. Explores integration to mitigate network delays and optimize serving efficiency.
 
-### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](https://paper.tju.chat)
-
-</div>
-
-**👍Conference Papers on LMSys**: [conference.md](conference.md)
-
-**⚠️NOTE**: Update papers up to last day every morning (8:00 UTC+8) automatically.
-
-**🙋WANT**: Keyword subscription (email); Functional web page.
-
-**🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
-
----
 ### 2025-12-25
 * `training` `scaling` `networking` [Mesh-Attention: A New Communication-Efficient Distributed Attention with Improved Data Locality](http://arxiv.org/abs/2512.20968v1)
   > **TL;DR**: Proposes Mesh-Attention, a distributed attention algorithm using 2D tile assignment and a greedy scheduler for communication efficiency. Reduces communication volume by up to 85.4% and achieves 3.4x speedup on 256 GPUs compared to Ring-Attention during LLM training.
@@ -1062,19 +1049,6 @@
 * `serving` `offloading` `kernel` [PHOTON: Hierarchical Autoregressive Modeling for Lightspeed and Memory-Efficient Language Generation](http://arxiv.org/abs/2512.20687v1)
   > **TL;DR**: Addresses memory inefficiency and latency in Transformer decoding by proposing PHOTON, a hierarchical model with compressed contextual states. Reduces KV-cache traffic through multi-resolution context access. Achieves up to 1000× higher throughput per unit memory for long-context tasks.
 
-### [🔥Daily Arxiv: LLM Systems 👉 paper.tju.chat 👈](https://paper.tju.chat)
-
-</div>
-
-**👍Conference Papers on LMSys**: [conference.md](conference.md)
-
-**⚠️NOTE**: Update papers up to last day every morning (8:00 UTC+8) automatically.
-
-**🙋WANT**: Keyword subscription (email); Functional web page.
-
-**🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
-
----
 ### 2025-12-24
 * `serving` `quantization` `diffusion` [Fail Fast, Win Big: Rethinking the Drafting Strategy in Speculative Decoding via Diffusion LLMs](http://arxiv.org/abs/2512.20573v1)
   > **TL;DR**: Proposes FailFast, a diffusion LLM-based speculative decoding framework that dynamically adapts draft length to accelerate autoregressive LLM inference. Achieves up to 4.9× speedup over vanilla decoding with lossless quality.
