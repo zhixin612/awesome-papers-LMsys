@@ -12,7 +12,7 @@ load_dotenv()  # Load .env for local runs (no-op in CI when env vars already exi
 # --- Basic Setup --------------------------------------------------------------
 README_FILE = Path("README.md")
 # Index file to store all processed papers
-INDEX_FILE = Path("tools/index.json")
+INDEX_FILE = Path("web/public/arxiv.json")
 
 # FIXME: Adding cs.LG/cs.AI can bring in many irrelevant papers (need stronger LLM filtering)
 ARXIV_CATEGORIES: List[str] = ["cs.DC", "cs.OS"]

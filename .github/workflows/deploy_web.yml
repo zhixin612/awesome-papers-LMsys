@@ -7,7 +7,6 @@ on:
   push:
     paths:
       - 'web/**'
-      - 'tools/index.json'
 
   # Run when the crawler workflow completes successfully
   workflow_run:
@@ -36,8 +35,6 @@ jobs:
           cd web
           npm install
           npm run build
-          
-          cp ../tools/index.json dist/index.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

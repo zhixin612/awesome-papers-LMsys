@@ -1018,23 +1018,43 @@ const App = () => {
       try {
         setLoading(true);
         setError(null);
+
         const pathsToTry = [
-            '[https://raw.githubusercontent.com/zhixin612/awesome-papers-LMsys/main/tools/index.json](https://raw.githubusercontent.com/zhixin612/awesome-papers-LMsys/main/tools/index.json)',
-            './index.json', '/index.json', '../tools/index.json',
+            './arxiv.json',
+            'https://raw.githubusercontent.com/zhixin612/awesome-papers-LMsys/main/web/public/arxiv.json',
         ];
+
         let data = null;
         let lastError = null;
+
         for (const path of pathsToTry) {
             try {
+                console.log(`Trying to load data from: ${path}`);
                 const res = await fetch(path);
-                if (res.ok) {
-                    const text = await res.text();
-                    data = JSON.parse(text);
-                    break;
+
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+                const contentType = res.headers.get('content-type');
+                if (contentType && contentType.includes('text/html')) {
+                    throw new Error('Received HTML instead of JSON (likely 404)');
                 }
-            } catch (e) { lastError = e; }
+
+                const text = await res.text();
+                if (text.trim().startsWith('<')) {
+                     throw new Error('Response starts with <, invalid JSON');
+                }
+
+                data = JSON.parse(text);
+                console.log(`Successfully loaded from ${path}`);
+                break;
+            } catch (e) {
+                console.warn(`Failed to load from ${path}:`, e.message);
+                lastError = e;
+            }
         }
-        if (!data) throw new Error(`Failed to load data. ${lastError ? lastError.message : ''}`);
+
+        if (!data) throw new Error(`All data sources failed. Last error: ${lastError ? lastError.message : 'Unknown'}`);
+
         const rawArray = Array.isArray(data) ? data : Object.values(data);
         const validPapers = rawArray.filter(p => p && typeof p === 'object' && p.relevant !== false);
         console.log(`Loaded ${validPapers.length} papers`);
