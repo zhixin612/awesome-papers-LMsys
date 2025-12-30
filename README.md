@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1786-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.29-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1799-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2025.12.30-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2025-12-30
+* `networking` `scaling` `storage` [Local Rendezvous Hashing: Bounded Loads and Minimal Churn via Cache-Local Candidates](http://arxiv.org/abs/2512.23434v1)
+  > **TL;DR**: Proposes Local Rendezvous Hashing to reduce load imbalance and churn in distributed systems. Restricts hash selection to cache-local physical nodes to improve locality. Achieves a max/avg load of 1.0947 vs. 1.2785 and 6.8× faster throughput than multi-probe hashing for K=50M keys.
+* `scaling` `serving` [An SLO Driven and Cost-Aware Autoscaling Framework for Kubernetes](http://arxiv.org/abs/2512.23415v1)
+  > **TL;DR**: Addresses SLO violations and cost inefficiencies in Kubernetes autoscaling for cloud-native applications. Proposes an SLO-driven, cost-aware framework with AIOps principles and lightweight forecasting. Reduces SLO violation duration by 31%, lowers cost by 18%, and improves response time by 24%.
+* `serving` `edge` `scaling` [Splitwise: Collaborative Edge-Cloud Inference for LLMs via Lyapunov-Assisted DRL](http://arxiv.org/abs/2512.23310v1)
+  > **TL;DR**: Proposes Splitwise, a Lyapunov-assisted DRL framework for adapting LLM inference partitions between edge devices and cloud to reduce latency and energy. Divides layers into sub-blocks for fine-grained decisions. Achieves 1.4x-2.8x lower latency and up to 41% energy savings versus baselines.
+* `serving` `quantization` `offloading` [Viability and Performance of a Private LLM Server for SMBs: A Benchmark Analysis of Qwen3-30B on Consumer-Grade Hardware](http://arxiv.org/abs/2512.23029v1)
+  > **TL;DR**: Investigates deploying private LLM servers for small businesses using quantized MoE model on consumer hardware. Benchmarks quantized Qwen3-30B performance under load, focusing on latency, tokens/second and scalability. Achieves comparable performance to cloud services while reducing cost and preserving privacy.
+* `serving` `offloading` `edge` [Argus: Token Aware Distributed LLM Inference Optimization](http://arxiv.org/abs/2512.22925v1)
+  > **TL;DR**: Addresses efficiency challenges in distributed LLM inference across edge-cloud systems with variable token lengths. Proposes Argus with token-length prediction and Lyapunov-based offloading optimization. Achieves robust performance in dynamic environments with 30-50% latency reduction.
+* `training` `networking` `scaling` [OptiNIC: A Resilient and Tail-Optimal RDMA NIC for Distributed ML Workloads](http://arxiv.org/abs/2512.22743v1)
+  > **TL;DR**: Addresses tail latency in collective communication for distributed ML workloads. Proposes OptiNIC, an RDMA transport eliminating retransmissions and in-order delivery, using adaptive timeouts and shifting loss recovery to the ML pipeline. Achieves 3.5x lower 99th-percentile latency and 2x higher time-to-accuracy.
+* `multi-modal` `serving` [Modality Inflation: Energy Characterization and Optimization Opportunities for MLLM Inference](http://arxiv.org/abs/2512.22695v1)
+  > **TL;DR**: Analyzes energy inefficiency in multimodal LLM inference due to modality inflation. Breaks down stages (vision encoding, prefill, decoding) and identifies GPU underutilization. Proposes stage-wise DVFS optimization, achieving up to 94% overhead reduction with minimal performance impact.
+* `RL` `MoE` `disaggregation` [RollArt: Scaling Agentic RL Training via Disaggregated Infrastructure](http://arxiv.org/abs/2512.22560v1)
+  > **TL;DR**: Addresses inefficiencies in agentic RL training workloads on disaggregated infrastructure. Proposes RollArc with hardware-affinity workload mapping, fine-grained asynchrony, and statefulness-aware computation. Achieves 1.35-2.05× end-to-end training time reduction on large-scale MoE models.
+* `training` `RL` [Role-Based Fault Tolerance System for LLM RL Post-Training](http://arxiv.org/abs/2512.22492v1)
+  > **TL;DR**: Addresses fault tolerance for RL post-training of LLMs by proposing RobustRL with role-based isolation for trainer, rollout, and management roles. Introduces role-aware failure detection, non-disruptive recovery, warm standbys, isolated replacement, and dynamic UCX-based reconnection. Achieves 80% ETTR (vs 60%) and 8.4%-17.4% faster training time under failure.
+* `serving` `quantization` [Nightjar: Dynamic Adaptive Speculative Decoding for Large Language Models Serving](http://arxiv.org/abs/2512.22420v1)
+  > **TL;DR**: Addresses the trade-off of fixed-length speculative decoding in LLM inference under varying loads. Proposes Nightjar, a learning-based algorithm that adaptively adjusts speculative length or disables SD. Achieves 14.8% higher throughput and 20.2% lower latency compared to standard SD.
+* `serving` `scaling` `storage` [Efficient Multi-Model Orchestration for Self-Hosted Large Language Models](http://arxiv.org/abs/2512.22402v1)
+  > **TL;DR**: Proposes Pick and Spin, a Kubernetes-based orchestration framework for self-hosted LLMs with Helm deployment, scale-to-zero automation, and hybrid routing. Achieves 30% lower latency and 33% lower GPU cost per query versus static deployments.
+* `storage` `kernel` [Valori: A Deterministic Memory Substrate for AI Systems](http://arxiv.org/abs/2512.22280v1)
+  > **TL;DR**: Addresses floating-point non-determinism in AI vector embedding storage. Proposes Valori, a deterministic memory substrate using fixed-point arithmetic (Q16.16) and replayable state machine modeling. Guarantees bit-identical memory states and search results across hardware platforms.
+* `edge` `serving` `scaling` [Scalable Cloud-Native Architectures for Intelligent PMU Data Processing](http://arxiv.org/abs/2512.22231v1)
+  > **TL;DR**: Proposes a cloud-native framework for low-latency PMU stream processing using distributed edge-cloud orchestration and containerized services. Achieves sub-second response times at scale for real-time power grid analytics.
+
 ### 2025-12-29
 * `RL` `RAG` `serving` [Agentic Structured Graph Traversal for Root Cause Analysis of Code-related Incidents in Cloud Applications](http://arxiv.org/abs/2512.22113v1)
   > **TL;DR**: Proposes PRAXIS, an LLM-driven orchestrator for root cause analysis using structured graph traversal over service and code dependency graphs. Agents traverse graphs as policies to localize failures. Improves accuracy by 3.1x and reduces tokens by 3.8x versus ReAct baselines.
