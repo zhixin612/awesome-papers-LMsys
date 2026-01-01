@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1799-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2025.12.30-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1810-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,30 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-01
+* `serving` `kernel` `RAG` [Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search](http://arxiv.org/abs/2512.25065v1)
+  > **TL;DR**: Proposes Vulcan, which synthesizes instance-optimal heuristics for resource-management tasks using LLM-driven evolutionary search. Vulcan provides task-agnostic interfaces to enable LLMs to generate executable policies for specific workloads/hardware. Demonstrates up to 69% performance improvement over state-of-the-art algorithms for cache eviction.
+* `training` `serving` `networking` [Reliable and Resilient Collective Communication Library for LLM Training and Serving](http://arxiv.org/abs/2512.25059v1)
+  > **TL;DR**: Addresses network failures during large-scale LLM training and serving. Designs R^2CCL, a fault-tolerant communication library with rapid connection migration and resilient collective algorithms. Achieves >12x speedup over baselines with 1% training and 3% inference overheads.
+* `scaling` `networking` [AI-Driven Cloud Resource Optimization for Multi-Cluster Environments](http://arxiv.org/abs/2512.24914v1)
+  > **TL;DR**: Addresses inefficient resource management in multi-cluster cloud environments. Introduces an AI-driven framework with predictive learning and cross-cluster coordination for dynamic resource allocation. Achieves up to 25% higher resource efficiency and faster stabilization during workload fluctuations.
+* `serving` `networking` `storage` [Adaptive Resource Orchestration for Distributed Quantum Computing Systems](http://arxiv.org/abs/2512.24902v1)
+  > **TL;DR**: Proposes ModEn-Hub architecture for orchestrating distributed quantum computing resources. Integrates a photonic interconnect with a quantum network orchestrator that schedules non-local gates and manages shared quantum memory and ebit caching. Achieves 90% teleportation success versus 30% in baseline while maintaining higher entanglement attempts per node.
+* `training` `edge` `offloading` [Distributed Bilevel Optimization with Dual Pruning for Resource-limited Clients](http://arxiv.org/abs/2512.24667v1)
+  > **TL;DR**: Proposes a resource-adaptive distributed bilevel optimization framework for low-resource clients, using a second-order free hypergradient estimator. Achieves asymptotically optimal convergence rate of O(1/√(Cₓ*Q)), validated on two tasks.
+* `training` `storage` [Understanding LLM Checkpoint/Restore I/O Strategies and Patterns](http://arxiv.org/abs/2512.24511v1)
+  > **TL;DR**: Investigates efficient I/O strategies for LLM checkpoint/restore operations during training. Proposes microbenchmarks and techniques including file system-aware aggregation and coalescing with liburing. Achieves up to 7.6× higher write throughput compared to existing systems.
+* `offloading` `sparse` `quantization` [PackKV: Reducing KV Cache Memory Footprint through LLM-Aware Lossy Compression](http://arxiv.org/abs/2512.24449v1)
+  > **TL;DR**: Proposes PackKV, a lossy compression framework for KV cache in long-context LLM inference, reducing memory footprint. Combines tailored compression algorithms with system co-design to minimize decompression overhead. Achieves 153.2% higher K cache and 179.6% V cache memory reduction vs. SOTA quantization at same accuracy drop.
+* `offline` `video` `quantization` [RedunCut: Measurement-Driven Sampling and Accuracy Performance Modeling for Low-Cost Live Video Analytics](http://arxiv.org/abs/2512.24386v1)
+  > **TL;DR**: Proposes RedunCut for dynamic model size selection in live video analytics. Uses measurement-driven sampling and data-driven accuracy prediction. Reduces compute cost by 14-62% at fixed accuracy for road-vehicle, drone, and surveillance videos.
+* `edge` `serving` `kernel` [Squeezing Edge Performance: A Sensitivity-Aware Container Management for Heterogeneous Tasks](http://arxiv.org/abs/2512.23952v1)
+  > **TL;DR**: Optimizes container-based resource management for heterogeneous tasks on edge servers. Proposes a sensitivity-aware framework using profiling-based latency modeling and MINLP optimization decomposed into convex subproblems. Achieves over 14% latency reduction and higher energy efficiency versus baselines.
+* `edge` `training` `RL` [Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search](http://arxiv.org/abs/2512.25065v1)
+  > **TL;DR**: Proposes Vulcan, a system using LLM-driven evolutionary search to synthesize instance-optimal heuristics for resource management. Separates policy and mechanism via LLM-friendly interfaces for synthesizing OS/distributed system policies. Achieves up to 69% higher performance over state-of-the-art in cache eviction and memory tiering.
+* `serving` `offloading` [MSched: GPU Multitasking via Proactive Memory Scheduling](http://arxiv.org/abs/2512.24637v1)
+  > **TL;DR**: Addresses high overheads in GPU multitasking due to HBM capacity limits and demand paging. Proposes MSched, an OS-level scheduler with proactive memory migration using template-based working set prediction and global page placement. Improves performance by up to 11.05x for DL workloads and 57.88x for LLMs.
+
 ### 2025-12-30
 * `networking` `scaling` `storage` [Local Rendezvous Hashing: Bounded Loads and Minimal Churn via Cache-Local Candidates](http://arxiv.org/abs/2512.23434v1)
   > **TL;DR**: Proposes Local Rendezvous Hashing to reduce load imbalance and churn in distributed systems. Restricts hash selection to cache-local physical nodes to improve locality. Achieves a max/avg load of 1.0947 vs. 1.2785 and 6.8× faster throughput than multi-probe hashing for K=50M keys.
