@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1810-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.01-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1814-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-05
+* `edge` `serving` `networking` [FlexSpec: Frozen Drafts Meet Evolving Targets in Edge-Cloud Collaborative LLM Speculative Decoding](http://arxiv.org/abs/2601.00644v1)
+  > **TL;DR**: Addresses high communication overhead in edge-cloud LLM speculative decoding for evolving models. Proposes FlexSpec with a shared-backbone architecture and channel-aware adaptive speculation. Reduces latency by 25-60% compared to conventional SD under varying conditions.
+* `serving` `offloading` [Revati: Transparent GPU-Free Time-Warp Emulation for LLM Serving](http://arxiv.org/abs/2601.00397v1)
+  > **TL;DR**: Proposes Revati, a time-warp emulator for transparent GPU-free performance modeling of LLM serving systems. Executes real serving code by virtualizing CUDA calls and fast-forwarding time via predicted kernel durations. Achieves <5% error in predictions and runs 5-17x faster than GPU execution.
+* `RL` `agentic` `RAG` [Bio-inspired Agentic Self-healing Framework for Resilient Distributed Computing Continuum Systems](http://arxiv.org/abs/2601.00339v1)
+  > **TL;DR**: Proposes ReCiSt, a bio-inspired agentic self-healing framework for distributed systems using LM-powered agents to autonomously diagnose faults and reconfigure resources. Achieves self-healing within tens of seconds with agent CPU usage as low as 10%.
+* `offloading` `scaling` `serving` [Towards Fully-fledged GPU Multitasking via Proactive Memory Scheduling](http://arxiv.org/abs/2512.24637v2)
+  > **TL;DR**: Targets GPU memory bottleneck for hosting large-scale tasks via demand paging; proposes MSched, an OS-level scheduler enabling proactive working set migration via kernel argument prediction. Achieves up to 57.88× speedup over conventional demand paging for LLMs under memory oversubscription.
+
 ### 2026-01-01
 * `serving` `kernel` `RAG` [Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search](http://arxiv.org/abs/2512.25065v1)
   > **TL;DR**: Proposes Vulcan, which synthesizes instance-optimal heuristics for resource-management tasks using LLM-driven evolutionary search. Vulcan provides task-agnostic interfaces to enable LLMs to generate executable policies for specific workloads/hardware. Demonstrates up to 69% performance improvement over state-of-the-art algorithms for cache eviction.
