@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1814-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.05-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1820-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-06
+* `training` `scaling` `memory` [Placement Semantics for Distributed Deep Learning: A Systematic Framework for Analyzing Parallelism Strategies](http://arxiv.org/abs/2601.02311v1)
+  > **TL;DR**: Introduces placement semantics to systematically analyze parallelism strategies by predicting memory and communication for distributed training. Derives conditions for correctness and composition rules. Matches exact results: e.g., ZeRO-3 uses 8× less memory with 1.5× communication cost vs data parallelism.
+* `serving` `offloading` `storage` [RelayGR: Scaling Long-Sequence Generative Recommendation via Cross-Stage Relay-Race Inference](http://arxiv.org/abs/2601.01712v1)
+  > **TL;DR**: Addresses serving latency for long-sequence generative recommendation models under strict SLOs. Proposes RelayGR, which pre-infers reusable prefixes and maintains KV caches in HBM across pipeline stages via selective triggering, affinity routing, and memory expansion. Achieves 1.5× longer sequences and 3.6× higher throughput under fixed P99 SLO.
+* `training` `hardware` `scaling` [DiT-HC: Enabling Efficient Training of Visual Generation Model DiT on HPC-oriented CPU Cluster](http://arxiv.org/abs/2601.01500v1)
+  > **TL;DR**: Proposes DiT-HC, a system for efficient training of DiT visual generation model on HPC CPU clusters. Introduces communication-free tensor parallelism, optimized kernels for vector/matrix units, and customized MPI backend. Achieves 90.6% weak scaling efficiency on 256 nodes and up to 87.7x speedups.
+* `MoE` `serving` [Making MoE based LLM inference resilient with Tarragon](http://arxiv.org/abs/2601.01310v1)
+  > **TL;DR**: Addresses resilience in MoE-based LLM serving by confining worker failures. Proposes Tarragon with reconfigurable datapath, asynchronous KV cache checkpointing, and shadow experts for low-overhead recovery. Reduces failure-induced stalls by 160-213x compared to MegaScale-Infer.
+* `serving` `offloading` `sparse` [Warp-Cortex: An Asynchronous, Memory-Efficient Architecture for Million-Agent Cognitive Scaling on Consumer Hardware](http://arxiv.org/abs/2601.01298v1)
+  > **TL;DR**: Proposes Warp-Cortex for memory-efficient large-scale multi-agent language model inference. Uses weight sharing and topological synapse-based context sparsification to reduce KV-cache memory from O(N*L) to O(N*k). Achieves 100 concurrent agents at 2.2 GB VRAM on a single GPU.
+* `RL` `training` `networking` [OrchestrRL: Dynamic Compute and Network Orchestration for Disaggregated RL](http://arxiv.org/abs/2601.01209v1)
+  > **TL;DR**: Addresses compute imbalance and network bottlenecks in disaggregated RL for LLMs. Proposes OrchestrRL with adaptive compute scheduler and RFabric reconfigurable network fabric. Achieves 1.40x higher throughput on 48 H800 GPUs.
+
 ### 2026-01-05
 * `edge` `serving` `networking` [FlexSpec: Frozen Drafts Meet Evolving Targets in Edge-Cloud Collaborative LLM Speculative Decoding](http://arxiv.org/abs/2601.00644v1)
   > **TL;DR**: Addresses high communication overhead in edge-cloud LLM speculative decoding for evolving models. Proposes FlexSpec with a shared-backbone architecture and channel-aware adaptive speculation. Reduces latency by 25-60% compared to conventional SD under varying conditions.
