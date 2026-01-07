@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1820-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1824-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.07-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-07
+* `serving` `agentic` [Software-Defined Agentic Serving](http://arxiv.org/abs/2601.03197v1)
+  > **TL;DR**: Addresses inflexibility in multi-agent LLM serving pipelines. Proposes a software-defined networking inspired framework for dynamically controlling communication based on runtime state. Achieves efficient and responsive agent systems.
+* `MoE` `serving` `offloading` [Making MoE-based LLM Inference Resilient with Tarragon](http://arxiv.org/abs/2601.01310v2)
+  > **TL;DR**: Addresses poor failure resilience in MoE-based LLM inference. Proposes Tarragon with reconfigurable datapath, asynchronous KV cache checkpointing, and shadow experts to confine failures. Reduces failure-induced stalls from ~64s to 0.3-0.4s (160-213× improvement) compared to MegaScale-Infer.
+* `training` `LoRA` `kernel` [Chronicals: A High-Performance Framework for LLM Fine-Tuning with 3.51x Speedup over Unsloth](http://arxiv.org/abs/2601.02609v1)
+  > **TL;DR**: Addresses memory and compute inefficiencies in LLM fine-tuning with Chronicals, a framework featuring fused Triton kernels, Cut Cross-Entropy, LoRA+, and sequence packing. Achieves 3.51x speedup over Unsloth on full fine-tuning of Qwen2.5-0.5B at 41,184 tokens/sec.
+* `training` [First Provably Optimal Asynchronous SGD for Homogeneous and Heterogeneous Data](http://arxiv.org/abs/2601.02523v1)
+  > **TL;DR**: Develops provably optimal asynchronous SGD methods for distributed learning with heterogeneous worker speeds. Introduces Ringmaster ASGD (handling homogeneous data) and Ringleader ASGD (handling heterogeneous data) based on a framework to manage staleness, plus ATA for adaptive task allocation. Achieves optimal time complexity matching synchronous methods while reducing waiting time.
+
 ### 2026-01-06
 * `training` `scaling` `memory` [Placement Semantics for Distributed Deep Learning: A Systematic Framework for Analyzing Parallelism Strategies](http://arxiv.org/abs/2601.02311v1)
   > **TL;DR**: Introduces placement semantics to systematically analyze parallelism strategies by predicting memory and communication for distributed training. Derives conditions for correctness and composition rules. Matches exact results: e.g., ZeRO-3 uses 8× less memory with 1.5× communication cost vs data parallelism.
