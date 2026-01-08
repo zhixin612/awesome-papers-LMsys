@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1824-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.07-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1826-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.08-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-08
+* `serving` `scaling` [Hummingbird: SLO-Oriented GPU Preemption at Microsecond-scale](http://arxiv.org/abs/2601.04071v1)
+  > **TL;DR**: Addresses GPU sharing inefficiencies for SLO adherence in inference serving. Proposes Hummingbird with microsecond-scale preemption on closed-source GPUs to harvest idle slices. Achieves 9.7x better SLO attainment for high-priority tasks over spatial sharing.
+* `MoE` `serving` `edge` [A Scheduling Framework for Efficient MoE Inference on Edge GPU-NDP Systems](http://arxiv.org/abs/2601.03992v1)
+  > **TL;DR**: Proposes a scheduling framework for efficient MoE inference on edge GPU-NDP systems. Key optimizations include tensor parallelism for expert partitioning, load-balancing scheduling, and dataset-free pre-fetching. Achieves 2.41x average and up to 2.56x speedup in end-to-end latency versus state-of-the-art.
+
 ### 2026-01-07
 * `serving` `agentic` [Software-Defined Agentic Serving](http://arxiv.org/abs/2601.03197v1)
   > **TL;DR**: Addresses inflexibility in multi-agent LLM serving pipelines. Proposes a software-defined networking inspired framework for dynamically controlling communication based on runtime state. Achieves efficient and responsive agent systems.
