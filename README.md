@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1826-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.08-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1828-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.09-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-09
+* `agentic` `serving` [Nalar: An agent serving framework](http://arxiv.org/abs/2601.05109v1)
+  > **TL;DR**: Proposes Nalar, an agent-serving framework handling dynamic multi-step agent workflows with managed state and adaptive routing. Achieves up to 2.9× speedups and 34-74% tail latency reduction across agentic workloads.
+* `training` `storage` `hardware` [Cognitive Infrastructure: A Unified DCIM Framework for AI Data Centers](http://arxiv.org/abs/2601.04750v1)
+  > **TL;DR**: Proposes DCIM 3.0, a unified framework for AI data centers using knowledge graphs and predictive analytics for efficient resource management. Integrates thermal modeling and UDCP to optimize infrastructure automation and sustainability. Achieves 30% reduction in cooling energy consumption.
+
 ### 2026-01-08
 * `serving` `scaling` [Hummingbird: SLO-Oriented GPU Preemption at Microsecond-scale](http://arxiv.org/abs/2601.04071v1)
   > **TL;DR**: Addresses GPU sharing inefficiencies for SLO adherence in inference serving. Proposes Hummingbird with microsecond-scale preemption on closed-source GPUs to harvest idle slices. Achieves 9.7x better SLO attainment for high-priority tasks over spatial sharing.
