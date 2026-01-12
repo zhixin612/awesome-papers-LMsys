@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1828-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.09-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1830-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-12
+* `training` `scaling` `networking` [Self-Evolving Distributed Memory Architecture for Scalable AI Systems](http://arxiv.org/abs/2601.05569v1)
+  > **TL;DR**: Proposes a unified memory management framework across computation, communication, and deployment layers for distributed AI systems. Features dynamic matrix partitioning, memory-aware peer selection, and runtime adaptation. Achieves 87.3% memory utilization efficiency and 30.2% lower communication latency vs baseline.
+* `MoE` `training` `kernel` [MoEBlaze: Breaking the Memory Wall for Efficient MoE Training on Modern GPUs](http://arxiv.org/abs/2601.05296v1)
+  > **TL;DR**: Addresses memory bottlenecks in Mixture-of-Experts (MoE) training. Proposes MoEBlaze with co-designed kernels and token dispatch to eliminate intermediate buffers, reducing activation memory. Achieves 4x speedups and 50% memory savings.
+
 ### 2026-01-09
 * `agentic` `serving` [Nalar: An agent serving framework](http://arxiv.org/abs/2601.05109v1)
   > **TL;DR**: Proposes Nalar, an agent-serving framework handling dynamic multi-step agent workflows with managed state and adaptive routing. Achieves up to 2.9× speedups and 34-74% tail latency reduction across agentic workloads.
