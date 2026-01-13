@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1830-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.12-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1841-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.13-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,30 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-13
+* `training` `scaling` `kernel` [Beyond Single-GPU: Scaling PDLP to Distributed Multi-GPU Systems](http://arxiv.org/abs/2601.07628v1)
+  > **TL;DR**: Scales Primal-Dual Hybrid Gradient algorithm for massive linear programming to distributed multi-GPU systems. Uses 2D grid partitioning, NCCL communication, and fused CUDA kernels to distribute memory/computation. Achieves strong scalability with FP64 accuracy on real-world datasets.
+* `edge` `serving` `kernel` [Peformance Isolation for Inference Processes in Edge GPU Systems](http://arxiv.org/abs/2601.07600v1)
+  > **TL;DR**: Analyzes GPU isolation mechanisms (MPS, MIG, Green Contexts) for predictable LLM inference latency on edge devices. Evaluates partitioning impact and isolation on A100 and Jetson Orin. Finds MIG offers high isolation; Green Contexts enable fine-grained SM allocation with low overhead for edge.
+* `agentic` `scaling` `training` [MegaFlow: Large-Scale Distributed Orchestration System for the Agentic Era](http://arxiv.org/abs/2601.07526v1)
+  > **TL;DR**: Addresses lack of infrastructure for large-scale agent training and evaluation. Proposes MegaFlow, a distributed orchestration system with three abstracted services for scheduling and resource allocation. Handles tens of thousands of concurrent agent tasks with high stability and resource efficiency.
+* `training` `RL` `LoRA` [OpenTinker: Separating Concerns in Agentic Reinforcement Learning](http://arxiv.org/abs/2601.07376v1)
+  > **TL;DR**: Proposes OpenTinker, an infrastructure for RL agent training that separates concerns into composable components. Uses a centralized scheduler for managing LoRA-based/full-parameter RL and fine-tuning workloads on shared resources. Demonstrates effectiveness in multi-agent training scenarios.
+* `edge` `offloading` [SC-MII: Infrastructure LiDAR-based 3D Object Detection on Edge Devices for Split Computing with Multiple Intermediate Outputs Integration](http://arxiv.org/abs/2601.07119v1)
+  > **TL;DR**: Proposes SC-MII, a split-computing system for LiDAR-based 3D object detection on edge devices, offloading partial DNN processing to an edge server via multiple intermediate outputs. Achieves 2.19x speed-up and 71.6% reduction in edge processing time with minimal accuracy drop.
+* `training` `scaling` [SkyNomad: On Using Multi-Region Spot Instances to Minimize AI Batch Job Cost](http://arxiv.org/abs/2601.06520v1)
+  > **TL;DR**: Addresses minimizing cost of AI batch jobs (training, inference) under deadlines using spot instances. Proposes SkyNomad, a multi-region scheduler that probes availability, predicts lifetimes, and optimizes spot utilization via cost modeling. Achieves 1.25-3.96x cost savings with deadline guarantees.
+* `networking` `offloading` [Rethinking Inter-Process Communication with Memory Operation Offloading](http://arxiv.org/abs/2601.06331v1)
+  > **TL;DR**: Addresses inefficiencies in IPC runtimes due to memory copies in data-intensive services. Proposes a unified suite integrating hardware- and software-based offloading with asynchronous pipelining and selective cache injection. Achieves up to 2.1x throughput improvement and 72% latency reduction.
+* `serving` `scaling` `MoE` [AIConfigurator: Lightning-Fast Configuration Optimization for Multi-Framework LLM Serving](http://arxiv.org/abs/2601.06288v1)
+  > **TL;DR**: Proposes AIConfigurator, a unified performance-modeling system for optimizing LLM inference configurations across frameworks without GPU profiling. Uses decomposed primitives, kernel database, and abstraction layer for rapid search. Achieves up to 50% higher performance for MoE models and completes searches in 30 seconds.
+* `networking` `storage` `offloading` [Employ SmartNICs' Data Path Accelerators for Ordered Key-Value Stores](http://arxiv.org/abs/2601.06231v1)
+  > **TL;DR**: Proposes a high-performance key-value store using SmartNIC accelerators for ordered range queries and point lookups. Leverages data path accelerators for lock-free indexing and defers value retrieval to minimize PCIe transfers. Achieves 33 MOPS for point lookups and 13 MOPS for range queries.
+* `edge` `serving` `offloading` [Peformance Isolation for Inference Processes in Edge GPU Systems](http://arxiv.org/abs/2601.07600v1)
+  > **TL;DR**: Evaluates GPU isolation mechanisms (MIG, Green Contexts) for predictable inference latency in edge systems. Tests partitioning impact and temporal isolation on A100 and Jetson Orin. Green Contexts enables fine-grained SM allocation with low overhead but lacks memory isolation.
+* `networking` `serving` [Rethinking Inter-Process Communication with Memory Operation Offloading](http://arxiv.org/abs/2601.06331v1)
+  > **TL;DR**: Proposes a unified IPC runtime suite for memory operation offloading to reduce CPU overhead in data-intensive services. Integrates hardware/software memory offloading with shared-memory communication via asynchronous pipelining and cache injection. Achieves 22% instruction reduction and 2.1x throughput gains in real workloads.
+
 ### 2026-01-12
 * `training` `scaling` `networking` [Self-Evolving Distributed Memory Architecture for Scalable AI Systems](http://arxiv.org/abs/2601.05569v1)
   > **TL;DR**: Proposes a unified memory management framework across computation, communication, and deployment layers for distributed AI systems. Features dynamic matrix partitioning, memory-aware peer selection, and runtime adaptation. Achieves 87.3% memory utilization efficiency and 30.2% lower communication latency vs baseline.
