@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1841-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.13-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1846-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.14-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-14
+* `serving` `MoE` `networking` [MixServe: An Automatic Distributed Serving System for MoE Models with Hybrid Parallelism Based on Fused Communication Algorithm](http://arxiv.org/abs/2601.08800v1)
+  > **TL;DR**: Proposes MixServe, an automatic distributed serving system for MoE models using hybrid parallelism and fused communication to reduce latencies. It combines tensor and expert parallelism with overlapped AR-A2A communication, improving TTFT by 1.08~3.80x and throughput by 5.2%~50.3% over baselines.
+* `agentic` `training` `scaling` [MegaFlow: Large-Scale Distributed Orchestration System for the Agentic Era](http://arxiv.org/abs/2601.07526v2)
+  > **TL;DR**: Addresses infrastructure gaps for large-scale agent training and evaluation. Proposes MegaFlow, a distributed orchestration system with three decoupled services for independent scaling and resource allocation. Orchestrates tens of thousands of concurrent agent tasks with high stability and resource utilization.
+* `edge` `offline` `networking` [Hierarchical Online-Scheduling for Energy-Efficient Split Inference with Progressive Transmission](http://arxiv.org/abs/2601.08135v1)
+  > **TL;DR**: Addresses energy-latency-accuracy trade-offs in device-edge collaborative DNN inference. Proposes ENACHI, a two-tier Lyapunov framework with task-level partitioning decisions and packet-level power control via progressive transmission. Achieves 43.12% higher accuracy with 62.13% lower energy under tight deadlines.
+* `serving` `training` `quantization` [Coordinated Cooling and Compute Management for AI Datacenters](http://arxiv.org/abs/2601.08113v1)
+  > **TL;DR**: Proposes a hierarchical control framework to optimize GPU parallelism, frequency, and cooling for AI datacenters. Balances latency and thermal constraints by jointly modeling computation and cooling. Reduces energy consumption by 40% while meeting latency SLOs in real Azure traces.
+* `edge` `serving` `networking` [Where to Split? A Pareto-Front Analysis of DNN Partitioning for Edge Inference](http://arxiv.org/abs/2601.08025v1)
+  > **TL;DR**: Examines DNN partitioning for edge inference as multi-objective optimization. Proposes ParetoPipe, a framework using Pareto front analysis to optimize latency-throughput trade-offs under network variability. Achieves systematic identification of partitioning strategies balancing objectives on heterogeneous devices.
+
 ### 2026-01-13
 * `training` `scaling` `kernel` [Beyond Single-GPU: Scaling PDLP to Distributed Multi-GPU Systems](http://arxiv.org/abs/2601.07628v1)
   > **TL;DR**: Scales Primal-Dual Hybrid Gradient algorithm for massive linear programming to distributed multi-GPU systems. Uses 2D grid partitioning, NCCL communication, and fused CUDA kernels to distribute memory/computation. Achieves strong scalability with FP64 accuracy on real-world datasets.
