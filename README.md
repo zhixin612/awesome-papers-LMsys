@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1846-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.14-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1851-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.15-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-15
+* `agentic` `serving` `RL` [AI-NativeBench: An Open-Source White-Box Agentic Benchmark Suite for AI-Native Systems](http://arxiv.org/abs/2601.09393v1)
+  > **TL;DR**: Introduces AI-NativeBench, a white-box benchmark suite for AI-native agentic systems using Model Context Protocol. It analyzes system-level execution, revealing engineering factors like a parameter paradox and inference dominance. Shows lightweight models can exceed flagship adherence, challenging traditional cost assumptions.
+* `serving` `kernel` `scaling` [LatencyPrism: Online Non-intrusive Latency Sculpting for SLO-Guaranteed LLM Inference](http://arxiv.org/abs/2601.09258v1)
+  > **TL;DR**: Proposes LatencyPrism, a zero-intrusion latency sculpting system for LLM inference that breaks down latency, alerts anomalies in milliseconds, and guarantees SLOs without code changes. Achieves 0.98 F1-score in anomaly detection with low overhead.
+* `offloading` `training` `edge` [Lean Clients, Full Accuracy: Hybrid Zeroth- and First-Order Split Federated Learning](http://arxiv.org/abs/2601.09076v1)
+  > **TL;DR**: Enables efficient split federated learning on edge devices via zeroth-order optimization, reducing memory and compute costs. HERON-SFL uses ZO for clients and FO on server, avoiding backpropagation. Reduces client peak memory by 64% and compute by 33% per step while matching accuracy.
+* `training` `offloading` `kernel` [Bridging the Gap: Empowering Small Models in Reliable OpenACC-based Parallelization via GEPA-Optimized Prompting](http://arxiv.org/abs/2601.08884v1)
+  > **TL;DR**: Optimizes prompts for small LLMs to generate high-quality OpenACC pragmas for GPU offloading via genetic algorithm (GEPA). Achieves up to 100% compilation success rate and 21% more programs with GPU speedups, making small models as effective as larger ones for parallel code generation.
+* `serving` `scaling` `monitoring` [LatencyPrism: Online Non-intrusive Latency Sculpting for SLO-Guaranteed LLM Inference](http://arxiv.org/abs/2601.09258v1)
+  > **TL;DR**: Proposes LatencyPrism, a non-intrusive runtime system for real-time latency decomposition and anomaly detection in LLM serving. Uses batch-level monitoring to distinguish normal variations from SLO-threatening anomalies without service modifications. Achieves 0.98 F1-score in anomaly detection.
+
 ### 2026-01-14
 * `serving` `MoE` `networking` [MixServe: An Automatic Distributed Serving System for MoE Models with Hybrid Parallelism Based on Fused Communication Algorithm](http://arxiv.org/abs/2601.08800v1)
   > **TL;DR**: Proposes MixServe, an automatic distributed serving system for MoE models using hybrid parallelism and fused communication to reduce latencies. It combines tensor and expert parallelism with overlapped AR-A2A communication, improving TTFT by 1.08~3.80x and throughput by 5.2%~50.3% over baselines.
