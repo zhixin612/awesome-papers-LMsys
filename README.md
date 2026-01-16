@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1851-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.15-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1854-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-16
+* `edge` `serving` `quantization` [Mitigating GIL Bottlenecks in Edge AI Systems](http://arxiv.org/abs/2601.10582v1)
+  > **TL;DR**: Addresses Python's GIL bottleneck in edge AI systems. Proposes a lightweight profiling tool and adaptive runtime using a Blocking Ratio metric to optimize thread-pool scaling. Achieves 96.5% of optimal performance and 93.9% average efficiency without overprovisioning.
+* `training` `networking` `scaling` [Fundamental Limits of Coded Polynomial Aggregation](http://arxiv.org/abs/2601.10028v1)
+  > **TL;DR**: Extends coded polynomial aggregation for straggler mitigation in distributed computing. Proposes a framework with pre-specified non-straggler patterns and exact recovery conditions. Achieves fewer worker responses than prior methods, with feasibility threshold validated by sharp transition in simulations.
+* `edge` `kernel` `serving` [Mitigating GIL Bottlenecks in Edge AI Systems](http://arxiv.org/abs/2601.10582v1)
+  > **TL;DR**: Addresses GIL-induced throughput degradation in Python-based edge AI systems. Proposes an adaptive runtime with Blocking Ratio metric to distinguish I/O wait from contention. Achieves 96.5% of optimal performance, outperforming multiprocessing and asyncio in memory-constrained edge devices.
+
 ### 2026-01-15
 * `agentic` `serving` `RL` [AI-NativeBench: An Open-Source White-Box Agentic Benchmark Suite for AI-Native Systems](http://arxiv.org/abs/2601.09393v1)
   > **TL;DR**: Introduces AI-NativeBench, a white-box benchmark suite for AI-native agentic systems using Model Context Protocol. It analyzes system-level execution, revealing engineering factors like a parameter paradox and inference dominance. Shows lightweight models can exceed flagship adherence, challenging traditional cost assumptions.
