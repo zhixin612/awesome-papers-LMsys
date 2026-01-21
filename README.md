@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1854-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1874-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.21-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,48 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-21
+* `serving` [LatencyPrism: Online Non-intrusive Latency Sculpting for SLO-Guaranteed LLM Inference](http://arxiv.org/abs/2601.09258v2)
+  > **TL;DR**: Proposes LatencyPrism, a zero-intrusion latency monitoring system for LLM inference that breaks down pipeline latency, alerts anomalies, guarantees SLO adherence. Deployed on thousands of XPUs, enables millisecond alerts with 0.98 F1-score for anomaly detection without service restarts.
+* `offloading` `serving` `kernel` [ContiguousKV: Accelerating LLM Prefill with Granularity-Aligned KV Cache Management](http://arxiv.org/abs/2601.13631v1)
+  > **TL;DR**: Accelerates LLM prefill through optimized KV cache offloading. ContiguousKV aligns pruning granularity with I/O management via ContiguousChunk and uses asynchronous prefetching to eliminate idle bubbles. Achieves 3.85x speedup in Re-Prefill phase over IMPRESS while preserving quality.
+* `training` `scaling` [A Kubernetes custom scheduler based on reinforcement learning for compute-intensive pods](http://arxiv.org/abs/2601.13579v1)
+  > **TL;DR**: Addresses suboptimal placement of compute-intensive ML training pods in Kubernetes. Proposes two RL-based schedulers (SDQN and SDQN-n), built on DQN, that consolidate pods onto fewer nodes. Reduces average CPU utilization by 10% (SDQN) and over 20% (SDQN-n) compared to default scheduler.
+* `storage` `offline` [The Energy-Throughput Trade-off in Lossless-Compressed Source Code Storage](http://arxiv.org/abs/2601.13220v1)
+  > **TL;DR**: Studies energy-throughput trade-offs in compressed key-value storage for large-scale source code datasets. Designs tunable compression configurations for space, time, and energy efficiency, with parallelism. Achieves high compression ratios, order-of-magnitude gains in retrieval throughput and energy efficiency, enabling sustainable archival systems.
+* `agentic` `serving` [Sutradhara: An Intelligent Orchestrator-Engine Co-design for Tool-based Agentic Inference](http://arxiv.org/abs/2601.12967v1)
+  > **TL;DR**: Addresses latency bottlenecks in tool-based agentic LLM inference caused by tool calls and poor KV cache utilization. Proposes Sutradhara, an orchestrator-engine co-design enabling tool-aware prompt splitting, streaming tool dispatch, and cache management. Reduces median FTR latency by 15% and E2E latency by 10%.
+* `training` `edge` `offloading` [CooperLLM: Cloud-Edge-End Cooperative Federated Fine-tuning for LLMs via ZOO-based Gradient Correction](http://arxiv.org/abs/2601.12917v1)
+  > **TL;DR**: Proposes CooperLLM, a federated fine-tuning framework using cloud-guided ZOO gradient correction for edge devices. Integrates pipeline scheduling and adaptive compression to reduce memory by 86.4% and accelerate convergence by 8.8× while maintaining privacy.
+* `training` `RL` `scaling` [Unleashing Efficient Asynchronous RL Post-Training via Staleness-Constrained Rollout Coordination](http://arxiv.org/abs/2601.12784v1)
+  > **TL;DR**: Proposes StaleFlow, a system for efficient asynchronous RL post-training. It jointly addresses data staleness via a global consistency protocol and data skewness via data servers with staleness-aware strategies. Achieves 1.42-2.68× higher throughput without compromising convergence.
+* `scaling` [Opportunistic Scheduling for Optimal Spot Instance Savings in the Cloud](http://arxiv.org/abs/2601.12266v1)
+  > **TL;DR**: Studies cost-minimization for delay-sensitive jobs using spot and on-demand cloud instances. Proposes a scheduling policy based on queuing theory and optimization that exploits the knapsack structure at high delays. Achieves near-optimal cost while meeting average delay constraints.
+* `disaggregation` `serving` `scaling` [Power Aware Dynamic Reallocation For Inference](http://arxiv.org/abs/2601.12241v1)
+  > **TL;DR**: Addresses power as the limiting factor in LLM inference with disaggregated prefill/decode phases. Proposes RAPID, a framework for power-aware GPU role and power budget management via static and dynamic reallocation. Achieves 2x SLO improvement at peak load under power caps.
+* `kernel` `storage` `quantization` [Canonicalization of Batched Einstein Summations for Tuning Retrieval](http://arxiv.org/abs/2601.12220v1)
+  > **TL;DR**: Develops a canonicalization algorithm for batched Einstein summations to enable reuse of optimizations. Uses graph coloring to normalize einsum expressions and proposes functional array operands for transferability. Achieves 4.7× geomean speedup on einsums in TCCG and FEM benchmarks.
+* `edge` `serving` `kernel` [Mitigating GIL Bottlenecks in Edge AI Systems](http://arxiv.org/abs/2601.10582v2)
+  > **TL;DR**: Addresses Python GIL bottlenecks for AI inference on edge devices. Proposes a lightweight profiling tool and adaptive runtime using a Blocking Ratio metric to optimize thread counts. Achieves 96.5% of optimal performance and avoids multiprocessing's ~8x memory overhead.
+* `serving` `disaggregation` [RAPID-Serve: Resource-efficient and Accelerated P/D Intra-GPU Disaggregation](http://arxiv.org/abs/2601.11822v1)
+  > **TL;DR**: Proposes RAPID-Serve, a technique for concurrent prefill/decode execution on GPUs to balance latency SLOs and throughput. Uses intra-GPU disaggregation with adaptive resource management. Achieves up to 4.1x unconstrained throughput improvement and 32x higher throughput under SLO constraints.
+* `RAG` `storage` `networking` [GPU-Resident Inverted File Index for Streaming Vector Databases](http://arxiv.org/abs/2601.11808v1)
+  > **TL;DR**: Proposes SIVF, a GPU-resident inverted file index enabling lock-free in-place mutation for streaming vector databases in dynamic RAG systems. Uses slab-based allocation and address translation tables. Reduces deletion latency up to 13,300× and improves ingestion throughput up to 105×.
+* `serving` `offloading` `edge` [Nixie: Efficient, Transparent Temporal Multiplexing for Consumer GPUs](http://arxiv.org/abs/2601.11743v1)
+  > **TL;DR**: Addresses efficient temporal multiplexing of ML workloads on memory-constrained consumer GPUs. Proposes Nixie, a system service coordinating GPU memory allocation and kernel launches with MLFQ-inspired scheduling. Reduces latency of interactive tasks by up to 3.8× and saves 66.8% CPU pinned memory.
+* `edge` `serving` `networking` [HALO: Semantic-Aware Distributed LLM Inference in Lossy Edge Network](http://arxiv.org/abs/2601.11676v1)
+  > **TL;DR**: Improves distributed LLM inference on lossy edge networks via semantic-aware neuron grouping, parallel execution, and load balancing. HALO achieves 3.41x end-to-end speedup on Raspberry Pi clusters while maintaining accuracy comparable to optimal conditions.
+* `serving` `offloading` `edge` [WISP: Waste- and Interference-Suppressed Distributed Speculative LLM Serving at the Edge via Dynamic Drafting and SLO-Aware Batching](http://arxiv.org/abs/2601.11652v1)
+  > **TL;DR**: Addresses wasted drafting time and verification interference in edge-cloud distributed speculative LLM serving. Proposes WISP with dynamic drafting and SLO-aware batching. Achieves up to 4.1x higher system capacity and 3.7x better goodput than baselines.
+* `serving` `scaling` [LatencyPrism: Online Non-intrusive Latency Sculpting for SLO-Guaranteed LLM Inference](http://arxiv.org/abs/2601.09258v2)
+  > **TL;DR**: Presents LatencyPrism, a non-intrusive system for online latency breakdown and SLO guarantee in distributed LLM inference. It provides real-time monitoring and anomaly detection without code changes or restarts. Achieves anomaly detection F1-score of 0.98 and millisecond-level alerts.
+* `offloading` `serving` `kernel` [ContiguousKV: Accelerating LLM Prefill with Granularity-Aligned KV Cache Management](http://arxiv.org/abs/2601.13631v1)
+  > **TL;DR**: Proposes ContiguousKV, a KV cache offloading system that aligns pruning granularity with I/O operations via ContiguousChunk and introduces asynchronous prefetching to accelerate Re-Prefill phase. Achieves 3.85x speedup over IMPRESS while maintaining output quality.
+* `edge` `kernel` `offloading` [Mitigating GIL Bottlenecks in Edge AI Systems](http://arxiv.org/abs/2601.10582v2)
+  > **TL;DR**: Addresses Python GIL bottlenecks in edge AI systems causing performance degradation at high thread counts. Proposes an adaptive runtime with Blocking Ratio metric to distinguish I/O wait vs. contention, achieving 93.9% efficiency vs. 20% degradation in naive approaches. Evaluated on edge devices with memory constraints (512MB-2GB RAM).
+* `serving` `offloading` `edge` [Nixie: Efficient, Transparent Temporal Multiplexing for Consumer GPUs](http://arxiv.org/abs/2601.11743v1)
+  > **TL;DR**: Addresses inefficient GPU resource utilization for concurrent ML workloads on consumer GPUs. Proposes Nixie, a system service with memory allocation coordination and a MLFQ-inspired scheduler for job prioritization. Reduces latency by up to 3.8x and saves 66.8% CPU pinned memory.
+
 ### 2026-01-16
 * `edge` `serving` `quantization` [Mitigating GIL Bottlenecks in Edge AI Systems](http://arxiv.org/abs/2601.10582v1)
   > **TL;DR**: Addresses Python's GIL bottleneck in edge AI systems. Proposes a lightweight profiling tool and adaptive runtime using a Blocking Ratio metric to optimize thread-pool scaling. Achieves 96.5% of optimal performance and 93.9% average efficiency without overprovisioning.
