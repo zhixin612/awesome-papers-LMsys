@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1874-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.21-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1878-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.22-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,15 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-22
+* [DeepFedNAS: A Unified Framework for Principled, Hardware-Aware, and Predictor-Free Federated Neural Architecture Search](http://arxiv.org/abs/2601.15127v1)
+* `serving` `offloading` [RadixMLP -- Intra-batch Deduplication for Causal Transformers](http://arxiv.org/abs/2601.15013v1)
+  > **TL;DR**: Addresses redundancy in causal transformer batch inference caused by shared prefixes. Proposes RadixMLP, which compresses shared segments into a trie structure for position-wise computation, reducing redundant MLP activations. Achieves 1.44-1.59× speedups in reranking workloads and up to 5× on synthetic benchmarks.
+* `serving` `RAG` `agentic` [Optimizing FaaS Platforms for MCP-enabled Agentic Workflows](http://arxiv.org/abs/2601.14735v1)
+  > **TL;DR**: Addresses challenges in scalable cloud deployment of agentic workflows using FaaS platforms. Proposes FAME, a FaaS-based architecture with composable agents, automated memory persistence, and optimizations like tool caching and function fusion. Achieves up to 13× latency reduction and 66% cost savings.
+* `kernel` `scaling` `training` [JAXMg: A multi-GPU linear solver in JAX](http://arxiv.org/abs/2601.14466v1)
+  > **TL;DR**: Introduces JAXMg, a multi-GPU linear solver for JAX that scales dense linear algebra beyond single-GPU memory limits. Interfaces JAX with NVIDIA's cuSOLVERMg via XLA for JIT-compatible distributed solvers. Enables Cholesky solves on matrices 4-12× larger than single-GPU capacity across 4-16 GPUs.
+
 ### 2026-01-21
 * `serving` [LatencyPrism: Online Non-intrusive Latency Sculpting for SLO-Guaranteed LLM Inference](http://arxiv.org/abs/2601.09258v2)
   > **TL;DR**: Proposes LatencyPrism, a zero-intrusion latency monitoring system for LLM inference that breaks down pipeline latency, alerts anomalies, guarantees SLO adherence. Deployed on thousands of XPUs, enables millisecond alerts with 0.98 F1-score for anomaly detection without service restarts.
