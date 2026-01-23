@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1878-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.22-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1880-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-23
+* `RL` `multi-modal` `edge` [DSFedMed: Dual-Scale Federated Medical Image Segmentation via Mutual Distillation Between Foundation and Lightweight Models](http://arxiv.org/abs/2601.16073v1)
+  > **TL;DR**: Proposes DSFedMed, a dual-scale federated framework using mutual distillation between foundation and lightweight models for medical image segmentation. Uses synthetic medical images and learnability-guided selection to reduce communication by 90% and inference time, achieving 2% higher Dice scores than baselines.
+* `kernel` `serving` `training` [Sawtooth Wavefront Reordering: Enhanced CuTile FlashAttention on NVIDIA GB10](http://arxiv.org/abs/2601.16032v1)
+  > **TL;DR**: Analyzes and improves cache performance for FlashAttention on NVIDIA GB10. Proposes Sawtooth Wavefront Reordering to reduce L2 misses. Achieves 50% L2 miss reduction and up to 60% throughput increase.
+
 ### 2026-01-22
 * [DeepFedNAS: A Unified Framework for Principled, Hardware-Aware, and Predictor-Free Federated Neural Architecture Search](http://arxiv.org/abs/2601.15127v1)
 * `serving` `offloading` [RadixMLP -- Intra-batch Deduplication for Causal Transformers](http://arxiv.org/abs/2601.15013v1)
