@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1880-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1883-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.26-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-26
+* `training` `storage` [DataStates-LLM: Scalable Checkpointing for Transformer Models Using Composable State Providers](http://arxiv.org/abs/2601.16956v1)
+  > **TL;DR**: Addresses checkpointing overheads in distributed LLM training. Proposes DataStates-LLM with composable State Providers enabling non-blocking asynchronous snapshots and optimized serialization. Achieves 4× higher checkpoint throughput and 2.2× faster end-to-end training time.
+* `quantization` `kernel` `hardware` [W4A16 Mixed-Precision Matrix Multiplication on Decoupled Architecture: Kernel Design and Memory Bottleneck Analysis for Ascend NPUs](http://arxiv.org/abs/2601.16536v1)
+  > **TL;DR**: Enables efficient W4A16 mixed-precision matrix multiplication for LLMs on Ascend NPUs. Designs a tailored kernel using vector cores for dequantization and cube cores for GEMM, with Split-K parallelization. Achieves up to 1.74x speedup over data-parallel approaches in LLM decoding scenarios.
+* `training` `kernel` `scaling` [Space Filling Curves is All You Need: Communication-Avoiding Matrix Multiplication Made Simple](http://arxiv.org/abs/2601.16294v1)
+  > **TL;DR**: Proposes space-filling curves for communication-avoiding GEMM optimization. Uses generalized Hilbert curves to partition GEMM computations for data locality and communication avoidance. Achieves up to 2x geometric mean speedup over vendor libraries on multiple CPUs.
+
 ### 2026-01-23
 * `RL` `multi-modal` `edge` [DSFedMed: Dual-Scale Federated Medical Image Segmentation via Mutual Distillation Between Foundation and Lightweight Models](http://arxiv.org/abs/2601.16073v1)
   > **TL;DR**: Proposes DSFedMed, a dual-scale federated framework using mutual distillation between foundation and lightweight models for medical image segmentation. Uses synthetic medical images and learnability-guided selection to reduce communication by 90% and inference time, achieving 2% higher Dice scores than baselines.
