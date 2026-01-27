@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1883-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.26-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1891-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.27-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-27
+* `serving` `scaling` `networking` [A Universal Load Balancing Principle and Its Application to Large Language Model Serving](http://arxiv.org/abs/2601.17855v1)
+  > **TL;DR**: Addresses barrier-synchronized load balancing to reduce idle time in LLM serving. Introduces an integer-optimization scheduler with worst-case guarantees for heterogeneous workloads. Improves throughput and reduces idle time by 40% in production LLM traces.
+* `serving` `kernel` [LLM-42: Enabling Determinism in LLM Inference with Verified Speculation](http://arxiv.org/abs/2601.17768v1)
+  > **TL;DR**: Addresses non-determinism in LLM inference arising from dynamic batching and GPU kernels. Proposes LLM-42, a scheduler using verified speculation with a fast path and lightweight verify-rollback loop to enforce determinism. Achieves near-zero overhead for deterministic requests while maintaining high throughput.
+* `training` `kernel` `hardware` [An MLIR Lowering Pipeline for Stencils at Wafer-Scale](http://arxiv.org/abs/2601.17754v1)
+  > **TL;DR**: Develops an MLIR compiler pipeline for automatic code generation targeting the Cerebras wafer-scale engine for stencil computations. Leverages domain-specific optimizations to bridge the gap between mathematical models and distributed execution. Achieves up to 20× speedup over GPU/CPU clusters without application code changes.
+* `training` `kernel` `scaling` [Kareus: Joint Reduction of Dynamic and Static Energy in Large Model Training](http://arxiv.org/abs/2601.17654v1)
+  > **TL;DR**: Addresses joint optimization of dynamic and static energy consumption in large model training. Proposes Kareus, a system using fine-grained kernel scheduling and frequency scaling with multi-pass multi-objective optimization. Reduces energy by 28.3% at same time or time by 27.5% at same energy.
+* `storage` `offloading` `hardware` [Conduit: Programmer-Transparent Near-Data Processing Using Multiple Compute-Capable Resources in Solid State Drives](http://arxiv.org/abs/2601.17633v1)
+  > **TL;DR**: Proposes Conduit, a near-data processing framework for SSDs that uses compiler-based vectorization and runtime offloading across multiple compute resources. It reduces energy by 46% and improves performance by 1.8x over prior techniques in data-intensive workloads.
+* `training` `networking` `scaling` [Scaling All-to-all Operations Across Emerging Many-Core Supercomputers](http://arxiv.org/abs/2601.17606v1)
+  > **TL;DR**: Proposes novel all-to-all algorithms for MPI on emerging many-core supercomputers to enhance collective operations performance. Achieves up to 3x speedup over system MPI at 32 nodes, critical for large-scale machine learning and FFT applications.
+* `RL` `networking` `offline` [Learning to Collaborate: An Orchestrated-Decentralized Framework for Peer-to-Peer LLM Federation](http://arxiv.org/abs/2601.17133v1)
+  > **TL;DR**: Proposes KNEXA-FL, a federated learning framework for P2P LLM collaboration with a central matchmaker using contextual bandits. Enables direct knowledge exchange via secure distillation without model access. Improves Pass@1 by ~50% over random P2P baselines and maintains stable convergence.
+* `kernel` `training` [Sawtooth Wavefront Reordering: Enhanced CuTile FlashAttention on NVIDIA GB10](http://arxiv.org/abs/2601.16032v2)
+  > **TL;DR**: Analyzes and optimizes cache performance for FlashAttention on NVIDIA Grace Blackwell. Proposes Sawtooth Wavefront Reordering to reduce L2 cache misses in CUDA and CuTile implementations. Achieves 50% reduced L2 misses and 60% higher throughput.
+
 ### 2026-01-26
 * `training` `storage` [DataStates-LLM: Scalable Checkpointing for Transformer Models Using Composable State Providers](http://arxiv.org/abs/2601.16956v1)
   > **TL;DR**: Addresses checkpointing overheads in distributed LLM training. Proposes DataStates-LLM with composable State Providers enabling non-blocking asynchronous snapshots and optimized serialization. Achieves 4× higher checkpoint throughput and 2.2× faster end-to-end training time.
