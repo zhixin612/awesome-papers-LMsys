@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1891-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.27-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1896-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.28-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-28
+* `edge` `serving` `networking` [Modular Foundation Model Inference at the Edge: Network-Aware Microservice Optimization](http://arxiv.org/abs/2601.19563v1)
+  > **TL;DR**: Proposes a microservice-based framework for edge deployment of foundation model inference with static core services and dynamic light service orchestration. Uses network-aware placement and online control for QoS guarantees under resource constraints. Achieves over 84% on-time task completion with moderate costs.
+* `agentic` `serving` `RL` [Optimizing FaaS Platforms for MCP-enabled Agentic Workflows](http://arxiv.org/abs/2601.14735v2)
+  > **TL;DR**: Proposes FAME, a FaaS-based system for orchestrating MCP-enabled agentic workflows. Uses composable LangGraph agents (Planner/Actor/Evaluator) with DynamoDB for state persistence, Lambda wrappers for MCP serving, and S3 caching. Achieves 13x latency reduction, 88% token savings, and 66% cost reduction.
+* `training` `RL` `networking` [Revisiting Parameter Server in LLM Post-Training](http://arxiv.org/abs/2601.19362v1)
+  > **TL;DR**: Revisits parameter servers for LLM post-training under imbalanced workloads. Proposes On-Demand Communication (ODC), replacing collective operations in FSDP with point-to-point communication to reduce synchronization barriers. Achieves 36% throughput speedup over FSDP by improving device utilization.
+* `serving` `multi-modal` `kernel` [Native LLM and MLLM Inference at Scale on Apple Silicon](http://arxiv.org/abs/2601.19139v1)
+  > **TL;DR**: Presents vllm-mlx for efficient LLM and multimodal inference on Apple Silicon using native MLX. Features content-based prefix caching for vision encoding and continuous batching. Achieves 28x speedup on repeated image queries and 525 tokens/second text throughput.
+* `kernel` `training` `scaling` [Axe: A Simple Unified Layout Abstraction for Machine Learning Compilers](http://arxiv.org/abs/2601.19092v1)
+  > **TL;DR**: Proposes Axe Layout, a unified layout abstraction for ML compilers to map logical tensors to physical space. Designs a multi-granularity DSL and compiler for collective operators. Achieves near hand-tuned kernel performance on GPUs and multi-device environments.
+
 ### 2026-01-27
 * `serving` `scaling` `networking` [A Universal Load Balancing Principle and Its Application to Large Language Model Serving](http://arxiv.org/abs/2601.17855v1)
   > **TL;DR**: Addresses barrier-synchronized load balancing to reduce idle time in LLM serving. Introduces an integer-optimization scheduler with worst-case guarantees for heterogeneous workloads. Improves throughput and reduces idle time by 40% in production LLM traces.
