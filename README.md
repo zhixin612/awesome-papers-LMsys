@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1896-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.28-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1907-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.29-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,30 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-29
+* `edge` `serving` `networking` [Agentic Fog: A Policy-driven Framework for Distributed Intelligence in Fog Computing](http://arxiv.org/abs/2601.20764v1)
+  > **TL;DR**: Proposes Agentic Fog, a policy-driven framework for distributed intelligence in fog computing with LLM-based reasoning. Uses decentralized potential game coordination for adaptive control. Achieves lower average latency and better adaptation to demand than greedy heuristics under dynamic conditions.
+* `diffusion` `serving` `hardware` [Beyond GEMM-Centric NPUs: Enabling Efficient Diffusion LLM Sampling](http://arxiv.org/abs/2601.20706v1)
+  > **TL;DR**: Addresses NPU inefficiency in diffusion LLM sampling due to irregular memory access. Proposes optimized non-GEMM vector primitives, in-place memory reuse, and decoupled mixed-precision memory hierarchy. Achieves up to 2.53x speedup over NVIDIA GPU.
+* `video` `networking` `scaling` [OnePiece: A Large-Scale Distributed Inference System with RDMA for Complex AI-Generated Content (AIGC) Workflows](http://arxiv.org/abs/2601.20655v1)
+  > **TL;DR**: Introduces OnePiece, a distributed inference system with RDMA for multi-stage AIGC workflows, featuring fine-grained microservices and double-ring buffers for deadlock-free RDMA. Reduces GPU consumption by 16x in image-to-video generation.
+* `kernel` `training` `networking` [AutoOverlap: Enabling Fine-Grained Overlap of Computation and Communication with Chunk-Based Scheduling](http://arxiv.org/abs/2601.20595v1)
+  > **TL;DR**: Reduces communication overhead in GPU workloads with fine-grained computation-communication overlap using a chunk-based scheduler. AutoOverlap compiler transforms Triton kernels for chunk-level alignment, achieving 1.3x average speedup and up to 4.7x on multi-GPU tasks.
+* `training` `serving` `scaling` [Rethinking Thread Scheduling under Oversubscription: A User-Space Framework for Coordinating Multi-runtime and Multi-process Workloads](http://arxiv.org/abs/2601.20435v1)
+  > **TL;DR**: Proposes USF, a user-space scheduling framework for coordinating multi-runtime workloads under CPU oversubscription. Introduces SCHED_COOP to reduce interference by cooperative thread switching. Shows up to 2.4x performance gains in PyTorch inference for LLaMA-3 and other workloads.
+* `training` `quantization` `scaling` [Meeting SLOs, Slashing Hours: Automated Enterprise LLM Optimization with OptiKIT](http://arxiv.org/abs/2601.20408v1)
+  > **TL;DR**: Proposes OptiKIT, an automated framework for enterprise LLM optimization to overcome compute constraints and expertise scarcity. Features distributed resource allocation and staged execution for model compression/tuning. Achieves over 2x GPU throughput improvement in production.
+* `serving` `offloading` `hardware` [SuperInfer: SLO-Aware Rotary Scheduling and Memory Management for LLM Inference on Superchips](http://arxiv.org/abs/2601.20309v1)
+  > **TL;DR**: Addresses LLM inference KV cache memory exhaustion and SLO violations under high load. Proposes SLO-aware rotary scheduler (RotaSched) and full-duplex KV transfer engine (DuplexKV) for Superchips. Achieves up to 74.7% higher TTFT SLO attainment than prior systems.
+* `diffusion` `serving` `networking` [StreamFusion: Scalable Sequence Parallelism for Distributed Inference of Diffusion Transformers on GPUs](http://arxiv.org/abs/2601.20273v1)
+  > **TL;DR**: Proposes StreamFusion, a distributed inference engine for Diffusion Transformers. Introduces topology-aware sequence parallelism, Torus Attention for overlapping communication with computation, and one-sided communication to reduce synchronization. Achieves up to 1.77× speedup over prior methods.
+* `training` `sparse` `scaling` [Communication-Avoiding Linear Algebraic Kernel K-Means on GPUs](http://arxiv.org/abs/2601.17136v2)
+  > **TL;DR**: Presents distributed-memory algorithms for large-scale Kernel K-means using communication-efficient linear algebra primitives on multi-GPU systems. Enables clustering of million-scale datasets with up to 3.6× speedup on 256 GPUs and reduces time from hours to seconds.
+* `training` `networking` `hardware` [NET4EXA: Pioneering the Future of Interconnects for Supercomputing and AI](http://arxiv.org/abs/2601.19413v1)
+  > **TL;DR**: Develops BXIv3, a next-gen interconnect for HPC/AI systems to meet demands of large-scale LLM training. Combines commercial switches with custom FPGA-based NICs via co-design. Targets deployment in exascale systems for 2025, building on proven BXI technology used in TOP15 supercomputers.
+* `serving` `networking` `offloading` [Rethinking Thread Scheduling under Oversubscription: A User-Space Framework for Coordinating Multi-runtime and Multi-process Workloads](http://arxiv.org/abs/2601.20435v1)
+  > **TL;DR**: Proposes a user-space scheduling framework (USF) with SCHED_COOP policy to reduce interference in oversubscribed multi-process workloads targeting AI inference. Enables cooperative thread switching to mitigate preemption issues. Shows up to 2.4x speedup in PyTorch inference with LLaMA-3.
+
 ### 2026-01-28
 * `edge` `serving` `networking` [Modular Foundation Model Inference at the Edge: Network-Aware Microservice Optimization](http://arxiv.org/abs/2601.19563v1)
   > **TL;DR**: Proposes a microservice-based framework for edge deployment of foundation model inference with static core services and dynamic light service orchestration. Uses network-aware placement and online control for QoS guarantees under resource constraints. Achieves over 84% on-time task completion with moderate costs.
