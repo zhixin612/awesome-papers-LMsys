@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1907-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.29-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1917-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.01.30-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,28 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-01-30
+* `serving` `inference` `energy` [Where Do the Joules Go? Diagnosing Inference Energy Consumption](http://arxiv.org/abs/2601.22076v1)
+  > **TL;DR**: Investigates the factors causing variations in energy consumption during generative AI inference. Proposes a diagnostic framework linking algorithm, software, and hardware layers to latent metrics like memory/utilization. Measures up to 100× energy differences for video vs image generation on H100/B200 GPUs.
+* `serving` `disaggregation` `scaling` [Heterogeneous Computing: The Key to Powering the Future of AI Agent Inference](http://arxiv.org/abs/2601.22001v1)
+  > **TL;DR**: Identifies memory and interconnect bottlenecks in AI agent inference. Proposes disaggregated serving with specialized accelerators, scale-up networking, and optical I/O for compute-memory decoupling. Addresses shifting operational intensity/capacity footprint to sustain efficiency in agentic workflows.
+* `RL` `training` `disaggregation` [Learning Decentralized LLM Collaboration with Multi-Agent Actor Critic](http://arxiv.org/abs/2601.21972v1)
+  > **TL;DR**: Addresses decentralized LLM collaboration limitations using Multi-Agent Actor-Critic. Proposes CoLLM-CC/Centralized Critic and CoLLM-DC/Decentralized Critics for efficient parallel inference. Achieves competitive results with reduced sample requirements and improved convergence in sparse-reward tasks.
+* `training` `kernel` [DASH: Deterministic Attention Scheduling for High-throughput Reproducible LLM Training](http://arxiv.org/abs/2601.21824v1)
+  > **TL;DR**: Addresses the performance loss in deterministic attention backward pass during LLM training. Proposes DASH, a DAG-based scheduling approach with optimized compute and gradient-reduction phases. Improves throughput by up to 1.28× compared to FlashAttention-3 baseline on NVIDIA H800 GPUs.
+* `serving` `scaling` [EWSJF: An Adaptive Scheduler with Hybrid Partitioning for Mixed-Workload LLM Inference](http://arxiv.org/abs/2601.21758v1)
+  > **TL;DR**: Addresses scheduling challenge for mixed LLM inference workloads with long batch and short interactive requests. Proposes EWSJF scheduler with unsupervised partitioning, dynamic routing, and adaptive optimization. Achieves over 30% higher throughput and up to 4x lower Time-To-First-Token for short requests versus FCFS.
+* `serving` `offloading` `multi-modal` [ScaleSim: Serving Large-Scale Multi-Agent Simulation with Invocation Distance-Based Memory Management](http://arxiv.org/abs/2601.21473v1)
+  > **TL;DR**: Addresses GPU memory exhaustion in large-scale multi-agent simulations by proposing ScaleSim, which uses invocation distance-based prefetching and eviction for agent states. Enables private agent states with modular interfaces. Achieves 1.74x speedup over SGLang.
+* `training` `storage` `scaling` [Nimbus: A Unified Embodied Synthetic Data Generation Framework](http://arxiv.org/abs/2601.21449v1)
+  > **TL;DR**: Introduces Nimbus, a unified, modular framework for high-throughput embodied synthetic data generation to support foundation model training. It uses a decoupled architecture with asynchronous stages, dynamic scheduling, and distributed fault tolerance. Boosts end-to-end throughput 2-3X over baselines.
+* `serving` `multi-modal` `kernel` [Native LLM and MLLM Inference at Scale on Apple Silicon](http://arxiv.org/abs/2601.19139v2)
+  > **TL;DR**: Proposes vllm-mlx: efficient LLM/MLLM inference on Apple Silicon using native MLX integration. Features content-based prefix caching to skip redundant vision encoding for identical images. Achieves up to 87% higher throughput than llama-cpp on text models and 28x speedup for repeated image queries.
+* `MoE` `serving` `edge` [ZipMoE: Efficient On-Device MoE Serving via Lossless Compression and Cache-Affinity Scheduling](http://arxiv.org/abs/2601.21198v1)
+  > **TL;DR**: Addresses high memory footprint of MoE models for on-device inference. Proposes ZipMoE, a system combining lossless compression and cache-aware scheduling to shift MoE inference to compute-centric workflow. Achieves up to 72.77% latency reduction and 6.76× higher throughput.
+* `training` `kernel` `quantization` [Axe: A Simple Unified Layout Abstraction for Machine Learning Compilers](http://arxiv.org/abs/2601.19092v2)
+  > **TL;DR**: Introduces Axe Layout, a unified hardware-aware abstraction for tensor layout mapping across devices and memory hierarchies. Proposes a multi-granularity DSL and compiler that integrates thread-local control with collective operators. Achieves near hand-tuned kernel performance on GPUs and multi-device setups.
+
 ### 2026-01-29
 * `edge` `serving` `networking` [Agentic Fog: A Policy-driven Framework for Distributed Intelligence in Fog Computing](http://arxiv.org/abs/2601.20764v1)
   > **TL;DR**: Proposes Agentic Fog, a policy-driven framework for distributed intelligence in fog computing with LLM-based reasoning. Uses decentralized potential game coordination for adaptive control. Achieves lower average latency and better adaptation to demand than greedy heuristics under dynamic conditions.
