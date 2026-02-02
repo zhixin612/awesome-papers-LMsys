@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1917-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.01.30-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1925-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.02-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-02
+* `kernel` `hardware` [AscendCraft: Automatic Ascend NPU Kernel Generation via DSL-Guided Transcompilation](http://arxiv.org/abs/2601.22760v1)
+  > **TL;DR**: Addresses NPU kernel development inefficiencies for Ascend chips. Proposes AscendCraft, a DSL-guided transcompilation approach using LLMs to generate optimized AscendC kernels. Achieves 98.1% compilation success rate and 46.2% of kernels matching/exceeding PyTorch eager performance.
+* `serving` `offline` [SQUAD: Scalable Quorum Adaptive Decisions via ensemble of early exit neural networks](http://arxiv.org/abs/2601.22711v1)
+  > **TL;DR**: Proposes SQUAD, a quorum-based early-exit inference scheme combining ensemble learning and hierarchical diversity to improve uncertainty estimation and reduce latency. Achieves up to 70.60% lower inference latency than static ensembles while maintaining accuracy.
+* `serving` `offloading` [CONCUR: High-Throughput Agentic Batch Inference of LLM via Congestion-Based Concurrency Control](http://arxiv.org/abs/2601.22705v1)
+  > **TL;DR**: Addresses middle-phase thrashing in KV cache during agentic LLM batch inference. Proposes CONCUR, a congestion control-inspired mechanism for agent-level admission. Achieves up to 4.09x throughput improvement on Qwen3-32B.
+* `training` `networking` `scaling` [HetCCL: Accelerating LLM Training with Heterogeneous GPUs](http://arxiv.org/abs/2601.22585v1)
+  > **TL;DR**: Addresses inefficiency in multi-vendor GPU clusters during LLM training due to lack of cross-vendor collective communication. Introduces HetCCL, a library with unified RDMA-based communication leveraging NCCL and RCCL backends. Achieves performance matching homogeneous setups while scaling in heterogeneous environments, reducing training costs.
+* `edge` `scaling` [Coordinating Power Grid Frequency Regulation Service with Data Center Load Flexibility](http://arxiv.org/abs/2601.22487v1)
+  > **TL;DR**: Proposes EcoCenter, a framework for GPU data centers to provide frequency regulation to reduce grid carbon emissions. Introduces Exogenous Carbon metric and maximizes regulation participation. Achieves carbon savings exceeding operational emissions, reducing fossil-fuel reserves.
+* `training` `scaling` `networking` [AsyncMesh: Fully Asynchronous Optimization for Data and Pipeline Parallelism](http://arxiv.org/abs/2601.22442v1)
+  > **TL;DR**: Proposes AsyncMesh, an asynchronous optimization method for data and pipeline parallelism to overcome communication bottlenecks in distributed training. Introduces weight look-ahead for pipelines and sparse averaging with EMA correction for data parallelism. Reduces communication overhead by 2-5 times while matching synchronous baseline convergence.
+* `serving` `offloading` `networking` [Towards Resiliency in Large Language Model Serving with KevlarFlow](http://arxiv.org/abs/2601.22438v1)
+  > **TL;DR**: Addresses slow recovery from hardware faults in LLM serving. Introduces KevlarFlow with decoupled model parallelism, traffic rerouting, and background KV cache replication. Reduces MTTR by 20x and improves p99 latency by 2.8x with negligible overhead.
+* `scaling` `serving` `RL` [SAIR: Cost-Efficient Multi-Stage ML Pipeline Autoscaling via In-Context Reinforcement Learning](http://arxiv.org/abs/2601.22397v1)
+  > **TL;DR**: Proposes SAIR, an autoscaling framework for multi-stage ML inference pipelines using an LLM as an in-context reinforcement learning controller. Combines Pareto-dominance reward shaping, surprisal-guided experience retrieval, and fine-grained GPU rate control. Achieves up to 50% lower P99 latency and 97% lower effective cost.
+
 ### 2026-01-30
 * `serving` `inference` `energy` [Where Do the Joules Go? Diagnosing Inference Energy Consumption](http://arxiv.org/abs/2601.22076v1)
   > **TL;DR**: Investigates the factors causing variations in energy consumption during generative AI inference. Proposes a diagnostic framework linking algorithm, software, and hardware layers to latent metrics like memory/utilization. Measures up to 100× energy differences for video vs image generation on H100/B200 GPUs.
