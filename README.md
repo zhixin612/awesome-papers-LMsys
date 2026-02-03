@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1925-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.02-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1937-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-03
+* `scaling` `networking` `multi-modal` [sVIRGO: A Scalable Virtual Tree Hierarchical Framework for Distributed Systems](http://arxiv.org/abs/2602.02438v1)
+  > **TL;DR**: Proposes sVIRGO, a virtual tree hierarchical framework for scalable coordination in distributed systems. Uses configurable layers and dynamic role mapping to support thousands of regions with multiple active coordinators. Achieves near-zero recovery latency and bounded communication overhead under adversarial conditions.
+* `inference` `kernel` `video` [Enabling AI Deep Potentials for Ab Initio-quality Molecular Dynamics Simulations in GROMACS](http://arxiv.org/abs/2602.02234v1)
+  > **TL;DR**: Integrates AI deep potentials into GROMACS for ab initio-quality MD simulations. Utilizes DeePMD-kit with C++/CUDA backend for multi-model inference. Achieves up to 4.23x higher throughput on NVIDIA A100 GPUs with DPA2 over DPA3 architectures.
+* `serving` `disaggregation` `multi-modal` [vLLM-Omni: Fully Disaggregated Serving for Any-to-Any Multimodal Models](http://arxiv.org/abs/2602.02204v1)
+  > **TL;DR**: Proposes a disaggregated serving system for any-to-any multimodal models, decomposing architectures into interconnected stages with independent engines. Features unified connectors and per-stage optimization. Reduces job completion time by up to 91.4% over baselines.
+* `training` `RL` `offloading` [ECHO-2: A Large Scale Distributed Rollout Framework for Cost-efficient Reinforcement Learning](http://arxiv.org/abs/2602.02192v1)
+  > **TL;DR**: Proposes ECHO-2, a distributed framework for RL post-training of LLMs using remote workers, pipeline broadcast, and cost-aware resource management to mitigate latency. Reduces training costs by up to 20% while maintaining reward quality in wide-area environments.
+* `training` `networking` `scaling` [Grappa: Gradient-Only Communication for Scalable Graph Neural Network Training](http://arxiv.org/abs/2602.01872v1)
+  > **TL;DR**: Grappa introduces gradient-only communication for distributed GNN training to reduce network overhead. It uses periodic repartitioning and a lightweight coverage-corrected gradient aggregation. Achieves 4x average speedup in training time on real and synthetic graphs.
+* `training` `scaling` [BOA Constrictor: Squeezing Performance out of GPUs in the Cloud via Budget-Optimal Allocation](http://arxiv.org/abs/2602.01404v1)
+  > **TL;DR**: Proposes BOA Constrictor, a budget-optimal scheduler for cloud-based GPU training jobs. It optimally allocates rented GPUs to minimize job completion time under a fixed budget, reducing average JCT by 1.6-2× compared to heuristics.
+* `offloading` `kernel` `quantization` [HyperOffload: Graph-Driven Hierarchical Memory Management for Large Language Models on SuperNode Architectures](http://arxiv.org/abs/2602.00748v1)
+  > **TL;DR**: Proposes HyperOffload, a compiler-driven memory management framework for LLMs on supernode architectures. Uses graph-based IR cache operators to model data movement, enabling global analysis and static scheduling of transfers to hide latency. Achieves up to 26% reduction in peak memory usage during inference.
+* `MoE` `serving` `networking` [PROBE: Co-Balancing Computation and Communication in MoE Inference via Real-Time Predictive Prefetching](http://arxiv.org/abs/2602.00509v1)
+  > **TL;DR**: Addresses stragglers and network congestion in Mixture-of-Experts inference. Proposes PROBE with predictive prefetching, balance planning, and co-scheduling to co-balance computation and communication. Achieves up to 1.32x lower prefill latency and 1.26x higher decoding throughput.
+* `edge` `RL` `thinking` [FedMOA: Federated GRPO for Personalized Reasoning LLMs under Heterogeneous Rewards](http://arxiv.org/abs/2602.00453v1)
+  > **TL;DR**: Proposes FedMOA, a federated GRPO framework for multi-objective alignment of personalized reasoning LLMs under heterogeneous rewards. Uses an online adaptive weighting mechanism and task-aware aggregation to stabilize local training and prioritize high-quality updates. Achieves up to 2.2% higher accuracy on reasoning benchmarks.
+* `kernel` `sparse` `quantization` [Self-Attention at Constant Cost per Token via Symmetry-Aware Taylor Approximation](http://arxiv.org/abs/2602.00294v1)
+  > **TL;DR**: Proposes a symmetric tensor decomposition method to compute self-attention with constant cost per token, reducing memory and computation. Achieves orders-of-magnitude reductions in resource usage, enabling unbounded token generation at fixed cost.
+* `training` `scaling` [Training LLMs with Fault Tolerant HSDP on 100,000 GPUs](http://arxiv.org/abs/2602.00277v1)
+  > **TL;DR**: Proposes Fault Tolerant Hybrid-Shared Data Parallelism (FT-HSDP) to address frequent failures in large-scale synchronous training. Uses data parallel replicas for fault isolation, with a Fault Tolerant All Reduce protocol and non-blocking catch-up. Achieves 80% effective training time (vs 44% baseline) on 100,000 GPUs.
+* `serving` `edge` `networking` [VoxServe: Streaming-Centric Serving System for Speech Language Models](http://arxiv.org/abs/2602.00269v1)
+  > **TL;DR**: Addresses high-throughput, low-latency streaming serving for SpeechLMs. Proposes a model-execution abstraction with streaming-aware scheduling and asynchronous pipeline. Achieves 10-20× higher throughput at comparable latency over existing systems while maintaining streamability.
+
 ### 2026-02-02
 * `kernel` `hardware` [AscendCraft: Automatic Ascend NPU Kernel Generation via DSL-Guided Transcompilation](http://arxiv.org/abs/2601.22760v1)
   > **TL;DR**: Addresses NPU kernel development inefficiencies for Ascend chips. Proposes AscendCraft, a DSL-guided transcompilation approach using LLMs to generate optimized AscendC kernels. Achieves 98.1% compilation success rate and 46.2% of kernels matching/exceeding PyTorch eager performance.
