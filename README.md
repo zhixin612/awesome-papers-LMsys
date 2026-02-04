@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1937-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1946-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.04-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-04
+* `training` `scaling` [Do We Need Asynchronous SGD? On the Near-Optimality of Synchronous Methods](http://arxiv.org/abs/2602.03802v1)
+  > **TL;DR**: Investigates if synchronous SGD is optimal for distributed training under heterogeneous compute or adversarial worker participation. Proves that m-Synchronous SGD achieves near-optimal time complexity, challenging the need for asynchronous methods.
+* `training` `scaling` `networking` [Improved Analysis of the Accelerated Noisy Power Method with Applications to Decentralized PCA](http://arxiv.org/abs/2602.03682v1)
+  > **TL;DR**: Improves convergence analysis of Accelerated Noisy Power Method for decentralized PCA. Provides tighter noise bounds, preserving accelerated rates with milder perturbation conditions. Achieves accelerated convergence with communication costs comparable to non-accelerated methods.
+* `training` `scaling` [Mitigating Staleness in Asynchronous Pipeline Parallelism via Basis Rotation](http://arxiv.org/abs/2602.03515v1)
+  > **TL;DR**: Addresses gradient staleness in asynchronous pipeline parallelism for distributed LLM training. Proposes basis rotation to align Hessian eigenbasis and rectify delayed gradients. Achieves 76.8% fewer iterations for 1B-parameter LLM training compared to baseline.
+* `MoE` `offloading` [DALI: A Workload-Aware Offloading Framework for Efficient MoE Inference on Local PCs](http://arxiv.org/abs/2602.03495v1)
+  > **TL;DR**: Proposes DALI, a workload-aware offloading framework for efficient MoE inference on local PCs. It features dynamic expert assignment, residual-based prefetching, and workload-aware caching to address load imbalance and inefficiencies. Achieves significant speedups in prefill and decoding phases over existing frameworks.
+* `RL` `training` `scaling` [ECHO-2: A Large-Scale Distributed Rollout Framework for Cost-Efficient Reinforcement Learning](http://arxiv.org/abs/2602.02192v2)
+  > **TL;DR**: Proposes ECHO-2, a distributed RL framework for cost-efficient rollout generation in post-training LLMs. Uses overlapped execution, peer-assisted broadcast, and cost-aware worker activation to alleviate dissemination bottlenecks. Reduces costs by up to 2.1× while maintaining RL rewards comparable to baselines.
+* `MoE` `serving` `networking` [PROBE: Co-Balancing Computation and Communication in MoE Inference via Real-Time Predictive Prefetching](http://arxiv.org/abs/2602.00509v2)
+  > **TL;DR**: Addresses MoE inference inefficiencies due to computational stragglers and network congestion. PROBE introduces predictive prefetching and joint optimization of expert replication/token assignment. Reduces prefill latency by 1.32x and improves decoding throughput by 1.26x under dynamic workloads.
+* `offloading` `kernel` `training` [HyperOffload: Graph-Driven Hierarchical Memory Management for Large Language Models on SuperNode Architectures](http://arxiv.org/abs/2602.00748v2)
+  > **TL;DR**: Proposes HyperOffload, a graph-driven hierarchical memory management framework for LLMs on supernodes. Uses compiler-assisted IR integration and static scheduling to hide remote memory latency. Reduces peak device memory by 26% with maintained performance.
+* `serving` `scaling` `disaggregation` [Large-Scale LLM Inference with Heterogeneous Workloads: Prefill-Decode Contention and Asymptotically Optimal Control](http://arxiv.org/abs/2602.02987v1)
+  > **TL;DR**: Addresses state-dependent contention in LLM inference with prefill and decode phases under heterogeneous workloads. Develops a queueing-based control framework with gate-and-route policies for cross-GPU cluster scheduling. Achieves asymptotically optimal resource allocation, outperforming standard heuristics by empirical evaluation.
+* `RAG` `serving` `offloading` [ProphetKV: User-Query-Driven Selective Recomputation for Efficient KV Cache Reuse in Retrieval-Augmented Generation](http://arxiv.org/abs/2602.02579v1)
+  > **TL;DR**: ProphetKV optimizes KV cache reuse in RAG prefill by prioritizing user-query-relevant tokens via semantic-driven selection and dual-stage recomputation, retaining 96%–101% accuracy with only 20% recomputation budget, outperforming baselines by 8.8%–50.9% on accuracy metrics.
+
 ### 2026-02-03
 * `scaling` `networking` `multi-modal` [sVIRGO: A Scalable Virtual Tree Hierarchical Framework for Distributed Systems](http://arxiv.org/abs/2602.02438v1)
   > **TL;DR**: Proposes sVIRGO, a virtual tree hierarchical framework for scalable coordination in distributed systems. Uses configurable layers and dynamic role mapping to support thousands of regions with multiple active coordinators. Achieves near-zero recovery latency and bounded communication overhead under adversarial conditions.
