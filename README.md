@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1946-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.04-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1950-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-05
+* `training` `offloading` [Horizon-LM: A RAM-Centric Architecture for LLM Training](http://arxiv.org/abs/2602.04816v1)
+  > **TL;DR**: Proposes Horizon-LM, a RAM-centric LLM training system that uses CPUs as persistent parameter store and GPUs as transient compute engines. Employs explicit recomputation, manual gradient propagation, and pipelined double-buffering to decouple model scale from GPU memory. Achieves 12.2× higher throughput than DeepSpeed ZeRO-3 on a single A100.
+* `RL` `agentic` [Learning Decentralized LLM Collaboration with Multi-Agent Actor Critic](http://arxiv.org/abs/2601.21972v2)
+  > **TL;DR**: Investigates decentralized LLM collaboration using multi-agent reinforcement learning. Proposes two multi-agent actor-critic methods (CoLLM-CC and CoLLM-DC) to optimize fine-tuning with reduced sample variance. Achieves comparable performance in short-horizon tasks but requires 2× more samples for Monte Carlo approaches in long-horizon settings.
+* `training` `offloading` `scaling` [Horizon-LM: A RAM-Centric Architecture for LLM Training](http://arxiv.org/abs/2602.04816v1)
+  > **TL;DR**: Proposes Horizon-LM, a memory-centric training architecture using CPUs as persistent parameter stores and GPUs as transient compute engines. Eliminates GPU-resident modules and autograd graphs via explicit recomputation and pipelined execution. Achieves up to 12.2× higher throughput than DeepSpeed ZeRO-3 while enabling 120B parameter training on a single GPU with host RAM.
+* `serving` `RAG` `offloading` [ProphetKV: User-Query-Driven Selective Recomputation for Efficient KV Cache Reuse in Retrieval-Augmented Generation](http://arxiv.org/abs/2602.02579v2)
+  > **TL;DR**: Addresses inefficient KV cache reuse in RAG prefill stage. Introduces ProphetKV, a query-driven selective recomputation method with dual-stage prioritization, dedicating budget to context-query fusion. Retains 96%-101% accuracy with only 20% recomputation, outperforming state-of-the-art by 8.8%-50.9%.
+
 ### 2026-02-04
 * `training` `scaling` [Do We Need Asynchronous SGD? On the Near-Optimality of Synchronous Methods](http://arxiv.org/abs/2602.03802v1)
   > **TL;DR**: Investigates if synchronous SGD is optimal for distributed training under heterogeneous compute or adversarial worker participation. Proves that m-Synchronous SGD achieves near-optimal time complexity, challenging the need for asynchronous methods.
