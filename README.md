@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1950-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.05-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1957-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-06
+* `training` `pipeline` [TimelyFreeze: Adaptive Parameter Freezing Mechanism for Pipeline Parallelism](http://arxiv.org/abs/2602.05754v1)
+  > **TL;DR**: Addresses pipeline bubble overhead in distributed training throughput via adaptive parameter freezing. Introduces TimelyFreeze, modeling the pipeline as a DAG and using linear programming to optimize freeze ratios under accuracy constraints. Achieves 40% training throughput gain on LLaMA-8B without accuracy loss.
+* `thinking` `RL` `scaling` [ORACL: Optimized Reasoning for Autoscaling via Chain of Thought with LLMs for Microservices](http://arxiv.org/abs/2602.05292v1)
+  > **TL;DR**: Investigates using LLMs as adaptive resource allocators for autoscaling microservices. Proposes ORACL framework with chain-of-thought reasoning on telemetry data to diagnose issues and recommend allocations. Achieves 15% higher root-cause accuracy and 24x faster training.
+* `training` `offloading` [Horizon-LM: A RAM-Centric Architecture for LLM Training](http://arxiv.org/abs/2602.04816v2)
+  > **TL;DR**: Proposes Horizon-LM, a RAM-centric LLM training architecture that uses CPU as primary parameter store and GPUs as transient compute engines. Eliminates persistent GPU modules and autograd graphs, employing manual recomputation. Achieves 12.2× higher throughput than DeepSpeed ZeRO-3 on single A100 with predictable memory scaling.
+* `offline` `kernel` `scaling` [From Sequential to Parallel: Reformulating Dynamic Programming as GPU Kernels for Large-Scale Stochastic Combinatorial Optimization](http://arxiv.org/abs/2602.05179v1)
+  > **TL;DR**: Addresses computational bottlenecks in stochastic programming by batching scenarios. Develops parallel GPU kernels for dynamic programming, exposing parallelism across scenarios and layers. Achieves 4-5 orders of magnitude speedup, enabling large-scale exact integer second-stage models.
+* `serving` `offline` `scaling` [Evaluating Kubernetes Performance for GenAI Inference: From Automatic Speech Recognition to LLM Summarization](http://arxiv.org/abs/2602.04900v1)
+  > **TL;DR**: Evaluates Kubernetes for GenAI inference workflows involving ASR and LLM summarization. Uses Kueue for batch job scheduling, DAS for parallel execution, and Gateway API Inference Extension for online serving optimization. Achieves 36% faster job completion, 15% makespan reduction, and 82% improved time to first token.
+* `RAG` `serving` `offloading` [ProphetKV: User-Query-Driven Selective Recomputation for Efficient KV Cache Reuse in Retrieval-Augmented Generation](http://arxiv.org/abs/2602.02579v3)
+  > **TL;DR**: Addresses KV cache recomputation inefficiency in RAG prefill by introducing query-driven token selection and dual-stage pipeline. ProphetKV prioritizes semantically relevant tokens, achieving 96%-101% accuracy at 20% recomputation ratio and up to 50.9% higher accuracy over prior methods.
+* `training` `offloading` [Horizon-LM: A RAM-Centric Architecture for LLM Training](http://arxiv.org/abs/2602.04816v2)
+  > **TL;DR**: Addresses memory constraints in large model training by repurposing GPUs as transient compute engines and using CPU-hosted parameters. Introduces Horizon-LM with CPU-master/GPU-worker model, explicit recomputation, and pipelining. Achieves up to 12.2× higher throughput versus DeepSpeed ZeRO-3 on a single A100 GPU.
+
 ### 2026-02-05
 * `training` `offloading` [Horizon-LM: A RAM-Centric Architecture for LLM Training](http://arxiv.org/abs/2602.04816v1)
   > **TL;DR**: Proposes Horizon-LM, a RAM-centric LLM training system that uses CPUs as persistent parameter store and GPUs as transient compute engines. Employs explicit recomputation, manual gradient propagation, and pipelined double-buffering to decouple model scale from GPU memory. Achieves 12.2× higher throughput than DeepSpeed ZeRO-3 on a single A100.
