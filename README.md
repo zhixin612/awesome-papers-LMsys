@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1957-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1965-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.09-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-09
+* `serving` `RL` `scaling` [Reinforcement Learning-Based Dynamic Management of Structured Parallel Farm Skeletons on Serverless Platforms](http://arxiv.org/abs/2602.06555v1)
+  > **TL;DR**: Proposes AI-driven dynamic scaling for serverless farm pattern execution to improve QoS and resource usage. Uses reinforcement learning policies coupled with monitoring for autoscaling worker pools on OpenFaaS. Achieves better QoS and stable scaling compared to model-based approaches.
+* `serving` `scaling` [DualMap: Enabling Both Cache Affinity and Load Balancing for Distributed LLM Serving](http://arxiv.org/abs/2602.06502v1)
+  > **TL;DR**: Addresses the conflict between KV cache affinity and load balancing in distributed LLM serving. Proposes DualMap, a dual-mapping scheduler with SLO-aware routing, hotspot rebalancing, and dual-hash-ring scaling. Achieves 2.25× higher request capacity under TTFT SLO constraints.
+* `training` `offloading` `scaling` [FCDP: Fully Cached Data Parallel for Communication-Avoiding Large-Scale Training](http://arxiv.org/abs/2602.06499v1)
+  > **TL;DR**: Addresses communication bottlenecks in large-scale model training with limited bandwidth. Proposes FCDP, a data parallel approach caching forward-pass parameters in host memory to reduce inter-node communication. Achieves up to 100x higher throughput than ZeRO-3 in commodity clusters.
+* `training` `sparse` [TimelyFreeze: Adaptive Parameter Freezing Mechanism for Pipeline Parallelism](http://arxiv.org/abs/2602.05754v2)
+  > **TL;DR**: Addresses pipeline bubble overhead in training by adaptive parameter freezing. Introduces TimelyFreeze, which models pipeline as DAG and uses linear programming to optimize freeze ratios under accuracy constraints. Achieves 40% throughput gain on LLaMA-8B without accuracy loss.
+* `training` `sparse` `optimization` [Canzona: A Unified, Asynchronous, and Load-Balanced Framework for Distributed Matrix-based Optimizers](http://arxiv.org/abs/2602.06079v1)
+  > **TL;DR**: Proposes Canzona, a unified asynchronous framework for distributed matrix-based optimizers to eliminate redundancy in LLM training. Features alpha-Balanced Static Partitioning and Asynchronous Compute with Micro-Group Scheduling. Achieves 1.57x end-to-end speedup and 5.8x optimizer latency reduction on 256 GPUs.
+* `serving` `kernel` `offloading` [PackInfer: Compute- and I/O-Efficient Attention for Batched LLM Inference](http://arxiv.org/abs/2602.06072v1)
+  > **TL;DR**: Addresses attention inefficiency in batched LLM inference with heterogeneous sequence lengths. Proposes PackInfer, a kernel-level framework that packs requests into balanced groups and reorganizes KV cache layouts. Improves throughput by 20% over FlashAttention and reduces latency by 13.0-20.1%.
+* `kernel` `sparse` [FlashSketch: Sketch-Kernel Co-Design for Fast Sparse Sketching on GPUs](http://arxiv.org/abs/2602.06071v1)
+  > **TL;DR**: Addresses inefficiency of sparse sketching on GPUs due to irregular memory access. Proposes BlockPerm-SJLT sketch design and FlashSketch kernel for GPU optimization, with tunable sparsity for efficiency-robustness trade-off. Achieves 1.7x geomean speedup over prior GPU sketches.
+* `edge` `quantization` `sparse` [HQP: Sensitivity-Aware Hybrid Quantization and Pruning for Ultra-Low-Latency Edge AI Inference](http://arxiv.org/abs/2602.06069v1)
+  > **TL;DR**: Develops HQP, a hybrid quantization-pruning framework for ultra-low-latency edge AI. Uses sensitivity-aware pruning with FIM approximation and 8-bit quantization under strict accuracy constraints. Achieves 3.12× speedup and 55% model size reduction on Jetson platforms with <1.5% accuracy drop.
+
 ### 2026-02-06
 * `training` `pipeline` [TimelyFreeze: Adaptive Parameter Freezing Mechanism for Pipeline Parallelism](http://arxiv.org/abs/2602.05754v1)
   > **TL;DR**: Addresses pipeline bubble overhead in distributed training throughput via adaptive parameter freezing. Introduces TimelyFreeze, modeling the pipeline as a DAG and using linear programming to optimize freeze ratios under accuracy constraints. Achieves 40% training throughput gain on LLaMA-8B without accuracy loss.
