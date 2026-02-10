@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1967-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-1976-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.02.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-10
+* `training` `quantization` `networking` [DynamiQ: Accelerating Gradient Synchronization using Compressed Multi-hop All-reduce](http://arxiv.org/abs/2602.08923v1)
+  > **TL;DR**: Addresses the inefficiency of gradient quantization in multi-hop all-reduce for large model training. Proposes DynamiQ, a quantization framework with novel partial sum representation and a fused kernel for decompress-accumulate-recompress. Achieves up to 34.2% faster training while maintaining 99.9% baseline accuracy.
+* `serving` `offloading` `hardware` [Equilibria: Fair Multi-Tenant CXL Memory Tiering At Scale](http://arxiv.org/abs/2602.08800v1)
+  > **TL;DR**: Proposes Equilibria, an OS framework for fair multi-tenant CXL memory tiering to address resource allocation and interference in datacenter workloads. Achieves up to 52% performance improvement for production workloads over state-of-the-art solutions.
+* `serving` `training` `offline` [Evaluating Kubernetes Performance for GenAI Inference: From Automatic Speech Recognition to LLM Summarization](http://arxiv.org/abs/2602.04900v2)
+  > **TL;DR**: Evaluates Kubernetes for GenAI inference workflows, combining Kueue for batch inference job scheduling and Dynamic Accelerator Slicer for parallelism. Proposes GAIE-based optimized routing for online LLM summarization. Achieves 15% lower makespan, 36% faster job completion, 82% improved time to first token.
+* `serving` `scaling` [PARD: Enhancing Goodput for Inference Pipeline via Proactive Request Dropping](http://arxiv.org/abs/2602.08747v1)
+  > **TL;DR**: Addresses the inefficiency in goodput for DNN inference pipelines under latency constraints. Proposes PARD system with proactive request dropping using runtime pipeline information and adaptive prioritization. Achieves 16%-176% higher goodput and reduces drop rates 1.6-17x versus state-of-the-art.
+* `training` `scaling` [Modalities, a PyTorch-native Framework For Large-scale LLM Training and Research](http://arxiv.org/abs/2602.08387v1)
+  > **TL;DR**: Proposes Modalities, a PyTorch-native framework for efficient LLM training and ablation studies. Integrates parallelization strategies for large-scale pretraining and configurable experiments with declarative modular design. Enables trillion-token scale training and systematic ablations with reduced overhead.
+* `offline` `agentic` `disaggregation` [Fork, Explore, Commit: OS Primitives for Agentic Exploration](http://arxiv.org/abs/2602.08199v1)
+  > **TL;DR**: Addresses the need for isolated environments in AI agent exploration with atomic commit/rollback. Proposes branch contexts with BranchFS (filesystem isolation) and branch() syscall (process isolation). Achieves sub-350 μs branch creation time independent of file system size.
+* `offloading` `edge` `serving` [Accuracy-Delay Trade-Off in LLM Offloading via Token-Level Uncertainty](http://arxiv.org/abs/2602.07958v1)
+  > **TL;DR**: Proposes token-level uncertainty-aware offloading for LLM inference in mobile edge computing. Designs greedy offloading algorithm (GOA) that dynamically decides local vs. edge execution based on uncertainty metrics. GOA reduces latency by 20-40% while maintaining accuracy in multi-user scenarios.
+* `serving` `hardware` `scaling` [Equilibria: Fair Multi-Tenant CXL Memory Tiering At Scale](http://arxiv.org/abs/2602.08800v1)
+  > **TL;DR**: Addresses memory tiering fairness and interference in multi-tenant CXL environments for hyperscaler workloads. Introduces Equilibria with per-container controls and regulated promotion/demotion policies. Achieves up to 52% higher performance over baseline in production workloads.
+* `agentic` `RL` `offline` [Fork, Explore, Commit: OS Primitives for Agentic Exploration](http://arxiv.org/abs/2602.08199v1)
+  > **TL;DR**: Proposes branch contexts, a new OS abstraction for agentic exploration, enabling isolated copy-on-write environments for filesystem and process state with atomic commit/rollback. Implements BranchFS for workspace isolation and a syscall for process management. Achieves sub-350 μs branch creation and under 1 ms commit for small changes.
+
 ### 2026-02-10
 * `serving` `kernel` [Parallel Track Transformers: Enabling Fast GPU Inference with Reduced Synchronization](http://arxiv.org/abs/2602.07306v1)
   > **TL;DR**: Proposes Parallel Track Transformers to reduce synchronization overhead in multi-GPU LLM inference. Restructures computation to minimize cross-device dependencies, achieving a 16x sync reduction. Integrated into serving stacks shows 15-30% lower TTFT and up to 31.9% higher throughput.
