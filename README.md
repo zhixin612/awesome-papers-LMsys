@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1965-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.09-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1967-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-10
+* `serving` `kernel` [Parallel Track Transformers: Enabling Fast GPU Inference with Reduced Synchronization](http://arxiv.org/abs/2602.07306v1)
+  > **TL;DR**: Proposes Parallel Track Transformers to reduce synchronization overhead in multi-GPU LLM inference. Restructures computation to minimize cross-device dependencies, achieving a 16x sync reduction. Integrated into serving stacks shows 15-30% lower TTFT and up to 31.9% higher throughput.
+* `edge` `multi-modal` `serving` [Multi-Agentic AI for Fairness-Aware and Accelerated Multi-modal Large Model Inference in Real-world Mobile Edge Networks](http://arxiv.org/abs/2602.07215v1)
+  > **TL;DR**: Proposes a multi-agentic AI framework for latency- and fairness-aware multi-modal LM inference in mobile edge networks. Uses coordinated agents for prompt routing and deployment, leveraging natural language reasoning. Achieves 80% reduction in average latency and 0.90 fairness index on a city-wide testbed.
+
 ### 2026-02-09
 * `serving` `RL` `scaling` [Reinforcement Learning-Based Dynamic Management of Structured Parallel Farm Skeletons on Serverless Platforms](http://arxiv.org/abs/2602.06555v1)
   > **TL;DR**: Proposes AI-driven dynamic scaling for serverless farm pattern execution to improve QoS and resource usage. Uses reinforcement learning policies coupled with monitoring for autoscaling worker pools on OpenFaaS. Achieves better QoS and stable scaling compared to model-based approaches.
