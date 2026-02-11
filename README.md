@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1976-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1980-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-11
+* `serving` `offloading` `networking` [Efficient Remote Prefix Fetching with GPU-native Media ASICs](http://arxiv.org/abs/2602.09725v1)
+  > **TL;DR**: Proposes KVFetcher for remote KV cache reuse in LLM inference using GPU-native video codecs. Introduces codec-friendly tensor layout and efficient pipelining for transmission/decompression. Reduces TTFT by up to 3.51× in bandwidth-limited networks compared to SOTA.
+* `training` `networking` `scaling` [Harvest: Adaptive Photonic Switching Schedules for Collective Communication in Scale-up Domains](http://arxiv.org/abs/2602.09188v1)
+  > **TL;DR**: Proposes Harvest, a method for synthesizing adaptive photonic switching schedules to optimize collective communication in LLM training. It balances reconfiguration overhead against congestion and propagation delays, reducing AllReduce completion time by up to 40% compared to static interconnects.
+* `training` `serving` `scaling` [Distributed Hybrid Parallelism for Large Language Models: Comparative Study and System Design Guide](http://arxiv.org/abs/2602.09109v1)
+  > **TL;DR**: Explores hybrid parallelization strategies for efficient LLM training and inference. Systematically analyzes collective operations, communication-computation overlap, and automated strategy search using cost models. Achieves optimal resource utilization by guiding parallelism selection for dynamic model deployment.
+* `offline` `scaling` `agentic` [AgentCgroup: Understanding and Controlling OS Resources of AI Agents](http://arxiv.org/abs/2602.09345v1)
+  > **TL;DR**: Analyzes OS-level resource dynamics in sandboxed AI agents and identifies mismatches in existing controls. Proposes AgentCgroup, an eBPF-based hierarchical cgroup controller with in-kernel enforcement and adaptive policies for memory and CPU. Reduces resource waste and improves isolation.
+
 ### 2026-02-10
 * `training` `quantization` `networking` [DynamiQ: Accelerating Gradient Synchronization using Compressed Multi-hop All-reduce](http://arxiv.org/abs/2602.08923v1)
   > **TL;DR**: Addresses the inefficiency of gradient quantization in multi-hop all-reduce for large model training. Proposes DynamiQ, a quantization framework with novel partial sum representation and a fused kernel for decompress-accumulate-recompress. Achieves up to 34.2% faster training while maintaining 99.9% baseline accuracy.
