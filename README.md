@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1980-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1984-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-12
+* `RL` `kernel` `training` [Fine-Tuning GPT-5 for GPU Kernel Generation](http://arxiv.org/abs/2602.11000v1)
+  > **TL;DR**: Addresses challenges in generating optimized GPU kernels via LLMs. Develops a reinforcement learning framework (Makora) for fine-tuning GPT-5 on Triton code generation. Achieves 77% correctness (+33.3 pp) and 2.12x geometric mean speedup over TorchInductor on kernel problems.
+* `serving` `scaling` [BOute: Cost-Efficient LLM Serving with Heterogeneous LLMs and GPUs via Multi-Objective Bayesian Optimization](http://arxiv.org/abs/2602.10729v1)
+  > **TL;DR**: Investigates cost-efficient LLM serving via algorithm-system co-design. BOute uses multi-objective Bayesian optimization to jointly optimize query routing across heterogeneous LLMs and model deployment on heterogeneous GPUs. Achieves up to 157% higher cost-efficiency and reduces serving costs by 38% on average.
+* `kernel` [Flash-SD-KDE: Accelerating SD-KDE with Tensor Cores](http://arxiv.org/abs/2602.10378v1)
+  > **TL;DR**: Accelerates score-debiased kernel density estimation (SD-KDE) by restructuring computation for Tensor Core optimization. Exposes matrix-multiplication structure to enable GPU acceleration via Tensor Cores. Achieves up to 47× speedup over a GPU baseline and completes 1M-sample task in 2.3 seconds on a single GPU.
+* `training` `hardware` `sparse` [Execution-Centric Characterization of FP8 Matrix Cores, Asynchronous Execution, and Structured Sparsity on AMD MI300A](http://arxiv.org/abs/2602.10262v1)
+  > **TL;DR**: Characterizes system-level performance of AMD MI300A accelerator features (FP8, asynchronous engines, structured sparsity) for HPC-AI workloads. Uses microbenchmarks to quantify occupancy thresholds, concurrency trade-offs, and sparsity benefits. Provides guidance achieving up to 2× speedup in transformer kernels via optimized scheduling.
+
 ### 2026-02-11
 * `serving` `offloading` `networking` [Efficient Remote Prefix Fetching with GPU-native Media ASICs](http://arxiv.org/abs/2602.09725v1)
   > **TL;DR**: Proposes KVFetcher for remote KV cache reuse in LLM inference using GPU-native video codecs. Introduces codec-friendly tensor layout and efficient pipelining for transmission/decompression. Reduces TTFT by up to 3.51× in bandwidth-limited networks compared to SOTA.
