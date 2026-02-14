@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1984-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.12-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1993-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.14-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-14
+* `serving` `scaling` [OServe: Accelerating LLM Serving via Spatial-Temporal Workload Orchestration](http://arxiv.org/abs/2602.12151v1)
+  > **TL;DR**: Addresses spatial-temporal workload heterogeneity in LLM serving. Proposes OServe with workload-aware scheduling and adaptive model deployment switching. Achieves up to 2× performance improvement over state-of-the-art systems.
+* `serving` `disaggregation` `RAG` [PrefillShare: A Shared Prefill Module for KV Reuse in Multi-LLM Disaggregated Serving](http://arxiv.org/abs/2602.12029v1)
+  > **TL;DR**: Addresses redundant KV cache generation in multi-LLM agent systems. Proposes PrefillShare, a technique to share frozen prefill modules and KV caches across models via factorization and fine-tuning, with routing in disaggregated serving. Achieves 4.5× lower p95 latency and 3.9× higher throughput.
+* `offloading` `edge` `networking` [An Auction-Based Mechanism for Optimal Task Allocation and Resource Aware Containerization](http://arxiv.org/abs/2602.11998v1)
+  > **TL;DR**: Proposes an auction-based mechanism for optimal task offloading and containerization in IoT. Uses Docker Swarm with Manager and Worker nodes for distributed computation. Achieves improved offloading efficiency and resource optimization for computation-intensive tasks.
+* `serving` `networking` `scaling` [GORGO: Maximizing KV-Cache Reuse While Minimizing Network Latency in Cross-Region LLM Load Balancing](http://arxiv.org/abs/2602.11688v1)
+  > **TL;DR**: Optimizes LLM serving across regions to minimize Time-to-First-Token by balancing KV-cache reuse and network latency. Proposes GORGO, a centralized proxy with network-aware routing that tracks request prefixes and cluster states. Achieves 2.5x faster median TTFT and reduces P99 TTFT compared to baselines.
+* `MoE` `training` `scaling` [LAER-MoE: Load-Adaptive Expert Re-layout for Efficient Mixture-of-Experts Training](http://arxiv.org/abs/2602.11686v1)
+  > **TL;DR**: Addresses load imbalance in Mixture-of-Experts (MoE) training due to dynamic routing. Proposes LAER-MoE with Fully Sharded Expert Parallel (FSEP) for parameter partitioning and expert re-layout, plus fine-grained communication scheduling and load balancing planning. Achieves up to 1.69× training acceleration vs. state-of-the-art systems.
+* `LoRA` `edge` `training` [LoRA-based Parameter-Efficient LLMs for Continuous Learning in Edge-based Malware Detection](http://arxiv.org/abs/2602.11655v1)
+  > **TL;DR**: Proposes a continuous learning system for edge-based malware detection using LoRA adapters for parameter-efficient fine-tuning and knowledge sharing. Aggregates only LoRA modules across devices for cross-device generalization, achieving 20-25% accuracy gains on unseen attacks with minimal model size increase (~0.6-1.8MB).
+* `serving` `offloading` `networking` [Efficient Remote Prefix Fetching with GPU-native Media ASICs](http://arxiv.org/abs/2602.09725v2)
+  > **TL;DR**: Addresses performance degradation of remote KV cache reuse in bandwidth-limited networks. Proposes KVFetcher, a system using GPU-native video codecs for efficient transmission and pipelined decoding. Achieves up to 3.51× reduction in time-to-first-token while preserving accuracy.
+* `serving` `kernel` `offloading` [PAM: Processing Across Memory Hierarchy for Efficient KV-centric LLM Serving System](http://arxiv.org/abs/2602.11521v1)
+  > **TL;DR**: Addresses KV cache memory bottlenecks in LLM serving by proposing PAM, a hierarchical memory system with PIM devices. Introduces context-locality-based KV token distribution, cross-device PAMattention, and dynamic workload balancing. Achieves 1.6-4.8× higher throughput than state-of-the-art systems.
+* `training` `RL` `networking` [RL over Commodity Networks: Overcoming the Bandwidth Barrier with Lossless Sparse Deltas](http://arxiv.org/abs/2602.11456v1)
+  > **TL;DR**: Addresses slow synchronization in distributed RL fine-tuning over commodity networks by leveraging sparsity of parameter updates. Proposes SparrowRL with sparse delta checkpoints, pipelined streaming, and overlapping transfer to reduce payload by 79× for Qwen3-8B, improving throughput by 2.4-9.5× and narrowing RDMA gap to 8.91%.
+
 ### 2026-02-12
 * `RL` `kernel` `training` [Fine-Tuning GPT-5 for GPU Kernel Generation](http://arxiv.org/abs/2602.11000v1)
   > **TL;DR**: Addresses challenges in generating optimized GPU kernels via LLMs. Develops a reinforcement learning framework (Makora) for fine-tuning GPT-5 on Triton code generation. Achieves 77% correctness (+33.3 pp) and 2.12x geometric mean speedup over TorchInductor on kernel problems.
