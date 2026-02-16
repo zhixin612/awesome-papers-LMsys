@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1993-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.14-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-1995-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-16
+* `storage` `networking` `scaling` [Bloom Filter Look-Up Tables for Private and Secure Distributed Databases in Web3 (Revised Version)](http://arxiv.org/abs/2602.13167v1)
+  > **TL;DR**: Proposes a decentralized database scheme using Bloom Filters (BFLUT) with OrbitDB/IPFS/IPNS for secure cryptographic key management in Web3. Encodes/distributes keys to prevent exposure even if nodes are compromised. Reduces unauthorized access risks and achieves high performance at scale.
+* `kernel` `RL` `training` [OptiML: An End-to-End Framework for Program Synthesis and CUDA Kernel Optimization](http://arxiv.org/abs/2602.12305v1)
+  > **TL;DR**: Proposes OptiML, an end-to-end framework for optimizing CUDA kernels for LLMs. Uses Mixture-of-Thoughts generation and Monte Carlo Tree Search with hardware-aware rewards to navigate transformation space. Achieves verified performance improvements over LLM baselines with interpretable trajectories.
+
 ### 2026-02-14
 * `serving` `scaling` [OServe: Accelerating LLM Serving via Spatial-Temporal Workload Orchestration](http://arxiv.org/abs/2602.12151v1)
   > **TL;DR**: Addresses spatial-temporal workload heterogeneity in LLM serving. Proposes OServe with workload-aware scheduling and adaptive model deployment switching. Achieves up to 2× performance improvement over state-of-the-art systems.
