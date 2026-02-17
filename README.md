@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-1995-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2003-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-17
+* `agentic` `RL` [Atomix: Timely, Transactional Tool Use for Reliable Agentic Workflows](http://arxiv.org/abs/2602.14849v1)
+  > **TL;DR**: Addresses unreliable side effects from agent tool calls in LLM workflows. Introduces Atomix, a runtime with epoch-based transactional semantics and progress-aware commit. Improves task success by 10-30% under failures via transactional retry and compensation.
+* `serving` `disaggregation` `scaling` [Efficient Multi-round LLM Inference over Disaggregated Serving](http://arxiv.org/abs/2602.14516v1)
+  > **TL;DR**: Addresses performance issues in multi-round LLM inference under prefill-decode disaggregation. Proposes AMPD, a framework that adaptively schedules prefill workloads and optimizes resource allocation. Achieves significantly higher SLO attainment than state-of-the-art baselines.
+* `edge` `RL` `serving` [Floe: Federated Specialization for Real-Time LLM-SLM Inference](http://arxiv.org/abs/2602.14302v1)
+  > **TL;DR**: Addresses high latency and privacy in LLM edge inference. Proposes Floe, a federated framework combining cloud LLM with edge SLMs via heterogeneity-aware LoRA and logit-level fusion. Reduces inference latency by 35% on edge devices while maintaining privacy.
+* `sparse` `kernel` `hardware` [Parallel Sparse and Data-Sparse Factorization-based Linear Solvers](http://arxiv.org/abs/2602.14289v1)
+  > **TL;DR**: Addresses efficient large-scale linear solvers for ill-conditioned systems. Reviews advances in parallel sparse direct solvers by reducing communication costs and computational complexity via low-rank compression. Delivers high speed and reliability on heterogeneous hardware for multiphysics and ML applications.
+* `LoRA` `multi-modal` `edge` [ML-ECS: A Collaborative Multimodal Learning Framework for Edge-Cloud Synergies](http://arxiv.org/abs/2602.14107v1)
+  > **TL;DR**: Proposes ML-ECS, a collaborative multimodal learning framework for edge-cloud environments, leveraging low-rank LoRA parameters and fused representations for efficient communication. Achieves 5.44-12.08% Rouge-LSum improvement with 0.65% parameter communication volume.
+* `training` `scaling` `networking` [TEG: Exascale Cluster Governance via Non-Equilibrium Thermodynamics and Langevin Dynamics](http://arxiv.org/abs/2602.13789v1)
+  > **TL;DR**: Proposes TEG, a decentralized cluster governance using non-equilibrium thermodynamics and Langevin dynamics to manage exascale AI workloads. Replaces centralized scheduler with Langevin agents for O(1) decision complexity and Landau phase transitions for deadlock resolution. Achieves asymptotic Nash convergence.
+* `RL` `LoRA` `training` [Preventing Rank Collapse in Federated Low-Rank Adaptation with Client Heterogeneity](http://arxiv.org/abs/2602.13486v1)
+  > **TL;DR**: Investigates rank collapse in federated LoRA due to client heterogeneity. Proposes raFLoRA, a rank-partitioned aggregation method that weights client contributions per rank partition. Achieves up to 18% accuracy gain compared to FedLoRA baselines.
+* `agentic` `serving` `storage` [ThunderAgent: A Simple, Fast and Program-Aware Agentic Inference System](http://arxiv.org/abs/2602.13692v1)
+  > **TL;DR**: Proposes ThunderAgent, a program-aware agentic inference system for multi-turn LLM workflows. Introduces unified resource abstraction and program-aware scheduler to optimize KV cache hits, memory imbalances, and tool preparation. Achieves 1.5-3.6x throughput improvement in serving and up to 4.2x disk memory savings.
+
 ### 2026-02-16
 * `storage` `networking` `scaling` [Bloom Filter Look-Up Tables for Private and Secure Distributed Databases in Web3 (Revised Version)](http://arxiv.org/abs/2602.13167v1)
   > **TL;DR**: Proposes a decentralized database scheme using Bloom Filters (BFLUT) with OrbitDB/IPFS/IPNS for secure cryptographic key management in Web3. Encodes/distributes keys to prevent exposure even if nodes are compromised. Reduces unauthorized access risks and achieves high performance at scale.
