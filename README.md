@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2003-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.17-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2005-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.18-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-18
+* `edge` `kernel` [FlashMem: Supporting Modern DNN Workloads on Mobile with GPU Memory Hierarchy Optimizations](http://arxiv.org/abs/2602.15379v1)
+  > **TL;DR**: Proposes FlashMem, a memory streaming framework for mobile GPUs that statically schedules and dynamically streams model weights using 2.5D texture memory. Reduces memory consumption by 2.0–8.4× and achieves speedup of 1.7–75.0× for on-device DNN inference.
+* `training` `networking` `scaling` [Co-Design and Evaluation of a CPU-Free MPI GPU Communication Abstraction and Implementation](http://arxiv.org/abs/2602.15356v1)
+  > **TL;DR**: Proposes an MPI-based GPU communication API for CPU-free, high-performance messaging in ML/HPC. Utilizes HPE Slingshot network capabilities for direct GPU communication. Achieves 50% lower medium message latency and 28% speedup in halo-exchange scaling to 8,192 GPUs.
+
 ### 2026-02-17
 * `agentic` `RL` [Atomix: Timely, Transactional Tool Use for Reliable Agentic Workflows](http://arxiv.org/abs/2602.14849v1)
   > **TL;DR**: Addresses unreliable side effects from agent tool calls in LLM workflows. Introduces Atomix, a runtime with epoch-based transactional semantics and progress-aware commit. Improves task success by 10-30% under failures via transactional retry and compensation.
