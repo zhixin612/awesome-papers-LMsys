@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2005-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.18-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2009-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-19
+* `serving` `offloading` `scaling` [FlowPrefill: Decoupling Preemption from Prefill Scheduling Granularity to Mitigate Head-of-Line Blocking in LLM Serving](http://arxiv.org/abs/2602.16603v1)
+  > **TL;DR**: Addresses head-of-line blocking in LLM serving during prefill by decoupling preemption granularity from scheduling frequency. Introduces operator-level preemption and event-driven scheduling to enable fine-grained interruption with minimal overhead. Achieves up to 5.6× higher maximum goodput.
+* `edge` `serving` `inference` [How Reliable is Your Service at the Extreme Edge? Analytical Modeling of Computational Reliability](http://arxiv.org/abs/2602.16362v1)
+  > **TL;DR**: Proposes an analytical framework for computational reliability in edge-based distributed inference systems. Models device volatility and derives reliability expressions for different workload configurations. Validations show close agreement (within 5%) between predictions and empirical measurements in emulated environments.
+* `serving` `scaling` `offloading` [LLM-Driven Intent-Based Privacy-Aware Orchestration Across the Cloud-Edge Continuum](http://arxiv.org/abs/2602.16100v1)
+  > **TL;DR**: Proposes dynamic pipeline reconfiguration for LLM serving in heterogeneous serverless environments. Uses online adjustment of pipeline configurations to adapt to changing workloads with minimal downtime. Achieves <50 ms downtime and <10% overhead on TTFT and TPOT during migration.
+* `kernel` `storage` `training` [Distributed Order Recording Techniques for Efficient Record-and-Replay of Multi-threaded Programs](http://arxiv.org/abs/2602.15995v1)
+  > **TL;DR**: Proposes Distributed Clock (DC) and Distributed Epoch (DE) schemes for efficient record-and-replay of OpenMP programs. Integrates techniques into ReOMP to reduce synchronization on shared-memory accesses. Achieves 2-5x efficiency improvement over traditional methods and integrates with MPI-level replay tools.
+
 ### 2026-02-18
 * `edge` `kernel` [FlashMem: Supporting Modern DNN Workloads on Mobile with GPU Memory Hierarchy Optimizations](http://arxiv.org/abs/2602.15379v1)
   > **TL;DR**: Proposes FlashMem, a memory streaming framework for mobile GPUs that statically schedules and dynamically streams model weights using 2.5D texture memory. Reduces memory consumption by 2.0–8.4× and achieves speedup of 1.7–75.0× for on-device DNN inference.
