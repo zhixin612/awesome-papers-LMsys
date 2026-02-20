@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2009-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.19-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2014-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.20-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-20
+* `edge` `scaling` [Visual Insights into Agentic Optimization of Pervasive Stream Processing Services](http://arxiv.org/abs/2602.17282v1)
+  > **TL;DR**: Addresses dynamic scaling for stream processing services on edge devices. Proposes an agent-driven platform that learns service-specific scaling policies to adapt to fluctuating demands. Achieves low latency by optimizing resource usage without service cannibalization.
+* `training` `scaling` `networking` [Trivance: Latency-Optimal AllReduce by Shortcutting Multiport Networks](http://arxiv.org/abs/2602.17254v1)
+  > **TL;DR**: Proposes Trivance, a latency-optimal AllReduce algorithm exploiting bidirectional rings to reduce congestion and steps compared to Bruck's. Applies to torus networks. Improves performance by 5-30% for messages up to 128MiB.
+* `training` `LoRA` `RL` [Heterogeneous Federated Fine-Tuning with Parallel One-Rank Adaptation](http://arxiv.org/abs/2602.16936v1)
+  > **TL;DR**: Addresses heterogeneous federated fine-tuning challenges. Proposes Fed-PLoRA with Parallel One-Rank Adaptation and Select-N-Fold strategy to reduce initialization and aggregation noise. Improves accuracy by up to 10.3% on GLUE benchmarks over baselines.
+* `serving` `offloading` `networking` [Privacy-Aware Split Inference with Speculative Decoding for Large Language Models over Wide-Area Networks](http://arxiv.org/abs/2602.16760v1)
+  > **TL;DR**: Proposes privacy-aware split LLM inference with intermediate activation offloading to untrusted cloud over WAN. Introduces asymmetric layer split and lookahead decoding to amortize network latency, achieving 8.7-9.3 tok/s for Mistral 7B on ~80ms link with formal zero quality degradation.
+* `offline` `inference systems specific techniques` `storage` [The Compute ICE-AGE: Invariant Compute Envelope under Addressable Graph Evolution](http://arxiv.org/abs/2602.16736v1)
+  > **TL;DR**: Proposes a deterministic graph-based substrate for AI inference with invariant compute cost under scaling. Uses bounded local state evolution instead of probabilistic recomposition. Achieves invariant traversal latency ~0.25-0.32ms and stable CPU utilization across 1M-25M node scales.
+
 ### 2026-02-19
 * `serving` `offloading` `scaling` [FlowPrefill: Decoupling Preemption from Prefill Scheduling Granularity to Mitigate Head-of-Line Blocking in LLM Serving](http://arxiv.org/abs/2602.16603v1)
   > **TL;DR**: Addresses head-of-line blocking in LLM serving during prefill by decoupling preemption granularity from scheduling frequency. Introduces operator-level preemption and event-driven scheduling to enable fine-grained interruption with minimal overhead. Achieves up to 5.6× higher maximum goodput.
