@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2014-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.20-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2020-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-23
+* `scaling` `edge` `networking` [Green by Design: Constraint-Based Adaptive Deployment in the Cloud Continuum](http://arxiv.org/abs/2602.18287v1)
+  > **TL;DR**: Proposes constraint-based adaptive deployment for cloud-edge continuum to reduce energy and emissions. Uses dynamically learned green-aware constraints for scheduling. Achieves significant reduction in energy consumption and greenhouse gas emissions in realistic cloud-native applications.
+* `training` `networking` [Joint Training on AMD and NVIDIA GPUs](http://arxiv.org/abs/2602.18007v1)
+  > **TL;DR**: Addresses training efficiency in mixed AMD-NVIDIA GPU clusters. Proposes CPU-Forwarding Communication and Device-Direct Communication with CPU-offloading P2P to enable direct cross-vendor transfers. Achieves 98% throughput of homogeneous NVIDIA systems on LLaMA-8B and Qwen2-7B.
+* `training` `scaling` `storage` [GPU Memory and Utilization Estimation for Training-Aware Resource Management: Opportunities and Limitations](http://arxiv.org/abs/2602.17817v1)
+  > **TL;DR**: Studies GPU memory and utilization estimation for collocating DL training tasks to improve resource efficiency. Analyzes analytical, library-based, and ML estimators for accuracy and overhead. Evaluates tradeoffs on synthetic datasets with MLPs, CNNs, and Transformers, revealing limitations in generalization and hardware dependence.
+* `edge` `offloading` [Collaborative Processing for Multi-Tenant Inference on Memory-Constrained Edge TPUs](http://arxiv.org/abs/2602.17808v1)
+  > **TL;DR**: Addresses high latency from model swapping for memory-constrained Edge TPUs in multi-tenant inference. Proposes SwapLess, an adaptive system using queueing models to optimize CPU-TPU partitioning and core allocation. Reduces mean latency by up to 77.4% for multi-tenant workloads.
+* `serving` `offline` `storage` [Closing Africa's Early Warning Gap: AI Weather Forecasting for Disaster Prevention](http://arxiv.org/abs/2602.17726v1)
+  > **TL;DR**: Proposes a GPU-based AI weather forecasting system with PostgreSQL caching for low-latency queries. Implements event loop isolation, direct database writes, and coordinate management to eliminate transfer bottlenecks and enable regional deployment at 2,000-4,545x lower cost than radar infrastructure.
+* `serving` `scaling` `RL` [TempoNet: Slack-Quantized Transformer-Guided Reinforcement Scheduler for Adaptive Deadline-Centric Real-Time Dispatchs](http://arxiv.org/abs/2602.18109v1)
+  > **TL;DR**: Develops TempoNet, a reinforcement learning scheduler with sparse attention transformers for real-time dispatch. Uses slack quantization and latency-aware attention for near-linear scaling and sub-millisecond inference. Achieves consistent deadline fulfillment gains over baselines in multi-processor settings.
+
 ### 2026-02-20
 * `edge` `scaling` [Visual Insights into Agentic Optimization of Pervasive Stream Processing Services](http://arxiv.org/abs/2602.17282v1)
   > **TL;DR**: Addresses dynamic scaling for stream processing services on edge devices. Proposes an agent-driven platform that learns service-specific scaling policies to adapt to fluctuating demands. Achieves low latency by optimizing resource usage without service cannibalization.
