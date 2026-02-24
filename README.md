@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2020-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2024-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-24
+* `training` `RL` `scaling` [A Formal Framework for Predicting Distributed System Performance under Faults](http://arxiv.org/abs/2602.19088v1)
+  > **TL;DR**: Introduces a formal framework for predicting performance of distributed systems under faults. Combines system models with fault injectors using statistical analysis to estimate latency and throughput. Accurately predicts performance in varied fault scenarios, matching real deployments.
+* `serving` `networking` `offloading` [WANSpec: Leveraging Global Compute Capacity for LLM Inference](http://arxiv.org/abs/2602.18931v1)
+  > **TL;DR**: Addresses latency in global LLM inference due to uneven GPU utilization. Proposes WANSpec, which offloads draft model execution to under-utilized data centers via speculative decoding. Reduces draft model forward passes in high-demand data centers by over 50% without increasing latency.
+* `edge` `offloading` `networking` [Carbon-aware decentralized dynamic task offloading in MIMO-MEC networks via multi-agent reinforcement learning](http://arxiv.org/abs/2602.18797v1)
+  > **TL;DR**: Proposes CADDTO-PPO, a carbon-aware multi-agent reinforcement learning framework for dynamic task offloading in MIMO-MEC networks. Uses decentralized PPO with parameter sharing for local power/offloading decisions and adaptive prioritization of green energy slots. Achieves lowest carbon intensity and near-zero packet overflow with O(1) inference overhead.
+* `disaggregation` `scaling` `serving` [BiScale: Energy-Efficient Disaggregated LLM Serving via Phase-Aware Placement and DVFS](http://arxiv.org/abs/2602.18755v1)
+  > **TL;DR**: Proposes BiScale, a two-tier framework for energy-efficient disaggregated LLM serving. Combines phase-aware placement with hierarchical DVFS control: MPC for prefill, slack-aware adaptation for decode. Reduces prefill energy by 39% and decode by 48% vs DistServe while meeting SLOs.
+
 ### 2026-02-23
 * `scaling` `edge` `networking` [Green by Design: Constraint-Based Adaptive Deployment in the Cloud Continuum](http://arxiv.org/abs/2602.18287v1)
   > **TL;DR**: Proposes constraint-based adaptive deployment for cloud-edge continuum to reduce energy and emissions. Uses dynamically learned green-aware constraints for scheduling. Achieves significant reduction in energy consumption and greenhouse gas emissions in realistic cloud-native applications.
