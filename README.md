@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2024-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2029-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-25
+* `training` `sparse` `offloading` [Untied Ulysses: Memory-Efficient Context Parallelism via Headwise Chunking](http://arxiv.org/abs/2602.21196v1)
+  > **TL;DR**: Proposes UPipe, a context parallelism technique using headwise chunking to reduce activation memory in self-attention layers. Achieves up to 87.5% reduction in activation memory for 32B Transformers, supporting 5M token context length on an 8xH100 node.
+* `inference` `kernel` `quantization` [Scaling State-Space Models on Multiple GPUs with Tensor Parallelism](http://arxiv.org/abs/2602.21144v1)
+  > **TL;DR**: Addresses scaling inference for state-space models (SSMs) across GPUs. Proposes communication-efficient tensor parallelism with SSM state cache, optimized partitioning, and quantized AllReduce. Achieves 1.6-4x throughput gains on 2-4 GPUs and 10-18% improvement via quantization.
+* `serving` `MoE` `disaggregation` [ReviveMoE: Fast Recovery for Hardware Failures in Large-Scale MoE LLM Inference Deployments](http://arxiv.org/abs/2602.21140v1)
+  > **TL;DR**: Proposes ReviveMoE for rapid failure recovery in large-scale MoE LLM inference without restarting instances. Supports collocated and disaggregated (MoE/attention separation) architectures via xDeepServe and XCCL. Reduces recovery latency by avoiding weight reloading and recompilation, enabling sub-second restoration.
+* `training` `storage` `scaling` [GPU Memory and Utilization Estimation for Training-Aware Resource Management: Opportunities and Limitations](http://arxiv.org/abs/2602.17817v2)
+  > **TL;DR**: Investigates GPU memory and utilization estimation for robust collocation of deep learning training tasks. Evaluates three paradigms—analytical models, CPU-side libraries, and ML-based estimators—in accuracy, generalizability, and overhead. Demonstrates memory prediction errors below 5% for unseen models.
+* `training` `networking` [Lagom: Unleashing the Power of Communication and Computation Overlapping for Distributed LLM Training](http://arxiv.org/abs/2602.20656v1)
+  > **TL;DR**: Addresses performance bottleneck in distributed LLM training due to computation-communication imbalance. Proposes Lagom, which co-tunes communication parameters via a unified cost model and priority-based search. Achieves 1.03-1.33x speedup over NVIDIA NCCL.
+
 ### 2026-02-24
 * `training` `RL` `scaling` [A Formal Framework for Predicting Distributed System Performance under Faults](http://arxiv.org/abs/2602.19088v1)
   > **TL;DR**: Introduces a formal framework for predicting performance of distributed systems under faults. Combines system models with fault injectors using statistical analysis to estimate latency and throughput. Accurately predicts performance in varied fault scenarios, matching real deployments.
