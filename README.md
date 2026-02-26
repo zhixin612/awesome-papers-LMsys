@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2029-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.25-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2037-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.26-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-26
+* `training` `storage` [LLMTailor: A Layer-wise Tailoring Tool for Efficient Checkpointing of Large Language Models](http://arxiv.org/abs/2602.22158v1)
+  > **TL;DR**: Proposes LLMTailor for efficient checkpointing in LLM training by selectively saving only layers with significant updates, reducing storage and time costs. Achieves 4.3x smaller checkpoint size for Llama3.1-8B and 2.8x faster checkpoint time for Qwen2.5-7B.
+* `kernel` `training` [PASTA: A Modular Program Analysis Tool Framework for Accelerators](http://arxiv.org/abs/2602.22103v1)
+  > **TL;DR**: Introduces PASTA, a low-overhead modular framework for program analysis on GPU accelerators. Abstracts profiling APIs and DL frameworks for runtime event capture. Achieves up to 1.3e4x faster analysis than conventional tools through GPU acceleration.
+* `RAG` `offline` `serving` [IOAgent: Democratizing Trustworthy HPC I/O Performance Diagnosis Capability via LLMs](http://arxiv.org/abs/2602.22017v1)
+  > **TL;DR**: Develops IOAgent, an AI tool using RAG and tree-based methods for automated HPC I/O performance diagnosis from Darshan traces. Introduces TraceBench for evaluation. Matches or exceeds state-of-the-art tools in accuracy, functioning effectively with diverse LLMs.
+* `serving` `kernel` `hardware` [A task-based data-flow methodology for programming heterogeneous systems with multiple accelerator APIs](http://arxiv.org/abs/2602.21897v1)
+  > **TL;DR**: Proposes a task-based data-flow methodology with Task-Aware APIs to unify multiple accelerator programming models. Integrates CUDA, SYCL, Triton via OpenMP/OmpSs-2 runtime and nOS-V threading library, reducing thread contention and enabling efficient kernel execution. Demonstrates improved multi-accelerator utilization with reduced performance variability.
+* `training` `scaling` `multi-modal` [DHP: Efficient Scaling of MLLM Training with Dynamic Hybrid Parallelism](http://arxiv.org/abs/2602.21788v1)
+  > **TL;DR**: Proposes Dynamic Hybrid Parallelism (DHP) to adaptively reconfigure communication groups/parallelism degrees for efficient MLLM training under heterogeneous data. Achieves 1.36× training throughput speedup over Megatron-LM/DeepSpeed with near-linear scaling on NPU clusters.
+* `serving` `MoE` `scaling` [Multi-Layer Scheduling for MoE-Based LLM Reasoning](http://arxiv.org/abs/2602.21626v1)
+  > **TL;DR**: Proposes a multi-layer scheduling framework for MoE-based LLM serving, addressing request-level, engine-level, and expert-level optimization. Designs algorithms for request prioritization, load-aware dispatching, and expert routing to reduce latency. Achieves 17.8% TTFT reduction and 13.3% TPOT reduction over vLLM.
+* `offloading` `disaggregation` `networking` [DualPath: Breaking the Storage Bandwidth Bottleneck in Agentic LLM Inference](http://arxiv.org/abs/2602.21548v1)
+  > **TL;DR**: Addresses the KV-Cache storage I/O bottleneck in agentic LLM inference. Proposes DualPath with dual-path KV-Cache loading via RDMA over compute network and dynamic scheduling. Achieves 1.87× higher offline throughput and 1.96× online serving throughput without SLO violation.
+* `serving` `disaggregation` `offloading` [BiScale: Energy-Efficient Disaggregated LLM Serving via Phase-Aware Placement and DVFS](http://arxiv.org/abs/2602.18755v2)
+  > **TL;DR**: Proposes BiScale, a two-tier energy optimization framework for disaggregated LLM serving that jointly optimizes placement and DVFS across prefill/decode phases. Uses predictive models, phase-aware placement, MPC for prefill, and slack-aware adaptation for decode. Reduces energy by up to 39% in prefill and 48% in decode.
+
 ### 2026-02-25
 * `training` `sparse` `offloading` [Untied Ulysses: Memory-Efficient Context Parallelism via Headwise Chunking](http://arxiv.org/abs/2602.21196v1)
   > **TL;DR**: Proposes UPipe, a context parallelism technique using headwise chunking to reduce activation memory in self-attention layers. Achieves up to 87.5% reduction in activation memory for 32B Transformers, supporting 5M token context length on an 8xH100 node.
