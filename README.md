@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2037-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.26-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2051-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.02.27-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,36 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-02-27
+* `storage` `RAG` `recommendation` [STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for High Performance Parallel File Systems](http://arxiv.org/abs/2602.23220v1)
+  > **TL;DR**: Develops STELLAR, an autonomous storage tuner using LLMs for parallel file systems. Combines retrieval-augmented generation, tool execution, and multi-agent design to navigate tuning cycles. Achieves near-optimal parameter configurations within five attempts, reducing exploration cost.
+* `serving` `offloading` `disaggregation` [LLMServingSim 2.0: A Unified Simulator for Heterogeneous and Disaggregated LLM Serving Infrastructure](http://arxiv.org/abs/2602.23036v1)
+  > **TL;DR**: Introduces LLMServingSim 2.0, a system-level simulator to model hardware-software interactions in heterogeneous and disaggregated LLM serving. It jointly simulates scheduling, data movement, and interconnects with profile-based hardware modeling. Achieves 0.97% average error in performance metrics compared to real deployments.
+* `scaling` `networking` `storage` [Workload Buoyancy: Keeping Apps Afloat by Identifying Shared Resource Bottlenecks](http://arxiv.org/abs/2602.22852v1)
+  > **TL;DR**: Introduces buoyancy, a workload performance metric combining application metrics and system-level resource contention insights. Designed for resource-aware orchestration in multi-tenant systems to diagnose bottlenecks. Achieves 19.3% better bottleneck indication versus traditional heuristics.
+* `edge` `serving` `caching` [Accelerating Local LLMs on Resource-Constrained Edge Devices via Distributed Prompt Caching](http://arxiv.org/abs/2602.22812v1)
+  > **TL;DR**: Accelerates LLM inference on edge devices via distributed prompt caching with partial matching and Bloom-filter-based catalog to reduce state-sharing overhead. Reduces TTFT by 93.12% and TTLT by 50.07% on Raspberry Pi with Gemma-3 270M model.
+* `training` `networking` [Distributed LLM Pretraining During Renewable Curtailment Windows: A Feasibility Study](http://arxiv.org/abs/2602.22760v1)
+  > **TL;DR**: Investigates energy-efficient LLM pretraining during renewable energy curtailment windows. Proposes a geo-distributed federated training system that switches between local and multi-site synchronization to match clean energy availability. Reduces operational emissions to 5-12% of baselines while maintaining model quality.
+* `training` `networking` `scaling` [Dynamic Hierarchical Birkhoff-von Neumann Decomposition for All-to-All GPU Communication](http://arxiv.org/abs/2602.22756v1)
+  > **TL;DR**: Proposes a dynamic hierarchical Birkhoff-von Neumann decomposition to optimize all-to-all communication in GPU clusters. Balances intra-server traffic and applies hierarchical decomposition to reduce scheduling complexity. Reduces mean frame length by up to 2.7× under hotspot traffic.
+* `training` `RL` `hardware` [RLHFless: Serverless Computing for Efficient RLHF](http://arxiv.org/abs/2602.22718v1)
+  > **TL;DR**: Proposes RLHFless, a serverless computing framework for efficient synchronous RLHF training. Adapts to dynamic resource demands with prefix pre-computation, cost-aware actor scaling, and workload balancing. Achieves up to 1.35x speedup and 44.8% cost reduction versus state-of-the-art.
+* `RL` `training` `storage` [Tackling Privacy Heterogeneity in Differentially Private Federated Learning](http://arxiv.org/abs/2602.22633v1)
+  > **TL;DR**: Proposes a privacy-aware client selection strategy for differentially private federated learning in heterogeneous privacy settings. Formulates selection as a convex optimization problem minimizing training error. Achieves up to 10% higher accuracy on CIFAR-10 compared to baselines.
+* `serving` `scaling` [FLYING SERVING: On-the-Fly Parallelism Switching for Large Language Model Serving](http://arxiv.org/abs/2602.22593v1)
+  > **TL;DR**: Addresses how to dynamically switch parallelism configurations in LLM serving to adapt to changing workloads. Proposes Flying Serving with virtualized model weight views, KV cache preservation, pre-initialized communicators, and a deadlock-free scheduler. Achieves up to 4.79× throughput improvement under high load.
+* `serving` `offloading` `disaggregation` [DualPath: Breaking the Storage Bandwidth Bottleneck in Agentic LLM Inference](http://arxiv.org/abs/2602.21548v2)
+  > **TL;DR**: Addresses KV-Cache storage I/O bottleneck in agentic LLM inference. Proposes DualPath system with storage-to-decode KV-Cache loading and RDMA transfer to prefill engines, plus global scheduler. Achieves up to 1.87× offline throughput and 1.96× online serving throughput without SLO violations.
+* `training` `networking` `scaling` [CCCL: Node-Spanning GPU Collectives with CXL Memory Pooling](http://arxiv.org/abs/2602.22457v1)
+  > **TL;DR**: Proposes CCCL, a collective communication library that uses CXL shared memory pools for GPU operations across nodes. It addresses synchronization, data interleaving, and parallelization, achieving up to 1.94× speed for collectives and 1.11× training speedup with 2.75× cost savings versus InfiniBand.
+* `training` `scaling` `quantization` [veScale-FSDP: Flexible and High-Performance FSDP at Scale](http://arxiv.org/abs/2602.22437v1)
+  > **TL;DR**: Addresses inefficiencies in FSDP systems for block-wise quantized training and non-element-wise optimizers at scale. Proposes veScale-FSDP with RaggedShard and structure-aware planning for flexible sharding and improved efficiency. Achieves 5-66% higher throughput and 16-30% lower memory usage versus existing FSDP systems.
+* `storage` `training` `networking` [GetBatch: Distributed Multi-Object Retrieval for ML Data Loading](http://arxiv.org/abs/2602.22434v1)
+  > **TL;DR**: Addresses high per-request overhead in distributed ML data loading. Proposes GetBatch API for batch retrieval as a single deterministic, fault-tolerant operation. Achieves 15x throughput improvement and 3.7x reduction in per-object tail latency.
+* `agentic` `offloading` `storage` [Contextual Memory Virtualisation: DAG-Based State Management and Structurally Lossless Trimming for LLM Agents](http://arxiv.org/abs/2602.22402v1)
+  > **TL;DR**: Proposes Contextual Memory Virtualisation (CMV), a DAG-based state management system with lossless trimming for LLM agents. Uses version-controlled snapshots to enable context reuse and a three-pass trimming algorithm for session compaction. Achieves 20% to 86% token reduction in real-world coding sessions.
+
 ### 2026-02-26
 * `training` `storage` [LLMTailor: A Layer-wise Tailoring Tool for Efficient Checkpointing of Large Language Models](http://arxiv.org/abs/2602.22158v1)
   > **TL;DR**: Proposes LLMTailor for efficient checkpointing in LLM training by selectively saving only layers with significant updates, reducing storage and time costs. Achieves 4.3x smaller checkpoint size for Llama3.1-8B and 2.8x faster checkpoint time for Qwen2.5-7B.
