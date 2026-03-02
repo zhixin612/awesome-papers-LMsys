@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2051-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.02.27-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2056-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.02-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-02
+* `serving` `quantization` `storage` [Data Driven Optimization of GPU efficiency for Distributed LLM Adapter Serving](http://arxiv.org/abs/2602.24044v1)
+  > **TL;DR**: Optimizes GPU efficiency for distributed LLM adapter serving by developing a data-driven pipeline. Combines a Digital Twin for emulation, ML models for throughput prediction, and greedy placement to minimize GPUs needed. Reduces GPU count by up to 40% while avoiding starvation and memory errors.
+* `serving` `RL` `scaling` [Green or Fast? Learning to Balance Cold Starts and Idle Carbon in Serverless Computing](http://arxiv.org/abs/2602.23935v1)
+  > **TL;DR**: Addresses the trade-off between cold start latency and idle resource carbon emissions in serverless LLM serving. Proposes LACE-RL, a reinforcement learning framework that dynamically adjusts pod keep-alive durations based on workload and carbon intensity. Achieves 51.69% fewer cold starts and 77.08% lower idle emissions compared to static policies.
+* `training` `kernel` `hardware` [A task-based data-flow methodology for programming heterogeneous systems with multiple accelerator APIs](http://arxiv.org/abs/2602.21897v2)
+  > **TL;DR**: Addresses efficient programming for heterogeneous systems with multiple accelerator APIs. Proposes task-based data-flow methodology with Task-Aware APIs and unified thread management via nOS-V. Reduces programming complexity and enables transparent integration, improving performance on multi-CPU/GPU systems with up to 7x speedup demonstrated in experiments.
+* `training` `quantization` `scaling` [veScale-FSDP: Flexible and High-Performance FSDP at Scale](http://arxiv.org/abs/2602.22437v2)
+  > **TL;DR**: Addresses limitations of FSDP for structure-aware training and non-element-wise optimizers. Proposes veScale-FSDP with RaggedShard format and structure-aware planning. Achieves 5-66% higher throughput and 16-30% lower memory usage, scaling to tens of thousands of GPUs.
+* `training` `networking` `agentic` [Rudder: Steering Prefetching in Distributed GNN Training using LLM Agents](http://arxiv.org/abs/2602.23556v1)
+  > **TL;DR**: Addresses inefficient communication in distributed GNN training via adaptive prefetching of remote nodes. Proposes Rudder, an LLM agent using in-context learning for dynamic prefetch decisions without pretraining. Achieves up to 91% training speedup and 50% communication reduction over baseline.
+
 ### 2026-02-27
 * `storage` `RAG` `recommendation` [STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for High Performance Parallel File Systems](http://arxiv.org/abs/2602.23220v1)
   > **TL;DR**: Develops STELLAR, an autonomous storage tuner using LLMs for parallel file systems. Combines retrieval-augmented generation, tool execution, and multi-agent design to navigate tuning cycles. Achieves near-optimal parameter configurations within five attempts, reducing exploration cost.
