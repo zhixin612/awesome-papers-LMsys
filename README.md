@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2056-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.02-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2066-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,28 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-03
+* `serving` `scaling` `networking` [FLYING SERVING: On-the-Fly Parallelism Switching for Large Language Model Serving](http://arxiv.org/abs/2602.22593v2)
+  > **TL;DR**: Addresses dynamic parallelism switching for LLM serving under varying workloads. Proposes Flying Serving, integrating zero-copy weights management, KV cache adaptation, and a deadlock-free scheduler. Achieves up to 4.79× performance improvement under high load.
+* `training` `multi-modal` `scaling` [Trident: Adaptive Scheduling for Heterogeneous Multimodal Data Pipelines](http://arxiv.org/abs/2603.02075v1)
+  > **TL;DR**: Addresses non-stationary bottlenecks in multimodal data pipelines for foundation model training. Proposes Trident, an adaptive scheduler with anomaly filtering, memory-safe Bayesian optimization, and joint operator scheduling. Achieves up to 2.01x throughput improvement over static designs.
+* `serving` `offline` [Beyond Microservices: Testing Web-Scale RCA Methods on GPU-Driven LLM Workloads](http://arxiv.org/abs/2603.02057v1)
+  > **TL;DR**: Evaluates root cause analysis (RCA) methods for failures in LLM inference deployments. Tests 24 RCA methods under controlled failure injections, showing multi-source approaches achieve highest accuracy. Reveals metric-based methods vary by fault type, while trace-based largely fail; motivates tailored observability.
+* `agentic` `edge` `RAG` [HeRo: Adaptive Orchestration of Agentic RAG on Heterogeneous Mobile SoC](http://arxiv.org/abs/2603.01661v1)
+  > **TL;DR**: Introduces HeRo, a heterogeneous-aware framework for optimizing latency in agentic RAG workflows on mobile SoCs. Combines profiling-based modeling with shape-aware partitioning, criticality-based mapping, and bandwidth-aware concurrency control. Achieves up to 10.94× lower end-to-end latency.
+* `hardware` `kernel` `scaling` [TeraPool: A Physical Design Aware, 1024 RISC-V Cores Shared-L1-Memory Scaled-up Cluster Design with High Bandwidth Main Memory Link](http://arxiv.org/abs/2603.01629v1)
+  > **TL;DR**: Proposes TeraPool, a physically implementable cluster design with 1024 RISC-V cores sharing L1 memory via hierarchical interconnect. Achieves near-gigahertz frequencies (910MHz) and energy efficiency of 9-13.5pJ per access, delivering 1.89 TFLOPS peak performance.
+* `serving` `quantization` `offloading` [Quasar: Quantized Self-Speculative Acceleration for Rapid Inference via Memory-Efficient Verification](http://arxiv.org/abs/2603.01399v1)
+  > **TL;DR**: Proposes Quasar, a training-free framework using low-bit quantization for verification in speculative decoding to reduce memory bandwidth. Halves memory traffic while maintaining acceptance length, achieving 1.28× end-to-end throughput improvement on OpenPangu and Qwen3.
+* `MoE` `offloading` `training` [TriMoE: Augmenting GPU with AMX-Enabled CPU and DIMM-NDP for High-Throughput MoE Inference via Offloading](http://arxiv.org/abs/2603.01058v1)
+  > **TL;DR**: Investigates how to optimize Mixture-of-Experts inference throughput via heterogeneous offloading. Proposes TriMoE, a GPU-CPU-NDP architecture with AMX-enabled CPU for warm experts, bottleneck-aware scheduling, and dynamic rebalancing. Achieves up to 2.83x speedup over state-of-the-art solutions.
+* `training` `scaling` `networking` [SPARe: Stacked Parallelism with Adaptive Reordering for Fault-Tolerant LLM Pretraining Systems with 100k+ GPUs](http://arxiv.org/abs/2603.00357v1)
+  > **TL;DR**: Addresses frequent failures in large-scale LLM pretraining on 100k+ GPUs. Proposes SPARe: fault-tolerance via stacked parallelism and adaptive reordering to mask node failures during gradient sync. Reduces time-to-train by 40~50% at 600k GPU scale.
+* `serving` `scaling` `networking` [Token Management in Multi-Tenant AI Inference Platforms](http://arxiv.org/abs/2603.00356v1)
+  > **TL;DR**: Proposes token pools, a control-plane abstraction for multi-tenant LLM serving platforms to manage capacity in token/KV cache units. Allows burst handling, priority tiers, and fair allocation without runtime changes. Maintains bounded P99 latency during overload by throttling spot traffic.
+* `serving` `scaling` [Token Management in Multi-Tenant AI Inference Platforms](http://arxiv.org/abs/2603.00356v1)
+  > **TL;DR**: Proposes token pools for multi-tenant LLM inference to balance resource utilization and SLAs. Models capacity in token/KV cache/concurrency units combined with priority-aware throttling. During overload, maintains bounded P99 latency for guaranteed workloads while baseline degrades unboundedly.
+
 ### 2026-03-02
 * `serving` `quantization` `storage` [Data Driven Optimization of GPU efficiency for Distributed LLM Adapter Serving](http://arxiv.org/abs/2602.24044v1)
   > **TL;DR**: Optimizes GPU efficiency for distributed LLM adapter serving by developing a data-driven pipeline. Combines a Digital Twin for emulation, ML models for throughput prediction, and greedy placement to minimize GPUs needed. Reduces GPU count by up to 40% while avoiding starvation and memory errors.
