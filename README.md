@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2066-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2071-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.04-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-04
+* `training` `LoRA` `storage` [MuxTune: Efficient Multi-Task LLM Fine-Tuning in Multi-Tenant Datacenters via Spatial-Temporal Backbone Multiplexing](http://arxiv.org/abs/2603.02885v1)
+  > **TL;DR**: Addresses GPU underutilization and stalls in multi-task PEFT fine-tuning. Proposes MuxTune with spatial-temporal backbone multiplexing and hierarchical co-scheduling. Achieves 2.33× higher throughput and 5.29× memory reduction vs. baselines.
+* `training` `storage` `scaling` [Why Atomicity Matters to AI/ML Infrastructure: Snapshots, Firmware Updates, and the Cost of the Forward-In-Time-Only Category Mistake](http://arxiv.org/abs/2603.02603v1)
+  > **TL;DR**: Addresses atomicity flaws in AI/ML training checkpointing and updates. Proves the infeasibility of temporal snapshots for global state recovery under asynchrony, formalizes mixed-epoch errors, and introduces a bilateral protocol replacing temporal assumptions. Quantifies inconsistency growth as exponential with persistence domains.
+* `kernel` `serving` `inference` [GPUTOK: GPU Accelerated Byte Level BPE Tokenization](http://arxiv.org/abs/2603.02597v1)
+  > **TL;DR**: Addresses CPU bottleneck in tokenization during large-context LLM inference. Proposes GPU-accelerated byte-level BPE tokenizer using cuCollections map and CUB reductions. Achieves up to 7.6x speedup vs HuggingFace GPT-2 tokenizer for 131k-token inputs.
+* `serving` `MoE` `scheduling` [Multi-Layer Scheduling for MoE-Based LLM Reasoning](http://arxiv.org/abs/2602.21626v2)
+  > **TL;DR**: Proposes a multi-layer scheduling framework for MoE-based LLM serving to improve resource utilization and reduce latency. It features request-level (SJF, priority-aware aging), engine-level (load-aware dispatching), and expert-level (hotspot alleviation) scheduling. Achieves up to 17.8% lower TTFT and 13.3% lower TPOT vs. vLLM.
+* `kernel` `training` `networking` [CUCo: An Agentic Framework for Compute and Communication Co-design](http://arxiv.org/abs/2603.02376v1)
+  > **TL;DR**: Addresses the need for efficient joint compute-communication kernels in LLM training/inference. Proposes CUCo, an agent-driven framework for automated high-performance kernel generation. Achieves up to 1.57× latency reduction compared to SotA baselines.
+
 ### 2026-03-03
 * `serving` `scaling` `networking` [FLYING SERVING: On-the-Fly Parallelism Switching for Large Language Model Serving](http://arxiv.org/abs/2602.22593v2)
   > **TL;DR**: Addresses dynamic parallelism switching for LLM serving under varying workloads. Proposes Flying Serving, integrating zero-copy weights management, KV cache adaptation, and a deadlock-free scheduler. Achieves up to 4.79× performance improvement under high load.
