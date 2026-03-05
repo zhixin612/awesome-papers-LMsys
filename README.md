@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2071-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.04-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2074-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-05
+* `networking` `training` `scaling` [The Ghost in the Datacenter: Link Flapping, Topology Knowledge Failures, and the FITO Category Mistake](http://arxiv.org/abs/2603.03736v1)
+  > **TL;DR**: Addresses link flapping failures in datacenter networks during large-scale training that corrupt network topology. Proposes Open Atomic Ethernet with transaction-based failure detection and recovery. Prevents ghost failures in clusters scaling to ~3M GPUs, reducing disruptions reported in LLaMA 3 training (419 events in 54 days).
+* `training` `scaling` `hardware` [HyperParallel: A Supernode-Affinity AI Framework](http://arxiv.org/abs/2603.03731v1)
+  > **TL;DR**: Proposes HyperParallel, a supernode-affinity framework with hierarchical memory management (HyperOffload), fine-grained MPMD parallelism (HyperMPMD), and declarative sharding (HyperShard) to optimize training/inference on accelerator-rich architectures. Achieves significant efficiency gains and reduced tuning overhead.
+* `serving` `offloading` `hardware` [Accelerating OpenPangu Inference on NPU via Speculative Decoding](http://arxiv.org/abs/2603.03383v1)
+  > **TL;DR**: Proposes an end-to-end speculative inference acceleration scheme for OpenPangu-7B on NPU to overcome memory bottlenecks. Tailors speculative decoding for domestic NPU hardware lacking native support. Achieves significant inference speedup (quantitative result implied but not specified).
+
 ### 2026-03-04
 * `training` `LoRA` `storage` [MuxTune: Efficient Multi-Task LLM Fine-Tuning in Multi-Tenant Datacenters via Spatial-Temporal Backbone Multiplexing](http://arxiv.org/abs/2603.02885v1)
   > **TL;DR**: Addresses GPU underutilization and stalls in multi-task PEFT fine-tuning. Proposes MuxTune with spatial-temporal backbone multiplexing and hierarchical co-scheduling. Achieves 2.33× higher throughput and 5.29× memory reduction vs. baselines.
