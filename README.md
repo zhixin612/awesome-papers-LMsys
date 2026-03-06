@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2074-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.05-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2079-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-06
+* `edge` `training` `scaling` [Scaling Real-Time Traffic Analytics on Edge-Cloud Fabrics for City-Scale Camera Networks](http://arxiv.org/abs/2603.05217v1)
+  > **TL;DR**: Proposes a scalable edge-cloud system for real-time traffic analytics on city-scale camera networks. Integrates capacity-aware scheduling and continuous federated learning to balance DNN inference and ST-GNN forecasting across edge devices and cloud. Handles 1000 streams, achieving stable 2000 FPS on Jetson Orin and low latency.
+* `serving` `RL` `scaling` [PromptTuner: SLO-Aware Elastic System for LLM Prompt Tuning](http://arxiv.org/abs/2603.05087v1)
+  > **TL;DR**: Optimizes resource efficiency and SLO compliance for prompt-tuning-as-a-service. Proposes PromptTuner with a Prompt Bank for initial prompts and elastic Workload Scheduler for resource allocation. Reduces SLO violations by 4.0x-7.9x and costs by 1.6x-4.5x.
+* `training` `networking` `offloading` [The Semantic Arrow of Time, Part III: RDMA and the Completion Fallacy](http://arxiv.org/abs/2603.04774v1)
+  > **TL;DR**: Addresses the completion fallacy in RDMA where data delivery does not guarantee semantic commitment. Analyzes industrial deployments and proposes a protocol with a mandatory reflecting phase to bridge the gap. Shows the gap can cause arbitrarily large delays in data centers.
+* `serving` `disaggregation` [SLO-Aware Compute Resource Allocation for Prefill-Decode Disaggregated LLM Inference](http://arxiv.org/abs/2603.04716v1)
+  > **TL;DR**: Proposes a method to determine optimal prefill-decode disaggregated resource allocation for LLM inference under SLO constraints. Combines theoretical M/M/1 queuing modeling for prefill throughput and empirical decode batch sizing. Accurately predicts resource allocation in experiments meeting throughput and SLOs.
+* `training` `kernel` `hardware` [DuaLip-GPU Technical Report](http://arxiv.org/abs/2603.04621v1)
+  > **TL;DR**: Addresses inefficiency in large-scale LP solvers for ranking/allocation problems. Redesigns DuaLip-GPU with GPU-centric architecture, operator-driven formulation, and optimized kernels for sparse constraints. Achieves 10x speedup over prior CPU solver on matching workloads.
+
 ### 2026-03-05
 * `networking` `training` `scaling` [The Ghost in the Datacenter: Link Flapping, Topology Knowledge Failures, and the FITO Category Mistake](http://arxiv.org/abs/2603.03736v1)
   > **TL;DR**: Addresses link flapping failures in datacenter networks during large-scale training that corrupt network topology. Proposes Open Atomic Ethernet with transaction-based failure detection and recovery. Prevents ghost failures in clusters scaling to ~3M GPUs, reducing disruptions reported in LLaMA 3 training (419 events in 54 days).
