@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2079-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2084-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.09-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-09
+* `MoE` `serving` `scaling` [MoEless: Efficient MoE LLM Serving via Serverless Computing](http://arxiv.org/abs/2603.06350v1)
+  > **TL;DR**: Addresses expert load imbalance in MoE LLM serving by introducing a serverless framework with proactive straggler identification and optimized expert scaling/placement. MoEless reduces inference latency by 43% and cost by 84% compared to state-of-the-art solutions.
+* `offloading` `kernel` `scaling` [Provuse: Platform-Side Function Fusion for Performance and Efficiency in FaaS Environments](http://arxiv.org/abs/2603.06170v1)
+  > **TL;DR**: Proposes Provuse, a platform-side function fusion for FaaS to reduce latency and redundant resource usage by transparently consolidating functions at runtime. Achieves 26.33% lower latency and 53.57% RAM reduction in evaluations.
+* `edge` `RAG` `offloading` [Knowledge-driven Reasoning for Mobile Agentic AI: Concepts, Approaches, and Directions](http://arxiv.org/abs/2603.05831v1)
+  > **TL;DR**: Proposes a knowledge-driven framework for mobile agentic AI under SWAP-C constraints, using reusable decision structures synchronized over bandwidth-limited links. Achieves perfect mission reliability at lower cost than knowledge-free or cloud-centric approaches with a 3B-parameter model.
+* `serving` `multi-modal` `scaling` [StreamWise: Serving Multi-Modal Generation in Real-Time at Scale](http://arxiv.org/abs/2603.05800v1)
+  > **TL;DR**: Addresses real-time multi-modal generation serving under strict latency constraints. Proposes StreamWise with adaptive quality control, model parallelism, and resource-aware scheduling on heterogeneous hardware. Achieves sub-second startup delay for high-quality streaming under $45.
+* `serving` `training` `scaling` [Parallelization Strategies for Dense LLM Deployment: Navigating Through Application-Specific Tradeoffs and Bottlenecks](http://arxiv.org/abs/2603.05692v1)
+  > **TL;DR**: Investigates parallelization strategies for dense LLM deployment to optimize latency-throughput tradeoffs. Analyzes Tensor Parallelism (TP) and Pipeline Parallelism (PP) hybrids for different workload objectives. TP achieves up to 50% lower latency, while PP improves inference throughput by 2×, depending on batching and model size.
+
 ### 2026-03-06
 * `edge` `training` `scaling` [Scaling Real-Time Traffic Analytics on Edge-Cloud Fabrics for City-Scale Camera Networks](http://arxiv.org/abs/2603.05217v1)
   > **TL;DR**: Proposes a scalable edge-cloud system for real-time traffic analytics on city-scale camera networks. Integrates capacity-aware scheduling and continuous federated learning to balance DNN inference and ST-GNN forecasting across edge devices and cloud. Handles 1000 streams, achieving stable 2000 FPS on Jetson Orin and low latency.
