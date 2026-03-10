@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2087-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2094-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.03.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-10
+* `training` `networking` [Covenant-72B: Pre-Training a 72B LLM with Trustless Peers Over-the-Internet](http://arxiv.org/abs/2603.08163v1)
+  > **TL;DR**: Explores decentralized LLM pre-training with untrusted peers over the internet. Employs SparseLoCo, a communication-efficient optimizer supporting dynamic participation via blockchain protocol. Achieved competitive performance with centralized models at 72B scale using 1.1T tokens.
+* `edge` `multi-modal` `serving` [RAPID: Redundancy-Aware and Compatibility-Optimal Edge-Cloud Partitioned Inference for Diverse VLA models](http://arxiv.org/abs/2603.07949v1)
+  > **TL;DR**: Addresses high inference costs for Vision-Language-Action models in edge-cloud settings. Proposes RAPID, a redundancy-aware and compatibility-optimal partitioned inference framework to reduce visual noise interference and preserve motion continuity. Achieves 1.73x speedup with 5-7% overhead.
+* `serving` `quantization` `offloading` [SageSched: Efficient LLM Scheduling Confronting Demand Uncertainty and Hybridity](http://arxiv.org/abs/2603.07917v1)
+  > **TL;DR**: Addresses efficient LLM serving amidst demand uncertainty and compute-memory hybridity. Proposes SageSched, combining output length prediction with compute/memory cost modeling for uncertainty-aware scheduling. Achieves 28.7% higher efficiency versus baseline schedulers.
+* `serving` `networking` `kernel` [ArcLight: A Lightweight LLM Inference Architecture for Many-Core CPUs](http://arxiv.org/abs/2603.07770v1)
+  > **TL;DR**: Addresses inefficient cross-NUMA memory access in CPU-based LLM inference. Proposes ArcLight with fine-grained tensor parallelism and optimized memory management & thread scheduling. Achieves 46% higher throughput versus mainstream frameworks on many-core CPUs.
+* `training` `MoE` `scaling` [Scalable Training of Mixture-of-Experts Models with Megatron Core](http://arxiv.org/abs/2603.07685v1)
+  > **TL;DR**: Addresses systems challenges in scaling MoE model training. Proposes integrated optimizations for memory, communication, and computation, including Parallel Folding and low-precision support. Achieves up to 1,233 TFLOPS/GPU for DeepSeek-V3-685B on NVIDIA GB300/GB200 clusters.
+* `edge` `thinking` `RL` [Agentic AI-Driven UAV Network Deployment: A LLM-Enhanced Exact Potential Game Approach](http://arxiv.org/abs/2603.07456v1)
+  > **TL;DR**: Proposes LLM-enhanced game theory for UAV network deployment. Combines spatial-scale optimization with log-linear learning and gradient methods, using LLM for utility weight generation. Reduces energy by 20%, latency by 30%, and improves throughput.
+* `hardware` `kernel` `offloading` [Mitigating the Memory Bottleneck with Machine Learning-Driven and Data-Aware Microarchitectural Techniques](http://arxiv.org/abs/2603.07683v1)
+  > **TL;DR**: Proposes data-aware microarchitectural techniques using ML to mitigate memory bottlenecks. Introduces four ML-driven mechanisms including RL-based prefetching and off-chip prediction. Achieves significant performance and energy efficiency improvements over prior approaches.
+
 ### 2026-03-10
 * `training` `scaling` [AIReSim: A Discrete Event Simulator for Large-scale AI Cluster Reliability Modeling](http://arxiv.org/abs/2603.07041v1)
   > **TL;DR**: Proposes AIReSim, a discrete event simulator to model and optimize reliability mechanisms (failure recovery, scheduling, repair) in large-scale AI clusters. Enables systematic evaluation of parameter tuning for reliability and capacity planning. Achieves improved cluster utilization by optimizing failure mitigation strategies.
