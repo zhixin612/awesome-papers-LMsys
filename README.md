@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2084-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.09-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2087-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-10
+* `training` `scaling` [AIReSim: A Discrete Event Simulator for Large-scale AI Cluster Reliability Modeling](http://arxiv.org/abs/2603.07041v1)
+  > **TL;DR**: Proposes AIReSim, a discrete event simulator to model and optimize reliability mechanisms (failure recovery, scheduling, repair) in large-scale AI clusters. Enables systematic evaluation of parameter tuning for reliability and capacity planning. Achieves improved cluster utilization by optimizing failure mitigation strategies.
+* `RAG` `offline` `serving` [Configurable Runtime Orchestration for Dynamic Data Retrieval in Distributed Systems](http://arxiv.org/abs/2603.06980v1)
+  > **TL;DR**: Proposes a runtime orchestration framework for dynamic data retrieval in distributed systems. Generates execution graphs from configuration at request time with dependency-aware scheduling and parallel execution to reduce latency. Achieves low-latency orchestration without redeploying code when integrations change.
+* `training` `networking` `scaling` [NEST: Network- and Memory-Aware Device Placement For Distributed Deep Learning](http://arxiv.org/abs/2603.06798v1)
+  > **TL;DR**: Proposes NEST, a network- and memory-aware device placement framework that optimizes distributed deep learning. Uses structured dynamic programming with operator graphs to jointly model parallelism, topology, and memory. Achieves up to 2.43× higher throughput over baselines.
+
 ### 2026-03-09
 * `MoE` `serving` `scaling` [MoEless: Efficient MoE LLM Serving via Serverless Computing](http://arxiv.org/abs/2603.06350v1)
   > **TL;DR**: Addresses expert load imbalance in MoE LLM serving by introducing a serverless framework with proactive straggler identification and optimized expert scaling/placement. MoEless reduces inference latency by 43% and cost by 84% compared to state-of-the-art solutions.
