@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2094-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2106-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-11
+* `edge` `sparse` `scaling` [Multi-DNN Inference of Sparse Models on Edge SoCs](http://arxiv.org/abs/2603.09642v1)
+  > **TL;DR**: Addresses high SLO violations in edge-based multi-DNN inference with sparse models. Introduces model stitching to recombine sparse subgraphs without retraining. SparseLoom reduces SLO violations by up to 74%, improves throughput 2.31x, and lowers memory overhead by 28%.
+* `inference` `offloading` `kernel` [Compiler-First State Space Duality and Portable $O(1)$ Autoregressive Caching for Inference](http://arxiv.org/abs/2603.09555v1)
+  > **TL;DR**: Proposes a compiler-first approach for state-space models that achieves portable O(1) autoregressive caching without custom kernels. Implements full inference path in XLA for CPU/GPU/TPU, showing up to 15% MFU on TPU prefills and matching PyTorch/CUDA accuracy.
+* `serving` `offloading` `storage` [Provuse: Platform-Side Function Fusion for Performance and Efficiency in FaaS Environments](http://arxiv.org/abs/2603.06170v2)
+  > **TL;DR**: Reduces latency and resource overhead in FaaS environments via automatic runtime function fusion. Proposes Provuse, a platform-side optimization that consolidates function execution transparently without code changes. Achieves average 26.33% latency reduction and 53.57% RAM usage reduction.
+* `training` `sparse` `offloading` [Covenant-72B: Pre-Training a 72B LLM with Trustless Peers Over-the-Internet](http://arxiv.org/abs/2603.08163v2)
+  > **TL;DR**: Investigates feasibility of open-permission globally distributed LLM pre-training. Proposes SparseLoCo optimizer for dynamic peer participation with blockchain-coordinated resource tracking. Achieves competitive performance at 72B scale with 1.1T tokens despite untrusted nodes and churn.
+* `MoE` `training` [Scalable Training of Mixture-of-Experts Models with Megatron Core](http://arxiv.org/abs/2603.07685v2)
+  > **TL;DR**: Addresses systems challenges in scaling MoE training by co-designing optimizations in memory (recomputation, offloading), communication (dispatchers, overlapping), and computation (Grouped GEMM, CUDA Graphs). Achieves up to 1,233 TFLOPS/GPU for DeepSeek-V3-685B on thousands of GPUs.
+* `kernel` `training` [Flash-KMeans: Fast and Memory-Efficient Exact K-Means](http://arxiv.org/abs/2603.09229v1)
+  > **TL;DR**: Addresses IO bottlenecks in GPU-based k-means clustering. Introduces fused distance-argmin computation and contention-free updates via explicit inverse mapping. Achieves up to 17.9× speedup over baselines on H200 GPUs.
+* `edge` `offloading` `kernel` [PIM-SHERPA: Software Method for On-device LLM Inference by Resolving PIM Memory Attribute and Layout Inconsistencies](http://arxiv.org/abs/2603.09216v1)
+  > **TL;DR**: Addresses memory attribute and layout inconsistencies in on-device LLM inference for PIM systems. Proposes PIM-SHERPA with DRAM double buffering and online weight rearrangement to resolve cacheable region conflicts. Achieves 47.8-49.7% memory capacity savings on Llama 3.2.
+* `offline` `edge` `networking` [Two Teachers Better Than One: Hardware-Physics Co-Guided Distributed Scientific Machine Learning](http://arxiv.org/abs/2603.09032v1)
+  > **TL;DR**: Proposes EPIC, a distributed SciML framework with hardware-aware local encoding and physics-guided central decoding. Transmits latent features instead of raw data, using cross-attention to reduce communication costs. Achieves 8.9× lower latency and 33.8× lower energy consumption across 10 datasets.
+* `MoE` `serving` `inference` [The $qs$ Inequality: Quantifying the Double Penalty of Mixture-of-Experts at Inference](http://arxiv.org/abs/2603.08960v1)
+  > **TL;DR**: Identifies the 'qs inequality' criterion to predict when MoE models incur a throughput penalty versus quality-matched dense models during decoding due to reuse fragmentation. Analysis shows MoE disadvantages in long-context inference, e.g., DeepSeek-V3 has 4.5x lower throughput than dense baseline at 128k context.
+* `serving` `edge` `scaling` [Serving Compound Inference Systems on Datacenter GPUs](http://arxiv.org/abs/2603.08797v1)
+  > **TL;DR**: Proposes JigsawServe, a framework for serving compound inference systems by adaptively choosing model variants and spatially partitioning GPUs per task to optimize latency, accuracy, and cost. Analytically increases serviceable demand by 11.3x and empirically uses only 43.3% GPU resources while meeting SLOs.
+* `edge` `serving` `offloading` [FlexServe: A Fast and Secure LLM Serving System for Mobile Devices with Flexible Resource Isolation](http://arxiv.org/abs/2603.09046v1)
+  > **TL;DR**: Proposes FlexServe, a fast and secure LLM serving system for mobile devices using flexible resource isolation in TrustZone. Introduces Flex-Mem and Flex-NPU for efficient switching between unprotected/protected modes, with LLM-aware memory management and secure inference pipeline. Achieves up to 24.3× end-to-end speedup in multi-model workflows.
+* `offline` `offloading` `serving` [The Missing Memory Hierarchy: Demand Paging for LLM Context Windows](http://arxiv.org/abs/2603.09023v1)
+  > **TL;DR**: Addresses context window waste in LLMs by introducing a demand paging system. Proposes Pichay, a transparent proxy for evicting stale content and fault-driven pinning. Reduces context consumption by up to 93% in production and achieves a 0.0254% fault rate in simulation.
+
 ### 2026-03-10
 * `training` `networking` [Covenant-72B: Pre-Training a 72B LLM with Trustless Peers Over-the-Internet](http://arxiv.org/abs/2603.08163v1)
   > **TL;DR**: Explores decentralized LLM pre-training with untrusted peers over the internet. Employs SparseLoCo, a communication-efficient optimizer supporting dynamic participation via blockchain protocol. Achieved competitive performance with centralized models at 72B scale using 1.1T tokens.
