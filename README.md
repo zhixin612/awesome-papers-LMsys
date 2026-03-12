@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2106-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2113-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-12
+* `serving` `security` [CacheSolidarity: Preventing Prefix Caching Side Channels in Multi-tenant LLM Serving Systems](http://arxiv.org/abs/2603.10726v1)
+  > **TL;DR**: Addresses security vulnerabilities from prefix caching in multi-tenant LLM serving. Proposes CacheSolidarity, which monitors cache reuse and selectively isolates prefixes to prevent side-channel attacks. Achieves 70% higher cache reuse and 30% lower latency compared to isolation-based defenses.
+* `quantization` `kernel` [Double-Precision Matrix Multiplication Emulation via Ozaki-II Scheme with FP8 Quantization](http://arxiv.org/abs/2603.10634v1)
+  > **TL;DR**: Proposes a novel method to emulate FP64 matrix multiplication using FP8 units via Ozaki-II scheme, overcoming prior limitations. Reduces the number of required FP8 matrix multiplications compared to Ozaki-I, enabling efficient FP64 emulation on modern GPUs with limited FP64 support.
+* `training` `networking` `scaling` [CD-Raft: Reducing the Latency of Distributed Consensus in Cross-Domain Sites](http://arxiv.org/abs/2603.10555v1)
+  > **TL;DR**: Proposes CD-Raft, an optimized Raft protocol reducing consensus latency for cross-domain data synchronization in distributed training. Optimizes leader positioning and RTT for reads/writes. Reduces avg latency by 32.9% and tail latency by 49.24% in YCSB benchmarks.
+* `offline` `edge` `inference` [COHORT: Hybrid RL for Collaborative Large DNN Inference on Multi-Robot Systems Under Real-Time Constraints](http://arxiv.org/abs/2603.10436v1)
+  > **TL;DR**: Proposes COHORT, a hybrid RL framework for collaborative DNN inference on multi-robot edge systems. Uses offline RL with AWR and online MAPPO adaptation to schedule tasks across robots. Reduces battery usage by 15.4% and increases GPU utilization by 51.67% while meeting deadlines.
+* `serving` `sparse` `kernel` [S-HPLB: Efficient LLM Attention Serving via Sparsity-Aware Head Parallelism Load Balance](http://arxiv.org/abs/2603.10353v1)
+  > **TL;DR**: Addresses high-latency issues in LLM attention computation through Sparsity-aware Head-Parallel Load Balance (S-HPLB), which optimizes head-adaptive sparsity budgets and deployment across GPUs to reduce resource bubbles. Achieves 2.88× faster average attention computation latency without quality degradation.
+* `serving` `RL` `offloading` [AgentServe: Algorithm-System Co-Design for Efficient Agentic AI Serving on a Consumer-Grade GPU](http://arxiv.org/abs/2603.10342v1)
+  > **TL;DR**: Explores efficient serving for agentic LLMs on consumer-grade GPUs amidst heterogeneous prefill-decode contention. Introduces AgentServe with cold/resume prefill isolation, dynamic budgeting, and CUDA Green Context slots. Achieves up to 2.8× TTFT and 2.7× TPOT improvements over baselines.
+* `serving` `offloading` `storage` [Pooling Engram Conditional Memory in Large Language Models using CXL](http://arxiv.org/abs/2603.10087v1)
+  > **TL;DR**: Proposes using CXL memory pools to store Engram embeddings for LLM serving. Integrates offloaded Engram storage with SGLang runtime via fine-grained CXL access, achieving near-DRAM performance. Reduces cost while maintaining inference latency comparable to DRAM setups.
+
 ### 2026-03-11
 * `edge` `sparse` `scaling` [Multi-DNN Inference of Sparse Models on Edge SoCs](http://arxiv.org/abs/2603.09642v1)
   > **TL;DR**: Addresses high SLO violations in edge-based multi-DNN inference with sparse models. Introduces model stitching to recombine sparse subgraphs without retraining. SparseLoom reduces SLO violations by up to 74%, improves throughput 2.31x, and lowers memory overhead by 28%.
