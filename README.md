@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2113-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.12-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2118-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.13-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-13
+* `serving` `multi-modal` `disaggregation` [Cornserve: A Distributed Serving System for Any-to-Any Multimodal Models](http://arxiv.org/abs/2603.12118v1)
+  > **TL;DR**: Addresses inefficiencies in serving any-to-any multimodal models by proposing a distributed system with task abstraction for disaggregation, record-and-replay execution for dependency tracking, and direct tensor forwarding. Achieves up to 3.81× higher throughput and 5.79× lower tail latency.
+* `edge` `serving` `multi-modal` [RAPID: Redundancy-Aware and Compatibility-Optimal Edge-Cloud Partitioned Inference for Diverse VLA Models](http://arxiv.org/abs/2603.07949v2)
+  > **TL;DR**: Addresses inefficiencies in edge-cloud collaborative inference for Vision-Language-Action models. Proposes RAPID framework with redundancy-aware partitioning and compatibility optimization. Achieves 1.73x speedup with 5–7% overhead.
+* `training` `networking` `scaling` [NCCLbpf: Verified, Composable Policy Execution for GPU Collective Communication](http://arxiv.org/abs/2603.11438v1)
+  > **TL;DR**: Proposes NCCLbpf, eBPF-based framework for verified, composable policy execution in NCCL GPU collective communication. Embedds userspace eBPF runtime for static verification, cross-plugin maps, and hot-reloads, reducing decision overhead to 80-130 ns and improving AllReduce throughput by up to 27%.
+* `training` `scaling` `quantization` [Thousand-GPU Large-Scale Training and Optimization Recipe for AI-Native Cloud Embodied Intelligence Infrastructure](http://arxiv.org/abs/2603.11101v1)
+  > **TL;DR**: Proposes a cloud-based thousand-GPU distributed training infrastructure for embodied intelligence to address bottlenecks. Optimizes data pipeline, combines FlashAttention, data packing, FP8 quantization, and high-performance networking. Reduces training time from 15 hours to 22 minutes (40x speedup).
+* `training` `networking` `kernel` [NCCLbpf: Verified, Composable Policy Execution for GPU Collective Communication](http://arxiv.org/abs/2603.11438v1)
+  > **TL;DR**: Addresses safety and performance issues in NCCL GPU communication plugins by introducing NCCLbpf, a verified eBPF extension framework. Implements load-time verification, composable policies, and hot-reloading. Reduces AllReduce latency by up to 27% for 4-128 MiB messages with 80-130 ns decision overhead.
+
 ### 2026-03-12
 * `serving` `security` [CacheSolidarity: Preventing Prefix Caching Side Channels in Multi-tenant LLM Serving Systems](http://arxiv.org/abs/2603.10726v1)
   > **TL;DR**: Addresses security vulnerabilities from prefix caching in multi-tenant LLM serving. Proposes CacheSolidarity, which monitors cache reuse and selectively isolates prefixes to prevent side-channel attacks. Achieves 70% higher cache reuse and 30% lower latency compared to isolation-based defenses.
