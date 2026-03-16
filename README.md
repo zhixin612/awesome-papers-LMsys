@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2118-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.13-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2125-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-16
+* `training` `RL` `scaling` [ARL-Tangram: Unleash the Resource Efficiency in Agentic Reinforcement Learning](http://arxiv.org/abs/2603.13019v1)
+  > **TL;DR**: Addresses resource inefficiency in agentic RL training by proposing ARL-Tangram, with action-level orchestration and elastic scheduling for shared external resources. Improves average action completion time by 4.3× and reduces external resource usage by 71.2%.
+* `serving` `offloading` [Serving Hybrid LLM Loads with SLO Guarantees Using CPU-GPU Attention Piggybacking](http://arxiv.org/abs/2603.12831v1)
+  > **TL;DR**: Proposes OmniServe, a CPU-GPU attention piggybacking system for hybrid LLM loads. Offloads BE attention to CPUs via asynchronous streams and uses dynamic batching for dense modules. Improves LS SLO attainment by 1.48× and BE throughput by 9.85×.
+* `serving` `offloading` `multi-modal` [Cost-Efficient Multimodal LLM Inference via Cross-Tier GPU Heterogeneity](http://arxiv.org/abs/2603.12707v1)
+  > **TL;DR**: Addresses the inefficiency of uniform GPU usage for MLLM inference. Proposes HeteroServe, a system that exploits modality-level partitioning and cross-tier GPU heterogeneity. Achieves 37% higher Tokens/$ and up to 54% throughput gain over vLLM.
+* `serving` `scaling` [SageSched: Efficient LLM Scheduling Confronting Demand Uncertainty and Hybridity](http://arxiv.org/abs/2603.07917v2)
+  > **TL;DR**: Addresses efficient LLM inference scheduling under demand uncertainty and hybrid resource usage. Proposes SageSched with output-length prediction, compute-memory cost modeling, and uncertainty-aware policy. Achieves over 28.7% efficiency improvement in diverse setups.
+* `serving` `kernel` `MoE` [TaxBreak: Unmasking the Hidden Costs of LLM Inference Through Overhead Decomposition](http://arxiv.org/abs/2603.12465v1)
+  > **TL;DR**: Introduces TaxBreak, a trace-based method to decompose host-side overheads in LLM inference into framework, CUDA, and kernel launch times. Proposes Host-Device Balance Index (HDBI) to guide optimization targets. CPU thread optimization reduces orchestration overhead by 29% and latency by 14% for MoE models.
+* `kernel` `training` [KernelFoundry: Hardware-aware evolutionary GPU kernel optimization](http://arxiv.org/abs/2603.12440v1)
+  > **TL;DR**: Proposes KernelFoundry, an evolutionary framework for hardware-aware GPU kernel optimization using MAP-Elites search and meta-prompt evolution. Generates efficient SYCL/CUDA kernels with 2.3x average speedup on KernelBench.
+* `agentic` `serving` `scaling` [AgentRM: An OS-Inspired Resource Manager for LLM Agent Systems](http://arxiv.org/abs/2603.13110v1)
+  > **TL;DR**: Proposes AgentRM, an OS-inspired resource manager for LLM agent systems. Uses MLFQ scheduling with zombie reaping and three-tier context management. Reduces P95 latency by 86%, decreases lane waste by 96%, and increases throughput by 168%.
+
 ### 2026-03-13
 * `serving` `multi-modal` `disaggregation` [Cornserve: A Distributed Serving System for Any-to-Any Multimodal Models](http://arxiv.org/abs/2603.12118v1)
   > **TL;DR**: Addresses inefficiencies in serving any-to-any multimodal models by proposing a distributed system with task abstraction for disaggregation, record-and-replay execution for dependency tracking, and direct tensor forwarding. Achieves up to 3.81× higher throughput and 5.79× lower tail latency.
