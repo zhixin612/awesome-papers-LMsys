@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2128-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2135-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.03.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-17
+* `disaggregation` `scaling` `hardware` [DUET: Disaggregated Hybrid Mamba-Transformer LLMs with Prefill and Decode-Specific Packages](http://arxiv.org/abs/2603.15530v1)
+  > **TL;DR**: Proposes DUET, a disaggregated accelerator with specialized prefill and decode packages for hybrid Mamba-Transformer LLMs. Achieves 4x faster time to first token and 1.4x higher throughput over B200 GPU.
+* `serving` `scaling` [LMetric: Simple is Better - Multiplication May Be All You Need for LLM Request Scheduling](http://arxiv.org/abs/2603.15202v1)
+  > **TL;DR**: Introduces LMetric, a scheduling algorithm for LLM inference using multiplication of KV cache utilization and load indicators. Achieves 92% TTFT reduction and 21% TPOT improvement over vLLM and production schedulers without hyperparameter tuning.
+* `serving` `training` `offloading` [Guaranteeing Semantic and Performance Determinism in Flexible GPU Sharing](http://arxiv.org/abs/2603.15042v1)
+  > **TL;DR**: Addresses unpredictable tail latency and performance interference in GPU sharing for ML tasks. Proposes DetShare with GPU coroutines for fine-grained resource allocation via context migration. Reduces P99 tail latency by 15.1% and inference latency by 69.1% over baselines.
+* `serving` `offloading` [Fold-CP: A Context Parallelism Framework for Biomolecular Modeling](http://arxiv.org/abs/2603.14806v1)
+  > **TL;DR**: Proposes Fold-CP, a context parallelism framework to scale biomolecular structure prediction by distributing inference/training across GPUs. Implements custom primitives for dense triangular updates and local attention. Achieves O(N²/P) memory scaling, enabling 30,000-residue predictions on 64 GPUs.
+* `edge` `serving` `quantization` [Covariance-Guided Resource Adaptive Learning for Efficient Edge Inference](http://arxiv.org/abs/2603.14577v1)
+  > **TL;DR**: Proposes CORAL, an online optimizer using covariance for efficient edge inference hardware configuration. It dynamically adapts DVFS and concurrency to meet power and throughput targets, achieving 96-100% of optimal performance on NVIDIA Jetson.
+* `serving` `offloading` `scaling` [LMetric: Simple is Better - Multiplication May Be All You Need for LLM Request Scheduling](http://arxiv.org/abs/2603.15202v1)
+  > **TL;DR**: Proposes LMetric, a KV cache-aware and load-balanced LLM request scheduler using simple multiplicative scoring of prefill tokens and batch size. Eliminates hyperparameter tuning and reduces TTFT by up to 92% and TPOT by 21% compared to vLLM-v1 on real-world workloads.
+* `serving` `offloading` `training` [Guaranteeing Semantic and Performance Determinism in Flexible GPU Sharing](http://arxiv.org/abs/2603.15042v1)
+  > **TL;DR**: Proposes DetShare, a GPU sharing system with GPU coroutines for fine-grained resource allocation via context migration. Ensures semantic and performance determinism. Reduces P99 inference latency by 15.1% and training throughput improvement by 79.2%.
+
 ### 2026-03-17
 * `networking` `hardware` `offloading` [The Forward-In-Time-Only Assumption in SmartNIC Resource Management: A Critique of Wave and the Case for Bilateral Interaction](http://arxiv.org/abs/2603.13750v1)
   > **TL;DR**: Critiques SmartNIC resource management's forward-only model. Proposes bilateral swap primitive via Open Atomic Ethernet to resolve latency and atomicity issues without optimization stacks. Achieves reduced PCIe latency by eliminating 350% degradation compared to Wave.
