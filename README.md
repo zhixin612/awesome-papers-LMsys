@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2125-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2128-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-17
+* `networking` `hardware` `offloading` [The Forward-In-Time-Only Assumption in SmartNIC Resource Management: A Critique of Wave and the Case for Bilateral Interaction](http://arxiv.org/abs/2603.13750v1)
+  > **TL;DR**: Critiques SmartNIC resource management's forward-only model. Proposes bilateral swap primitive via Open Atomic Ethernet to resolve latency and atomicity issues without optimization stacks. Achieves reduced PCIe latency by eliminating 350% degradation compared to Wave.
+* `edge` `serving` `offloading` [Audo-Sight: AI-driven Ambient Perception Across Edge-Cloud for Blind and Low Vision Users](http://arxiv.org/abs/2603.13668v1)
+  > **TL;DR**: Proposes Audo-Sight, an edge-cloud AI system for ambient perception, using intent-aware dynamic routing and a response fusion engine for low-latency speech output. Achieves 80% faster urgent task responses and 50% faster complete responses compared to cloud-only baselines.
+* `MoE` `training` `serving` [NCCL EP: Towards a Unified Expert Parallel Communication API for NCCL](http://arxiv.org/abs/2603.13606v1)
+  > **TL;DR**: Proposes NCCL EP, a unified expert parallelism communication library based on NCCL's Device API for MoE models. Offers Low-Latency and High-Throughput modes for inference and training, leveraging RDMA+NVLink and hierarchical communication. Achieves competitive kernel performance in multi-node H100 clusters.
+
 ### 2026-03-16
 * `training` `RL` `scaling` [ARL-Tangram: Unleash the Resource Efficiency in Agentic Reinforcement Learning](http://arxiv.org/abs/2603.13019v1)
   > **TL;DR**: Addresses resource inefficiency in agentic RL training by proposing ARL-Tangram, with action-level orchestration and elastic scheduling for shared external resources. Improves average action completion time by 4.3× and reduces external resource usage by 71.2%.
