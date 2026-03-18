@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2141-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2143-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.03.18-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-18
+* `training` `sparse` `kernel` [Unifying Optimization and Dynamics to Parallelize Sequential Computation: A Guide to Parallel Newton Methods for Breaking Sequential Bottlenecks](http://arxiv.org/abs/2603.16850v1)
+  > **TL;DR**: Proposes scalable parallel Newton methods to overcome sequential bottlenecks in dynamical systems like RNNs. Combines quasi-Newton and trust-region approaches for efficiency and stability. Achieves faster convergence with memory-efficient quasi-Newton variants and proves linear convergence rates based on Lyapunov exponents.
+* `serving` `offloading` `scaling` [FleetOpt: Analytical Fleet Provisioning for LLM Inference with Compress-and-Route as Implementation Mechanism](http://arxiv.org/abs/2603.16514v1)
+  > **TL;DR**: Proposes FleetOpt, an analytical framework for cost-optimal LLM inference fleet provisioning using compress-and-route to mitigate KV-cache waste. Designs a two-pool architecture with optimal context boundary and extractive compression gateway. Reduces GPU costs by 6-82% versus homogeneous fleets.
+
 ### 2026-03-18
 * `training` `offloading` `quantization` [An Efficient Heterogeneous Co-Design for Fine-Tuning on a Single GPU](http://arxiv.org/abs/2603.16428v1)
   > **TL;DR**: Addresses efficient fine-tuning of large language models on single GPUs. Proposes SlideFormer with asynchronous sliding window engine, heterogeneous memory management, and optimized kernels. Achieves 1.40x-6.27x throughput improvement and halves memory usage for 123B+ models on single RTX 4090.
