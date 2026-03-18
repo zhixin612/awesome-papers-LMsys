@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2135-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.17-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2141-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.18-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-18
+* `training` `offloading` `quantization` [An Efficient Heterogeneous Co-Design for Fine-Tuning on a Single GPU](http://arxiv.org/abs/2603.16428v1)
+  > **TL;DR**: Addresses efficient fine-tuning of large language models on single GPUs. Proposes SlideFormer with asynchronous sliding window engine, heterogeneous memory management, and optimized kernels. Achieves 1.40x-6.27x throughput improvement and halves memory usage for 123B+ models on single RTX 4090.
+* `training` `networking` `quantization` [Biased Compression in Gradient Coding for Distributed Learning](http://arxiv.org/abs/2603.16353v1)
+  > **TL;DR**: Introduces COCO-EF, combining biased compression with error-compensated gradient coding for distributed learning to reduce communication costs and mitigate stragglers. Achieves improved convergence over baselines by incorporating prior errors in compression and coding.
+* `scaling` `serving` `training` [Guaranteeing Semantic and Performance Determinism in Flexible GPU Sharing](http://arxiv.org/abs/2603.15042v2)
+  > **TL;DR**: Addresses unpredictable tail latency and low utilization in GPU sharing for data centers. Proposes DetShare, using GPU coroutines for fine-grained resource allocation via lightweight context migration. Reduces P99 tail latency by 15.1% and increases training throughput by 79.2% compared to temporal sharing.
+* `serving` `offloading` `networking` [Serving Hybrid LLM Loads with SLO Guarantees Using CPU-GPU Attention Piggybacking](http://arxiv.org/abs/2603.12831v2)
+  > **TL;DR**: Addresses interference when colocating latency-sensitive (SLO-bound) and best-effort LLM services. Proposes OmniServe using CPU-GPU Attention Piggybacking to offload BE attention to CPUs with async communication. Achieves up to 9.85× higher BE throughput and 1.48× SLO attainment for LS services.
+* `serving` `scaling` `disaggregation` [inference-fleet-sim: A Queueing-Theory-Grounded Fleet Capacity Planner for LLM Inference](http://arxiv.org/abs/2603.16054v1)
+  > **TL;DR**: Proposes inference-fleet-sim, a queueing-theory-based GPU fleet capacity planner for LLM inference. Combines M/G/c queueing models with discrete-event simulation to optimize fleet configuration for cost and P99 TTFT SLO. Evaluated on real traces, shows improvements over simple analysis in fleet sizing and topology choices.
+* `serving` `training` `quantization` [Guaranteeing Semantic and Performance Determinism in Flexible GPU Sharing](http://arxiv.org/abs/2603.15042v2)
+  > **TL;DR**: Proposes DetShare, a GPU sharing system using GPU coroutines for fine-grained resource allocation without kernel modifications. Achieves semantic and performance determinism, reducing P99 tail latency by 15.1% and inference latency by 69.1% while improving training throughput by 79.2%.
+
 ### 2026-03-17
 * `disaggregation` `scaling` `hardware` [DUET: Disaggregated Hybrid Mamba-Transformer LLMs with Prefill and Decode-Specific Packages](http://arxiv.org/abs/2603.15530v1)
   > **TL;DR**: Proposes DUET, a disaggregated accelerator with specialized prefill and decode packages for hybrid Mamba-Transformer LLMs. Achieves 4x faster time to first token and 1.4x higher throughput over B200 GPU.
