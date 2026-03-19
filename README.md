@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2143-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.18-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2147-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-19
+* `serving` `networking` `disaggregation` [Multi-stage Flow Scheduling for LLM Serving](http://arxiv.org/abs/2603.17456v1)
+  > **TL;DR**: Addresses network contention in multi-stage LLM serving workflows for TTFT SLO attainment. Proposes MFS scheduler with Defer-and-Promote principle and Reverse Multi-Level Queue to prioritize flows. Improves TTFT SLO attainment by 1.2x--2.4x over baselines.
+* `serving` `quantization` `kernel` [ZipServ: Fast and Memory-Efficient LLM Inference with Hardware-Aware Lossless Compression](http://arxiv.org/abs/2603.17435v1)
+  > **TL;DR**: Introduces ZipServ, a lossless compression framework for LLM inference using Tensor-Core-Aware Triple Bitmap Encoding and fused decompression-GEMM kernel. Achieves up to 30% model size reduction and 1.22x end-to-end inference speedup over vLLM.
+* `serving` `offloading` `scaling` [The 1/W Law: An Analytical Study of Context-Length Routing Topology and GPU Generation Gains for LLM Inference Energy Efficiency](http://arxiv.org/abs/2603.17280v1)
+  > **TL;DR**: Analyzes how context window size affects LLM inference energy efficiency, deriving the 1/W law: tokens per watt halve when context doubles. Proposes FleetOpt, a two-pool context-length routing topology to optimize GPU utilization. Achieves 2.5x better tokens per watt over homogeneous fleets.
+* `storage` `kernel` `recommendation` [HierarchicalKV: A GPU Hash Table with Cache Semantics for Continuous Online Embedding Storage](http://arxiv.org/abs/2603.17168v1)
+  > **TL;DR**: Challenges GPU hash table dictionary assumption for embedding storage by introducing HierarchicalKV with cache semantics. Proposes cache-aligned buckets, in-line score-driven upsert, dual-bucket selection, and triple-group concurrency. Achieves up to 3.9B KV/s find throughput and 1.4x higher than baselines.
+
 ### 2026-03-18
 * `training` `sparse` `kernel` [Unifying Optimization and Dynamics to Parallelize Sequential Computation: A Guide to Parallel Newton Methods for Breaking Sequential Bottlenecks](http://arxiv.org/abs/2603.16850v1)
   > **TL;DR**: Proposes scalable parallel Newton methods to overcome sequential bottlenecks in dynamical systems like RNNs. Combines quasi-Newton and trust-region approaches for efficiency and stability. Achieves faster convergence with memory-efficient quasi-Newton variants and proves linear convergence rates based on Lyapunov exponents.
