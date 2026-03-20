@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2147-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.19-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2149-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.20-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-20
+* `serving` `inference` `scaling` [From Servers to Sites: Compositional Power Trace Generation of LLM Inference for Infrastructure Planning](http://arxiv.org/abs/2603.18383v1)
+  > **TL;DR**: Proposes a compositional framework for generating power traces of LLM inference workloads, modeling state transitions and power distributions to synthesize server-to-site power profiles. Achieves median absolute energy error below 5% across configurations while preserving temporal autocorrelation.
+* `training` `quantization` `storage` [Adaptive Domain Models: Bayesian Evolution, Warm Rotation, and Principled Training for Geometric and Neuromorphic AI](http://arxiv.org/abs/2603.18104v1)
+  > **TL;DR**: Proposes an adaptive domain model (ADM) training architecture that reduces memory to twice inference footprint. Leverages geometric algebra, b-posit arithmetic, and program hypergraphs for grade-preserving updates and exact gradients. Achieves depth-independent memory and enables continuous adaptation via warm rotation.
+
 ### 2026-03-19
 * `serving` `networking` `disaggregation` [Multi-stage Flow Scheduling for LLM Serving](http://arxiv.org/abs/2603.17456v1)
   > **TL;DR**: Addresses network contention in multi-stage LLM serving workflows for TTFT SLO attainment. Proposes MFS scheduler with Defer-and-Promote principle and Reverse Multi-Level Queue to prioritize flows. Improves TTFT SLO attainment by 1.2x--2.4x over baselines.
