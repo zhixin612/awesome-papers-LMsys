@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2150-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.20-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2151-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-23
+* `edge` `offloading` `serving` [Speculative Policy Orchestration: A Latency-Resilient Framework for Cloud-Robotic Manipulation](http://arxiv.org/abs/2603.19418v1)
+  > **TL;DR**: Addresses network latency in cloud-robotic manipulation by proposing SPO, which pre-computes and buffers waypoints at the edge with adaptive horizon scaling and safety verification. Reduces network-induced idle time by over 60% compared to blocking remote inference.
+
 ### 2026-03-20
 * `agentic` `serving` `offloading` [Act While Thinking: Accelerating LLM Agents via Pattern-Aware Speculative Tool Execution](http://arxiv.org/abs/2603.18897v1)
   > **TL;DR**: Addresses high latency in LLM agents due to serial tool execution. Proposes PASTE, a pattern-aware speculative tool execution method exploiting stable control flows and data dependencies. Achieves 48.5% reduction in task completion time and 1.8x throughput improvement.
