@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2151-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2157-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-24
+* `training` `scaling` `multi-cloud` [Adviser: An Intuitive Multi-Cloud Platform for Scientific and ML Workflows](http://arxiv.org/abs/2603.20941v1)
+  > **TL;DR**: Addresses complexity in leveraging multi-cloud resources for scientific and ML workflows. Introduces Adviser, a platform automating environment setup, resource provisioning, and data movement using reusable workflow artifacts. Demonstrates rapid exploration of cost-performance tradeoffs with up to 30% cost savings in glaciology simulations.
+* `serving` `scaling` `RAG` [Compass: Optimizing Compound AI Workflows for Dynamic Adaptation](http://arxiv.org/abs/2603.20821v1)
+  > **TL;DR**: Proposes Compass, a framework for dynamic optimization of compound AI workflows to balance latency, accuracy, and cost under varying loads. Combines offline configuration discovery with runtime adaptation using queuing-based policies. Achieves 71.6% higher SLO compliance and improves latency and accuracy over static baselines.
+* `edge` `multi-modal` `serving` [RoboECC: Multi-Factor-Aware Edge-Cloud Collaborative Deployment for VLA Models](http://arxiv.org/abs/2603.20711v1)
+  > **TL;DR**: Proposes RoboECC, an edge-cloud collaborative deployment framework for Vision-Language-Action models using model-hardware co-aware segmentation and network-aware adjustment. Achieves up to 3.28x speedup with 2.55x~2.62x overhead.
+* `serving` `scaling` `networking` [WWW.Serve: Interconnecting Global LLM Services through Decentralization](http://arxiv.org/abs/2603.20661v1)
+  > **TL;DR**: Proposes WWW.Serve, a decentralized framework for global LLM serving that enables flexible participation policies and self-organizing request dispatch without centralized coordination. Improves SLO attainment by 1.5x and reduces latency by 27.6% compared to centralized approaches.
+* `scaling` `hardware` [Modernizing Amdahl's Law: How AI Scaling Laws Shape Computer Architecture](http://arxiv.org/abs/2603.20654v1)
+  > **TL;DR**: Reformulates Amdahl's Law for modern AI with heterogeneous hardware. Introduces a model considering resource allocation across specialized accelerators vs programmable compute given empirical scaling laws. Shows optimal specialized investment collapses to zero beyond a critical scalable fraction, explaining GPU dominance despite efficiency advantages of domain-specific AI accelerators.
+* `edge` `hardware` `training` [DGNNFlow: A Streaming Dataflow Architecture for Real-Time Edge-based Dynamic GNN Inference in HL-LHC Trigger Systems](http://arxiv.org/abs/2603.20364v1)
+  > **TL;DR**: Proposes DGNNFlow, a streaming dataflow architecture for real-time edge-based dynamic GNN inference in HL-LHC trigger systems. Introduces hardware support for dynamic edge embeddings and resolves data dependencies on FPGA. Achieves up to 6.3x speedup and 0.22x power consumption vs GPU.
+
 ### 2026-03-23
 * `edge` `offloading` `serving` [Speculative Policy Orchestration: A Latency-Resilient Framework for Cloud-Robotic Manipulation](http://arxiv.org/abs/2603.19418v1)
   > **TL;DR**: Addresses network latency in cloud-robotic manipulation by proposing SPO, which pre-computes and buffers waypoints at the edge with adaptive horizon scaling and safety verification. Reduces network-induced idle time by over 60% compared to blocking remote inference.
