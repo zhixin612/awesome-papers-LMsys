@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2157-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2161-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.03.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-24
+* `serving` `scaling` `RAG` [The Workload-Router-Pool Architecture for LLM Inference Optimization: A Vision Paper from the vLLM Semantic Router Project](http://arxiv.org/abs/2603.21354v1)
+  > **TL;DR**: Proposes the Workload-Router-Pool (WRP) architecture for optimizing LLM inference. Framework integrates workload characterization, routing dispatch strategies, and resource pool management. Enables dynamic adaptation to workload shifts and achieves optimized inference efficiency based on prior vLLM system improvements.
+* `training` `agentic` `sparse` [ARYA: A Physics-Constrained Composable & Deterministic World Model Architecture](http://arxiv.org/abs/2603.21340v1)
+  > **TL;DR**: Presents ARYA, a composable and deterministic world model architecture using nano-modules and a cognitive daemon. Achieves sub-20-second training cycles via sparse activation, resolving capability-efficiency tension. Matches state-of-the-art on 6/9 benchmarks with zero neural parameters.
+* `serving` `offloading` `networking` [CALVO: Improve Serving Efficiency for LLM Inferences with Intense Network Demands](http://arxiv.org/abs/2603.21257v1)
+  > **TL;DR**: Addresses network bottlenecks in distributed KVCache retrieval for LLM serving. Proposes CALVO, which decouples KVCache loading from GPU computation and models network delay in scheduling. Achieves 61.67% higher SLO attainment in long-context workloads.
+* `storage` `offline` `RAG` [GateANN: I/O-Efficient Filtered Vector Search on SSDs](http://arxiv.org/abs/2603.21466v1)
+  > **TL;DR**: Proposes GateANN, an SSD-based graph system for filtered vector search. Decouples graph traversal from vector retrieval via graph tunneling, allowing filter checks in memory to avoid SSD reads for non-matching nodes. Reduces SSD reads by 10× and increases throughput by 7.6×.
+
 ### 2026-03-24
 * `training` `scaling` `multi-cloud` [Adviser: An Intuitive Multi-Cloud Platform for Scientific and ML Workflows](http://arxiv.org/abs/2603.20941v1)
   > **TL;DR**: Addresses complexity in leveraging multi-cloud resources for scientific and ML workflows. Introduces Adviser, a platform automating environment setup, resource provisioning, and data movement using reusable workflow artifacts. Demonstrates rapid exploration of cost-performance tradeoffs with up to 30% cost savings in glaciology simulations.
