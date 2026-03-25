@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2161-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2165-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-25
+* `serving` `RAG` `offloading` [PCR: A Prefetch-Enhanced Cache Reuse System for Low-Latency RAG Serving](http://arxiv.org/abs/2603.23049v1)
+  > **TL;DR**: Addresses high prefill latency in RAG serving due to long inputs. Proposes PCR, with prefix-tree caching, layer-wise overlapping, and queue-based prefetching to enhance KV-cache reuse and reduce data transfer overhead. Achieves 2.47× speedup in average TTFT.
+* `serving` `quantization` [Characterizing CPU-Induced Slowdowns in Multi-GPU LLM Inference](http://arxiv.org/abs/2603.22774v1)
+  > **TL;DR**: Identifies CPU bottlenecks in multi-GPU LLM inference causing GPU underutilization. Shows adequate CPU core provisioning reduces kernel launch delays, stalled communication, and tokenization latency. Restores responsiveness and cuts time-to-first-token latency by 1.36-5.40× without extra GPUs.
+* `serving` `networking` `scaling` [WWW.Serve: Interconnecting Global LLM Services through Decentralization](http://arxiv.org/abs/2603.20661v2)
+  > **TL;DR**: Proposes WWW.Serve, a decentralized framework for global LLM serving that allows flexible participant policies and self-organizing request dispatch. Achieves up to 1.5x better SLO attainment and 27.6% lower latency compared to centralized approaches while preserving decentralization benefits.
+* `training` `offloading` `networking` [Communication-Efficient Approximate Gradient Coding](http://arxiv.org/abs/2603.22514v1)
+  > **TL;DR**: Proposes communication-efficient approximate gradient coding schemes to mitigate stragglers in distributed learning. Uses structured graph-based designs and randomization to reduce communication vectors. Achieves tight error bounds and shows convergence in experiments.
+
 ### 2026-03-24
 * `serving` `scaling` `RAG` [The Workload-Router-Pool Architecture for LLM Inference Optimization: A Vision Paper from the vLLM Semantic Router Project](http://arxiv.org/abs/2603.21354v1)
   > **TL;DR**: Proposes the Workload-Router-Pool (WRP) architecture for optimizing LLM inference. Framework integrates workload characterization, routing dispatch strategies, and resource pool management. Enables dynamic adaptation to workload shifts and achieves optimized inference efficiency based on prior vLLM system improvements.
