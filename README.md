@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2165-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2166-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.03.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-25
+* `training` `scaling` `networking` [Communication-Aware Diffusion Load Balancing for Persistently Interacting Objects](http://arxiv.org/abs/2603.23329v1)
+  > **TL;DR**: Proposes communication-aware diffusion load balancing for applications with persistently communicating objects. Leverages the communication graph to minimize across-node communication while distributing load. Achieves improved load balance for Particle-in-Cell on 8 nodes, reducing communication costs versus other strategies.
+
 ### 2026-03-25
 * `serving` `RAG` `offloading` [PCR: A Prefetch-Enhanced Cache Reuse System for Low-Latency RAG Serving](http://arxiv.org/abs/2603.23049v1)
   > **TL;DR**: Addresses high prefill latency in RAG serving due to long inputs. Proposes PCR, with prefix-tree caching, layer-wise overlapping, and queue-based prefetching to enhance KV-cache reuse and reduce data transfer overhead. Achieves 2.47× speedup in average TTFT.
