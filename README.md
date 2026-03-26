@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2166-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.25-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2167-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.26-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-26
+* `edge` `quantization` `hardware` [LLM Inference at the Edge: Mobile, NPU, and GPU Performance Efficiency Trade-offs Under Sustained Load](http://arxiv.org/abs/2603.23640v1)
+  > **TL;DR**: Benchmarks sustained LLM inference performance on edge devices under thermal and power constraints. Evaluates Qwen 2.5 1.5B (4-bit quantized) across mobile and NPU/GPU platforms. Quantifies trade-offs: RTX 4050 sustains 131.7 tok/s at 34.1W; Hailo-10H achieves 6.9 tok/s at <2W with 19x energy proportionality.
+
 ### 2026-03-25
 * `training` `scaling` `networking` [Communication-Aware Diffusion Load Balancing for Persistently Interacting Objects](http://arxiv.org/abs/2603.23329v1)
   > **TL;DR**: Proposes communication-aware diffusion load balancing for applications with persistently communicating objects. Leverages the communication graph to minimize across-node communication while distributing load. Achieves improved load balance for Particle-in-Cell on 8 nodes, reducing communication costs versus other strategies.
