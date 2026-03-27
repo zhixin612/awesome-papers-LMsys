@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2167-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.26-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2171-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.03.27-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-03-27
+* `offline` `networking` `scaling` [SHADOW: Seamless Handoff And Zero-Downtime Orchestrated Workload Migration for Stateful Microservices](http://arxiv.org/abs/2603.25484v1)
+  > **TL;DR**: Proposes SHADOW for zero-downtime migration of stateful microservices in Kubernetes. Uses ShadowPod with concurrent message replay and ExchangeFence for identity swap. Reduces service downtime from median 38.5s to zero and migration time by up to 77% in 280 runs.
+* `scaling` `training` [PRISM: Dynamic Primitive-Based Forecasting for Large-Scale GPU Cluster Workloads](http://arxiv.org/abs/2603.25378v1)
+  > **TL;DR**: Proposes PRISM, a primitive-based forecasting framework for volatile GPU cluster workloads, combining temporal decomposition and spectral refinement. Reduces burst-phase errors by up to 45% in production traces, enabling efficient scheduling and resource management for AI infrastructure.
+* `training` `multi-modal` `scaling` [DFLOP: A Data-driven Framework for Multimodal LLM Training Pipeline Optimization](http://arxiv.org/abs/2603.25120v1)
+  > **TL;DR**: Proposes DFLOP, a data-driven framework for multimodal LLM training pipelines that profiles runtime behavior to address computation skew caused by heterogeneous inputs. Employs predictive scheduling to balance workloads, achieving up to 3.6x faster training over existing frameworks.
+* `serving` `offloading` `storage` [GateANN: I/O-Efficient Filtered Vector Search on SSDs](http://arxiv.org/abs/2603.21466v2)
+  > **TL;DR**: Proposes GateANN, a filtered vector search system that reduces I/O for SSD-based graph ANNS by decoupling graph traversal from vector retrieval and checking filter predicates in memory. Avoids index rebuilds and achieves up to 10x fewer SSD reads and 7.6x higher throughput.
+
 ### 2026-03-26
 * `edge` `quantization` `hardware` [LLM Inference at the Edge: Mobile, NPU, and GPU Performance Efficiency Trade-offs Under Sustained Load](http://arxiv.org/abs/2603.23640v1)
   > **TL;DR**: Benchmarks sustained LLM inference performance on edge devices under thermal and power constraints. Evaluates Qwen 2.5 1.5B (4-bit quantized) across mobile and NPU/GPU platforms. Quantifies trade-offs: RTX 4050 sustains 131.7 tok/s at 34.1W; Hailo-10H achieves 6.9 tok/s at <2W with 19x energy proportionality.
