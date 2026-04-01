@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2171-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.03.27-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2184-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-01
+* `edge` `offline` `storage` [Storing Less, Finding More: How Novelty Filtering Improves Cross-Modal Retrieval on Edge Cameras](http://arxiv.org/abs/2603.29631v1)
+  > **TL;DR**: Proposes an on-device epsilon-net filter to retain semantically novel frames in edge camera streams, improving cross-modal retrieval accuracy while reducing storage. Achieves 45.6% Hit@5 using an 8M encoder at 2.7 mW, outperforming offline methods like k-means and uniform sampling.
+* `serving` `quantization` `kernel` [ITQ3_S: High-Fidelity 3-bit LLM Inference via Interleaved Ternary Quantization with Rotation-Domain Smoothing](http://arxiv.org/abs/2603.27914v2)
+  > **TL;DR**: Proposes ITQ3_S, a 3-bit weight quantization format with FWHT-based rotation-domain smoothing for efficient LLM inference. The method integrates weight pre-rotation, ternary quantization, and fused inverse FWHT in CUDA kernels, achieving FP16-competitive perplexity with 1.5x throughput over 4-bit baselines on Blackwell GPUs.
+* `serving` `networking` `storage` [1.5 Million Messages Per Second on 3 Machines: Benchmarking and Latency Optimization of Apache Pulsar at Enterprise Scale](http://arxiv.org/abs/2603.29113v1)
+  > **TL;DR**: Addresses high-latency issues in Apache Pulsar message queuing at enterprise scale. Optimizes hardware (NVMe, network) and JVM garbage collection (ZGC Generational) to resolve root causes like fdatasync spikes. Achieves 1.5M msg/s at 3.88 ms latency on 3 nodes, 4.7x improvement.
+* `serving` `offloading` `hardware` [Understand and Accelerate Memory Processing Pipeline for Disaggregated LLM Inference](http://arxiv.org/abs/2603.29002v1)
+  > **TL;DR**: Proposes a heterogeneous system to accelerate the memory processing pipeline in disaggregated LLM inference by offloading sparse/irregular operations to FPGAs and retaining compute-intensive tasks on GPUs. Achieves 1.04–2.2× speedup and 1.11–4.7× energy reduction compared to GPU baselines.
+* `serving` `quantization` `kernel` [GPU-Accelerated Optimization of Transformer-Based Neural Networks for Real-Time Inference](http://arxiv.org/abs/2603.28708v1)
+  > **TL;DR**: Proposes a GPU-accelerated inference pipeline using TensorRT with hybrid precision (FP16/FP32) for transformer models. Achieves up to 64.4x speedup over CPUs and sub-10ms latency while reducing memory usage by 63% and preserving numerical fidelity (>0.9998 cosine similarity).
+* `networking` `edge` [Trust-Aware Routing for Distributed Generative AI Inference at the Edge](http://arxiv.org/abs/2603.28622v1)
+  > **TL;DR**: Addresses robust distributed inference for generative AI at the edge with untrusted devices. Proposes G-TRAC, a trust-aware routing framework combining risk-bounded path selection with hybrid trust architecture. Achieves high inference completion rates and sub-millisecond median routing latency in heterogeneous environments.
+* `training` `federated` `memory` [FeDMRA: Federated Incremental Learning with Dynamic Memory Replay Allocation](http://arxiv.org/abs/2603.28455v1)
+  > **TL;DR**: Proposes federated class-incremental learning (FCIL) with dynamic memory replay allocation to mitigate catastrophic forgetting in non-IID distributed healthcare data. Introduces strategy balancing exemplar storage across clients based on data heterogeneity. Improves model accuracy by 12.7% over baselines on medical image datasets.
+* `edge` `serving` `scaling` [CarbonEdge: Carbon-Aware Deep Learning Inference Framework for Sustainable Edge Computing](http://arxiv.org/abs/2603.27420v1)
+  > **TL;DR**: Proposes CarbonEdge, a carbon-aware DL inference framework for edge computing, introducing a scheduling algorithm with carbon efficiency metrics and model partitioning. Achieves 22.9% lower emissions and 1.3x higher carbon efficiency (245.8 vs 189.5 inferences/g CO2) with minimal overhead.
+* `storage` `RL` [Efficiently Reproducing Distributed Workflows in Notebook-based Systems](http://arxiv.org/abs/2603.26965v1)
+  > **TL;DR**: Addresses reproducibility inefficiency in distributed workflow notebooks. Proposes NBRewind, a dual-kernel system with cell-level checkpointing and dataflow analysis. Achieves minimal overhead in checkpointing with portable cross-site reproducibility.
+* `hardware` `training` [Hardware-Agnostic and Insightful Efficiency Metrics for Accelerated Systems: Definition and Implementation within TALP](http://arxiv.org/abs/2603.26576v1)
+  > **TL;DR**: Proposes hardware-agnostic efficiency metrics for CPU-accelerator systems, extending POP metrics with separate host/device hierarchies. Implements in TALP monitoring library to quantify offloading, load balance, and orchestration inefficiencies. Validated on HPC applications providing actionable optimization insights.
+* `serving` `multi-modal` `scheduling` [Rocks, Pebbles and Sand: Modality-aware Scheduling for Multimodal Large Language Model Inference](http://arxiv.org/abs/2603.26498v1)
+  > **TL;DR**: Addresses high latency and resource monopolization in multimodal LLM inference due to heterogeneous workloads. Proposes RPS-Serve, a modality-aware scheduler that prioritizes requests based on resource demand (video/image/text) and applies aging. Reduces time-to-first-token by 54% overall and 78.5% for latency-critical requests.
+* `serving` `edge` `networking` [UNIFERENCE: A Discrete Event Simulation Framework for Developing Distributed AI Models](http://arxiv.org/abs/2603.26469v1)
+  > **TL;DR**: Proposes UNIFERENCE, a discrete-event simulation framework for developing and benchmarking distributed AI inference algorithms with heterogeneous devices. Integrates with PyTorch Distributed for seamless transition from simulation to deployment. Achieves 98.6% accuracy in runtime profiling across diverse hardware setups.
+* `hardware` `training` `networking` [A Lightweight High-Throughput Collective-Capable NoC for Large-Scale ML Accelerators](http://arxiv.org/abs/2603.26438v1)
+  > **TL;DR**: Proposes a collective-capable Network-on-Chip with Direct Compute Access for ML accelerators, enabling in-network reductions and multicast. Achieves 2.9x speedup in multicast, 2.5x in reduction operations, and up to 3.8x performance gain over baseline unicast NoC.
+
 ### 2026-03-27
 * `offline` `networking` `scaling` [SHADOW: Seamless Handoff And Zero-Downtime Orchestrated Workload Migration for Stateful Microservices](http://arxiv.org/abs/2603.25484v1)
   > **TL;DR**: Proposes SHADOW for zero-downtime migration of stateful microservices in Kubernetes. Uses ShadowPod with concurrent message replay and ExchangeFence for identity swap. Reduces service downtime from median 38.5s to zero and migration time by up to 77% in 280 runs.
