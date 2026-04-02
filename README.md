@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2184-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.01-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2190-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.02-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-02
+* `training` `MoE` `scaling` [Scalable Pretraining of Large Mixture of Experts Language Models on Aurora Super Computer](http://arxiv.org/abs/2604.00785v1)
+  > **TL;DR**: Proposes Optimus, a training library for large MoE models on Aurora supercomputer. Implements custom GPU kernels, EP-Aware sharded optimizer for up to 1.71x speedup, and scales to 12288 GPUs with 90% efficiency training 220B model.
+* `edge` `serving` [CarbonEdge: Carbon-Aware Deep Learning Inference Framework for Sustainable Edge Computing](http://arxiv.org/abs/2603.27420v2)
+  > **TL;DR**: Addresses carbon emissions in edge-based inference. Proposes CarbonEdge with carbon-aware scheduling that integrates emissions estimation and green scheduling via a tunable trade-off metric. Reduces emissions by 22.9% and improves carbon efficiency to 245.8 inferences per gram CO2 versus baseline.
+* `training` `scaling` `offline` [Reclaiming Idle CPU Cycles on Kubernetes: Sparse-Domain Multiplexing for Concurrent MPI-CFD Simulations](http://arxiv.org/abs/2604.00377v1)
+  > **TL;DR**: Presents a multiplexing framework to reclaim idle CPU during MPI synchronization barriers in Kubernetes clusters. Uses PMPI profiling and proportional CPU allocation for concurrent simulations, achieving up to 3.74x throughput with 4 concurrent jobs.
+* `serving` `networking` `disaggregation` [TENT: A Declarative Slice Spraying Engine for Performant and Resilient Data Movement in Disaggregated LLM Serving](http://arxiv.org/abs/2604.00368v1)
+  > **TL;DR**: Proposes TENT, a declarative data-movement engine for disaggregated LLM serving. Dynamically decomposes and sprays data slices across heterogeneous interconnects using telemetry. Achieves 1.36x higher throughput and 26% lower P90 TTFT in LLM inference compared to baselines.
+* `training` `networking` `MoE` [From Skew to Symmetry: Node-Interconnect Multi-Path Balancing with Execution-time Planning for Modern GPU Clusters](http://arxiv.org/abs/2604.00317v1)
+  > **TL;DR**: Proposes NIMBLE, a runtime communication system that dynamically balances traffic across intra-node and inter-node paths in GPU clusters for skewed communication patterns. It uses capacity-normalized min-congestion optimization and CUDA-aware RDMA pipelining. Achieves up to 5.2x higher throughput on All-to-Allv workloads and 1.35x improvement on LLM MoE training vs baselines.
+* `serving` `kernel` `offloading` [MAC-Attention: a Match-Amend-Complete Scheme for Fast and Accurate Attention Computation](http://arxiv.org/abs/2604.00235v1)
+  > **TL;DR**: Addresses the IO-bound challenge of long-context decoding in LLMs by proposing MAC-Attention, a computation reuse scheme with match-amend-complete stages. Reduces KV cache accesses by up to 99% and token latency by over 60% at 128K context, achieving up to 14.3x attention speedup.
+
 ### 2026-04-01
 * `edge` `offline` `storage` [Storing Less, Finding More: How Novelty Filtering Improves Cross-Modal Retrieval on Edge Cameras](http://arxiv.org/abs/2603.29631v1)
   > **TL;DR**: Proposes an on-device epsilon-net filter to retain semantically novel frames in edge camera streams, improving cross-modal retrieval accuracy while reducing storage. Achieves 45.6% Hit@5 using an 8M encoder at 2.7 mW, outperforming offline methods like k-means and uniform sampling.
