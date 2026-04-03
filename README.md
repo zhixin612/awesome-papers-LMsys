@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2190-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.02-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2196-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-03
+* `scaling` `offloading` [Intelligent Cloud Orchestration: A Hybrid Predictive and Heuristic Framework for Cost Optimization](http://arxiv.org/abs/2604.02131v1)
+  > **TL;DR**: Addresses cloud cost optimization under dynamic workloads with a hybrid framework. Combines LSTM-based predictive scaling and heuristic task allocation for efficient resource provisioning. Achieves reduced infrastructure costs near ML-based models while maintaining fast response times.
+* `MoE` `training` [FourierMoE: Fourier Mixture-of-Experts Adaptation of Large Language Models](http://arxiv.org/abs/2604.01762v1)
+  > **TL;DR**: Proposes FourierMoE, a spectral-domain MoE adaptation method with frequency-adaptive routing and complex coefficients to combat task interference and representational deficiency in multi-task LLM fine-tuning. Achieves superior performance over baselines on 28 benchmarks with fewer parameters.
+* `MoE` `offloading` `serving` [DWDP: Distributed Weight Data Parallelism for High-Performance LLM Inference on NVL72](http://arxiv.org/abs/2604.01621v1)
+  > **TL;DR**: Reduces synchronization overhead in MoE model inference. Proposes Distributed Weight Data Parallelism (DWDP) with expert weight offloading and prefetching on peer GPUs. Improves end-to-end output TPS/GPU by 8.8% for DeepSeek-R1 on GB200 NVL72 at 8K input, 1K output.
+* `training` [ModTrans: Translating Real-world Models for Distributed Training Simulator](http://arxiv.org/abs/2604.01607v1)
+  > **TL;DR**: Addresses the challenge of importing real-world models into distributed training simulators. Proposes ModTrans, a translator that converts any real-world model format to ASTRA-sim input. Achieves negligible translation cost.
+* `kernel` `training` `agentic` [CuTeGen: An LLM-Based Agentic Framework for Generation and Optimization of High-Performance GPU Kernels using CuTe](http://arxiv.org/abs/2604.01489v1)
+  > **TL;DR**: Presents CuTeGen, an agentic framework for auto-generation of optimized GPU kernels using CuTe abstraction. Employs structured generate-test-refine workflow with execution validation and staged optimization. Achieves competitive performance with optimized libraries on matrix multiplication and activation workloads.
+* `storage` `hardware` `networking` [DAXFS: A Lock-Free Shared Filesystem for CXL Disaggregated Memory](http://arxiv.org/abs/2604.01620v1)
+  > **TL;DR**: Presents DAXFS, a lock-free shared filesystem for CXL memory enabling multi-host coordination via cmpxchg atomic operations without centralized control. Features include a CAS-based hash overlay for concurrent writes and a decentralized MH-clock eviction algorithm. Achieves up to 2.68x higher random write throughput compared to tmpfs under single-host DRAM-backed DAX.
+
 ### 2026-04-02
 * `training` `MoE` `scaling` [Scalable Pretraining of Large Mixture of Experts Language Models on Aurora Super Computer](http://arxiv.org/abs/2604.00785v1)
   > **TL;DR**: Proposes Optimus, a training library for large MoE models on Aurora supercomputer. Implements custom GPU kernels, EP-Aware sharded optimizer for up to 1.71x speedup, and scales to 12288 GPUs with 90% efficiency training 220B model.
