@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2196-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2200-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-06
+* `serving` `offloading` `storage` [TokenDance: Scaling Multi-Agent LLM Serving via Collective KV Cache Sharing](http://arxiv.org/abs/2604.03143v1)
+  > **TL;DR**: Addresses KV cache redundancy in multi-agent LLM serving with synchronized rounds. Proposes TokenDance, which enables collective KV cache sharing via diff-aware storage and a KV Collector. Achieves 17.5x KV cache storage reduction and 2.7x more concurrent agents than vLLM with SLO compliance.
+* `multi-modal` `offloading` `edge` [MSAO: Adaptive Modality Sparsity-Aware Offloading with Edge-Cloud Collaboration for Efficient Multimodal LLM Inference](http://arxiv.org/abs/2604.02945v1)
+  > **TL;DR**: Proposes MSAO, an edge-cloud collaborative framework for MLLM inference that uses modality sparsity-aware offloading and speculative execution. Achieves 30% latency reduction, 30-65% resource savings, and 1.5x-2.3x throughput gains.
+* `networking` `serving` `quantization` [Analyzing Reverse Address Translation Overheads in Multi-GPU Scale-Up Pods](http://arxiv.org/abs/2604.02473v1)
+  > **TL;DR**: Investigates performance impact of Reverse Address Translation on multi-GPU collective communication. Models Link MMUs/TLBs in simulators to show 1.4x degradation for small collectives. Proposes fused pre-translation kernels and TLB prefetching to hide latency for inference throughput.
+* `storage` `offloading` `hardware` [WIO: Upload-Enabled Computational Storage on CXL SSDs](http://arxiv.org/abs/2604.02442v1)
+  > **TL;DR**: Proposes reversible storage-side compute with migratable actors on CXL SSDs to address I/O bottlenecks. Implements agility-aware scheduler for dynamic computation offloading across thermal/power constraints. Achieves up to 2× throughput improvement and 3.75× write latency reduction.
+
 ### 2026-04-03
 * `scaling` `offloading` [Intelligent Cloud Orchestration: A Hybrid Predictive and Heuristic Framework for Cost Optimization](http://arxiv.org/abs/2604.02131v1)
   > **TL;DR**: Addresses cloud cost optimization under dynamic workloads with a hybrid framework. Combines LSTM-based predictive scaling and heuristic task allocation for efficient resource provisioning. Achieves reduced infrastructure costs near ML-based models while maintaining fast response times.
