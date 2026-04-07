@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2200-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2208-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.07-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-07
+* `serving` `hardware` `scaling` [DeepStack: Scalable and Accurate Design Space Exploration for Distributed 3D-Stacked AI Accelerators](http://arxiv.org/abs/2604.04750v1)
+  > **TL;DR**: Proposes DeepStack, a hardware-system co-design tool for distributed 3D-stacked LLM inference accelerators. Features fine-grained 3D memory modeling, parallelization strategies, and hierarchical search for cross-stack optimization. Achieves 9.5x higher throughput through co-optimized parallelism and architecture search.
+* `training` `energy` `scaling` [The Energy Cost of Execution-Idle in GPU Clusters](http://arxiv.org/abs/2604.04745v1)
+  > **TL;DR**: Characterizes the execution-idle state in GPU clusters as a high-power low-activity phase. Proposes automatic downscaling and load imbalance strategies to mitigate energy waste. Reduces execution-idle energy by 19.7% of in-execution time and 10.7% total energy.
+* `training` `scaling` [Sampling Parallelism for Fast and Efficient Bayesian Learning](http://arxiv.org/abs/2604.04736v1)
+  > **TL;DR**: Proposes sampling parallelism for Bayesian neural networks to reduce training time and memory consumption. Distributes sample evaluations across multiple GPUs, complementary to data parallelism. Achieves near-perfect scaling when sample count scales proportionally to GPUs, reducing convergence epochs via augmentation diversity.
+* `serving` `offloading` `networking` [Communication-Efficient Collaborative LLM Inference over LEO Satellite Networks](http://arxiv.org/abs/2604.04654v1)
+  > **TL;DR**: Proposes a communication-efficient collaborative LLM inference scheme for LEO satellite networks by splitting models across satellites and overlapping inference with transmission. Achieves up to 42% lower inference delay and 71% reduced communication overhead while maintaining accuracy loss under 1%.
+* `kernel` `inference` `quantization` [LP-GEMM: Integrating Layout Propagation into GEMM Operations](http://arxiv.org/abs/2604.04599v1)
+  > **TL;DR**: Proposes LP-GEMM, a method to eliminate redundant data repacking in sequential GEMM operations by propagating layouts across kernels. Integrates layout propagation into GEMM decomposition. Shows 2.25x speedup over OpenBLAS on x86 for sequential GEMMs in ML workloads.
+* `video` `serving` `scaling` [GENSERVE: Efficient Co-Serving of Heterogeneous Diffusion Model Workloads](http://arxiv.org/abs/2604.04335v1)
+  > **TL;DR**: Addresses co-serving latency SLO violations for heterogeneous diffusion model workloads (text-to-image and text-to-video). Proposes step-level resource adaptation with preemption, elastic parallelism, and SLO-aware scheduling. Achieves up to 44% higher SLO attainment than baselines.
+* `scaling` `training` `kernel` [Minos: Systematically Classifying Performance and Power Characteristics of GPU Workloads on HPC Clusters](http://arxiv.org/abs/2604.03591v1)
+  > **TL;DR**: Proposes Minos, a low-cost profiling method to classify GPU workloads on HPC clusters by power and performance characteristics. Groups workloads into classes to reduce profiling overhead and enable optimization. Achieves 89% reduction in profiling time and less than 4% error in power/performance predictions.
+* `serving` `inference` `offloading` [AEGIS: Scaling Long-Sequence Homomorphic Encrypted Transformer Inference via Hybrid Parallelism on Multi-GPU Systems](http://arxiv.org/abs/2604.03425v1)
+  > **TL;DR**: Addresses the challenge of scaling long-sequence encrypted Transformer inference on multi-GPU systems. Proposes AEGIS, which co-designs device placement for token-coherent and modulus-coherent data to minimize communication and overlaps collectives with computation. Achieves 57.9-81.3% comm reduction and 3.86x speedup on 4 GPUs.
+
 ### 2026-04-06
 * `serving` `offloading` `storage` [TokenDance: Scaling Multi-Agent LLM Serving via Collective KV Cache Sharing](http://arxiv.org/abs/2604.03143v1)
   > **TL;DR**: Addresses KV cache redundancy in multi-agent LLM serving with synchronized rounds. Proposes TokenDance, which enables collective KV cache sharing via diff-aware storage and a KV Collector. Achieves 17.5x KV cache storage reduction and 2.7x more concurrent agents than vLLM with SLO compliance.
