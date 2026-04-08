@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2208-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.07-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2209-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.08-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-08
+* `training` `offloading` [MegaTrain: Full Precision Training of 100B+ Parameter Large Language Models on a Single GPU](http://arxiv.org/abs/2604.05091v1)
+  > **TL;DR**: Presents MegaTrain, a system using CPU memory for storing parameters and optimizer states, with GPUs as transient compute engines. Uses pipelined double-buffered execution and stateless layer templates to overcome CPU-GPU bandwidth limits. Achieves 1.84× training throughput over DeepSpeed ZeRO-3 for 14B models.
+
 ### 2026-04-07
 * `serving` `hardware` `scaling` [DeepStack: Scalable and Accurate Design Space Exploration for Distributed 3D-Stacked AI Accelerators](http://arxiv.org/abs/2604.04750v1)
   > **TL;DR**: Proposes DeepStack, a hardware-system co-design tool for distributed 3D-stacked LLM inference accelerators. Features fine-grained 3D memory modeling, parallelization strategies, and hierarchical search for cross-stack optimization. Achieves 9.5x higher throughput through co-optimized parallelism and architecture search.
