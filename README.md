@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2209-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2214-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.04.08-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-08
+* `training` `hardware` `scaling` [Fine-Grained Power and Energy Attribution on AMD GPU/APU-Based Exascale Nodes](http://arxiv.org/abs/2604.06056v1)
+  > **TL;DR**: Addresses power and energy attribution challenges in large-scale GPU/APU systems for HPC workloads. Proposes a methodology using controlled workloads to reconstruct power from energy counters and validate sensors. Achieves significant energy savings (up to 79% reduction) via mixed precision optimizations on exascale nodes.
+* `video` `multi-modal` `serving` [CoStream: Codec-Guided Resource-Efficient System for Video Streaming Analytics](http://arxiv.org/abs/2604.06036v1)
+  > **TL;DR**: Reduces cost of video streaming analytics with multimodal inference. Uses video codec metadata to guide patch pruning for ViT encoding and key-value cache refresh for LLM prefilling, operating on compressed streams. Achieves up to 3x throughput improvement and 87% GPU compute reduction.
+* `training` `kernel` `scaling` [GTaP: A GPU-Resident Fork-Join Task-Parallel Runtime with a Pragma-Based Interface](http://arxiv.org/abs/2604.05982v1)
+  > **TL;DR**: Proposes GTaP, a GPU-resident runtime for fork-join task parallelism using persistent kernels and state machines. Introduces Execution-Path-Aware Queueing to reduce warp divergence. Achieves up to 1.8× speedup on Fibonacci vs. naive GPU alternatives and outperforms a 72-core CPU in many cases.
+* `training` `LoRA` `scaling` [ALTO: Adaptive LoRA Tuning and Orchestration for Heterogeneous LoRA Training Workloads](http://arxiv.org/abs/2604.05426v1)
+  > **TL;DR**: Addresses inefficiency in concurrent LoRA hyperparameter tuning for LLM fine-tuning. Proposes ALTO, a system for early termination, co-location via fused grouped GEMM and rank-local adapter parallelism, and inter-task scheduling. Achieves up to 13.8× speedup over prior systems.
+* `training` `scaling` `hardware` [Minos: Systematically Classifying Performance and Power Characteristics of GPU Workloads on HPC Clusters](http://arxiv.org/abs/2604.03591v2)
+  > **TL;DR**: Proposes Minos, a systematic approach to classify GPU workloads for power and performance optimization in HPC clusters. Uses low-cost profiling to group workloads and predict frequency capping behavior. Reduces profiling time by 89% and achieves 4% mean power prediction error.
+
 ### 2026-04-08
 * `training` `offloading` [MegaTrain: Full Precision Training of 100B+ Parameter Large Language Models on a Single GPU](http://arxiv.org/abs/2604.05091v1)
   > **TL;DR**: Presents MegaTrain, a system using CPU memory for storing parameters and optimizer states, with GPUs as transient compute engines. Uses pipelined double-buffered execution and stateless layer templates to overcome CPU-GPU bandwidth limits. Achieves 1.84× training throughput over DeepSpeed ZeRO-3 for 14B models.
