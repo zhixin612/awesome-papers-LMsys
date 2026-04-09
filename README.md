@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2227-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2229-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.04.09-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-09
+* `training` `inference` `storage` [Measurement of Generative AI Workload Power Profiles for Whole-Facility Data Center Infrastructure Planning](http://arxiv.org/abs/2604.07345v1)
+  > **TL;DR**: Presents high-resolution power measurement methodology for generative AI workloads. Links workload power profiles to whole-facility energy demand using bottom-up event-driven modeling. Enables reproducible power profiling at 0.1s resolution across training, fine-tuning, and inference jobs.
+* `inference` `distributed` `kernel` [Making Room for AI: Multi-GPU Molecular Dynamics with Deep Potentials in GROMACS](http://arxiv.org/abs/2604.07276v1)
+  > **TL;DR**: Investigates efficient multi-GPU molecular dynamics simulation with AI-driven potentials. Extends GROMACS with domain-decomposed DeepMD-kit integration for concurrent inference across nodes using MPI collectives. Achieves strong-scaling efficiency of 66% on 16 GPUs and 40% on 32 GPUs.
+
 ### 2026-04-09
 * `serving` `offloading` `LoRA` [InfiniLoRA: Disaggregated Multi-LoRA Serving for Large Language Models](http://arxiv.org/abs/2604.07173v1)
   > **TL;DR**: Proposes InfiniLoRA, a disaggregated system to decouple LoRA execution from base-model inference, reducing memory cost and latency. Uses shared LoRA Server with parallelism, SLO-driven provisioning, and optimized kernels. Achieves 3.05x higher serviceable request rate under SLOs.
