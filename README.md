@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2214-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.08-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2227-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.09-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-09
+* `serving` `offloading` `LoRA` [InfiniLoRA: Disaggregated Multi-LoRA Serving for Large Language Models](http://arxiv.org/abs/2604.07173v1)
+  > **TL;DR**: Proposes InfiniLoRA, a disaggregated system to decouple LoRA execution from base-model inference, reducing memory cost and latency. Uses shared LoRA Server with parallelism, SLO-driven provisioning, and optimized kernels. Achieves 3.05x higher serviceable request rate under SLOs.
+* `serving` `scaling` [Autopoiesis: A Self-Evolving System Paradigm for LLM Serving Under Runtime Dynamics](http://arxiv.org/abs/2604.07144v1)
+  > **TL;DR**: Addresses runtime dynamics in LLM serving via online self-evolving policies. Introduces Autopoiesis, an LLM-driven workflow for continuous policy synthesis that observes real-time conditions and rewrites code. Achieves up to 53% higher throughput over state-of-the-art systems.
+* `serving` `scaling` [Scheduling the Unschedulable: Taming Black-Box LLM Inference at Scale](http://arxiv.org/abs/2604.06970v1)
+  > **TL;DR**: Addresses client-side scheduling for black-box LLM inference with unpredictable output token counts. Proposes a three-layer architecture with allocation, ordering, and overload control, utilizing coarse token priors. Achieves 100% deadline satisfaction and goodput of 4.2±1.6 requests/s with short P95 latency within tens of ms.
+* `training` `scaling` `sparse` [NestPipe: Large-Scale Recommendation Training on 1,500+ Accelerators via Nested Pipelining](http://arxiv.org/abs/2604.06956v1)
+  > **TL;DR**: Addresses communication bottlenecks in training large recommendation models on 1,500+ accelerators. Proposes NestPipe with dual-buffer and frozen-window pipelining to overlap data movement with dense computation without staleness. Achieves 3.06x speedup and 94.07% scaling efficiency on 1,536 workers.
+* `offline` `edge` `training` [Beyond End-to-End: Dynamic Chain Optimization for Private LLM Adaptation on the Edge](http://arxiv.org/abs/2604.06819v1)
+  > **TL;DR**: Addresses memory constraints for federated fine-tuning of LLMs on edge devices. Proposes ChainFed, a sequential layer-by-layer optimization with dynamic co-tuning and global perceptive updates. Achieves up to 46.46% higher accuracy compared to existing methods.
+* `video` `serving` `multi-modal` [CodecFlow: Codec-Guided End-to-End Optimization for Streaming Video Analytics](http://arxiv.org/abs/2604.06036v2)
+  > **TL;DR**: Optimizes end-to-end streaming video analytics with VLMs using codec metadata to guide patch pruning in vision encoding and selective KV cache refresh in LLM prefilling. Achieves up to 3x throughput improvement and 87% GPU compute reduction with only 0-8% accuracy drop.
+* `offloading` `storage` `serving` [Nexus: Transparent I/O Offloading for High-Density Serverless Computing](http://arxiv.org/abs/2604.06682v1)
+  > **TL;DR**: Proposes Nexus, a hypervisor that transparently offloads I/O processing from guest VMs to a shared backend via zero-copy memory. This reduces CPU and memory overhead, enabling asynchronous I/O optimizations like pre-fetching. Achieves 44% lower CPU, 31% less memory consumption, and 37% higher density.
+* `hardware` `storage` `scaling` [SwarmIO: Towards 100 Million IOPS SSD Emulation for Next-generation GPU-centric Storage Systems](http://arxiv.org/abs/2604.06668v1)
+  > **TL;DR**: Proposes SwarmIO, an SSD emulator for GPU-centric storage systems, optimizing for ultra-high IOPS (up to 40 MIOPS). Solves scalability challenges with efficient frontend ingestion and reduced software overhead. Achieves 303.9x speedup over baselines and end-to-end speedups up to 9.7x in case studies.
+* `serving` `kernel` `offline` [Foundry: Template-Based CUDA Graph Context Materialization for Fast LLM Serving Cold Start](http://arxiv.org/abs/2604.06664v1)
+  > **TL;DR**: Addresses slow cold-start in LLM serving autoscaling due to CUDA graph capture latency. Proposes Foundry, a template-based system that persists graph topology and execution context offline. Reduces cold-start for Qwen3-235B-A22B from 10 minutes to 3.9 seconds (99%).
+* `kernel` `quantization` `sparse` [Sparsity-Aware Roofline Models for Sparse Matrix-Matrix Multiplication](http://arxiv.org/abs/2604.06637v1)
+  > **TL;DR**: Evaluates roofline modeling for sparse matrix-matrix multiplication (SpMM) to improve performance prediction. Proposes sparsity-aware models accounting for structure, locality, and traffic. Achieves more accurate performance analysis for SpMM kernels across diverse matrices.
+* `serving` `LoRA` `offloading` [ForkKV: Scaling Multi-LoRA Agent Serving via Copy-on-Write Disaggregated KV Cache](http://arxiv.org/abs/2604.06370v1)
+  > **TL;DR**: Addresses inefficient KV cache usage in multi-LoRA agent serving when sharing contexts. Proposes ForkKV with CoW-disaggregated KV cache management via DualRadixTree and ResidualAttention kernel. Achieves 3.0x throughput over SOTA systems with negligible quality loss.
+* `serving` `scaling` [Scheduling the Unschedulable: Taming Black-Box LLM Inference at Scale](http://arxiv.org/abs/2604.06970v1)
+  > **TL;DR**: Investigates client-side scheduling for black-box LLM inference with output token prediction. Proposes a three-layer decomposition: allocation, ordering, and overload control. Achieves 100% deadline satisfaction under congestion with short P95 latency within tens of milliseconds of isolated tiers.
+* `offloading` `storage` `networking` [Nexus: Transparent I/O Offloading for High-Density Serverless Computing](http://arxiv.org/abs/2604.06682v1)
+  > **TL;DR**: Addresses I/O overhead in serverless computing by transparently offloading communication fabric to a shared host backend. Proposes Nexus, a KVM-based hypervisor using shared memory and prefetching. Reduces CPU by 44%, memory by 31%, and improves start latency by 39-10%.
+
 ### 2026-04-08
 * `training` `hardware` `scaling` [Fine-Grained Power and Energy Attribution on AMD GPU/APU-Based Exascale Nodes](http://arxiv.org/abs/2604.06056v1)
   > **TL;DR**: Addresses power and energy attribution challenges in large-scale GPU/APU systems for HPC workloads. Proposes a methodology using controlled workloads to reconstruct power from energy counters and validate sensors. Achieves significant energy savings (up to 79% reduction) via mixed precision optimizations on exascale nodes.
