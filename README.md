@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2229-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.09-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2242-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-10
+* `offloading` `serving` [Taming GPU Underutilization via Static Partitioning and Fine-grained CPU Offloading](http://arxiv.org/abs/2604.08451v1)
+  > **TL;DR**: Addresses GPU underutilization due to imbalanced resource demands in scientific and AI workloads. Proposes memory-offloading via Nvlink-C2C to complement static GPU partitioning (MIG), reducing interference. Achieves up to 40% higher throughput and 25% energy savings compared to MIG alone.
+* `networking` `scaling` `RL` [NL-CPS: Reinforcement Learning-Based Kubernetes Control Plane Placement in Multi-Region Clusters](http://arxiv.org/abs/2604.08434v1)
+  > **TL;DR**: Proposes a reinforcement learning framework for Kubernetes control-plane placement in multi-region clusters. Uses neural contextual bandits to learn optimal placement policies based on infrastructure characteristics. Achieves substantial performance improvements over baseline approaches in geographically distributed experiments.
+* `serving` `hardware` `networking` [DeepStack: Scalable and Accurate Design Space Exploration for Distributed 3D-Stacked AI Accelerators](http://arxiv.org/abs/2604.04750v2)
+  > **TL;DR**: Proposes DeepStack, a performance modeling tool for system-hardware co-design of distributed 3D-stacked accelerators for LLM inference. Incorporates fine-grained 3D memory modeling and parallelization strategies. Achieves 100,000x faster runtime versus simulators and 9.5x higher throughput.
+* `diffusion` `serving` `scaling` [LegoDiffusion: Micro-Serving Text-to-Image Diffusion Workflows](http://arxiv.org/abs/2604.08123v1)
+  > **TL;DR**: Proposes LegoDiffusion for decomposing text-to-image diffusion workflows into independently managed model nodes. Enables per-model scaling, sharing, and adaptive parallelism. Achieves up to 3x higher sustained request rates and 8x better burst tolerance compared to monolithic systems.
+* `serving` `multi-modal` `RAG` [CodecSight: Leveraging Video Codec Signals for Efficient Streaming VLM Inference](http://arxiv.org/abs/2604.06036v3)
+  > **TL;DR**: Proposes CodecSight, a video streaming analytics system that leverages video codec metadata to optimize VLM inference. The system performs codec-guided patch pruning before ViT encoding and selective KV cache refresh during LLM prefilling, reducing GPU compute by up to 87% with minimal accuracy drop.
+* `agentic` `RL` `storage` [LogAct: Enabling Agentic Reliability via Shared Logs](http://arxiv.org/abs/2604.07988v1)
+  > **TL;DR**: Proposes LogAct, a shared log abstraction for reliable LLM agents, enabling action visibility, voter-based pre-execution blocking, and self-recovery via execution history analysis. Achieves efficient recovery, self-debugging, and stops all unwanted actions with only 3% drop in benign utility.
+* `edge` `RL` `serving` [Administrative Decentralization in Edge-Cloud Multi-Agent for Mobile Automation](http://arxiv.org/abs/2604.07767v1)
+  > **TL;DR**: Proposes AdecPilot, a decentralized edge-cloud multi-agent framework for mobile automation, enabling autonomous tactical planning at the edge. Reduces cloud token consumption by 37.5% and end-to-end latency by 88.9% compared to baselines.
+* `serving` `edge` `hardware` [Reduced-Mass Orbital AI Inference via Integrated Solar, Compute, and Radiator Panels](http://arxiv.org/abs/2604.07760v1)
+  > **TL;DR**: Proposes a solar-integrated satellite array architecture for efficient orbital LLM inference. Co-locates solar cells, radiators, and compute in panels to achieve high power efficiency and cooling. Supports 500k-token context at 553 tokens/sec per session, scaling to 16 MW compute.
+* `serving` `offloading` `hardware` [Blink: CPU-Free LLM Inference by Delegating the Serving Stack to GPU and SmartNIC](http://arxiv.org/abs/2604.07609v1)
+  > **TL;DR**: Proposes Blink, a CPU-free LLM inference architecture that offloads serving stack to GPU and SmartNIC. Uses persistent GPU kernel for batching/scheduling and SmartNIC for input delivery via RDMA. Achieves up to 8.47× lower P99 TTFT and 48.6% energy reduction.
+* `serving` `diffusion` `scaling` [GENSERVE: Efficient Co-Serving of Heterogeneous Diffusion Model Workloads](http://arxiv.org/abs/2604.04335v2)
+  > **TL;DR**: Addresses efficient co-serving of heterogeneous diffusion model workloads (T2I and T2V). Proposes GENSERVE with step-level resource adaptation via video preemption, elastic parallelism, and SLO-aware scheduling. Improves SLO attainment rate by up to 44% over baselines.
+* `serving` `offloading` `quantization` [Valve: Production Online-Offline Inference Colocation with Jointly-Bounded Preemption Latency and Rate](http://arxiv.org/abs/2604.07874v1)
+  > **TL;DR**: Addresses resource underutilization in LLM inference clusters via online-offline colocation. Proposes Valve, a GPU runtime with channel-controlled compute isolation and page-fault-free memory reclamation to bound preemption latency/rate. Achieves 34.6% utilization gain with <5% TTFT/2% TPOT increase.
+* `scheduling` `training` `scaling` [Qurator: Scheduling Hybrid Quantum-Classical Workflows Across Heterogeneous Cloud Providers](http://arxiv.org/abs/2604.05505v2)
+  > **TL;DR**: Proposes Qurator, a scheduler for hybrid quantum-classical workflows that jointly minimizes queue time and maximizes fidelity. Uses dynamic DAGs with quantum semantics and unified fidelity estimation. Reduces queue time by 30-75% at high load while maintaining fidelity within user-specified bounds.
+* `serving` `offloading` `kernel` [Blink: CPU-Free LLM Inference by Delegating the Serving Stack to GPU and SmartNIC](http://arxiv.org/abs/2604.07609v1)
+  > **TL;DR**: Addresses CPU interference in LLM inference by offloading orchestration to GPU and SmartNIC. Proposes Blink, a CPU-free architecture using persistent GPU kernels and SmartNIC for direct RDMA input. Reduces P99 TTFT by 8.47× and TPOT by 3.40× while improving throughput by 2.1×.
+
 ### 2026-04-09
 * `training` `inference` `storage` [Measurement of Generative AI Workload Power Profiles for Whole-Facility Data Center Infrastructure Planning](http://arxiv.org/abs/2604.07345v1)
   > **TL;DR**: Presents high-resolution power measurement methodology for generative AI workloads. Links workload power profiles to whole-facility energy demand using bottom-up event-driven modeling. Enables reproducible power profiling at 0.1s resolution across training, fine-tuning, and inference jobs.
