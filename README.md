@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2242-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2250-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.13-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-13
+* `training` `scaling` `quantization` [Sustaining Exascale Performance: Lessons from HPL and HPL-MxP on Aurora](http://arxiv.org/abs/2604.09517v1)
+  > **TL;DR**: Explores sustaining exascale performance for HPL and mixed-precision HPL-MxP on Aurora. Proposes locality-aware mapping, CPU-GPU pipelining, and mixed-precision orchestration with hybrid resilience. Achieves 1.01 EF/s FP64 and 11.64 EF/s HPL-MxP (11.5× speedup).
+* `training` `RL` `offloading` [TensorHub: Scalable and Elastic Weight Transfer for LLM RL Training](http://arxiv.org/abs/2604.09107v1)
+  > **TL;DR**: Proposes TensorHub, a weight transfer system for LLM RL training, using Reference-Oriented Storage that avoids physical copies and leverages GPU-resident weights. Reduces GPU stall time by up to 6.7x and accelerates weight updates by 4.8x.
+* `edge` `quantization` `kernel` [EdgeFlow: Fast Cold Starts for LLMs on Mobile Devices](http://arxiv.org/abs/2604.09083v1)
+  > **TL;DR**: Addresses high cold-start latency in mobile LLM inference due to wasted flash bandwidth. Proposes EdgeFlow with NPU-aware adaptive quantization, SIMD-friendly packing, and fine-grained CPU-NPU pipelining. Reduces cold-start latency by up to 4.07x compared to state-of-the-art frameworks.
+* `training` `offline` `LoRA` [ALTO: Adaptive LoRA Tuning and Orchestration for Heterogeneous LoRA Training Workloads](http://arxiv.org/abs/2604.05426v2)
+  > **TL;DR**: Improves efficiency of hyperparameter tuning for multiple LoRA jobs. Proposes early termination of weak configurations, fused GEMM with rank-local parallelism, and intra-/inter-task scheduling. Achieves up to 13.8× speedup over SOTA.
+* `serving` `offline` `hardware` [Watt Counts: Energy-Aware Benchmark for Sustainable LLM Inference on Heterogeneous GPU Architectures](http://arxiv.org/abs/2604.09048v1)
+  > **TL;DR**: Analyzes energy-efficient LLM inference on heterogeneous GPUs. Proposes Watt Counts, an open-access energy consumption dataset and benchmark for 50 LLMs across 10 GPUs. Achieves up to 70% energy reduction in server scenarios and up to 20% in batch scenarios.
+* `training` `hardware` `quantization` [Fine-Grained Power and Energy Attribution on AMD GPU/APU-Based Exascale Nodes](http://arxiv.org/abs/2604.06056v2)
+  > **TL;DR**: Proposes a fine-grained power and energy attribution methodology for AMD GPU/APU systems to optimize exascale workloads. Uses reconstructored power estimation from cumulative energy counters with sensor validation. Achieves 31-79% node energy reduction via mixed-precision training.
+* `storage` `RAG` [Decoupling Vector Data and Index Storage for Space Efficiency](http://arxiv.org/abs/2604.09173v1)
+  > **TL;DR**: Proposes DecoupleVS, a framework decoupling vector data and index metadata storage to reduce overhead in ANNS systems. Implements specialized optimizations for compression, data layouts, queries, and updates. Achieves up to 58.7% storage space reduction while maintaining competitive search performance.
+* `edge` `quantization` `kernel` [EdgeFlow: Fast Cold Starts for LLMs on Mobile Devices](http://arxiv.org/abs/2604.09083v1)
+  > **TL;DR**: Addresses high cold-start latency for LLM inference on mobile devices. Proposes EdgeFlow with adaptive quantization, SIMD-friendly packing, and fine-grained CPU-NPU pipelining. Reduces cold-start latency by up to 4.07x compared to llama.cpp, MNN, and llm.npu.
+
 ### 2026-04-10
 * `offloading` `serving` [Taming GPU Underutilization via Static Partitioning and Fine-grained CPU Offloading](http://arxiv.org/abs/2604.08451v1)
   > **TL;DR**: Addresses GPU underutilization due to imbalanced resource demands in scientific and AI workloads. Proposes memory-offloading via Nvlink-C2C to complement static GPU partitioning (MIG), reducing interference. Achieves up to 40% higher throughput and 25% energy savings compared to MIG alone.
