@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2250-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.13-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2262-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.14-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-14
+* `scaling` `training` `RL` [NimbusGuard: A Novel Framework for Proactive Kubernetes Autoscaling Using Deep Q-Networks](http://arxiv.org/abs/2604.11017v1)
+  > **TL;DR**: Proposes NimbusGuard, a Kubernetes autoscaling framework using deep Q-networks and LSTM for workload forecasting. Achieves better performance and cost efficiency compared to traditional reactive autoscalers like HPA and KEDA.
+* `serving` `multi-modal` `scaling` [RouterWise: Joint Resource Allocation and Routing for Latency-Aware Multi-Model LLM Serving](http://arxiv.org/abs/2604.10907v1)
+  > **TL;DR**: Proposes RouterWise for joint resource allocation and routing in multi-model LLM serving to maximize output quality under latency SLOs. Uses system profiling and dual-price formulation to optimize deployment setups and routing fractions. Achieves up to 87% higher output quality by co-optimizing resource allocation.
+* `serving` `training` `offline` [Workload composition smooths aggregate power demand while sustaining short-horizon ramps in AI data centers](http://arxiv.org/abs/2604.10769v1)
+  > **TL;DR**: Explores how batch and inference workload composition affects AI data center power variability and ramping. Uses a trace-calibrated framework simulating workload arrivals, queueing, scheduling, and GPU power dynamics. Reveals U-shaped variability and hump-shaped ramping trends as inference share rises, impacting grid stability.
+* `serving` `networking` `scaling` [Bipartite matching under communication constraints](http://arxiv.org/abs/2604.10744v1)
+  > **TL;DR**: Investigates scheduling in data centers with local information constraints. Proposes probabilistic bipartite matching algorithms using degree-biased sampling and random thinning. Simulations show significant stability region extension in packet-level tests with production traffic.
+* `storage` `networking` [CIR: Lightweight Container Image for Cross-Platform Deployment](http://arxiv.org/abs/2604.10411v1)
+  > **TL;DR**: Proposes CIR, a lightweight container intermediate representation format that avoids platform-specific builds by deferring dependency assembly to deployment. Uses lazy-builders for on-demand dependency resolution, reducing image size by 95% and deployment time by 40-60%.
+* `networking` `serving` [Verifying In-Network Computing Systems for Design Risks](http://arxiv.org/abs/2604.10186v1)
+  > **TL;DR**: Proposes INCGuard for verifying correctness in in-network computing systems. Uses model checking with state transition representations and network exception simulations. Identifies risks in 7 systems within seconds with 67.2% code reduction for specs.
+* `disaggregation` `serving` `kernel` [Tessera: Unlocking Heterogeneous GPUs through Kernel-Granularity Disaggregation](http://arxiv.org/abs/2604.10180v1)
+  > **TL;DR**: Proposes Tessera, a kernel-granularity disaggregation system for heterogeneous GPU inference. It uses offline dependency extraction from PTX and online pipelined execution with workload-aware scheduling. Achieves up to 2.3x higher throughput and 1.6x better cost efficiency versus prior methods on diverse models and GPUs.
+* `inference` `offloading` `kernel` [A-IO: Adaptive Inference Orchestration for Memory-Bound NPUs](http://arxiv.org/abs/2604.09752v1)
+  > **TL;DR**: Addresses memory-bound challenges in LLM decoding on NPUs by proposing Adaptive Inference Orchestration (A-IO). Dynamically adapts model configurations and optimizes kernel synchronization to mitigate bottlenecks. Achieves up to 2.6× higher throughput compared to static deployments.
+* `serving` `sparse` `quantization` [SMART: When is it Actually Worth Expanding a Speculative Tree?](http://arxiv.org/abs/2604.09731v1)
+  > **TL;DR**: Addresses the efficiency paradox in tree-based speculative decoding. Proposes SMART, a hardware-aware framework that optimizes tree expansion for end-to-end speedup using marginal benefit–cost analysis. Achieves up to 20.0% average speedup for MLLMs and 15.4% for LLMs without performance loss.
+* `serving` `disaggregation` `edge` [ConfigSpec: Profiling-Based Configuration Selection for Distributed Edge--Cloud Speculative LLM Serving](http://arxiv.org/abs/2604.09722v1)
+  > **TL;DR**: Proposes ConfigSpec, a profiling-based framework for optimal configuration selection in distributed edge-cloud speculative LLM serving. It models drafting throughput, acceptance rate, and power to evaluate goodput, verification cost, and energy efficiency across draft models, quantization, and K lengths. Analysis shows conflicting optima: K=2 minimizes cost and energy, while device-dependent K (2-10) maximizes goodput.
+* `serving` `agentic` `offline` [Agentic Compilation: Mitigating the LLM Rerun Crisis for Minimized-Inference-Cost Web Automation](http://arxiv.org/abs/2604.09718v1)
+  > **TL;DR**: Proposes a compile-and-execute method to reduce LLM inference costs in web automation agents. Uses one-shot LLM compilation to generate deterministic JSON blueprints, avoiding continuous inference loops. Reduces workflow cost from $150 to under $0.10 for 500 iterations, achieving O(1) amortized inference scaling.
+* `agentic` `offloading` `serving` [ClawVM: Harness-Managed Virtual Memory for Stateful Tool-Using LLM Agents](http://arxiv.org/abs/2604.10352v1)
+  > **TL;DR**: Proposes ClawVM, a virtual memory layer for stateful tool-using LLM agents to manage state as typed pages with multi-resolution representations and validated writeback. Eliminates policy-controllable faults when minimum-fidelity set fits token budget, adding <50 μs overhead per turn.
+
 ### 2026-04-13
 * `training` `scaling` `quantization` [Sustaining Exascale Performance: Lessons from HPL and HPL-MxP on Aurora](http://arxiv.org/abs/2604.09517v1)
   > **TL;DR**: Explores sustaining exascale performance for HPL and mixed-precision HPL-MxP on Aurora. Proposes locality-aware mapping, CPU-GPU pipelining, and mixed-precision orchestration with hybrid resilience. Achieves 1.01 EF/s FP64 and 11.64 EF/s HPL-MxP (11.5× speedup).
