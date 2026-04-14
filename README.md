@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2262-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2264-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.04.14-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-14
+* `disaggregation` `serving` `scaling` [Nanvix: A Multikernel OS Design for High-Density Serverless Deployments](http://arxiv.org/abs/2604.11669v1)
+  > **TL;DR**: Addresses high deployment density with strong isolation for serverless platforms. Proposes Nanvix, a multikernel OS that disaggregates ephemeral and persistent state using user VMs and shared system VMs per tenant. Achieves 20-100x fewer host servers for production traces.
+* `hardware` `kernel` [CUTEv2: Unified and Configurable Matrix Extension for Diverse CPU Architectures with Minimal Design Overhead](http://arxiv.org/abs/2604.11615v1)
+  > **TL;DR**: Proposes a unified CPU matrix extension architecture decoupled from the CPU pipeline for efficient AI workloads. Achieves over 90% GEMM utilization, 1.57-2.31x speedups on models like BERT and Llama3, and 30% gains from overlapped execution in 0.53mm² area.
+
 ### 2026-04-14
 * `scaling` `training` `RL` [NimbusGuard: A Novel Framework for Proactive Kubernetes Autoscaling Using Deep Q-Networks](http://arxiv.org/abs/2604.11017v1)
   > **TL;DR**: Proposes NimbusGuard, a Kubernetes autoscaling framework using deep Q-networks and LSTM for workload forecasting. Achieves better performance and cost efficiency compared to traditional reactive autoscalers like HPA and KEDA.
