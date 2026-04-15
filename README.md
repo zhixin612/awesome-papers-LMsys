@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2264-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.14-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2277-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.15-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-15
+* `training` `scaling` `storage` [An Engineering Journey Training Large Language Models at Scale on Alps: The Apertus Experience](http://arxiv.org/abs/2604.12973v1)
+  > **TL;DR**: Details engineering challenges in training the 70B parameter Apertus multilingual LLM on the Alps supercomputer. Overcame storage bottlenecks and interconnect stability issues to transform HPC infrastructure into a resilient ML platform. Achieved academia's first large-scale LLM training on European supercomputing infrastructure.
+* `kernel` `hardware` `serving` [Leveraging Mathematical Reasoning of LLMs for Efficient GPU Thread Mapping](http://arxiv.org/abs/2604.10387v2)
+  > **TL;DR**: Automates GPU thread mapping for non-box domains using LLM symbolic reasoning. Proposes in-context learning to derive O(1)/O(log N) mapping equations, eliminating block waste. Achieves up to 4833x speedup and 2890x energy reduction for GPU workloads.
+* `scaling` `offloading` `training` [Intelligent resource prediction for SAP HANA continuous integration build workloads](http://arxiv.org/abs/2604.12673v1)
+  > **TL;DR**: Proposes an ML-based approach to predict resource needs for CI build workloads to reduce memory over-allocation. Uses a LightGBM-XGBoost quantile regression ensemble for memory prediction integrated via a microservice layer. Achieves 36GB average memory savings per build with under-allocation rates below 0.3%.
+* `training` `serving` `inference` [Beyond Pre-Training: The Full Lifecycle of Foundation Models on HPC Systems](http://arxiv.org/abs/2604.12599v1)
+  > **TL;DR**: Investigates architectural challenges for the full AI lifecycle (pre-training, fine-tuning, inference) on HPC systems. Proposes a hybrid cloud-native platform combining HPC and virtualized infrastructure orchestrated by Kubernetes. Enhances user productivity by bridging HPC batch processing with service-oriented workflows.
+* `RL` `quantization` `edge` [Three Birds, One Stone: Solving the Communication-Memory-Privacy Trilemma in LLM Fine-tuning Over Wireless Networks with Zeroth-Order Optimization](http://arxiv.org/abs/2604.12401v1)
+  > **TL;DR**: Addresses communication, memory, and privacy trilemma in federated LLM fine-tuning over wireless networks. Proposes pAirZero framework combining zeroth-order optimization with over-the-air computation, reducing peak memory cost to 25% on OPT-125M and communication loads orders of magnitude lower.
+* `serving` `offline` `RAG` [Local-Splitter: A Measurement Study of Seven Tactics for Reducing Cloud LLM Token Usage on Coding-Agent Workloads](http://arxiv.org/abs/2604.12301v1)
+  > **TL;DR**: Proposes seven tactics to reduce cloud LLM token usage using a local model as a triage layer. Implements them in a shim and evaluates on coding workloads. Tactic combinations achieve up to 79% token savings, with workload-dependent optimal subsets.
+* `serving` `offloading` `scaling` [PipeLive: Efficient Live In-place Pipeline Parallelism Reconfiguration for Dynamic LLM Serving](http://arxiv.org/abs/2604.12171v1)
+  > **TL;DR**: Addresses live adaptation of pipeline parallelism for LLM serving under dynamic environments. Proposes PipeLive with a redesigned KV cache layout, PageAttention extension, and incremental KV patching. Achieves under 10ms reconfiguration overhead and up to 54.7% TTFT improvement.
+* `serving` `offloading` `agentic` [Aethon: A Reference-Based Replication Primitive for Constant-Time Instantiation of Stateful AI Agents](http://arxiv.org/abs/2604.12129v1)
+  > **TL;DR**: Introduces Aethon, a reference-based replication primitive for efficient instantiation of stateful AI agents. Uses compositional views with layered memory and copy-on-write to avoid full materialization. Achieves near-constant-time instantiation with over 98% latency reduction compared to traditional approaches.
+* `training` `scaling` [Evaluating Cross-Architecture Performance Modeling of Distributed ML Workloads Using StableHLO](http://arxiv.org/abs/2604.12090v1)
+  > **TL;DR**: Investigates StableHLO as a unified workload representation for cross-architecture performance modeling of distributed ML workloads. Proposes a methodology mapping StableHLO to analytical, profiling-based, and simulator-driven predictors. Prediction errors within practical bounds for design exploration, enabling systematic comparison across GPUs and TPUs.
+* `training` `networking` `sparse` [ResBM: Residual Bottleneck Models for Low-Bandwidth Pipeline Parallelism](http://arxiv.org/abs/2604.11947v1)
+  > **TL;DR**: Proposes Residual Bottleneck Models (ResBM) for low-bandwidth pipeline parallelism. Introduces residual encoder-decoder bottlenecks across pipeline stages to compress activations 128x. Achieves near-equivalent convergence with minimal overhead in decentralized training environments.
+* `training` `offloading` `storage` [TierBPF: Page Migration Admission Control for Tiered Memory via eBPF](http://arxiv.org/abs/2604.12300v1)
+  > **TL;DR**: Investigates page migration admission control for tiered memory to optimize application performance. Proposes TierBPF, an eBPF-based mechanism that considers page size and hardware topology for migration decisions. Achieves up to 17.7% geomean throughput gains across 17 workloads.
+* `offloading` `storage` `kernel` [Hybrid Adaptive Tuning for Tiered Memory Systems](http://arxiv.org/abs/2604.12165v1)
+  > **TL;DR**: Proposes PTMT, a hybrid offline-online framework using reinforcement learning for automated parameter tuning in memory tiering systems. Achieves 14-30% performance improvement over default configurations across four memory tiering solutions.
+* `kernel` `inference` `offloading` [ProbeLogits: Kernel-Level LLM Inference Primitives for AI-Native Operating Systems](http://arxiv.org/abs/2604.11943v1)
+  > **TL;DR**: Proposes ProbeLogits, a kernel-level operation for single-pass logit reading to govern LLM agent actions. Implements in Anima OS with adjustable calibration strength for policy enforcement. Achieves 65ms per classification on a 7B model with up to 97.3% accuracy on custom benchmarks.
+
 ### 2026-04-14
 * `disaggregation` `serving` `scaling` [Nanvix: A Multikernel OS Design for High-Density Serverless Deployments](http://arxiv.org/abs/2604.11669v1)
   > **TL;DR**: Addresses high deployment density with strong isolation for serverless platforms. Proposes Nanvix, a multikernel OS that disaggregates ephemeral and persistent state using user VMs and shared system VMs per tenant. Achieves 20-100x fewer host servers for production traces.
