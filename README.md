@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2277-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.15-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2284-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-16
+* `training` `storage` `networking` [An Engineering Journey Training Large Language Models at Scale on Alps: The Apertus Experience](http://arxiv.org/abs/2604.12973v2)
+  > **TL;DR**: Addresses engineering challenges in training large-scale multilingual LLMs on HPC systems. Details transforming the Alps supercomputer into an ML platform, overcoming storage bottlenecks and network instabilities for 70B model training. Achieves deployment on one of Europe's largest open-science systems.
+* `offloading` `storage` `disaggregation` [OffloadFS: Leveraging Disaggregated Storage for Computation Offloading](http://arxiv.org/abs/2604.13743v1)
+  > **TL;DR**: Proposes OffloadFS, a user-level file system for offloading IO-intensive tasks to disaggregated storage nodes for near-data processing. It optimizes cache management and reduces I/O interference. Improves RocksDB and ML pre-processing performance by up to 3.36x and 1.85x over OCFS2.
+* `training` `networking` `storage` [SAKURAONE: An Open Ethernet-Based AI HPC System and Its Observed Workload Dynamics in a Single-Tenant LLM Development Environment](http://arxiv.org/abs/2604.13600v1)
+  > **TL;DR**: Proposes SAKURAONE, an Ethernet-based HPC cluster optimized for LLM training with open networking (800 GbE, SONiC). System achieves 33.95 PFLOP/s HPL performance, uses 800 GPUs and 2PB Lustre storage. Observes workload shift from large-scale training to mid-scale refinement jobs during project progression.
+* `edge` `offloading` `serving` [Self-adaptive Multi-Access Edge Architectures: A Robotics Case](http://arxiv.org/abs/2604.13542v1)
+  > **TL;DR**: Proposes a self-adaptive edge computing system for efficient neural network processing in robotics. Uses Kubernetes-orchestrated offloading to heterogeneous units with MAPE-K supervisor for scaling and offloading decisions. Achieves improved service quality in response time and power consumption over traditional setups.
+* `inference` `offloading` `kernel` [A-IO: Adaptive Inference Orchestration for Memory-Bound NPUs](http://arxiv.org/abs/2604.09752v2)
+  > **TL;DR**: Addresses memory-bound challenges and kernel synchronization overhead in LLM inference on NPUs. Proposes an adaptive orchestration framework that overcomes limitations of static model deployment and speculative decoding. Achieves reduced latency by optimizing model deployment and computation graphs.
+* `sparse` `kernel` `quantization` [PackSELL: A Sparse Matrix Format for Precision-Agnostic High-Performance SpMV](http://arxiv.org/abs/2604.13433v1)
+  > **TL;DR**: Proposes PackSELL, a sparse matrix format for efficient SpMV on GPUs, featuring delta encoding and packed bit allocation for reduced memory and flexible precision. Achieves up to 1.63× speedup over cuSPARSE with FP16 and exceeds FP16 performance while maintaining FP32 accuracy.
+* `serving` `kernel` `training` [Event Tensor: A Unified Abstraction for Compiling Dynamic Megakernel](http://arxiv.org/abs/2604.13327v1)
+  > **TL;DR**: Proposes Event Tensor, a compiler abstraction for dynamic megakernels to handle dynamic shapes and data-dependent computation in LLM inference. ETC compiler applies static/dynamic scheduling to generate persistent kernels. Achieves state-of-the-art LLM serving latency with reduced warmup overhead.
+
 ### 2026-04-15
 * `training` `scaling` `storage` [An Engineering Journey Training Large Language Models at Scale on Alps: The Apertus Experience](http://arxiv.org/abs/2604.12973v1)
   > **TL;DR**: Details engineering challenges in training the 70B parameter Apertus multilingual LLM on the Alps supercomputer. Overcame storage bottlenecks and interconnect stability issues to transform HPC infrastructure into a resilient ML platform. Achieved academia's first large-scale LLM training on European supercomputing infrastructure.
