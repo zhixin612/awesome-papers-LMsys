@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2284-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2292-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-17
+* `serving` `scaling` `agentic` [Scepsy: Serving Agentic Workflows Using Aggregate LLM Pipelines](http://arxiv.org/abs/2604.15186v1)
+  > **TL;DR**: Proposes Scepsy, an agentic serving system that schedules multi-LLM workflows by profiling and predicting execution shares. Constructs an Aggregate LLM Pipeline for latency/throughput prediction and uses a heuristic allocator. Achieves up to 2.4x higher throughput and 27x lower latency.
+* `hardware` `networking` `offloading` [SCENIC: Stream Computation-Enhanced SmartNIC](http://arxiv.org/abs/2604.15128v1)
+  > **TL;DR**: Develops SCENIC, a programmable SmartNIC with stream computation units, to offload data processing like TCP/IP and RDMA stacks. Integrates with OS for transparent application use, achieving 200G bandwidth and enabling GPU-direct hash partitioning, reducing CPU overhead.
+* `disaggregation` `serving` `offloading` [Prefill-as-a-Service: KVCache of Next-Generation Models Could Go Cross-Datacenter](http://arxiv.org/abs/2604.15039v1)
+  > **TL;DR**: Proposes Prefill-as-a-Service (PrfaaS), a cross-datacenter LLM serving architecture that offloads long-context prefill to dedicated clusters and transfers KVCache over Ethernet. Combines hybrid-attention models with selective offloading, bandwidth-aware scheduling, and cache-aware placement. Achieves 54% higher throughput versus homogeneous baseline.
+* `serving` `offloading` [Serving Chain-structured Jobs with Large Memory Footprints with Application to Large Foundation Model Serving](http://arxiv.org/abs/2604.14993v1)
+  > **TL;DR**: Addresses GPU memory constraints in distributed LLM serving by formulating server chain composition via block placement and cache allocation. Proposes scalable algorithms for pipeline parallelism with load balancing. Achieves significant response time reduction compared to state-of-the-art.
+* `training` `hardware` `networking` [SAKURAONE: An Open Ethernet-Based AI HPC System and Its Observed Workload Dynamics in a Single-Tenant LLM Development Environment](http://arxiv.org/abs/2604.13600v2)
+  > **TL;DR**: Introduces SAKURAONE, an Ethernet-based HPC cluster optimized for LLM training, featuring open networking with 800 GbE/SONiC. Demonstrates real-world workload dynamics, showing shift from large-scale training to mid-scale refinement jobs. Achieves 33.95 PFLOP/s HPL performance.
+* `MoE` `serving` `kernel` [ELMoE-3D: Leveraging Intrinsic Elasticity of MoE for Hybrid-Bonding-Enabled Self-Speculative Decoding in On-Premises Serving](http://arxiv.org/abs/2604.14626v1)
+  > **TL;DR**: Proposes ELMoE-3D, a hardware-software co-design for efficient on-premises MoE serving using elastic self-speculative decoding accelerated by hybrid-bonding. Leverages elasticity in experts and bits, with bit-sliced architecture for redundancy exploitation. Achieves 6.6× speedup and 4.4× energy efficiency gain over naive serving.
+* `diffusion` `serving` `networking` [CoCoDiff: Optimizing Collective Communications for Distributed Diffusion Transformer Inference Under Ulysses Sequence Parallelism](http://arxiv.org/abs/2604.14561v1)
+  > **TL;DR**: Optimizes collective communication overhead in distributed diffusion transformer inference under Ulysses parallelism. Proposes tile-aware parallel all-to-all, V-first scheduling, and selective communication to overlap communication with computation. Achieves up to 8.4x speedup on Aurora supercomputer.
+* `training` `sparse` `kernel` [Incidence Constraints in Hypergraph Partitioning on GPU](http://arxiv.org/abs/2604.14411v1)
+  > **TL;DR**: Accelerates hypergraph partitioning on GPUs for constrained problems by exploiting set sparsity and incidence matrix materialization. Achieves up to 940x speedup and 2-26% better connectivity versus sequential implementations.
+
 ### 2026-04-16
 * `training` `storage` `networking` [An Engineering Journey Training Large Language Models at Scale on Alps: The Apertus Experience](http://arxiv.org/abs/2604.12973v2)
   > **TL;DR**: Addresses engineering challenges in training large-scale multilingual LLMs on HPC systems. Details transforming the Alps supercomputer into an ML platform, overcoming storage bottlenecks and network instabilities for 70B model training. Achieves deployment on one of Europe's largest open-science systems.
