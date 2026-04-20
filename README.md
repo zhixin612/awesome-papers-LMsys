@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2292-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.17-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2298-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.20-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-20
+* `training` `quantization` [Training Time Prediction for Mixed Precision-based Distributed Training](http://arxiv.org/abs/2604.16145v1)
+  > **TL;DR**: Addresses inaccuracies in distributed training time prediction due to mixed precision. Proposes a precision-aware predictor for robust time estimation under diverse quantization settings. Attains 9.8% mean absolute percentage error, reducing errors by over 14x versus baselines.
+* `training` `MoE` `scaling` [Breaking the Training Barrier of Billion-Parameter Universal Machine Learning Interatomic Potentials](http://arxiv.org/abs/2604.15821v1)
+  > **TL;DR**: Addresses the challenge of training billion-parameter universal ML interatomic potentials with second derivatives. Introduces Janus, a hardware-aware distributed training framework with parallelization techniques. Achieves peak performance of 1.2 EFLOPS and over 90% parallel efficiency, reducing training time from weeks to hours.
+* `edge` `RL` `networking` [CroSatFL: Energy-Efficient Federated Learning with Cross-Aggregation for Satellite Edge Computing](http://arxiv.org/abs/2604.15779v1)
+  > **TL;DR**: Proposes CroSatFL, a federated learning framework for satellite edge computing to reduce energy consumption. Uses energy-aware cluster formation, straggler mitigation, and cross-aggregation to shift communication from ground stations to inter-satellite links. Reduces ground station communication count by over 100× and transmission energy by 6×.
+* `kernel` `training` `scaling` [cuNNQS-SCI: A Fully GPU-Accelerated Framework for High-Performance Configuration Interaction Selection withNeural Network QQantum States](http://arxiv.org/abs/2604.15768v1)
+  > **TL;DR**: Proposes cuNNQS-SCI, a fully GPU-accelerated framework for neural network quantum states to overcome CPU-GPU bottlenecks. Implements distributed de-duplication, specialized CUDA kernels, and GPU memory optimization. Achieves 2.32x speedup on 64 GPUs with 90% parallel efficiency.
+* `serving` `RAG` [Accuracy Is Speed: Towards Long-Context-Aware Routing for Distributed LLM Serving](http://arxiv.org/abs/2604.15732v1)
+  > **TL;DR**: Addresses how accuracy-driven retries under long-context LLM serving inflate latency. Proposes Lightweight Accuracy-Aware Routing (LAAR) to reduce Time-to-Correct-Answer (TTCA) via capability-based routing. Achieves up to 2.3× lower TTCA compared to standard routing.
+* `training` `scaling` `storage` [DataCenterGym: A Physics-Grounded Simulator for Multi-Objective Data Center Scheduling](http://arxiv.org/abs/2604.15594v1)
+  > **TL;DR**: Proposes DataCenterGym, a physics-grounded simulator for multi-objective scheduling in geo-distributed data centers. Develops Hierarchical MPC to optimize job placement considering thermal/power dynamics. Achieves improved scheduling performance over baselines under thermal-sensitive workloads.
+
 ### 2026-04-17
 * `serving` `scaling` `agentic` [Scepsy: Serving Agentic Workflows Using Aggregate LLM Pipelines](http://arxiv.org/abs/2604.15186v1)
   > **TL;DR**: Proposes Scepsy, an agentic serving system that schedules multi-LLM workflows by profiling and predicting execution shares. Constructs an Aggregate LLM Pipeline for latency/throughput prediction and uses a heuristic allocator. Achieves up to 2.4x higher throughput and 27x lower latency.
