@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2320-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2322-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.04.21-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-21
+* `serving` `offloading` `kernel` [HybridGen: Efficient LLM Generative Inference via CPU-GPU Hybrid Computing](http://arxiv.org/abs/2604.18529v1)
+  > **TL;DR**: Proposes HybridGen, a CPU-GPU hybrid attention framework for efficient long-context LLM inference using tiered memory. Introduces attention logit parallelism, feedback-driven scheduler, and semantic-aware KV cache mapping. Achieves 1.41x--3.2x higher throughput compared to six KV cache management baselines.
+* `edge` `serving` [AgenTEE: Confidential LLM Agent Execution on Edge Devices](http://arxiv.org/abs/2604.18231v1)
+  > **TL;DR**: Aims to securely deploy LLM agents on edge devices. Introduces AgenTEE using confidential VMs on Arm CCA for runtime isolation of agent pipelines. Achieves near-native performance with <5.15% overhead compared to multi-process deployments.
+
 ### 2026-04-21
 * `kernel` `training` [Matrix-Free 3D SIMP Topology Optimization with Fused Gather-GEMM-Scatter Kernels](http://arxiv.org/abs/2604.18020v1)
   > **TL;DR**: Proposes a fused gather-GEMM-scatter CUDA kernel to eliminate DRAM traffic in matrix-free 3D topology optimization. The fused implementation achieves up to 7.3x end-to-end speedup and 4.9x lower energy consumption on large-scale simulations compared to baseline.
