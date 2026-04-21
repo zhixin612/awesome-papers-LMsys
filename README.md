@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2298-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.20-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2320-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.21-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,52 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-21
+* `kernel` `training` [Matrix-Free 3D SIMP Topology Optimization with Fused Gather-GEMM-Scatter Kernels](http://arxiv.org/abs/2604.18020v1)
+  > **TL;DR**: Proposes a fused gather-GEMM-scatter CUDA kernel to eliminate DRAM traffic in matrix-free 3D topology optimization. The fused implementation achieves up to 7.3x end-to-end speedup and 4.9x lower energy consumption on large-scale simulations compared to baseline.
+* `kernel` `serving` `training` [GPUOS: A GPU Operating System Primitive for Transparent Operation Fusion](http://arxiv.org/abs/2604.17861v1)
+  > **TL;DR**: Addresses kernel launch overhead in small tensor operations common in inference and training. Proposes GPUOS, a GPU runtime JIT system using persistent kernels, runtime operator injection, and PyTorch integration. Achieves up to 15.3x speedup over standard PyTorch on micro-batched inference and attention workloads.
+* `kernel` `sparse` `offline` [AsyncSparse: Accelerating Sparse Matrix-Matrix Multiplication on Asynchronous GPU Architectures](http://arxiv.org/abs/2604.17834v1)
+  > **TL;DR**: Accelerates Sparse Matrix-Matrix Multiplication (SpMM) using asynchronous GPU features. Proposes two kernels: BCSR for structured sparsity and WCSR for irregular sparsity, leveraging Tensor Memory Accelerator and warp specialization. Achieves 1.47-6.24x speedup over prior SpMM kernels and 2.66x speedup in Qwen2.5-7B prefill.
+* `serving` `sparse` [DeInfer: Efficient Parallel Inferencing for Decomposed Large Language Models](http://arxiv.org/abs/2604.17709v1)
+  > **TL;DR**: Addresses poor parallel inference performance in decomposed LLMs. Introduces DeInfer, a high-performance inference system with multiple compatible optimizations. Achieves superior results in facilitating parallel inference.
+* `serving` `training` `scaling` [Towards Energy Efficient Co-Scheduling in HPC](http://arxiv.org/abs/2604.17640v1)
+  > **TL;DR**: Optimizes GPU allocation and co-scheduling in HPC clusters for energy efficiency. Proposes EcoSched, an online scheduler with runtime profiling and NUMA-aware placement. Achieves up to 14.8% energy savings and 40.4% EDP reduction.
+* `training` `scaling` [EcoShift: Performance-Aware Power Management for Power-Constrained Heterogeneous Systems](http://arxiv.org/abs/2604.17635v1)
+  > **TL;DR**: Addresses inefficient power usage in power-constrained heterogeneous HPC systems running CPU-GPU workloads. Proposes EcoShift, combining online performance prediction with dynamic programming to redistribute reclaimed power. Achieves up to 6% average performance improvement over state-of-the-art policies.
+* `serving` `quantization` [SLO-Guard: Crash-Aware, Budget-Consistent Autotuning for SLO-Constrained LLM Serving](http://arxiv.org/abs/2604.17627v1)
+  > **TL;DR**: Proposes SLO-Guard, a crash-aware autotuner for LLM serving that uses feasible-first exploration and warm-started exploitation. It includes GPU-aware KV-cache memory guard and configuration repair. Achieves 4.4x tighter latency standard deviation and higher budget consistency compared to random search.
+* `offline` `agentic` `storage` [AgileLog: A Forkable Shared Log for Agents on Data Streams](http://arxiv.org/abs/2604.14590v2)
+  > **TL;DR**: Proposes AgileLog, a forkable shared log for AI agents on data streams to avoid performance interference. Designs Bolt with novel forking primitives for cheap forks and isolation. Achieves up to 3.5× throughput improvement over baseline.
+* `training` `scaling` `kernel` [Flint: Compiler Enabled Cluster-Free Design Space Exploration for Distributed ML](http://arxiv.org/abs/2604.17550v1)
+  > **TL;DR**: Addresses challenge in DNN systems design space exploration. Proposes Flint, leveraging compiler IR for workload representation across arbitrary cluster sizes. Enables exploration without execution, validated via case study.
+* `edge` `serving` `networking` [Active Inference-Based Adaptive Routing for Heterogeneous Edge AI Services](http://arxiv.org/abs/2604.17373v1)
+  > **TL;DR**: Proposes AIF-Router, an Active Inference-based routing framework for edge AI services. Uses Bayesian state inference and expected free energy minimization to autonomously balance latency, throughput, and resource utilization. Achieves stable online learning despite unreliable edge environments with dynamic workloads.
+* `agentic` `serving` `offloading` [Hive: A Multi-Agent Infrastructure for Algorithm- and Task-Level Scaling](http://arxiv.org/abs/2604.17353v1)
+  > **TL;DR**: Proposes Hive, a multi-agent infrastructure with Logits Cache to reuse intermediate computations and Agent-Aware Scheduling for resource allocation. Achieves 1.11×-1.76× speedup for re-sampling and reduces KV cache hotspot miss rate by 33%-51%.
+* `serving` `training` `scaling` [Cloud-native and Distributed Systems for Efficient and Scalable Large Language Models -- A Research Agenda](http://arxiv.org/abs/2604.17227v1)
+  > **TL;DR**: Explores cloud-native and distributed systems to enhance LLM scalability and efficiency in training and inference. Investigates techniques like autoscaling, microservices, and hybrid cloud-edge solutions for resource optimization. Highlights pathways for improved deployment with serverless inference and quantum computing support.
+* `training` `networking` `scaling` [CCCL: In-GPU Compression-Coupled Collective Communication](http://arxiv.org/abs/2604.17172v1)
+  > **TL;DR**: Addresses collective communication overhead in LLM training. Proposes CCCL, a compression-based library fused with NCCL to minimize memory access and eliminate data coalescing. Achieves up to 10.1% throughput improvement in vLLM disaggregation workloads.
+* `serving` `scaling` `networking` [HiveMind: OS-Inspired Scheduling for Concurrent LLM Agent Workloads](http://arxiv.org/abs/2604.17111v1)
+  > **TL;DR**: Addresses resource contention in concurrent LLM agent workloads sharing a rate-limited API. Proposes HiveMind, a transparent HTTP proxy with five OS-inspired scheduling primitives like admission control and backpressure. Reduces failures from 72-100% to 0-18% and eliminates 48-100% of wasted compute.
+* `storage` `quantization` `compression` [TensorHub: Rethinking AI Model Hub with Tensor-Centric Compression](http://arxiv.org/abs/2604.17104v1)
+  > **TL;DR**: Proposes TensorHub to address storage challenges in AI model hubs. Uses tensor-level fingerprinting, clustering, and deduplication to reduce redundancy. Achieves substantial storage savings in experiments with minimal overhead and preserved performance.
+* `sparse` `kernel` `offloading` [HieraSparse: Hierarchical Semi-Structured Sparse KV Attention](http://arxiv.org/abs/2604.16864v1)
+  > **TL;DR**: Addresses computational and memory overhead of long-context LLMs via HieraSparse, a hierarchical semi-structured sparse KV attention framework with GPU acceleration. Achieves up to 1.85x prefill attention speedup and 4.57x decode speedup at equivalent sparsity.
+* `serving` `kernel` `hardware` [FliX: Flipped-Indexing for Scalable GPU Queries and Updates](http://arxiv.org/abs/2604.16725v1)
+  > **TL;DR**: Introduces FliX, a flipped indexing strategy for GPU-based concurrent data structures to improve query and update efficiency. Eliminates the index layer by assigning compute units to data buckets and performs batched binary searches. Achieves 6.5x reduced query latency versus GPU B-trees and 4x higher throughput per memory footprint.
+* `training` `sparse` `scaling` [Scalable and Adaptive Parallel Training of Graph Transformer on Large Graphs](http://arxiv.org/abs/2604.16715v1)
+  > **TL;DR**: Proposes a distributed training framework for graph transformers that optimizes parallelization strategies based on graph structure and hardware. Uses distributed sparse operations to accelerate attention by 3.8x and reduce memory by 78%. Achieves up to 6x speedup on 8 GPUs.
+* `agentic` `serving` `offloading` [KAIROS: Stateful, Context-Aware Power-Efficient Agentic Inference Serving](http://arxiv.org/abs/2604.16682v1)
+  > **TL;DR**: Addresses power efficiency degradation in agentic AI serving due to long-lived context. Proposes KAIROS, a context-aware system that manages GPU frequency, concurrency, and request placement per agent. Achieves average 27% power reduction while meeting performance targets.
+* `kernel` `hardware` [Forge-UGC: FX optimization and register-graph engine for universal graph compiler](http://arxiv.org/abs/2604.16498v1)
+  > **TL;DR**: Presents Forge-UGC, a universal graph compiler to optimize transformer deployment on NPUs. Includes four phases: graph capture, optimization, IR lowering, and backend scheduling with buffer allocation. Reduces inference latency by 18.2-35.7% and energy per inference by 30.2-40.9% on models up to 8B parameters.
+* `kernel` `inference` `training` [GPUOS: A GPU Operating System Primitive for Transparent Operation Fusion](http://arxiv.org/abs/2604.17861v1)
+  > **TL;DR**: Addresses kernel launch overhead in small-operation DL workloads. Introduces GPUOS, a JIT runtime using a persistent kernel with runtime operator injection and live updates. Achieves up to 15.3× speedup over PyTorch in micro-batched inference and attention.
+* `kernel` `agentic` `RL` [Governed MCP: Kernel-Level Tool Governance for AI Agents via Logit-Based Safety Primitives](http://arxiv.org/abs/2604.16870v1)
+  > **TL;DR**: Proposes Governed MCP, a kernel-level safety gateway for AI agent tool calls using a logit-based semantic check pipeline. Implements in Anima OS with ProbeLogits adding 65 ms overhead per call. Ablation shows ProbeLogits essential (F1 drops from 0.773 to 0.327 without it).
+
 ### 2026-04-20
 * `training` `quantization` [Training Time Prediction for Mixed Precision-based Distributed Training](http://arxiv.org/abs/2604.16145v1)
   > **TL;DR**: Addresses inaccuracies in distributed training time prediction due to mixed precision. Proposes a precision-aware predictor for robust time estimation under diverse quantization settings. Attains 9.8% mean absolute percentage error, reducing errors by over 14x versus baselines.
