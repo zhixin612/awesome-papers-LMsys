@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2322-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.21-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2331-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.22-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,25 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-22
+* `scaling` `edge` `serving` [Predictive Autoscaling for Node.js on Kubernetes: Lower Latency, Right-Sized Capacity](http://arxiv.org/abs/2604.19705v1)
+  > **TL;DR**: Proposes a predictive autoscaling algorithm for Node.js serving on Kubernetes that forecasts load to proactively scale capacity. Uses a cluster-wide invariant metric and a five-stage pipeline to transform data for prediction. Keeps median latency at 26ms under ramp load, compared to 154ms (KEDA) and 522ms (HPA).
+* `MoE` `training` `networking` [FEPLB: Exploiting Copy Engines for Nearly Free MoE Load Balancing in Distributed Training](http://arxiv.org/abs/2604.19654v1)
+  > **TL;DR**: Addresses load imbalance in distributed Mixture-of-Experts training by leveraging NVLink Copy Engines for nearly free intra-node token redistribution. Proposed FEPLB uses a Two-Phase Dispatch and lightweight CPU scheduler. Reduces token and GEMM stragglers by 51-70% and 50-68%, respectively, without added communication overhead.
+* `MoE` `quantization` `serving` [ReaLB: Real-Time Load Balancing for Multimodal MoE Inference](http://arxiv.org/abs/2604.19503v1)
+  > **TL;DR**: Proposes ReaLB, a real-time load balancing method for multimodal MoE inference by dynamically adjusting computation precision per expert using FP4, achieving 1.29x layer-level speedup with <1.2% accuracy loss.
+* `edge` `offloading` `inference` [CROWDio: A Practical Mobile Crowd Computing Framework with Developer-Oriented Design, Adaptive Scheduling, and Fault Resilience](http://arxiv.org/abs/2604.19363v1)
+* `training` `MoE` `networking` [UniEP: Unified Expert-Parallel MoE MegaKernel for LLM Training](http://arxiv.org/abs/2604.19241v1)
+  > **TL;DR**: Addresses communication bottlenecks in expert-parallel training of MoE models. Proposes UniEP, unifying optimizations into fused MegaKernels with deterministic token ordering. Achieves 1.03-1.38× speedups over SOTA while maintaining numerical precision.
+* `diffusion` `serving` `networking` [CoCoDiff: Optimizing Collective Communications for Distributed Diffusion Transformer Inference Under Ulysses Sequence Parallelism](http://arxiv.org/abs/2604.14561v2)
+  > **TL;DR**: Optimizes collective communication overhead in distributed diffusion transformer inference. Proposes tile-aware all-to-all decomposition, V-first scheduling for communication-computation overlap, and selective projection communication. Achieves up to 8.4x speedup on 1-8 node DiT models.
+* `edge` `quantization` `LoRA` [Unlocking the Edge deployment and ondevice acceleration of multi-LoRA enabled one-for-all foundational LLM](http://arxiv.org/abs/2604.18655v1)
+  > **TL;DR**: Proposes a hardware-aware framework for efficient on-device LLM inference supporting multiple LoRAs on mobile devices. Integrates application-specific LoRAs into a single frozen graph, multi-stream decoding, and Dynamic Self-Speculative Decoding. Achieves 4-6x improvements in memory and latency with INT4 quantization while maintaining accuracy.
+* `kernel` `training` `MoE` [ARGUS: Agentic GPU Optimization Guided by Data-Flow Invariants](http://arxiv.org/abs/2604.18616v1)
+  > **TL;DR**: Proposes Argus, an agentic GPU optimization framework using data-flow invariants for compiling high-performance LLM kernels. Integrates a DSL with tag functions and assertions for compile-time verification, enabling dense feedback. Achieves 99-104% of hand-optimized throughput for GEMM, attention, and MoE kernels.
+* `serving` `offloading` `networking` [HadAgent: Harness-Aware Decentralized Agentic AI Serving with Proof-of-Inference Blockchain Consensus](http://arxiv.org/abs/2604.18614v1)
+  > **TL;DR**: Introduces HadAgent, a decentralized AI serving system using Proof-of-Inference consensus to replace hash-based mining. Features a two-tier node architecture with trusted nodes for optimistic execution and harness monitoring for security. Achieves 100% tamper detection, sub-millisecond validation latency, and efficient trust convergence.
+
 ### 2026-04-21
 * `serving` `offloading` `kernel` [HybridGen: Efficient LLM Generative Inference via CPU-GPU Hybrid Computing](http://arxiv.org/abs/2604.18529v1)
   > **TL;DR**: Proposes HybridGen, a CPU-GPU hybrid attention framework for efficient long-context LLM inference using tiered memory. Introduces attention logit parallelism, feedback-driven scheduler, and semantic-aware KV cache mapping. Achieves 1.41x--3.2x higher throughput compared to six KV cache management baselines.
