@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2331-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.22-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2338-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-23
+* `serving` `offloading` `sparse` [Stream-CQSA: Avoiding Out-of-Memory in Attention Computation via Flexible Workload Scheduling](http://arxiv.org/abs/2604.20819v1)
+  > **TL;DR**: Develops a method to avoid OOM in exact attention computation for LLMs. Introduces Stream-CQSA, which decomposes attention into independent subsequences scheduled within memory limits. Achieves exact attention on billion-token sequences using a single GPU without approximation.
+* `serving` `sparse` [FASER: Fine-Grained Phase Management for Speculative Decoding in Dynamic LLM Serving](http://arxiv.org/abs/2604.20503v1)
+  > **TL;DR**: Addresses inefficiency in speculative decoding under dynamic LLM serving workloads. Introduces fine-grained phase management with dynamic token length adjustment, early pruning of rejected tokens, and overlapping draft/verification phases. Improves throughput by up to 53% and reduces latency by 1.92× over state-of-the-art.
+* `MoE` `multi-modal` `quantization` [ReaLB: Real-Time Load Balancing for Multimodal MoE Inference](http://arxiv.org/abs/2604.19503v2)
+  > **TL;DR**: Addresses load imbalance in multimodal MoE inference due to skewed expert workloads. Proposes ReaLB, a real-time load balancing method that dynamically adjusts expert computation precision per EP rank. Achieves 1.29x layer-level speedup with <1.2% accuracy loss.
+* `scaling` `serving` `networking` [Predictive Autoscaling for Node.js on Kubernetes: Lower Latency, Right-Sized Capacity](http://arxiv.org/abs/2604.19705v2)
+  > **TL;DR**: Proposes predictive autoscaling for Node.js on Kubernetes to maintain latency SLOs. Forecasts load using cluster-wide invariant metrics and a five-stage pipeline. Achieves median latency of 26ms vs. 154ms for KEDA and 522ms for HPA under steady ramp.
+* `offloading` `disaggregation` `serving` [Prefill-as-a-Service: KVCache of Next-Generation Models Could Go Cross-Datacenter](http://arxiv.org/abs/2604.15039v2)
+  > **TL;DR**: Addresses cross-datacenter LLM serving challenges by proposing Prefill-as-a-Service (PrfaaS), which selectively offloads long-context prefill to remote clusters and uses bandwidth-aware scheduling. Achieves 54% higher throughput and 64% lower P90 TTFT than homogeneous baselines.
+* `edge` `scaling` `offloading` [A Delta-Aware Orchestration Framework for Scalable Multi-Agent Edge Computing](http://arxiv.org/abs/2604.20129v1)
+  > **TL;DR**: Addresses the synergistic collapse in multi-agent edge systems when scaling beyond 100 agents. Proposes DAOEF with differential neural caching, criticality-based pruning, and learned hardware affinity to reduce latency. Achieves 62% latency reduction and sub-linear scaling to 250 agents.
+* `training` `RL` `networking` [UCCL-Zip: Lossless Compression Supercharged GPU Communication](http://arxiv.org/abs/2604.17172v2)
+  > **TL;DR**: Addresses GPU communication bottlenecks in LLM training and inference with lossless compression integrated into communication primitives. Proposes UCCL-Zip for P2P and collective communications via split-send pipelines and fused NCCL execution. Achieves 47.5% faster RL weight synchronization and 10% lower vLLM inference latency.
+
 ### 2026-04-22
 * `scaling` `edge` `serving` [Predictive Autoscaling for Node.js on Kubernetes: Lower Latency, Right-Sized Capacity](http://arxiv.org/abs/2604.19705v1)
   > **TL;DR**: Proposes a predictive autoscaling algorithm for Node.js serving on Kubernetes that forecasts load to proactively scale capacity. Uses a cluster-wide invariant metric and a five-stage pipeline to transform data for prediction. Keeps median latency at 26ms under ramp load, compared to 154ms (KEDA) and 522ms (HPA).
