@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2338-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2346-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-24
+* `kernel` [Leveraging SIMD for Accelerating Large-number Arithmetic](http://arxiv.org/abs/2604.21566v1)
+  > **TL;DR**: Proposes DigitsOnTurbo (DoT), a SIMD-based method to accelerate large-number arithmetic by restructuring computations into data-parallel operations. Achieves up to 2.3x speedup for multiplication and 19.3% end-to-end throughput gain in scientific computing.
+* `edge` `scaling` `serving` [Risk-Aware and Stable Edge Server Selection Under Network Latency SLOs](http://arxiv.org/abs/2604.21483v1)
+  > **TL;DR**: Proposes a risk-aware edge server selection framework with stability control to meet network latency SLOs. Uses predictive mean/uncertainty for SLO violation risk and hysteresis to reduce switching. Reduces deadline-miss rate to 34% vs. baseline 39% and switching frequency by 88%.
+* `serving` `edge` `RL` [A Task Decomposition and Planning Framework for Efficient LLM Inference in AI-Enabled WiFi-Offload Networks](http://arxiv.org/abs/2604.21399v1)
+  > **TL;DR**: Addresses LLM inference offloading in WiFi networks with heterogeneous devices. Proposes an LLM-based task decomposition planner and collaborative scheduling strategy. Achieves 20% lower latency and 80% higher reward over baselines.
+* `kernel` `hardware` `serving` [GraphLeap: Decoupling Graph Construction and Convolution for Vision GNN Acceleration on FPGA](http://arxiv.org/abs/2604.21290v1)
+  > **TL;DR**: Introduces GraphLeap to decouple dynamic graph construction from feature update in Vision GNNs, enabling concurrent processing. Proposes an FPGA accelerator with layer-pipelined design and kNN-engine overlap. Achieves up to 95.7× CPU speedup and 8.5× GPU speedup for real-time inference.
+* `training` `storage` `scaling` [Optimizing High-Throughput Distributed Data Pipelines for Reproducible Deep Learning at Scale](http://arxiv.org/abs/2604.21275v1)
+  > **TL;DR**: Addresses data-loading bottlenecks in distributed GPU training for large-scale deep learning. Optimizes architecture with push-down transformations, local caching, and deterministic queues. Achieves 6x speedup, reducing training time from 22 to 3 hours, and boosts GPU utilization to over 60%.
+* `RAG` `scaling` [A Cloud-Native Architecture for Human-in-Control LLM-Assisted OpenSearch in Investigative Settings](http://arxiv.org/abs/2604.21125v1)
+  > **TL;DR**: Proposes a cloud-native architecture integrating LLMs into Human-in-Control workflows for translating natural-language queries to OpenSearch DSL. Designs hybrid lexical-semantic retrieval with BM25 and vector embeddings. Focuses on scalability and security under private-cloud deployments, using Enron dataset for feasibility validation.
+* `hardware` `edge` `inference` [Enabling Mixed criticality applications for the Versal AI-Engines](http://arxiv.org/abs/2604.21124v1)
+  > **TL;DR**: Proposes a dynamic task dispatching infrastructure for mixed criticality applications on AMD Versal AI-Engines. Enables runtime assignment of tasks with different criticality levels to AIE tiles, reducing idle time by 65.5% and maintaining low overhead (<0.002%).
+* `serving` `networking` `offloading` [Distributed Generative Inference of LLM at Internet Scales with Multi-Dimensional Communication Optimization](http://arxiv.org/abs/2604.21072v1)
+  > **TL;DR**: Proposes BloomBee, a distributed LLM inference framework for internet-scale deployment, combining layer assignment, micro-batching, tensor offloading, and compression. Optimizes communication using dynamic programming, achieving 1.76x higher throughput and 43.2% lower latency in low-bandwidth networks.
+
 ### 2026-04-23
 * `serving` `offloading` `sparse` [Stream-CQSA: Avoiding Out-of-Memory in Attention Computation via Flexible Workload Scheduling](http://arxiv.org/abs/2604.20819v1)
   > **TL;DR**: Develops a method to avoid OOM in exact attention computation for LLMs. Introduces Stream-CQSA, which decomposes attention into independent subsequences scheduled within memory limits. Achieves exact attention on billion-token sequences using a single GPU without approximation.
