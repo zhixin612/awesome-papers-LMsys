@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2346-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2351-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.27-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-27
+* `edge` `offline` `LoRA` [Unlocking the Edge deployment and ondevice acceleration of multi-LoRA enabled one-for-all foundational LLM](http://arxiv.org/abs/2604.18655v2)
+  > **TL;DR**: Proposes a hardware-aware framework for efficient on-device LLM inference with multi-LoRA support. Integrates LoRAs as runtime inputs, multi-stream decoding for stylistic variations, and DS2D for token acceleration. Achieves 4-6x improvements in memory and latency with INT4 quantization on mobile devices.
+* `serving` `offloading` `scaling` [A comprehensive evaluation of spatial co-execution on GPUs using MPS and MIG technologies](http://arxiv.org/abs/2604.22430v1)
+  > **TL;DR**: Evaluates spatial sharing technologies MPS and MIG on GPUs for co-execution of applications. Analyzes trade-offs between flexibility and isolation, provisioning resource allocation. MPS improves performance by 30% and reduces energy by 20% in favorable cases, but suffers 30% degradation under memory contention.
+* `serving` `sparse` `kernel` [Guess-Verify-Refine: Data-Aware Top-K for Sparse-Attention Decoding on Blackwell via Temporal Correlation](http://arxiv.org/abs/2604.22312v1)
+  > **TL;DR**: Addresses the latency bottleneck of exact Top-K in sparse-attention decoding during LLM serving. Proposes Guess-Verify-Refine (GVR), a data-aware algorithm exploiting temporal correlation across decode steps for efficient exact Top-K selection. Achieves 1.88x speedup in operator latency and up to 7.52% end-to-end throughput improvement.
+* `networking` `training` [Accelerating Intra-Node GPU-to-GPU Communication Through Multi-Path Transfers with CUDA Graphs](http://arxiv.org/abs/2604.22228v1)
+  > **TL;DR**: Proposes multi-path GPU communication using CUDA Graphs in UCX to reduce overhead. Utilizes NVLink and PCIe paths concurrently with CUDA Graph optimization. Achieves 2.95x bandwidth gain vs. single-path UCX for GPU-GPU transfers up to 512MB.
+* `networking` `offline` `multi-modal` [Chamelio: A Fast Shared Cloud Network Stack for Isolated Tenant-Defined Protocols](http://arxiv.org/abs/2604.22603v1)
+  > **TL;DR**: Proposes Chamelio, a shared cloud network stack enabling tenant-defined protocols. Combines a bounded eBPF fast path with tenant slow paths and joint optimization for performance isolation. Achieves 9.2 Mreq/s comparable to TAS stack with <4% overhead over fixed stacks under adversarial load.
+
 ### 2026-04-24
 * `kernel` [Leveraging SIMD for Accelerating Large-number Arithmetic](http://arxiv.org/abs/2604.21566v1)
   > **TL;DR**: Proposes DigitsOnTurbo (DoT), a SIMD-based method to accelerate large-number arithmetic by restructuring computations into data-parallel operations. Achieves up to 2.3x speedup for multiplication and 19.3% end-to-end throughput gain in scientific computing.
