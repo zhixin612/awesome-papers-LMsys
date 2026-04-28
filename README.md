@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2351-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.27-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2362-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.28-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,30 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-28
+* `training` `split_learning` [A Survey on Split Learning for LLM Fine-Tuning: Models, Systems, and Privacy Optimizations](http://arxiv.org/abs/2604.24468v1)
+  > **TL;DR**: Surveys split learning for private LLM fine-tuning. Explores distributed model partitioning between clients and servers to enable collaborative training without data sharing. Highlights system optimizations for efficiency and privacy defenses across diverse resource constraints.
+* `training` `scaling` `offloading` [Incisor: Ex Ante Cloud Instance Selection for HPC Jobs](http://arxiv.org/abs/2604.24464v1)
+  > **TL;DR**: Automates cloud instance selection for HPC jobs by leveraging LLM-guided reasoning to infer hardware requirements from submission artifacts alone. Achieves 54% runtime reduction and 44% cost savings compared to expert-based selection.
+* `offloading` `edge` `networking` [Exact, Efficient, and Reliable Multi-Objective and Multi-Constrained IoT Workflow Scheduling in Edge-Hub-Cloud Cyber-Physical Systems](http://arxiv.org/abs/2604.24340v1)
+  > **TL;DR**: Proposes an exact multi-objective workflow scheduling method for IoT edge-hub-cloud systems using continuous-time MILP to jointly optimize latency, energy, and reliability under constraints. Achieves up to 33.96% average improvement in energy consumption while meeting practical runtime requirements.
+* `training` `networking` `kernel` [Accelerating Intra-Node GPU-to-GPU Communication Through Multi-Path Transfers with CUDA Graphs](http://arxiv.org/abs/2604.22228v2)
+  > **TL;DR**: Improves intra-node GPU communication for MPI-based HPC by integrating CUDA Graphs into UCX to enable concurrent multi-path transfers (NVLink/PCIe). Achieves up to 2.95x bandwidth improvement in GPU-to-GPU transfers compared to single-path UCX at 512MB message size.
+* `serving` `scaling` `offline` [Latency and Cost of Multi-Agent Intelligent Tutoring at Scale](http://arxiv.org/abs/2604.24110v1)
+  > **TL;DR**: Evaluates latency and cost of multi-agent LLM tutoring systems under different deployment tiers and concurrency levels. Compares Performance of Standard PayGo, Priority PayGo, and Provisioned Throughput tiers with live testing up to 50 users. Priority PayGo maintains sub-4-second response times across all loads.
+* `training` `quantization` `networking` [TACO: Efficient Communication Compression of Intermediate Tensors for Scalable Tensor-Parallel LLM Training](http://arxiv.org/abs/2604.24088v1)
+  > **TL;DR**: Proposes TACO, an FP8-based adaptive compression framework for intermediate tensors in tensor-parallel LLM training. Integrates data-driven reshaping, Dual-Scale Quantization, and fused operator to reduce communication overhead. Achieves 1.87× throughput improvement with near-lossless accuracy.
+* `training` `scaling` `networking` [FreeScale: Distributed Training for Sequence Recommendation Models with Minimal Scaling Cost](http://arxiv.org/abs/2604.24073v1)
+  > **TL;DR**: Addresses computational inefficiency in distributed training of sequential recommendation models. Proposes FreeScale with load-balanced samples, prioritized embedding communication overlap, and SM-Free techniques to reduce communication bottlenecks. Achieves 90.3% reduction in computational bubbles on 256 H100 GPUs.
+* `scaling` `training` `serving` [KubePACS: Kubernetes Cluster Using Performant, Highly Available, and Cost Efficient Spot Instances](http://arxiv.org/abs/2604.24027v1)
+  > **TL;DR**: Presents KubePACS, a Kubernetes autoscaler using spot instances to optimize cost and performance for cluster workloads. Formulates multi-objective optimization with real-time spot prices, performance data, and availability scores. Achieves up to 81% higher performance per dollar than prior solutions.
+* `kernel` `serving` `offloading` [ClusterFusion++: Expanding Cluster-Level Fusion to Full Transformer-Block Decoding](http://arxiv.org/abs/2604.23553v1)
+  > **TL;DR**: Addresses high latency in LLM decoding from fragmented operators and tensor materialization. Extends ClusterFusion to fuse full Transformer blocks using CUDA-level cluster collectives, adding CUDA Graph compatibility. Achieves 1.34x throughput gain on Pythia-2.8B with near-token-identical fidelity.
+* `agentic` `networking` [Usable Agent Discovery for Decentralized AI Systems](http://arxiv.org/abs/2604.23080v1)
+  > **TL;DR**: Studies decentralized agent discovery for AI systems under node and agent-level churn. Compares structured (Kademlia) versus gossip-based (Cyclon+Vicinity) overlays in resilience and readiness. Shows structured overlays are more robust in stable/churn regimes while gossip excels when readiness dominates.
+* `edge` `inference` `serving` [Network Edge Inference for Large Language Models: Principles, Techniques, and Opportunities](http://arxiv.org/abs/2604.22906v1)
+  > **TL;DR**: Surveys LLM inference challenges at the network edge due to resource constraints. Reviews system architectures, model optimization, deployment strategies, and resource management techniques. Summarizes techniques to enable efficient edge deployment for LLMs.
+
 ### 2026-04-27
 * `edge` `offline` `LoRA` [Unlocking the Edge deployment and ondevice acceleration of multi-LoRA enabled one-for-all foundational LLM](http://arxiv.org/abs/2604.18655v2)
   > **TL;DR**: Proposes a hardware-aware framework for efficient on-device LLM inference with multi-LoRA support. Integrates LoRAs as runtime inputs, multi-stream decoding for stylistic variations, and DS2D for token acceleration. Achieves 4-6x improvements in memory and latency with INT4 quantization on mobile devices.
