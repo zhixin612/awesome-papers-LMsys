@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2362-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.28-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2370-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.04.29-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-04-29
+* `serving` `agentic` `scaling` [Pythia: Toward Predictability-Driven Agent-Native LLM Serving](http://arxiv.org/abs/2604.25899v1)
+  > **TL;DR**: Proposes Pythia, an agent-native LLM serving system exploiting structured multi-agent workflow semantics to optimize serving. Introduces a serving layer interface capturing workflow constraints, improving cache hit rates and scaling. Achieves higher throughput and job completion time over baselines.
+* `edge` `serving` `networking` [SpecFed: Accelerating Federated LLM Inference with Speculative Decoding and Compressed Transmission](http://arxiv.org/abs/2604.25777v1)
+  > **TL;DR**: Proposes SpecFed for efficient federated LLM inference via speculative decoding and compressed communication. Combines speculative processing for parallel execution and top-K compression to reduce token transmission. Achieves 5.3× higher throughput while maintaining generation fidelity.
+* `kernel` `training` [CUDA Kernel Optimization and Counter-Free Performance Analysis for Depthwise Convolution in Cloud Environments](http://arxiv.org/abs/2604.25422v1)
+  > **TL;DR**: Optimizes CUDA kernels for depthwise convolution in S4ConvD models via warp-tiling and memory-access improvements. Proposes a counter-free performance analysis method using traffic modeling and roofline analysis. Achieves 3.26x convolution speedup and 1.29x training acceleration.
+* `serving` `offloading` `kernel` [CacheFlow: Efficient LLM Serving with 3D-Parallel KV Cache Restoration](http://arxiv.org/abs/2604.25080v1)
+  > **TL;DR**: Proposes CacheFlow, a KV cache restoration framework using 3D parallelism across tokens, layers, and GPUs with batch-aware scheduling to reduce TTFT. Achieves 10%-62% lower Time-To-First-Token over baselines in diverse models and workloads.
+* `offline` `training` `sparse` [Spark Policy Toolkit: Semantic Contracts and Scalable Execution for Policy Learning in Spark](http://arxiv.org/abs/2604.25061v1)
+  > **TL;DR**: Addresses inefficient policy learning in Spark due to rowwise Python execution and driver-side materialization. Proposes vectorized inference via mapInArrow/mapInPandas and on-executor split search. Achieves up to 7.23M rows/s inference throughput at 50M rows while preserving policy semantics.
+* `quantization` `serving` [PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference](http://arxiv.org/abs/2604.24971v1)
+  > **TL;DR**: Introduces PolyKV, a shared KV cache pool using quantized Keys (int8) and MSE-compressed Values (3-bit) for concurrent multi-agent LLM inference. Achieves 97.7% KV memory reduction and maintains low perplexity degradation (+0.57%) with 15 agents on Llama-3-8B.
+* `serving` `RAG` [ITAS: A Multi-Agent Architecture for LLM-Based Intelligent Tutoring](http://arxiv.org/abs/2604.24808v1)
+  > **TL;DR**: Addresses how to deploy LLM-based tutoring systems in real courses. Proposes ITAS, a multi-agent architecture with teaching, operational, and feedback layers, using microservices and conversational agents. Achieves stable handling of 334 chat turns without task-boundary hallucinations and captures 10,628 events.
+* `edge` `quantization` `serving` [Cloud to Edge: Benchmarking LLM Inference On Hardware-Accelerated Single-Board Computers](http://arxiv.org/abs/2604.24785v1)
+  > **TL;DR**: Proposes a multi-dimensional benchmarking methodology to evaluate LLM inference on hardware-accelerated single-board computers. Tests NPUs, GPUs, quantized models, and assesses power efficiency, size, and throughput trade-offs. Achieves up to 32% higher token throughput per watt compared to CPU-only configurations.
+
 ### 2026-04-28
 * `training` `split_learning` [A Survey on Split Learning for LLM Fine-Tuning: Models, Systems, and Privacy Optimizations](http://arxiv.org/abs/2604.24468v1)
   > **TL;DR**: Surveys split learning for private LLM fine-tuning. Explores distributed model partitioning between clients and servers to enable collaborative training without data sharing. Highlights system optimizations for efficiency and privacy defenses across diverse resource constraints.
