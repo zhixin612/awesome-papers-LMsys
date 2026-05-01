@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2370-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.04.29-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2394-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,56 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-01
+* `kernel` `sparse` `hardware` [Exploring Sparse Matrix Multiplication Kernels on the Cerebras CS-3](http://arxiv.org/abs/2604.27985v1)
+  > **TL;DR**: Investigates sparse matrix multiplication kernel performance on the Cerebras CS-3 accelerator. Designs and optimizes SpMM/SDDMM kernels to improve I/O, memory footprint, and scalability. Achieves up to 100× speedup over CPU for SpMM with 90% sparse matrices, though degrades beyond 99% sparsity.
+* `scaling` `hardware` [Affinity Tailor: Dynamic Locality-Aware Scheduling at Scale](http://arxiv.org/abs/2604.27915v1)
+  > **TL;DR**: Analyzes how dynamic scheduling affects locality in multicore systems. Proposes Affinity Tailor, a userspace-guided kernel scheduler that uses compact CPU sets as affinity hints for demand-aware placement. Achieves 12% per-CPU throughput on chiplet systems and 3-7% per-GB throughput gains.
+* `serving` `networking` `edge` [AI Inference as Relocatable Electricity Demand: A Latency-Constrained Energy-Geography Framework](http://arxiv.org/abs/2604.27855v1)
+  > **TL;DR**: Studies digital relocation of AI inference workloads to optimize electricity cost and carbon emissions under latency constraints. Develops a geo-distributed framework modeling energy-latency tradeoffs with optimization over electricity prices, carbon intensity, and network latency. Simulation shows latency relaxation expands feasible geography but migration frictions reduce benefits.
+* `scaling` `storage` [Towards the Democratization and Standardization of Dynamic Resources with MPI Spawning](http://arxiv.org/abs/2604.27430v1)
+  > **TL;DR**: Proposes a unified dynamic resource management API for HPC applications, enabling seamless resource reconfiguration without process respawning. Integrates the Proteo engine into DMRlib for adaptive resource strategies. Enhances MPDATA solver performance with malleability.
+* `training` `scaling` `kernel` [AutoSP: Unlocking Long-Context LLM Training Via Compiler-Based Sequence Parallelism](http://arxiv.org/abs/2604.27089v1)
+  > **TL;DR**: Addresses long-context LLM training inefficiencies. Introduces AutoSP, a compiler-based system automating sequence parallelism and context-aware activation checkpointing. Achieves up to 2.7× longer context on NVIDIA hardware with negligible runtime cost.
+* `training` `offloading` `LoRA` [Efficient Training on Multiple Consumer GPUs with RoundPipe](http://arxiv.org/abs/2604.27085v1)
+  > **TL;DR**: Proposes RoundPipe, a pipeline parallelism schedule that dynamically dispatches computation stages across GPUs to eliminate weight binding and pipeline bubbles. Integrates transfer scheduling, synchronization, and partitioning for consumer-grade GPU clusters. Achieves 1.48–2.16x speedups in fine-tuning 1.7B to 32B models and enables Qwen3-235B LoRA fine-tuning on 8x RTX 4090s.
+* `serving` `MoE` `multi-modal` [FaaSMoE: A Serverless Framework for Multi-Tenant Mixture-of-Experts Serving](http://arxiv.org/abs/2604.26881v1)
+  > **TL;DR**: Proposes FaaSMoE, a serverless framework for multi-tenant MoE serving using FaaS functions to decouple control and execution, enabling elastic expert invocation. Achieves over 3× resource reduction compared to full-model deployment.
+* `hardware` `kernel` [Exploring the Efficiency of 3D-Stacked AI Chip Architecture for LLM Inference with Voxel](http://arxiv.org/abs/2604.26821v1)
+  > **TL;DR**: Proposes Voxel, a compiler-aware simulation framework for exploring 3D-stacked AI chip efficiency in LLM inference. Enables software/hardware co-exploration via programmable execution plans. Validated with emulator; found cooperative factors and mapping dependencies impact efficiency (e.g., DRAM bank bandwidth optimization).
+* `training` `kernel` `networking` [CommFuse: Hiding Tail Latency via Communication Decomposition and Fusion for Distributed LLM Training](http://arxiv.org/abs/2604.24013v2)
+  > **TL;DR**: Addresses tail latency in distributed LLM training due to communication overhead. Proposes CommFuse, replacing collective ops with decomposed P2P communication and fine-grained scheduling. Achieves higher MFU (up to 26.5% improvement) and lower latency compared to baselines.
+* `training` `scaling` [COPUS: Co-adaptive Parallelism and Batch Size Selection in Large Language Model Training](http://arxiv.org/abs/2604.26687v1)
+  > **TL;DR**: Introduces COPUS, a system for adaptive joint tuning of global batch size, parallelism strategy, and micro-batch size during LLM training. Uses Goodput metric combining throughput and statistical efficiency, enabling dynamic reconfiguration. Achieves 3.9-11.1% time-to-convergence speedups across models.
+* `kernel` `RLHF` [FACT: Compositional Kernel Synthesis with a Three-Stage Agentic Workflow](http://arxiv.org/abs/2604.26666v1)
+  > **TL;DR**: Proposes FACT, a three-stage agentic workflow for automating the generation of optimized CUTLASS kernels from PyTorch modules. Combines pattern discovery, realization, and composition to synthesize and auto-tune kernels. Achieves up to 2.79× end-to-end speedup on MiniGPT block.
+* `training` `scaling` `storage` [DMRlib: Easy-coding and Efficient Resource Management for Job Malleability](http://arxiv.org/abs/2604.26624v1)
+  > **TL;DR**: Proposes DMRlib, a library for enabling process malleability in MPI-like applications with minimal coding effort. Evaluates resource management for job scalability, showing up to 3x higher throughput and improved resource allocation compared to static methods.
+* `serving` `scaling` [A comprehensive evaluation of spatial co-execution on GPUs using MPS and MIG technologies](http://arxiv.org/abs/2604.22430v2)
+  > **TL;DR**: Evaluates spatial co-execution on GPUs using NVIDIA's MPS and MIG technologies to improve resource utilization. Compares trade-offs between flexibility (MPS) and isolation (MIG) for concurrent execution. MPS achieves up to 30% performance gain and 20% energy reduction in favorable scenarios.
+* `offloading` `edge` `kernel` [DUAL-BLADE: Dual-Path NVMe-Direct KV-Cache Offloading for Edge LLM Inference](http://arxiv.org/abs/2604.26557v1)
+  > **TL;DR**: Addresses KV cache offloading for edge LLM inference under memory constraints. Proposes DUAL-BLADE with dual-path storage access (page-cache or NVMe-direct) and adaptive pipelining to reduce I/O bottlenecks. Reduces prefill and decode latency by up to 33.1% and 42.4%, respectively.
+* `multi-modal` `offloading` `edge` [Progressive Semantic Communication for Efficient Edge-Cloud Vision-Language Models](http://arxiv.org/abs/2604.26508v1)
+  > **TL;DR**: Proposes a progressive semantic communication framework for edge-cloud VLM inference using adaptive token compression. Employs a Meta AutoEncoder to reduce communication costs while maintaining semantic fidelity. Achieves significant latency reduction at 1 Mbps uplink compared to full-edge/cloud solutions.
+* `RL` `offloading` `sparse` [SplitFT: An Adaptive Federated Split Learning System For LLMs Fine-Tuning](http://arxiv.org/abs/2604.26388v1)
+  > **TL;DR**: Proposes SplitFT for adaptive federated split learning of LLM fine-tuning. Dynamically sets client cut layers based on resources and reduces LoRA rank to cut communication. Achieves 1.5× faster training and higher accuracy over baselines on diverse benchmarks.
+* `kernel` `training` [CUDA Kernel Optimization and Counter-Free Performance Analysis for Depthwise Convolution in Cloud Environments](http://arxiv.org/abs/2604.25422v2)
+  > **TL;DR**: Optimizes CUDA kernels for depthwise convolution in S4ConvD models. Introduces warp-tiled variants and counter-free profiling to analyze memory efficiency. Achieves 3.26× faster convolution and 1.29× end-to-end training speedup compared to naive CUDA.
+* `edge` `offloading` `serving` [Efficient, VRAM-Constrained xLM Inference on Clients](http://arxiv.org/abs/2604.26334v1)
+  > **TL;DR**: Improves VRAM-constrained xLM inference on client devices via pipelined sharding for CPU-GPU hybrid scheduling. Uses model sharding, CPU offloading, pipelined compute, and prioritized VRAM placement for TTFT/TPS gains. Achieves up to 6.7x lower TTFT, 30x higher TPS.
+* `training` `quantization` `MoE` [Folding Tensor and Sequence Parallelism for Memory-Efficient Transformer Training & Inference](http://arxiv.org/abs/2604.26294v1)
+  > **TL;DR**: Proposes tensor and sequence parallelism (TSP) to reduce memory overhead in Transformer training/inference by folding multiple parallelism onto one device axis, via parameter shard iteration and partial output accumulation. Achieves up to 3.1x reduced activation memory versus TP+SP.
+* `training` `RL` `MoE` [DORA: A Scalable Asynchronous Reinforcement Learning System for Language Model Training](http://arxiv.org/abs/2604.26256v1)
+  > **TL;DR**: Addresses rollout bottleneck in RL-based LLM training caused by long-tailed trajectories. Proposes DORA, an asynchronous system with multi-version streaming rollout to overlap generation and training. Achieves 2-4× training speedup on large-scale deployments without compromising convergence.
+* `offloading` `serving` `kernel` [DAK: Direct-Access-Enabled GPU Memory Offloading with Optimal Efficiency for LLM Inference](http://arxiv.org/abs/2604.26074v1)
+  > **TL;DR**: Proposes DAK, a direct-access memory offloading framework for LLM inference, utilizing GPU shared memory via repurposed TMA and congestion control to optimize remote access. Achieves near-optimal bandwidth aggregation and up to 3× performance gain over baselines.
+* `MoE` `serving` `kernel` [RaMP: Runtime-Aware Megakernel Polymorphism for Mixture-of-Experts](http://arxiv.org/abs/2604.26039v1)
+  > **TL;DR**: Addresses runtime inefficiency in MoE inference kernels due to varying expert distributions. Proposes RaMP, a routing-aware kernel dispatch method with a hardware-derived wave cost model and polymorphic kernel design. Improves end-to-end serving speed by up to 1.41x compared to existing systems.
+* `agentic` `offloading` `scaling` [Crab: A Semantics-Aware Checkpoint/Restore Runtime for Agent Sandboxes](http://arxiv.org/abs/2604.28138v1)
+  > **TL;DR**: Proposes Crab, a checkpoint/restore system for LLM agent sandboxes that uses eBPF-based inspection to classify OS effects per agent turn. Reduces checkpoint traffic by 87% while maintaining 100% recovery correctness and adds only 1.9% runtime overhead.
+* `scaling` `training` `serving` [Affinity Tailor: Dynamic Locality-Aware Scheduling at Scale](http://arxiv.org/abs/2604.27915v1)
+  > **TL;DR**: Investigates how to preserve locality in multicore scheduling for improved resource efficiency. Proposes Affinity Tailor, a userspace-guided kernel scheduler using topology-aware CPU affinity hints. Achieves up to 12% per-CPU throughput gain on chiplet systems over Linux CFS.
+
 ### 2026-04-29
 * `serving` `agentic` `scaling` [Pythia: Toward Predictability-Driven Agent-Native LLM Serving](http://arxiv.org/abs/2604.25899v1)
   > **TL;DR**: Proposes Pythia, an agent-native LLM serving system exploiting structured multi-agent workflow semantics to optimize serving. Introduces a serving layer interface capturing workflow constraints, improving cache hit rates and scaling. Achieves higher throughput and job completion time over baselines.
