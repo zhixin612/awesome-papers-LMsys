@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2394-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.01-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2403-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.04-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-04
+* `MoE` `serving` `networking` [Eliminating Hidden Serialization in Multi-Node Megakernel Communication](http://arxiv.org/abs/2605.00686v1)
+  > **TL;DR**: Addresses hidden serialization in multi-node MoE megakernel communication for RDMA fabrics. Proposes Perseus using decoupled signaling and NIC-side ordering to reduce fences and prevent proxy stalls. Achieves up to 10.3× end-to-end speedup on multi-node MoE inference.
+* `serving` `offloading` `kernel` [LLM-Emu: Native Runtime Emulation of LLM Inference via Profile-Driven Sampling](http://arxiv.org/abs/2605.00616v1)
+  > **TL;DR**: Proposes LLM-Emu, a serving-native emulator for vLLM that replaces GPU execution with profile-sampled latency for realistic, low-cost evaluation. Achieves end-to-end latency within 5.3% error and throughput within 1.9% of real vLLM.
+* `edge` `serving` `kernel` [Tempus: A Temporally Scalable Resource-Invariant GEMM Streaming Framework for Versal AI Edge](http://arxiv.org/abs/2605.00536v1)
+  > **TL;DR**: Proposes Tempus, a resource-invariant GEMM framework for edge SoCs using iterative graph execution and algorithmic tiling. Achieves 607 GOPS at 10.677 W, 211.2x higher prominence than SOTA with 22x core frugality and 6.3x I/O reduction for efficient edge LLM inference.
+* `serving` `offloading` `quantization` [SAGA: Workflow-Atomic Scheduling for AI Agent Inference on GPU Clusters](http://arxiv.org/abs/2605.00528v1)
+  > **TL;DR**: Proposes SAGA, a distributed scheduler for AI agents that treats entire workflows as schedulable units, reusing KV cache across tool calls and employing session-affinity batching. Reduces task completion time by 1.64x over vLLM and improves GPU memory utilization by 1.22x on a 64-GPU cluster.
+* `serving` `MoE` `networking` [Space Network of Experts: Architecture and Expert Placement](http://arxiv.org/abs/2605.00515v1)
+  > **TL;DR**: Proposes Space-XNet for deploying MoE models in satellite networks. Uses layer partitioning along orbit direction and optimization-based expert placement based on activation frequency. Achieves at least 3× lower latency compared to baselines.
+* `training` `hardware` `scaling` [Adaptation of AI-accelerated CFD Simulations to the IPU platform](http://arxiv.org/abs/2605.00462v1)
+  > **TL;DR**: Assesses training ML models for CFD on IPUs, using TensorFlow and Poplar SDK. Optimizes data feeding via popdist to overcome host-side bottlenecks, achieving 34% speedup. Scales from 2 to 16 IPUs, improving throughput from 560.8 to 2805.8 samples/s.
+* `serving` `networking` `scaling` [AI Inference as Relocatable Electricity Demand: A Latency-Constrained Energy-Geography Framework](http://arxiv.org/abs/2604.27855v2)
+  > **TL;DR**: Proposes an energy-geography framework for geo-distributed AI inference to optimize electricity cost and carbon intensity under latency constraints. Models placement as constrained optimization over prices, carbon, capacity, and network latency. Latency relaxation reduces electricity costs by up to 40% while meeting SLOs in simulations.
+* `serving` `quantization` `RL` [Token Arena: A Continuous Benchmark Unifying Energy and Cognition in AI Inference](http://arxiv.org/abs/2605.00300v1)
+  > **TL;DR**: Introduces TokenArena, a continuous benchmark for LLM endpoints measuring efficiency across speed, cost, quality, and energy. Evaluates 78 endpoints across 12 model families, showing variations in latency (order of magnitude), accuracy (up to 12.5 pts), and energy efficiency (6.2x). Highlights workload-aware pricing impact on leaderboards.
+* `serving` `RL` `offloading` [SAGA: Workflow-Atomic Scheduling for AI Agent Inference on GPU Clusters](http://arxiv.org/abs/2605.00528v1)
+  > **TL;DR**: Introduces SAGA, a workflow-atomic scheduler for AI agent inference that treats entire workflows as schedulable units. Uses Agent Execution Graphs to predict KV cache reuse, session-affinity batching, and Agent Fair Share. Reduces task completion time by 1.64x over vLLM and improves GPU memory utilization by 1.22x.
+
 ### 2026-05-01
 * `kernel` `sparse` `hardware` [Exploring Sparse Matrix Multiplication Kernels on the Cerebras CS-3](http://arxiv.org/abs/2604.27985v1)
   > **TL;DR**: Investigates sparse matrix multiplication kernel performance on the Cerebras CS-3 accelerator. Designs and optimizes SpMM/SDDMM kernels to improve I/O, memory footprint, and scalability. Achieves up to 100× speedup over CPU for SpMM with 90% sparse matrices, though degrades beyond 99% sparsity.
