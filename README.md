@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2415-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2416-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.05.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-05
+* `serving` `quantization` [SpecKV: Adaptive Speculative Decoding with Compression-Aware Gamma Selection](http://arxiv.org/abs/2605.02888v1)
+  > **TL;DR**: Proposes SpecKV, an adaptive controller for speculative decoding that dynamically selects speculation length γ based on draft model signals to optimize token acceptance. Uses MLP to predict γ per step for compressed models, improving tokens per step by 56.0% over fixed γ with minimal overhead.
+
 ### 2026-05-05
 * `edge` `kernel` `serving` [Tempus: A Temporally Scalable Resource-Invariant GEMM Streaming Framework for Versal AI Edge](http://arxiv.org/abs/2605.00536v2)
   > **TL;DR**: Addresses efficient LLM inference on edge devices with resource constraints. Proposes Tempus, a temporally scalable GEMM framework using iterative execution and data tiling on AMD Versal AI Edge. Achieves 607 GOPS at 10.677 W, with 211.2× higher prominence than spatial SOTA.
