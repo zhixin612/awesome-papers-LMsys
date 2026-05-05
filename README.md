@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2403-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.04-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2415-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-05
+* `edge` `kernel` `serving` [Tempus: A Temporally Scalable Resource-Invariant GEMM Streaming Framework for Versal AI Edge](http://arxiv.org/abs/2605.00536v2)
+  > **TL;DR**: Addresses efficient LLM inference on edge devices with resource constraints. Proposes Tempus, a temporally scalable GEMM framework using iterative execution and data tiling on AMD Versal AI Edge. Achieves 607 GOPS at 10.677 W, with 211.2× higher prominence than spatial SOTA.
+* `serving` `disaggregation` `scaling` [Taming Request Imbalance: SLO-Aware Scheduling for Disaggregated LLM Inference](http://arxiv.org/abs/2605.02329v1)
+  > **TL;DR**: Addresses SLO violations in disaggregated LLM serving due to request length imbalance. Proposes Kairos with urgency-based prefill scheduling and slack-guided adaptive batching for decode. Achieves up to 33.8% higher end-to-end SLO attainment and 19.3% higher decode throughput.
+* `offline` `offloading` `sparse` [PipeMax: Enhancing Offline LLM Inference on Commodity GPU Servers](http://arxiv.org/abs/2605.02189v1)
+  > **TL;DR**: Proposes PipeMax for high-throughput offline LLM inference on GPU servers by integrating pipeline parallelism with KV cache offloading. Coordinates computation and data movement to expand effective GPU memory, enabling large-batch processing. Achieves up to 2.51x higher throughput than vLLM on an 8-GPU node.
+* `agentic` `scaling` `training` [AAFLOW: Scalable Patterns for Agentic AI Workflows](http://arxiv.org/abs/2605.02162v1)
+  > **TL;DR**: Proposes AAFLOW, a distributed runtime for agentic workflows to address scalability and reproducibility issues. Models workflows as operators for communication-efficient execution, utilizing Apache Arrow/Cylon for zero-copy transfer and resource-deterministic scheduling. Achieves up to 4.64× pipeline speedup.
+* `training` `offloading` `multi-modal` [Cross-Layer Energy Analysis of Multimodal Training on Grace Hopper Superchips](http://arxiv.org/abs/2605.01938v1)
+  > **TL;DR**: Analyzes energy-performance tradeoffs in multimodal training on NVIDIA Grace Hopper. Characterizes interactions between application, runtime, and hardware layers using high-bandwidth CPU-GPU interconnects. Achieves balanced energy efficiency and throughput via offloading, sequence parallelism, and hardware-aware scheduling.
+* `sparse` `kernel` `serving` [Stochastic Sparse Attention for Memory-Bound Inference](http://arxiv.org/abs/2605.01910v1)
+  > **TL;DR**: Addresses bandwidth limitation in autoregressive decoding by stochastic sparsification of KV-cache access. Proposes SANTA method for variance-reduced sampling to gather only subsets of values and keys. Achieves 1.5× decode-step attention kernel speedup over FlashInfer/FlashDecoding at 32k-token contexts.
+* `serving` `offloading` `quantization` [SplitZip: Ultra Fast Lossless KV Compression for Disaggregated LLM Serving](http://arxiv.org/abs/2605.01708v1)
+  > **TL;DR**: Addresses the KV cache transfer bottleneck in disaggregated LLM serving. Proposes SplitZip, a GPU-friendly lossless KV compressor exploiting exponent redundancy, with fixed-length codes and escape streams. Achieves up to 1.32× speedup in end-to-end KV transfer and 1.30× in TTFT.
+* `serving` `multi-modal` `edge` [VUDA: Breaking CUDA-Vulkan Isolation for Spatial Sharing of Compute and Graphics on the Same GPU](http://arxiv.org/abs/2605.01352v1)
+  > **TL;DR**: Proposes VUDA for spatial sharing of CUDA compute and Vulkan graphics on GPUs. Redirects channels and grafts page-tables to merge execution contexts, eliminating data copying. Achieves 85% higher throughput vs. temporal sharing in embodied AI workloads.
+* `serving` [Position: LLM Serving Needs Mathematical Optimization and Algorithmic Foundations, Not Just Heuristics](http://arxiv.org/abs/2605.01280v1)
+  > **TL;DR**: Argues that LLM inference serving requires mathematical optimization and algorithmic foundations beyond heuristics. Proposes developing models capturing KV cache dynamics, phase asymmetry, and batching constraints to design algorithms with provable guarantees. Emerging work shows such methods can match heuristic performance with theoretical assurances.
+* `edge` `networking` `scaling` [ncsim: A Lightweight Simulator for Networked Edge Computing with Wireless Interference Modeling](http://arxiv.org/abs/2605.01094v1)
+  > **TL;DR**: Proposes ncsim, a simulator for DAG task scheduling in wireless edge computing with interference modeling. Jointly models compute placement and IEEE 802.11 CSMA/CA interference to avoid rank inversions. Shows interference-free models cause up to 2.7x worse makespan in 27.8%-50% scenarios.
+* `offline` `quantization` [SURGE: SuperBatch Unified Resource-efficient GPU Encoding for Heterogeneous Partitioned Data](http://arxiv.org/abs/2605.01060v1)
+  > **TL;DR**: Proposes SURGE, a streaming GPU encoding system for partitioned data embedding pipelines. Introduces a memory-safety bound enabling streaming two-threshold policy with O(B_min + n_max) memory. Achieves 7% throughput gain and 12.6× less memory usage vs baselines on 10M texts with bge-base encoder.
+* `training` `hardware` `kernel` [VUDA: Breaking CUDA-Vulkan Isolation for Spatial Sharing of Compute and Graphics on the Same GPU](http://arxiv.org/abs/2605.01352v1)
+  > **TL;DR**: Addresses GPU utilization inefficiency when interleaving CUDA compute and Vulkan graphics. Proposed VUDA system enables spatial sharing by redirecting CUDA streams to Vulkan's scheduler and grafting page tables without data copying. Achieves 85% higher throughput than temporal-sharing baselines.
+
 ### 2026-05-04
 * `MoE` `serving` `networking` [Eliminating Hidden Serialization in Multi-Node Megakernel Communication](http://arxiv.org/abs/2605.00686v1)
   > **TL;DR**: Addresses hidden serialization in multi-node MoE megakernel communication for RDMA fabrics. Proposes Perseus using decoupled signaling and NIC-side ordering to reduce fences and prevent proxy stalls. Achieves up to 10.3× end-to-end speedup on multi-node MoE inference.
