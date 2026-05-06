@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2416-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.05-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2425-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-06
+* `training` `RAG` `edge` [A Workflow-Oriented Framework for Asynchronous Human-AI Collaboration in Hybrid and Compute-Intensive HPC Environments](http://arxiv.org/abs/2605.03743v1)
+  > **TL;DR**: Proposes a workflow framework for asynchronous human-AI collaboration in HPC and hybrid environments to avoid idle resources during human input checks. Integrates with SLURM, supports containerization, and enables pausing at checkpoints without halting compute jobs. Increases workflow efficiency by reducing resource idleness in MareNostrum 5 experiments.
+* `inference` `serving` `speculative decoding` [SpecKV: Adaptive Speculative Decoding with Compression-Aware Gamma Selection](http://arxiv.org/abs/2605.02888v2)
+  > **TL;DR**: Proposes SpecKV, an adaptive controller for selecting speculation length γ in speculative decoding based on draft model confidence and entropy. Uses an MLP predictor to maximize tokens per step. Achieves 56% speedup over fixed γ=4 with <0.5% overhead.
+* `scaling` `kernel` `offline` [Enhancing Performance Insight at Scale: A Heterogeneous Framework for Exascale Diagnostics](http://arxiv.org/abs/2605.03561v1)
+  > **TL;DR**: Proposes a heterogeneous framework for exascale performance diagnostics. Combines high-performance C++ API and GPU acceleration for high-throughput analysis of execution traces. Achieves 314x speedup in trace processing and identifies 32.28% potential speedup in a workload.
+* `kernel` `training` [FACT: Compositional Kernel Synthesis with a Three-Stage Agentic Workflow](http://arxiv.org/abs/2604.26666v2)
+  > **TL;DR**: Proposes FACT, an agent-driven workflow synthesizing optimized kernels from PyTorch modules via pattern discovery, realization, and composition. Achieves up to 2.03x speedup on transformers over baselines by grounding in CUTLASS and auto-tuning.
+* `serving` `kernel` `offloading` [VDCores: Resource Decoupled Programming and Execution for Asynchronous GPU](http://arxiv.org/abs/2605.03190v1)
+  > **TL;DR**: Proposes VDCores, a decoupled programming model abstracting GPU resources as virtual cores to improve utilization of asynchronous hardware. Uses micro-operations with dependency tracking for automatic compute-memory overlap. Achieves up to 77% higher decoding throughput for LLM inference.
+* `agentic` `RL` [Pact: A Choreographic Language for Agentic Ecosystems](http://arxiv.org/abs/2605.03143v1)
+  > **TL;DR**: Introduces Pact, a choreographic language for self-interested agents in multi-party settings. Maps protocols to formal games with computational decision policies. Demonstrates use in multi-party coordination with bounded-rational solver.
+* `training` `scaling` `storage` [From Barrier to Bridge: The Case for AI Data Center/Power Grid Co-Design](http://arxiv.org/abs/2605.03090v1)
+  > **TL;DR**: Addresses AI data centers' massive power demands breaking grid stability. Proposes co-design of compute and power infrastructure for joint capacity planning, control, and protocols. Enables sustainable scaling of large-model training by coordinating megawatt-level load fluctuations.
+* `RAG` `training` `offline` [AutoRAGTuner: A Declarative Framework for Automatic Optimization of RAG Pipelines](http://arxiv.org/abs/2605.02967v1)
+  > **TL;DR**: Automates RAG pipeline optimization to reduce manual tuning. Proposes a declarative framework with modular architecture and Bayesian optimization for hyperparameter tuning. Achieves 95% reduction in code churn for architectural adjustments.
+* `serving` `offloading` `storage` [Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving](http://arxiv.org/abs/2605.03375v1)
+  > **TL;DR**: Proposes Tutti, a GPU-centric SSD-backed KV cache system for long-context LLM serving, eliminating CPU intervention via GPU object abstraction, GPU io_uring, and slack-aware scheduling. Reduces TTFT by 78.3% and serving cost by 27%, nearing DRAM-backed performance.
+
 ### 2026-05-05
 * `serving` `quantization` [SpecKV: Adaptive Speculative Decoding with Compression-Aware Gamma Selection](http://arxiv.org/abs/2605.02888v1)
   > **TL;DR**: Proposes SpecKV, an adaptive controller for speculative decoding that dynamically selects speculation length γ based on draft model signals to optimize token acceptance. Uses MLP to predict γ per step for compressed models, improving tokens per step by 56.0% over fixed γ with minimal overhead.
