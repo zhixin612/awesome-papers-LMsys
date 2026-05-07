@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2425-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2434-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.07-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-07
+* `training` `RL` `scaling` [Toward a Risk Assessment Framework for Institutional DeFi: A Nine-Dimension Approach](http://arxiv.org/abs/2605.05145v1)
+  > **TL;DR**: Investigates how to optimize deep learning training systems. Introduces a new parallelization strategy combining model parallelism and efficient gradient synchronization. Achieves a 1.4x speedup compared to state-of-the-art methods on large-scale neural network training.
+* `training` `MoE` `scaling` [Piper: Efficient Large-Scale MoE Training via Resource Modeling and Pipelined Hybrid Parallelism](http://arxiv.org/abs/2605.05049v1)
+  > **TL;DR**: Addresses inefficiency in large-scale MoE training on HPC. Proposes Piper, a framework using resource modeling and pipelined hybrid parallelism to optimize memory, compute, and communication. Achieves 2-3.5x higher MFU than X-MoE and 1.2-9x all-to-all bandwidth improvement.
+* `networking` `offloading` `hardware` [Communication Offloading on SmartNIC DPUs: A Quantitative Approach](http://arxiv.org/abs/2605.04842v1)
+  > **TL;DR**: Explores offloading communication tasks to SmartNIC DPUs to save CPU resources. Designs Buddy, an engine decoupling communication from applications, running on DPUs and CPUs. Achieves up to 1.55x speedup for host-dominated workloads like Quicksilver.
+* `edge` `offloading` `networking` [Delay-Aware Large-Small Model Collaboration over LEO Satellite Networks](http://arxiv.org/abs/2605.04565v1)
+  > **TL;DR**: Proposes a delay-aware large-small model collaboration scheme for LEO satellite networks. Uses multi-agent RL for decentralized routing and bisection search for offloading decisions. Reduces service delay by up to 31.85% versus benchmarks.
+* `training` `networking` [CCL-D: A High-Precision Diagnostic System for Slow and Hang Anomalies in Large-Scale Model Training](http://arxiv.org/abs/2605.04478v1)
+  > **TL;DR**: Addresses slow/hang anomalies in collective communication during large-scale model training. Proposes CCL-D, integrating real-time probing and intelligent analysis for anomaly detection and root-cause location. Deployed on a 4,000-GPU cluster, locates faulty ranks within 6 minutes, outperforming existing solutions.
+* `recommendation` `scaling` `serving` [One Pool, Two Caches: Adaptive HBM Partitioning for Accelerating Generative Recommender Serving](http://arxiv.org/abs/2605.04450v1)
+  > **TL;DR**: Addresses dynamic HBM allocation conflicts between embedding caches and KV caches in generative recommender inference. Proposes HELM with adaptive memory allocation and routing to adjust allocation ratios in 32μs, reducing P99 latency by 24-38% and achieving 93.5-99.6% SLO satisfaction.
+* `serving` `scaling` [Coral: Cost-Efficient Multi-LLM Serving over Heterogeneous Cloud GPUs](http://arxiv.org/abs/2605.04357v1)
+  > **TL;DR**: Addresses cost-efficient serving of multiple LLMs over heterogeneous GPUs. Proposes Coral, an adaptive system that jointly optimizes resource allocation and serving strategies via a two-stage decomposition. Reduces serving cost by up to 2.79x and improves goodput by 2.39x under scarce resources.
+* `training` `networking` `scaling` [Resilient AI Supercomputer Networking using MRC and SRv6](http://arxiv.org/abs/2605.04333v1)
+  > **TL;DR**: Addresses tail latency in large-scale AI training by proposing MRC protocol for multi-path RDMA transport and SRv6-based static routing to bypass failures. Enables resilient training on clusters exceeding 100K GPUs, withstanding network disruptions without job interruption.
+* `storage` `offloading` `networking` [Revocation-Ready CP-ABE Key Management for Blockchain-Based IoT Data Sharing](http://arxiv.org/abs/2605.04280v1)
+  > **TL;DR**: Proposes a blockchain-based CP-ABE key management layer for IoT data sharing, replacing online key release with ciphertext key publication. Uses epoch-bound attributes and CK-rotation for revocation without heavy re-encryption. Gateway mode reduces median decryption time by 4x under client slowdown.
+
 ### 2026-05-06
 * `training` `RAG` `edge` [A Workflow-Oriented Framework for Asynchronous Human-AI Collaboration in Hybrid and Compute-Intensive HPC Environments](http://arxiv.org/abs/2605.03743v1)
   > **TL;DR**: Proposes a workflow framework for asynchronous human-AI collaboration in HPC and hybrid environments to avoid idle resources during human input checks. Integrates with SLURM, supports containerization, and enables pausing at checkpoints without halting compute jobs. Increases workflow efficiency by reducing resource idleness in MareNostrum 5 experiments.
