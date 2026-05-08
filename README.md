@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2434-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.07-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2450-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.08-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,40 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-08
+* `training` `scaling` `kernel` [CCL-Bench 1.0: A Trace-Based Benchmark for LLM Infrastructure](http://arxiv.org/abs/2605.06544v1)
+  > **TL;DR**: Proposes CCL-Bench, a trace-based benchmark for evaluating LLM infrastructure by capturing reusable evidence on compute, memory, and communication efficiency. Reveals inefficiencies in parallelization and framework tuning, showing up to 3× slowdown in poorly configured setups.
+* `RL` `serving` `offloading` [ROSE: Rollout On Serving GPUs via Cooperative Elasticity for Agentic RL](http://arxiv.org/abs/2605.06534v1)
+  > **TL;DR**: Addresses high resource inefficiency in agentic RL rollouts during LLM training. Proposes ROSE, a cooperative elasticity system that opportunistically repurposes underutilized serving GPUs for rollouts without violating SLOs. Achieves 1.20-3.31x higher end-to-end throughput.
+* `training` `sparse` `quantization` [ADELIA: Automatic Differentiation for Efficient Laplace Inference Approximations](http://arxiv.org/abs/2605.06392v1)
+  > **TL;DR**: ADELIA addresses high computational cost in Laplace inference approximations by introducing an automatic differentiation-enabled multi-GPU backend that exploits model sparsity. Achieves 4.2–7.9× per-gradient speedups and reduces energy consumption by 5–8× compared to finite differences.
+* `training` `scaling` [ResiHP: Taming LLM Training Failures with Dynamic Hybrid](http://arxiv.org/abs/2605.06374v1)
+  > **TL;DR**: Addresses performance skew and failures in hybrid parallel LLM training. Proposes ResiHP, with workload-aware failure detection and dynamic parallelism adaptation. Improves training throughput by 1.04-4.39× under failures in a 256-GPU cluster.
+* `agentic` `RL` `training` [Safactory: A Scalable Agent Factory for Trustworthy Autonomous Intelligence](http://arxiv.org/abs/2605.06230v1)
+  > **TL;DR**: Addresses fragmentation in autonomous agent infrastructure. Proposes Safactory, integrating simulation, data management, and asynchronous RL evolution platforms for trustworthy autonomous agents. Achieves a unified evolutionary pipeline for continuous model improvement.
+* `serving` `scaling` [Tackling the Data-Parallel Load Balancing Bottleneck in LLM Serving: Practical Online Routing at Scale](http://arxiv.org/abs/2605.06113v1)
+  > **TL;DR**: Addresses the data-parallel load balancing bottleneck in large-scale LLM serving. Proposes BalanceRoute, an online routing algorithm family with asymmetric F-score optimization and horizon discounting. Improves end-to-end serving throughput by balancing DP workers, reducing compute waste.
+* `serving` `RL` [VibeServe: Can AI Agents Build Bespoke LLM Serving Systems?](http://arxiv.org/abs/2605.06068v1)
+  > **TL;DR**: Proposes VibeServe, an agentic loop that automatically generates bespoke LLM serving stacks for diverse scenarios. Uses outer-loop planning and inner-loop implementation/validation to create specialized systems. Matches vLLM in standard settings and outperforms in non-standard scenarios by 1.5–3× latency reduction.
+* `kernel` `training` `inference` [FalconGEMM: Surpassing Hardware Peaks with Lower-Complexity Matrix Multiplication](http://arxiv.org/abs/2605.06057v1)
+  > **TL;DR**: Proposes FalconGEMM, a framework for automating lower-complexity matrix multiplication to surpass hardware peaks. It features deployment, execution with group-parallel optimizations, and decision modules. Achieves 7.59% to 55.61% speedup over libraries like cuBLAS and AlphaTensor in LLM workloads.
+* `MoE` `serving` `offloading` [Relay Buffer Independent Communication over Pooled HBM for Efficient MoE Inference on Ascend](http://arxiv.org/abs/2605.06055v1)
+  > **TL;DR**: Accelerates MoE inference by eliminating relay buffers through direct expert window placement and pooled HBM. Designs prefill and decode schedules for throughput and latency. Reduces dispatch/combine latency by 1.6–3×, improves TTFT by 17–30%, and maintains TPOT.
+* `MoE` `training` `networking` [MoE-Hub: Taming Software Complexity for Seamless MoE Overlap with Hardware-Accelerated Communication on Multi-GPU Systems](http://arxiv.org/abs/2605.05888v1)
+  > **TL;DR**: Addresses communication bottlenecks in Mixture-of-Experts training on multi-GPU systems. Proposes MoE-Hub, a hardware-software co-design with destination-agnostic communication for seamless overlap. Achieves 1.21x-1.98x end-to-end speedup over SOTA systems.
+* `edge` `offloading` `RL` [LLM-Enhanced Deep Reinforcement Learning for Task Offloading in Collaborative Edge Computing](http://arxiv.org/abs/2605.05727v1)
+  > **TL;DR**: Proposes LeDRL, a hybrid framework coupling lightweight LLM with DRL for real-time task offloading in edge computing. Uses structured prompts and self-attention for policy alignment, with reflective evaluator for semantic feedback. Achieves 17% higher task success rate and faster convergence.
+* `serving` `kernel` `offloading` [Irminsul: MLA-Native Position-Independent Caching for Agentic LLM Serving](http://arxiv.org/abs/2605.05696v1)
+  > **TL;DR**: Investigates position-independent caching for agentic LLM serving to address cache inefficiency. Proposes Irminsul, a caching system with content-hash keying and delta-rotation for Multi-Head Latent Attention models. Achieves 63% prefill energy savings per cache hit and recovers up to 83% of prompt tokens.
+* `training` `networking` `kernel` [Towards Compute-Aware In-Switch Computing for LLMs Tensor-Parallelism on Multi-GPU Systems](http://arxiv.org/abs/2605.05628v1)
+  > **TL;DR**: Addresses inefficiency in tensor parallelism due to compute-communication phase mismatch in multi-GPU systems. Proposes CAIS, a compute-aware in-switch framework with ISA extensions, thread block coordination, and dataflow optimization. Achieves 1.38× training speedup over state-of-the-art NVLS solution.
+* `MoE` `training` `networking` [Accelerating MoE with Dynamic In-Switch Computing on Multi-GPUs](http://arxiv.org/abs/2605.05607v1)
+  > **TL;DR**: Addresses redundant inter-GPU communication in MoE training by proposing DySHARP, a dynamic in-switch computing solution with communication primitives and scheduling. Achieves up to 1.79× speedup over state-of-the-art.
+* `serving` `edge` `quantization` [EdgeServing: Deadline-Aware Multi-DNN Serving at the Edge](http://arxiv.org/abs/2605.05527v1)
+  > **TL;DR**: Addresses deadline-aware serving of multiple DNN models on edge GPUs. Proposes EdgeServing with time-sharing and early-exit inference, using a stability score to quantify scheduling impact. Reduces SLO violations by 47% and P95 latency by 51% compared to baselines.
+* `serving` `scaling` `networking` [Nitsum: Serving Tiered LLM Requests with Adaptive Tensor Parallelism](http://arxiv.org/abs/2605.05467v1)
+  > **TL;DR**: Investigates dynamic adaptation of tensor parallelism for tiered-SLO LLM serving. Proposes Nitsum, which jointly optimizes TP level and scheduling with weight reuse and KV migration. Achieves up to 5.3 times higher SLO-compliant goodput compared to state-of-the-art systems.
+
 ### 2026-05-07
 * `training` `RL` `scaling` [Toward a Risk Assessment Framework for Institutional DeFi: A Nine-Dimension Approach](http://arxiv.org/abs/2605.05145v1)
   > **TL;DR**: Investigates how to optimize deep learning training systems. Introduces a new parallelization strategy combining model parallelism and efficient gradient synchronization. Achieves a 1.4x speedup compared to state-of-the-art methods on large-scale neural network training.
