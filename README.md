@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2450-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.08-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2463-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-11
+* `serving` `kernel` `quantization` [Dooly: Configuration-Agnostic, Redundancy-Aware Profiling for LLM Inference Simulation](http://arxiv.org/abs/2605.07985v1)
+  > **TL;DR**: Proposes Dooly, a configuration-agnostic profiling method for LLM inference simulation. It uses taint propagation and selective profiling to build a latency database, reducing redundancy. Achieves up to 56.4% reduction in profiling GPU-hours with simulation accuracy within 5-8% MAPE.
+* `hardware` `kernel` `training` [Accelerating Precise End-to-End Simulation: Latency-Sensitive Many-core System Modeling](http://arxiv.org/abs/2605.07750v1)
+  > **TL;DR**: Proposes a fast end-to-end modeling approach for latency-sensitive many-core accelerators targeting large-scale systems. Models interconnect latency and SPM access to predict timing with <7% error vs RTL, achieving 115x simulation speedup. Case study optimizes FlashAttention-2 to reduce stalls.
+* `training` `scaling` [A Scalable Recipe on SuperMUC-NG Phase 2: Efficient Large-Scale Training of Language Models](http://arxiv.org/abs/2605.07726v1)
+  > **TL;DR**: Explores efficient distributed training strategies for LLMs on HPC systems. Combines tensor, pipeline, and sharded data parallelism with hyperparameter tuning to optimize throughput. Achieves 93% weak scaling efficiency and 82% strong scaling efficiency on 128 nodes for a 175B model.
+* `training` `scaling` [HexiSeq: Accommodating Long Context Training of LLMs over Heterogeneous Hardware](http://arxiv.org/abs/2605.07569v1)
+  > **TL;DR**: Proposes HexiSeq, a system for efficient long-context LLM training on heterogeneous GPU clusters. It formalizes partitioning as an optimization problem and schedules sequence shards and attention heads based on hardware capabilities. Achieves throughput improvements up to 1.72× on simulated clusters.
+* `serving` `edge` `scaling` [Deadline-Driven Hierarchical Agentic Resource Sharing for AI Services and RAN Functions in AI-RAN](http://arxiv.org/abs/2605.07547v1)
+  > **TL;DR**: Proposes a hierarchical agentic framework (HAF) for compute sharing in AI-RAN, combining an LLM-based agent for slow-timescale placement and a deadline-aware convex allocator for fast-timescale GPU/CPU allocation. Achieves 90.0% overall SLO fulfillment, a 20.5% improvement over baseline.
+* `serving` `recommendation` `offloading` [RcLLM: Accelerating Generative Recommendation via Beyond-Prefix KV Caching](http://arxiv.org/abs/2605.07443v1)
+  > **TL;DR**: Investigates high latency in generative recommendation LLMs due to personalized prompts. Proposes RcLLM with Beyond-Prefix KV caching, block decomposition, stratified storage, and selective attention. Achieves 1.31x-9.51x reduction in Time-To-First-Token versus prefix caching systems.
+* `kernel` [MERBIT: A GPU-Based SpMV Method for Iterative Workloads](http://arxiv.org/abs/2605.07391v1)
+  > **TL;DR**: Presents MERBIT, a GPU-based SpMV method for iterative sparse workloads like PageRank. Combines merge-path partitioning and bit-field descriptors to improve workload balance and coalesced memory access. Achieves average speedups of 1.27x (single) and 1.25x (double) over cuSPARSE COO.
+* `RL` `sparse` `training` [SparseRL-Sync: Lossless Weight Synchronization with ~100x Less Communication](http://arxiv.org/abs/2605.07330v1)
+  > **TL;DR**: Reduces communication cost for weight synchronization in RL systems by exploiting high sparsity in parameter changes. Proposes SparseRL-Sync, a lossless sparse update method transmitting only indices and values. Achieves ~100x reduction in data transmitted at 99% sparsity.
+* `edge` `kernel` `quantization` [TREA: Low-precision Time-Multiplexed, Resource-Efficient Edge Accelerator for Object Detection and Classification](http://arxiv.org/abs/2605.07321v1)
+  > **TL;DR**: Proposes TREA, a low-precision edge accelerator with dual-precision SIMD MAC units and structured pruning for object detection. Features hardware-aware reductive pruning and reconfigurable CORDIC-based nonlinear functions. Achieves up to 9x latency reduction at kernel level with 50% sparsity.
+* `serving` `scaling` `networking` [FATE: Future-State-Aware Scheduling for Heterogeneous LLM Workflows](http://arxiv.org/abs/2605.07238v1)
+  > **TL;DR**: Proposes FATE, a future-state-aware scheduler for heterogeneous multi-stage LLM workflows that optimizes immediate cost and downstream state preservation. Uses frontier planning and conditional cost estimation to reduce end-to-end latency. Achieves 32.3% lower P95 latency over RoundRobin and 8.8% over best baseline.
+* `serving` `scaling` [Tackling the Data-Parallel Load Balancing Bottleneck in LLM Serving: Practical Online Routing at Scale](http://arxiv.org/abs/2605.06113v2)
+  > **TL;DR**: Addresses load imbalance in data-parallel LLM serving caused by heterogeneous request growth and sticky assignments. Proposes BalanceRoute, an online routing algorithm with F-score optimization and optional lookahead. Deployed on 144-NPU cluster, improves throughput by reducing DP imbalance in production traces.
+* `serving` `MoE` `networking` [Relay Buffer Independent Communication over Pooled HBM for Efficient MoE Inference on Ascend](http://arxiv.org/abs/2605.06055v2)
+  > **TL;DR**: Proposes a relay-buffer-free communication design for MoE inference on Ascend, using direct placement and reading via pooled HBM. Removes intermediate buffers, reducing dispatch/combine latency. Improves TTFT by up to 1.5× while maintaining TPOT under latency constraints.
+* `serving` `offloading` `scaling` [Regulating Branch Parallelism in LLM Serving](http://arxiv.org/abs/2605.06914v1)
+  > **TL;DR**: Addresses step latency inflation from concurrent branch decoding in LLM serving. Proposes TAPER, a per-step admission controller that admits extra branches opportunistically based on predicted externality fitting within slack budget. Improves goodput by 1.77× over baselines while maintaining >95% SLO attainment on Qwen3-32B.
+
 ### 2026-05-08
 * `training` `scaling` `kernel` [CCL-Bench 1.0: A Trace-Based Benchmark for LLM Infrastructure](http://arxiv.org/abs/2605.06544v1)
   > **TL;DR**: Proposes CCL-Bench, a trace-based benchmark for evaluating LLM infrastructure by capturing reusable evidence on compute, memory, and communication efficiency. Reveals inefficiencies in parallelization and framework tuning, showing up to 3× slowdown in poorly configured setups.
