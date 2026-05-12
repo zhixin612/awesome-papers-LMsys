@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2463-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2481-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,44 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-12
+* `offline` `kernel` `sparse` [FusionRCG: Orchestrating Recursive Computation Graphs across GPU Memory Hierarchies](http://arxiv.org/abs/2605.10312v1)
+  > **TL;DR**: Proposes FusionRCG, a framework optimizing computation graph structure and GPU memory mapping for recursive quantum chemistry integrals. Combines liveness-aware orchestration, algebraic dimensionality reduction, and adaptive multi-tier kernels. Achieves up to 3.09x speedup over GPU4PySCF while maintaining 75% parallel efficiency at 64 GPUs.
+* `serving` `offloading` `edge` [GELATO: Generative Entropy- and Lyapunov-based Adaptive Token Offloading for Device-Edge Speculative LLM Inference](http://arxiv.org/abs/2605.10124v1)
+  > **TL;DR**: Proposes GELATO, a device-edge speculative decoding framework with online token offloading scheduling based on drift-plus-penalty and entropy early-exiting. Maximizes throughput under energy constraints, achieving 64.98% higher token throughput and 47.47% lower energy than SOTA.
+* `training` `storage` `scaling` [Lakestream: A Consistent and Brokerless Data Plane for Large Foundation Model Training](http://arxiv.org/abs/2605.09994v1)
+  > **TL;DR**: Proposes Lakestream, a brokerless object-store-native data plane for large foundation model training, featuring Transactional Global Batch (TGB) for consistency and DAC for scalable ingestion. Outperforms colocated dataloaders and Kafka in throughput with lower read latency on 64-GPU workloads.
+* `serving` `offloading` `kernel` [KV-RM: Regularizing KV-Cache Movement for Static-Graph LLM Serving](http://arxiv.org/abs/2605.09735v1)
+  > **TL;DR**: Addresses irregular KV-cache behavior in static-graph LLM serving. Proposes KV-RM, a runtime that decouples logical KV histories from physical storage via block paging and merge-staged transfers. Improves throughput by 1.8x and reduces tail latency by 2.4x while lowering reserved memory by 33% on two A100 GPUs.
+* `kernel` `serving` `training` [Metal-Sci: A Scientific Compute Benchmark for Evolutionary LLM Kernel Search on Apple Silicon](http://arxiv.org/abs/2605.09708v1)
+  > **TL;DR**: Presents Metal-Sci, a benchmark for evaluating LLM-driven evolutionary search of compute kernels on Apple Silicon. Proposes a harness for automatic kernel optimization using a frozen LLM in an evolutionary loop, with gated scoring for generalization. Achieves kernel speedups up to 10.7x while detecting silent regressions.
+* `edge` `offloading` `serving` [Adaptive DNN Partitioning and Offloading in Heterogeneous Edge-Cloud Continuum](http://arxiv.org/abs/2605.09623v1)
+  > **TL;DR**: Proposes adaptive DNN partitioning and offloading across heterogeneous edge-cloud continuum. Framework dynamically splits layers based on runtime profiling and network conditions. Reduces energy by 27.09-35.82% and latency by 6.34-22.92% compared to static partitioning.
+* `training` `storage` `scaling` [From Detection to Recovery: Operational Analysis on LLM Pre-training with 504 GPUs](http://arxiv.org/abs/2605.09370v1)
+  > **TL;DR**: Analyzes operational challenges in large-scale LLM pre-training on 504 GPUs. Provides empirical evidence on failure detection, checkpointing bottlenecks, and recovery mechanisms using multi-party prometheus and log data. Achieves 100% failure detection rate and attributes NFS RPC saturation causing bandwidth underutilization.
+* `training` `multi-modal` `scaling` [MegaScale-Omni: A Hyper-Scale, Workload-Resilient System for MultiModal LLM Training in Production](http://arxiv.org/abs/2605.08962v1)
+  > **TL;DR**: Proposes MegaScale-Omni, a hyper-scale MLLM training system with workload resilience. Introduces decoupled parallelism, unified representations, and workload balancing for dynamic modality mixtures. Achieves 1.27×-7.57× throughput gains over SOTA under production workloads.
+* `training` `scaling` [Rennala MVR: Improved Time Complexity for Parallel Stochastic Optimization via Momentum-Based Variance Reduction](http://arxiv.org/abs/2605.08871v1)
+  > **TL;DR**: Investigates if variance reduction improves time complexity in heterogeneous distributed training. Proposes Rennala MVR, a momentum-based variance reduction method extending Rennala SGD. Achieves better time complexity in relevant regimes and shows empirical gains on neural networks over baseline.
+* `edge` `agentic` `offloading` [PAAC: Privacy-Aware Agentic Device-Cloud Collaboration](http://arxiv.org/abs/2605.08646v1)
+  > **TL;DR**: Proposes PAAC for privacy-aware agentic collaboration between device and cloud by aligning planner-executor decomposition with trust boundaries. Uses typed placeholder tokens to protect sensitive data and on-device span masking. Improves accuracy by 15-36% and reduces leakage by 2-6× over baselines.
+* `training` `kernel` `storage` [Transforming the Use of Earth Observation Data: Exascale Training of a Generative Compression Model with Historical Priors for up to 10,000x Data Reduction](http://arxiv.org/abs/2605.08633v1)
+  > **TL;DR**: Proposes a generative compression framework with historical priors for Earth observation data. Develops exascale training on supercomputer with co-optimization of model design, CUDA kernels, memory hierarchy, runtime, and parallelism. Achieves peak throughput of 2.16 EFLOP/s and 10,000x data reduction.
+* `edge` `networking` `serving` [Large Language Models over Networks: Collaborative Intelligence under Resource Constraints](http://arxiv.org/abs/2605.08626v1)
+  > **TL;DR**: Explores collaborative LLM inference across device, edge, and cloud to overcome resource constraints. Proposes vertical (device-cloud) and horizontal (multi-agent) collaboration frameworks with adaptive routing. Achieves improved response quality under heterogeneous compute, memory, and network limitations.
+* `RL` `LoRA` `disaggregation` [MARLaaS: Multi-Tenant Asynchronous Reinforcement Learning as a Service](http://arxiv.org/abs/2605.08527v1)
+  > **TL;DR**: Addresses high computational cost of concurrent multi-tenant RL fine-tuning. Proposes MARLaaS, featuring shared base model with LoRA adapters and disaggregated asynchronous pipeline decoupling rollouts, environment, and training. Achieves 4.3× accelerator utilization improvement and 85% training time reduction.
+* `training` `scaling` `kernel` [Unleashing Scalable Context Parallelism for Foundation Models Pre-Training via FCP](http://arxiv.org/abs/2605.08524v1)
+  > **TL;DR**: Addresses the inefficiency in context parallelism for foundation model pre-training due to variable sequence lengths. Proposes FCP, a block-level sharding and bin-packing approach with flexible peer-to-peer communication. Achieves near-linear scalability on 256 GPUs with 1.13x-2.21x attention MFU improvement.
+* `serving` `RL` `agentic` [FlashEvolve: Accelerating Agent Self-Evolution with Asynchronous Stage Orchestration](http://arxiv.org/abs/2605.08520v1)
+  > **TL;DR**: Addresses high wall-clock cost of LLM-based agent evolution systems. Proposes FlashEvolve with asynchronous stage orchestration, artifact version tracking, and stale artifact repair policies. Achieves 3.5× to 4.9× higher proposal throughput on GEPA workloads compared to synchronous baselines.
+* `inference` `privacy` `efficiency` [Private Vertical Federated Inference for Time-Series](http://arxiv.org/abs/2605.08343v1)
+  > **TL;DR**: Proposes a hybrid public/private head model for vertically federated inference to balance privacy and efficiency. Splits model head into plaintext and lightweight MPC components, achieving 44.4x speedup and 91.2x communication reduction versus baselines while improving accuracy.
+* `serving` `RL` [Execution Envelopes: A Shared Admission Contract for Backend AI Execution Requests](http://arxiv.org/abs/2605.08267v1)
+  > **TL;DR**: Proposes execution envelopes as a shared admission contract for diverse AI backend requests to enable governance, observability, and policy hooks. Formalizes requested vs granted resources and defines lifecycle invariants. Demonstrates applicability on model deployment paths without affecting runtime execution.
+* `serving` `offloading` [KV-RM: Regularizing KV-Cache Movement for Static-Graph LLM Serving](http://arxiv.org/abs/2605.09735v1)
+  > **TL;DR**: Proposes KV-RM, a runtime for static-graph LLM serving that regularizes KV-cache movement by decoupling logical histories from physical storage and coalescing transfers. On a 2-GPU A100 node, it improves decoding throughput, reduces KV memory reservation, and eliminates tail latency spikes under production traces.
+
 ### 2026-05-11
 * `serving` `kernel` `quantization` [Dooly: Configuration-Agnostic, Redundancy-Aware Profiling for LLM Inference Simulation](http://arxiv.org/abs/2605.07985v1)
   > **TL;DR**: Proposes Dooly, a configuration-agnostic profiling method for LLM inference simulation. It uses taint propagation and selective profiling to build a latency database, reducing redundancy. Achieves up to 56.4% reduction in profiling GPU-hours with simulation accuracy within 5-8% MAPE.
