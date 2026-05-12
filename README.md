@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2481-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2486-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.05.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-12
+* `training` `kernel` `hardware` [Closer in the Gap: Towards Portable Performance on RISC-V Vector Processors](http://arxiv.org/abs/2605.10860v1)
+  > **TL;DR**: Investigates performance challenges with RISC-V Vector Extension (RVV) for HPC and ML workloads. Uses assembly microbenchmarks to assess compilers' auto-vectorization, revealing limitations in cost models and memory access patterns. Shows GCC 15 outperforming LLVM 21 in 4/6 applications, with LLVM excelling only in SGEMM/DGEMM via aggressive optimization.
+* `serving` `MoE` `scaling` [Surviving Partial Rank Failures in Wide Expert-Parallel MoE Inference](http://arxiv.org/abs/2605.10670v1)
+  > **TL;DR**: Addresses partial rank failures in MoE inference by proposing EEP, a substrate with mutable membership to handle faults without full restarts. Recovers reachability, expert coverage, and graph reintegration. Reduces recovery time from 348s to 11s and maintains 95% throughput within 52s after failure.
+* `training` `sparse` `scaling` [ResiHP: Taming LLM Training Failures with Dynamic Hybrid Parallelism](http://arxiv.org/abs/2605.06374v2)
+  > **TL;DR**: Proposes ResiHP, a resilient system for LLM training that addresses hardware failures and sequence variability. Includes a workload-aware failure detector and a dynamic scheduler adapting parallelism, partitioning, and workload. Improves throughput by 1.04-4.39× in a 256-GPU cluster under failures.
+* `training` `multi-modal` `scaling` [Accelerating Compound LLM Training Workloads with Maestro](http://arxiv.org/abs/2605.10501v1)
+  > **TL;DR**: Proposes Maestro, a section-centric training framework for compound LLM workloads like knowledge distillation and MLLM training. Employs component-aware parallelism configuration and wavefront scheduling to handle static and dynamic heterogeneity. Reduces GPU consumption by ~40% in production workloads.
+* `agentic` `edge` [Agentic Performance at the Edge: Insights from Benchmarking](http://arxiv.org/abs/2605.10384v1)
+  > **TL;DR**: Investigates how to optimize agentic AI models for edge deployment under memory, power, and latency constraints. Introduces a domain-conditioned evaluation methodology and analyzes model-tool interactions. Finds Pareto fronts in accuracy-latency space for model selection, with results showing effective tradeoffs in constrained settings.
+
 ### 2026-05-12
 * `offline` `kernel` `sparse` [FusionRCG: Orchestrating Recursive Computation Graphs across GPU Memory Hierarchies](http://arxiv.org/abs/2605.10312v1)
   > **TL;DR**: Proposes FusionRCG, a framework optimizing computation graph structure and GPU memory mapping for recursive quantum chemistry integrals. Combines liveness-aware orchestration, algebraic dimensionality reduction, and adaptive multi-tier kernels. Achieves up to 3.09x speedup over GPU4PySCF while maintaining 75% parallel efficiency at 64 GPUs.
