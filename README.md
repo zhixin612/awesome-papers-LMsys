@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2486-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.12-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2498-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.13-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-13
+* `training` `networking` `quantization` [NCCLZ: Compression-Enabled GPU Collectives with Decoupled Quantization and Entropy Coding](http://arxiv.org/abs/2605.12396v1)
+  > **TL;DR**: Optimizes GPU collective communication for distributed deep learning by decoupling quantization and entropy coding. Integrates compression into NCCL primitives to overlap computation and communication. Achieves up to 9.65x speedup over NCCL.
+* `inference` `sparse` `kernel` [AB-Sparse: Sparse Attention with Adaptive Block Size for Accurate and Efficient Long-Context Inference](http://arxiv.org/abs/2605.12110v1)
+  > **TL;DR**: Addresses KV cache bottleneck in long-context LLM inference by introducing AB-Sparse, a framework with adaptive block sizes per attention head and centroid quantization. Achieves up to 5.43% accuracy improvement without throughput overhead.
+* `serving` `quantization` [The Illusion of Power Capping in LLM Decode: A Phase-Aware Energy Characterisation Across Attention Architectures](http://arxiv.org/abs/2605.11999v1)
+  > **TL;DR**: Examines the ineffectiveness of power capping for LLM autoregressive decode phase due to memory-bound workloads. Proposes SM clock locking as an alternative energy lever to avoid firmware throttling illusions. Recovers up to 32% decode energy with minimal throughput loss across attention architectures.
+* `serving` `quantization` `offloading` [Position: LLM Inference Should Be Evaluated as Energy-to-Token Production](http://arxiv.org/abs/2605.11733v1)
+  > **TL;DR**: Proposes evaluating LLM inference as energy-per-token production, introducing a Token Production Function framework. Highlights KV-cache compression, quantization, and routing as energy-saving techniques. Calls for reporting joules/token and power constraints alongside latency and accuracy metrics to address scale deployment challenges.
+* `storage` `RAG` `offline` [NAVIS: Concurrent Search and Update with Low Position-Seeking Overhead in On-SSD Graph-Based Vector Search](http://arxiv.org/abs/2605.11523v1)
+  > **TL;DR**: Addresses high overhead in concurrent search and update for on-disk vector search by introducing selective vector reads, dynamic entrance graph updates, and an edgelist cache. Achieves up to 2.74x higher insertion throughput and 25.26% lower search latency.
+* `kernel` `training` `inference` [FalconGEMM: Surpassing Hardware Peaks with Lower-Complexity Matrix Multiplication](http://arxiv.org/abs/2605.06057v2)
+  > **TL;DR**: Proposes FalconGEMM, a framework automating deployment and optimization of lower-complexity matrix multiplication for DL training and inference. Features code generation, group-parallel optimizations, and analytical model for strategy selection. Achieves 7.59%-17.85% speedup over cuBLAS/CUTLASS on GPU and CPU.
+* `serving` `scaling` `edge` [Kairos: A Scalable Serving System for Physical AI](http://arxiv.org/abs/2605.11381v1)
+  > **TL;DR**: Proposes Kairos, a multi-robot serving system for physical AI that optimizes the generate-execute loop with asynchronous inference-action interleaving. Achieves 31.8–66.5% reduction in end-to-end task latency over existing systems, scaling with fleet size.
+* `offloading` `kernel` `training` [ChunkFlow: Communication-Aware Chunked Prefetching for Layerwise Offloading in Distributed Diffusion Transformer Inference](http://arxiv.org/abs/2605.11335v1)
+  > **TL;DR**: Studies reducing GPU memory footprint in distributed diffusion transformer inference. Proposes ChunkFlow, a communication-aware chunk-granular offloading runtime that co-schedules prefetches with collective communications. Achieves up to 1.28x step-time speedup over prior layerwise offloading.
+* `training` `scaling` `hardware` [MLCommons Chakra: Advancing Performance Benchmarking and Co-design using Standardized Execution Traces](http://arxiv.org/abs/2605.11333v1)
+  > **TL;DR**: Addresses agile performance benchmarking and co-design for distributed AI systems with Chakra, a graph-based execution trace ecosystem. Standardized traces represent compute, memory, and communication operations. Adoption by MLCommons demonstrates improvements in workload analysis and hardware-software optimization efficiency.
+* `training` `scaling` [ReCoVer: Resilient LLM Pre-Training System via Fault-Tolerant Collective and Versatile Workload](http://arxiv.org/abs/2605.11215v1)
+  > **TL;DR**: Proposes ReCoVer, a resilient LLM pre-training system maintaining stochastically equivalent per-iteration gradients via fault-tolerant collectives, in-step recovery, and workload redistribution. Achieves 2.23× higher throughput vs. baselines after failures and processes 74.9% more tokens in 234 GPU-hours.
+* `training` `scaling` [ShardTensor: Domain Parallelism for Scientific Machine Learning](http://arxiv.org/abs/2605.11111v1)
+  > **TL;DR**: Proposes ShardTensor, a domain parallelism paradigm for SciML to scale input data beyond device limitations. Decouples spatial data from hardware, enabling high-fidelity training/inference on extreme-resolution data. Achieves strong/weak scaling, reducing latency and handling larger data sizes.
+* `training` `MoE` `networking` [DisagMoE: Computation-Communication overlapped MoE Training via Disaggregated AF-Pipe Parallelism](http://arxiv.org/abs/2605.11005v1)
+  > **TL;DR**: Addresses communication bottlenecks in MoE training. Proposes DisagMoE with disaggregated attention-FFN placement and multi-stage pipeline to overlap computation-communication. Achieves up to 1.8x training speedup on 16-node clusters.
+
 ### 2026-05-12
 * `training` `kernel` `hardware` [Closer in the Gap: Towards Portable Performance on RISC-V Vector Processors](http://arxiv.org/abs/2605.10860v1)
   > **TL;DR**: Investigates performance challenges with RISC-V Vector Extension (RVV) for HPC and ML workloads. Uses assembly microbenchmarks to assess compilers' auto-vectorization, revealing limitations in cost models and memory access patterns. Shows GCC 15 outperforming LLVM 21 in 4/6 applications, with LLVM excelling only in SGEMM/DGEMM via aggressive optimization.
