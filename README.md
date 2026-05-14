@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2498-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.13-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2504-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.14-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-14
+* `training` `serving` `LoRA` [MinT: Managed Infrastructure for Training and Serving Millions of LLMs](http://arxiv.org/abs/2605.13779v1)
+  > **TL;DR**: Presents MinT, a managed infrastructure for LoRA post-training and serving that scales up with large models, scales down with small adapter transfers (18.3x faster step), and scales out to support millions of addressable catalogs and improve engine loading by 8.5-8.7x.
+* `serving` `disaggregation` `quantization` [KVServe: Service-Aware KV Cache Compression for Communication-Efficient Disaggregated LLM Serving](http://arxiv.org/abs/2605.13734v1)
+  > **TL;DR**: Proposes KVServe, an adaptive KV cache compression framework for disaggregated LLM serving. Introduces modular strategy space, Bayesian profiling for efficient offline search, and service-aware online controller. Achieves up to 9.13× job completion time speedup and 32.8× TTFT reduction.
+* `serving` `scaling` [MARLIN: Multi-Agent Game-Theoretic Reinforcement Learning for Sustainable LLM Inference in Cloud Datacenters](http://arxiv.org/abs/2605.13496v1)
+  > **TL;DR**: Proposes MARLIN, a multi-agent reinforcement learning framework for sustainable LLM inference serving in cloud datacenters. It co-optimizes latency, carbon emissions, water usage, and energy costs. Achieves ≥18% lower TTFT, 33% reduced carbon, 43% less water, and 11% lower energy costs.
+* `training` `quantization` `scaling` [TurboGR: An Accelerated Training System for Large-Scale Generative Recommendation](http://arxiv.org/abs/2605.13433v1)
+  > **TL;DR**: Addresses training bottlenecks for large-scale generative recommendation models on NPUs. Proposes an Ascend-affinity system with jagged operator fusion, hierarchical parallelism, and quantization techniques. Achieves 54.71% MFU and near-linear (0.97) scaling on KuaiRand-27K at 0.2B parameters.
+* `training` `kernel` `scaling` [Hierarchical Transformer Preconditioning for Interactive Physics Simulation](http://arxiv.org/abs/2605.13343v1)
+  > **TL;DR**: Proposes a neural hierarchical transformer preconditioner for physics simulation with efficient O(N) scaling. Uses batched dense GEMMs for inference with a single CUDA Graph and a cosine-Hutchinson training objective. Achieves 2.7x speedup over neural SPAI at N=8,192.
+* `serving` `offloading` `edge` [PipeSD: An Efficient Cloud-Edge Collaborative Pipeline Inference Framework with Speculative Decoding](http://arxiv.org/abs/2605.13319v1)
+  > **TL;DR**: Proposes PipeSD, a cloud-edge collaborative inference framework using speculative decoding. Implements token-batch pipeline scheduling and dual-threshold non-autoregressive verification triggering. Achieves 1.16x-2.16x speedup and 14.3%-25.3% energy reduction compared to baselines.
+
 ### 2026-05-13
 * `training` `networking` `quantization` [NCCLZ: Compression-Enabled GPU Collectives with Decoupled Quantization and Entropy Coding](http://arxiv.org/abs/2605.12396v1)
   > **TL;DR**: Optimizes GPU collective communication for distributed deep learning by decoupling quantization and entropy coding. Integrates compression into NCCL primitives to overlap computation and communication. Achieves up to 9.65x speedup over NCCL.
