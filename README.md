@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2504-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.14-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2509-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.15-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-15
+* `agentic` `scaling` `serving` [APWA: A Distributed Architecture for Parallelizable Agentic Workflows](http://arxiv.org/abs/2605.15132v1)
+  > **TL;DR**: Proposes APWA, a distributed architecture for decomposing agentic workflows into non-interfering parallel subproblems to overcome scaling bottlenecks. Achieves scalability on large tasks where prior systems fail, supporting heterogeneous data and parallel patterns.
+* `edge` `networking` `training` [Multi-objective application placement in fog computing using graph neural network-based reinforcement learning](http://arxiv.org/abs/2605.14649v1)
+  > **TL;DR**: Proposes a graph neural network-based reinforcement learning framework for multi-objective application placement in fog computing. Incorporates service dependencies into placement decisions using dual actor-critics. Achieves placement decisions in milliseconds with comparable Pareto front to genetic algorithms requiring hours.
+* `serving` `offloading` `edge` [PipeSD: An Efficient Cloud-Edge Collaborative Pipeline Inference Framework with Speculative Decoding](http://arxiv.org/abs/2605.13319v2)
+  > **TL;DR**: Proposes PipeSD, a cloud-edge collaborative inference framework using speculative decoding. Implements token-batch pipeline scheduling and dual-threshold non-autoregressive verification triggering. Achieves 1.16x-2.16x speedup and reduces energy consumption by 14.3%-25.3% versus baselines.
+* `kernel` `training` `offline` [Hierarchical Transformer Preconditioning for Interactive Physics Simulation](http://arxiv.org/abs/2605.13343v2)
+  > **TL;DR**: Proposes Hierarchical Transformer Preconditioner for real-time physics simulation with O(N) scaling. Uses dense batched GEMMs and a cosine-Hutchinson probe objective for training. Achieves 2.7x speedup over neural SPAI and 28x over GPU IC/DILU at N=8192.
+* `offline` `edge` `kernel` [SemaTune: Semantic-Aware Online OS Tuning with Large Language Models](http://arxiv.org/abs/2605.15026v1)
+  > **TL;DR**: Proposes SemaTune, an LLM-based framework for online OS tuning using semantic-aware context and bounded guidance. It employs fast and slow update loops with validation to optimize host-level parameters. Achieves 72.5% performance improvement over defaults and 153.3% over baselines at $0.20 per session.
+
 ### 2026-05-14
 * `training` `serving` `LoRA` [MinT: Managed Infrastructure for Training and Serving Millions of LLMs](http://arxiv.org/abs/2605.13779v1)
   > **TL;DR**: Presents MinT, a managed infrastructure for LoRA post-training and serving that scales up with large models, scales down with small adapter transfers (18.3x faster step), and scales out to support millions of addressable catalogs and improve engine loading by 8.5-8.7x.
