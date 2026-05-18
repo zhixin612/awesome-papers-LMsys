@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2509-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.15-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2514-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.18-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-18
+* `training` `hardware` `scaling` [Designing Datacenter Power Delivery Hierarchies for the AI Era](http://arxiv.org/abs/2605.16255v1)
+  > **TL;DR**: Addresses efficient datacenter power delivery design under increasing AI accelerator densities. Proposes a framework combining hardware projections and operational data to optimize deployable capacity over time. Achieves up to 42% higher deployable capacity compared to existing designs.
+* `training` `offloading` `quantization` [Runtime-Orchestrated Second-Order Optimization for Scalable LLM Training](http://arxiv.org/abs/2605.16184v1)
+  > **TL;DR**: Addresses the system bottleneck in second-order LLM training by introducing Asteria, a runtime that offloads optimizer state across storage tiers and overlaps computation. Achieves training of a 1B model on a single GPU with unified memory and reduces overhead in distributed 7B training.
+* `scaling` `serving` `offline` [ADAPT: A Self-Calibrating Proactive Autoscaler for Container Orchestration](http://arxiv.org/abs/2605.15788v1)
+  > **TL;DR**: Proposes ADAPT, a self-calibrating proactive autoscaler using online EWMA for container provisioning delay estimation, integrated with MPC for replica optimization. Achieves below 5% SLA violation across workloads, outperforming baselines by up to 23.7 percentage points in violation reduction.
+* `training` `scaling` [A Few GPUs, A Whole Lotta Scale: Faithful LLM Training Emulation with PrismLLM](http://arxiv.org/abs/2605.15617v1)
+  > **TL;DR**: Introduces PrismLLM, a method for faithful emulation of large-scale LLM training on small GPU clusters using slicing and hybrid execution. Accurately replicates performance and memory behavior with 0.58% error in iteration time and <0.01% memory error, emulating up to 8192 GPUs using <1% physical resources.
+* `training` `storage` [BatchWeave: A Consistent Object-Store-Native Data Plane for Large Foundation Model Training](http://arxiv.org/abs/2605.09994v2)
+  > **TL;DR**: Proposes BatchWeave, an object-store-native data plane for distributed foundation model training. Uses versioned manifests and conditional object writes for transactional global batches, decentralized commit, and storage-layer recovery. Achieves higher throughput than Apache Kafka and better failure isolation than colocated dataloaders in 64-GPU evaluations.
+
 ### 2026-05-15
 * `agentic` `scaling` `serving` [APWA: A Distributed Architecture for Parallelizable Agentic Workflows](http://arxiv.org/abs/2605.15132v1)
   > **TL;DR**: Proposes APWA, a distributed architecture for decomposing agentic workflows into non-interfering parallel subproblems to overcome scaling bottlenecks. Achieves scalability on large tasks where prior systems fail, supporting heterogeneous data and parallel patterns.
