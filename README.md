@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2514-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.18-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2529-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,38 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-19
+* `training` `scaling` [Ringmaster LMO: Asynchronous Linear Minimization Oracle Momentum Method](http://arxiv.org/abs/2605.18174v1)
+  > **TL;DR**: Proposes Ringmaster LMO, an asynchronous momentum method for distributed LMO-based optimization, leveraging delay-thresholding to discard stale gradients. Addresses stragglers in heterogeneous systems, achieving optimal time complexity and outperforming baselines in experiments with increasing system heterogeneity.
+* `video` `training` `kernel` [AdaptiveLoad: Towards Efficient Video Diffusion Transformer Training](http://arxiv.org/abs/2605.17923v1)
+  > **TL;DR**: Proposes AdaptiveLoad for efficient training of large-scale video diffusion transformers. Introduces dual-constraint load balancing and fused CUDA kernel to address sequence length variance. Reduces computational imbalance by 20.1% and increases training throughput by 27.2%.
+* `training` `scaling` `hardware` [Guard: Scalable Straggler Detection and Node Health Management for Large-Scale Training](http://arxiv.org/abs/2605.17879v1)
+  > **TL;DR**: Addresses the problem of silent performance degradation in large-scale training clusters. Proposes Guard, a system combining lightweight online monitoring with offline node-sweep diagnostics. Improves FLOPs utilization by up to 1.7x and reduces training step variance from 20% to 1% in foundation model training.
+* `training` `storage` [TierCheck: Tiered Checkpointing for Fault Tolerance in Large Language Model Training](http://arxiv.org/abs/2605.17821v1)
+  > **TL;DR**: Proposes TierCheck, a tiered checkpointing system using local/peer memory and remote storage to minimize training interruptions. Maintains differential checkpoints in memory for fast localized recovery, reducing checkpointing time to under 10s and enabling high-frequency checkpointing.
+* `quantization` `serving` `offloading` [OSCAR: Offline Spectral Covariance-Aware Rotation for 2-bit KV Cache Quantization](http://arxiv.org/abs/2605.17757v1)
+  > **TL;DR**: Proposes OSCAR, an offline spectral covariance-aware rotation method for 2-bit KV cache quantization to reduce memory and improve throughput in LLM serving. Integrates with paged KV-cache systems, achieving up to 8x memory reduction, 7x throughput increase, and 3x decoding acceleration while maintaining near-BF16 accuracy.
+* `storage` `disaggregation` [Send: Objects, History, and Transactions in a Single-Verb Kernel](http://arxiv.org/abs/2605.17401v1)
+  > **TL;DR**: Proposes a kernel for multi-party object coordination with authenticated provenance, opaque encapsulation, and atomic commits using ephemeral/persistent objects and append-only logs. Structural guarantees include six properties against arbitrary programs under kernel trust. Achieves operator-adversarial deployability via cryptographic compiler.
+* `training` `serving` `scaling` [Charon: A Unified and Fine-Grained Simulator for Large-Scale LLM Training and Inference](http://arxiv.org/abs/2605.17164v1)
+  > **TL;DR**: Proposes Charon, a unified fine-grained simulator for predicting performance of large-scale LLM training and inference. Models parallelism strategies, system optimizations, and hardware configurations with 5.35% prediction error. Discovered a configuration improving inference throughput over engineering-tuned baseline.
+* `agentic` `serving` [S-Bus: Automatic Read-Set Reconstruction for Multi-Agent LLM State Coordination](http://arxiv.org/abs/2605.17076v1)
+  > **TL;DR**: Proposes S-Bus, an HTTP middleware with a DeliveryLog for automatic read-set reconstruction, ensuring Observable-Read Isolation to prevent structural race conditions in concurrent LLM agent state coordination. Achieves zero Type-I corruptions across 427,308 HTTP-409 conflicts compared to backend systems.
+* `serving` `scaling` `agentic` [GoodServe: Towards High-Goodput Serving of Agentic LLM Inferences over Heterogeneous Resources](http://arxiv.org/abs/2605.16867v1)
+  > **TL;DR**: Proposes GoodServe, a routing system for agentic LLM inferences on heterogeneous GPUs to improve goodput. Employs predict-and-rectify with output length estimation, GPU status tracking, and runtime request migration. Increases goodput by 27.4% over existing methods.
+* `agentic` `serving` `disaggregation` [HexAGenT: Efficient Agentic LLM Serving via Workflow- and Heterogeneity-Aware Scheduling](http://arxiv.org/abs/2605.16637v1)
+  > **TL;DR**: Proposes HexAGenT, a scheduler for agentic LLM workflows that models requests as online-revealed DAGs and prioritizes calls by workflow completion risk. It optimizes prefill/decode placement with KV-cache and transfer constraints. Reduces SLO scale by up to 80.5% at 99% attainment.
+* `quantization` `kernel` `hardware` [Exceeding the Numerical and Performance Characteristics of IEEE-754 SGEMM with BFloat16 Tensor Cores on GPUs for Scientific Computing](http://arxiv.org/abs/2605.16617v1)
+  > **TL;DR**: Investigates emulating FP32 matrix multiplications using bfloat16 Tensor Cores on GPUs. Proposes a BF16-based emulation method leveraging Blackwell GPU's scaling hardware. Achieves higher performance and efficiency than native FP32 for scientific applications.
+* `offline` `storage` `networking` [TIDAL: Recovering Temporal Phase for Cloud Block Storage Placement from LLM-Derived Semantics](http://arxiv.org/abs/2605.18066v1)
+  > **TL;DR**: Proposes TIDAL, a framework for complementary phase-aware placement of cloud virtual disks. Uses LLMs to derive temporal signals from disk names for load balancing, with offline-to-online design. Reduces overload frequency by 79.1% and P95 overload duration by 73.7%.
+* `offline` `storage` [PipeANN-Filter: An Efficient Filtered Vector Search System on SSD](http://arxiv.org/abs/2605.17992v1)
+  > **TL;DR**: Addresses SSD I/O inefficiency in filtered vector search. Proposes exploring superset of valid vectors and verifying attributes post-search using probabilistic structures (e.g., Bloom filters). Achieves improved search latency and throughput over state-of-the-art systems.
+* `offline` `agentic` `scaling` [TClone: Low-Latency Forking of Live GUI Environments for Computer-Use Agents](http://arxiv.org/abs/2605.17320v1)
+  > **TL;DR**: Addresses the need for low-latency forking of live GUI environments for computer-use agents. Introduces TClone with siblings containers, copy-on-write memory sharing, and asynchronous checkpointing. Reduces total task latency by 1.9x and 1.5x over KVM and CRIU.
+* `serving` `offloading` `RAG` [Skim: Speculative Execution for Fast and Efficient Web Agents](http://arxiv.org/abs/2605.16565v1)
+  > **TL;DR**: Proposes Skim, a speculative execution framework for web agents that uses offline profiling and lightweight verification to bypass costly LLM inference and rendering components. Achieves 1.9x cost reduction and 33.4% lower latency without accuracy loss.
+
 ### 2026-05-18
 * `training` `hardware` `scaling` [Designing Datacenter Power Delivery Hierarchies for the AI Era](http://arxiv.org/abs/2605.16255v1)
   > **TL;DR**: Addresses efficient datacenter power delivery design under increasing AI accelerator densities. Proposes a framework combining hardware projections and operational data to optimize deployable capacity over time. Achieves up to 42% higher deployable capacity compared to existing designs.
