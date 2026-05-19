@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2529-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2535-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.05.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-19
+* `training` `scaling` `networking` [A Readiness-Driven Runtime for Pipeline-Parallel Training under Runtime Variability](http://arxiv.org/abs/2605.18750v1)
+  > **TL;DR**: Proposes Runtime-Readiness-First Pipeline (RRFP) for pipeline-parallel training under runtime variability. Uses non-binding schedule hints, message-driven async communication, and ready-set arbitration to reduce idle bubbles. Achieves up to 2.77× speedup on multimodal workloads at 128 GPUs.
+* `training` `video` `quantization` [LongLive-2.0: An NVFP4 Parallel Infrastructure for Long Video Generation](http://arxiv.org/abs/2605.18739v1)
+  > **TL;DR**: Addresses bottlenecks in long video generation systems via NVFP4-based parallel infrastructure. Introduces sequence-parallel AR training with SP-aware chunking and NVFP4 precision, and employs quantized KV cache with asynchronous VAE decoding for inference. Achieves 2.15x training speedup and 1.84x inference speedup.
+* `training` `multi-modal` `scaling` [Mosaic: Towards Efficient Training of Multimodal Models with Spatial Resource Multiplexing](http://arxiv.org/abs/2605.18710v1)
+  > **TL;DR**: Proposes a training system for multimodal models using temporal-spatial multiplexing to colocate modules. Develops execution engine and perf model to optimize resource allocation. Achieves up to 1.31x speedup in training.
+* `serving` `offloading` [PopPy: Opportunistically Exploiting Parallelism in Python Compound AI Applications](http://arxiv.org/abs/2605.18697v1)
+  > **TL;DR**: Investigates how to reduce latency in Python-based compound AI applications by automatically uncovering parallelism. Proposes PopPy, an ahead-of-time compiler with runtime support for handling language complexity, dynamic dispatch, and mutations. Achieves up to 6.4× speedups in end-to-end execution time.
+* `training` `networking` `scaling` [EPIC: Abstraction and Polymorphism of In-Network Collectives on Ethernet](http://arxiv.org/abs/2605.18683v1)
+  > **TL;DR**: Proposes EPIC, an Ethernet-based in-network collective protocol for optimizing AI training and inference. Introduces a polymorphic abstraction with modular design, formal verification, and unified resource management. Achieves significant performance gains validated across testbeds.
+* `training` `sparse` `quantization` [JanusPipe: Efficient Pipeline Parallel Training for Machine Learning Interatomic Potentials](http://arxiv.org/abs/2605.18404v1)
+  > **TL;DR**: Proposes JanusPipe, a pipeline parallel training system for machine learning interatomic potentials (MLIPs) with double-backward execution. Introduces SymFold for memory efficiency and WaveK for bubble reduction. Achieves 1.51× higher throughput vs 1F1B on 32 GPUs.
+
 ### 2026-05-19
 * `training` `scaling` [Ringmaster LMO: Asynchronous Linear Minimization Oracle Momentum Method](http://arxiv.org/abs/2605.18174v1)
   > **TL;DR**: Proposes Ringmaster LMO, an asynchronous momentum method for distributed LMO-based optimization, leveraging delay-thresholding to discard stale gradients. Addresses stragglers in heterogeneous systems, achieving optimal time complexity and outperforming baselines in experiments with increasing system heterogeneity.
