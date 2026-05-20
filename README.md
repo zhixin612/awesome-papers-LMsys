@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2535-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.19-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2546-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.20-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,30 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-20
+* `video` `quantization` `training` [LongLive-2.0: An NVFP4 Parallel Infrastructure for Long Video Generation](http://arxiv.org/abs/2605.18739v2)
+  > **TL;DR**: Proposes LongLive-2.0, an NVFP4-based parallel infrastructure for efficient long video generation training and inference. Combines sequence-parallel AR training with NVFP4 precision for reduced memory and accelerated GEMM, along with W4A4 quantization and SP inference. Achieves 2.15x training speedup and 45.7 FPS inference.
+* `MoE` `training` `serving` [GEM: GPU-Variability-Aware Expert to GPU Mapping for MoE Systems](http://arxiv.org/abs/2605.19945v1)
+  > **TL;DR**: Addresses straggler issue in MoE inference due to GPU variability and expert placement. Proposes GEM, a GPU-variability-aware expert mapping framework that balances token loads by considering expert types (consistent/temporal) and GPU speeds. Achieves up to 16.5% lower end-to-end latency over baselines.
+* `MoE` `offloading` `training` [Understanding Inference Scaling for LLMs: Bottlenecks, Trade-offs, and Performance Principles](http://arxiv.org/abs/2605.19775v1)
+  > **TL;DR**: Analyzes inference scaling bottlenecks in large-scale LLMs, especially for reasoning loads causing Capacity-Bound regimes. Evaluates parallelism strategies (Data, Tensor, Pipeline) across models up to 671B parameters. Shows hybrid parallelism achieves sublinear scaling gains while mitigating KV-cache fragmentation, improving compute utilization up to 50% for sparse MoE models.
+* `training` `kernel` `quantization` [JanusPipe: Efficient Pipeline Parallel Training for Machine Learning Interatomic Potentials](http://arxiv.org/abs/2605.18404v2)
+  > **TL;DR**: Faster pipeline parallel training for ML interatomic potentials via SymFold for memory efficiency and WaveK for bubble reduction. Achieves 1.45× higher throughput over prior systems on 32 GPUs.
+* `serving` `offloading` `multi-modal` [Towards Multi-Model LLM Schedulers: Empirical Insights into Offloading and Preemption](http://arxiv.org/abs/2605.19593v1)
+  > **TL;DR**: Studies multi-model LLM scheduling challenges including offloading and preemption penalties. Empirically analyzes effects of layer offloading and preemption on throughput, latency, and overheads. Identifies degradation varies by model size and GPU residency, with high cost of state reload dominating.
+* `training` `networking` `scaling` [Modeling the Impact of Fiber Latency on Compute-Communication Overlap in Geo-Distributed Multi-Datacenter AI Training](http://arxiv.org/abs/2605.19169v1)
+  > **TL;DR**: Studies fiber latency impact on communication-compute overlap in geo-distributed AI training. Uses discrete-event simulation to show optimal 10-100km inter-cluster distance. Achieving 25% higher overlap using hollow-core fiber versus conventional fiber.
+* `edge` `thinking` `serving` [Unleashing the Power of Tree-of-Thoughts for Edge-Enabled AIGC Service Provisioning](http://arxiv.org/abs/2605.19108v1)
+  > **TL;DR**: Optimizes mobile edge computing for Tree-of-Thoughts AIGC services by formulating thought assignment as a DAG and solving with a diffusion-based SAC algorithm. Achieves up to 36.09% lower delay vs baselines and 80% latency reduction over local execution under quality constraints.
+* `training` `offline` [Conflict-Free Replicated Data Types for Neural Network Model Merging: A Two-Layer Architecture Enabling CRDT-Compliant Model Merging Across 26 Strategies](http://arxiv.org/abs/2605.19373v1)
+  > **TL;DR**: Addresses lack of algebraic properties in neural network merging strategies for distributed systems. Proposes CRDTMergeState, a two-layer architecture enabling Conflict-Free Replicated Data Types for model merging. Ensures Strong Eventual Consistency with under 0.5 ms overhead, validated on models up to 7.24B parameters.
+* `offline` `edge` `multi-modal` [INAR-VL: Input-Aware Routing for Edge-Cloud Vision-Language Inference](http://arxiv.org/abs/2605.18853v1)
+  > **TL;DR**: Explores efficient routing for edge-cloud deployment of vision-language models. Proposes INAR-VL, using input complexity signals to route requests between edge and cloud for optimal accuracy-latency tradeoff. Achieves 24% latency reduction and 26% energy savings while preserving 97% cloud-level accuracy.
+* `serving` `sparse` `quantization` [SpecSA: Bridging Speculative Decoding and Sparse Attention for Efficient LLM Inference](http://arxiv.org/abs/2605.19893v1)
+  > **TL;DR**: Addresses inefficiency in combining speculative decoding and sparse attention for LLM inference. Proposes SpecSA with grouped-query execution, kernel fusion, and profile-guided orchestration. Achieves up to 3.49x end-to-end throughput and 6.86x kernel speedups over baselines.
+* `serving` `offline` `RAG` [Skim: Speculative Execution for Fast and Efficient Web Agents](http://arxiv.org/abs/2605.16565v2)
+  > **TL;DR**: Introduces Skim, a speculative execution framework for web agents that uses offline profiling and lightweight models to bypass full inference and browser rendering. Validates outputs with a verifier to ensure correctness. Reduces per-task cost by 1.9x and latency by 33.4% without accuracy loss.
+
 ### 2026-05-19
 * `training` `scaling` `networking` [A Readiness-Driven Runtime for Pipeline-Parallel Training under Runtime Variability](http://arxiv.org/abs/2605.18750v1)
   > **TL;DR**: Proposes Runtime-Readiness-First Pipeline (RRFP) for pipeline-parallel training under runtime variability. Uses non-binding schedule hints, message-driven async communication, and ready-set arbitration to reduce idle bubbles. Achieves up to 2.77× speedup on multimodal workloads at 128 GPUs.
