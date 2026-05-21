@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2546-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.20-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2558-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.21-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-21
+* `serving` `MoE` `quantization` [PALS: Power-Aware LLM Serving for Mixture-of-Experts Models](http://arxiv.org/abs/2605.21427v1)
+  > **TL;DR**: Proposes PALS, a power-aware LLM serving runtime that dynamically controls GPU power caps and batch sizes. Uses offline modeling and feedback control to optimize energy efficiency while meeting throughput targets. Achieves up to 26.3% energy savings and reduces QoS violations by 4x-7x.
+* `serving` `disaggregation` `kernel` [Frontier: Towards Comprehensive and Accurate LLM Inference Simulation](http://arxiv.org/abs/2605.21312v1)
+  > **TL;DR**: Proposes Frontier, a discrete-event simulator for accurate LLM inference serving systems. Models disaggregated execution (PDD, AFD), runtime optimizations, and stateful workloads with role-specific workers. Achieves average throughput error below 4% and scales to 1K GPUs.
+* `MoE` `serving` `scaling` [NanoCP: Request-Level Dynamic Context Parallelism for Data-Expert Parallel Decoding](http://arxiv.org/abs/2605.21100v1)
+  > **TL;DR**: Addresses load imbalance and KV cache fragmentation in MoE serving systems. Proposes dynamic context parallelism (DCP) to decouple MoE communication from KV cache placement and adjust parallelism per request. Achieves up to 3.27× higher request rates and reduces P99 latency by up to 2.12×.
+* `MoE` `training` `networking` [Diagnosing Overhead in Dispatch Operations: Cross-architecture Observatory](http://arxiv.org/abs/2605.20982v1)
+  > **TL;DR**: Investigates routing imbalance in MoE expert parallelism during training. Introduces DODOCO to evaluate workload assumptions using real LLMs and data. Shows mock tokens overestimate routing imbalance by up to 2.35× and reveals intrinsic model-dependent bands.
+* `training` `networking` `sparse` [LOSCAR-SGD: Local SGD with Communication-Computation Overlap and Delay-Corrected Sparse Model Averaging](http://arxiv.org/abs/2605.20866v1)
+  > **TL;DR**: Addresses communication bottlenecks in distributed training via LOSCAR-SGD: overlapping communication-computation with delay-corrected sparse model averaging. Achieves faster convergence and up to reduced training time with sparse updates, heterogeneous workers, and optimized merging.
+* `training` `RL` `scaling` [PlexRL: Cluster-Level Orchestration of Serviceized LLM Execution for RLVR](http://arxiv.org/abs/2605.20863v1)
+  > **TL;DR**: Addresses training inefficiency in RLVR for LLMs, proposing PlexRL, a cluster-level runtime orchestrating multiplexed LLM services. Achieves up to 37.58% reduction in GPU hour costs by filling job anti-correlated idle gaps through centralized scheduling and state management.
+* `training` `hardware` `quantization` [Instant GPU Efficiency Visibility at Fleet Scale](http://arxiv.org/abs/2605.20799v1)
+  > **TL;DR**: Introduces Overall FLOP Utilization (OFU), a hardware-level GPU efficiency metric derived from performance counters, requiring no instrumentation. Evaluated via GEMM experiments and production training jobs, OFU achieves r=0.78 correlation with MFU and identified framework-level errors. Deployed fleet-wide, it detected a 2.5x efficiency regression.
+* `serving` `kernel` `offloading` [Llamas on the Web: Memory-Efficient, Performance-Portable, and Multi-Precision LLM Inference with WebGPU](http://arxiv.org/abs/2605.20706v1)
+  > **TL;DR**: Proposes LlamaWeb, a WebGPU backend for llama.cpp to optimize browser-based LLM inference. Employs static memory planning, efficient model loading, and templated GPU kernels for multi-precision support. Reduces memory by 29-33% and increases throughput by 45-69% across heterogeneous devices.
+* `storage` `serving` `edge` [LatentBox: Storing AI-Generated Images at Scale via a Latent-First Design](http://arxiv.org/abs/2605.19385v2)
+  > **TL;DR**: Proposes LatentBox, a latent-first storage system for AI-generated images using compressed latents and on-demand GPU reconstruction, balancing cache tiers to optimize access latency. Reduces persistent storage by 78.7% with competitive latency compared to image-based storage.
+* `training` `serving` [Charon: A Unified and Fine-Grained Simulator for Large-Scale LLM Training and Inference](http://arxiv.org/abs/2605.17164v2)
+  > **TL;DR**: Addresses accurate performance simulation for optimizing large-scale LLM training and inference. Proposes Charon, a unified modular simulator for parallelism strategies, system optimizations, and hardware configurations. Achieves under 5.35% prediction error and improves inference throughput over baseline.
+* `edge` `offloading` `RAG` [Hybrid Edge-HPC Systems for Low-Latency Data-Driven Inference](http://arxiv.org/abs/2605.20532v1)
+  > **TL;DR**: Proposes RBF, a hybrid edge-HPC architecture for low-latency inference by decoupling edge surrogates from asynchronous model updates. Uses opportunistic computation to improve accuracy despite delayed HPC updates. Achieves continuous inference with improved fidelity in real-world agriculture deployment.
+* `serving` `sparse` `kernel` [SSV: Sparse Speculative Verification for Efficient LLM Inference](http://arxiv.org/abs/2605.19893v2)
+  > **TL;DR**: Addresses inefficiency in combining sparse attention and speculative decoding for long-context LLM inference. Proposes SSV framework with overlap-aware grouped query execution, kernel fusion, and adaptive orchestration. Achieves up to 3.49x end-to-end throughput over autogressive decoding.
+
 ### 2026-05-20
 * `video` `quantization` `training` [LongLive-2.0: An NVFP4 Parallel Infrastructure for Long Video Generation](http://arxiv.org/abs/2605.18739v2)
   > **TL;DR**: Proposes LongLive-2.0, an NVFP4-based parallel infrastructure for efficient long video generation training and inference. Combines sequence-parallel AR training with NVFP4 precision for reduced memory and accelerated GEMM, along with W4A4 quantization and SP inference. Achieves 2.15x training speedup and 45.7 FPS inference.
