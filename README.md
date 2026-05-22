@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2565-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2566-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.05.22-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-22
+* `agentic` `RL` `storage` [DeltaBox: Scaling Stateful AI Agents with Millisecond-Level Sandbox Checkpoint/Rollback](http://arxiv.org/abs/2605.22781v1)
+  > **TL;DR**: Investigates reducing checkpoint and rollback latency for state exploration in LLM-powered AI agents. Proposes DeltaBox with OS-level DeltaState, including DeltaFS for layered filesystem changes and DeltaCR for incremental process rollback. Achieves millisecond-level latencies (14ms checkpoint, 5ms rollback).
+
 ### 2026-05-22
 * `training` `networking` [Exploiting Multicast for Accelerating Collective Communication](http://arxiv.org/abs/2605.22428v1)
   > **TL;DR**: Proposes MultiWrite, a multicast-based semantic to eliminate redundant data transmission during collective communication (e.g., AllGather) in large model training/inference. Addresses traditional multicast limitations via NPU implementation, achieving up to 33% latency reduction on commercial hardware.
