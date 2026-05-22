@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2558-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.21-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2565-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.22-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-22
+* `training` `networking` [Exploiting Multicast for Accelerating Collective Communication](http://arxiv.org/abs/2605.22428v1)
+  > **TL;DR**: Proposes MultiWrite, a multicast-based semantic to eliminate redundant data transmission during collective communication (e.g., AllGather) in large model training/inference. Addresses traditional multicast limitations via NPU implementation, achieving up to 33% latency reduction on commercial hardware.
+* `serving` [Asymmetric Virtual Memory Paging for Hybrid Mamba-Transformer Inference](http://arxiv.org/abs/2605.22416v1)
+  > **TL;DR**: Addresses inefficient memory handling for KV and SSM caches in hybrid Mamba-Transformer inference. Proposes Asymmetric Virtual Memory Paging (AVMP) with separate pools and on-demand migration. Improves request throughput by 1.83x to 13.3x on synthetic workloads and 2.36x on ShareGPT.
+* `training` `scaling` [LiveR: Fine-Grained Elasticity via Live Reconfiguration for Model Training](http://arxiv.org/abs/2605.22014v1)
+  > **TL;DR**: Aims to reduce downtime during elastic resizing in LLM training. Introduces LiveR, a runtime that asynchronously prepares new configurations and streams state without stopping training. Achieves 14x-23x faster reconfiguration and 99% training goodput with volatile resources.
+* `RAG` `hardware` `storage` [NasZip: Software and Hardware Co-Design to Accelerate Approximate Nearest Neighbor Search with DIMM-Based Near-Data Processing](http://arxiv.org/abs/2605.21952v1)
+  > **TL;DR**: Addresses memory-bound approximate nearest neighbor search in retrieval-augmented generation (RAG) systems. Proposes NASZIP, a hardware-software co-design with DIMM-based near-data processing, PCA-guided early exiting, and dynamic-float encoding. Achieves up to 8.4× speedup over CPU baselines at equal accuracy.
+* `hardware` [CompPow: A Case for Component-level GPU Power Management](http://arxiv.org/abs/2605.21847v1)
+  > **TL;DR**: Proposes CompPow, a component-level GPU power management for ML workloads via software-hardware co-design. Achieves 10% higher energy efficiency across various operations and execution patterns.
+* `kernel` `training` [DynaFlow: Transparent and Flexible Intra-Device Parallelism via Programmable Operator Scheduling](http://arxiv.org/abs/2605.21603v1)
+  > **TL;DR**: DynaFlow introduces efficient intra-device parallelism by decoupling logical models from physical schedules. Its programmable scheduler and memory management reduce copy overheads, achieving up to 1.29x throughput improvement across ML systems.
+* `training` `networking` [High-speed Networking for Giga-Scale AI Factories](http://arxiv.org/abs/2605.21187v1)
+  > **TL;DR**: Addresses predictable high-speed networking for distributed AI training at scale. Introduces Spectrum-X multiplane architecture with hardware-accelerated load balancing. Achieves 98% of theoretical line rate with low jitter-free latency under realistic workloads.
+
 ### 2026-05-21
 * `serving` `MoE` `quantization` [PALS: Power-Aware LLM Serving for Mixture-of-Experts Models](http://arxiv.org/abs/2605.21427v1)
   > **TL;DR**: Proposes PALS, a power-aware LLM serving runtime that dynamically controls GPU power caps and batch sizes. Uses offline modeling and feedback control to optimize energy efficiency while meeting throughput targets. Achieves up to 26.3% energy savings and reduces QoS violations by 4x-7x.
