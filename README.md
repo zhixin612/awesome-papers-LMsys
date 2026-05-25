@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2566-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.22-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2572-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-25
+* `training` `MoE` `hardware` [HyperParallel-MoE: Multi-Core Interleaved Scheduling for Fast MoE Training on Ascend NPUs](http://arxiv.org/abs/2605.23764v1)
+  > **TL;DR**: Addresses underutilized heterogeneous parallelism in MoE training on NPUs. Proposes HyperParallel-MoE for statically scheduled tile-level taskflow with one-sided communication and event-driven scheduling. Achieves up to 1.58x lower Dispatch-to-Combine latency.
+* `serving` `offloading` [AlignedServe: Orchestrating Prefix-aware Batching to Build a High-throughput and Computing-efficient LLM Serving System](http://arxiv.org/abs/2605.23389v1)
+  > **TL;DR**: Addresses iteration-level bubbles in LLM serving caused by KV-cache length variance. Proposes prefix-aware batching and GPU-Prefetch-For-GPU to align cache lengths and reduce CPU-GPU transfers. Achieves 1.98× higher throughput and 7.4× lower latency versus state-of-the-art systems.
+* `serving` `networking` [XWind: A Cross-site Router for Large Language Model Inference Serving at Renewable Energy Farms](http://arxiv.org/abs/2605.23348v1)
+  > **TL;DR**: Addresses efficient LLM inference serving at renewable wind farms with fluctuating energy supply. Proposes XWind, a lightweight cross-site router using real-time latency, KV-cache, and queue signals to dynamically route requests. Reduces P99 latency by up to 52% compared to state-of-the-art alternatives.
+* `edge` `offloading` `scaling` [Hybrid Edge-HPC Systems for Low-Latency Data-Driven Inference](http://arxiv.org/abs/2605.20532v2)
+  > **TL;DR**: Resolves latency mismatch between edge inference and slow simulation-driven model updates. Proposes RBF, an edge-HPC hybrid with lightweight edge surrogates and asynchronous model integration. Enables continuous low-latency inference while improving fidelity despite irregular HPC updates.
+* `training` `storage` [Orbax: Distributed Checkpointing with JAX](http://arxiv.org/abs/2605.23066v1)
+  > **TL;DR**: Addresses efficient distributed checkpointing for JAX in ML training. Introduces Orbax, a modular library abstracting distributed accelerator complexities for user-friendly saving/loading. Achieves 3.5x faster saving and 2x faster loading than PyTorch.
+* `offline` `storage` [Budgeted Dynamic Trace Structures for Token-Efficient Sequential Computation](http://arxiv.org/abs/2605.22879v1)
+  > **TL;DR**: Reduces long traces in sequential computations under token budgets via budgeted dynamic trace structures with compaction techniques. Achieves token reduction from 3,359 to 433 with model benchmarks.
+
 ### 2026-05-22
 * `agentic` `RL` `storage` [DeltaBox: Scaling Stateful AI Agents with Millisecond-Level Sandbox Checkpoint/Rollback](http://arxiv.org/abs/2605.22781v1)
   > **TL;DR**: Investigates reducing checkpoint and rollback latency for state exploration in LLM-powered AI agents. Proposes DeltaBox with OS-level DeltaState, including DeltaFS for layered filesystem changes and DeltaCR for incremental process rollback. Achieves millisecond-level latencies (14ms checkpoint, 5ms rollback).
