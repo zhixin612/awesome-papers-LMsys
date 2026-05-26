@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2572-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.25-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2587-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.26-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,38 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-26
+* `serving` `RAG` [An Efficient and Privacy-Preserving Architecture for Cross-Institutional Collaborative RAG](http://arxiv.org/abs/2605.25716v1)
+  > **TL;DR**: Addresses privacy and efficiency challenges in federated RAG inference. Proposes FedRAG with Scrambled Distributed Attention for secure distributed KV cache access. Achieves <0.1% utility drop and 62x lower latency versus baselines.
+* `serving` `edge` `offloading` [Profiling-Driven Adaptive Distributed Transformer Inference on Embedded Edge Deployment](http://arxiv.org/abs/2605.25682v1)
+  > **TL;DR**: Addresses communication bottlenecks in distributed Transformer inference on embedded edge devices. Proposes Prism, combining Segment Means compression with offline profiling to adaptively switch between local and distributed execution. Reduces latency by 65-77% and energy by 34-52% versus static distributed inference.
+* `serving` `hardware` `kernel` [Bandwidth-Aware LLM Inference on Heterogeneous Many-Core Supercomputers](http://arxiv.org/abs/2605.25655v1)
+  > **TL;DR**: Addresses LLM inference inefficiency on bandwidth-constrained heterogeneous supercomputers. Proposes THInfer, a framework with optimized kernels, computation fusion, and P-B-D pipeline for data locality and parallelism. Achieves 62%-84% higher throughput over GPUs for Llama models.
+* `training` `serving` `LoRA` [Fine-Tuning and Serving Gemma 4 31B on Google Cloud TPU: A Technical Comparison with GPU Baselines](http://arxiv.org/abs/2605.25645v1)
+  > **TL;DR**: Compares TPU vs. GPU for fine-tuning and serving Gemma 4 31B. Adapts GPU-native LoRA training to JAX/TPU stack and details vLLM-TPU inference setup. TPU achieves 1.61x faster training at 2.12x lower cost and 2x lower first-token latency.
+* `diffusion` `disaggregation` `scaling` [DisagFusion: Asynchronous Pipeline Parallelism and Elastic Scheduling for Disaggregated Diffusion Serving](http://arxiv.org/abs/2605.25550v1)
+  > **TL;DR**: Addresses high memory and imbalance in diffusion model deployment via disaggregated serving. Proposes DisagFusion with asynchronous pipeline parallelism and hybrid scheduling for resource rebalancing. Achieves 3.4x-20.5x throughput improvement and 18.5x latency reduction.
+* `training` `scaling` `networking` [Bandwidth-Aware and Cost-Efficient Pipeline Parallel Scheduling in Geo-Distributed LLM Training](http://arxiv.org/abs/2605.25375v1)
+  > **TL;DR**: Addresses pipeline scheduling for geo-distributed LLM training under heterogeneous bandwidth and electricity prices. Proposes BACE-Pipe, featuring dynamic job prioritization, bandwidth-aware pathfinding, and cost-minimizing allocation. Achieves up to 64.7% lower JCT and 30.6% lower electricity cost versus state-of-the-art baselines.
+* `serving` `offloading` [Kavier: Exploring Performance, Sustainability, and Efficiency of LLM Ecosystems under Inference through Cache-Aware Discrete-Event Simulation](http://arxiv.org/abs/2605.25247v1)
+  > **TL;DR**: To optimize LLM inference ecosystems' performance, sustainability, and efficiency, proposes Kavier, a cache-aware discrete-event simulator with reference architecture focusing on KV caching policies. Achieves high prediction accuracy and enables cost-efficient decision-making for serving.
+* `serving` `diffusion` `scaling` [Optimus: Elastic Decoding for Efficient Diffusion LLM Serving](http://arxiv.org/abs/2605.24832v1)
+  > **TL;DR**: Addresses inefficient GPU utilization in diffusion LLM serving under dynamic loads. Proposes Optimus, an elastic decoding system with chunked execution and saturation-aware scheduling that adapts granularity at runtime. Achieves up to 6.1x and 4.3x throughput improvements over AR and fixed-block decoding.
+* `scaling` `training` `hardware` [Provisioning to Runtime Optimization of a +100 MW AI Cluster](http://arxiv.org/abs/2605.24461v1)
+  > **TL;DR**: Addresses the bottleneck of electric power in hyper-scale AI data centers by establishing an end-to-end power management process from planning to runtime optimization. Applied to a 150 MW datacenter with 83K GB200 GPUs, sharing operational insights for state-of-the-art clusters.
+* `training` `scaling` `networking` [ScaleAcross Explorer: Exploring Communication Optimization for Scale-Across AI Model Training](http://arxiv.org/abs/2605.24326v1)
+  > **TL;DR**: Addresses communication optimization for scaling LLM training across multiple data centers. Proposes ScaleAcross Explorer, an optimizer for parallelism placement, scheduling, and network technologies. Achieves up to 64.62% training speedup over production configurations.
+* `serving` `offloading` [Resident KV Claims: A Conformance Contract for Future Reuse under Active KV Pressure](http://arxiv.org/abs/2605.24259v1)
+  > **TL;DR**: Addresses unreported eviction of resident KV cache during inference. Proposes resident KV claims as a conformance contract binding reuse intent with materialization predicates and telemetry. Prototype in vLLM shows conversion of resident loss into reconstructable arbitration for 60-block claim vs 70-block prefill in 80-block pool.
+* `RL` `agentic` `training` [Polar: Agentic RL on Any Harness at Scale](http://arxiv.org/abs/2605.24220v1)
+  > **TL;DR**: Addresses efficient RL training for agentic LLMs across diverse harnesses. Proposes Polar, an asynchronous rollout framework that proxies LLM APIs and reconstructs token-faithful trajectories. Improves Qwen3.5-4B by up to 22.6 points on SWE-Bench.
+* `serving` [Identifying and Mitigating Systemic Measurement Bias in Production LLM Inference Benchmarks](http://arxiv.org/abs/2605.24217v1)
+  > **TL;DR**: Identifies systemic measurement bias in LLM inference benchmarks due to client-side queuing bottlenecks. Proposes a multi-process evaluation framework and NTPOT metric to isolate serving engine performance. Enables accurate benchmarking at production scales exceeding thousands of queries per second.
+* `serving` `offloading` `sparse` [Adaptive KV Cache Reuse for Fast Long-Context LLM Serving](http://arxiv.org/abs/2605.24022v1)
+  > **TL;DR**: Reduces TTFT latency in long-context LLM serving by enabling efficient non-prefix KV cache reuse. Introduces CacheTune with frequency-guided critical token selection, sparse KV transfer, and hardware-aware I/O optimization. Achieves 3.72x-4.86x TTFT speedup and 3.93x-6.21x throughput improvement while maintaining generation quality.
+* `training` `networking` `scaling` [A Tabular Schedule Abstraction for Communication-Aware Evaluation of Pipeline-Parallel LLM Training](http://arxiv.org/abs/2605.24006v1)
+  > **TL;DR**: Addresses challenges in comparing pipeline schedules for efficient LLM training. Proposes a tabular schedule abstraction and simulation methodology blending formulas and communication considerations. Results show 1F1B achieves lower activation-memory peak than GPipe, and schedule performance varies with network bottlenecks.
+
 ### 2026-05-25
 * `training` `MoE` `hardware` [HyperParallel-MoE: Multi-Core Interleaved Scheduling for Fast MoE Training on Ascend NPUs](http://arxiv.org/abs/2605.23764v1)
   > **TL;DR**: Addresses underutilized heterogeneous parallelism in MoE training on NPUs. Proposes HyperParallel-MoE for statically scheduled tile-level taskflow with one-sided communication and event-driven scheduling. Achieves up to 1.58x lower Dispatch-to-Combine latency.
