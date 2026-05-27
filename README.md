@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2587-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.26-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2593-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.27-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-27
+* `scaling` `training` [Provisioning to Runtime Optimization of a 100 MW-Scale AI Cluster](http://arxiv.org/abs/2605.24461v2)
+  > **TL;DR**: Addresses end-to-end power management for hyper-scale AI clusters from planning to runtime. Proposes an optimization process validated in a 150 MW facility with 83K GB200 GPUs. Shares measurements and insights from operating at this scale.
+* `MoE` `offloading` `serving` [ReMoE: Boosting Expert Reuse through Router Fine-Tuning in Memory-Constrained MoE LLM Inference](http://arxiv.org/abs/2605.27081v1)
+  > **TL;DR**: Addresses high I/O overhead from expert fetches in memory-constrained MoE LLM inference. Proposes router fine-tuning (ReMoE) that biases towards recently selected experts to boost cache locality. Achieves 8.4% higher throughput and 43.6-49.8% lower TPOT, accelerating decode by up to 1.99×.
+* `networking` [Extreme-Scale Interconnection Networks](http://arxiv.org/abs/2605.26960v1)
+  > **TL;DR**: Investigates efficient network topologies for extreme-scale data centers supporting AI workloads. Proposes Multipass Random Leaf-Spine (MRLS) with non-minimal routing. Achieves 50% speedup in All2All collective performance versus Fat-Tree for 100k endpoints.
+* `networking` `training` [Revisiting Bruck: Phase-Efficient All-to-All Communication in Reconfigurable Networks](http://arxiv.org/abs/2605.26930v1)
+  > **TL;DR**: Addresses inefficient All-to-All communication in optical reconfigurable networks for distributed ML. Proposes ReTri, a bidirectional schedule leveraging balanced ternary propagation to reduce phases and amortize reconfiguration delays. Achieves up to 10× faster completion versus static systems and 2.1× over prior reconfigurable approach.
+* `serving` [Identifying and Mitigating Systemic Measurement Bias in Production LLM Inference Benchmarks](http://arxiv.org/abs/2605.24217v2)
+  > **TL;DR**: Addresses measurement bias in LLM inference benchmarks under high concurrency. Proposes a multi-process framework with NTPOT metric to isolate serving performance. Enables accurate profiling at production scales exceeding thousands of queries per second.
+* `agentic` `serving` [Agentic AI Workload Characteristics](http://arxiv.org/abs/2605.26297v1)
+  > **TL;DR**: Characterizes agentic AI workloads to inform efficient serving. Using end-to-end tracing, finds token reuse via context caching makes execution decode-dominated and dependent on KV-cache persistence. Observes tool-use evolution from read/explore to execute/write, highlighting design requirements for joint model, state, and tool management.
+
 ### 2026-05-26
 * `serving` `RAG` [An Efficient and Privacy-Preserving Architecture for Cross-Institutional Collaborative RAG](http://arxiv.org/abs/2605.25716v1)
   > **TL;DR**: Addresses privacy and efficiency challenges in federated RAG inference. Proposes FedRAG with Scrambled Distributed Attention for secure distributed KV cache access. Achieves <0.1% utility drop and 62x lower latency versus baselines.
