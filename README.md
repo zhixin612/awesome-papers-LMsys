@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2593-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.27-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2601-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.28-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-28
+* `serving` `networking` `edge` [SwarmHarness: Skill-Based Task Routing via Decentralized Incentive-Aligned AI Agent Networks](http://arxiv.org/abs/2605.28764v1)
+  > **TL;DR**: Seeks to efficiently utilize idle compute resources for AI task serving via a decentralized protocol. Proposes SwarmHarness with DHT-based peer discovery, utility-driven task routing, and a Shapley-value credit incentive mechanism. Aims to improve resource utilization and reduce costs without centralized coordination.
+* `serving` `MoE` `disaggregation` [How Far Can Disaggregation Go? A Design-Space Exploration of Attention-FFN Disaggregation for Efficient MoE LLM Serving](http://arxiv.org/abs/2605.28302v1)
+  > **TL;DR**: Assesses Attention-FFN disaggregation (AFD) for MoE LLM serving under TTFT/TPOT SLOs. Proposes a partitioned execution framework using kernel measurements and network simulation. Achieves 4k tokens/s on DeepSeek-V3.2 workloads where non-AFD fails.
+* `serving` `offline` `networking` [SiDP: Memory-Efficient Data Parallelism for Offline LLM Inference](http://arxiv.org/abs/2605.28095v1)
+  > **TL;DR**: Addresses memory constraints in data parallelism for offline LLM inference. Proposes SiDP, a weight-sharing paradigm with on-demand remote access via WaS (weight streaming) and CaS (activation shipping). Achieves up to 1.8x KV capacity increase and 1.5x throughput gain over vLLM.
+* `training` `networking` [Throughput-Optimized Networks at Scale](http://arxiv.org/abs/2605.27963v1)
+  > **TL;DR**: Proposes TONS, an automated network synthesis framework for optimizing datacenter network topology and routing for AI training. Uses linear optimization and a deadlock-free routing scheme. Achieves geometric mean speedups of 2.1x and 1.6x over TPU v4/5p torus variants for uniform random and all-to-all traffic.
+* `training` `multi-modal` [Addressing Variable Heterogeneity in Distributed Multimodal Training with Entrain](http://arxiv.org/abs/2605.27918v1)
+  > **TL;DR**: Addresses workload heterogeneity in distributed multimodal LLM training. Introduces Entrain with static model-parallel configuration and hierarchical microbatch assignment to balance loads. Achieves up to 1.40x higher training throughput.
+* `training` `multi-modal` `scaling` [Heterogeneous Parallelism for Multimodal Large Language Model Training](http://arxiv.org/abs/2605.27678v1)
+  > **TL;DR**: Proposes heterogeneous parallelism for multimodal LLM training, decoupling module layouts and placements with boundary communicators for cross-layout transforms. Achieves up to 49.3% higher TFLOPS/GPU (colocated) and 13.0% higher token throughput (non-colocated) while maintaining convergence parity.
+* `training` `storage` [Orbax: Distributed Checkpointing with JAX](http://arxiv.org/abs/2605.23066v2)
+  > **TL;DR**: Addresses the lack of a standardized distributed checkpointing solution in JAX. Introduces Orbax, a modular library that abstracts distributed accelerator complexities for flexible checkpointing. Achieves up to 3.5× faster saving and 2× faster loading than PyTorch counterparts.
+* `edge` `agentic` `hardware` [The Energy Blind Spot: NVIDIA's Flagship Edge AI Hardware Cannot Support Process-Level Energy Attribution](http://arxiv.org/abs/2605.27599v1)
+  > **TL;DR**: Audit of NVIDIA's GB10 edge platform reveals no CPU energy telemetry, hindering per-process energy attribution for agentic AI. Proposes calibration via external DC metering with GPU subtraction and SCMI standards. Prior work finds CPU energy up to 44% of total in agentic workloads.
+
 ### 2026-05-27
 * `scaling` `training` [Provisioning to Runtime Optimization of a 100 MW-Scale AI Cluster](http://arxiv.org/abs/2605.24461v2)
   > **TL;DR**: Addresses end-to-end power management for hyper-scale AI clusters from planning to runtime. Proposes an optimization process validated in a 150 MW facility with 83K GB200 GPUs. Shares measurements and insights from operating at this scale.
