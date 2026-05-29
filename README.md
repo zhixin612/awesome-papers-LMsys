@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2601-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.28-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2604-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.05.29-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-05-29
+* `training` [AMDP: Asynchronous Multi-Directional Pipeline Parallelism for Large-Scale Models Training](http://arxiv.org/abs/2605.29664v1)
+  > **TL;DR**: Addresses convergence degradation in asynchronous pipeline training from parameter mismatch. Introduces AMDP, using bounded minibatches per stage, multiple concurrent pipelines, and gradient accumulation in one update. Accelerates training significantly while preserving convergence.
+* `edge` `MoE` [Rotary GPU: Exploring Local Execution Paths for Large Mixture-of-Experts Models Under Limited GPU Memory](http://arxiv.org/abs/2605.29135v1)
+  > **TL;DR**: Explores efficient local execution of large MoE models under tight GPU memory constraints. Proposes Rotary GPU, enabling a 35B-class MoE model to run on an 8GB laptop GPU, achieving 6.3GB VRAM usage and 21.06 tokens/s decode throughput.
+* `serving` `disaggregation` `quantization` [RTP-LLM: High-Performance Alibaba LLM Inference Engine](http://arxiv.org/abs/2605.29639v1)
+  > **TL;DR**: Presents RTP-LLM, a high-performance LLM inference engine using prefill-decode disaggregation, KV cache management, and adaptive quantization. Achieves 4.7x-6.3x model loading speedup and 35-37% TTFT latency reduction in production over vLLM/SGLang.
+
 ### 2026-05-28
 * `serving` `networking` `edge` [SwarmHarness: Skill-Based Task Routing via Decentralized Incentive-Aligned AI Agent Networks](http://arxiv.org/abs/2605.28764v1)
   > **TL;DR**: Seeks to efficiently utilize idle compute resources for AI task serving via a decentralized protocol. Proposes SwarmHarness with DHT-based peer discovery, utility-driven task routing, and a Shapley-value credit incentive mechanism. Aims to improve resource utilization and reduce costs without centralized coordination.
