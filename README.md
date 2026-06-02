@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2604-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.05.29-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2622-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.02-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,44 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-02
+* `serving` `agentic` `disaggregation` [Observation, Not Prediction: Conversation-Level Disaggregated Scheduling for Agentic Serving](http://arxiv.org/abs/2606.01839v1)
+  > **TL;DR**: Eliminates prediction need in agentic LLM serving by scheduling at conversation level. ConServe routes turn-1 prefill to high-throughput hardware and pins decoding using observable inputs, reducing p95 time-to-first-effective-token by 51.08% and energy by up to 22.75%.
+* `training` `networking` `scaling` [Don't Let a Few Network Failures Slow the Entire AllReduce](http://arxiv.org/abs/2606.01680v1)
+  > **TL;DR**: Proposes OptCC, a fault-tolerant AllReduce algorithm for distributed training. Achieves near-optimal completion time under asymmetric bandwidth constraints by intelligent pipeline design and routing. Reduces overhead to 2-6% versus fault-free performance in experiments, versus up to 57% in state-of-the-art approaches.
+* `quantization` `kernel` [TwinQuant: Learnable Subspace Decomposition for 4-Bit LLM Quantization](http://arxiv.org/abs/2606.01556v1)
+  > **TL;DR**: Addresses accuracy degradation in 4-bit LLM quantization via learnable subspace decomposition and a fused kernel for efficient execution. Preserves near-FP16 accuracy and achieves 1.8x end-to-end speedup over FP16 baseline.
+* `RAG` [Self-Conditioned Positional HNSW for Overlap-Aware Retrieval in Chunked-Document RAG Systems: Method and Industrial Evidence-Quality Audit](http://arxiv.org/abs/2606.01542v1)
+  > **TL;DR**: Addresses redundant chunk retrieval in RAG due to overlapping documents. Proposes SCP-HNSW with positional codes and a two-pass query for auditable context construction. A text audit reveals 574 out of 770 reviews rated 3/5, motivating evidence-quality improvements.
+* `serving` `multi-modal` [Compliance-Scored Best-of-N Guardrail Orchestration for Multimodal Document Generation in Payments Dispute Defense](http://arxiv.org/abs/2606.01513v1)
+  > **TL;DR**: Addresses efficient and compliant multimodal document generation at scale. Proposes a guardrail orchestration layer with parallel candidate generation and compliance scoring for early exit. Achieves 5 attempts within 20 seconds at 91% compliance.
+* `serving` `offloading` `sparse` [Move the Query, Not the Cache: Characterizing Cross-Instance Latent Attention Redistribution Across GPU Fabrics](http://arxiv.org/abs/2606.01502v1)
+  > **TL;DR**: Reduces latency for cross-GPU LLM attention in agentic workloads. Proposes routing compressed queries instead of KV cache blocks using Multi-head Latent Attention, enabled by a cost model and predicate. Replaces ~3 ms cache splicing with tens-of-microsecond query transfers via RDMA.
+* `serving` `offloading` [Fail-Closed Lowering of Resident KV Claims onto LLM Serving Runtimes](http://arxiv.org/abs/2606.01387v1)
+  > **TL;DR**: Addresses the gap between KV-cache primitives and future reuse obligations in LLM serving runtimes. Proposes a fail-closed lowering framework with checker and descriptors for runtime validation. Demonstrates with vLLM patch establishing claim-scoped outcomes.
+* `RL` `training` `offloading` [Schedule-Level Shared-Prefix Reuse for LLM RL Training](http://arxiv.org/abs/2606.01143v1)
+  > **TL;DR**: Addresses inefficiency of recomputing shared prefixes in RL training for large language models. Proposes a decoupled schedule that reuses prefixes via K/V and gK/gV offloading. Achieves up to 4.395x speedup and 59.1% peak HBM reduction.
+* `serving` `agentic` `kernel` [Leyline: KV Cache Directives for Agentic Inference](http://arxiv.org/abs/2606.01065v1)
+  > **TL;DR**: Addresses inefficient KV cache management for agentic LLMs requiring policy-driven cache edits without full re-prefill. Introduces Leyline, a serving primitive with declarative directives and a RoPE-rotation kernel for in-place edits. Splice kernel increases cache-hit by 11.2 pp and reduces latency up to 241 ms.
+* `serving` `scaling` [Lodestar: An Online-Learning LLM Inference Router](http://arxiv.org/abs/2606.00946v1)
+  > **TL;DR**: Addresses efficient routing for LLM inference requests in distributed clusters to reduce latency and improve GPU utilization. Proposes Lodestar, an online-learning system that trains a reward predictor to select optimal GPU instances per request. Achieves 1.41x lower average TTFT and 1.47x lower P99 TTFT versus state-of-the-art baselines.
+* `serving` `MoE` [ViBE: Co-Optimizing Workload Skew and Hardware Variability for MoE Serving](http://arxiv.org/abs/2606.00735v1)
+  > **TL;DR**: Addresses execution-time imbalance in distributed MoE inference caused by workload skew and hardware variability. Proposes ViBE, a frame-work combining per-GPU modeling and profiling for optimal expert placement. Reduces P90 TTFT by up to 45% and increases SLO attainment by 14%.
+* `kernel` [ScanWeaver: Compiler-Driven Parallelization of Affine Recurrences via Associative Scan Lowering](http://arxiv.org/abs/2606.00601v1)
+  > **TL;DR**: Addresses limited parallelization of affine recurrences like Mamba on accelerators. Proposes ScanWeaver, a compiler that transforms recurrences into associative scans and lowers them to MLIR-generated Blelloch scan execution on GPUs. Benchmarks demonstrate reduced execution time compared to sequential baselines.
+* `training` `scaling` [HeLoCo: Efficient asynchronous low-communication training under data and device heterogeneity](http://arxiv.org/abs/2606.00271v1)
+  > **TL;DR**: Addresses misaligned model updates in asynchronous distributed training under data and device heterogeneity. Proposes HeLoCo, a method that corrects stale pseudo-gradients using outer momentum to align with global optimization. Achieves 7.5% validation loss improvement at fixed token budget over baselines.
+* `training` `MoE` `agentic` [PithTrain: A Compact and Agent-Native MoE Training System](http://arxiv.org/abs/2605.31463v1)
+  > **TL;DR**: Addresses high agent-task inefficiency in evolving MoE training frameworks. Designs PithTrain with agent-native principles for automated development. Reduces Agent Turns by 62% and Active GPU Time by 64% while matching baseline throughput.
+* `offloading` `kernel` [Reducing the GPU Memory Bottleneck with Lossless Compression for ML -- Extended](http://arxiv.org/abs/2605.30728v1)
+  > **TL;DR**: Reduces GPU memory bottleneck by minimizing PCIe transfers for ML tensors via Invariant Bit Packing (IBP), a lossless compression method using warp-parallel decompression. Achieves 24% faster LLM inference and 74%/180% speedups in GNN/DLRM.
+* `serving` `quantization` `kernel` [Memory-Bound but Not Bandwidth-Limited: The Physical AI Inference Gap in Batch-1 LLM Decode](http://arxiv.org/abs/2605.30571v1)
+  > **TL;DR**: Reveals that batch-1 LLM decode for physical systems fails to scale with memory bandwidth despite being memory-bound, due to kernel launch overhead. CUDA Graphs reduces latency by 1.259x on H100 at context 2048. Quantized models on L4 achieve up to 3.6x speedup but not full gains.
+* `kernel` [From Roofline to Ruggedness: Decomposing and Smoothing the GEMM Performance Landscape](http://arxiv.org/abs/2605.29752v1)
+  > **TL;DR**: Addresses the rugged performance variation in GEMM operations on GPUs. Introduces a two-stage approach: dynamic tile selection and a dynamic-programming-based padding-splitting optimizer. Achieves 70% roughness reduction and 30% higher mean throughput on BF16 GEMM.
+* `serving` `offloading` `agentic` [Idleness is Relative: Exploiting Tool-Call Idle Windows for Offloading in Agentic Systems with MORI](http://arxiv.org/abs/2606.00866v1)
+  > **TL;DR**: Addresses inefficient KV cache offloading in agentic LLM serving systems during tool-call idle windows. Proposes MORI, which ranks programs by idleness, dynamically allocates memory tiers, and enforces admission control. Achieves 20-71% higher throughput than baseline offloading approaches.
+
 ### 2026-05-29
 * `training` [AMDP: Asynchronous Multi-Directional Pipeline Parallelism for Large-Scale Models Training](http://arxiv.org/abs/2605.29664v1)
   > **TL;DR**: Addresses convergence degradation in asynchronous pipeline training from parameter mismatch. Introduces AMDP, using bounded minibatches per stage, multiple concurrent pipelines, and gradient accumulation in one update. Accelerates training significantly while preserving convergence.
