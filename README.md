@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2622-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.02-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2638-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.04-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,40 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-04
+* `serving` [Ekka: Automated Diagnosis of Silent Errors in LLM Inference](http://arxiv.org/abs/2606.04594v1)
+  > **TL;DR**: Investigates automated diagnosis of silent errors in LLM inference serving frameworks. Proposes Ekka, which aligns intermediate execution states between target and reference systems for root cause identification. Achieves 80% pass@1 diagnosis accuracy on a benchmark of real-world errors.
+* `serving` `edge` [Multi-SPIN: Multi-Access Speculative Inference for Cooperative Token Generation at the Edge](http://arxiv.org/abs/2606.04581v1)
+  > **TL;DR**: Proposes Multi-SPIN, a distributed speculative inference framework for edge-based LLM serving, using on-device draft generation and server batch verification. Optimizes joint draft-length control and bandwidth allocation to handle device heterogeneity. Achieves up to 88% higher sum token goodput than baselines.
+* `serving` `diffusion` [D^2SD: Accelerating Speculative Decoding with Dual Diffusion Draft Models](http://arxiv.org/abs/2606.04446v1)
+  > **TL;DR**: Addresses low token acceptance in diffusion-based speculative decoding for LLM inference. Introduces D^2SD with two diffusion drafters: the first generates tokens and confidence scores to guide prefix recovery, the second proposes top-K alternative continuations in parallel; candidates are jointly verified via cascade attention. Achieves improved acceptance rates over baseline methods.
+* `training` `RL` `MoE` [Schedule-Level Shared-Prefix Reuse for LLM RL Training](http://arxiv.org/abs/2606.01143v3)
+  > **TL;DR**: Eliminates redundant shared-prefix computation in RL post-training for LLMs. Introduces a schedule-level reuse mechanism decoupling prefix and suffix computation for gradient accumulation and activation offloading. Achieves up to 4.395x speedup and reduces peak HBM by 59.1%.
+* `serving` `disaggregation` [FlexNPU: Transparent NPU Virtualization for Dynamic LLM Prefill-Decode Co-location](http://arxiv.org/abs/2606.04415v1)
+  > **TL;DR**: Addresses inflexible NPU scheduling for LLM prefill-decode phases. Proposes FlexNPU, a transparent virtualization layer that enables dynamic co-location via AscendCL API interception and phase-aware scheduling. Achieves up to 26.33% throughput gain and over 92% TTFT reduction compared to static approaches.
+* `training` `RL` [EvalStop: Using World Feedback to Detect and Correct Reward Overoptimization in Multi-Tenant RLHF Platforms](http://arxiv.org/abs/2606.04145v1)
+  > **TL;DR**: Proposes EvalStop, a scheduler primitive that uses world feedback to detect reward overoptimization in multi-tenant RLHF platforms. It preemptively terminates jobs on eval decline, freeing GPUs and reducing wasted compute by 22% while improving job completion time by 9% with 98% precision detection.
+* `MoE` `training` `serving` [UltraEP: Unleash MoE Training and Inference on Rack-Scale Nodes with Near-Optimal Load Balancing](http://arxiv.org/abs/2606.04101v1)
+  > **TL;DR**: Addresses expert load imbalance in MoE training and serving prefill on rack-scale nodes. Proposes UltraEP, a real-time balancer using quota-driven planning and persistent tile streaming. Achieves 94.3% of ideal throughput, 1.49× improvement over non-balancing, reducing rank imbalance to near 1.00.
+* `serving` `disaggregation` `networking` [NetKV: Network-Aware Decode Instance Selection for Disaggregated LLM Inference](http://arxiv.org/abs/2606.03910v1)
+  > **TL;DR**: Addresses network-induced delays in disaggregated LLM inference by accounting for dynamic network conditions during scheduler selection. Proposes NetKV, a greedy scheduler with a network cost oracle for topological distance and congestion. Reduces mean TTFT by up to 21.2% and improves SLO attainment by 20.1 percentage points.
+* `edge` `disaggregation` `serving` [E2LLM: Towards Efficient LLM Serving in Heterogeneous Edge/Fog Environments](http://arxiv.org/abs/2606.03770v1)
+  > **TL;DR**: Addresses efficient LLM serving in resource-constrained edge/fog environments. Proposes E2LLM, a framework with prefill/decoder role-based replica groups and uses Genetic Algorithm / Dynamic Programming for optimal clustering and partitioning. Achieves >50% reduction in average waiting time vs Splitwise.
+* `training` [Demystifying Pipeline Parallelism: First Theory for PipeDream](http://arxiv.org/abs/2606.03498v1)
+  > **TL;DR**: Provides theoretical analysis for PipeDream's pipeline parallelism. Introduces RPD for nonconvex convergence and diagnoses delay scaling as $S^2 - S/2 + O(1)$ for $S$ stages. Experiments show PD excels on quadratics but LocalSGD improves with more stages for logistic regression.
+* `agentic` `RL` `scaling` [Libra: Efficient Resource Management for Agentic RL Post-Training](http://arxiv.org/abs/2606.03077v1)
+  > **TL;DR**: Addresses resource management challenges in agentic RL post-training with long-tailed, non-stationary workloads. Introduces Libra, featuring a global resource planner and causality-driven scheduler (C-MLFQ). Achieves up to 3.0× higher throughput and 2.5× faster reward convergence.
+* `serving` `edge` [Brief Announcement: Generative Markov Model for Distributed Computing Systems](http://arxiv.org/abs/2606.03061v1)
+  > **TL;DR**: Proposes a generative Markov model framework for optimizing collaborative AI inference in distributed systems. Distributes computation across user devices to avoid centralized bottlenecks, reducing latency and server resource consumption in inference scenarios.
+* `training` [FOLD: Fuzzy Online Deduplication for Very Large Evolving Datasets via Approximate Nearest Neighbor Search](http://arxiv.org/abs/2606.03001v1)
+  > **TL;DR**: Proposes FOLD, an online fuzzy deduplication system for LLM training corpora using an incrementally updated HNSW index and bitmap representations to improve Jaccard similarity. Achieves 93-97% recall and up to 2.09x higher throughput than baselines at large scales.
+* `serving` [DriftSched: Adaptive QoS-Aware Scheduling under Runtime Token Drift for Multi-Tenant GPU Inference](http://arxiv.org/abs/2606.02982v1)
+  > **TL;DR**: Addresses token drift causing misclassification and QoS degradation in multi-tenant LLM serving. Proposes DriftSched with adaptive workload classification and drift compensation. SJF reduces median latency by ~42% and P99 by ~16% versus FIFO under GPU contention.
+* `edge` `agentic` `sparse` [AURA: Action-Gated Memory for Robot Policies at Constant VRAM](http://arxiv.org/abs/2606.02775v1)
+  > **TL;DR**: Addresses high memory write costs for long-horizon edge inference. AURA wraps a frozen model with a constant recurrent memory and a learned gate that writes only when inputs change action, yielding 5.2-7x fewer writes at constant 4.2KB memory without loss in task success.
+* `agentic` `serving` [Agent libOS: A Library-OS-Inspired Runtime for Long-Running, Capability-Controlled LLM Agents](http://arxiv.org/abs/2606.03895v1)
+  > **TL;DR**: Proposes Agent libOS, a runtime for long-running LLM agents enabling scheduling, authorization, and audit. Designs AgentProcesses with explicit capabilities and runtime primitives as the authority boundary. Includes prototype with async scheduling and 123 regression tests.
+
 ### 2026-06-02
 * `serving` `agentic` `disaggregation` [Observation, Not Prediction: Conversation-Level Disaggregated Scheduling for Agentic Serving](http://arxiv.org/abs/2606.01839v1)
   > **TL;DR**: Eliminates prediction need in agentic LLM serving by scheduling at conversation level. ConServe routes turn-1 prefill to high-throughput hardware and pins decoding using observable inputs, reducing p95 time-to-first-effective-token by 51.08% and energy by up to 22.75%.
