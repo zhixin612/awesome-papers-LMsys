@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2638-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.04-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2640-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-06
+* `serving` [Beyond Greedy Chunking: SLO-Aware Sliding-Window Scheduling for LLM Inference](http://arxiv.org/abs/2606.05933v1)
+  > **TL;DR**: Proposes SlidingServe, a scheduling system for LLM inference that employs dynamic chunking and multi-level priority sorting to optimize throughput while meeting SLOs. Achieves up to 30% higher service capacity and reduces SLO violations by 16%-53% compared to existing systems.
+* `serving` `thinking` [Latent Reasoning Guidance for Parallel Code Translation](http://arxiv.org/abs/2606.05518v1)
+  > **TL;DR**: Proposes latent reasoning guidance via a Process Reward Model (PRM) to select better hidden-state trajectories during code generation, reducing test-time computation. PRM guidance increases validation rate from 32.89% to 42.1% on ParaTrans benchmark tasks.
+
 ### 2026-06-04
 * `serving` [Ekka: Automated Diagnosis of Silent Errors in LLM Inference](http://arxiv.org/abs/2606.04594v1)
   > **TL;DR**: Investigates automated diagnosis of silent errors in LLM inference serving frameworks. Proposes Ekka, which aligns intermediate execution states between target and reference systems for root cause identification. Achieves 80% pass@1 diagnosis accuracy on a benchmark of real-world errors.
