@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2640-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2646-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.08-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-08
+* `serving` `edge` `scaling` [Clairvoyant: Predictive SJF Scheduling to Mitigate Head-of-Line Blocking in Serial LLM Backends](http://arxiv.org/abs/2606.07248v1)
+  > **TL;DR**: Mitigates head-of-line blocking in serial LLM inference backends via Clairvoyant, a sidecar proxy predicting response lengths with an XGBoost classifier for SJF scheduling. Achieves 70-76% P50 latency reduction for short requests under 100 concurrent workloads.
+* `training` `networking` `scaling` [PCCL: Process Group-Aware Scalable and Generic Collective Algorithm Synthesizer](http://arxiv.org/abs/2606.07019v1)
+  > **TL;DR**: Addresses inefficiency in collective communications for distributed ML training, especially with process groups. Proposes PCCL, a topology-aware algorithm synthesizer supporting arbitrary collective patterns. Synthesizes 512-NPU All-to-All algorithm in 11.68 minutes.
+* `MoE` `training` `serving` [UltraEP: Unleash MoE Training and Inference on Rack-Scale Nodes with Near-Optimal Load Balancing](http://arxiv.org/abs/2606.04101v2)
+  > **TL;DR**: Addresses load imbalance in MoE training and serving prefill causing inefficiencies. Designs UltraEP, a real-time balancer with quota-driven planning and RSN-native streaming for expert-state transfers. Attains 94.3% of force-balanced ideal throughput, 1.49x over non-balancing and reduces inter-rank imbalance to 1.01-1.04.
+* `training` [StageFrontier: Synchronization-Aware Stage Accounting for Distributed ML Training](http://arxiv.org/abs/2606.06751v1)
+  > **TL;DR**: Proposes StageFrontier, a synchronization-aware stage accounting system for distributed ML training. It uses coarse stage vectors and frontier timing to pinpoint delay origins with minimal overhead. Adds only 0.2% overhead on 128-GPU clusters and accurately identifies slowdown causes.
+* `quantization` `kernel` [P-Cast Precision in FP8 Attention: Sink-Induced Collapse and the Optimality of S=2^8](http://arxiv.org/abs/2606.06521v1)
+  > **TL;DR**: Investigates precision loss in FP8 attention computation during softmax casting under Attention Sink. Proposes reverse KV iteration and S=256 scaling to prevent underflow and minimize quantization errors. Achieves 3-10x MSE improvement in kernel-faithful experiments.
+* `hardware` `kernel` [DxPTA: An Architecture Design Space Exploration with Optical Dataflow-guided Strategy for HW/SW Co-Design of Photonic Transformer Accelerators](http://arxiv.org/abs/2606.06515v1)
+  > **TL;DR**: Proposes DxPTA for HW/SW co-design of photonic transformer accelerators via optical dataflow-guided DSE. Devises constraint-aware architecture search balancing area/power/latency. Achieves 6ms latency (within 10ms SLO) with 15.2x faster design exploration than exhaustive methods.
+
 ### 2026-06-06
 * `serving` [Beyond Greedy Chunking: SLO-Aware Sliding-Window Scheduling for LLM Inference](http://arxiv.org/abs/2606.05933v1)
   > **TL;DR**: Proposes SlidingServe, a scheduling system for LLM inference that employs dynamic chunking and multi-level priority sorting to optimize throughput while meeting SLOs. Achieves up to 30% higher service capacity and reduces SLO violations by 16%-53% compared to existing systems.
