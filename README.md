@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2662-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2667-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-11
+* `serving` `edge` `scaling` [Fair Comparison of Scheduling Algorithms on Heterogeneous Edge Clusters: A Continuous Adaptive Benchmark](http://arxiv.org/abs/2606.12343v1)
+  > **TL;DR**: Proposes CMMS benchmark for scheduling algorithms on edge-cloud clusters that assign nodes and processing modes to meet AI task SLOs. Provides unified controller interface, closed-loop workload driver, and dual SLO scoring. Finds deep RL scheduler loses by 29 percentage points under intense load vs heuristic with 500× overhead.
+* `MoE` `RL` `training` [Harnessing Routing Foresight for Micro-step-level MoE load balancing in RL Post-training](http://arxiv.org/abs/2606.11867v1)
+  > **TL;DR**: Addresses expert load imbalance during micro-steps in RL post-training for MoE models. Introduces ForeMoE, which exploits routing foresight and a hierarchical planner with hardware-complementary transfer for load balancing. Achieves up to 1.45× speedup on 64 GPUs.
+* `serving` `quantization` `MoE` [Beyond Per-Token Pricing: A Concurrency-Aware Methodology for LLM Infrastructure Cost Estimation](http://arxiv.org/abs/2606.11690v1)
+  > **TL;DR**: Proposes a concurrency-aware LLM cost estimation method to address GPU underutilization errors in existing calculators. Introduces vllm-cost-meter for real server measurements, revealing 2.5-24x underutilization penalties and FP8 quantization improving MoE throughput by 69-74% vs 31% for dense models.
+* `quantization` `kernel` `edge` [TileFuse: A Fused Mixed-Precision Kernel Library for Efficient Quantized LLM Inference on AMD NPUs](http://arxiv.org/abs/2606.11357v1)
+  > **TL;DR**: Proposes TileFuse, a kernel library for efficient quantized LLM inference on AMD NPUs. Fuses unpacking, dequantization, and GEMM/GEMV into a single kernel, co-designing layout and dataflow. Achieves up to 2.0x lower prefilling latency and 64.6% lower energy in end-to-end experiments.
+* `serving` [Real-Time Language Model Jamming: A Case Study for Live Music Accompaniment Generation](http://arxiv.org/abs/2606.11886v1)
+  > **TL;DR**: Addresses frame-synchronous streaming inference for real-time LM generation aligned with external signals. Introduces StreamMUSE, a client-server system that sends high-frequency requests for synchronized outputs. Achieves real-time performance by adapting configurations to varying round-trip latencies across environments.
+
 ### 2026-06-10
 * `training` `MoE` [Piper: A Programmable Distributed Training System](http://arxiv.org/abs/2606.11169v1)
   > **TL;DR**: Addresses inflexibility in manual design of training strategies for large models. Proposes Piper, a system that decouples strategy from runtime using annotated scheduling directives and a compiled global DAG. Achieves performance parity with existing systems and enables improved efficiency for composed parallelism like DualPipe.
