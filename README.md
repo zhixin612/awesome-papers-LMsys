@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2667-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2675-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-12
+* `serving` `diffusion` `scaling` [GF-DiT: Scheduling Parallelism for Diffusion Transformer Serving](http://arxiv.org/abs/2606.13501v1)
+  > **TL;DR**: Addresses inefficient static parallelism in Diffusion Transformer serving. Proposes GF-DiT, a runtime with asynchronous execution and group-free collectives for dynamic GPU parallelism adaptation. Achieves up to 6.01× throughput improvement and reduces communication setup overhead from 778 ms to ~60 μs.
+* `training` `networking` [ScaleAcross: Designing Multi-Data-Center Infrastructure for Geo-Distributed AI Training](http://arxiv.org/abs/2606.12963v1)
+  > **TL;DR**: Designs infrastructure for geo-distributed AI training, addressing synchronization, latency, and cross-site data challenges. Proposes an EVPN-VXLAN framework with queue-pair-aware traffic distribution. Evaluation under realistic WAN conditions demonstrates improved communication behavior for AllReduce and Parameter Server workloads.
+* `serving` `agentic` `offloading` [Maestro: Workload-Aware Cross-Cluster Scheduling for LLM-Based Multi-Agent Systems](http://arxiv.org/abs/2606.12950v1)
+  > **TL;DR**: Addresses serving challenges in LLM-based multi-agent workflows under GPU constraints. Proposes Maestro, a hierarchical scheduler using agent role predictions for resource-aware scheduling at node, cluster, and global levels. Reduces KV-reservation HBM by 67.2%.
+* `edge` `multi-modal` `networking` [SemanticXR: Low Power and Real-time Queryable Semantic Mapping with an Object-Level Device-Cloud Architecture](http://arxiv.org/abs/2606.12849v1)
+  > **TL;DR**: Enables low-power, real-time semantic mapping for XR by proposing an object-level device-cloud architecture. Uses object parallelism and downsampling on server, sparse map updates on device, and depth-mapping co-design. Achieves 2.2x server latency improvement, <2.5 Mbps bandwidth, and 2% device power overhead.
+* `hardware` `kernel` [Rigel: Reverse-Engineering the Metal 4.1 Tensor Compute Path on the Apple M4 Max GPU](http://arxiv.org/abs/2606.12765v1)
+  > **TL;DR**: Characterizes Apple Metal 4.1's hidden tensor compute path via microbenchmarking, revealing fp8 matmul emulation and hardware behavior. An optimized hand-fused GEMM + bias + GELU kernel improves performance by 6.5-12.9% in the cache-resident regime.
+* `serving` `multi-modal` `diffusion` [M*: A Modular, Extensible, Serving System for Multimodal Models](http://arxiv.org/abs/2606.12688v1)
+  > **TL;DR**: Addresses limitations in serving composite multimodal models. Introduces M*, which represents models as dataflow graphs (Walk Graph) for modular composition and distributed optimization. Achieves 20% lower latency than vLLM-Omni for text-to-image tasks and up to 2.9x lower real-time factor for text-to-speech workloads.
+* `training` `networking` [Eidola: Modeling Multi-GPU Network Communication Traffic in Distributed AI Workloads](http://arxiv.org/abs/2606.12638v1)
+  > **TL;DR**: Addresses modeling irregular inter-GPU network communication traffic in distributed AI training. Introduces Eidola, a gem5 extension using annotated timing profiles for cycle-level simulation of peer-to-peer writes. Confirms reductions in polling-related memory traffic.
+* `offloading` `serving` `storage` [ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories](http://arxiv.org/abs/2606.12556v1)
+  > **TL;DR**: Addresses handling large KV caches beyond host memory in LLM inference by proposing ITME, a disaggregated CXL-hybrid tiered memory expansion system with proactive data movement. Achieves up to 35.7% throughput improvement.
+
 ### 2026-06-11
 * `serving` `edge` `scaling` [Fair Comparison of Scheduling Algorithms on Heterogeneous Edge Clusters: A Continuous Adaptive Benchmark](http://arxiv.org/abs/2606.12343v1)
   > **TL;DR**: Proposes CMMS benchmark for scheduling algorithms on edge-cloud clusters that assign nodes and processing modes to meet AI task SLOs. Provides unified controller interface, closed-loop workload driver, and dual SLO scoring. Finds deep RL scheduler loses by 29 percentage points under intense load vs heuristic with 500× overhead.
