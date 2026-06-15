@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2675-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.12-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2678-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.15-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-15
+* `serving` `edge` `scaling` [PLAIground: SLO-Driven Runtime Model Selection for Compound AI Systems in the Edge-Cloud-Space Continuum](http://arxiv.org/abs/2606.14356v1)
+  > **TL;DR**: Addresses dynamic model selection to satisfy accuracy, latency, and cost SLOs in Compound AI systems across edge-cloud-space. Proposes CAIM abstraction for model-task decoupling and Pixie SLO-driven algorithm. Achieves 91.3% accuracy with SLO compliance, while fixed strategies exhibit up to 21x cost/latency violations or 4% accuracy drops.
+* `serving` `scaling` `disaggregation` [Design Methodology and Performance Trade-offs Management for Distributed and Compound AI Systems](http://arxiv.org/abs/2606.14350v1)
+  > **TL;DR**: Proposes system-centric design of compound AI systems using distributed workflows to overcome limitations of monolithic models. Achieves within 2.5-4 pp accuracy while reducing latency by 60% and cost by 71%, though combinatorial challenges exist in configuration management.
+* `serving` `networking` [STREAM: Multi-Tier LLM Inference Middleware with Dual-Channel HPC Token Streaming](http://arxiv.org/abs/2606.13968v1)
+  > **TL;DR**: Proposes STREAM, a multi-tier LLM inference middleware with complex routing and dual-channel token streaming for HPC. Achieves 0.54 s median TTFT (21.1x faster than batch) for firewall-friendly delivery without rule changes.
+
 ### 2026-06-12
 * `serving` `diffusion` `scaling` [GF-DiT: Scheduling Parallelism for Diffusion Transformer Serving](http://arxiv.org/abs/2606.13501v1)
   > **TL;DR**: Addresses inefficient static parallelism in Diffusion Transformer serving. Proposes GF-DiT, a runtime with asynchronous execution and group-free collectives for dynamic GPU parallelism adaptation. Achieves up to 6.01× throughput improvement and reduces communication setup overhead from 778 ms to ~60 μs.
