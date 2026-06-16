@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2678-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.15-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2693-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,38 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-16
+* `training` `scaling` [Tangram: Hiding GPU Heterogeneity for Efficient LLM Parallelization](http://arxiv.org/abs/2606.16907v1)
+  > **TL;DR**: Addresses efficient LLM training on heterogeneous GPU clusters by hiding heterogeneity. Proposes Tangram, which groups GPUs into homogeneous islands for parallelizers and composes model slices into work-balanced pipelines. Achieves up to 2.3x higher throughput than state-of-the-art heterogeneous parallelizers.
+* `serving` `agentic` [CacheWise: Understanding Workloads and Optimizing KVCache Management for Efficiently Serving LLM Coding Agents](http://arxiv.org/abs/2606.16824v1)
+  > **TL;DR**: Addresses inefficient KVCache management for serving LLM coding agents by introducing CacheWise, which combines prefix-aware scheduling and reuse-aware eviction guided by tool call metadata predictions. Achieves up to 3.5x improvement in session completion time.
+* `serving` `kernel` [SMEPilot: Characterizing and Optimizing LLM Inference with Scalable Matrix Extensions](http://arxiv.org/abs/2606.16332v1)
+  > **TL;DR**: Investigates inefficiencies in using CPU matrix extensions (SME) for LLM inference operators. Proposes SMEPilot, an engine that dynamically selects execution mode (CPU/SME/cooperative) per operator, partitions matrix work, and reuses packed layouts. Achieves up to 3.94x end-to-end inference speedup.
+* `serving` `disaggregation` [Tropical: Enhancing SLO Attainment in Disaggregated LLM Serving via SLO-Aware Multiplexing](http://arxiv.org/abs/2606.16264v1)
+  > **TL;DR**: Addresses the trade-off between queuing and interference in disaggregated LLM serving for SLO attainment. Proposes Tropical, an SLO-aware request multiplexing strategy that balances TTFT and TPOT. Achieves 2.09x more requests within 90% SLO attainment than existing systems.
+* `serving` `offloading` `networking` [SwiftCache: Efficient LLM Serving for Multi-turn Conversations with Heterogeneous KV Cache Sharing](http://arxiv.org/abs/2606.16135v1)
+  > **TL;DR**: Addresses high latency and memory pressure in multi-turn LLM conversations from inefficient KV cache offloading. Proposes SwiftCache for cross-model KV cache sharing via NVLink, storing only active layers in HBM. Achieves up to 69% lower P99 TTFT compared to vLLM and SGLang.
+* `edge` [Beyond CPU-GPU Frequency: Memory-Clock and Tail Effects in Edge Inference Latency Estimation](http://arxiv.org/abs/2606.16106v1)
+  > **TL;DR**: Identifies memory-clock shifts (median latency up to +48%) and tail miss bursts (74% conditional miss rate) in edge ML inference. Measurement-driven Pareto tail modeling reduces deadline-miss margin overshoot from 13x-29x via Gaussian to within ~2x.
+* `agentic` `serving` [Green SARC: Predictive Cost and Carbon Governance for Agentic AI Systems](http://arxiv.org/abs/2606.15954v1)
+  > **TL;DR**: Investigates predictive governance to bound cost and carbon in agentic AI systems. Proposes Green SARC, a framework with enforcement gates for real-time budget control. Achieves 47-55% savings in tokens, USD, and carbon emissions.
+* `agentic` [CoAgent: Concurrency Control for Multi-Agent Systems](http://arxiv.org/abs/2606.15376v1)
+  > **TL;DR**: Addresses concurrency in multi-agent LLM systems by proposing MTPO protocol with advisory notifications and agent plan repair. CoAgent achieves 1.4× speedup and within 5% deviation from serial correctness at near-serial token cost.
+* `serving` `diffusion` `video` [Adaptive Resource Management and Quality Control for Streaming Video Generation](http://arxiv.org/abs/2606.15319v1)
+  > **TL;DR**: Addresses playout continuity in real-time streaming video generation. Proposes SlackServe, a system that dynamically reallocates resources and adjusts per-chunk fidelity based on playout slack. Achieves 1.64x-3.29x higher Continuous Play Ratio and 1.61x-9.65x lower Time to First Chunk.
+* `edge` `multi-modal` `serving` [Generation Quality-Latency Tradeoff-Aware Inference Offloading for Multimodal LLMs in Cloud-Edge Continuum](http://arxiv.org/abs/2606.15210v1)
+  > **TL;DR**: Addresses the tradeoff between generation quality and response latency in cloud-edge MLLM inference by proposing QLMIO, an offloading decision framework. Achieves up to 58.14% latency reduction versus baselines while maintaining cloud-level task completion.
+* `serving` `MoE` [Coordinated Scheduling for MoE LLM Serving](http://arxiv.org/abs/2606.15177v1)
+  > **TL;DR**: Addresses serving imbalances in MoE LLMs via coordinated cross-level scheduling. Proposes Gimbal, which uses fine-grained backend pressure signals (KV cache, queue pressure) for request dispatch and a MINLP-guided expert placement policy. Achieves 42.9% lower TTFT and 33.3% lower TPOT versus vLLM.
+* `serving` `multi-modal` `diffusion` [M*: A Modular, Extensible, Serving System for Multimodal Models](http://arxiv.org/abs/2606.12688v2)
+  > **TL;DR**: Proposes M*, a modular serving system for composite multimodal models using Walk Graphs for flexible component composition and distributed execution. Achieves 20% lower latency for text-to-image than vLLM-Omni and 12.5x faster robotic planning than V-JEPA baseline.
+* `serving` `networking` `scaling` [Solyx AI Grid: Hardware-Telemetry-Aware Routing Across Geographically Distributed GPU Clusters](http://arxiv.org/abs/2606.15050v1)
+  > **TL;DR**: Presents Solyx AI Grid, a cross-site LLM inference routing system using hardware telemetry, application metrics, and WAN signals. It employs a 10-signal weighted pressure scorer for per-request placement, achieving 1.56-1.75x higher throughput at tier-2 SLO and reducing capability-mismatch leakage to 0.43% versus standard routers.
+* `training` `quantization` `hardware` [NEURON-Fabric: CXL-Side Low-Bit Gradient Aggregation for Distributed Training](http://arxiv.org/abs/2606.15045v1)
+  > **TL;DR**: Proposes NEURON-Fabric, a CXL-side controller for near-memory low-bit gradient aggregation in distributed training to reduce communication overhead. Integrates a switchable low-bit/FP32 datapath. Reduces gradient traffic to 3.6-5.4% of FP32 baseline while maintaining accuracy for models like DistilBERT and ResNet-18.
+* `serving` `offloading` `agentic` [CacheWise: Understanding Workloads and Optimizing KVCache Management for Efficiently Serving LLM Coding Agents](http://arxiv.org/abs/2606.16824v1)
+  > **TL;DR**: CacheWise addresses inefficient KVCache management for serving coding agents by introducing prefix-aware scheduling and prediction-guided eviction. Implemented in vLLM, it reduces KVCache evictions by up to 2.6x and improves session completion time by up to 3.5x.
+
 ### 2026-06-15
 * `serving` `edge` `scaling` [PLAIground: SLO-Driven Runtime Model Selection for Compound AI Systems in the Edge-Cloud-Space Continuum](http://arxiv.org/abs/2606.14356v1)
   > **TL;DR**: Addresses dynamic model selection to satisfy accuracy, latency, and cost SLOs in Compound AI systems across edge-cloud-space. Proposes CAIM abstraction for model-task decoupling and Pixie SLO-driven algorithm. Achieves 91.3% accuracy with SLO compliance, while fixed strategies exhibit up to 21x cost/latency violations or 4% accuracy drops.
