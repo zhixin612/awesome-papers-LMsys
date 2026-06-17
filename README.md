@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2693-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2703-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,28 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-17
+* `serving` `hardware` [Latency Prediction for LLM Inference on NPU Systems](http://arxiv.org/abs/2606.18042v1)
+  > **TL;DR**: Addresses LLM inference latency prediction on NPUs despite undisclosed microarchitecture, compiler optimizations, and bucketing. Proposes LENS, requiring only two end-to-end measurements per bucket to predict latency for any input-output length. Achieves 2.15% mean error across multiple NPUs, LLMs, and workloads.
+* `serving` `scaling` [RouteBalance: Fused Model Routing and Load Balancing for Heterogeneous LLM Serving](http://arxiv.org/abs/2606.17949v1)
+  > **TL;DR**: RouteBalance fuses routing and load balancing for joint optimization in heterogeneous LLM serving. It uses batched predictors and state estimation for low-latency assignment. Achieves 30 req/s and 2.6-4.1× higher throughput than enhanced baselines at high load while avoiding collapse.
+* `serving` `offloading` [LUMEN: Coordinated Failure Recovery for Distributed LLM Serving](http://arxiv.org/abs/2606.17787v1)
+  > **TL;DR**: Proposes LUMEN for coordinated failure recovery in distributed LLM serving. System employs load-aware coordination across checkpoint placement, request redistribution, and capacity restoration during model reload. Achieves significant improvements in serving and recovery times in experiments and simulations.
+* `diffusion` `video` `serving` [AoiZora: Topology-Aware Auto-Parallel Optimization for Inference of Diffusion Transformers](http://arxiv.org/abs/2606.17566v1)
+  > **TL;DR**: Addresses performance loss in TPU-based video diffusion inference from topology-unaware auto-parallelization. Proposes AoiZora, a compiler planner filtering sharding candidates via IR analysis and HLO-based physical placement optimization. Achieves up to 1.42x lower latency for Wan 2.1 denoising.
+* `offloading` `disaggregation` `serving` [ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories](http://arxiv.org/abs/2606.12556v2)
+  > **TL;DR**: Addresses the challenge of large KV cache footprints in LLM inference by proposing ITME, a CXL-hybrid memory expansion system for offloading, allowing proactive data movement. Results in up to 35.7% throughput improvement.
+* `thinking` `kernel` `offloading` [SpecGen: Accelerating Agentic Kernel Optimization with Speculative Generation](http://arxiv.org/abs/2606.17518v1)
+  > **TL;DR**: Accelerates agentic kernel optimization by forking speculative kernel generations during reasoning, enabling early termination and parallel validation. Uses dynamic GPU pool reallocation and remote KV cache storage. On H200, reduces end-to-end time over baselines and increases kernel speedup under fixed time and token budget.
+* `diffusion` `edge` `serving` [RISE: Relay Inference and Online Scheduling for Efficient Edge-Device Collaborative Diffusion Model Services](http://arxiv.org/abs/2606.17378v1)
+  > **TL;DR**: Addresses efficient serving of text-to-image diffusion models at the edge with diverse latency and quality needs. Proposes RISE: a training-free relay inference mechanism for workload splitting and a contextual bandit scheduler. Achieves 2.1× speedup while maintaining model quality.
+* `agentic` [Verified Detection and Prevention of Concurrency Anomalies in Multi-Agent Large Language Model Systems](http://arxiv.org/abs/2606.17182v1)
+  > **TL;DR**: Addresses concurrency anomalies in multi-agent LLM state sharing. Proposes verified detectors and runtimes with prevention techniques like pessimistic locking, snapshot isolation, and sequencers. Prevents anomaly A3 in all 120 live retracted test sessions.
+* `serving` `disaggregation` `hardware` [Prefill/Decode-Aware Evaluation of LLM Inference on Emerging AI Accelerators](http://arxiv.org/abs/2606.17104v1)
+  > **TL;DR**: Investigates how emerging AI accelerators compare to GPUs in LLM inference by evaluating distinct Prefill and Decode phases. Measures time to first token and time per output token separately on platforms like GPUs and GroqRack. Finds GroqRack achieves significantly lower TPOT during Decode.
+* `serving` `disaggregation` `networking` [The Price of Anarchy in Disaggregated Inference](http://arxiv.org/abs/2606.17081v1)
+  > **TL;DR**: Analyzes game-theoretic inefficiencies in disaggregated LLM inference. Proposes an adaptive controller that adjusts routing to avoid congestion during saturation. Reduces Price of Anarchy by 3.1x in the saturated phase for a 70B model with 13% throughput cost.
+
 ### 2026-06-16
 * `training` `scaling` [Tangram: Hiding GPU Heterogeneity for Efficient LLM Parallelization](http://arxiv.org/abs/2606.16907v1)
   > **TL;DR**: Addresses efficient LLM training on heterogeneous GPU clusters by hiding heterogeneity. Proposes Tangram, which groups GPUs into homogeneous islands for parallelizers and composes model slices into work-balanced pipelines. Achieves up to 2.3x higher throughput than state-of-the-art heterogeneous parallelizers.
