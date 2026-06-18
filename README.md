@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2703-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.17-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2711-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.18-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-18
+* `video` `serving` `scaling` [TurboServe: Serving Streaming Video Generation Efficiently and Economically](http://arxiv.org/abs/2606.19271v1)
+  > **TL;DR**: Addresses inefficiencies in serving streaming video generation with session and demand heterogeneity. Proposes TurboServe, an online scheduling system using migration-aware placement, autoscaling, coalesced processing, and offloading. Achieves 37.5% lower worst-case per-chunk latency and 37.2% cost reduction.
+* `training` `diffusion` [Pulse: Training Acceleration for Large Diffusion Models with Automatic Pipeline Parallelism](http://arxiv.org/abs/2606.19163v1)
+  > **TL;DR**: Addresses communication bottlenecks in pipeline-parallel training of diffusion models with skip connections. Proposes PULSE, which collocates skip-connected layers and caches skip activations, with a skip-aware partitioner and schedule synthesizer. Reduces communication by 89% and improves throughput by up to 2.3x.
+* `training` `MoE` `networking` [FoMoE: Breaking the Full-Replica Barrier with a Federation of MoEs](http://arxiv.org/abs/2606.19025v1)
+  > **TL;DR**: Addresses full-replica inefficiency in distributed MoE training. Introduces FoMoE with expert partitioning and skip-token to reduce communication and memory. Reduces communication costs by up to 45.44x vs DDP and achieves 1.4x throughput speedup.
+* `diffusion` `RL` `training` [Spotlight: Synergizing Seed Exploration and Spot GPUs for DiT RL Post-Training](http://arxiv.org/abs/2606.19004v1)
+  > **TL;DR**: Proposes Spotlight for efficient RL post-training of Diffusion Transformers using spot GPUs. Key techniques: bandit-based exploration with stale weights, elastic sequence parallelism, preemption-aware scheduling. Achieves 4x faster training and 1.4-6.4x cost reduction.
+* `serving` `scaling` `offloading` [ReMP: Low-Downtime Runtime Model-Parallelism Reconfiguration for LLM Serving](http://arxiv.org/abs/2606.18741v1)
+  > **TL;DR**: Addresses high downtime in LLM serving during model parallelism reconfiguration. Proposes ReMP with decoupled topology and dynamic KV cache migration for online adjustments. Achieves reconfiguration in 1-7 seconds for 7B-70B models, 10× to over 100× faster than restarts.
+* `serving` `hardware` [Latency Prediction for LLM Inference on NPU Systems](http://arxiv.org/abs/2606.18042v2)
+  > **TL;DR**: Proposes LENS, a latency predictor for LLM inference on NPUs facing challenges like undisclosed microarch and bucketing non-linearity. Uses two end-to-end measurements per bucket to compose predictions for arbitrary input-output lengths. Achieves 2.15% mean prediction error across multiple NPUs and LLMs.
+* `serving` `scaling` [ShuntServe: Cost-Efficient LLM Serving on Heterogeneous Spot GPU Clusters](http://arxiv.org/abs/2606.18600v1)
+  > **TL;DR**: Proposes ShuntServe to enable cost-efficient LLM serving on volatile heterogeneous spot GPU clusters. Combines a roofline-based performance estimator with dynamic programming for model placement and uses request migration with concurrent initialization for fault tolerance. Achieves 1.42x higher throughput and 31.9% cost efficiency improvement over on-demand instances.
+* `serving` `scaling` [Beyond Prediction: Tail-Aware Scheduling for LLM Inference](http://arxiv.org/abs/2606.18431v1)
+  > **TL;DR**: Addresses tail latency fragility in LLM inference under variable request lengths. Proposes a prediction-free scheduler using statistical boosting and cache-aware preemption. Reduces P99 token latency by 35-50% and time-to-first-token by 34-47% across workloads.
+
 ### 2026-06-17
 * `serving` `hardware` [Latency Prediction for LLM Inference on NPU Systems](http://arxiv.org/abs/2606.18042v1)
   > **TL;DR**: Addresses LLM inference latency prediction on NPUs despite undisclosed microarchitecture, compiler optimizations, and bucketing. Proposes LENS, requiring only two end-to-end measurements per bucket to predict latency for any input-output length. Achieves 2.15% mean error across multiple NPUs, LLMs, and workloads.
