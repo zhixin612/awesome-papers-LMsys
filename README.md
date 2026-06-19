@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2711-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.18-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2718-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-19
+* `serving` `edge` `kernel` [Execution-State Capsules: Graph-Bound Execution-State Checkpoint and Restore for Low-Latency, Small-Batch, On-Device Physical-AI Serving](http://arxiv.org/abs/2606.20537v1)
+  > **TL;DR**: Proposes execution-state capsules for low-latency on-device LLM serving, enabling graph-bound checkpoint/restore of complete execution state. FlashRT kernel runtime uses contiguous static buffers to eliminate block-table indirection. Achieves sub-millisecond state restore and up to 27x TTFT speedup at 16k context.
+* `training` `kernel` [ARGUS: Production-Scale Tracing and Performance Diagnosis for over 10,000-GPU Clusters](http://arxiv.org/abs/2606.20374v1)
+  > **TL;DR**: Proposes ARGUS, a low-overhead (<2%) tracing system for fine-grained observability in large-scale LLM training. It decomposes events (CPU stacks, framework, kernels) and compresses traces by ∼3,700×. Enables automated detection of anomalies like stragglers and degraded kernels in 10,000+ GPU production clusters.
+* `training` `networking` `scaling` [Quantum ring all-reduce: communication and privacy advantages for distributed learning](http://arxiv.org/abs/2606.20344v1)
+  > **TL;DR**: Investigates enhancing communication efficiency and privacy in large-scale distributed training. Proposes quantum ring all-reduce using pre-shared entanglement and superdense coding. Achieves up to 2× reduction in per-link online communication.
+* `kernel` [The Correctness Illusion in LLM-Generated GPU Kernels](http://arxiv.org/abs/2606.20128v1)
+  > **TL;DR**: Exposes the illusion of correctness in LLM-generated GPU kernel benchmarks due to limited fixed-shape testing. Proposes op-schema-aware seeded fuzzing with a high-precision CPU reference. Achieves 100% bug detection (10/10) and correct pass rate (16/16) on extended GPU corpus.
+* `edge` `serving` [Edge-Inference Governors Need Memory-Clock State](http://arxiv.org/abs/2606.16106v2)
+  > **TL;DR**: Addresses how to meet deadlines and reduce energy for edge ML inference in DVFS governors by modeling memory clock state. Proposes an EMC-aware scheduler deployed on Jetson Orin, reducing deadline misses from 25-28% to at most 1.3% under a 2% QoS budget and lowering energy.
+* `training` `LoRA` `multi-modal` [Online Dynamic Batching with Formal Guarantees for LLM Training](http://arxiv.org/abs/2606.19989v1)
+  > **TL;DR**: Addresses inefficiencies in LLM training batch formation due to late cost observability. Proposes Online Dynamic Batching (ODB), a DataLoader-side system with formal synchronization guarantees for distributed training. Achieves up to 4.43x throughput gain over standard batching in production multi-modal fine-tuning without model changes.
+* `serving` `offloading` `sparse` [SAC: Disaggregated KV Cache System for Sparse Attention LLMs with CXL](http://arxiv.org/abs/2606.19746v1)
+  > **TL;DR**: Addresses memory bottlenecks in LLM serving for sparse attention models with long contexts. Introduces SAC, a CXL-based disaggregated KV cache system fetching only required entries on demand. Achieves 2.1x higher throughput than RDMA-based baselines.
+
 ### 2026-06-18
 * `video` `serving` `scaling` [TurboServe: Serving Streaming Video Generation Efficiently and Economically](http://arxiv.org/abs/2606.19271v1)
   > **TL;DR**: Addresses inefficiencies in serving streaming video generation with session and demand heterogeneity. Proposes TurboServe, an online scheduling system using migration-aware placement, autoscaling, coalesced processing, and offloading. Achieves 37.5% lower worst-case per-chunk latency and 37.2% cost reduction.
