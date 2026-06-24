@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2731-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2737-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-24
+* `MoE` `serving` `disaggregation` [CrossPool: Efficient Multi-LLM Serving for Cold MoE Models through KV-Cache and Weight Disaggregation](http://arxiv.org/abs/2606.24506v1)
+  > **TL;DR**: Addresses GPU memory inefficiency in serving cold MoE models by disaggregating weights and KV-cache into separate pools. Introduces CrossPool with a planner, virtualizer, and pipeline scheduler. Reduces P99 TBT by up to 10.4x compared to state-of-the-art systems.
+* `RL` `diffusion` `disaggregation` [Accelerating Disaggregated RL for Visual Generative LLMs with Diffusion-Based Parallelism and Trainer-Assisted Generation](http://arxiv.org/abs/2606.24369v1)
+  > **TL;DR**: Proposes DigenRL, a disaggregated RL framework for diffusion generative models, employing diffusion-based parallelism and trainer-assisted generation to reduce execution bubbles. Achieves 1.56-2.10x throughput improvements over existing systems.
+* `training` `networking` [Quantum ring all-reduce: communication and privacy advantages for distributed learning](http://arxiv.org/abs/2606.20344v2)
+  > **TL;DR**: Explores quantum communications for enhanced efficiency and privacy in distributed training. Develops quantum ring all-reduce using entanglement and superdense coding, reducing per-link online communication by a factor of two provably. Achieves composable privacy guarantees with low overhead.
+* `disaggregation` `networking` [Hash Table Design for RDMA:Challenges and Opportunities](http://arxiv.org/abs/2606.24073v1)
+  > **TL;DR**: Addresses inefficiencies in deploying hash tables on RDMA disaggregated memory systems for IoT data. Explores designs to minimize multiple remote accesses while avoiding CPU involvement. Covers reducing RDMA requests during collision handling through structure optimizations.
+* `serving` `offloading` `networking` [The Serialized Bridge: Understanding and Recovering LLM Serving Performance under Blackwell GPU Confidential Computing](http://arxiv.org/abs/2606.23969v1)
+  > **TL;DR**: Investigates LLM serving throughput loss under GPU confidential computing on Blackwell GPUs due to serialized host/device transfers. Proposes scheduler flags and worker-thread draining to mitigate bottlenecks. Achieves up to 92% recovery of performance gap in high-concurrency runs.
+* `edge` `serving` [EnerInfer: Energy-Aware On-Device LLM Inference](http://arxiv.org/abs/2606.23001v1)
+  > **TL;DR**: Addresses energy and thermal inefficiency in on-device LLM inference. Proposes EnerInfer, using model-structure-aware prediction and online feedback to dynamically select efficient NPU/DDR settings under thermal constraints. Achieves up to 65% energy efficiency improvement on phones without QoE violation.
+
 ### 2026-06-23
 * `serving` `multi-modal` `kernel` [Kamera: Unified Position-Invariant Multimodal KV Cache for Training-Free Reuse](http://arxiv.org/abs/2606.23581v1)
   > **TL;DR**: Addresses recomputation overhead in multimodal inference from repetitive encoding at different positions. Proposes a position-invariant KV cache with a low-rank conditioning patch, enabling reuse via RoPE re-rotation. Achieves full task accuracy with minimal footprint and bf16 reconstruction in SGLang kernel across six backbones.
