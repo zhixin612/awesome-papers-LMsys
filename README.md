@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2737-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2743-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-25
+* `training` `quantization` [NEURON-Fabric: Architecture-Runtime Co-Design for Controlled Low-Bit Gradient Communication](http://arxiv.org/abs/2606.25759v1)
+  > **TL;DR**: Proposes NEURON-Fabric, a profile-guided runtime system for dynamic low-bit gradient communication in distributed training. It uses operating profiles and runtime checks to decide aggregation precision, preserving near full-precision accuracy and reducing communication traffic as validated on Transformers and billion-parameter models.
+* `RL` `diffusion` `disaggregation` [Accelerating Disaggregated RL for Visual Generative LLMs with Diffusion-Based Parallelism and Trainer-Assisted Generation](http://arxiv.org/abs/2606.24369v2)
+  > **TL;DR**: Proposes DigenRL, a disaggregated RL framework for diffusion generative LLMs, using fine-grained pipelining (GAP, TSP) and trainer-assisted generation (TAG) to reduce execution bubbles. Achieves 1.56-2.10× throughput gain over state-of-the-art systems on multi-GPU setups.
+* `kernel` [EmuGEMM: Fused Tensor Core Kernels for Precision Emulation in Matrix Multiplication](http://arxiv.org/abs/2606.25453v1)
+  > **TL;DR**: Addresses poor high-precision GEMM performance on GPUs by fusing Ozaki scheme operations into efficient Tensor Core kernels to minimize data movement. EmuGEMM achieves 83% of INT8 peak (1,639 TOp/s on Hopper) and up to 1.7x higher throughput than cuBLAS TF32 on Blackwell.
+* `serving` `offloading` `edge` [Speculation at a Distance: Where Edge-Cloud Speculative Decoding Actually Pays Off](http://arxiv.org/abs/2606.25091v1)
+  > **TL;DR**: Analyzes when distributed speculative decoding (DSD) with edge-cloud partitioning benefits LLM inference. Theoretical modeling shows DSD primarily boosts multi-tenant capacity under server saturation, sustaining (1 + γ·td/tv) times more concurrent clients at the same per-client rate.
+* `hardware` `RL` `scaling` [Energy Efficient Scheduling of AI/ML Workloads on Multi Instance GPUs with Dynamic Repartitioning](http://arxiv.org/abs/2606.25082v1)
+  > **TL;DR**: Addresses energy efficiency and tardiness for AI/ML workload scheduling on Multi-Instance GPUs. Introduces a dynamic repartitioning framework using reinforcement learning for automatic MIG reconfiguration. Achieves up to 68% improvement in combined energy and tardiness metrics over baseline no partitioning.
+* `edge` `serving` [EnerInfer: Energy-Aware On-Device LLM Inference](http://arxiv.org/abs/2606.23001v2)
+  > **TL;DR**: Addresses high energy and thermal costs in on-device LLM inference by proposing EnerInfer, a framework that uses model-structure-aware prediction and online feedback to dynamically select efficient configurations. Achieves up to 65% higher energy efficiency on phones without quality of experience violation.
+
 ### 2026-06-24
 * `MoE` `serving` `disaggregation` [CrossPool: Efficient Multi-LLM Serving for Cold MoE Models through KV-Cache and Weight Disaggregation](http://arxiv.org/abs/2606.24506v1)
   > **TL;DR**: Addresses GPU memory inefficiency in serving cold MoE models by disaggregating weights and KV-cache into separate pools. Introduces CrossPool with a planner, virtualizer, and pipeline scheduler. Reduces P99 TBT by up to 10.4x compared to state-of-the-art systems.
