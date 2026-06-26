@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2743-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.25-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2750-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.26-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-26
+* `training` [DMuon: Efficient Distributed Muon Training with Near-Adam Overhead](http://arxiv.org/abs/2606.27153v1)
+  > **TL;DR**: Addresses high overhead of matrix-based optimization during distributed training. Introduces DMuon, a distributed Muon implementation requiring no framework changes, achieving up to 3.01x end-to-end step speedup and reducing optimizer cost to near-AdamW levels.
+* `RL` `training` [RolloutPipe: Overlapping Pipelined Rollout and Training in Disaggregated On-Policy LLM Reinforcement Learning](http://arxiv.org/abs/2606.26997v1)
+  > **TL;DR**: Addresses idle time in disaggregated RLVR training systems by overlapping rollout generation and policy training. Proposes RolloutPipe with complete-group pipelining and frontier-group dispatch to pipeline groups for training while still generating rollouts, maintaining on-policy correctness. Reduces rollout-to-train-end time by 30.7%-42.3% and trainer waiting ratio by 37%-76% compared to Slime.
+* `training` `MoE` `networking` [Simulating Unified Tensor Resharding in heterogeneous AI systems](http://arxiv.org/abs/2606.26633v1)
+  > **TL;DR**: Proposes Xsim, a heterogeneity-aware simulator for distributed LLM training, enabling load balancing and customized communication. It predicts training time with <5% error in heterogeneous data/tensor-parallel configurations.
+* `serving` `MoE` `scaling` [Moebius: Serving Mixture-of-Expert Models with Seamless Runtime Parallelism Switch](http://arxiv.org/abs/2606.26607v1)
+  > **TL;DR**: Addresses the challenge of dynamic workload concurrency changes in MoE model serving by seamlessly switching between tensor and expert parallelism at runtime. Introduces Moebius, which reshards weights and KV cache with fused transfers without dropping requests. Achieves 1.16-1.25x speedup on RL rollouts.
+* `sparse` `serving` `kernel` [GPUSparse: GPU-Accelerated Learned Sparse Retrieval with Parallel Inverted Indices](http://arxiv.org/abs/2606.26441v1)
+  > **TL;DR**: Accelerates exact learned sparse retrieval inference to overcome CPU bottlenecks. Proposes GPUSparse with GPU-parallel inverted indices, batched scatter-add scoring, and fused Triton kernels. Achieves 235x speedup (1.27ms vs. 298ms per query) over CPU baseline at 8.8M documents.
+* `serving` `RAG` `kernel` [TileMaxSim: IO-Aware GPU MaxSim Scoring with Dimension Tiling and Fused Product Quantization](http://arxiv.org/abs/2606.26439v1)
+  > **TL;DR**: Addresses inefficient GPU MaxSim scoring for ColBERT retrieval by developing TileMaxSim, an IO-aware Triton kernel using dimension tiling and fused product quantization. Achieves 82M documents/second throughput and reduces scoring latency by 98% (1.2 ms vs 268 ms for 100K candidates).
+* `training` `scaling` [Hot AI in Cold Space: Thermal-Crosstalk-Aware Scheduling for Sustainable Orbital AI Clusters](http://arxiv.org/abs/2606.26150v1)
+  > **TL;DR**: Addresses thermal throttling in orbital LLM training clusters that degrades Model Flops Utilization (MFU). Proposes Thermal-Load Balancing (TLB), a scheduling framework that dynamically migrates workloads to coolest units to restore MFU and extend hardware lifespan.
+
 ### 2026-06-25
 * `training` `quantization` [NEURON-Fabric: Architecture-Runtime Co-Design for Controlled Low-Bit Gradient Communication](http://arxiv.org/abs/2606.25759v1)
   > **TL;DR**: Proposes NEURON-Fabric, a profile-guided runtime system for dynamic low-bit gradient communication in distributed training. It uses operating profiles and runtime checks to decide aggregation precision, preserving near full-precision accuracy and reducing communication traffic as validated on Transformers and billion-parameter models.
