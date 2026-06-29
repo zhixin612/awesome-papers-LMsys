@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2750-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.26-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2752-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.06.29-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-06-29
+* `serving` `MoE` `disaggregation` [CrossPool: Efficient Multi-LLM Serving for Cold MoE Models through KV-Cache and Weight Disaggregation](http://arxiv.org/abs/2606.24506v2)
+  > **TL;DR**: Addresses GPU memory inefficiency in serving sparse cold MoE models by disaggregating weights and KV-cache into dedicated pools. Introduces a KV-cache planner, pipeline scheduler and persistent kernels. Reduces P99 time between tokens by up to 10.4x versus state-of-the-art.
+* `training` [Optimizing Teacher-Student Partitioning for Scalable Knowledge Distillation on HPC Systems](http://arxiv.org/abs/2606.27797v1)
+  > **TL;DR**: Addresses inefficient symmetric partitioning in Knowledge Distillation (KD) on HPC systems. Proposes asymmetric teacher-student partitioning using vertical and horizontal splits and an analytical model for strategy selection. Achieves up to 67% higher throughput than TRL.
+
 ### 2026-06-26
 * `training` [DMuon: Efficient Distributed Muon Training with Near-Adam Overhead](http://arxiv.org/abs/2606.27153v1)
   > **TL;DR**: Addresses high overhead of matrix-based optimization during distributed training. Introduces DMuon, a distributed Muon implementation requiring no framework changes, achieving up to 3.01x end-to-end step speedup and reducing optimizer cost to near-AdamW levels.
