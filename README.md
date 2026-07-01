@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2752-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.06.29-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2762-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,28 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-01
+* `edge` `hardware` [COSM: A Cooperative Scheduling Framework for Concurrent PIM and CPU Execution on Mobile Devices](http://arxiv.org/abs/2606.30553v1)
+  > **TL;DR**: Addresses the challenge of concurrent PIM and CPU execution for on-device LLMs. Proposes COSM, a cooperative scheduling framework that hides PIM latency and overlaps execution with data transfer by exploiting CPU idle windows. Improves PIM throughput by 2.8x with <2% CPU performance loss.
+* `training` `networking` [HSAP: A Hierachical Sequence-aware Parallelism for Hybrid-Context Generative Models](http://arxiv.org/abs/2606.30460v1)
+  > **TL;DR**: Addresses attention cross-contamination in hybrid-context packed sequences during LLM training. Proposes HSAP, a hierarchical framework with sequence-aware parallelism and JIT-optimized NCCL communication management. Outperforms state-of-the-art sequence parallelism approaches in multiple metrics.
+* `serving` `scaling` `hardware` [Energy-Aware Scheduling for Serverless LLM Serving on Shared GPUs](http://arxiv.org/abs/2606.30391v1)
+  > **TL;DR**: Investigates minimizing energy in serverless LLM serving on shared GPUs under TTFT/TBT SLOs. Proposes Festina, a profiling-guided scheduler with global placement, local resource adaptation, and energy-aware workload consolidation. Achieves up to 56% energy reduction while maintaining SLO attainment within a 2% margin.
+* `serving` `disaggregation` `quantization` [HBM Is Not All You Need: Efficient Disaggregated LLM Serving across Memory-heterogeneous Accelerators](http://arxiv.org/abs/2606.29986v1)
+  > **TL;DR**: HMA-Serve enables cost-efficient LLM serving across memory-heterogeneous accelerators by disaggregating prefill (GDDR) and decode (HBM) using phase-wise quantization, compute-transfer pipelining, and deferred dequantization. Achieves up to 3.2× higher goodput and 4.8× higher goodput-per-dollar without quality loss.
+* `MoE` `serving` `networking` [Beyond Uniform Experts: Cost-Aware Expert Execution for Efficient Multi-Device MoE Inference](http://arxiv.org/abs/2606.29982v1)
+  > **TL;DR**: Addresses MoE inference bottlenecks in multi-device settings via Cost-Aware Expert Execution (CAEE), which prunes low-importance experts and redistributes contributions using hardware-aware cost models. Achieves 8%-18% latency reduction across offloading and on-device deployments with under 1% accuracy drop.
+* `serving` `disaggregation` `quantization` [Demystifying the Design Space and Best Practices for Heterogeneous LLM Inference and Serving](http://arxiv.org/abs/2606.29708v1)
+  > **TL;DR**: Examines design space for heterogeneous prefill-decode LLM inference serving. Organizes around accelerator, precision, interconnect, and KV residency axes. Identifies key decisions like compute placement and KV representation to enable runtime optimization, improving resource utilization based on industrial deployments.
+* `serving` `multi-modal` [Energy-Efficient Multimodal Inference Serving with Tri-serve](http://arxiv.org/abs/2606.29629v1)
+  > **TL;DR**: Addresses energy inefficiency in multimodal inference serving due to hardware PMU frequency decisions. Proposes Tri-serve, a software-based DVFS controller accounting for three inefficiencies: dependency stalls, arithmetic-intensity effects, and thermal throttling. Achieves 22% energy efficiency improvement without latency or throughput degradation.
+* `edge` [Fog Computing and Large Language Models: A vision for the mutual beneficiaries](http://arxiv.org/abs/2606.29483v1)
+  > **TL;DR**: Addresses the challenge of deploying LLMs on fog infrastructure to reduce latency and resource consumption. Surveys optimization techniques like quantization and LoRA for edge inference, enabling efficient LLM execution on edge devices for IoT applications.
+* `quantization` `video` `sparse` [W4A4 Quantization for Inference on Wan2.2-I2V-A14B](http://arxiv.org/abs/2606.29337v1)
+  > **TL;DR**: Addresses 4-bit weight and activation quantization for efficient video model inference. Combines MixQ-style mixed precision for sparse activation outliers with SmoothQuant-style smoothing and dual-branch GEMM. Achieves within 2-3.5% of FP16 fidelity on most quality metrics.
+* `serving` `disaggregation` `agentic` [KernelFlume: Elastic Core-Attention Scaling for Agentic Long-Context Decoding](http://arxiv.org/abs/2606.29207v1)
+  > **TL;DR**: Addresses inefficient scaling for long-context agentic workloads by disaggregating core-attention from dense layers. Proposes KernelFlume, with dynamic routing and pipelining, to elastically scale attention nodes. Reduces cost per million tokens by 61% on H100 versus ServerlessLLM while maintaining low latency.
+
 ### 2026-06-29
 * `serving` `MoE` `disaggregation` [CrossPool: Efficient Multi-LLM Serving for Cold MoE Models through KV-Cache and Weight Disaggregation](http://arxiv.org/abs/2606.24506v2)
   > **TL;DR**: Addresses GPU memory inefficiency in serving sparse cold MoE models by disaggregating weights and KV-cache into dedicated pools. Introduces a KV-cache planner, pipeline scheduler and persistent kernels. Reduces P99 time between tokens by up to 10.4x versus state-of-the-art.
