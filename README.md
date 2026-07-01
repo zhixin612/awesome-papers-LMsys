@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2762-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-2769-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.07.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-01
+* `serving` `multi-modal` [Energy-Efficient Multimodal Inference Serving with Tri-serve](http://arxiv.org/abs/2606.29629v2)
+  > **TL;DR**: Addresses power inefficiencies in multimodal inference serving. Proposes Tri-serve, a software DVFS controller for GPUs that handles dependency stalls, arithmetic-intensity effects, and thermal throttling. Achieves 22% energy savings without latency or throughput degradation.
+* `edge` `serving` [COSM: A Cooperative Scheduling Framework for Concurrent PIM and CPU Execution on Mobile Devices](http://arxiv.org/abs/2606.30553v2)
+  > **TL;DR**: Addresses efficient concurrent PIM and CPU execution for mobile LLM inference. Introduces COSM, a scheduling framework with low-interference PIM commands and idleness-aware scheduling. Achieves up to 2.8x PIM throughput improvement with <2.0% CPU performance loss.
+* `serving` `edge` `thinking` [LASER: Load-Aware Serving with Early-Exit for Reasoning LLMs at the Edge](http://arxiv.org/abs/2606.31580v1)
+  > **TL;DR**: Proposes LASER for efficient edge serving of reasoning LLMs. It uses load-aware adaptive early-exit thresholds and difficulty-based resource pre-allocation. Achieves 17-38% latency reduction and 3-6% SLO improvement at 1% accuracy cost.
+* `training` `networking` [HSAP: A Hierarchical Sequence-aware Parallelism for Hybrid-Context Generative Models](http://arxiv.org/abs/2606.30460v2)
+  > **TL;DR**: Solves attention cross-contamination in sequence-parallel training with packed sequences via HSAP, a hierarchical framework using JIT-compilation for inter-device communication optimization. Outperforms state-of-the-art sequence parallelism methods in training metrics.
+* `multi-modal` `diffusion` `offloading` [Omni-Flow: A Unified Workflow Orchestration and Distributed KV Cache Sharing Framework for Multimodal Inference](http://arxiv.org/abs/2606.31093v1)
+  > **TL;DR**: Addresses challenges in multimodal inference orchestration, data transmission, and KV cache sharing. Proposes Omni-Flow, a framework with three-layer abstraction for workflow scheduling, distributed KV cache storage across GPU/CPU/SSD, and unified compute flow. Supports diverse multimodal and diffusion model scenarios.
+* `serving` `disaggregation` `quantization` [Demystifying the Design Space and Best Practices for Heterogeneous LLM Inference and Serving](http://arxiv.org/abs/2606.29708v2)
+  > **TL;DR**: Investigates design decisions for heterogeneous LLM serving with prefill-decode disaggregation. Proposes a four-axis design space (accelerator, precision, interconnect, KV residency) and identifies three boundary decisions (compute placement, KV representation, ownership). Provides guidance to optimize efficiency in production through coordinated choices.
+* `edge` `serving` `networking` [Budget-Adaptive Routing: Skipping the Weak When the Strong Answers Anyway](http://arxiv.org/abs/2606.30919v1)
+  > **TL;DR**: Addresses compute waste in edge-cloud routing when offloading frames processed by weak models. Proposes budget-adaptive routing with a light weak-skipping estimator and adaptive placement, reducing latency by 30% and achieving up to +1.7pp mAP over strong models at lower compute.
+
 ### 2026-07-01
 * `edge` `hardware` [COSM: A Cooperative Scheduling Framework for Concurrent PIM and CPU Execution on Mobile Devices](http://arxiv.org/abs/2606.30553v1)
   > **TL;DR**: Addresses the challenge of concurrent PIM and CPU execution for on-device LLMs. Proposes COSM, a cooperative scheduling framework that hides PIM latency and overlaps execution with data transfer by exploiting CPU idle windows. Improves PIM throughput by 2.8x with <2% CPU performance loss.
