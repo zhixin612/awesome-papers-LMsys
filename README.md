@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2769-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.01-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2775-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.02-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-02
+* `RL` `agentic` [Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents](http://arxiv.org/abs/2607.01120v1)
+  > **TL;DR**: Addresses the inefficiency of manual agent evolution in enterprise deployment by proposing co-designed systems for standardized trajectory protocols, governed data proxies, and autonomous evolution control planes. Demonstrates automated policy updates via AReaL2.0.
+* `serving` `networking` `scaling` [ROSA: A Robotics Foundation Model Serving System for Robot Factories](http://arxiv.org/abs/2607.01088v1)
+  > **TL;DR**: Addresses serving inefficiencies in robotics foundation models for factories. Proposes ROSA with shared GPU-pool networking, robotics-aware pipeline abstractions, and objective-driven scheduling to maximize SLO-qualified productivity. Achieves 12.06× higher factory throughput compared to dedicated systems.
+* `diffusion` [Accelerating Discrete Diffusion Models with Parallel-In-Time Sampling](http://arxiv.org/abs/2607.00773v1)
+  > **TL;DR**: Addresses sequential sampling inefficiency in discrete diffusion models. Parallelizes τ-leaping with continuous-time stochastic integrals and Picard iteration for time acceleration. Achieves up to 7-9× runtime speedup on synthetic data and 1.45-1.86× speedup on image/text tasks with 50% fewer NFE.
+* `serving` `sparse` [MosaicKV: Serving Long-Context LLM with Dynamic Two-D KV Cache Compression](http://arxiv.org/abs/2607.00760v1)
+  > **TL;DR**: Addresses GPU memory exhaustion and low throughput in long-context LLM serving caused by large KV cache. Proposes MosaicKV, a dynamic two-D KV cache compression system exploiting segment-level importance for efficient memory and computation management. Achieves 3x memory reduction, 4.8x lower latency, and 7.3x higher throughput with <1.8% accuracy loss.
+* `serving` `MoE` `disaggregation` [ELDR: Expert-Locality-Aware Decode Routing for PD-Disaggregated MoE Serving](http://arxiv.org/abs/2607.00466v1)
+  > **TL;DR**: Improves MoE serving efficiency in PD-disaggregated systems by expert-locality-aware decode routing. ELDR uses prefill activations to build expert signatures, offline balanced K-means, and online locality-band routing with a signature cache. Achieves 5.9-13.9% median TPOT reduction.
+* `serving` `agentic` [SmoothAgent: Efficient Long-Horizon LLM-Based Agent Serving with Lookahead Context Engineering](http://arxiv.org/abs/2607.00151v1)
+  > **TL;DR**: Addresses high TTFT in LLM agent serving caused by context engineering overhead. Proposes lookahead programming for asynchronous KV cache preparation and a scheduler to handle these operations alongside regular requests. Reduces TTFT by up to 11.9x by avoiding re-prefill delays.
+
 ### 2026-07-01
 * `serving` `multi-modal` [Energy-Efficient Multimodal Inference Serving with Tri-serve](http://arxiv.org/abs/2606.29629v2)
   > **TL;DR**: Addresses power inefficiencies in multimodal inference serving. Proposes Tri-serve, a software DVFS controller for GPUs that handles dependency stalls, arithmetic-intensity effects, and thermal throttling. Achieves 22% energy savings without latency or throughput degradation.
