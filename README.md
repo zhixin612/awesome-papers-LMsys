@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2775-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.02-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2789-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,36 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-03
+* `serving` `offline` [WattGPU: Predicting Inference Power and Latency on Unseen GPUs and LLMs](http://arxiv.org/abs/2607.02391v1)
+  > **TL;DR**: Addresses predicting inference power and latency for LLM-GPU combinations without profiling. Introduces WattGPU, predictive models using LLM metadata and GPU specifications. Reduces median absolute power error by approximately 4x in server mode for unseen LLM-GPU pairs compared to TDP baselines.
+* `RL` `agentic` `training` [Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents](http://arxiv.org/abs/2607.01120v2)
+  > **TL;DR**: Addresses the lack of systems for continuous agent learning in enterprise deployment. Proposes AReaL2.0, an agent-oriented online RL infrastructure with standardized data protocols, governed data proxies, and evolution control planes. Achieves automated policy updates from deployment workloads, eliminating manual fine-tuning cycles.
+* `serving` `disaggregation` [Towards Load-Aware Prefill Deflection for Disaggregated LLM Serving](http://arxiv.org/abs/2607.02043v1)
+  > **TL;DR**: Examines high TTFT in disaggregated LLM serving from prefill node saturation. Proposes a proactive scheduler deflecting prefill to decode nodes via chunking without disrupting decodes. Eliminates inter-node KV transfer, reducing P95 TTFT by up to 81% and SLO attainment by up to 79%.
+* `training` `MoE` [Mixture-of-Parallelisms: Towards Memory-Efficient Training Stack for Mixture-of-Experts Models](http://arxiv.org/abs/2607.01844v1)
+  > **TL;DR**: Proposes Mixture-of-Parallelisms (MoP) for memory-efficient training of Mixture-of-Experts models. Combines specialized parallelism techniques and a novel optimizer strategy to enable trillion-parameter training at 1M context. Achieves 4.7x--8.2x higher per-GPU throughput than FSDP2 and sustains 1M tokens without OOM.
+* `MoE` `serving` `disaggregation` [ELDR: Expert-Locality-Aware Decode Routing for PD-Disaggregated MoE Serving](http://arxiv.org/abs/2607.00466v2)
+  > **TL;DR**: Addresses high latency in MoE serving under PD disaggregation from expert activation locality. Proposes ELDR, which routes requests using expert signatures derived from prefill, with offline K-means partitioning and locality-band routing. Achieves 5.9-13.9% reduction in median time per output token.
+* `disaggregation` `quantization` `offloading` [Lynx: Progressive Speculative Quantization for accelerating KV Transfer in Long-Context Inference](http://arxiv.org/abs/2607.01831v1)
+  > **TL;DR**: Reduces KV cache transfer latency in disaggregated LLM inference using progressive quantization. System splits KV cache into Anchor (MSBs) and Residual (LSBs) streams; decoding starts with Anchor while Residual transfers. Achieves 1.43x TTFT gain over 8-bit quantization while matching BF16 accuracy.
+* `training` `video` [HCMS: Head-Chunked Multi-Stream Pipeline for Communication-Computation Overlap in Long-Sequence Parallel Attention](http://arxiv.org/abs/2607.01817v1)
+  > **TL;DR**: Addresses hardware underutilization in all-to-all sequence parallelism by proposing HCMS, a pipeline that partitions attention heads into chunks and uses dual CUDA streams for communication-computation overlap. Achieves 10%-17.5% speedup over Ulysses on 31K-56K token video generation sequences.
+* `training` `video` `scaling` [Arachne: Orchestrating Cascades for Efficient Text-to-Video Model Training](http://arxiv.org/abs/2607.01701v1)
+  > **TL;DR**: Addresses workload imbalance and under-utilization in text-to-video model training. Introduces Arachne, which decomposes training into cascades with coordinated spatial/temporal orchestration for distributed execution. Achieves up to 65% reduction in iteration time over existing frameworks while improving scalability.
+* `training` `sparse` [SCAPE: Accurate and Efficient LLM Training with Extreme Sparse Communication](http://arxiv.org/abs/2607.01678v1)
+  > **TL;DR**: Reduces communication in distributed LLM training via an optimizer that sparsifies using first-moment statistics and overlaps communication. Achieves 43.3% lower pre-training time for Llama-500M without quality loss.
+* `training` `storage` `networking` [DeadPool: Resilient LLM Training with Hot-Swapping via Zero-Overhead Checkpoint](http://arxiv.org/abs/2607.01646v1)
+  > **TL;DR**: Addresses overhead and recovery latency in resilient LLM training. Proposes DeadPool, which uses in-memory checkpoints and a communicator reconstruction protocol for hot-swapping failed nodes. Achieves zero checkpoint overhead during normal execution and under 40-second recovery on 512 A100 GPUs.
+* `serving` [OmniPilot: An Uncertainty-Aware LLM Inference Advisor for Heterogeneous GPU Clusters](http://arxiv.org/abs/2607.01579v1)
+  > **TL;DR**: Addresses configuration selection for LLM serving in heterogeneous GPU clusters. Presents OmniPilot, an advisor with calibrated cost modeling and OOD abstention. Achieves 6.2% mean absolute error on throughput prediction and R²=0.92.
+* `training` `RL` [The Rollout Infrastructure Tax in Coding-Agent Reinforcement Learning](http://arxiv.org/abs/2607.01415v1)
+  > **TL;DR**: Investigates infrastructure overhead in coding-agent RL training. Compares execution substrates (containers, sandboxes, Kubernetes, VMs) for rollout efficiency. Finds up to 110× cold-start latency variation and 1.8× worker-hour spread per million trajectories, advocating substrate optimization as core training system component.
+* `serving` `RAG` `offloading` [HYPIC: Accelerating Hybrid-Attention LLM Serving with Position-Independent Caching](http://arxiv.org/abs/2607.01299v1)
+  > **TL;DR**: Addresses inefficiency in hybrid-attention LLM serving by enabling position-independent caching via segment-cumulative operators and boundary seam recomputation. Achieves 2.45x reduction in time-to-first-token and up to 2.0x higher throughput.
+* `edge` `multi-modal` `agentic` [Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots](http://arxiv.org/abs/2607.02501v1)
+  > **TL;DR**: Addresses embodied AI deployment challenges on heterogeneous robots. Introduces Embodied.cpp, a portable runtime with modular multi-rate execution and latency-first fused inference. Achieves WAM memory reduction from 312.2 MiB to 88.1 MiB.
+
 ### 2026-07-02
 * `RL` `agentic` [Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents](http://arxiv.org/abs/2607.01120v1)
   > **TL;DR**: Addresses the inefficiency of manual agent evolution in enterprise deployment by proposing co-designed systems for standardized trajectory protocols, governed data proxies, and autonomous evolution control planes. Demonstrates automated policy updates via AReaL2.0.
