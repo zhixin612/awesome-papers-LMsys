@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2789-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2809-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.07-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,48 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-07
+* `serving` `RL` `networking` [Adaptive Inference Batching using Policy Gradients](http://arxiv.org/abs/2607.05272v1)
+  > **TL;DR**: Investigates whether reinforcement learning can improve adaptive batching and routing for inference serving. Develops an RL-based policy via MDP formulation and discrete-event simulation. Achieves 3.5x throughput improvement in heterogeneous multi-GPU routing over Round-Robin while reducing latency and adhering to SLAs.
+* `offloading` `edge` `hardware` [Optimizing ML Workload Partitioning between CPUs and CIM Accelerators for Heterogeneous Computing](http://arxiv.org/abs/2607.05240v1)
+  > **TL;DR**: Proposes an Integer Linear Programming-based framework for ML workload partitioning between CPUs and CIM accelerators to minimize inference latency under RRAM constraints. Achieves up to 30.9x speedup over CPU-only execution on edge systems.
+* `MoE` `serving` `networking` [Communication-Aware Placement and Pruning for Efficient Mixture-of-Experts Inference](http://arxiv.org/abs/2607.05116v1)
+  > **TL;DR**: Optimizes Mixture-of-Experts inference by reducing communication overhead. Proposes communication-aware expert placement and pruning to balance computation, communication, and accuracy. Achieves 1.23x-1.86x throughput improvement versus baseline methods while preserving model accuracy.
+* `serving` `edge` `scaling` [When Words Predict Workload](http://arxiv.org/abs/2607.04951v1)
+  > **TL;DR**: Addresses OOM crashes in edge LLM serving caused by rigid text forcing dynamic ensemble expansion. Proposes an LRF gateway with text-feature forecasting and dynamic routing to local/remote models. Reduces misroute fraction to 0.087-0.095 (vs. baseline 0.849) and maintains peak edge VRAM at 4.82 GB in a 6000-request trial.
+* `training` [Direct Model State Migration for Elastic Training of Large Language Models](http://arxiv.org/abs/2607.04749v1)
+  > **TL;DR**: Addresses high latency in state migration for elastic LLM training. Proposes ETC, a checkpoint-free framework using direct peer-to-peer communication and communication coalescing to bypass storage. Reduces migration overhead by up to 6.37× compared to checkpoint-based methods.
+* `sparse` `networking` [Adaptive Space-efficient Collectives for Dynamic and Unstructured Sparsity on GPU Platforms](http://arxiv.org/abs/2607.04676v1)
+  > **TL;DR**: Investigates reducing communication overhead for sparse data in GPU collectives. Proposes adaptive algorithms using Pici bitvector format for efficient compression. Achieves up to 5.25x speedup for all-gather at 99% sparsity over NCCL.
+* `storage` `RAG` [GORIO: GPU-Centered Remote I/O for Graph ANNS over NVMe-oF](http://arxiv.org/abs/2607.04415v1)
+  > **TL;DR**: Optimizes GPU-centered remote I/O for vector retrieval in graph ANNS workloads over NVMe-oF. Reduces CPU involvement by offloading page-miss handling and scheduling to GPU. Achieves 1.31-3.73× speedup over existing remote-I/O paths on DiskANN-style queries.
+* `serving` `diffusion` `disaggregation` [Sangam: Efficiently Serving Diffusion LLMs with the AR Stack](http://arxiv.org/abs/2607.04206v1)
+  > **TL;DR**: Addresses serving efficiency for diffusion LLMs due to bidirectional attention challenges. Introduces Sangam with a deficit token-budget scheduler and hybrid prefill overflow to balance workloads. Reduces mean latency by 8-20% on various diffusion LLM workloads.
+* `serving` `scaling` [CoCoScale: Leveraging Layer-wise Scaling to Unlock the Potential of Online LLM Serving](http://arxiv.org/abs/2607.04181v1)
+  > **TL;DR**: Addresses dynamic workload skewness in online LLM serving. Proposes CoCoScale, a layer-wise scaling mechanism that selectively parallelizes hot layers using idle resources. Reduces cold start latency by 97.9%-99.3% and average latency by 20.7%-28.1% under production traces.
+* `serving` `MoE` [BrownoutMoE: Structure-Aware Expert Grouping for Efficient and Accurate LLM Web-based Services](http://arxiv.org/abs/2607.04164v1)
+  > **TL;DR**: Addresses imbalanced expert activation in MoE serving by grouping experts using reinforcement learning and distillation, minimizing accuracy drop. Achieves up to 2.24x throughput improvement and reduces accuracy degradation by up to 71.4%.
+* `agentic` `serving` `MoE` [SPORK: Self-Speculative Forking to Accelerate Agentic LLM Inference](http://arxiv.org/abs/2607.03333v1)
+  > **TL;DR**: Addresses idle GPU time during tool calls in agentic LLM inference. SPORK uses self-speculative forking to dispatch tool calls early, overlapping with decoding, reducing GAIA P95 latency by 18% (131.9s to 108.1s) with no accuracy loss.
+* `training` `multi-modal` [HyperParallel-Mpipe: A Composable Algebra System for Optimizing MLLM Training over Supernode Clusters](http://arxiv.org/abs/2607.03229v1)
+  > **TL;DR**: Addresses low Model Flop Utilization (MFU) in Multimodal Large Language Model training. Introduces Mpipe, a composable algebra system deriving a multimodal-aware heterogeneous parallel schedule that remaps modality-encoder computation into idle pipeline regions. Achieves 2.70x speedup in small-scale NPU clusters.
+* `serving` `agentic` [A Workflow-Aware Serving Layer for Agentic Applications](http://arxiv.org/abs/2607.02942v1)
+  > **TL;DR**: Addresses inefficient serving for agentic applications with structured workflows. Dyserve compiles per-node model/verifier choices into an ILP, pre-solves at multiple pressure levels, and adapts via strategy shifts during execution without runtime solving. Avoids solver overhead and preserves committed work under load.
+* `hardware` `networking` [HyNoC: A Hybrid Circuit-Switch/Wormhole Network-on-Chip for Distributed VLIW Computing on FPGA](http://arxiv.org/abs/2607.02729v1)
+  > **TL;DR**: Proposes HyNoC, a hybrid circuit-switch/wormhole network-on-chip for FPGA-based distributed VLIW systems, enabling static routing without virtual channels. Benchmarked on LLaMA 3 8B FFN up-projection, it shows 5x throughput improvement via partitioned meshes eliminating cross-quadrant traffic.
+* `offloading` `serving` [Fine-Grained Computation Offload for Off-the-Shelf Servers in Tens of Lines](http://arxiv.org/abs/2607.02630v1)
+  > **TL;DR**: Addresses fine-grained computation offload stalls in inference serving. Proposes routing offloads through existing server concurrency using deferred-response primitives, avoiding major system modifications. Recovers 1.2-5.4x in latency on stock servers like Redis.
+* `serving` `sparse` [Fusion: A Framework for Unified Sequential Token AdaptatIon in VisiOn TraNsformers](http://arxiv.org/abs/2607.02612v1)
+  > **TL;DR**: Reduces computation in Vision Transformers via a unified adaptive inference framework called Fusion. Sequentially applies token merging, confidence evaluation for early exiting, and pruning using lightweight routing modules. Achieves 48% lower inference energy and 4× reduced calibration error on ImageNet-1k with DeiT-S.
+* `serving` `offloading` `disaggregation` [From Tensor Buffer to Distributed Memory Hierarchy: A Survey of KV Cache Management for LLM Serving](http://arxiv.org/abs/2607.02574v1)
+  > **TL;DR**: Surveys KV cache management in LLM serving, classifying over thirty systems using four axes into five architectural archetypes. Identifies seven missing KV-specific measurements, linking them to open problems including fault tolerance and isolation.
+* `serving` `scaling` `edge` [Elastic Gang: Per-Token Membership Change for a Hard-Barriered LLM Inference Gang Co-Scheduled with OS Processes](http://arxiv.org/abs/2607.04668v1)
+  > **TL;DR**: Proposes a kernel-level scheduler for on-device LLM inference enabling per-token core membership changes. The elastic gang uses an ACK-latched epoch protocol to safely share cores between inference and OS processes, improving general throughput by 1.75x at 25% inference duty cycle.
+* `edge` `serving` [Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots](http://arxiv.org/abs/2607.02501v2)
+  > **TL;DR**: Addresses deployment inefficiency for embodied AI models on heterogeneous edge robots. Proposes Embodied.cpp, a portable C++ runtime with multi-rate execution and latency-first fused inference. Reduces WAM memory footprint from 312.2 MiB to 88.1 MiB.
+* `offloading` `serving` [Fine-Grained Computation Offload for Off-the-Shelf Servers in Tens of Lines](http://arxiv.org/abs/2607.02630v1)
+  > **TL;DR**: Addresses stall from microsecond-range computation offloads during serving. Proposes routing offloads to executors and leveraging server suspension/resume primitives for overlap without server rewrites. Achieves 1.2-5.4x latency recovery across off-the-shelf servers.
+
 ### 2026-07-03
 * `serving` `offline` [WattGPU: Predicting Inference Power and Latency on Unseen GPUs and LLMs](http://arxiv.org/abs/2607.02391v1)
   > **TL;DR**: Addresses predicting inference power and latency for LLM-GPU combinations without profiling. Introduces WattGPU, predictive models using LLM metadata and GPU specifications. Reduces median absolute power error by approximately 4x in server mode for unseen LLM-GPU pairs compared to TDP baselines.
