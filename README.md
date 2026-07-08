@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2809-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.07-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2816-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.08-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-08
+* `MoE` `serving` `networking` [UBEP: Re-architecting Expert Parallelism Communication Library for Production Superpods](http://arxiv.org/abs/2607.06202v1)
+  > **TL;DR**: Addresses MoE inference bottlenecks on production superpods: strict serialization, sync overhead, and load imbalance in All-to-All communication. Proposes UBEP, a communication library restructuring All-to-All primitives. Reduces All-to-All latency by 52.4% and TPOT by 11.1%.
+* `RAG` `storage` `networking` [GORIO: GPU-Centered Remote I/O for Graph ANNS over NVMe-oF](http://arxiv.org/abs/2607.04415v2)
+  > **TL;DR**: Optimizes remote storage I/O for graph ANNS in RAG systems by introducing GPU-driven request generation and scheduling. GORIO offloads I/O tasks to GPU and overlaps traversal with remote page service. Achieves 1.31× and 4.89× speedups over state-of-the-art and direct page-cache paths.
+* `training` `storage` `networking` [MatrixFSDP: communication-free matrix optimizers under ZeRO-3 parameter sharding](http://arxiv.org/abs/2607.05895v1)
+  > **TL;DR**: Addresses communication inefficiency of matrix optimizers under ZeRO-3 sharding. Proposes MatrixFSDP, which assigns whole matrices to one rank via shard reorganization, P2P collectives, and storage optimizations. Reduces optimizer-step latency by 54.6x on 8 nodes with 2.15x end-to-end speedup.
+* `serving` `MoE` [Think Before You Grid-Search: Floor-First Triage for LLM Serving](http://arxiv.org/abs/2607.05876v1)
+  > **TL;DR**: Proposes Floor-First triage to avoid grid search in LLM serving by modeling decode steps as resource vectors and comparing layouts via resource walls. Case study on 671B MoE model shows EP16+DP layout increases capacity wall 10x over TP16 with ~644 concurrent requests.
+* `training` `offloading` `scaling` [PHOENIX: Resilient LLM Training with Hot-Swapping via Zero-Overhead Checkpoint](http://arxiv.org/abs/2607.01646v2)
+  > **TL;DR**: Addresses high recovery latency and overhead in fault-tolerant LLM training. Proposes PHOENIX with zero-overhead in-memory checkpointing and hot-swapping via communicator reconstruction. Achieves zero checkpoint overhead and ≤40s recovery on 512 GPUs for 65B models.
+* `storage` [Bounded-Memory Parallel Image Pulling for Large Container Images](http://arxiv.org/abs/2607.05596v1)
+  > **TL;DR**: Addresses high memory consumption and OOM issues in container image pulling for AI/ML workloads. Proposes Disk-Backed Parallel Pull (DBPP) with direct-to-disk writes and parallel processing, reducing peak memory by 8.7--25.3× while avoiding OOM kills on large images.
+* `diffusion` `scaling` [Design-CP: Context Parallelism for Design of Protein Nanoparticles](http://arxiv.org/abs/2607.05439v1)
+  > **TL;DR**: Addresses memory constraints in diffusion models for generating large protein assemblies. Introduces Design-CP with context parallelism using 1D and 2D sharding with ring attention on multi-GPU systems. Achieves square-root scaling of feasible subunit size with GPU count and better wall-clock performance for 2D sharding.
+
 ### 2026-07-07
 * `serving` `RL` `networking` [Adaptive Inference Batching using Policy Gradients](http://arxiv.org/abs/2607.05272v1)
   > **TL;DR**: Investigates whether reinforcement learning can improve adaptive batching and routing for inference serving. Develops an RL-based policy via MDP formulation and discrete-event simulation. Achieves 3.5x throughput improvement in heterogeneous multi-GPU routing over Round-Robin while reducing latency and adhering to SLAs.
