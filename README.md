@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2816-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.08-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2821-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.09-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-09
+* `training` `quantization` [GIFT: Geometry-Informed Low-precision Gradient Communication for LLM Pretraining](http://arxiv.org/abs/2607.07494v1)
+  > **TL;DR**: Addresses gradient communication bottleneck in LLM pretraining by handling anisotropic distortion in low-precision quantization. Introduces GIFT, which transforms gradients to near-isotropic space using geometry-aware scaling and selective low-rank approximation. Achieves 7.6% reduction in end-to-end pretraining time for Llama-600M on 64 NVIDIA GH200 Superchips.
+* `agentic` `serving` [Progressive Crystallization: Turning Agent Exploration into Deterministic, Lower-Cost Workflows in Production](http://arxiv.org/abs/2607.07052v1)
+  > **TL;DR**: Addresses high costs of persistent LLM inference in operational AI agents by introducing progressive crystallization, a lifecycle that converts validated agent behaviors into deterministic workflows. Achieved over 70% cost reduction per incident in production.
+* `edge` `serving` [Voltron: Enabling Elastic Multi-Device Execution of LLM Inference for Empowered Edge Intelligence](http://arxiv.org/abs/2607.07046v1)
+  > **TL;DR**: Proposes Voltron, a framework for elastic multi-device LLM inference at the edge to enable larger models. It dynamically utilizes available devices and adapts to edge environments, achieving up to 16.5% higher accuracy than single-device LLMs while meeting QoS.
+* `serving` `MoE` `scaling` [Think Before You Grid-Search: Floor-First Triage for LLM Serving](http://arxiv.org/abs/2607.05876v2)
+  > **TL;DR**: Proposes Floor-First, an analytical method to avoid profiling grid search in LLM serving by modeling decode steps into resource vectors. Case study on a 671B MoE model shows EP16+DP layout supports 644 concurrent 8K requests (10x more than TP16's 70) despite higher latency.
+* `MoE` `serving` `networking` [UBEP: Re-architecting Expert Parallelism Communication Library for Production Superpods](http://arxiv.org/abs/2607.06202v2)
+  > **TL;DR**: Addresses communication inefficiencies (serialization, synchronization, load imbalance) in MoE inference on superpods. Proposes UBEP, a communication library redesigning All-to-All primitives. Reduces time per output token by up to 11.1%.
+
 ### 2026-07-08
 * `MoE` `serving` `networking` [UBEP: Re-architecting Expert Parallelism Communication Library for Production Superpods](http://arxiv.org/abs/2607.06202v1)
   > **TL;DR**: Addresses MoE inference bottlenecks on production superpods: strict serialization, sync overhead, and load imbalance in All-to-All communication. Proposes UBEP, a communication library restructuring All-to-All primitives. Reduces All-to-All latency by 52.4% and TPOT by 11.1%.
