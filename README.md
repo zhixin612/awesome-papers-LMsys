@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2821-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.09-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2825-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-11
+* `serving` `agentic` [SMetric: Rethink LLM Scheduling for Serving Agents with Balanced Session-centric Scheduling](http://arxiv.org/abs/2607.08565v1)
+  > **TL;DR**: SMETRIC optimizes agentic LLM serving by scheduling session-initial requests for load balance and subsequent requests for KV reuse. Using session-turn metrics and global KV store, it achieves 10-16% higher cluster TPS and 2-34% higher prefill TPS under disaggregation.
+* `hardware` `storage` `networking` [Who Needs DRAM? We Have Fiber](http://arxiv.org/abs/2607.08407v1)
+  > **TL;DR**: Addresses high DRAM demands for LLM weights by proposing Fiber Memory, an optical architecture using delay lines and multi-core fibers for recirculating storage and broadcast. Reduces weight-delivery energy by >70% and redundant storage across 10,000 accelerators.
+* `serving` `MoE` `hardware` [On the Limitations of Non-GPU AI Accelerators for Large-Model Inference: A Field Study of MoE and Multimodal Serving on Huawei Ascend](http://arxiv.org/abs/2607.08215v1)
+  > **TL;DR**: Analyzes engineering challenges of serving MoE and multimodal LLMs on non-GPU accelerators. Conducts field study on Huawei Ascend 910 with patches to CANN/vLLM-Ascend, documenting 8 platform limitations. Reports 12 source-level fixes required for reliable inference with DeepSeek models.
+* `serving` `kernel` [CTA-Pipelining: A Latency-Oriented Spatial Scaling Method for Multi-GPU Systems](http://arxiv.org/abs/2607.07862v1)
+  > **TL;DR**: Addresses high LLM serving latency on multi-GPU systems via CTA-pipelining, a kernel-level parallelization method enabling concurrent execution of dependent kernels. Reduces GEMM layer latency by up to 31.8% vs micro-batching and 29.6% vs Tensor Parallelism.
+
 ### 2026-07-09
 * `training` `quantization` [GIFT: Geometry-Informed Low-precision Gradient Communication for LLM Pretraining](http://arxiv.org/abs/2607.07494v1)
   > **TL;DR**: Addresses gradient communication bottleneck in LLM pretraining by handling anisotropic distortion in low-precision quantization. Introduces GIFT, which transforms gradients to near-isotropic space using geometry-aware scaling and selective low-rank approximation. Achieves 7.6% reduction in end-to-end pretraining time for Llama-600M on 64 NVIDIA GH200 Superchips.
