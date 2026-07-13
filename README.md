@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2825-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2828-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.13-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-13
+* `kernel` `sparse` `edge` [STEEL: Sparsity-Aware Fused Attention for Energy-Efficient Long-Sequence Inference on AMD's XDNA NPU](http://arxiv.org/abs/2607.09385v1)
+  > **TL;DR**: Proposes STEEL, a sparsity-aware fused attention kernel for NPUs to enable energy-efficient long-sequence LLM inference on edge SoCs. By optimizing dataflow and leveraging sparsity for load balancing, it reduces energy consumption by 9.17x versus CPU and achieves 9.6x latency reduction on XDNA 1.
+* `training` `RL` [Bidirectional Resource Scheduling for Disaggregated and Asynchronous RL Post-Training](http://arxiv.org/abs/2607.09207v1)
+  > **TL;DR**: Addresses resource idleness in asynchronous, disaggregated RL systems for LLM post-training. Proposes BiDiRL with hybrid time-space multiplexing, featuring hot-switch runtime and bidirectional scheduling to enable resource borrowing. Achieves up to 1.94x higher training throughput than state-of-the-art frameworks without convergence degradation.
+* `serving` `networking` [SiFAR: Synchronization-Free All-Reduce for Low-Latency LLM Inference](http://arxiv.org/abs/2607.08973v1)
+  > **TL;DR**: Reduces LLM inference latency by minimizing All-Reduce synchronization overhead. Proposes SiFAR with redundant pull and speculative reduction to avoid barriers during communication. Achieves 52% lower All-Reduce latency and 18.6% higher throughput for Llama-3.1-8B at TP=8.
+
 ### 2026-07-11
 * `serving` `agentic` [SMetric: Rethink LLM Scheduling for Serving Agents with Balanced Session-centric Scheduling](http://arxiv.org/abs/2607.08565v1)
   > **TL;DR**: SMETRIC optimizes agentic LLM serving by scheduling session-initial requests for load balance and subsequent requests for KV reuse. Using session-turn metrics and global KV store, it achieves 10-16% higher cluster TPS and 2-34% higher prefill TPS under disaggregation.
