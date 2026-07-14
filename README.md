@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2828-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.13-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2836-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.14-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-14
+* `serving` `quantization` `kernel` [Decomposing Runtime, Kernel, and Quantization Speedups via a Matched FP16 Intermediate: A Hardware-Conditioned Case Study on Four NVIDIA RTX A5000 GPUs](http://arxiv.org/abs/2607.11368v1)
+  > **TL;DR**: Attributes quantized serving speedups by decomposing runtime and kernel effects using a matched FP16 intermediate stack. Achieves 2.58x end-to-end speedup (two-thirds from runtime) and increases sustainable concurrent users 4x by avoiding a memory cliff.
+* `kernel` `hardware` [GPU-Tile-Sim: A Tile-Centric GPU Simulation Framework for LLM Hardware-Software Co-Design](http://arxiv.org/abs/2607.11262v1)
+  > **TL;DR**: Addresses accurate performance modeling for LLM GPU kernels in hardware-software co-design. Proposes GPU-Tile-Sim, a tile-graph simulation framework capturing dependency structures. Achieves 1.22%-8.71% MAPE on A100/H100 across GEMM, attention, and LLM inference workloads.
+* `diffusion` `serving` `offloading` [Xema: Efficient Diffusion Serving through Fine-Grained Memory Management and Auto-Configuration](http://arxiv.org/abs/2607.11136v1)
+  > **TL;DR**: Addresses high GPU memory usage in diffusion model serving. Proposes Xema, which uses trace-guided memory optimization and static memory layout for fine-grained control, with an offline planner for configuration. Achieves 3.7× higher SLO attainment and reduces planning cost from 6.3 hours to 197 seconds.
+* `hardware` [Energy Calculus: A Compositional Algebra of Energy in Computational Systems](http://arxiv.org/abs/2607.11087v1)
+  > **TL;DR**: Proposes energy calculus, an algebra for compositional energy modeling in computational systems. Defines operators and energy elements with uncertainty propagation, enabling joint reasoning of techniques like frequency scaling. Introduces a Reduction Theorem to simplify context dependence below uncertainty thresholds, facilitating energy optimization.
+* `serving` `offline` `networking` [[AAFLOW+] Stateful Operator Abstraction with Zero-Copy Distributed KV Cache Orchestration for Multi-Agent Workflows](http://arxiv.org/abs/2607.10987v1)
+  > **TL;DR**: Proposes distributed KV-cache orchestration to eliminate redundant prefill in multi-agent LLM workflows. Introduces stateful operators for zero-copy KV materialization and transfer across agents. Achieves 50.2x lower TTFT and 7.63x compute cost reduction at scale.
+* `serving` `scaling` `networking` [Stateful Worlds, Stateless Elasticity: Exact-State Serving for Interactive World Models](http://arxiv.org/abs/2607.10389v1)
+  > **TL;DR**: Addresses elastic serving for stateful world models by guaranteeing bit-identical live migration without recomputation. Proposes WorldMove with incast-aware admission control and block-boundary relocation. Achieves same-node migration in 18.8 ms (101× faster than save/load) and 92.1-94.8 Gb/s transfer rate.
+* `offloading` `edge` `serving` [Automated Tensor Scheduling for Hybrid CPU-GPU LLM Inference on Consumer Devices](http://arxiv.org/abs/2607.10183v1)
+  > **TL;DR**: Addresses efficient LLM inference on consumer devices with limited GPU memory via tensor-granular offloading. Proposes ATSInfer, using static placement, dynamic transfer, and asynchronous CPU-GPU coordination. Achieves up to 1.94x prefill and 3.29x decode throughput improvement.
+* `serving` `scaling` [Trusted Floors Under Untrusted Learners: A Runtime Assured-SLO Guard for ML Serving](http://arxiv.org/abs/2607.09992v1)
+  > **TL;DR**: Addresses SLO violations in ML serving caused by untrusted learned components. Proposes a runtime guard that enforces per-request priorities and reservation-based resource guarantees. Maintains 0.0% SLO miss rate across adversarial conditions while exposing failures in baseline systems.
+
 ### 2026-07-13
 * `kernel` `sparse` `edge` [STEEL: Sparsity-Aware Fused Attention for Energy-Efficient Long-Sequence Inference on AMD's XDNA NPU](http://arxiv.org/abs/2607.09385v1)
   > **TL;DR**: Proposes STEEL, a sparsity-aware fused attention kernel for NPUs to enable energy-efficient long-sequence LLM inference on edge SoCs. By optimizing dataflow and leveraging sparsity for load balancing, it reduces energy consumption by 9.17x versus CPU and achieves 9.6x latency reduction on XDNA 1.
