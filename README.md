@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2836-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.14-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2844-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.15-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-15
+* `offloading` `edge` `serving` [Automated Tensor Scheduling for Hybrid CPU-GPU LLM Inference on Consumer Devices](http://arxiv.org/abs/2607.10183v2)
+  > **TL;DR**: Addresses efficient LLM inference on resource-constrained consumer devices by introducing tensor-level offloading. ATSInfer combines static tensor placement with dynamic load-aware transfer and asynchronous CPU-GPU coordination, improving prefill throughput by up to 1.94× and decode throughput by up to 3.29× against baselines.
+* `edge` `serving` [HeteroMosaic: Exposing and Exploiting Heterogeneous Execution Opportunities for Energy-Efficient Edge LLM Inference](http://arxiv.org/abs/2607.12839v1)
+  > **TL;DR**: Addresses inefficient resource utilization in edge LLM inference due to coarse device-level scheduling. Proposes HeteroMosaic, a framework using micro-batch decomposition and trace-guided co-optimization for heterogeneous accelerator scheduling. Achieves up to 2.05x speedup over llama.cpp and 45.3% energy reduction.
+* `MoE` `serving` [Less Experts, Faster Decoding: Cost-Aware Speculative Decoding for Mixture-of-Experts](http://arxiv.org/abs/2607.12696v1)
+  > **TL;DR**: Addresses expert scattering in speculative decoding of MoE LLMs that increases memory traffic. Introduces EcoSpec, a cost-aware draft selection method with expert predictor and buffer to favor draft paths reusing active experts. Achieves up to 1.62× end-to-end decoding speedup on large MoE models.
+* `training` `LoRA` `networking` [Scaling Synthetic-Image Pre-Training for Federated Fine-Tuning of Large Vision Models](http://arxiv.org/abs/2607.12583v1)
+  > **TL;DR**: Addresses reducing training time and communication cost for federated fine-tuning of large vision models under resource constraints and heterogeneity. Proposes FeDiSyn, combining scaling synthetic-image pre-training with diffusion and contribution-aware LoRA plus bandwidth allocation. Achieves over 52.5% less completion time and over 97.2% lower communication cost.
+* `scaling` `training` [Overcoming Orchestration Bottlenecks at Exascale: A Decentralized, Policy-Driven Approach for Sim-AI Ensembles](http://arxiv.org/abs/2607.12211v1)
+  > **TL;DR**: Addresses orchestration bottlenecks for large-scale simulation-AI ensembles. Proposes EnsembleLauncher, a decentralized workflow orchestrator with programmable scheduling policies. Scales to 8 million tasks on Aurora supercomputer, achieving 4× higher throughput than state-of-the-art tools.
+* `diffusion` `serving` `video` [FlashDiff: Efficient Regional Execution and Scheduling for Diffusion Model Serving](http://arxiv.org/abs/2607.12121v1)
+  > **TL;DR**: Reduces diffusion serving latency via selective execution of unstable latent regions. Proposes region decomposition, activity-based skipping, and affinity-aware scheduling. Cuts latency by 30-97% and boosts throughput 1.2-2.2x across modalities.
+* `edge` `offloading` [Cross-Core Inference Offload as an Operating-System Service on Dual-Core Microcontrollers](http://arxiv.org/abs/2607.12620v1)
+  > **TL;DR**: Addresses efficient inference offloading on asymmetric dual-core microcontrollers. Proposes SynapticOS, a dual-core OS service using lock-free ring buffers in shared SRAM for zero-copy tensor staging. Achieves typical round trips of 15 us and worst-case 81 us, with a two-model soak test showing zero errors.
+* `edge` `kernel` `offline` [SynapticOS: An Inference-First Runtime Architecture for Neural Processing Units on Resource-Constrained Microcontrollers](http://arxiv.org/abs/2607.12606v1)
+  > **TL;DR**: Addresses inefficient inference execution on microcontroller NPUs. Designs SynapticOS runtime with tensor-aligned allocator (zero fragmentation, ~154 cycles/allocation), hardware abstraction layer, and model lifecycle management. Achieves constant-time tensor allocation, 67KB flash footprint, and microsecond-scale inference latency on ARM Cortex-M MCUs.
+
 ### 2026-07-14
 * `serving` `quantization` `kernel` [Decomposing Runtime, Kernel, and Quantization Speedups via a Matched FP16 Intermediate: A Hardware-Conditioned Case Study on Four NVIDIA RTX A5000 GPUs](http://arxiv.org/abs/2607.11368v1)
   > **TL;DR**: Attributes quantized serving speedups by decomposing runtime and kernel effects using a matched FP16 intermediate stack. Achieves 2.58x end-to-end speedup (two-thirds from runtime) and increases sustainable concurrent users 4x by avoiding a memory cliff.
