@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2844-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.15-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2847-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-16
+* `edge` `serving` [HeteroMosaic: Exposing and Exploiting Heterogeneous Execution Opportunities for Energy-Efficient Edge LLM Inference](http://arxiv.org/abs/2607.12839v2)
+  > **TL;DR**: Addresses underutilization of heterogeneous resources in edge LLM inference. Proposes HeteroMosaic, a scheduling framework using a roofline model and micro-batching for cross-accelerator overlap, with co-optimization of scheduling and device allocation. Achieves 2.05× speedup and 45.3% energy reduction over llama.cpp.
+* `serving` `scaling` [The Environmental Cost of Digital Sovereignty: Water, Energy, and Emissions Impacts of Sovereign AI Infrastructure in the Global South](http://arxiv.org/abs/2607.13443v1)
+  > **TL;DR**: Quantifies water/energy/carbon impacts of sovereign AI deployment in water-stressed regions. Models environmental stress using GPU specs and local data across four Global South cases. Finds evaporative-cooled 1024-GPU cluster in UAE consumes >30M liters water/year, proposing frugal models and vulnerability-aware siting.
+* `training` `offloading` `scaling` [Agora: Collective and Permissionless Internet-Scale Pretraining of Large Language Models](http://arxiv.org/abs/2607.13332v1)
+  > **TL;DR**: Addresses collective pretraining of LLMs across distributed, heterogeneous devices via bandwidth-efficient pipeline parallelism and fault-tolerant collectives. Achieved 4.2 tokens/TFLOP and 63% efficiency vs centralized baseline for an 8.6B model on 500B tokens.
+
 ### 2026-07-15
 * `offloading` `edge` `serving` [Automated Tensor Scheduling for Hybrid CPU-GPU LLM Inference on Consumer Devices](http://arxiv.org/abs/2607.10183v2)
   > **TL;DR**: Addresses efficient LLM inference on resource-constrained consumer devices by introducing tensor-level offloading. ATSInfer combines static tensor placement with dynamic load-aware transfer and asynchronous CPU-GPU coordination, improving prefill throughput by up to 1.94× and decode throughput by up to 3.29× against baselines.
