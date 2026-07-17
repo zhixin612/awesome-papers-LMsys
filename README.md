@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2847-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2855-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-17
+* `hardware` [Don't Predict, Prioritize: Rethinking GPU Reliability Assessment](http://arxiv.org/abs/2607.15115v1)
+  > **TL;DR**: Proposes HeaRank, a Learning-to-Rank framework for ranking GPU nodes by failure risk using historical patterns. Achieves 64% capture of future failures in top 5% of ranked nodes, compared to 21% by the incumbent system.
+* `training` `RL` [LongStraw: Long-Context RL Beyond 2M Tokens under a Fixed GPU Budget](http://arxiv.org/abs/2607.14952v1)
+  > **TL;DR**: Addresses efficient long-context RL post-training under fixed GPU memory. Proposes LongStraw, an execution stack that avoids autograd for prompts, retains essential state, and replays responses sequentially. On 8 H20 GPUs, handles 2.1M tokens adding only 0.21GB peak memory per group size increase and scales to 4.46M tokens.
+* `video` `edge` `disaggregation` [CODA: Algorithm-Hardware Co-design for Edge Video Diffusion via NMP-Enabled Compute-Cache Operator Disaggregation](http://arxiv.org/abs/2607.14908v1)
+  > **TL;DR**: Proposes CODA to reduce latency in edge video diffusion inference by addressing cache offloading inefficiencies. Uses algorithm-hardware co-design with compute-cache operator disaggregation, near-memory processing, and execution overlap with CFG branch. Achieves up to 1.80x speedup and 1.74x higher energy efficiency.
+* `serving` `edge` [HeteroMosaic: Exposing and Exploiting Heterogeneous Execution Opportunities for Energy-Efficient Edge LLM Inference](http://arxiv.org/abs/2607.12839v3)
+  > **TL;DR**: HeteroMosaic optimizes edge LLM inference via heterogeneity-aware scheduling and micro-batching across iGPUs and NPUs. It uses a roofline model and trace-guided co-optimization, achieving up to 1.78x speedup over NPU baseline and 45.3% energy reduction on a balanced platform.
+* `diffusion` `serving` `sparse` [FlashDiff: Efficient Regional Execution and Scheduling for Diffusion Model Serving](http://arxiv.org/abs/2607.12121v2)
+  > **TL;DR**: Addresses high diffusion model serving latency via adaptive region skipping and scheduling. FlashDiff selectively executes active regions and reallocates compute slack. Achieves 30-97% latency reduction and 1.2-2.2x throughput improvement across image, video, and audio workloads.
+* `networking` `training` [The Cost and Network Limits of Space-Based AI Compute](http://arxiv.org/abs/2607.14172v1)
+  > **TL;DR**: Assesses cost-effectiveness of space-based AI data centers for LLM training and inference. Compares orbital and terrestrial systems using bisection bandwidth and roofline models. Concludes inference might be feasible, but training frontier-scale LLMs is uncompetitive due to network limitations.
+* `quantization` `kernel` [ExaGEMM: Exploration Framework for CPU-Driven ML Inference via Associative In-Register Computing for Low-Bit GEMM](http://arxiv.org/abs/2607.14622v1)
+  > **TL;DR**: Addresses efficient low-bit GEMM for CPU-based ML inference via hardware-software codesign. Proposes ExaGEMM, a framework for co-exploring SIMD ISA support and GEMM kernels using analytical models. Achieves 13.29x lower latency over software baselines for LLM workloads.
+* `quantization` `serving` `edge` [PolyQ: Codesigning End-to-End Quantization Framework for Scalable Edge CPU LLM Inference](http://arxiv.org/abs/2607.14618v1)
+  > **TL;DR**: Addresses efficient LLM inference on edge CPUs via quantization. Proposes PolyQ, a compiler/quantization co-design that groups channels into bit-homogeneous blocks and generates optimized kernels. Reduces activation reorder traffic by up to 70.8% and keeps energy overhead below 2% relative to a LUT-based back-end.
+
 ### 2026-07-16
 * `edge` `serving` [HeteroMosaic: Exposing and Exploiting Heterogeneous Execution Opportunities for Energy-Efficient Edge LLM Inference](http://arxiv.org/abs/2607.12839v2)
   > **TL;DR**: Addresses underutilization of heterogeneous resources in edge LLM inference. Proposes HeteroMosaic, a scheduling framework using a roofline model and micro-batching for cross-accelerator overlap, with co-optimization of scheduling and device allocation. Achieves 2.05× speedup and 45.3% energy reduction over llama.cpp.
