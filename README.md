@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2855-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.17-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2859-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.20-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-20
+* `serving` `networking` `kernel` [Every Microsecond Matters: Achieving Near Speed-of-Light Latency in GPU Collectives](http://arxiv.org/abs/2607.16100v1)
+  > **TL;DR**: Seeks to reduce GPU collective latency critical for LLM token generation. Proposes barrier-free synchronization and symmetric memory/multicast designs via NCCL custom kernels. Achieves latency within 7% of speed-of-light, improving inter-token latency and throughput in LLM inference.
+* `training` `multi-modal` `RL` [JoyNexus: Service-Oriented Multi-Tenant Post-Training for VLA Models](http://arxiv.org/abs/2607.16074v1)
+  > **TL;DR**: JoyNexus addresses the high cost and inefficiency of exclusive resource allocation for multi-tenant VLA model post-training. It decouples services into APIs with shared base models and introduces group batching. Results show reduced aggregate GPU time and improved utilization compared to isolated execution.
+* `serving` `agentic` [Stop Means Stop: Measuring and Repairing the Enforcement Gap in Agent-Framework Control Primitives](http://arxiv.org/abs/2607.14166v2)
+  > **TL;DR**: Exposes enforcement gaps in LLM-agent control primitives (e.g., cancellation) leading to side-effect leaks. Proposes SOUNDGATE, an externally-verified gate enforcing barrier semantics. Blocks 100% of violations across six frameworks, processing writes in ~1 ms and sustaining 12k admissions/sec.
+* `agentic` `serving` `RAG` [Scalable LLM Agent Tool Access in the Cloud](http://arxiv.org/abs/2607.15593v1)
+  > **TL;DR**: Addresses scaling LLM agents' tool access via MCP by introducing a cloud gateway for legacy integration, protocol consolidation, and hybrid retrieval. Achieves 98% Top-15 recall, scales to 3000+ tools, reduces tool selection time by 8.9× and token usage by 23.8× with low overhead.
+
 ### 2026-07-17
 * `hardware` [Don't Predict, Prioritize: Rethinking GPU Reliability Assessment](http://arxiv.org/abs/2607.15115v1)
   > **TL;DR**: Proposes HeaRank, a Learning-to-Rank framework for ranking GPU nodes by failure risk using historical patterns. Achieves 64% capture of future failures in top 5% of ranked nodes, compared to 21% by the incumbent system.
