@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2859-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.20-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2876-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.21-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,42 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-21
+* `serving` `offloading` `storage` [HyMCache: A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid Memory](http://arxiv.org/abs/2607.18141v1)
+  > **TL;DR**: Addresses memory bottlenecks for scaling KV cache in multi-turn LLM serving with HyMCache, leveraging CXL-hybrid memory via prefetching and buffering. Achieves 3.0x performance gain over baselines under same DRAM budget.
+* `serving` `MoE` `disaggregation` [ExpertPlex: A High-Goodput Disaggregated Serving System for MoE LLMs with Adaptive Persistent Kernels](http://arxiv.org/abs/2607.18002v1)
+  > **TL;DR**: Addresses resource inefficiency in serving MoE LLMs by disaggregating attention and sharing experts across prefill and decode. Introduces adaptive persistent kernels and attention-initiated communication to reduce weights and communication. Achieves up to 2.01× goodput improvement over disaggregated baselines.
+* `training` `edge` `offloading` [AutoEncoder-Compressed Parallel Split Learning for Pre-trained Model Fine-Tuning](http://arxiv.org/abs/2607.17913v1)
+  > **TL;DR**: Addresses communication overhead in distributed fine-tuning of foundation models on edge devices. Introduces AE-PSL, a framework that compresses activations and gradients via a lightweight autoencoder with two-stage alignment for compatibility. Aims to reduce communication without performance degradation in split learning.
+* `training` `storage` [Mobius Learning: Cyclic Depth Folding in Transformers](http://arxiv.org/abs/2607.17843v1)
+  > **TL;DR**: Addresses memory constraints in distributed training of Transformers. Introduces Mobius Learning, a cyclic depth folding method that stores one block group per worker. With a GPT-2 small, it achieves lower validation loss than fixed-order at more block-sequence passes.
+* `training` `networking` [A Training-Memory Regression in MLA Sequence Parallelism: Why Megatron-Core Forbids Absorption, and LAGA -- a Communication-Efficient Fix](http://arxiv.org/abs/2607.17644v1)
+  > **TL;DR**: Identifies a memory regression in training with absorbed MLA that increases activation memory by up to 34%. Proposes LAGA, which gathers the latent for communication efficiency and reconstructs per-head K/V locally. On 8x Ascend 910B, LAGA reduces communication by 1.98x and improves throughput up to 1.24x in cross-node training.
+* `RL` `training` `offloading` [LongStraw: Long-Context RL Beyond 2M Tokens under a Fixed GPU Budget](http://arxiv.org/abs/2607.14952v2)
+  > **TL;DR**: Enables RL post-training at million-token contexts under fixed GPU budget via resident state management and response replay. Achieves 2M-token execution on Qwen-27B with 83.894 GB per rank on 8 GPUs and 2M deterministic execution on GLM-5.2 with 32 GPUs.
+* `serving` `offloading` `scaling` [Talaria: Session-Aware Serverless Serving of Hundred-Billion-Parameter LLMs](http://arxiv.org/abs/2607.17181v1)
+  > **TL;DR**: Addresses session continuity challenges in serverless LLM serving with reusable KV prefixes. Proposes Talaria, a system with joint placement-and-admission decisions, session-prefill admission, and stable KV management. Achieves 5.3x and 2.6x speedups in p50 and p95 session completion times.
+* `edge` `serving` `quantization` [LMEdge: QoS-Aware LLM Inference Orchestration on Edge Clusters](http://arxiv.org/abs/2607.17175v1)
+  > **TL;DR**: Addresses QoS-aware LLM orchestration on edge clusters. Introduces LMEdge, using ML predictors and a heuristic for model configuration and placement. Achieves reduced latency and increased serving ratio in a 57-device testbed.
+* `MoE` `edge` `serving` [OrderMoE: An expert similarity driven distributed edge MoE inference](http://arxiv.org/abs/2607.17154v1)
+  > **TL;DR**: Tackles edge deployment challenges for MoE models by leveraging expert similarity. Proposes OrderMoE with similarity-aware expert grouping and deployment, plus runtime server-expert selection. Reduces latency and cross-server traffic significantly with minor quality degradation in experiments.
+* `edge` `multi-modal` `serving` [EdgeCoInfer: Hierarchical Collaborative Inference for On-Device Multimodal Large Models](http://arxiv.org/abs/2607.17143v1)
+  > **TL;DR**: Addresses efficient concurrent MLLM inference on edge devices by co-optimizing inter-model sharing and intra-model partitioning via a hybrid evolutionary HRL method. Achieves 76% system cost reduction and 71.88% memory savings compared to state-of-the-art baselines.
+* `MoE` `hardware` `networking` [ThAME: 3D Memory-Enabled Heterogeneous Accelerator for LLM Mixture of Experts](http://arxiv.org/abs/2607.17074v1)
+  > **TL;DR**: Addresses bottlenecks in MoE inference: high memory bandwidth, non-deterministic routing traffic, and tail latency. Proposes ThAME, a 3D heterogeneous chiplet architecture with FeFET/DRAM memory and optimized Network-on-Chip. Achieves 15.7x speedup and 9.8x energy efficiency over state-of-the-art.
+* `kernel` `serving` [Technical Report: AI-Assisted Gated DeltaNet Optimization on NVIDIA Blackwell](http://arxiv.org/abs/2607.16831v1)
+  > **TL;DR**: Optimizes Gated DeltaNet inference via end-to-end systems approach including kernel optimization and structural reformulation. Achieved 1.58× speedup with decode latency of 9.315μs and prefill latency of 239.48μs.
+* `serving` `edge` [Roomie: Interference-Aware Colocation for Efficient Model Serving](http://arxiv.org/abs/2607.16784v1)
+  > **TL;DR**: Proposes Roomie, an interference-aware orchestration system for colocating DNN models on GPUs. Uses offline kernel profiling and online analytical prediction to avoid interference, with a greedy placement algorithm. Reduces SLO violations by up to 3x while maintaining comparable goodput.
+* `serving` `storage` `scaling` [Cold-Start Model Delivery in Kubernetes Inference Serving: An Empirical Study of OCI-Based Distribution and Its Integrity](http://arxiv.org/abs/2607.16596v1)
+  > **TL;DR**: Addresses cold-start latency in model serving due to weight delivery in Kubernetes. Proposes OCI-based delivery (oci+native and oci+fetch) to cache models on nodes, reducing warm replica startup time for a 70B model to 11.7s (208x faster than object storage).
+* `MoE` `networking` `edge` [AirMoE: Statistic-Augmented Over-the-Air MoE for Collaborative Intelligence](http://arxiv.org/abs/2607.16562v1)
+  > **TL;DR**: Addresses bandwidth and scalability bottlenecks in wireless MoE deployment. Proposes AirMoE with statistic-augmented routing using JS divergence and over-the-air aggregation via channel-aware power control. Outperforms baseline MoE and single models in semantic segmentation tasks.
+* `training` `agentic` `RL` [WAR: Workload-Aware Rollouts for Synchronous Agentic Reinforcement Learning](http://arxiv.org/abs/2607.17299v1)
+  > **TL;DR**: Accelerates synchronous agentic RL training by optimizing rollout generation. WAR uses workload-dependent strategies: SuffixDecoding for low load and cache-aware scheduling for high load. Achieves up to 1.6x higher throughput in high load.
+* `serving` `kernel` `edge` [Roomie: Interference-Aware Colocation for Efficient Model Serving](http://arxiv.org/abs/2607.16784v1)
+  > **TL;DR**: Addresses GPU kernel-level interference during colocation in DNN serving. Proposes Roomie, which uses offline profiling to model interference, a greedy heuristic for placement, and online assignment. Reduces SLO violations by up to 3x on cloud and edge deployments compared to state-of-the-art systems.
+
 ### 2026-07-20
 * `serving` `networking` `kernel` [Every Microsecond Matters: Achieving Near Speed-of-Light Latency in GPU Collectives](http://arxiv.org/abs/2607.16100v1)
   > **TL;DR**: Seeks to reduce GPU collective latency critical for LLM token generation. Proposes barrier-free synchronization and symmetric memory/multicast designs via NCCL custom kernels. Achieves latency within 7% of speed-of-light, improving inter-token latency and throughput in LLM inference.
