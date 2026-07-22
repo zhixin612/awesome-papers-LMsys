@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2876-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.21-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2880-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.22-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-22
+* `serving` `agentic` [Keeping the Cache Warm Pays: Keepalive Economics for Agentic Workloads](http://arxiv.org/abs/2607.19214v1)
+  > **TL;DR**: Addresses cost inefficiency from KV cache eviction in agentic workloads via client-side keepalive pings that periodically replay prefixes. This reduces post-pause request cost by up to 12.5x and identifies optimal ping intervals (~4 min) to minimize cost.
+* `serving` `storage` [InstantInfer: Enabling Fast LLM Cold Start with Communicating Finite Automata](http://arxiv.org/abs/2607.18957v1)
+  > **TL;DR**: Addresses the inefficiency of LLM cold-start in inference services due to sequential initialization and fine-grained I/O. Introduces the CFA abstraction and framework for refactoring components to enable safe concurrent execution and I/O merging. Achieves up to 7.2× cold-start speedup.
+* `MoE` `serving` `disaggregation` [ExpertPlex: A High-Goodput Disaggregated Serving System for MoE LLMs with Adaptive Persistent Kernels](http://arxiv.org/abs/2607.18002v2)
+  > **TL;DR**: Addresses inefficiency in serving MoE LLMs due to duplicate weights and rigid resource allocation. ExpertPlex shares MoE experts across prefill-decode phases, disaggregates attention, and schedules expert computation via adaptive persistent kernels. Achieves up to 2.01× higher goodput than instance-level disaggregation.
+* `MoE` `training` `serving` [Searching for Plans You Can Actually Build: A Realizability-Aware Full-Space Optimizer for MoE Training and Serving](http://arxiv.org/abs/2607.18631v1)
+  > **TL;DR**: Addresses the gap between theoretically optimal and buildable plans for MoE training and serving. Proposes moefs, a realizability-aware full-space optimizer that searches parallelism, schedule, and kernels. On 8x H800 serving, achieves a 1.0304 throughput ratio vs. hand-tuned configuration.
+
 ### 2026-07-21
 * `serving` `offloading` `storage` [HyMCache: A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid Memory](http://arxiv.org/abs/2607.18141v1)
   > **TL;DR**: Addresses memory bottlenecks for scaling KV cache in multi-turn LLM serving with HyMCache, leveraging CXL-hybrid memory via prefetching and buffering. Achieves 3.0x performance gain over baselines under same DRAM budget.
