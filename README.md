@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2880-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.22-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2884-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-23
+* `training` `sparse` `scaling` [Odin: Primitive-Level Synchronization for Distributed Point-Based Neural Rendering](http://arxiv.org/abs/2607.19893v1)
+  > **TL;DR**: Addresses synchronization bottlenecks in distributed point-based neural rendering training. Proposes Odin with primitive-level synchronization via ahead-of-time scheduler and runtime validation instead of global barriers. Achieves up to 1.89× higher throughput on 64 GPUs while preserving reconstruction quality.
+* `training` `scaling` [Do Co-Located AI Training Jobs Synchronize? Load-Dependent Throttling as a Coupling Mechanism for Phase-Locking Behind a Shared Power Cap](http://arxiv.org/abs/2607.19638v1)
+  > **TL;DR**: Explores synchronization in co-located AI training jobs under shared power caps. Models the system as generalized Kuramoto oscillators with load-dependent throttling coupling and proposes phase-scattering scheduling to desynchronize cycles. Prevents linear growth of aggregate power fluctuations by maintaining sub-linear scaling.
+* `MoE` `training` `kernel` [Fine-grained Computation-Communication Overlap via Tile-level Signaling and Scheduling for Mixture-of-Experts](http://arxiv.org/abs/2607.19539v1)
+  > **TL;DR**: Addresses communication-induced latency in distributed Mixture-of-Experts execution by overlapping computation and communication via tile-level signaling and persistent kernels. Achieves up to 2.64x end-to-end speedup on a 4-GPU system.
+* `kernel` `serving` `edge` [BaseRT: Advancing Best-in-Class LLM Inference with Apple M5 Neural Accelerators](http://arxiv.org/abs/2607.19438v1)
+  > **TL;DR**: Enhances on-device LLM inference throughput via hand-written Metal kernels optimized for Apple M5 Neural Accelerators, targeting compute-bound operations like GEMM and flash-attention, while retaining specialized decode kernels. Achieves up to 6.4× higher prompt processing and 1.75× higher decode throughput versus llama.cpp.
+
 ### 2026-07-22
 * `serving` `agentic` [Keeping the Cache Warm Pays: Keepalive Economics for Agentic Workloads](http://arxiv.org/abs/2607.19214v1)
   > **TL;DR**: Addresses cost inefficiency from KV cache eviction in agentic workloads via client-side keepalive pings that periodically replay prefixes. This reduces post-pause request cost by up to 12.5x and identifies optimal ping intervals (~4 min) to minimize cost.
