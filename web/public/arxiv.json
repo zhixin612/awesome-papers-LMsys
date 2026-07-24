@@ -145832,5 +145832,216 @@
         "submit_date": "2026-07-21",
         "relevant": false,
         "indexed_date": "2026-07-23"
+    },
+    "http://arxiv.org/abs/2607.21224v1": {
+        "title": "Controlled Periodic Synchronization for Efficient Data-Parallel Training",
+        "link": "http://arxiv.org/abs/2607.21224v1",
+        "abstract": "Data-parallel training relies on frequent gradient synchronization across workers. Standard DDP synchronizes gradients at every iteration, which is effective on fast local-area networks but increasingly sensitive to communication latency and network variability in geographically distributed environments. Periodic methods such as LocalSGD reduce synchronization frequency but rely mainly on parameter averaging, which may be insufficient when worker trajectories diverge. This paper studies synchronization frequency as a systems parameter for communication-constrained distributed training. We evaluate Controlled Periodic Data Parallelism (CPDP), a PyTorch-DDP-compatible strategy that alternates local updates with a reconciliation step combining gradient AllReduce and SlowMo parameter averaging. Experiments are conducted on Grid'5000 across intra-site clusters and a cross-site WAN deployment spanning Nancy and Sophia with 16.6 ms RTT. In the main fixed learning-rate setting of 0.1 on ResNet-50/CIFAR-100, CPDP achieves the highest peak test accuracy among the evaluated configurations. At K=2, CPDP improves over DDP by 2.28 percentage points but incurs additional wall-clock time. At K=4, CPDP improves over DDP by 2.44 percentage points while reducing average wall-clock time by 13.8%. Direct profiling shows that exposed synchronization time at K=4 is roughly half that of DDP, explaining the improved WAN accuracy-time trade-off. Additional experiments on ViT-S/CIFAR-100 and ResNet-50/TinyImageNet show that CPDP remains competitive with DDP and generally improves over LocalSGD. Overall, the results show that synchronization frequency is a practical control parameter for distributed training under communication constraints.",
+        "authors": [
+            "Imane Ettifouri",
+            "Mostapha Zbakh",
+            "Claude Tadonki"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.21224v1",
+        "submit_date": "2026-07-23",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.21189v1": {
+        "title": "GLP: A Grassroots, Multiagent, Concurrent, Logic Programming Language for AI",
+        "link": "http://arxiv.org/abs/2607.21189v1",
+        "abstract": "A grassroots platform is a multiagent distributed system in which multiple independent instances can form and operate independently of each other and of any global resource, yet may coalesce into ever larger instances, possibly resulting in a single global instance.  Grassroots platforms aim to offer an egalitarian/democratic alternative to  centralised/autocratic and decentralised/plutocratic global platforms.\n  Here, we present Grassroots Logic Programs (GLP), a multiagent concurrent logic programming language designed for the implementation of grassroots platforms:  we recall the standard operational semantics of logic programs; introduce the concurrent operational semantics of   GLP as its restriction; recall multiagent atomic transactions; use them to introduce a multiagent operational semantics of GLP; and prove multiagent GLP to be grassroots. The grassroots social graphâthe foundational grassroots platform on which all others are basedâserves as a GLP programming example.\n",
+        "authors": [
+            "Ehud Shapiro"
+        ],
+        "categories": [
+            "cs.PL",
+            "cs.DC",
+            "cs.LO",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2607.21189v1",
+        "submit_date": "2026-07-23",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.21182v1": {
+        "title": "Solving Large Traveling Salesman Problems (TSPs) by a Recursive Clustering Algorithm and a Scalable FPGA-Based Implementation",
+        "link": "http://arxiv.org/abs/2607.21182v1",
+        "abstract": "The Traveling Salesman Problem (TSP) continues to attract significant research interest due to its critical role in various applications. This paper introduces a recursive clustering approach that divides cities into a limited number of clusters, each containing up to five cities and its own centroid. Constrained TSP and simulated annealing techniques are employed to route cities within each cluster, using the centroids of neighboring clusters as entry and exit points for the routing process. This method offers the benefit of producing accurate and cost-effective routing solutions, due to the reduced number of cities in each cluster. The connections between cluster centroids are established using simulated annealing. The FPGA-based proposed hardware implementation demonstrates the feasibility of routing a large number of cities, as the approach leverages memory to store cluster information. Consequently, the method is independent of the FPGA's logic hardware, and its scalability depends on the FPGA's memory capacity. Furthermore, distance calculations using approximate methods for the FPGA execution are compared and the squared Euclidean is chosen due to its low resources' utilization. Compared to previous methods, the proposed approach can handle more cities for routing, offering better scalability and a higher operating frequency.",
+        "authors": [
+            "Junqi Huang",
+            "Hawraa Abbas Almurieb",
+            "T. Nandha Kumar",
+            "Haider A. F. Almurib",
+            "Fabrizio Lombardi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.21182v1",
+        "submit_date": "2026-07-23",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.21074v1": {
+        "title": "Spectral Transformation for Layer-wise Global Rank Discovery in Federated LoRA for Vision Transformers",
+        "link": "http://arxiv.org/abs/2607.21074v1",
+        "abstract": "Fine-tuning Vision Transformers (ViTs) with low-rank adapters (LoRA) promises better communication efficiency under federated setup, yet existing aggregation strategies face fundamental limitations. Independently averaging these LoRA factors is mathematically inconsistent, introducing cross-term aggregation error. In contrast, approaches that preserve heterogeneous client ranks by concatenating local adapters on the server substantially increase download cost and often require merging global LoRA updates into pretrained weights on the clients, causing reinitialization lag and unstable convergence. Other approaches further increase server-side overhead by reconstructing dense weight updates or training auxiliary models to refine aggregation error. In this work, we propose SpecTraL, spectral transformation for layer-wise global rank discovery, that resolves these challenges within a unified design. SpecTraL stacks local LoRA modules from clients and performs orthonormal Householder Transformation of the stacked adapters directly in the low-rank latent space, eliminating dense reconstruction of the global update and any auxiliary refinement on the server. By leveraging the Spiked Covariance Model from Random Matrix Theory, SpecTraL analytically separates the global consensus signal from non-IID noise, discovering optimal layer-wise global ranks without manual hyperparameter tuning. To match local ranks in subsequent rounds, we introduce a padding-aware initialization framework that lets clients incorporate residual LoRA dimensions without re-merging them into the pre-trained base model. Experiments on federated fine-tuning of ViT-B/16 and ViT-L/16 over DomainNet and NICO++ demonstrate improved accuracy-communication trade-offs, reduced server computation, and elimination of hyperparameter search for rank selection. Our code is available at https://github.com/DASS-Lab-Group/SpecTraL",
+        "authors": [
+            "Hariharan Ramesh",
+            "Jyotikrishna Dass"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.21074v1",
+        "submit_date": "2026-07-23",
+        "relevant": true,
+        "tags": [
+            "training",
+            "LoRA",
+            "sparse"
+        ],
+        "tldr": "Addresses aggregation errors in federated LoRA fine-tuning for vision transformers. Proposes SpecTraL with orthonormal transformations and spiked covariance analysis to derive global ranks without dense reconstruction. Reduces server computation and improves accuracy-communication trade-offs, eliminating hyperparameter search.",
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.21021v1": {
+        "title": "Multimmit: Extending Blocks for Faster Finality",
+        "link": "http://arxiv.org/abs/2607.21021v1",
+        "abstract": "To meet the throughput demands of modern blockchain systems, protocols for State Machine Replication (SMR) increasingly have many processors disseminate blocks of transactions in parallel, with consensus then establishing a total ordering on the blocks of all producers. Such designs face a choice as to when a block may enter the ordering. Certified approaches wait for a quorum to attest a block's availability, which is robust but adds message delays to every transaction. Uncertified approaches let proposals reference blocks immediately, which is fast but degrades rapidly when referenced data must be fetched on the critical path. Raptr, the state of the art, takes a middle course, finalising the longest prefix of the leader's proposal that a quorum holds, so that no processor ever blocks or fetches. The remaining weakness is sensitivity to order: if the data behind a single early batch is withheld, the proposal finalises little or nothing, so individual faulty producers can still deny the system its optimistic path.\n  We present Multimmit, a protocol for $n \\ge 5f+1$ processors combining a consensus layer requiring one round of voting per view with multi-chain data dissemination. Votes are cast relative to the leader's proposal, reporting per chain how far the voter can support it, and may themselves attest fresh blocks beyond it. A transaction block disseminated at time $t$ is ordered by $t+3δ$ in expectation and $t+2δ$ at best, measured from the block's dissemination rather than the leader's proposal. Degradation under faults is graceful: a faulty producer delays only its own chain's blocks, costing other chains at most a one-view wait for placement. No leader can both finalise its leader block and exclude a fresh, well-circulated block of an honest chain. Consensus traffic is tens of kilobytes per view, independent of transaction volume.",
+        "authors": [
+            "Andrew Lewis-Pye",
+            "Patrick O'Grady"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.21021v1",
+        "submit_date": "2026-07-23",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.20937v1": {
+        "title": "Clustered Edge Intelligence: Beyond Just Convergence of Edge Computing and AI",
+        "link": "http://arxiv.org/abs/2607.20937v1",
+        "abstract": "We are moving from an information age to the age of intelligence. A decade, or possibly less than that, data will not be the gold anymore rather the derived intelligence out of the data and the information we posses from the edge of the network. Existing Edge Intelligence research focuses mainly on two directions: using AI for edge resource management and deploying lightweight AI models on edge devices. However, existing edge computing research lacks an intelligence-centric framework in which derived intelligence is treated as a first-class, independently manageable entity that can be described, discovered, observed, shared, reused, and dynamically clustered across heterogeneous edge devices and applications. To address these research gaps, we introduced Clustered Edge Intelligence, a visionary intelligence-centric approach. The aim of CEI is to make intelligence a shareable and reusable first-class entity that can be independently represented, discovered, observed, exchanged, and managed across the distributed edge-cloud continuum. We present a three layer CEI architecture and examine enabling technologies and research dimensions, including intelligence inventories, semantic knowledge representation, communication, discoverability, observability, lifecycle automation, clustering mechanisms, marketplaces, interoperability, and standardization.",
+        "authors": [
+            "Chinmaya Kumar Dehury",
+            "Boris Sedlak",
+            "Alaa Saleh",
+            "Ilir Murturi",
+            "Lauri Loven",
+            "Satish Narayana Srirama",
+            "Praveen Kumar Donta"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.20937v1",
+        "submit_date": "2026-07-23",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.20929v1": {
+        "title": "The Consensus Number of Untraceable Cryptocurrencies",
+        "link": "http://arxiv.org/abs/2607.20929v1",
+        "abstract": "Sender untraceability hides the account spent by a cryptocurrency transfer among a set of candidates, its masking set. What a transfer does to that set separates two designs: classical schemes retain the whole set and append a nullifier marking the spent account, so the ledger grows with every transfer; constant-state schemes instead consume and replace the entire set. We ask how this choice affects synchronization.\n  We formalize the two designs as the linear and constant untraceable asset transfer objects (LUAT and CUAT) and locate them in the consensus hierarchy. In LUAT, transfers from distinct accounts commute. Its consensus number is 2, compared with 1 for standard asset transfer, independently of the masking-set size and of the untraceability notion, and LUAT is starvation-free. Partitioning the accounts into fixed masking sets lets exhausted sets be garbage-collected without increasing that number.\n  In CUAT, a transfer consumes and replaces every account of its masking set, so two transfers whose sets intersect cannot both take effect. We formalize this with the conflict graph on masking sets, whose edges join sets sharing an account. Under weak untraceability, which protects a transaction in isolation, the consensus number is unbounded already for one-round protocols. Under strong untraceability, which protects against an observer of the complete history, untraceability holds on a history exactly when any two accounts sharing a masking set occur in the same number of the masking sets in it. This uniform incidence bounds the conflict graph, and matching constructions attain it, so the consensus number is determined exactly and grows quadratically in the masking-set size. Finally, CUAT is not starvation-free. The two objects therefore pay for the same privacy differently: LUAT in storage, CUAT in synchronization and fairness.",
+        "authors": [
+            "Christian Cachin",
+            "David Lehnherr",
+            "Juan Villacis",
+            "François-Xavier Wicht"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR"
+        ],
+        "id": "http://arxiv.org/abs/2607.20929v1",
+        "submit_date": "2026-07-23",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.20881v1": {
+        "title": "DMG: A Scalable and Efficient Memory-Disaggregated Graph Processing System",
+        "link": "http://arxiv.org/abs/2607.20881v1",
+        "abstract": "Traditional graph processing systems are built on monolithic servers, which couple a fixed ratio of compute and memory resources but often result in resource under-utilization in data centers. Although the disaggregated memory (DM) architecture has emerged to address this inefficiency, we identify that existing graph processing systems on DM remain highly impractical. They rely on unscalable architectures that fail to scale beyond a single memory node and a single compute node, and they require compute-side caches that are orders of magnitude larger than conventional practice in DM. To this end, this paper presents DMG, the first practical graph processing system on DM, which demonstrates superior system scalability and cache efficiency while delivering high performance. To improve efficiency of graph retrieval on DM, DMG proposes a DM-friendly graph store with retrieval optimizations. To mitigate costly update propagation, DMG presents an adaptive update coordinator that coordinates compute and memory nodes to perform update propagation with low overhead. To enable fast and effective load balancing, DMG employs a two-stage workload manager that includes a coarse-grained initial partitioning and a fine-grained runtime re-scheduling. Experimental results substantiate that compared with the state-of-the-art DM-based graph processing system, DMG can elastically scale up both compute and memory resources, delivering up to 4.9X better performance and accommodating graphs with ever-increasing sizes; meanwhile, it effectively tames the compute-side cache demands by up to 18.9X, positioning itself as a DM-ready solution in practice.",
+        "authors": [
+            "Yizou Chen",
+            "Tsun-Yu Yang",
+            "Zhisheng Hu",
+            "Baotong Lu",
+            "Ming-Chang Yang"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.20881v1",
+        "submit_date": "2026-07-23",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.20700v1": {
+        "title": "A Framework for Reputation Aware Uninorm-driven Consensus Algorithms for Blockchain Networks",
+        "link": "http://arxiv.org/abs/2607.20700v1",
+        "abstract": "The operation of blockchain is governed by consensus algorithms (CA). Several consensus mechanisms require significant computational power, while others necessitate high amounts of stakes to select the participant to validate and verify the transactions in the block, leading to centralisation of power and participant exclusion. This paper proposes a novel methodology to address these issues in reputation-based consensus algorithms by studying the reputation behaviour of the validator using intuitionistic fuzzy sets (IFSs) and uninorm aggregation operations (UAOs). Our approach uses IFSs to express the \"reputation\" because the reputation values in a consensus algorithm eventually imply uncertainty, and IFSs facilitate the representation of a lack of precise knowledge about reputation. Moreover, this methodology utilises uninorm aggregation operations to monitor reputation over time and reinforces the importance of negative and positive reputation. Consequently, this solution allows validators to rectify past failures in subsequent verification processes and foster an equitable consensus algorithm design. The proposed framework maintains linear computational complexity and does not introduce additional communication overhead beyond the underlying consensus protocol. Supported by experimental results, our methodology demonstrates improved performance and evaluation, promising advancements in blockchain network fairness and inclusivity.",
+        "authors": [
+            "Bruno Ramos-Cruz",
+            "Javier Andreu-Perez",
+            "David Richerby",
+            "Luis Martínez"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2607.20700v1",
+        "submit_date": "2026-07-22",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.20650v1": {
+        "title": "PortLBM: A Portable Lattice Boltzmann Tool Leveraging SYCL on AMD, NVIDIA, and Intel GPUs",
+        "link": "http://arxiv.org/abs/2607.20650v1",
+        "abstract": "The lattice Boltzmann method (LBM) is a well-established approach for simulating fluid flows at the mesoscopic scale. With the stagnation of Moore's law, high-performance computing has shifted toward GPU accelerators, necessitating programming models that ensure both portability and efficiency across diverse hardware platforms.\n  We present PortLBM, an extensible portable LBM framework built on SYCL that integrates cross-platform GPU support with interactive real-time visualization. PortLBM supports diverse simulation scenarios ranging from Kármán vortex streets and wing flows to porous media, and is designed for easy extension with new algorithms and backends. As part of a performance portability study, we evaluate PortLBM on contemporary GPU architectures from NVIDIA, AMD, and Intel, examining the impact of three data layouts (stream, bundle, and collision) and four algorithmic variants on simulation throughput.\n  Our results show that no single configuration achieves optimal performance across all GPU vendors, confirming the need for system-specific tuning. The stream layout maximizes bandwidth and performs best on the contemporary NVIDIA and Intel GPUs, while the bundle layout improves cache efficiency and excels on the AMD GPU. Two-lattice schemes achieve higher throughput while one-lattice schemes are preferable under memory constraints. Our work underscores the necessity for adaptable, portable LBM software in increasingly heterogeneous computing environments.",
+        "authors": [
+            "Alexander Strack",
+            "Marcel Graf",
+            "Alexander Van Craen",
+            "Dirk Pflüger"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2607.20650v1",
+        "submit_date": "2026-07-22",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
+    },
+    "http://arxiv.org/abs/2607.20639v1": {
+        "title": "STORM: RDMA-based Monte Carlo Transport Scheme for Distributed-Memory Particle Simulations",
+        "link": "http://arxiv.org/abs/2607.20639v1",
+        "abstract": "Monte Carlo particle transport enables high-fidelity astrophysical radiation and neutrino simulations - from core-collapse supernovae and neutron-star mergers to accretion flows - by handling multidimensional geometries, frequency dependence, and moving media without angular discretization. However, inter-rank communication limits scalability on unstructured meshes: standard two-sided MPI requires receivers to post receives and poll completions, creating per-iteration progress overhead that grows with the number of communication partners. Such problems have not demonstrated high scaling efficiency at $O(10^4)$ cores. We present STORM (Scalable Transport via One-sided Remote Memory), an open-source library for Monte Carlo transport on general meshes, physics, and boundary conditions. STORM provides a lock-free, mesh-independent communication layer that replaces MPI's matched-send/receive semantics with Remote Direct Memory Access (RDMA) - one-sided operations that write directly into a remote rank's memory without involving its CPU. Each rank pair shares a single-producer, single-consumer ring buffer; RDMA writes transfer particles while receivers remain passive. A two-sided MPI backend provides a portable fallback. In an adversarial uniform-emission benchmark, the RDMA backend sustains $>97\\%$ weak-scaling and $>88\\%$ strong-scaling efficiency up to 13,440~cores (112~cores per network adapter), with $1.14$-$1.27\\times$ speedups over the two-sided alternative. In a Hohlraum IMC benchmark at 4480 ranks, it is $1.41\\times$ faster because MPI progress overhead is reduced by $6.1\\times$. By decoupling communication from physics models and mesh representations, STORM removes a barrier to scaling Monte Carlo transport in astrophysical multiphysics codes, enabling coupled radiation-hydrodynamics with energy- and angle-resolved photon or neutrino transport on dynamically evolving meshes at scale.",
+        "authors": [
+            "Maor Mizrachi",
+            "Barak Raveh",
+            "Elad Steinberg"
+        ],
+        "categories": [
+            "astro-ph.IM",
+            "cs.DC",
+            "physics.comp-ph"
+        ],
+        "id": "http://arxiv.org/abs/2607.20639v1",
+        "submit_date": "2026-07-22",
+        "relevant": false,
+        "indexed_date": "2026-07-24"
     }
 }

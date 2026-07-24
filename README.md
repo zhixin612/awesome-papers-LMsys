@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2884-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2885-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-24
+* `training` `LoRA` `sparse` [Spectral Transformation for Layer-wise Global Rank Discovery in Federated LoRA for Vision Transformers](http://arxiv.org/abs/2607.21074v1)
+  > **TL;DR**: Addresses aggregation errors in federated LoRA fine-tuning for vision transformers. Proposes SpecTraL with orthonormal transformations and spiked covariance analysis to derive global ranks without dense reconstruction. Reduces server computation and improves accuracy-communication trade-offs, eliminating hyperparameter search.
+
 ### 2026-07-23
 * `training` `sparse` `scaling` [Odin: Primitive-Level Synchronization for Distributed Point-Based Neural Rendering](http://arxiv.org/abs/2607.19893v1)
   > **TL;DR**: Addresses synchronization bottlenecks in distributed point-based neural rendering training. Proposes Odin with primitive-level synchronization via ahead-of-time scheduler and runtime validation instead of global barriers. Achieves up to 1.89× higher throughput on 64 GPUs while preserving reconstruction quality.
