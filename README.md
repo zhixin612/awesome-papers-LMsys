@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2885-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2889-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.27-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-27
+* `serving` `kernel` `networking` [TileSight: A First-Principles Tile-Centric Analytical GPU Performance Model from Cores to Clusters](http://arxiv.org/abs/2607.22432v1)
+  > **TL;DR**: Proposes TileSight, a tile-centric analytical GPU performance model for kernels, modeling intra-core pipeline overlap, cache hierarchy, and inter-node networking to predict latency. Achieves 13.52% wMAPE in vLLM serving at 32 GPUs.
+* `agentic` `serving` `offloading` [Agentic CPU-GPU Scheduling for Heterogeneous AI Workloads](http://arxiv.org/abs/2607.22242v1)
+  > **TL;DR**: Investigates scheduling for agentic AI workloads on shared CPU/GPU infrastructure. Proposes an agentic scheduler with LLM and runtime monitor for dynamic CPU/GPU assignments. Achieves brute-force optimal mapping in all 13 scenarios, outperforming baselines without offline training.
+* `kernel` `sparse` `serving` [Unified Static-Dynamic Pruning for Efficient LLM Inference](http://arxiv.org/abs/2607.21985v1)
+  > **TL;DR**: Addresses LLM inference inefficiency via unified static-dynamic pruning. Introduces SPDP framework with Tiled-CBC storage format and specialized CUDA/Tensor Core kernels for activation skipping. Achieves 1.24x-1.37x speedup (up to 2.51x) over SpInfer with matching perplexity.
+* `serving` `agentic` [Keeping the Cache Warm Pays: Keepalive Economics for Agentic Workloads](http://arxiv.org/abs/2607.19214v2)
+  > **TL;DR**: Investigates prefix cache eviction in LLM agentic workloads causing repeated costly prefills. Proposes a client-side keepalive mechanism with optimized ping frequency to maintain cache residency. Reduces post-pause request cost by up to 12.5x across major providers.
+
 ### 2026-07-24
 * `training` `LoRA` `sparse` [Spectral Transformation for Layer-wise Global Rank Discovery in Federated LoRA for Vision Transformers](http://arxiv.org/abs/2607.21074v1)
   > **TL;DR**: Addresses aggregation errors in federated LoRA fine-tuning for vision transformers. Proposes SpecTraL with orthonormal transformations and spiked covariance analysis to derive global ranks without dense reconstruction. Reduces server computation and improves accuracy-communication trade-offs, eliminating hyperparameter search.
