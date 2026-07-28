@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2889-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.27-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2897-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.28-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-28
+* `diffusion` `training` [Certified Parallel-in-Time Sinkhorn for Dynamic Entropic Optimal Transport](http://arxiv.org/abs/2607.24741v1)
+  > **TL;DR**: Addresses the sequential bottleneck in distributed Sinkhorn for solving entropic optimal transport in Flow Matching training. Introduces TemporalSinkhorn, a parallel-in-time executor with deterministic certificates and forgetting milestones. Achieves 3.054x-3.632x speedup on Flow Matching minibatch streams with no tolerance violations.
+* `serving` `agentic` `networking` [SpecBox: Speculative Sandbox Scheduling for Efficient LLM Agent Serving](http://arxiv.org/abs/2607.23933v1)
+  > **TL;DR**: Reduces latency and memory in LLM agent sandbox scheduling. Introduces SpecBox, a speculative runtime with intent-driven prewarming, prefetching, a cache, and shared-memory transport. Achieves 2.9× lower P99 latency than on-demand and 45.9% lower memory than persistent sandboxes.
+* `diffusion` `serving` `kernel` [X-Stage: An Overlooked Pipeline Stage for Communication-Computation Overlap in DiT Inference](http://arxiv.org/abs/2607.23264v1)
+  > **TL;DR**: Addresses unpredictable backpressure in post-issue communication during distributed DiT inference via the X-Stage model. Designs a Burst-Gap predictor and fused kernels to interleave computation and remote stores. Achieves up to 1.62x kernel speedup for MoE and 1.43x for attention fusion in long sequences.
+* `training` `disaggregation` `scaling` [Libra: Taming Attention Workload Skew in Long-Context LLM Training with Bounded Sequence Pool](http://arxiv.org/abs/2607.23250v1)
+  > **TL;DR**: Addresses attention workload imbalance in long-context LLM training by introducing Libra with bounded sequence pools and co-location of sequences with complementary workloads, plus tiled attention and a pipelined runtime. Achieves up to 2.54x training throughput improvement over Ulysses.
+* `serving` `networking` `offloading` [Gleam: Adaptive Network-Efficient CUDA API Remoting for Cross-Device GPU Sharing over LANs](http://arxiv.org/abs/2607.23115v1)
+  > **TL;DR**: Enables efficient GPU sharing over LANs for AI inference via CUDA API remoting. Gleam mitigates network bottlenecks through weight caching, async execution, and a dynamic scheduler for GPU contention. Achieves 1.4-24.2× API remoting efficiency and 1.79× throughput improvements.
+* `serving` `hardware` `scaling` [Application-Driven Architecture Exploration for Cross-Layer Heterogeneous Systems](http://arxiv.org/abs/2607.23042v1)
+  > **TL;DR**: Explores cross-layer system designs for LLM inference workloads. Proposes CHASE, an application-driven framework using hierarchical graph representation and telemetry-guided optimization to co-design hardware and task mappings. Achieves 2.12× speedup for LLM inference while reducing cost and power compared to baselines.
+* `sparse` `kernel` [$g$MAGNUS: Fast SpGEMM on GPUs for Irregular Matrices via Hierarchical Multisplit](http://arxiv.org/abs/2607.22866v1)
+  > **TL;DR**: Addresses memory spilling in sparse matrix-matrix multiplication for GPUs. Proposes $g$MAGNUS algorithm using hierarchical multisplit to chunk heavy rows into local memory accumulators. Achieves 1.81-7.62x geometric-mean speedup over cuSPARSE and MKL.
+* `serving` `offloading` `disaggregation` [FusionML: Prefill, Not Decode - Mechanism and Boundaries of CPU+GPU Co-Execution on Unified-Memory Apple Silicon](http://arxiv.org/abs/2607.22785v1)
+  > **TL;DR**: Investigates whether CPU+GPU co-execution can accelerate transformer prefill on unified memory. Proposes FusionML, a per-layer contention-aware row split with eager materialization for concurrency. Achieves up to 1.38× faster prefill and 1.25× reduced time-to-first-token.
+
 ### 2026-07-27
 * `serving` `kernel` `networking` [TileSight: A First-Principles Tile-Centric Analytical GPU Performance Model from Cores to Clusters](http://arxiv.org/abs/2607.22432v1)
   > **TL;DR**: Proposes TileSight, a tile-centric analytical GPU performance model for kernels, modeling intra-core pipeline overlap, cache hierarchy, and inter-node networking to predict latency. Achieves 13.52% wMAPE in vLLM serving at 32 GPUs.
