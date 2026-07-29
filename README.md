@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2897-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.28-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2899-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.29-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,12 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-29
+* `serving` `hardware` `kernel` [MDTransformer: A Hardware-Software Co-Design of Mode-Division Photonic Transformer Accelerator with Inverse-Designed Coherent Crossbar](http://arxiv.org/abs/2607.26016v1)
+  > **TL;DR**: Aims to improve efficiency of photonic transformer accelerators. Proposes MDTransformer with hardware-software co-design using mode-division optics and inverse-designed photonic tensor core. Achieves 63.6% power saving and comparable latency over state-of-the-art.
+* `training` `scaling` `networking` [PowerScale: Energy-Efficient Geo-Distributed Model Training with Federated Datacenter Power](http://arxiv.org/abs/2607.25650v1)
+  > **TL;DR**: Reduces energy consumption in geo-distributed model training. Proposes PowerScale, a hierarchical system using cluster-based sync-async and adaptive synchronization. Achieves up to 3.9x energy reduction while matching time-to-accuracy.
+
 ### 2026-07-28
 * `diffusion` `training` [Certified Parallel-in-Time Sinkhorn for Dynamic Entropic Optimal Transport](http://arxiv.org/abs/2607.24741v1)
   > **TL;DR**: Addresses the sequential bottleneck in distributed Sinkhorn for solving entropic optimal transport in Flow Matching training. Introduces TemporalSinkhorn, a parallel-in-time executor with deterministic certificates and forgetting milestones. Achieves 3.054x-3.632x speedup on Flow Matching minibatch streams with no tolerance violations.

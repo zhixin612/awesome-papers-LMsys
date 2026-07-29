@@ -146869,5 +146869,322 @@
         "submit_date": "2026-07-27",
         "relevant": false,
         "indexed_date": "2026-07-28"
+    },
+    "http://arxiv.org/abs/2607.26016v1": {
+        "title": "MDTransformer: A Hardware-Software Co-Design of Mode-Division Photonic Transformer Accelerator with Inverse-Designed Coherent Crossbar",
+        "link": "http://arxiv.org/abs/2607.26016v1",
+        "abstract": "Recently, photonic transformer accelerators (PTAs) have successfully achieved significant speedup and energy efficiency improvements over electronic accelerators for expediting Transformer inference. However, state-of-the-art rely on expensive multi-wavelength light generation and large dot-product units due to active phase-shifter components, thus making their approach inefficient and impractical. To address this, we propose MDTransformer, a novel hardware-software co-design of PTA based on mode-division optical dataflow and operations. Specifically, MDTransformer performs complex matrix operations using spatial-mode interference, that leverages the inverse-designed multi-mode couplers, crossings, and Mach-Zehnder IQ modulators into a compact mode-division photonic tensor core (MPTC), capable of executing matrix multiplications in the optical domain. Its each guided mode (i.e., TE0-TE3) acts as an independent computational lane, enabling four-fold parallelism-per-waveguide without spectral filtering or free-spectral-range limitations. Moreover, its coherent detection and IQ modulation jointly encode amplitude and phase, realizing complex-valued arithmetic for full-range operations in transformers. MDTransformer offers analog multiplication with sub-4-bit effective precision and inter-modal crosstalk below -30 dB. Its inverse-designed approach also offers scalable and full compatibility with single-laser continuous-wave operation at 1550 nm. Experimental results show that MDTransformer achieves 40.4% area reduction, 63.6% power saving, 40.6% energy saving, and comparable latency over the state-of-the-art PTA across different workloads (i.e., DeiT-Tiny/Small/Base and BERT-Base/Large). These results show that MDTransformer offers a practical solution for high-performance and energy-efficient transformer-based systems.",
+        "authors": [
+            "Solomon Micheal Serunjogi",
+            "Rachmad Vidya Wicaksana Putra",
+            "Ayat Taha",
+            "Muhammad Shafique",
+            "Mahmoud Rasras"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26016v1",
+        "submit_date": "2026-07-28",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "hardware",
+            "kernel"
+        ],
+        "tldr": "Aims to improve efficiency of photonic transformer accelerators. Proposes MDTransformer with hardware-software co-design using mode-division optics and inverse-designed photonic tensor core. Achieves 63.6% power saving and comparable latency over state-of-the-art.",
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25916v1": {
+        "title": "Hermes: Low Tail-Latency Via Prefix Consensus",
+        "link": "http://arxiv.org/abs/2607.25916v1",
+        "abstract": "Leader-based BFT protocols finalize through their leaders: a view whose leader is crashed or slow finalizes nothing, and the timeout that ends it admits no good setting. A conservative timeout turns every crashed leader into a long stall; an aggressive one voids the views of leaders that are merely slow. Either way the expired view is wasted, and this trade-off, not the good case, governs tail latency.\n  Hermes makes expired views finalize. Hermes is a two-round rotating-leader protocol for $n=5f+1$ processes under partial synchrony built on prefix consensus: votes carry values ordered by a prefix relation, and quorums require comparability rather than equality. Every process broadcasts a justified proposal at view start and casts a single vote, for the leader's proposal upon delivery or for a fallback proposal at the timeout; there are no nullify votes. A timely honest leader finalizes its full proposal in $2δ$. Otherwise, any $n-f$ votes, which need not match, finalize the heaviest common prefix. We instantiate Hermes as a finality gadget over an available chain and over Autobahn-style multi-lane dissemination, where parent-relative delta tipcuts with explicit skips keep independent proposals comparable and sender-indexed erasure-coded amplification keeps complexity at $O(n^2\\hat{m}+λn^3)$ bits and $O(n^2)$ messages per view, where $\\hat{m}$ is the number of concurrent dissemination lanes in Autobahn and $λ$ the security parameter.",
+        "authors": [
+            "Alejandro Ranchal-Pedrosa",
+            "Dakai Kang",
+            "Neil Giridharan",
+            "Dahlia Malkhi",
+            "Mohammad Sadoghi",
+            "Ben Marsh"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR"
+        ],
+        "id": "http://arxiv.org/abs/2607.25916v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25866v1": {
+        "title": "Massively parallel numerical simulations with Julia",
+        "link": "http://arxiv.org/abs/2607.25866v1",
+        "abstract": "The Julia programming language aims to provide a modern approach to develop high-performance computing (HPC) applications. It tries to achieve this by combining a high-level, dynamic interface with just-in-time compilation to native machine code, thereby facilitating high developer productivity and native code performance at the same time. While this approach has already been shown to work well for serial applications, it is not clear if it readily translates to traditional, massively parallel HPC work loads. In this paper, we fill this gap by analyzing the parallel performance of the numerical computational fluid dynamics simulation code Trixi$.$jl, written in Julia, and compare it to the Fortran code FLUXO. We show some of the challenges of using Julia at scale and discuss possible solutions, specifically with respect to code loading and compilation at startup. Finally, we demonstrate the parallel scaling of our Julia code on up to 61440 CPU cores.",
+        "authors": [
+            "Simon Candelaresi",
+            "Benedict Geihe",
+            "Marco Artiano",
+            "Lars Christmann",
+            "Valentin Churavy",
+            "Andrés Rueda-Ramírez",
+            "Hendrik Ranocha",
+            "Gregor J. Gassner",
+            "Michael Schlottke-Lakemper"
+        ],
+        "categories": [
+            "math.NA",
+            "cs.DC",
+            "cs.MS",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2607.25866v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25650v1": {
+        "title": "PowerScale: Energy-Efficient Geo-Distributed Model Training with Federated Datacenter Power",
+        "link": "http://arxiv.org/abs/2607.25650v1",
+        "abstract": "The power demands of large-scale AI training increasingly exceed the capacity of any single data center, making geo-distributed training across power-constrained sites a practical necessity. Prior work optimizes such training mainly for time-to-accuracy using single-tier aggregation, where every site exchanges model updates directly with a central aggregator over the WAN each synchronization round, without accounting for the energy required to reach convergence. Single-tier aggregation is fundamentally energy-inefficient because synchronization barriers force faster sites to idle, full WAN updates dominate communication energy at scale, and fixed synchronization frequency keeps paying the same communication cost even when updates shrink late in training.\n  To address these inefficiencies, we present PowerScale, a hierarchical aggregation system that exploits the latency hierarchy of wide-area networks. PowerScale organizes sites into regional clusters and applies a Sync-Async synchronization modality: sites synchronize frequently with a nearby cluster aggregator over fast local links, while cluster aggregators push pre-aggregated updates asynchronously to a global aggregator over the WAN. PowerScale forms clusters based on both network proximity and power availability, and uses an adaptive synchronization policy that reduces communication energy by adjusting how often clusters synchronize to training progress. This structure shortens synchronization barriers and replaces per-site WAN transmissions with fewer, pre-aggregated transmissions at a lower frequency. We evaluate PowerScale at 100-site scale in a Flower-based simulation environment. PowerScale matches or slightly improves time-to-accuracy compared with single-tier baselines while reducing energy consumption by up to 3.9x.",
+        "authors": [
+            "Talha Mehboob",
+            "Zhe Xu",
+            "Michael Zink",
+            "David Irwin"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.25650v1",
+        "submit_date": "2026-07-28",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling",
+            "networking"
+        ],
+        "tldr": "Reduces energy consumption in geo-distributed model training. Proposes PowerScale, a hierarchical system using cluster-based sync-async and adaptive synchronization. Achieves up to 3.9x energy reduction while matching time-to-accuracy.",
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25517v1": {
+        "title": "Optimistic Verifiable Claims: A Blockchain Protocol for Conditionally Confidential Bidding in Decentralized Manufacturing",
+        "link": "http://arxiv.org/abs/2607.25517v1",
+        "abstract": "Decentralized manufacturing faces a pre-contractual impasse: a Provider cannot price a service accurately without inspecting the design file, yet the Consumer cannot share that file without exposing intellectual property. We introduce the Optimistic Verifiable Claim (OVC), a blockchain protocol that lets a Consumer publish a verifiable claim about a concealed design (such as the material it consumes) and a Provider price and bid on it without seeing the design. The claim is committed when the service is posted and stands unless the selected Provider challenges it; a challenge triggers a deterministic on-chain check that exposes any dishonesty, and the design is disclosed only to settle a dispute, never on the honest path. We implement four checks (authorized key access, delivery-channel integrity, syntactic conformance, and declared material consumption) in Solidity and measure them on a real 6.41 MB G-code file, the 3DBenchy, across Ethereum, Arbitrum, and opBNB. Every service incurs the cost of posting the encrypted design, with or without a dispute. For the 3DBenchy, the no-dispute outcome costs \\$7,207 in up to 9 hours on Ethereum, \\$288 in 3 min on Arbitrum, and \\$2.87 in 2 min on opBNB, and a fully contested dispute costs \\$49,660 in up to 57 hours on Ethereum, \\$1,988 in 19 min on Arbitrum, and \\$19.73 in 13 min on opBNB. Costs and times grow with size: for a 50 MB industrial design, an undisputed service reaches \\$56,173 and up to 3 days on Ethereum against \\$22.36 and 16 min on opBNB, and a fully contested dispute reaches \\$488,440 over up to 18 days on Ethereum against \\$195 and 1.6 hours on opBNB. Of the four, the material-consumption check is the costliest, its predicate being the most expensive to evaluate on-chain. OVC makes confidential, claim-based bidding economically feasible on Arbitrum and opBNB, but not on Ethereum at industrial scale.",
+        "authors": [
+            "Marko Corn",
+            "Nejc Rožman",
+            "Primož Podržaj"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.GT"
+        ],
+        "id": "http://arxiv.org/abs/2607.25517v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25493v1": {
+        "title": "WASP: A Configurable Framework for Portable Stateful Serverless Applications",
+        "link": "http://arxiv.org/abs/2607.25493v1",
+        "abstract": "WebAssembly (WASM) is emerging as a lightweight alternative to containers for Function-as-a-Service (FaaS) across the edge-cloud continuum. However, existing WASM-based serverless platforms are tightly coupled to specific execution engines and predominantly designed for stateless workloads. This clashes with the heterogeneity of edge deployments, which demand support for stateful applications under diverse hardware and workload constraints. We introduce WASP, a configurable framework that brings stateful serverless execution to the edge-cloud continuum. By abandoning monolithic architectures in favor of strictly decoupled, pluggable components, WASP lets system administrators swap the WASM runtime and the datastore to fit available resources and application requirements, without altering application code. Configurable lifecycle and caching policies further enable fine-tuning for diverse non-functional requirements. Our experimental evaluation demonstrates that WASP introduces negligible runtime overhead and, by swapping runtimes, datastores, and policies, exposes radically different memory and latency profiles, confirming its adaptability to the heterogeneous constraints of the edge-cloud continuum.",
+        "authors": [
+            "Matteo Cenzato",
+            "Dario d'Abate",
+            "Arianna Dragoni",
+            "Giacomo Orsenigo",
+            "Luca Tosetti",
+            "Alessandro Margara"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2607.25493v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25363v1": {
+        "title": "CW-Ghost: Search-Free Granularity Selection for Helper-Thread Prefetching via Capacity Windows",
+        "link": "http://arxiv.org/abs/2607.25363v1",
+        "abstract": "Helper-thread prefetching hides the latency of irregular memory accesses by executing address dependency chains ahead of the main thread. However, its effectiveness depends on the range of future iterations covered by the helper thread. A fixed coverage range cannot consistently accommodate different workloads and processors, whereas exhaustively evaluating candidate configurations incurs substantial configuration cost. This paper presents CW-Ghost, which uses a single offline profiling run to estimate the average demand cache line fill volume generated per target iteration in a target region. CW-Ghost combines this estimate with a cache capacity budget to derive a Capacity Window, which determines the iteration granularity of each prefetch chunk. In addition, bounded chunk-level synchronization limits the number of chunks by which the helper thread may run ahead of the main thread. Across 14 workload instances evaluated on Intel and AMD CPU platforms, CW-Ghost achieves geometric mean speedups of 1.54x and 1.33x, respectively, over the original programs. Compared with Ghost Threading, it improves geometric mean performance by 15.8% and 10.8%, respectively, while achieving more than 99% of the empirically optimal performance within the candidate set on both platforms. These results demonstrate that cache capacity constraints can effectively guide the selection of granularity for helper-thread prefetching.",
+        "authors": [
+            "Ya Zhang",
+            "Tong Lei",
+            "Yao Chen",
+            "Yonggang Che",
+            "Chuanfu Xu",
+            "Haozhong Qiu",
+            "Yusong Tan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.25363v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25358v1": {
+        "title": "QCOEM: Quantum Cloud Orchestration with Evolutionary Multi-Objective Optimization",
+        "link": "http://arxiv.org/abs/2607.25358v1",
+        "abstract": "Quantum cloud platforms need to dynamically orchestrate workloads across heterogeneous quantum computation backends whose noise profiles, qubit topologies, and queues vary over time. Existing orchestrators use noise-agnostic heuristics that ignore backend-specific errors, causing reduced execution fidelity, load imbalance, and frequent rescheduling. To address these challenges, we propose QCOEM - a Quantum Cloud Orchestration framework that leverages Evolutionary algorithms for Multi-objective optimization of quantum task scheduling. We compare NSGA-II and NSGA-III for jointly minimizing mean completion time, execution error rate, and load imbalance. To select schedules from a non-convex Pareto front, we apply an Augmented Achievement Scalarization Function (AASF) as a preference-based decision rule that maps the Pareto set to a single dispatchable schedule aligned with user priorities. Our extensive performance evaluation in a heterogeneous quantum cloud environment shows zero task rescheduling and about 30% higher mean fidelity than noise-agnostic heuristics, while maintaining bounded scheduling overhead. The experiment results indicate that our QCOEM framework can deliver stable, high-fidelity execution and lightweight resource management for quantum cloud computing.",
+        "authors": [
+            "Tam N. Pham",
+            "Hoa T. Nguyen",
+            "Quan Le-Trung"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.ET",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2607.25358v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25333v1": {
+        "title": "Specula: Scaling formal specifications for autonomous model checking of system code",
+        "link": "http://arxiv.org/abs/2607.25333v1",
+        "abstract": "Specula is a push-button agentic system that generates high-quality formal specifications for large, complex system code and uses the specifications for highly effective model checking and bug finding. Specula employs large language model (LLM) based coding agents to autonomously develop TLA+ specifications, including invariants that describe correctness properties of the target system and formal models that describe the system implementation with the right level of abstractions. Specula is fully autonomous and thus eliminates the barrier of applying formal methods to real-world system code (as in traditional human-centric approaches). Meanwhile, Specula addresses limitations of LLM-driven techniques like reward hacking and hallucinations through self-evolving loops that iteratively improve specification quality by enabling the agents to deepen their understanding of system code and its behaviors. We have used Specula to check 48 open-source system projects; Specula found 249 bugs including many deep bugs that are hard to find by existing approaches. Specula has been used by several companies and is maintained at https://github.com/specula-org/Specula.",
+        "authors": [
+            "Qian Cheng",
+            "Saad Mohammad Rafid Pial",
+            "Ruize Tang",
+            "Yiming Su",
+            "Emilie Ma",
+            "Finn Hackett",
+            "Ivan Beschastnikh",
+            "Yu Huang",
+            "Tianyin Xu"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.AI",
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2607.25333v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.22866v2": {
+        "title": "$g$MAGNUS: Fast SpGEMM on GPUs for Irregular Matrices via Hierarchical Multisplit",
+        "link": "http://arxiv.org/abs/2607.22866v2",
+        "abstract": "We present $g$MAGNUS, a novel algorithm for sparse matrix-matrix multiplication (SpGEMM) of irregular matrices on GPUs. Such matrices often contain many heavy rows, those with large intermediate products that force local memory accumulators to spill to global memory. $g$MAGNUS addresses this by computing an intra-row reordering of intermediate products, subdividing heavy rows into independent chunks that can be accumulated completely in local memory. This reordering uses novel outer product and hierarchical multisplit operations. The algorithm is input- and system-aware, automatically determining the number of chunks and multisplit levels based on the input matrix dimensions and local memory size. Experimental results on two extensive datasets show that $g$MAGNUS achieves a geometric-mean speedup of 1.81 to 7.62$\\times$ over five leading algorithms (including MKL and cuSPARSE) on Intel Ponte Vecchio and NVIDIA H200. Additionally, the core kernels of $g$MAGNUS are evaluated, achieving near-peak performance compared to their theoretical upper bound.",
+        "authors": [
+            "Jordi Wolfson-Pou",
+            "Ahmed Helal",
+            "Fabrizio Petrini"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.22866v2",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.25059v1": {
+        "title": "Parallel Spectral Graph Sparsification via Low Diameter Decompositions",
+        "link": "http://arxiv.org/abs/2607.25059v1",
+        "abstract": "We present a new solver-free parallel spectral sparsification algorithm for weighted graphs that relies only on parallel low-diameter decompositions and independent sampling. This yields the first algorithmic improvement over prior, solver-free parallel sparsification approaches since Koutis (2014) and, for the first time for a practical algorithm, eliminates any dependence on the target approximation accuracy $ε$ in the algorithm's work and depth.\n  Our algorithm works by sub-sampling edges according to their robust connectivity, as introduced by Kapralov and Panigrahy (2012). We show how to estimate the robust connectivities of $G$ in an extremely simple manner: we create multiple random sub graphs $G_p$, where each edge in $G$ is sub-sampled independently with probability $p_e = \\min \\{w_e \\cdot p, 1\\}$. Then, we run a Low Diameter Decomposition in each of the graphs. If $u$ and $v$ often share a cluster in the LDDs, then this provides us with an upper bound on the robust connectivity of the edge $e = (u,v)$. Carefully invoking this procedure for $O(\\log n)$ different values of the probabilities $p$ then allows us to obtain sufficiently good estimates for sub-sampling.\n  We additionally complement the theory with an experimental evaluation demonstrating strong performance across relevant graphs and sparsity regimes.",
+        "authors": [
+            "Yves Baumann",
+            "Gernot Zöcklein"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.25059v1",
+        "submit_date": "2026-07-27",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.24971v1": {
+        "title": "Right Multiplication on Grammar-Compressed Matrices: A Streaming, Memory-Bounded GPU Engine",
+        "link": "http://arxiv.org/abs/2607.24971v1",
+        "abstract": "Grammar-compressed matrices (the mm-repair family) store a matrix's non-zero structure as a RePair straight-line program (SLP), supporting matrix-vector products in time and space proportional to the compressed size. We target the regime where this is decisive on a GPU: when the uncompressed matrix exceeds device memory, so footprint (not floating-point throughput) is the binding constraint. Our SLP is a directed acyclic graph (DAG) of out-degree 2, and the right product $y=Mx$ is a single bottom-up sweep (leaves to roots): a conflict-free gather. We make the grammar properly layered (every nonterminal child one level below its parent) via pass-through completion, which inserts identity nodes to carry values upward until consumed. This yields a streaming evaluation in which each level reads only the level below and writes the next, so the live set fits in two alternating read-only/write-only buffers instead of scaling with the whole grammar; the per-level width equals the live set. On genotype matrices, where a polygenic score is exactly the right product $y=Gβ$, a CUDA implementation shows a clear space advantage: a device footprint 4 to 8 times smaller than a materialized cuSPARSE CSR baseline, single-vector times within a small factor of cuSPARSE, and consistently lower energy. Because the sweep needs only an associative combine, the same engine and schedule evaluate any monoid homomorphism over the grammar by swapping a small leaf/combine/emit policy; the same reachability sweep then scales to the billion-edge Software Heritage graph ($261$ TB dense and unmaterializable, $21\\times$ smaller serialized than CSR), where the memory argument holds. We frame this as an algorithm-engineering case study: structural metrics (depth, live-set width, completion cost) are measured, architecture-independent grammar properties, whereas time and energy are profiled on a single board.",
+        "authors": [
+            "Francesco Tosoni",
+            "Gabriele Mencagli"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.DC",
+            "cs.MS",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2607.24971v1",
+        "submit_date": "2026-07-27",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.24959v1": {
+        "title": "Amortising Trajectory Optimisation for Residual MPC via Implicit Contact Differentiation",
+        "link": "http://arxiv.org/abs/2607.24959v1",
+        "abstract": "Differentiable simulation can accelerate contact-rich trajectory optimisation by exposing local sensitivities of task outcomes to controls. Existing approaches either use finite differences, which are expensive and step-size sensitive; differentiate iterative contact solvers by unrolling automatic differentiation (AD), which stores a growing computation trace; or require intricate, solver-specific KKT sensitivity derivations. We introduce an AD-assisted implicit derivative for regularised smooth contacts and apply it to Mujoco MJX, based on the Implicit Function Theorem (IFT). The method differentiates the stationarity residual at the tolerance-converged solution, avoiding both solver unrolling and hand-assembled KKT systems. IFT keeps compiled temporary memory nearly constant with solver effort, changing by less than 4$\\%$ from one to ten iterations versus 10.6$\\times$ growth for unrolled AD. IFT memory grows slower with active contacts and model dimension, using 20$\\times$ less memory at 256 contacts and 6$\\times$ less at 16 contacts and 96 DoF. We further introduce optimiser distillation for residual MPC, amortising batched full-horizon iLQR into a policy that guides short-horizon residual iLQR. Across Finger, Franka, and Unitree, this raises six-step success by 28-98 percentage points over standard iLQR.",
+        "authors": [
+            "Daniel Layeghi",
+            "Thomas Corbères",
+            "Calum Arnott",
+            "Aditya Kamireddypalli",
+            "Hashim Al-Obaidi",
+            "Steve Tonneau",
+            "Michael Mistry"
+        ],
+        "categories": [
+            "cs.RO",
+            "cs.DC",
+            "cs.LG",
+            "eess.SY",
+            "math.OC"
+        ],
+        "id": "http://arxiv.org/abs/2607.24959v1",
+        "submit_date": "2026-07-27",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.24902v1": {
+        "title": "Spanergy: Energy-aware Distributed Tracing for Microservices",
+        "link": "http://arxiv.org/abs/2607.24902v1",
+        "abstract": "Cloud computing is gaining popularity by giving access to seemingly unlimited virtual resources. However, Cloud data centres are built with physical resources and their electricity consumption has been continuously growing over the past decades. Microservices are an important building block of Cloud applications, calling for new solutions to observe their energy consumption. Distributed tracing is widely deployed to diagnose latency and failures in microservice-based applications, yet it does not expose the energy cost of individual end-user requests. Such a gap limits energy-aware debugging, accountability, and control. This paper presents Spanergy, an energy-aware distributed tracing approach that correlates per-microservice power measurements with traces and that attributes measured energy consumption to request segments, i.e. trace spans. We showcase Spanergy with synchronous request chains and asynchronous interactions across microservices. We present a rigorous experimental protocol and statistical analysis plan to quantify overhead and to validate conservation and coverage properties on realistic configurations. Enabling OpenTelemetry tracing increased total experiment energy by 59.1% relative to the uninstrumented baseline, and Spanergy post-processing added 15.2% of the baseline energy. Hence, Spanergy's incremental energy cost is smaller than the energy overhead of enabling tracing itself, making the approach lightweight in practice. Spanergy also reveals that a non-negligible fraction of request energy comes from spans outside the latency-critical path. These results show that energy-aware tracing is feasible at modest overhead and provides actionable insights for energy-efficient microservices.",
+        "authors": [
+            "César Perdigão Batista",
+            "Denis Conan",
+            "Sophie Chabridon"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2607.24902v1",
+        "submit_date": "2026-07-27",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.24849v1": {
+        "title": "Enhancing Error Detection Performance through Parallel CRC Computation on Multi-Core Architectures",
+        "link": "http://arxiv.org/abs/2607.24849v1",
+        "abstract": "Cyclic Redundancy Check (CRC) remains one of the most widely used error-detection mechanisms in communication, storage, and embedded systems. However, conventional software CRC implementations suffer from inherent sequential dependencies that limit efficient utilization of modern multi-core processors. This paper presents a generalized software-based parallel CRC framework for multi-core architectures using POSIX threads. The proposed framework supports multiple CRC variants, including CRC-8, CRC-16, CRC-32, CRC-64, and CRC-128, within a unified implementation model. To preserve correctness during parallel execution, the framework employs a GF(2)-based CRC combination mechanism rather than naive XOR aggregation. The combine stage is formulated using polynomial arithmetic and matrix-based shifting operations over GF(2), ensuring equivalence between parallel and serial CRC computation. The proposed method was evaluated using multiple workload sizes and thread configurations. Experimental analysis includes execution time, throughput, latency, scalability behavior, and energy estimation under varying thread counts. Results indicate that parallel execution significantly improves performance for large datasets, achieving approximately 3-4x speedup on the evaluated platform while preserving exact CRC correctness. Comparative discussion with representative CRC optimization approaches, including lookup-table methods, slicing-by-8, SIMD/vectorized CRC, and hardware-assisted CRC techniques, is also provided to position the proposed framework within the broader CRC optimization landscape. Overall, the proposed approach provides a portable and generalized software framework for correctness-preserving parallel CRC acceleration on general-purpose multi-core systems.",
+        "authors": [
+            "Mohammad Javad Khani",
+            "Mahmood Ahmadi"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR"
+        ],
+        "id": "http://arxiv.org/abs/2607.24849v1",
+        "submit_date": "2026-07-25",
+        "relevant": false,
+        "indexed_date": "2026-07-29"
     }
 }
