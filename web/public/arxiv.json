@@ -147186,5 +147186,354 @@
         "submit_date": "2026-07-25",
         "relevant": false,
         "indexed_date": "2026-07-29"
+    },
+    "http://arxiv.org/abs/2607.27090v1": {
+        "title": "InferScale: GPU-Native KV Injection for Personalized LLM Serving",
+        "link": "http://arxiv.org/abs/2607.27090v1",
+        "abstract": "Large language models are increasingly deployed with persistent personalized context, such as accumulated memory profiles or long conversation histories, that is shared across a user's many requests. Production memory systems (e.g., Mem0, MemGPT, and Zep) retrieve a relevant subset of this memory and inject it into the prompt, forcing the serving engine to repeatedly prefill the same content. As the retrieval budget grows, time-to-first-token (TTFT) increases even though the underlying memory is reused across requests.\n  We present InferScale, a GPU-native LLM memory system that replaces repeated prompt prefilling with reusable KV state. InferScale precomputes each memory fact's KV representation, stores it alongside a semantic embedding on the GPU, retrieves relevant facts at serving time, and injects their KV directly into vLLM's paged cache. To support dynamically assembled memories under rotary position embeddings, we introduce Chunked RoPE, which stores keys before rotation and applies their serving-time positions during injection. However, encoding memory facts independently omits the cross-fact context available during joint prefilling. We mitigate this with Context-Window Encoding, which encodes each memory fact together with a small window of preceding conversation context while caching only the target fact's KV.\n  InferScale is implemented through vLLM's KV-connector interface, requiring neither engine modifications nor model fine-tuning. Across three open-weight models on LoCoMo, InferScale keeps TTFT nearly constant as the retrieval budget increases: at k=50 it reduces TTFT by 72-79% (3.6-4.8x), achieves 60.3% accuracy versus 63.3% for Mem0 without serving-time recomputation, and delivers 3.7-4.5x the throughput under concurrent load. Reusable KV state thus decouples memory-conditioned serving latency from retrieved-context size while preserving application quality.",
+        "authors": [
+            "Peter Li",
+            "Prashant Pandey"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2607.27090v1",
+        "submit_date": "2026-07-29",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "RAG"
+        ],
+        "tldr": "Reduces TTFT in LLM serving with personalized contexts by precomputing and injecting reusable KV representations. Proposes GPU-native KV storage with Chunked RoPE and Context-Window Encoding. At k=50, TTFT decreases by 72-79% and throughput increases 3.7-4.5x.",
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.25916v2": {
+        "title": "Hermes: Low Tail-Latency Via Prefix Consensus",
+        "link": "http://arxiv.org/abs/2607.25916v2",
+        "abstract": "Leader-based BFT protocols finalize through their leaders: a view whose leader is crashed or slow finalizes nothing, and the timeout that ends it admits no good setting. A conservative timeout turns every crashed leader into a long stall; an aggressive one voids the views of leaders that are merely slow. Either way the expired view is wasted, and this trade-off, not the good case, governs tail latency.\n  Hermes makes expired views finalize. Hermes is a two-round rotating-leader protocol for $n=5f+1$ processes under partial synchrony built on prefix consensus: votes carry values ordered by a prefix relation, and quorums require comparability rather than equality. Every process broadcasts a justified proposal at view start and casts a single vote, for the leader's proposal upon delivery or for a fallback proposal at the timeout; there are no nullify votes. A timely honest leader finalizes its full proposal in $2δ$. Otherwise, any $n-f$ votes, which need not match, finalize the heaviest common prefix. We instantiate Hermes as a finality gadget over an available chain and over Autobahn-style multi-lane dissemination, where parent-relative delta tipcuts with explicit skips keep independent proposals comparable and sender-indexed erasure-coded amplification keeps complexity at $O(n^2\\hat{m}+λn^3)$ bits and $O(n^2)$ messages per view, where $\\hat{m}$ is the number of concurrent dissemination lanes in Autobahn and $λ$ the security parameter.",
+        "authors": [
+            "Alejandro Ranchal-Pedrosa",
+            "Dakai Kang",
+            "Neil Giridharan",
+            "Dahlia Malkhi",
+            "Mohammad Sadoghi",
+            "Ben Marsh"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR"
+        ],
+        "id": "http://arxiv.org/abs/2607.25916v2",
+        "submit_date": "2026-07-29",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26877v1": {
+        "title": "Hybrid Workflow Composition for Extreme-Scale Data Processing: A Case Study on the HL-LHC (Extended Version)",
+        "link": "http://arxiv.org/abs/2607.26877v1",
+        "abstract": "High-Throughput Computing (HTC) environments tailored for high-concurrency resource efficiency require sophisticated orchestration to manage petabyte-scale data across heterogeneous resources. A critical but often overlooked challenge is workflow composition: the strategic grouping of tasksets within a Directed Acyclic Graph (DAG) to mitigate execution overhead while maximizing resource utilization. This paper presents a novel simulation framework for characterizing the interplay between taskset granularity and system-level constraints (e.g., job latency, failure rate, throughput, and I/O bandwidth).\n  By exploring a high-dimensional parameter space, we quantify the performance sensitivity of diverse workflow topologies. Our results demonstrate that hybrid composition strategies, which dynamically balance taskset independence with execution grouping, can yield up to 3.8x throughput increase and a 14.9x reduction in network overhead. We further propose a multi-metric objective function that enables policy-driven optimization, allowing system architects to navigate the Pareto frontier between throughput, I/O cost, and CPU efficiency. These findings provide a rigorous foundation for automated workflow synthesis in distributed systems, offering a scalable model for next-generation scientific pipelines. All artifacts are publicly available.",
+        "authors": [
+            "Alan Malta Rodrigues",
+            "Douglas Thain"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2607.26877v1",
+        "submit_date": "2026-07-29",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26821v1": {
+        "title": "Mind the Gap: The Disconnect Between Synthetic and Natural Edge Weights in Parallel Single-Source Shortest Path",
+        "link": "http://arxiv.org/abs/2607.26821v1",
+        "abstract": "Scientific research works often evaluate Parallel Single-Source Shortest Path (SSSP) algorithms using synthetic, uniformly distributed edge weights. However, real-world graphs exhibit very different, often heavy-tailed, weight distributions. This creates a disconnect between how algorithms are evaluated and their real-world performance, since most SSSP implementations inherently rely on the weight distribution for parameter tuning and work efficiency. In this paper, we explore whether current benchmarking methods unintentionally bias the performance results of these algorithms. To this end, we statistically characterize the weight distributions of 17 real-world graphs from a variety of domains and contrast them with six synthetic distributions used in the literature. Through a comprehensive evaluation of seven state-of-the-art parallel SSSP algorithms, we demonstrate severe sensitivity to edge weights, and show that evaluating with synthetic uniform weights alters optimal parameter configurations and can invert the performance hierarchy. These findings challenge existing benchmarking standards and offer practical insights for rigorous SSSP algorithm design.",
+        "authors": [
+            "Marco D'Antonio",
+            "Thai Son Mai",
+            "Hans Vandierendonck"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26821v1",
+        "submit_date": "2026-07-29",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26688v1": {
+        "title": "Nix to the Rescue for a Reproducible HPC-AI Software Stack",
+        "link": "http://arxiv.org/abs/2607.26688v1",
+        "abstract": "Reproducibility in HPC remains difficult under the constraints of production supercomputers: no root access, limited internet, and software stacks that increasingly span C/C++, Fortran, Python, MPI, and GPU runtimes. Traditional approaches based on environment modules and Conda require manual intervention to locate dependencies, leak system libraries into builds, and fail to compose across projects. Containers help with deployment but do not by themselves guarantee reproducibility. We report on our experience building a hybrid HPC/AI software stack with Nix, covering local development on a workstation without root and remote deployment as an Apptainer image on a production cluster. Nix's consistent package layout, full environment isolation, and flake-based composition resolve the dependency discovery, leakage, and composition problems we encountered, while unifying C/C++ and Python management under a single declarative specification that also generates the deployment container. We discuss trade-offs against Spack and Guix, the development-versus-production split addressed via CMake presets, and current gaps in ML package coverage in Nixpkgs.",
+        "authors": [
+            "Wenke Du",
+            "Jean-Marc Gratien",
+            "Raphael Gayno",
+            "Bruno Raffin"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26688v1",
+        "submit_date": "2026-07-29",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26584v1": {
+        "title": "Unified Shared Memory in OpenMP: Implementation, Programmability, and Performance on Intel Accelerators",
+        "link": "http://arxiv.org/abs/2607.26584v1",
+        "abstract": "OpenMP 5.0 introduced the Unified Shared Memory (USM) feature through the requires directive. The feature simplifies the adoption of the OpenMP programming model by providing a unique and common address space between the accelerators and the host and allowing the access (dereference) of the same memory address on different devices, thus avoiding the burden of explicit data transfers to maintain the consistency between the address spaces. Hence, the feature eases quick prototyping and porting of applications to OpenMP with accelerators.\n  In this paper, we introduce the Intel implementation for USM. We briefly discuss its implementation in the software stack (OS kernel, compiler, and runtime), then assess its adoption complexity in existing HPC applications using OpenMP for accelerators, and, finally, evaluate the performance of these applications when adopting USM on an Intel Battlemage GPU. USM is not expected to grant performance uplifts to already optimized applications with explicit, granular data-motion control and our results show an overhead with a geometric mean below 1.2x (1.03x seems achievable with further optimizations). Yet, in this paper we show there exist applications that benefit from this feature, making it attractive even for already ported applications.",
+        "authors": [
+            "Harald Servat",
+            "François Dugast",
+            "Alejandro Duran",
+            "Abhinav Gaba",
+            "Rakesh Krishnaiyer"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26584v1",
+        "submit_date": "2026-07-29",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26566v1": {
+        "title": "ServerlessT2I: Efficient Text-to-Image Workflow Serving on a Serverless Platform",
+        "link": "http://arxiv.org/abs/2607.26566v1",
+        "abstract": "Text-to-image (T2I) workflows are increasingly deployed on serverless platforms because users often compose customized workflows and invoke them intermittently. Existing platforms typically deploy each workflow as an opaque GPU function, provisioning, placing, and scaling all constituent models in the workflow together. This monolithic design obscures workflow structure, inflates scaling overhead, forces users to manage low-level GPU coordination, and limits fine-grained fairness in multi-tenant clusters. In this paper, we present ServerlessT2I, a serverless-native system that decomposes a T2I workflow into loosely coupled model functions that can be independently managed and scheduled. By explicitly managing individual model execution, ServerlessT2I enables per-model scaling, declarative workflow composition, transparent GPU-resident communication, and fairness-aware scheduling. To make this decomposition efficient, ServerlessT2I harvests slack GPU memory left idle by compute-bound T2I inference to build a data plane that reduces model loading and data communication overheads. \\sys{} further introduces a fair scheduler for multi-tenant serving. Using production traces, ServerlessT2I sustains up to 2$\\times$ higher request rates than existing T2I workflow serving systems with the same GPU budget; for a fixed request rate, it saves up to 3$\\times$ GPU resources while satisfying service level objectives (SLOs).",
+        "authors": [
+            "Xiaoxiao Jiang",
+            "Suyi Li",
+            "Sheng Yao",
+            "Tianyu Feng",
+            "Lingyun Yang",
+            "Dapeng Nie",
+            "Haoran Yang",
+            "Wei Wang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2607.26566v1",
+        "submit_date": "2026-07-29",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "diffusion",
+            "scaling"
+        ],
+        "tldr": "Investigates inefficiencies in text-to-image workflow serving on serverless platforms. Proposes ServerlessT2I, decomposing workflows into model functions for independent scaling and utilizing slack GPU memory to reduce overhead. Achieves up to 2× higher request rates or 3× GPU savings at fixed request rates while meeting SLOs.",
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26503v1": {
+        "title": "Safety-Gated Autoscaling: A Multi-Layered Defense Architecture for Kubernetes Vertical Resource Optimization",
+        "link": "http://arxiv.org/abs/2607.26503v1",
+        "abstract": "Kubernetes is the standard platform for orchestrating containerized applications, yet resource management remains difficult. To stay safe, engineers over-provision CPU and memory, leaving reserved but unused capacity that is the main source of wasted cost. The built-in Horizontal and Vertical Pod Autoscalers are reactive: they act only after a threshold is crossed, which causes lag, over-provisioning, and can mask software defects by granting a leaking workload more memory. Predictive autoscalers focus on improving forecasting accuracy or run inside proprietary infrastructure, and anomaly detection is used only to alert, never to block a harmful action. The Intelligent Cluster Optimizer is an open-source Kubernetes operator that right-sizes container workloads with safety as a first-class concern. Its central contribution is a five-layer safety pipeline where a memory-leak detector, based on linear regression with R^2 scoring, acts as a blocking gate: if a leak is detected the recommendation is rejected, so the optimizer never hides a bug by enlarging a broken container. The pipeline combines SLA monitoring, a circuit breaker, HPA/PDB conflict detection, and a policy engine, with rollback and dry-run mode for human approval. Recommendations are produced by percentile analysis and Holt-Winters forecasting, balanced through multi-objective Pareto optimization at the per-container level. We validated the system with 1118 automated tests at 80.3% coverage and a live deployment on Google Kubernetes Engine, where right-sizing produced estimated cost savings of 20--40% in what-if projections and the leak gate reached 83% detection accuracy.",
+        "authors": [
+            "Azra Karakaya",
+            "Erva Şengül",
+            "Ahmet Kaplan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26503v1",
+        "submit_date": "2026-07-29",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26475v1": {
+        "title": "DualDecoder: Accelerate Long Context LLM Inference by Predictive Prefetch",
+        "link": "http://arxiv.org/abs/2607.26475v1",
+        "abstract": "Long-context inference is becoming a fundamental capability for modern LLM serving, especially driven by emerging agentic applications. Yet it faces a severe memory wall that the KV cache scales proportionally with increasing context length and request concurrency. Existing sparse KV cache methods offload most KV entries to host memory and retrieve only the critical KV entries needed by each decoding step. However, they commonly introduce substantial auxiliary states in GPU memory for KV retrieval management. Our measurements show that these often-overlooked auxiliary states introduce significant memory overhead and become a new bottleneck under high-concurrency workloads.\n  In this paper, we present DualDecoder, a lightweight serving system for long-context LLM inference that enables efficient sparse KV cache retrieval from host memory. Our key insight is that the critical KV entries required for decoding the next token can be accurately predicted from the preceding speculated token. This predictability enables KV retrieval to be proactively prefetched and overlapped with decoding computation, effectively eliminating the GPU memory overhead of auxiliary states. To achieve this prefetching efficiently, DualDecoder leverages a novel dual-token decoding pipeline that accurately identifies critical KV entries with negligible computational overhead, and designs a layer-aware transfer schedule to overlap KV prefetching with model computation and a layer-scoped memory manager to reduce the GPU runtime buffer. Experimental results show that DualDecoder improves decoding throughput by up to 2.62$\\times$ over state-of-the-art systems while preserving decoding latency and model quality.",
+        "authors": [
+            "Zuning Liang",
+            "Zhiyi Yao",
+            "Qi Chen",
+            "Yuedong Xu",
+            "Hao Dai",
+            "Zhiqiang Ding",
+            "Tongkai Yang",
+            "Jinlong Hou",
+            "Yuan Cheng"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26475v1",
+        "submit_date": "2026-07-29",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Addresses the memory bottleneck of auxiliary states in sparse KV cache offloading for long-context LLM serving. Proposes DualDecoder with predictive KV prefetch via dual-token decoding and layer-aware scheduling to overlap transfers. Achieves up to 2.62× higher decoding throughput than state-of-the-art systems.",
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26444v1": {
+        "title": "StrataCL: Fabric-Native Communication Library for Production Supernodes",
+        "link": "http://arxiv.org/abs/2607.26444v1",
+        "abstract": "Modern distributed AI workloads run across hundreds of accelerators, making communication a major bottleneck. Existing communication libraries remain largely buffer-centric because user and communication buffers are managed separately, causing redundant data copies or costly user-buffer registration. This paper presents StrataCL, a zero-redundancy and fabric-native communication library for production supernodes. StrataCL introduces registration-on-allocation to realize user-buffer direct communication, and designs communication operators with workload-balanced NPU-core partitioning and NPU-driven SDMA offloading to exploit supernode architecture features. On the Huawei CloudMatrix384, StrataCL improves collective bus bandwidth by up to 1.6x and improves MoE dispatch/combine bus bandwidth by up to 1.4x. Across three production workloads, StrataCL improves LLM inference throughput by 1.9x, reduces P99 TTFT by 2.2x, and reduces LLM and Recsys training iteration time by 1.4x and 1.3x, respectively.",
+        "authors": [
+            "Tiancheng Hu",
+            "Jin Qin",
+            "Yuzheng Wang",
+            "Ke Liu",
+            "TangShengsheng Li",
+            "Sheng Wang",
+            "Zhongzhe Hu",
+            "Tianlun Hu",
+            "Wei Wang",
+            "Lijun Li",
+            "Jingbin Zhou",
+            "Xiaoming Bao",
+            "Hongwei Sun",
+            "Jieru Zhao",
+            "Huimin Cui",
+            "Tao Xie",
+            "Chenxi Wang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26444v1",
+        "submit_date": "2026-07-29",
+        "relevant": true,
+        "tags": [
+            "networking",
+            "training",
+            "serving"
+        ],
+        "tldr": "Addresses communication bottlenecks in distributed AI workloads across accelerators. Designs StrataCL, a fabric-native library with registration-on-allocation and NPU-driven offloading to minimize data copies. Improves LLM inference throughput by 1.9× and reduces training iteration time by 1.4× on Huawei CloudMatrix384.",
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26340v1": {
+        "title": "Incast-Free MoE Rate-Based Scheduling",
+        "link": "http://arxiv.org/abs/2607.26340v1",
+        "abstract": "Mixture of Experts (MoE) architectures have become key to large language models; however, their typical round-robin (RR) scheduling introduces significant bottlenecks.\n  In this paper, we demonstrate that RR causes a previously-undiscovered exponential incast phenomenon with MoE traffic. We propose an alternative proactive fair scheduling framework tailored for MoE workloads, which effectively prevents fabric oversubscription. We also outline how it can be implemented in NICs. Finally, through extensive simulations with real and synthetic workloads, we demonstrate that this framework consistently eliminates incast, maintains a near-100% link utilization, and reduces Collective Completion Time (CCT).",
+        "authors": [
+            "Evyatar Cohen",
+            "Jose Yallouz",
+            "Alexander Shpiner",
+            "Mark Silberstein",
+            "Sylvia Ratnasamy",
+            "Isaac Keslassy"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2607.26340v1",
+        "submit_date": "2026-07-28",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "training",
+            "networking"
+        ],
+        "tldr": "Resolves exponential incast caused by round-robin scheduling in MoE networks via a proactive fair scheduling framework implemented in NICs. Eliminates incast, maintains near-100% link utilization, and reduces Collective Completion Time.",
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26335v1": {
+        "title": "The Fabric Is the Cluster Driver: Cross-Layer eBPF Policies for GPU-CXL Fabrics",
+        "link": "http://arxiv.org/abs/2607.26335v1",
+        "abstract": "We present fabric_ext, an eBPF middleware compiler and runtime for extensible OS policies over GPU--CXL fabrics. fabric_ext lets one policy program execute across GPU hooks, driver/runtime hooks, DPU/NIC hooks, and CXL switch or near-memory hooks. The key abstraction is a semantic movement graph: edges describe bytes, stride, reuse distance, read/write ratio, source and destination, ordering requirement, alias set, ownership, and transformations such as Move, Quantize, Compress, Checksum, Filter, Reduce, Scatter/Gather, Replicate, and Persist. The compiler lowers this graph into per-device eBPF programs, verifier obligations, consistency-classed BPF maps, and artifacts for bpftime and dputime. At the fabric edge, fabric_ext treats a near-Type-2 small core as a hardware-JIT and state manager: it specializes verified movement descriptors into local copy, placement, ordering, and transformation commands, while the surrounding Von Neumann island of memory, DMA, and compute engines performs the dataflow. Because this dataflow is data-driven, fabric_ext also places observation beside the island, where queues, DMA completions, memory placement, and ownership transitions are visible as they happen. The canonical stress case is LLM prefill: attention streams KV blocks and reductions while FFN streams activations, weights, and compressible intermediates, forcing one request to cross GPU tensor execution, DPU/NIC event execution, and CXL or switch-local dataflow islands.",
+        "authors": [
+            "Yiwei Yang",
+            "Andi Quinn"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26335v1",
+        "submit_date": "2026-07-28",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "kernel",
+            "networking"
+        ],
+        "tldr": "Proposes fabric_ext, an eBPF-based compiler/runtime for optimizing data movement across GPU-CXL fabrics during LLM prefill. Uses semantic movement graphs to generate device-specific eBPF programs, specializing commands for local execution. Improves efficiency in attention and FFN streaming workloads critical to inference serving.",
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26316v1": {
+        "title": "Route-Block Membership Selects Packed-AWQ Arithmetic: A Controlled Single-Fixture Mechanism Study",
+        "link": "http://arxiv.org/abs/2607.26316v1",
+        "abstract": "Mixture-of-experts (MoE) inference first aligns routed tokens into padded expert blocks, then executes packed quantized matrix multiplication over those blocks. This preprocessing is often treated as bookkeeping. In one pre-specified Qwen3-Coder AWQ layer-6 fixture on a pinned vLLM/Marlin build and RTX 3090 runtime, we show that the tested route-block interventions select exact packed arithmetic trajectories. Two fixed preconstruction histories produced distinct native alignments and exact trajectories. Injecting the opposite alignment transferred W13, activation, routed-W2, and final outputs. Permuting two routes within one block preserved each native trajectory, while exchanging two prior-data-selected routes across the boundary between expert-106 blocks 40 and 41 transferred the complete opposite trajectory. Source- and binary-derived schedule geometry maps those blocks to direct/full-K and split/global-reduction classes. Forcing a single-slice 200-block grid made W13 bitwise equal. Stable canonical construction made both histories converge to a third exact trajectory. The confirmatory cohort contains 70 valid cold processes and seven required perturbation rejections. This is a causal mechanism result for one fixture, not a prevalence, allocator, portability, or serving-impact claim.",
+        "authors": [
+            "Lukas Stepanek"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26316v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26231v1": {
+        "title": "ProFlow: RL-Driven and Performance-Aware Proactive Flow Placement in Datacenter Networks",
+        "link": "http://arxiv.org/abs/2607.26231v1",
+        "abstract": "In datacenter fabrics composed of leaf and aggregation switches, competing flows may become co-located on shared aggregation switches, creating congestion that can significantly degrade protected flows. However, before throughput degradation becomes observable, the network often exhibits early signs characterized by rising flow activity and queue overflow signals. Existing congestion-management approaches primarily react only after congestion becomes visible, leaving these early signs largely unexploited. In this paper, we propose ProFlow, a proactive flow-placement framework for protecting performance-sensitive traffic in multi-tenant datacenter networks, thereby utilizing the early signs of potential throughput degradations. ProFlow leverages distributed telemetry signals and offline-trained reinforcement learning (RL) to identify precursor congestion conditions and proactively reroute protected flows before throughput degradation occurs. Evaluation results using FABRIC testbed show that ProFlow achieves approximately 40% higher mean throughput than a reactive rerouting baseline while initiating rerouting decisions around 34 seconds earlier on average, demonstrating the effectiveness of anticipatory congestion management.",
+        "authors": [
+            "Sourya Saha",
+            "Md Nurul Absur",
+            "Saptarshi Debroy"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26231v1",
+        "submit_date": "2026-07-28",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26087v1": {
+        "title": "Framework Implementation Maturity in Blockchain-Based Third-Party Compliance Assessment",
+        "link": "http://arxiv.org/abs/2607.26087v1",
+        "abstract": "Cybersecurity and privacy frameworks such as NIST SP~800--53, ISO/IEC~27001, GDPR, and HIPAA are widely used to guide organizational security posture and regulatory compliance. In practice, however, framework adoption is often assessed through point-in-time audits, self-attestations, and fragmented evidence reviews, providing limited assurance that controls are consistently implemented, independently validated, and sustained over time, particularly in environments that rely on third-party vendors. These limitations are amplified in multi-vendor ecosystems, such as healthcare remote patient monitoring (RPM), where compliance obligations span organizational boundaries and assessments are conducted by multiple independent assessors. This paper investigates how permissioned blockchain systems can support framework implementation maturity measurement rather than static compliance verification. We propose a blockchain-based Third-Party Risk Assessment (TPRA) framework that operationalizes assessment workflows, enforces multi-party governance, and preserves longitudinal assessment state using programmable smart contracts. Building on this framework, we introduce a set of evaluation metrics and a qualitative maturity model designed to assess whether compliance controls are verifiably implemented, governed, and sustained across repeated assessment cycles.",
+        "authors": [
+            "Jemima Owusu-Tweneboah",
+            "Amani Altarawneh",
+            "Deepti Gupta",
+            "Maria Luisa Figueroa"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.26087v1",
+        "submit_date": "2026-07-27",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.26927v1": {
+        "title": "Deductive Verification for Earliest Deadline First Scheduler Implementations",
+        "link": "http://arxiv.org/abs/2607.26927v1",
+        "abstract": "Real-Time Operating Systems (RTOSes) rely on scheduler implementations to provide predictable task execution. For safety-critical systems, it is therefore not sufficient to reason only about the abstract scheduling policy; the concrete implementation must also preserve the intended scheduling semantics. This is particularly challenging for Earliest Deadline First (EDF) scheduling, because EDF introduces dynamic, deadline-derived priorities that are often realized by reusing kernel infrastructure originally designed for fixed-priority scheduling. In this work, we formalize EDF correctness through three essential properties that any implementation of the Earliest Deadline First (EDF) scheduler must satisfy. Based on these properties, we propose a framework utilizing deductive verification, that applies to any EDF-based scheduler realization. We instantiate the framework in Frama-C/ACSL and apply it to three structurally different EDF scheduler realizations: RTEMS 5, RTEMS 6, and an EDF extension of FreeRTOS.",
+        "authors": [
+            "Daniel Kuhse",
+            "Junjie Shi",
+            "Jan Duy Thien Pham",
+            "Kay Heider",
+            "Marcus Völker",
+            "Kuan-Hsun Chen",
+            "Jian-Jia Chen"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2607.26927v1",
+        "submit_date": "2026-07-29",
+        "relevant": false,
+        "indexed_date": "2026-07-30"
     }
 }

@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2899-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.29-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2905-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.07.30-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-07-30
+* `serving` `RAG` [InferScale: GPU-Native KV Injection for Personalized LLM Serving](http://arxiv.org/abs/2607.27090v1)
+  > **TL;DR**: Reduces TTFT in LLM serving with personalized contexts by precomputing and injecting reusable KV representations. Proposes GPU-native KV storage with Chunked RoPE and Context-Window Encoding. At k=50, TTFT decreases by 72-79% and throughput increases 3.7-4.5x.
+* `serving` `diffusion` `scaling` [ServerlessT2I: Efficient Text-to-Image Workflow Serving on a Serverless Platform](http://arxiv.org/abs/2607.26566v1)
+  > **TL;DR**: Investigates inefficiencies in text-to-image workflow serving on serverless platforms. Proposes ServerlessT2I, decomposing workflows into model functions for independent scaling and utilizing slack GPU memory to reduce overhead. Achieves up to 2× higher request rates or 3× GPU savings at fixed request rates while meeting SLOs.
+* `serving` `offloading` [DualDecoder: Accelerate Long Context LLM Inference by Predictive Prefetch](http://arxiv.org/abs/2607.26475v1)
+  > **TL;DR**: Addresses the memory bottleneck of auxiliary states in sparse KV cache offloading for long-context LLM serving. Proposes DualDecoder with predictive KV prefetch via dual-token decoding and layer-aware scheduling to overlap transfers. Achieves up to 2.62× higher decoding throughput than state-of-the-art systems.
+* `networking` `training` `serving` [StrataCL: Fabric-Native Communication Library for Production Supernodes](http://arxiv.org/abs/2607.26444v1)
+  > **TL;DR**: Addresses communication bottlenecks in distributed AI workloads across accelerators. Designs StrataCL, a fabric-native library with registration-on-allocation and NPU-driven offloading to minimize data copies. Improves LLM inference throughput by 1.9× and reduces training iteration time by 1.4× on Huawei CloudMatrix384.
+* `MoE` `training` `networking` [Incast-Free MoE Rate-Based Scheduling](http://arxiv.org/abs/2607.26340v1)
+  > **TL;DR**: Resolves exponential incast caused by round-robin scheduling in MoE networks via a proactive fair scheduling framework implemented in NICs. Eliminates incast, maintains near-100% link utilization, and reduces Collective Completion Time.
+* `serving` `kernel` `networking` [The Fabric Is the Cluster Driver: Cross-Layer eBPF Policies for GPU-CXL Fabrics](http://arxiv.org/abs/2607.26335v1)
+  > **TL;DR**: Proposes fabric_ext, an eBPF-based compiler/runtime for optimizing data movement across GPU-CXL fabrics during LLM prefill. Uses semantic movement graphs to generate device-specific eBPF programs, specializing commands for local execution. Improves efficiency in attention and FFN streaming workloads critical to inference serving.
+
 ### 2026-07-29
 * `serving` `hardware` `kernel` [MDTransformer: A Hardware-Software Co-Design of Mode-Division Photonic Transformer Accelerator with Inverse-Designed Coherent Crossbar](http://arxiv.org/abs/2607.26016v1)
   > **TL;DR**: Aims to improve efficiency of photonic transformer accelerators. Proposes MDTransformer with hardware-software co-design using mode-division optics and inverse-designed photonic tensor core. Achieves 63.6% power saving and comparable latency over state-of-the-art.
