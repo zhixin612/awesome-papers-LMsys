@@ -147535,5 +147535,273 @@
         "submit_date": "2026-07-29",
         "relevant": false,
         "indexed_date": "2026-07-30"
+    },
+    "http://arxiv.org/abs/2607.28522v1": {
+        "title": "Safe Quotes for Retroactive Liquidity Pools",
+        "link": "http://arxiv.org/abs/2607.28522v1",
+        "abstract": "Automated market makers exchange assets through liquidity pools whose quoted prices depend on their reserves, with constant product pools being the most common. When such pools reside on different blockchains or shards, a sequence of swaps cannot in general be executed atomically. Aanes et al. introduced lock-swaps and retroactive constant product liquidity pools to provide price guarantees for such a setting. A retroactive pool implicitly maintains a virtual pool for each possible execute/cancel resolution of its active locks. In the presence of active locks, serving a new swap request requires computing a safe quote; a quote with an output that does not exceed the minimum possible output, taken over all virtual pools. The quote being safe is a hard constraint ensuring the integrity of the pool. A soft constraint is to make the quote as close to the minimum possible output as possible. Aanes et al. gave a simple and efficient algorithm for computing the exact minimum when unresolved provides and reclaims of liquidity do not coexist, showed by an explicit example that the algorithm fails in general, and left the computational complexity of the general case open. In this paper, we show that unless P is equal to NP, there is no polynomial time algorithm that computes in the general case a safe quote with any fixed multiplicative approximation ratio (e.g., 50%) relative to the exact minimum. This seems like a severe obstacle for deployment of the lock-swap functionality. However, we also present two simple and practical algorithms for computing safe quotes that have input-dependent approximation ratios that are likely to be satisfactory in practice, thus circumventing that obstacle.",
+        "authors": [
+            "Peter Bro Miltersen"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.28522v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28407v1": {
+        "title": "A Taxonomy of Performance Metrics for the Distributed Computing Continuum",
+        "link": "http://arxiv.org/abs/2607.28407v1",
+        "abstract": "Performance evaluation is essential for understanding, comparing, and improving computing systems, including Distributed Computing Continuum Systems (DCCS). In recent years, computational requirements have changed substantially with the growth of artificial intelligence and large-scale data-driven applications. These application tasks are increasingly distributed between resource-intensive data centers and resource-constrained edge environments. In this context, novel computing continuum architectures and algorithms are emerging, creating a need for transparent and consistent performance evaluation. However, existing evaluation practices often focus on isolated dimensions, such as computation, networking, energy efficiency, or application-level quality, and therefore provide only a partial view of cross-layer DCCS behavior. This paper presents a structured taxonomy of performance metrics for DCCS. The taxonomy organizes metrics into computing-level, network-level, and application/user-level categories, while also highlighting emerging dimensions such as sustainability, observability, adaptability, data locality, migration awareness, and continuum fragmentation. Further, we provide mathematical formulations and discuss their relevance to heterogeneous and dynamic continuum environments. We also summarize metric acquisition requirements in terms of acquisition scope, acquisition phase, and measurement method. These requirements help clarify whether a metric can be collected from a single node, multiple nodes, or the full system, and whether it is more suitable for operational monitoring or experimental evaluation.",
+        "authors": [
+            "Praveen Kumar Donta",
+            "Boris Sedlak",
+            "Alfreds Lapkovskis",
+            "Alaa Saleh",
+            "Ying Li",
+            "Victor Casamayor Pujol",
+            "Ilir Murturi",
+            "Manuel Otero Barbasan",
+            "Schahram Dustdar"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NI",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2607.28407v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28377v1": {
+        "title": "Anonymous sharing is pairwise phase-blind",
+        "link": "http://arxiv.org/abs/2607.28377v1",
+        "abstract": "Independent training jobs sharing a storage system write their checkpoints through the same finite bandwidth, and the resulting bursts of correlated I/O are commonly described as a self-reinforcing \"checkpoint storm\". We formalise the self-reinforcement as phase locking in a population of integrate-and-fire oscillators coupled through a shared resource, and show that within that model it fails. Call a resource anonymous if the rate it delivers to an active user depends on how many users are active and not on which. For identical jobs whose write is shorter than their compute interval, an anonymous resource produces no pairwise coupling at all: the two-job return map of the phase gap is the identity, under storage contention, under a shared power cap and under both, so the two-body interaction on which the Kuramoto and Mirollo-Strogatz frameworks are built is not weak here but absent. Anonymity also freezes the firing order, for any fleet size and any cap, so no trajectory reaches the synchronous state from outside it. What survives is a third-order effect: where all $N$ write windows overlap and the cap does not bind, the map is diagonal in the intervals between consecutive write starts, $a_j \\mapsto ((N-j)/j)a_j$, with reciprocal spectrum and unit determinant, making synchrony a fixed point with $\\lceil N/2\\rceil-1$ expanding directions rather than an attractor. That determinant follows from anonymity and not from fairness: for any anonymous throughput $f$ with $f(n)\\le n$ the spectrum becomes $(N-j)f(j)/(j f(N-j))$, whose product is still one. Numerically, a fleet launched at random neither locks nor clusters, and absence of locking is not absence of bursts: the upper tail of the number of concurrent writers stays above its independent-phase value. Heterogeneous jobs behind a binding cap do acquire a genuine pairwise coupling, which is where the statement stops generalising.",
+        "authors": [
+            "Brieuc Le roux tardif"
+        ],
+        "categories": [
+            "eess.SY",
+            "cs.DC",
+            "nlin.AO"
+        ],
+        "id": "http://arxiv.org/abs/2607.28377v1",
+        "submit_date": "2026-07-30",
+        "relevant": true,
+        "tags": [
+            "training",
+            "storage"
+        ],
+        "tldr": "Examines I/O burst contention in shared storage for training jobs checkpointing. Models using integrate-and-fire oscillators, showing anonymous resources prevent pairwise phase locking and freeze firing order. Numerically, fleets avoid synchronization but concurrent writers exceed independent-phase predictions.",
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28338v1": {
+        "title": "Encryption-Compatible Clustered Federated Learning via Distributed Expectation-Maximization over Metadata",
+        "link": "http://arxiv.org/abs/2607.28338v1",
+        "abstract": "Clustered Federated Learning (CFL) addresses data heterogeneity in federated settings by grouping clients with similar data distributions to enable effective training. Existing methods face a trade-off between privacy preservation, communication cost, and computational efficiency. We formalize this as the CFL trilemma, according to which improving two of these dimensions comes at the expense of the third. A prominent paradigm relies on metadata (i.e., low-dimensional representations of client datasets shared with the server) to enable communication- and computation-efficient clustering. However, such approaches are not compatible with standard FL privacy-preserving mechanisms. To address this limitation, we propose FLAMECHE, which reformulates metadata-based CFL as a distributed Expectation-Maximization (EM) procedure, restricting server updates to additive operations while preserving efficiency. This design enables compatibility with practical secure FL schemes. We conducted extensive experiments on multiple datasets under various heterogeneous scenarios. Results show that FLAMECHE improves the effectiveness of client models. It enables encryption-compatible metadata-based clustering, enhancing its positioning within the CFL trilemma.",
+        "authors": [
+            "Michael Ben Ali",
+            "Imen Megdiche",
+            "André Péninou",
+            "Olivier Teste"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CR",
+            "cs.DC",
+            "stat.ML"
+        ],
+        "id": "http://arxiv.org/abs/2607.28338v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28290v1": {
+        "title": "FAIR-Compute: A Roadmap for Fair and Efficient Allocation of Federated Digital Research Infrastructure",
+        "link": "http://arxiv.org/abs/2607.28290v1",
+        "abstract": "As demand for high-performance computing (HPC), high-throughput computing and data storage grows, the way scarce compute is allocated -- not just how much exists -- has become a decisive factor in the productivity of UK research. FAIR-Compute studies allocation in a federated Digital Research Infrastructure (DRI) as a problem at the intersection of algorithmic game theory, transport economics and HPC scheduling. Our central observation is simple: once a shared system must decide who runs, when and under what evidence, its scheduler settings cease to be a purely technical matter and become policy.\n  The project combined three strands of evidence: a landscape review of UK and international allocation practice (including EuroHPC, WLCG, ACCESS, JASMIN and DiRAC) supported by a stakeholder survey; a mechanism-design model of allocation under strategic and uncertain user reports; and a simulation study built on the public Fresco/Anvil workload trace and controlled synthetic stress tests. Three results recur across all three strands. First, allocation records measure occupancy (resources reserved) rather than utilisation (useful work done), so the system cannot currently answer the question UKRI and DSIT most want answered -- whether resources deliver productive value. Second, simple, transparent scheduling heuristics perform close to an offline full-information benchmark once tuned, so the near-term opportunity is to tune and instrument existing schedulers rather than replace them. Third, federation is genuinely valuable but behaves like uncoordinated routing when left unmanaged: it can minimise average delay while quietly concentrating load -- and potentially harm -- on the receiving system. This mirrors a classic effect from road-traffic economics (Braess's paradox), where letting everyone independently pick the fastest route can leave the whole network worse off.",
+        "authors": [
+            " Konstantinos",
+            "E. Zachariadis",
+            "Ahmed Sayed",
+            "Dimitris Fotakis",
+            "Angeliki Mathioudaki",
+            "Wan Shuen Siaw"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.28290v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28223v1": {
+        "title": "Queue-Theoretic Admission Control for Multi-Tenant GPU Clusters",
+        "link": "http://arxiv.org/abs/2607.28223v1",
+        "abstract": "GPU cluster operators cannot predict how long pending workloads will wait for admission. Existing systems use greedy heuristics with no formal wait time guarantees. We formalize GPU cluster admission as a multi-class, multi-resource queueing network and prove a structural decomposition: the pending queue partitions into quotable workloads (bounded wait time under stability) and unfeasible workloads (no finite bound without reconfiguration). For quotable workloads, we model each cluster queue as an M/G/k system where the effective server count k is determined by a vector packing reduction; under an explicit stochastic domination assumption, we establish O(1/(1-rho)) wait time scaling. We prove that optimal admission ordering is NP-hard under multi-dimensional resource demands via reduction from vector bin packing. We validate on Kueue, the standard Kubernetes workload queuing system, using CPU, memory, and GPU (via Dynamic Resource Allocation) resources. The vector k_eff correctly identifies bottleneck resource dimensions, Little's Law holds exactly, and the Erlang-C approximation consistently overestimates observed wait times in the conservative direction.",
+        "authors": [
+            "Sohan Kunkerkar"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.28223v1",
+        "submit_date": "2026-07-30",
+        "relevant": true,
+        "tags": [
+            "scaling"
+        ],
+        "tldr": "Addresses unpredictable wait times for workloads in multi-tenant GPU clusters. Proposes a queueing network model with vector packing reduction to partition workloads and bound wait times. Validation shows the model correctly identifies bottlenecks and Erlang-C conservatively overestimates wait times.",
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28193v1": {
+        "title": "A Cloud Continuum Research Infrastructure for Distributed CPS Experimentation",
+        "link": "http://arxiv.org/abs/2607.28193v1",
+        "abstract": "Cloud Continuum applications require experimental environments capable of combining heterogeneous Edge, Fog, Cloud, and high-performance computing resources while preserving reproducibility, observability, and control over distributed deployments. This paper presents a two-level reference architecture for Cloud Continuum experimentation built on top of the SLICES Cloud Continuum Blueprint. The proposed approach separates the research-infrastructure layer, which exposes and manages distributed resources, from the application layer, where Cyber-Physical workflows are organized according to an Edge-Fog-Cloud pattern in which placement, timing, and data provenance are treated as first-class experimental concerns.\n  The architecture is designed to support multiple continuum applications rather than a single domain-specific prototype. At the Edge, applications interact with physical devices and perform low-latency sensing or safety actions; at the Fog, they execute near-source coordination, mediation, and stream-processing logic; at the Cloud, they consolidate global knowledge through analytics, optimization, and visualization. This partitioning enables researchers to deploy, customize, and compare alternative control and monitoring strategies over the same programmable infrastructure substrate.\n  The approach is validated through two representative use cases: Renewable Energy Community management, where distributed Digital Twin coordination and time-window-based energy control are requested, and AirWatch, a monitoring pipeline focused on anomaly detection, low-latency alerting, and cloud-side aggregation. Both workloads are evaluated through a systematic campaign of 40 runs comparing virtualized and physical edge deployments over a geographically distributed infrastructure.",
+        "authors": [
+            "Fabio Orazio Mirto",
+            "Giuseppe Tricomi",
+            "Luca D'Agati",
+            "Andrea Sabbioni",
+            "Stefano Silvestri",
+            "Francesco Longo",
+            "Giovanni Merlino",
+            "Armir Bujari",
+            "Paolo Bellavista",
+            "Antonio Puliafito"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.28193v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28191v1": {
+        "title": "Secure Aggregation for Privacy-Preserving Federated Learning on Clinical EEG Data",
+        "link": "http://arxiv.org/abs/2607.28191v1",
+        "abstract": "Federated learning enables multiple institutions to train shared models without exchanging raw clinical EEG data, but it does not fully prevent privacy leakage from individual model updates. This paper presents a privacy-preserving federated learning framework for clinical EEG data using masking-based secure aggregation as the core protection mechanism. The framework combines graph-based communication, threshold secret sharing, dropout-resilient aggregation, local update clipping, an optional Bloom filter-based privacy-preserving record-linkage initialization module, and auxiliary-notary-based verifiability. It supports both semi-honest and malicious aggregation settings and is implemented using the Flower federated learning framework. The secure-aggregation variants are evaluated in a simulated cross-silo healthcare setting using TUH EEG-derived data under different client configurations. Under the stated assumptions, the secure variants hide individual updates from the aggregation server. The results show that these variants remain compatible with federated model training, although malicious-setting safeguards and lightweight consistency-checking mechanisms introduce additional computation, communication, and round-duration overhead. The semi-honest variant provides the lowest overhead among the secure configurations, while malicious and auxiliary-notary variants offer stronger consistency, integrity, and lightweight verification support at higher cost.",
+        "authors": [
+            "Pouya Rajabi",
+            "Mohsen Toorani"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2607.28191v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28150v1": {
+        "title": "SmartGen: Seamless Disaggregated LLM Inference with Selective KV Cache Transfer",
+        "link": "http://arxiv.org/abs/2607.28150v1",
+        "abstract": "Disaggregating the prefill and decoding stages of large language model (LLM) inference into two separate sets of nodes is widely adopted in today's LLM serving systems. However, such an architecture poses significant challenges for self-hosted LLM deployments on rented cloud instances, since transferring enormous key-value (KV) caches between disaggregated nodes can easily saturate the limited inter-node network bandwidth. In this paper, we propose to mitigate the network bottleneck by selectively transferring essential KV cache entries across the two stages. There are two challenges to achieve selective KV cache transfer, i.e., accurate KV selection during the prefill stage, and efficient KV fetching during the decoding stage. To address these challenges, we design SmartGen, a KV cache transfer engine that allows seamless disaggregated LLM inference with three data transfer paths. Specifically, we leverage 1) a profile-based proactive transfer path to identify and push essential KV cache entries to the decoding node during the prefill stage, 2) a parallel on-demand transfer path to simultaneously fetch remote and local KV cache entries during the decoding stage, and 3) a speculative transfer path to finally deliver all KV caches to the decoding node. Experimental results show that SmartGen reduces time-to-second-token by up to 4.3x compared with the typical full KV cache transfer approach while offering comparable subsequent decoding performance and accuracy.",
+        "authors": [
+            "Xuchuan Luo",
+            "Jiacheng Shen",
+            "Xin Wang",
+            "Yangfan Zhou"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.28150v1",
+        "submit_date": "2026-07-30",
+        "relevant": true,
+        "tags": [
+            "disaggregation",
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Addresses network bottleneck in disaggregated LLM inference caused by KV cache transfer. Designs SmartGen with three transfer paths for selective KV cache handling. Reduces time-to-second-token by up to 4.3x compared to full transfer.",
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.28101v1": {
+        "title": "ESBT: A Scalable and Deterministic Sequence CRDT for Distributed Collaborative Editing",
+        "link": "http://arxiv.org/abs/2607.28101v1",
+        "abstract": "Modern collaborative editing systems require efficient mechanisms for managing concurrent updates across distributed replicas. Sequence Conflict-free Replicated Data Types (CRDTs) have become the de facto standard for supporting decentralized collaboration; they enable decentralized replicas to apply operations in arbitrary order while converging to a common state. Although existing sequence CRDTs guarantee Strong Eventual Consistency (SEC), they often suffer from uncontrolled identifier growth and increasing memory consumption during long-running, highly concurrent editing sessions, which severely limits their scalability and performance. This paper presents the Extended Stern-Brocot Tree (ESBT), a mathematically grounded identifier allocation scheme for distributed collaborative text editing, providing a dense, deterministic, and compact identifier space. The proposed allocation strategy bounds identifier growth while preserving deterministic ordering and Strong Eventual Consistency. Experimental evaluation using workloads of up to 100,000 concurrent operations generated across 50 collaborating sites shows that ESBT improves responsiveness by 28 to 88% under pure insertions and 59 to 74% under mixed insertion/deletion workloads, while reducing identifier memory consumption by 50 to 75% in beginning and random insertion patterns compared with the best-performing baseline sequence CRDTs (Logoot and LSEQ). Under the adversarial middle-insertion workload (10,000 operations), ESBT further improves responsiveness by 86.53% and reduces identifier size by 92.81%. These results demonstrate that ESBT effectively addresses the principal scalability limitations of existing sequence CRDTs and provides an efficient and scalable foundation for large-scale collaborative editing systems.",
+        "authors": [
+            "Moulay Driss Mechaoui",
+            "Abdessamad Imine"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.28101v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.27947v1": {
+        "title": "A CPU+DCU Heterogeneous Parallel Framework for Post-Processing Reconstruction in Quantum Circuit Cutting",
+        "link": "http://arxiv.org/abs/2607.27947v1",
+        "abstract": "In the NISQ era, limited qubit resources make it difficult to execute large quantum circuits directly on real hardware. Quantum circuit cutting mitigates this limitation by decomposing a large circuit into smaller subcircuits, but it shifts substantial overhead to classical post-processing. As circuit size, complexity, and cut count increase, reconstruction becomes a major computational and storage bottleneck. This paper presents a CPU+DCU heterogeneous parallel framework for circuit-cutting post-processing reconstruction. Instead of constructing a dense $2^n$-dimensional probability vector or returning only high-probability states, the framework reconstructs the nonzero-probability states in the original output distribution from subcircuit measurement results. It combines heterogeneous CPU+DCU execution with a high/low-word integer representation for global basis-state indices beyond 64 bits and a three-level cooperative storage mechanism spanning device memory, host memory, and out-of-core storage. Experiments on the Songshan supercomputer show that the framework maintains high reconstruction fidelity while achieving up to $259\\times$ speedup over an optimized serial baseline on linear-cluster states and up to $4\\times$ speedup over a homogeneous CPU-parallel method on random circuits. The framework can also complete reconstruction tasks at the hundred-qubit scale. These results demonstrate that HPC-oriented heterogeneous reconstruction can effectively alleviate the classical post-processing bottleneck and improve reconstruction scalability.",
+        "authors": [
+            "Qingqing Jiang",
+            "Weidong Liu",
+            "Yufu Liu",
+            "Ruiqing He",
+            "Jiandong Shang",
+            "Hengliang Guo",
+            "Qiang Chen"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.27947v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.27946v1": {
+        "title": "Argonaut: Interactive Visual Exploration for Distributed Optimization",
+        "link": "http://arxiv.org/abs/2607.27946v1",
+        "abstract": "Distributed discrete-choice optimization in decentralized settings is often hard to explore and navigate: disentangling what other agents choose, how their choices are interdependent, and how they collectively reach a global objective quickly becomes intractable as the system scales. The major limitation is observability of the search process. Existing methods are largely centralized and offer limited support, visualizing only the final solution or providing algorithm backends over a fixed dataset, so how a solution is reached stays a black box. We present Argonaut, a lightweight, containerized optimization dashboard that enables interactive, visual exploration of the entire search process for multi-agent discrete-choice optimization in decentralized settings. Users upload datasets, construct agents and options, modify the decision space and its parameters on the fly, and run multiple algorithm backends to inspect how each configuration shapes local agent decisions and the resulting global objective. By uniting system construction, optimization, and analysis in one interactive loop, the first of its kind, Argonaut makes distributed discrete-choice optimization a human-in-the-loop process rather than a one-shot, black-box computation. We evaluate Argonaut on real-world household-electricity, shared-mobility, and sensor-data-exchange datasets scaling to 5600 agents and up to 1M solutions under brute force. Built on a Node.js interface with extensible Java and Python optimization backends, it maintains a typical runtime of 200 agents over 100 decision attributes in under 30 seconds.",
+        "authors": [
+            "Srijoni Majumdar",
+            "Chuhao Qin",
+            "Evangelos Pournaras"
+        ],
+        "categories": [
+            "cs.MA",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.27946v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.27659v1": {
+        "title": "Learning Color Grading, No Photo Sharing: Federated Aesthetic Preference Learning for Personalized Image Enhancement",
+        "link": "http://arxiv.org/abs/2607.27659v1",
+        "abstract": "Personalized image enhancement should reflect individual aesthetic taste, yet learning such preferences commonly depends on private photos and ratings that are unsuitable for centralized collection. The task must infer preference from sparse, heterogeneous feedback and translate it into natural-looking color transformations on resource-constrained user devices. We introduce FedPAIE, a federated personalized aesthetic image enhancement framework for user-adaptive color grading without centralizing raw photos or ratings. FedPAIE trains a lightweight dual-cue aesthetic scorer, calibrates it into a personalized scorer on a small local support set, and freezes it to guide regularized adaptation of a lightweight CLUT enhancer from unpaired local photographs. Fidelity constraints and an excess-gap penalty regularize scorer-guided adaptation to limit proxy-score over-optimization while preserving content and natural appearance. Training remains lightweight throughout the pipeline: scorer learning updates at most 0.787M parameters, enhancer adaptation updates 0.265M, and inference retains only a 0.293M-parameter personalized enhancer. Experiments on MIT-Adobe FiveK and Flickr-AES demonstrate effective open-world personalization and a favorable balance between user preference and image fidelity. FedPAIE thus connects decentralized preference learning with efficient personalized image transformation without requiring paired user retouches.",
+        "authors": [
+            "Chuanzhi Xu",
+            "Ziyuan Tao",
+            "Jean Julien KNell",
+            "Yanrong Chen",
+            "Haolan Guo",
+            "Xuanhua Yin",
+            "Adnan Mahmood",
+            "Weidong Cai"
+        ],
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.27659v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-01"
     }
 }

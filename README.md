@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2905-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.07.30-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2908-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-01
+* `training` `storage` [Anonymous sharing is pairwise phase-blind](http://arxiv.org/abs/2607.28377v1)
+  > **TL;DR**: Examines I/O burst contention in shared storage for training jobs checkpointing. Models using integrate-and-fire oscillators, showing anonymous resources prevent pairwise phase locking and freeze firing order. Numerically, fleets avoid synchronization but concurrent writers exceed independent-phase predictions.
+* `scaling` [Queue-Theoretic Admission Control for Multi-Tenant GPU Clusters](http://arxiv.org/abs/2607.28223v1)
+  > **TL;DR**: Addresses unpredictable wait times for workloads in multi-tenant GPU clusters. Proposes a queueing network model with vector packing reduction to partition workloads and bound wait times. Validation shows the model correctly identifies bottlenecks and Erlang-C conservatively overestimates wait times.
+* `disaggregation` `serving` `offloading` [SmartGen: Seamless Disaggregated LLM Inference with Selective KV Cache Transfer](http://arxiv.org/abs/2607.28150v1)
+  > **TL;DR**: Addresses network bottleneck in disaggregated LLM inference caused by KV cache transfer. Designs SmartGen with three transfer paths for selective KV cache handling. Reduces time-to-second-token by up to 4.3x compared to full transfer.
+
 ### 2026-07-30
 * `serving` `RAG` [InferScale: GPU-Native KV Injection for Personalized LLM Serving](http://arxiv.org/abs/2607.27090v1)
   > **TL;DR**: Reduces TTFT in LLM serving with personalized contexts by precomputing and injecting reusable KV representations. Proposes GPU-native KV storage with Chunked RoPE and Context-Window Encoding. At k=50, TTFT decreases by 72-79% and throughput increases 3.7-4.5x.
