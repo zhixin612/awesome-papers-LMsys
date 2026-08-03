@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2908-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.01-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2913-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-03
+* `serving` `agentic` [TokTier: Exact Stateful Tokenization for Agentic LLM Serving](http://arxiv.org/abs/2607.29678v1)
+  > **TL;DR**: Addresses high tokenization latency for agentic LLM serving due to repeated full-text processing. TokTier provides stateful tokenization with incremental splicing and GPU-accelerated full tokenization. Achieves up to 491x faster full tokenization on GPU compared to Hugging Face.
+* `serving` `scaling` [SLIM: Saturation-Aware Lightweight Performance Modeling for LLM Serving](http://arxiv.org/abs/2607.29575v1)
+  > **TL;DR**: Examines throughput saturation in LLM serving under increased batch sizes, attributing it to attention kernel and DRAM bandwidth limits. Proposes SLIM, a lightweight performance model, and the Batching Configuration Advisor for optimal configuration. Identifies up to 55 GB GPU memory savings for OPT models with minimal throughput loss.
+* `agentic` `serving` `scaling` [Rethinking AI Cloud Infrastructure for Agentic Serving Systems with the Aries Experimentation Framework](http://arxiv.org/abs/2607.29069v1)
+  > **TL;DR**: Proposes Aries for experimental analysis of agentic serving systems. Identifies non-inference bottlenecks and shows context retention reduces serving capacity. The framework reveals sandbox state management costs and informs a vision for agent-native serving with trajectory metrics and elastic resources.
+* `serving` `LoRA` [DeltaServe: Host-Agnostic Co-Serving of Inference and Fine-Tuning for LLMs](http://arxiv.org/abs/2607.28848v1)
+  > **TL;DR**: Addresses GPU underutilization in LLM serving via co-serving inference and LoRA fine-tuning. DeltaServe uses an SLO-aware scheduler and shared execution to leverage idle compute. Achieves 2.9x higher fine-tuning throughput with full SLO compliance versus LLMStation.
+* `serving` `kernel` `hardware` [Characterizing LLM Kernel Access and Memory Interaction in Multi-Partition NUMA GPUs](http://arxiv.org/abs/2607.28824v1)
+  > **TL;DR**: Addresses kernel latency degradation in multi-partition NUMA GPUs for LLM serving. Introduces memory trace analysis to categorize workgroup data access patterns. Proposes optimization strategies like pinning and co-scheduling, showing improved locality via simulation.
+
 ### 2026-08-01
 * `training` `storage` [Anonymous sharing is pairwise phase-blind](http://arxiv.org/abs/2607.28377v1)
   > **TL;DR**: Examines I/O burst contention in shared storage for training jobs checkpointing. Models using integrate-and-fire oscillators, showing anonymous resources prevent pairwise phase locking and freeze firing order. Numerically, fleets avoid synchronization but concurrent writers exceed independent-phase predictions.

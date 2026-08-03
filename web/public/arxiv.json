@@ -147803,5 +147803,323 @@
         "submit_date": "2026-07-30",
         "relevant": false,
         "indexed_date": "2026-08-01"
+    },
+    "http://arxiv.org/abs/2607.29678v1": {
+        "title": "TokTier: Exact Stateful Tokenization for Agentic LLM Serving",
+        "link": "http://arxiv.org/abs/2607.29678v1",
+        "abstract": "LLM serving systems cache prompt KV state, yet most front ends still re-tokenize the full request text on every call. The cost lands on coding agents, which resubmit a long transcript after each small tool result, and reuse is hard because even a short append can change token boundaries near the end of the previous sequence. Across 153,951 calls from two agent ecosystems, the median call appends about 1.4K characters, and only 1.0-3.6% of calls start or rebuild a session with contexts of millions of characters. At a 94.1% fleet prompt-cache hit rate, tokenization reaches up to 64% of time to first token.\n  TokTier is a stateful tokenization service with one contract: emitted token IDs are always identical to full reference tokenization of the request text. For a session continuation, it re-tokenizes a small window around the append and splices only after a per-request stable-boundary check, widening the window or falling back to full tokenization on failure. For a call without a reusable prefix, it decomposes GPT-family regex pre-tokenization into run-local rules and runs exact pre-tokenization and BPE on a GPU. A sampled shadow verifier re-checks live traffic.\n  Across 17 tokenizer families, differential campaigns cover 1.5x10^10 split checks, a 12.4 TB real-text corpus, and 93,000+ replayed agent steps, with zero divergence. Incremental repair takes 0.5-1.1 ms from 100K to 3M characters, up to 437x faster than HF tokenization and 2.1x faster at 1M than the strongest cache-based baseline (Gigatoken) fully prewarmed. GPU full tokenization encodes a 1M-character request in 0.87 ms, up to 491x below HF and 23.4x below the fastest published CPU method. With vLLM, median time to first token drops 16-34% and P99 drops 23% under recorded bursts. Under a 50 ms P99 objective, four repair cores plus one GPU sustain 1,821 requests/s where a 16-core stateless front end saturates at 40.",
+        "authors": [
+            "Zhenyu Zhang",
+            "Zhichao Cao"
+        ],
+        "categories": [
+            "cs.CL",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2607.29678v1",
+        "submit_date": "2026-07-31",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic"
+        ],
+        "tldr": "Addresses high tokenization latency for agentic LLM serving due to repeated full-text processing. TokTier provides stateful tokenization with incremental splicing and GPU-accelerated full tokenization. Achieves up to 491x faster full tokenization on GPU compared to Hugging Face.",
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.29659v1": {
+        "title": "GQ-FSL: Green Quantized Federated Split Learning",
+        "link": "http://arxiv.org/abs/2607.29659v1",
+        "abstract": "Deploying state-of-the-art deep neural networks (DNNs) at the wireless edge is severely bottlenecked by the strict energy and resource constraints of mobile devices. While federated split learning (FSL) mitigates on-device computation by offloading workloads to an edge server, this may introduce systemic overheads, while the continuous exchange of cut-layer data, and submodels still incurs significant energy consumption (EC). To address this, we propose a green quantized FSL (GQ-FSL) framework that incorporates stochastic quantization for both local collaborative training and wireless transmissions. Notably, GQ-FSL supports asymmetric precision levels for the client- and server-side submodels, effectively decoupling device energy constraints from global convergence degradation. To quantify these tradeoffs, we develop parameterized energy models for the split architecture and derive a theoretical convergence bound under statistically heterogeneous data. Building on that, we formulate a joint optimization problem to configure the DNN split point and precision levels, minimizing the total system EC while satisfying a strict target accuracy constraint. Ultimately, we demonstrate that GQ-FSL enables large-scale DNN deployment on resource-constrained devices, achieving superior energy efficiency compared to quantized federated learning and full-precision FSL.",
+        "authors": [
+            "Idan Roth",
+            "Lutz Lampe"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "eess.SP"
+        ],
+        "id": "http://arxiv.org/abs/2607.29659v1",
+        "submit_date": "2026-07-31",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.29575v1": {
+        "title": "SLIM: Saturation-Aware Lightweight Performance Modeling for LLM Serving",
+        "link": "http://arxiv.org/abs/2607.29575v1",
+        "abstract": "Large language model (LLM) serving commonly increases batch size to improve throughput, but performance eventually reaches a deployment-dependent plateau beyond which larger batches provide marginal gains while increasing latency and GPU memory consumption. Previous studies have attributed this behavior to HBM/DRAM bandwidth limitations, but the underlying causes have primarily been supported by conceptual arguments or high-level performance observations. As our first contribution, we present a detailed GPU characterization using hardware profiling techniques, demonstrating that throughput saturation originates in the attention kernels during the decode phase. Specifically, we show that their nearly constant arithmetic intensity as active-context lengths increases -not merely larger batch sizes- drives DRAM-bandwidth saturation, while the achieved compute throughput remains far below the hardware limit. Building on this analysis, we present the Batching Configuration Advisor (BCA), which selects the highest-throughput batching configuration satisfying a target latency constraint and identifies up to 55 GB of GPU memory allocation that can be avoided for the evaluated OPT models with minimal throughput loss. To enable these recommendations, we introduce SLIM (Saturation-Aware Lightweight Performance Model), a semi-analytical model that predicts LLM inference throughput and latency from analytical formulations of Transformer computation and memory traffic. Across the evaluated scenarios, SLIM outperforms representative performance-modeling baselines while successfully generalizing to previously unseen operating conditions.",
+        "authors": [
+            "Pol G. Recasens",
+            "Ferran Agullo",
+            "Yue Zhu",
+            "Chen Wang",
+            "Jordi Torres",
+            "Josep Ll. Berral"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2607.29575v1",
+        "submit_date": "2026-07-31",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Examines throughput saturation in LLM serving under increased batch sizes, attributing it to attention kernel and DRAM bandwidth limits. Proposes SLIM, a lightweight performance model, and the Batching Configuration Advisor for optimal configuration. Identifies up to 55 GB GPU memory savings for OPT models with minimal throughput loss.",
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.29474v1": {
+        "title": "System-Wide Termination in Distributed Betweenness Centrality Computation",
+        "link": "http://arxiv.org/abs/2607.29474v1",
+        "abstract": "Computing betweenness centrality on large networks is inherently expensive, as it requires aggregating shortest-path dependencies across all pairs of vertices and becomes increasingly difficult to scale as network size grows. Scalable distributed algorithms can facilitate such computations, particularly when centralised processing is not feasible, and message exchanges must be carefully controlled, for example, in bandwidth-limited or very large-scale networks. However, existing distributed betweenness centrality implementations do not integrate a lightweight, system-wide termination detector. As a consequence, this can lead to extra messaging after local convergence or, if misconfigured, premature stops. In this work, a lightweight, system-wide global termination detection algorithm for this task is presented. The proposed method enables vertices to decide locally when the overall system has converged. The method is evaluated against a local stopping strategy in which vertices terminate individually once their own estimates stabilise. To compare these two approaches, namely global termination detection and local stopping, a custom Python simulator is implemented, and both approaches are tested on synthetic (Erdos-Renyi and geometric) and real (Email and Road) network topologies. Our results show that system-wide termination detection lets vertices stop safely after detecting global convergence, as indicated by zero final error in the evaluated networks, rather than stopping independently based only on local convergence. The local stopping approach, on the other hand, results in premature termination and some errors on heterogeneous networks. This work emphasises the need for coordinated halting in distributed centrality computation.",
+        "authors": [
+            "Siamak Abdi",
+            "Lucia Cavallaro",
+            "Giuseppe Di Fatta"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.29474v1",
+        "submit_date": "2026-07-31",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.29465v1": {
+        "title": "CARA: Exact Local Repair with Fresh One-Action Certification for Cloud Consolidation",
+        "link": "http://arxiv.org/abs/2607.29465v1",
+        "abstract": "Simulator-based placement pipelines may inspect many repairs but deploy only when several reliability criteria improve together. Reusing search scenes to test the selected action invalidates nominal evidence, while scalarization can trade away the weakest criterion. We introduce Certificate-Aligned Recomposition (CARA), an incumbent-anchored pipeline that separates adaptive proposal generation from a one-use deployment decision. In a bounded two-host neighborhood, a packing-specific admissible bound recovers the exact top-$P$ distinct actions under a mixed paired-binary/fixed-bet certificate order. Held-out views then select one action and commit its betting plans before fresh paired Certification opens. Under the stated sign-independence and conditional-moment assumptions, the probability of falsely declaring four-way improvement is at most $.05$, irrespective of the size or complexity of upstream search. In a prospectively frozen study over 128 independent synthetic environments and four repeated contexts, the complete fail-closed terminal policy improved a development-selected same-host-count incumbent on all five Evaluation endpoints in every environment. $J$ fell by 3.57 percentage points and the continuous burdens by 21--28%. A matched ordering sensitivity produced absolute mean gaps below $5.3\\times10^{-4}$ and does not establish order superiority. CARA thus couples exact auditable proposal recovery to selection-robust fresh certification for last-mile local repair.",
+        "authors": [
+            "Xiyang Zhang",
+            "Yuanhe Tian",
+            "Hongzhi Wang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.29465v1",
+        "submit_date": "2026-07-31",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.29383v1": {
+        "title": "Exploring Block Anomaly Detection In HDFS Log Data Analysis",
+        "link": "http://arxiv.org/abs/2607.29383v1",
+        "abstract": "In recent years, with the development of big data technology, increasingly more companies use HDFS for data processing and storage. As a result, the maintenance of distributed file systems has become an extremely important part of data management. As the function of server systems is becoming increasingly diversified and their services are becoming complex, the logs, recording real-time events make it easier for system operators to locate the failures and errors that happened in the server systems to make server always available. HDFS, a distributed file system, which contains large data sets, will record a large number of logs. Moreover, the logs are not always structured data, they are not stable as well. However, to detect the problems that occur in the system by checking one log by one log, it's complicated and boring work for the system operators. Using machine learning techniques and natural language processing techniques to detect the HDFS block anomaly will help the system operators to locate and fix the anomaly rapidly and accurately. This paper proposes a streaming HDFS log block anomaly workflow. It helps maintenance practitioners to use parallel computing network in processing historical log, and construct LLM-BiLSTM hybrid deep learning model to detect anomaly block in HDFS, then build streaming log pipeline based on Kafka to give one real-time HDFS log block anomaly detection solution.",
+        "authors": [
+            "WenYang Zhong",
+            "Tutut Herawan"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2607.29383v1",
+        "submit_date": "2026-07-31",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.29303v1": {
+        "title": "Allocation Tracking and Parameter Checking for Parallel Programming Models using Contracts",
+        "link": "http://arxiv.org/abs/2607.29303v1",
+        "abstract": "Correctness checking tools for High-Performance Computing programs are typically limited to specific parallel programming models such as MPI or OpenSHMEM. The CoVer framework previously addressed this by introducing a generic, contract-based approach that decoupled API requirements from the core tool. However, CoVer's effectiveness remains bounded by the expressiveness of its underlying contract language, restricting the types of errors it can verify. This paper presents an extension to the CoVer contract language designed to capture and check a broader range of error classes. Our extensions introduce generic parameter checking and allocation tracking, while keeping generality across both programming model and language. We evaluate these extensions and demonstrate that analysis accuracy remains consistent across multiple languages, reinforcing the framework's general applicability. While the additional runtime analyses naturally incur a performance overhead, these improvements greatly enhance CoVer's utility with a significant accuracy improvement.",
+        "authors": [
+            "Yussur Mustafa Oraji",
+            "Christian Bischof"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.29303v1",
+        "submit_date": "2026-07-31",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.29198v1": {
+        "title": "Knox: Fortifying Smart Spaces With Safety Guarantees",
+        "link": "http://arxiv.org/abs/2607.29198v1",
+        "abstract": "Internet of Things (IoT) devices in smart spaces and buildings are an emerging class of distributed systems with critical safety requirements. This paper presents Knox, the first system to enable safety checking in IoT-enabled smart spaces. Knox's contributions include (i) safety specifications: a new language for safety clauses in such smart spaces, and (ii) static safety checking: two new algorithms for static verification of multiple safety properties across multiple routines running inside a smart space. Since the latter problem is NP-hard, we present and analyze novel and explainable algorithms for the static version of the problem. We also present optimizations that further reduce runtime. Our analysis and experimental results with real datasets show that Knox reduces checking time significantly compared to baselines, while providing high accuracy in catching safety violations.",
+        "authors": [
+            "Rishabh Menezes",
+            "Jadon T. Schuler",
+            "Kaimeng Zhu",
+            "Oliver Rogalski",
+            "Indranil Gupta"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.29198v1",
+        "submit_date": "2026-07-31",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.29069v1": {
+        "title": "Rethinking AI Cloud Infrastructure for Agentic Serving Systems with the Aries Experimentation Framework",
+        "link": "http://arxiv.org/abs/2607.29069v1",
+        "abstract": "Autonomous agents challenge conventional LLM serving by coupling repeated inference with persistent context and sandboxed tool execution. We present Aries, a full-stack experimentation framework that separates task semantics from execution configurations, reconstructs cross-component agent trajectories with correlated system telemetry, and exposes stateful tool execution through a consistent interface across heterogeneous sandbox substrates. We use Aries to conduct reproducible experiments on open agent harnesses and benchmarks. We complement these experiments with production traces from a commercial platform, grounding low-level systems research in observed production behavior. Our results show that (1) token-centric metrics miss non-inference bottlenecks, (2) retaining additional context yields diminishing accuracy benefits while reducing serving capacity, and (3) tool sandboxes alternate between long idle periods and short resource bursts, while current snapshot-based state management makes aggressive suspension costly. A complementary security analysis further highlights the need to reduce the sandbox attack surface. We then discuss the vision for agent-native serving systems designed around trajectory-level metrics, adaptive context management, elastic sandbox resource management, and sandboxes with minimized attack surface.",
+        "authors": [
+            "Leonid Kondrashov",
+            "Hongrui Liu",
+            "JooYoung Park",
+            "Boxi Zhou",
+            "Zonghao Liu",
+            "Chengzhi Lu",
+            "Riccardo Mancini",
+            "Esha Choukse",
+            "Haris Javaid",
+            "German Sviridov",
+            "Tao Peng",
+            "Chen Zhao",
+            "Anastasia Avdeeva",
+            "Aleksei Gusev",
+            "Marios Kogias",
+            "Luo Mai",
+            "Dmitrii Ustiugov"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2607.29069v1",
+        "submit_date": "2026-07-31",
+        "relevant": true,
+        "tags": [
+            "agentic",
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Proposes Aries for experimental analysis of agentic serving systems. Identifies non-inference bottlenecks and shows context retention reduces serving capacity. The framework reveals sandbox state management costs and informs a vision for agent-native serving with trajectory metrics and elastic resources.",
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.28957v1": {
+        "title": "Beyond Byzantine: An Organizational Consensus Algorithm for Self-Interested Agents Under Information Asymmetry",
+        "link": "http://arxiv.org/abs/2607.28957v1",
+        "abstract": "Traditional distributed consensus protocols classify nodes as either honest-but-faulty or actively malicious (Byzantine). However, in organizational structures, departmental agents rarely fit this binary. Instead, they exhibit bounded rationality and self-interested preferences while operating under asymmetric information. This paper presents the Organizational Consensus Algorithm (OCA), a mechanism design framework tailored for internal negotiation and decision coordination. OCA models inter-departmental conflict as an incomplete information dynamic game, integrating internal token staking, an exception-triggered challenge mechanism, and confidence-weighted consensus rules. Rather than enforcing instantaneous total ordering, OCA leverages a retrospective penalty system driven by delayed verifiable outcomes to deter structural bias and reduce exhaustive coordination overhead. A Python simulation prototype was developed to evaluate OCA. Across independent trials with varying organizational scales, OCA reports lower coordination overhead, higher informative reporting rates, and bounded welfare loss in noisy environments. Crucially, these results remain conditional on the stated simulation model and do not by themselves establish a general truthful equilibrium.",
+        "authors": [
+            "Jiawei Zhang",
+            "Jianbo Liu"
+        ],
+        "categories": [
+            "cs.GT",
+            "cs.DC",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2607.28957v1",
+        "submit_date": "2026-07-31",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.28897v1": {
+        "title": "High-Level Big Integer Arithmetic in Futhark for GPUs",
+        "link": "http://arxiv.org/abs/2607.28897v1",
+        "abstract": "We report on GPU implementations of block-level addition, subtraction, multiplication and division for midsize integers, with operands of $2^{15}$ to $2^{19}$ bits using the high-level functional language Futhark. Comparing with hand-written C++/CUDA versions and CGBN, we identify which functional constructs compile well, where memory placement and sequentialization are effective, and what compiler support is needed. The results show that high-level code can express the algorithms compactly while approaching competitive performance after certain compiler improvements. In particular, we find that automated placement of arrays in GPU register memory is critical for performance.",
+        "authors": [
+            "Cosmin E. Oancea",
+            "Stephen M. Watt"
+        ],
+        "categories": [
+            "cs.SC",
+            "cs.DC",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2607.28897v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.28880v1": {
+        "title": "LayoutBench: Performance Benchmarking of Cloud Storage Layouts for Multimedia Data",
+        "link": "http://arxiv.org/abs/2607.28880v1",
+        "abstract": "Modern multimedia machine learning workloads increasingly store large-scale datasets in cloud object storage services such as AWS S3. How these samples are physically organized in storage (i.e.,storage layout) directly affects how quickly and cheaply they can be retrieved. Yet the benchmarks used to guide storage decisions today focus on database engines and query processing, and none systematically evaluates how different storage layouts perform for multimedia data retrieval. We present LayoutBench, the first benchmark designed to fill this gap. It evaluates three representative layout strategies: storing each sample as an individual object (L1), sequentially packing samples into tar archives (L2), and organizing samples as columns in Parquet files (L3). We measure retrieval time, data transferred, and monetary cost using 11 queries of varying result-set sizes on ImageNet across six AWS EC2 instance configurations that span different network bandwidth and memory tiers. Our experiments reveal that L2 achieves lower latency than L1 and L3 through connection reuse, but loses this advantage as retrieval sizes become very large. L3 is the fastest for very large retrievals but transfers substantially more data across all query sizes due to row-group granularity, and requires significantly more memory. Across all layouts, data transfer cost dominates total expenditure, with L3 costing an order of magnitude more than L1 or L2.",
+        "authors": [
+            "Debopam Sanyal",
+            "Hongjie Chen",
+            "Alexey Tumanov",
+            "Joshua Kimball"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DB",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2607.28880v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.28848v1": {
+        "title": "DeltaServe: Host-Agnostic Co-Serving of Inference and Fine-Tuning for LLMs",
+        "link": "http://arxiv.org/abs/2607.28848v1",
+        "abstract": "LLM serving systems are provisioned for peak load to meet strict latency targets, leaving substantial GPU compute idle whenever traffic falls below peak. We present DeltaServe, a host-agnostic co-serving design that converts this idle inference capacity into LoRA fine-tuning throughput while preserving inference service-level objectives (SLOs). DeltaServe integrates with existing inference engines through a compact hook interface that requires only multi-LoRA batching support. It exploits the shared execution structure of inference prefill and LoRA fine-tuning forward passes, and uses an SLO-aware scheduler to admit and execute fine-tuning only when sufficient inference headroom is available. The scheduler is driven by a CUDA-graph-aware latency model calibrated offline and refined online. We integrate DeltaServe with vLLM, SGLang, and S-LoRA. On a production trace from Company X, DeltaServe on vLLM delivers 2.9x higher fine-tuning throughput than LLMStation at 100% inference SLO compliance, versus 85% for LLMStation. It also achieves 39% higher fine-tuning throughput than a baseline running vLLM+torchtune, using no additional hardware and maintaining full SLO compliance.",
+        "authors": [
+            "Jiaxuan Chen",
+            "Jianshu She",
+            "Ye Yuan",
+            "Rajat Ghosh",
+            "Karan Gupta",
+            "Qirong Ho",
+            "Xue Liu",
+            "Oana Balmau"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2607.28848v1",
+        "submit_date": "2026-07-30",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "LoRA"
+        ],
+        "tldr": "Addresses GPU underutilization in LLM serving via co-serving inference and LoRA fine-tuning. DeltaServe uses an SLO-aware scheduler and shared execution to leverage idle compute. Achieves 2.9x higher fine-tuning throughput with full SLO compliance versus LLMStation.",
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.28824v1": {
+        "title": "Characterizing LLM Kernel Access and Memory Interaction in Multi-Partition NUMA GPUs",
+        "link": "http://arxiv.org/abs/2607.28824v1",
+        "abstract": "Large language model (LLM) workloads motivate multi-partition GPUs as a path to scaling compute and memory capacity, but their non-uniform memory access characteristics and inter-partition communication can amplify contention and degrade locality, leading to suboptimal kernel latency. To address this, we analyze performance-critical LLM kernel implementations spanning weight projection, mixture-of-experts, and attention variants of state-of-the-art serving engines to present a characterization of data access patterns in multi-partition GPUs. First, we introduce memory trace analysis methodology to derive workgroup-level data access and sharing behavior, then evaluate the locality implications on latency using a cycle-level simulator. Using these tools, we categorize LLM kernel operands into three inter-workgroup sharing patterns (global, partial, or private) and show that the required optimization strategies differ across categories, from simple per-workgroup pinning to subgroup-aware co-scheduling. Our findings highlight the need for placement-aware kernel programming and smarter architectural support for work and data locality in multi-partition GPUs.",
+        "authors": [
+            "Donghyeon Joo",
+            "Sooraj Puthoor",
+            "Nuwan Jayasena",
+            "Bahar Asgari"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2607.28824v1",
+        "submit_date": "2026-07-30",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "kernel",
+            "hardware"
+        ],
+        "tldr": "Addresses kernel latency degradation in multi-partition NUMA GPUs for LLM serving. Introduces memory trace analysis to categorize workgroup data access patterns. Proposes optimization strategies like pinning and co-scheduling, showing improved locality via simulation.",
+        "indexed_date": "2026-08-03"
+    },
+    "http://arxiv.org/abs/2607.28835v1": {
+        "title": "From C to Idiomatic Rust: A Ship-of-Theseus Agentic Translation",
+        "link": "http://arxiv.org/abs/2607.28835v1",
+        "abstract": "C underpins operating systems, embedded platforms, and network infrastructure because its abstractions map directly to machine behaviour. Its explicit memory model, predictable data representations, and minimal runtime allow compilers to generate fast, deterministic code. These properties also leave correctness and memory safety entirely to the programmer, making undefined behaviour, pointer misuse, and lifetime errors persistent sources of defects and security vulnerabilities in long-lived C codebases. Rust eliminates most of failure modes through a static ownership and borrowing model that enforces memory safety and aliasing constraints at compile time. However, mature C systems cannot be translated directly: implicit layout assumptions, aliasing patterns, and undefined behaviour must be reconstructed before safe Rust can be produced.\n  This paper presents a migration methodology that first generates a semantics-preserving, non-idiomatic Rust baseline and then incrementally rewrites it into idiomatic Rust using agentic AI, validating each step through compilation and behavioural testing. Applied to iodine (12.5k SLOC), the approach demonstrates that reliable C-to-Rust migration is a structured transformation workflow rather than a single translation step.",
+        "authors": [
+            "Vasily A. Sartakov"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.OS",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2607.28835v1",
+        "submit_date": "2026-07-30",
+        "relevant": false,
+        "indexed_date": "2026-08-03"
     }
 }
