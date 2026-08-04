@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2913-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2932-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.04-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,46 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-04
+* `serving` `agentic` [TokTier: Exact Stateful CPU+GPU Tokenization for Agentic LLM Serving](http://arxiv.org/abs/2607.29678v2)
+  > **TL;DR**: Addresses tokenization bottlenecks in agentic LLM serving by introducing TokTier, a stateful CPU+GPU tokenization service with incremental repair and GPU tokenization. Achieves 491× faster tokenization (1M chars in 0.87ms vs HF) and reduces median time to first token by 16-34%.
+* `serving` [Efficiency and Cost Alignment in Batched LLM Serving via Resource-Fair Scheduling](http://arxiv.org/abs/2608.02244v1)
+  > **TL;DR**: Addresses inefficiency in batched LLM serving where heterogeneous requests impose max-driven costs via KV-cache imbalance. Proposes the ISJL scheduling algorithm that enforces a fairness constraint on decode progress disparity. Achieves a competitive ratio of 3/4 and improves throughput while aligning cost with token-metered revenue.
+* `serving` `edge` [Learning-Based Collaborative MEC for LLM Inference with Soft-Deadline Awareness via Transformer-Enhanced PPO](http://arxiv.org/abs/2608.02031v1)
+  > **TL;DR**: Addresses LLM inference scheduling under soft deadlines with task dependencies in collaborative edge servers. Proposes a transformer-enhanced PPO framework for task migration to maximize completion within deadlines while minimizing extensions. Significantly outperforms baselines in task completion rate and system efficiency.
+* `serving` `edge` `multi-modal` [TALSC: Timeliness-Aware Large-Small VLM Collaboration for Infrastructure-Assisted Autonomous Driving](http://arxiv.org/abs/2608.01998v1)
+  > **TL;DR**: Addresses the latency-accuracy trade-off in collaborative multi-modal model inference for autonomous driving. Proposes TALSC, an online scheduling algorithm using Lyapunov optimization based on Age of Information. Achieves up to 12.6% normalized improvement in Micro-F1 score over baselines.
+* `serving` `disaggregation` [Energy-Efficient LLM Serving via Disaggregated Attention--FFN and Flexible Frequency Scaling](http://arxiv.org/abs/2608.01891v1)
+  > **TL;DR**: Investigates energy-optimal LLM serving via disaggregated Attention and FFN with operator-level DVFS. Proposes AFlex, featuring a global scheduler, local DVFS controller, and interleaved pipeline with dynamic microbatching. Achieves up to 49% lower energy per token while satisfying latency SLOs.
+* `serving` `multi-modal` [HorizonServe: Coordinating Request Scheduling with GPU Sharing for Omni-Model Serving](http://arxiv.org/abs/2608.01785v1)
+  > **TL;DR**: Proposes HorizonServe for scheduling omni-model requests with shared backbone and divergent stages under heterogeneous SLOs. Coordinates request admission and GPU allocation via profiling, slack protection, stage rotation, and SM throttling. Achieves up to 7.0× SLO attainment and reduces first-response latency by 38.4-63.7%.
+* `sparse` `kernel` `training` [LongCat Sparse Attention: Taming the Lightning via Streaming-aware Hierarchical Cross-Layer Indexing](http://arxiv.org/abs/2608.01662v1)
+  > **TL;DR**: Addresses O(L²) scoring overhead and discontinuous memory access in sparse attention. Proposes hardware-aligned streaming-aware layout, cross-layer index reuse, and hierarchical scoring. Supports training up to 1M tokens at full-attention performance for models up to 1.6T parameters.
+* `serving` `offloading` [Preserving Admission Responsibility in Multi-Tenant Large Language Model Prefix Caches](http://arxiv.org/abs/2608.01657v1)
+  > **TL;DR**: Addresses the admission-responsibility gap in multi-tenant LLM prefix caches. Introduces PrefixShield with responsibility metering, reuse gating, and debt-based eviction, improving victim cache hit ratio by 9.39 points over LRU and restoring it to 84.87% at scale.
+* `serving` `offloading` [PrefixPlace: Provable Prefix Key-Value Placement for Large Language Model Serving under Heterogeneous Compute and Transfer Costs](http://arxiv.org/abs/2608.01655v1)
+  > **TL;DR**: Proposes PrefixPlace, an epoch-level planner for optimal prefix KV cache placement under heterogeneous compute and transfer costs in LLM serving. The method efficiently minimizes materialization costs via decomposition and exact assignment algorithms. Achieves 40.3% cost reduction over vLLM-APC in RAG.
+* `serving` `kernel` [Bole: Efficient Tree Speculation for Hybrid-Attention Language Models](http://arxiv.org/abs/2608.01651v1)
+  > **TL;DR**: Proposes Bole, a kernel-runtime co-design for efficient tree speculation in hybrid-attention LLMs by parallelizing verification and encoding speculative states. Achieves up to 4.72x offline decode throughput versus autoregressive decoding and reduces transient state memory by 82-99x.
+* `training` `kernel` `edge` [Meganeura: Portable GPU Training and Inference through Vulkan and Metal](http://arxiv.org/abs/2608.01563v1)
+  > **TL;DR**: Proposes Meganeura, a portable compiler and runtime for training and inference on consumer GPUs via Vulkan and Metal. Achieves 0.1-2.4s compilation (vs PyTorch's 6-96s) and three training workloads faster on an AMD GPU.
+* `training` [NIXT: A NCCL Inspector Exporter Tool for Observability of Collective Communication in Large Model Training](http://arxiv.org/abs/2608.01449v1)
+  > **TL;DR**: Proposes NIXT, a tool for analyzing NCCL Inspector data to improve observability of collective communication during LLM training. Enables attribution of performance variation and root cause analysis. Demonstrated for Nemotron-4 pretraining on up to 2,048 GPUs, showing communication phase changes with parallelism.
+* `training` `diffusion` `video` [Zellige: Moldable Sequence Placement for Mixed Image-Video DiT Training](http://arxiv.org/abs/2608.01150v1)
+  > **TL;DR**: Addresses mixed-length sequence training in Diffusion Transformers for image-video data. Introduces Zellige, a moldable placement system with hardware-profiled scheduling and coalesced attention engine. Achieves 1.12--1.54× speedup over KnapFormer on 16-32 GPU setups.
+* `edge` `RAG` `serving` [From Cloud to Crowd: Democratizing LLM Service with Decentralized Edge Collaboration for RAG](http://arxiv.org/abs/2608.00922v1)
+  > **TL;DR**: Proposes DEFRAG, a decentralized edge system for RAG that compresses and shares knowledge graphs and adaptively selects SLMs and RAG parameters per query. Achieves up to 98.4% cost reduction and 97.8% throughput increase over centralized services.
+* `hardware` `networking` `training` [Shiftfly: Scaling the Accelerator Interconnect Past the Pod with a Shift-Routed Optical Tier](http://arxiv.org/abs/2608.00897v1)
+  > **TL;DR**: Proposes Shiftfly to address interconnect scaling beyond a single pod. It replaces the global tier with a Kautz topology on an optical switch, enabling flat addressing and shift routing. At 400,000 chips, it reduces worst-case distance from 23 to 19 hops and improves spectral expansion by 2.7x.
+* `serving` `networking` [NUNA: Characterizing and Mitigating Non-Uniform Network Access in Multi-Die GPU Scale-Up Systems](http://arxiv.org/abs/2608.00867v1)
+  > **TL;DR**: Mitigates non-uniform network access in multi-die GPU systems for ML inference. Introduces NUNA-aware routing and placement to optimize inter-GPU communication paths and data locality. Achieves up to 1.8x faster collectives and 28% max time per output token speedup.
+* `edge` `offloading` [Collaborative Orbital Edge Intelligence: A Decentralized Paradigm for Energy-Efficient Computing in Space](http://arxiv.org/abs/2608.00487v1)
+  > **TL;DR**: Proposes Collaborative Orbital Edge Intelligence (COEI) for energy-efficient satellite computation. Introduces decentralized architecture for task offloading across constellations. Case study shows maximizing task success rate while minimizing collective battery depth-of-discharge to reduce energy waste.
+* `RL` `agentic` `sparse` [AReaL-DTE: Sparse Policy-Weight Transfer for Online Agentic Reinforcement Learning](http://arxiv.org/abs/2608.00455v1)
+  > **TL;DR**: Addresses the systems overhead of frequent policy-weight synchronization in online agentic RL. Introduces AReaL-DTE, a snapshot-free engine that transfers sparse weight changes by reconstructing overwritten weights via AdamW inversion. Achieves up to 19.9x speedup and 41% peak GPU memory reduction.
+* `training` `serving` `hardware` [HCCL: Collective Communication for Meta Training and Inference Accelerators](http://arxiv.org/abs/2608.00358v1)
+  > **TL;DR**: Proposes HCCL, a collective communication library for Meta's MTIA accelerator, to reduce communication overhead in large-scale training and inference. Uses compiled dependency descriptions and topology-aware algorithms for optimized compute-communication overlap. Achieves 940 GB/s on collectives with <0.5% degradation in compute throughput.
+
 ### 2026-08-03
 * `serving` `agentic` [TokTier: Exact Stateful Tokenization for Agentic LLM Serving](http://arxiv.org/abs/2607.29678v1)
   > **TL;DR**: Addresses high tokenization latency for agentic LLM serving due to repeated full-text processing. TokTier provides stateful tokenization with incremental splicing and GPU-accelerated full tokenization. Achieves up to 491x faster full tokenization on GPU compared to Hugging Face.
