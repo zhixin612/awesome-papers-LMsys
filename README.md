@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2932-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.04-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2939-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-05
+* `training` [Evaluating MFU as a Proxy for GPU Power for Energy-Aware Simulation of LLM Training](http://arxiv.org/abs/2608.03880v1)
+  > **TL;DR**: Investigates whether Model FLOPs Utilization (MFU) predicts GPU power for LLM training. Proposes a linear MFU-based power model validated on nearly 3000 training runs. Fitting per-(GPU, dtype, batch size) reduces mean prediction error from ~10% to ~1%.
+* `disaggregation` `serving` `agentic` [When Does Disaggregation Pay? Simulating Prefill--Decode--Attention--FFN Specialization for Agentic LLM Inference](http://arxiv.org/abs/2608.03741v1)
+  > **TL;DR**: Simulates disaggregated serving for agentic LLMs to optimize hardware per stage (prefill, decode, attention, FFN). Proposes HeteroPanacea, a cross-stack framework with quantization, scheduling, and NPU heterogeneity. Achieves up to 75% higher throughput than traditional serving.
+* `MoE` `training` `networking` [TAOT: Topology-Aware Optimal Transport for Dynamic Expert Replica Placement in MoE Training](http://arxiv.org/abs/2608.03676v1)
+  > **TL;DR**: Addresses load imbalance and communication overhead in MoE training. Proposes TAOT, a method using topology-aware optimal transport to schedule expert replicas and overlaps weight transfer with computation. Achieves 1.43x training speedup and up to 74% reduction in expert-communication cost.
+* `kernel` `sparse` `training` [LongCat Sparse Attention: Taming the Lightning via Streaming-aware Hierarchical Cross-Layer Indexing](http://arxiv.org/abs/2608.01662v2)
+  > **TL;DR**: Proposes LongCat Sparse Attention (LSA) to address inefficient memory access and compute overhead in sparse attention. Introduces hardware-algorithm co-design with streaming, cross-layer, and hierarchical indexing. Enables training of 1.6T-parameter models with 1M context tokens at full attention performance.
+* `edge` `sparse` `networking` [Pruning-Aware Multi-Cluster Co-Inference for Large AI Models in AI-RANs](http://arxiv.org/abs/2608.03026v1)
+  > **TL;DR**: Investigates the joint optimization of pruning and collaborative inference to minimize distortion in multi-cluster edge networks. Proposes a framework with pruning-aware scheduling, bandwidth allocation, and power control. Achieves superior inference accuracy and resource efficiency versus benchmarks.
+* `serving` `MoE` `offloading` [AcceptMoE: Commitment-Weighted Self-Sizing Verifier Expert Sets for Efficient MoE Speculative Decoding](http://arxiv.org/abs/2608.02989v1)
+  > **TL;DR**: Introduces AcceptMoE, a speculative decoding verifier for MoE models that reduces expert activation and offloading traffic by combining router scores with commitment probabilities and cache-awareness. Achieves 2.06x throughput under offloading and reduces host-to-device traffic by up to 77.1%.
+* `training` `networking` [Configurable and Hierarchical Allreduce](http://arxiv.org/abs/2608.02884v1)
+  > **TL;DR**: Addresses high latency and inefficiency in hierarchical MPI_Allreduce for small-medium messages. Proposes CHIARA, a configurable hierarchical Allreduce with batch-lane topology and staged execution via rotating-root lanes and layout preservation. Achieves up to 13.48x speedup over vendor MPI_Allreduce on Fugaku.
+
 ### 2026-08-04
 * `serving` `agentic` [TokTier: Exact Stateful CPU+GPU Tokenization for Agentic LLM Serving](http://arxiv.org/abs/2607.29678v2)
   > **TL;DR**: Addresses tokenization bottlenecks in agentic LLM serving by introducing TokTier, a stateful CPU+GPU tokenization service with incremental repair and GPU tokenization. Achieves 491× faster tokenization (1M chars in 0.87ms vs HF) and reduces median time to first token by 16-34%.
