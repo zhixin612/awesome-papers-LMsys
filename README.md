@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2939-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.05-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2943-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-06
+* `serving` `offloading` `networking` [RAC: Reference-Aware Activation Compression for Communication-Efficient Split LLM Inference](http://arxiv.org/abs/2608.04991v1)
+  > **TL;DR**: Addresses communication bottlenecks in split LLM inference. Proposes RAC, a codec that retrieves historical spans and employs quantized alignment to compress activations. Reduces time per token by up to 2.79× with task score changes within −0.4/+2.5 points across nine model-link pairs.
+* `serving` `edge` `networking` [AsymSpec: Efficient Cloud-Edge Speculative Decoding over Asymmetric Networks](http://arxiv.org/abs/2608.04974v1)
+  > **TL;DR**: Addresses uplink constraints in cloud-edge speculative decoding. Proposes AsymSpec with asymmetric verification to compact uplink messages and confirmed-prefix pipelining for efficient scheduling. Achieves 2.82-28.03× higher throughput than baselines.
+* `MoE` `serving` `disaggregation` [AFD-Ledger: Deployment Provisioning for Attention--FFN Disaggregation](http://arxiv.org/abs/2608.04502v1)
+  > **TL;DR**: Examines if attention-FFN disaggregation (AFD) yields higher throughput than collocated MoE deployments under constraints. Proposes AFD-Ledger, an analytical offline system for optimal hardware assignment. Reduces provisioning evaluations by 68.8%-83.5% while preserving optimal deployment selection accuracy.
+* `agentic` `serving` `scaling` [Architectural Implications of Agentic AI Workflows](http://arxiv.org/abs/2608.04458v1)
+  > **TL;DR**: Studies architectural inefficiencies in agentic AI workflows, exposing fragmented execution and resource mismatches. Proposes Agora, a server prototype with dynamic resource harvesting, GPU memory oversubscription, and role-based scheduling. Improves server utilization and throughput while preserving agent tail latency.
+
 ### 2026-08-05
 * `training` [Evaluating MFU as a Proxy for GPU Power for Energy-Aware Simulation of LLM Training](http://arxiv.org/abs/2608.03880v1)
   > **TL;DR**: Investigates whether Model FLOPs Utilization (MFU) predicts GPU power for LLM training. Proposes a linear MFU-based power model validated on nearly 3000 training runs. Fitting per-(GPU, dtype, batch size) reduces mean prediction error from ~10% to ~1%.

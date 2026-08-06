@@ -149758,5 +149758,246 @@
         "submit_date": "2026-08-02",
         "relevant": false,
         "indexed_date": "2026-08-05"
+    },
+    "http://arxiv.org/abs/2608.05033v1": {
+        "title": "SparseDitto: Customizing GPU Kernels for Different Sparsity Patterns with LLM-Based Agentic System",
+        "link": "http://arxiv.org/abs/2608.05033v1",
+        "abstract": "Sparse matrix kernels are fundamental to scientific computing, graph analytics, and machine learning. Their GPU performance depends strongly on the input sparsity pattern and execution strategy. For the same SpMM on the same matrix, cuSPARSE exhibits a 350x performance gap between CSR and Blocked-ELL. Our study of multiple data formats, specialized systems, and sparse compilers shows that no single implementation consistently dominates across sparsity patterns and operators. This motivates a system that can adapt its representation, execution strategy, and hardware mapping to each workload and target GPU.\n  We present SparseDitto, an LLM-based system that constructs a GPU kernel for each matrix, operator, and target GPU. SparseDitto supports SpMV, SpMM, and SpGEMM within a unified design framework. A lightweight additive model ranks established strategies using structural features of the input matrix. An architecture-aware planner then proposes several candidate designs. Coding and verification agents implement and refine them using measurements from the target GPU. Across three sparse operators and a diverse set of matrices, SparseDitto achieves a geometric-mean speedup of 2.68x over cuSPARSE on an NVIDIA RTX PRO 6000 GPU, with a maximum of 146.61x. On an NVIDIA H200 GPU, it achieves 2.79x, with a maximum of 78.5x. Its generated SpMM kernels also accelerate full-batch GCN training by up to 3.39x.",
+        "authors": [
+            "Shiyang Li",
+            "Guangyan Sun",
+            "Jinwei Tang",
+            "Yanzhi Wang",
+            "Mingyi Hong",
+            "Caiwen Ding"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.05033v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04991v1": {
+        "title": "RAC: Reference-Aware Activation Compression for Communication-Efficient Split LLM Inference",
+        "link": "http://arxiv.org/abs/2608.04991v1",
+        "abstract": "Large language model (LLM) agents repeatedly process long, privacy-sensitive contexts, while cloud-only deployment exposes user data beyond the trusted endpoint and fully local deployment often requires costly hardware. Split inference offers a middle ground by executing the model head, tail, and tools locally and the middle layers in the cloud, but its local-cloud-local path transfers boundary hidden states at every invocation and creates a critical communication bottleneck. We present \\system, a reference-aware codec that retrieves exact-token historical spans for prefill uplinks, reuses the reconstructed uplink state for same-round prefill downlinks, and generates boundary-specific decode references with lightweight causal predictors. RAC applies grouped affine alignment and calibrated residual quantization with optional prefill outliers, while sender-side wire-format reconstruction synchronizes subsequent references and offline calibration accounts for quality and packed representation costs. Across three models and nine evaluated model-link pairs, Raw-to-RAC mean time to first token (TTFT) and time per output token (TPOT) ratios are 1.24-2.72$\\times$ and 1.01-2.79$\\times$, while the 12 non-perplexity task-score changes range from $-0.40$ to $+2.50$ points.",
+        "authors": [
+            "Guotao Yang",
+            "Mingxi Zhao",
+            "Haopeng Li",
+            "Zhengchao Wang",
+            "Sheng Chen",
+            "Yitao Hu",
+            "Keqiu Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.04991v1",
+        "submit_date": "2026-08-05",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "networking"
+        ],
+        "tldr": "Addresses communication bottlenecks in split LLM inference. Proposes RAC, a codec that retrieves historical spans and employs quantized alignment to compress activations. Reduces time per token by up to 2.79× with task score changes within −0.4/+2.5 points across nine model-link pairs.",
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04974v1": {
+        "title": "AsymSpec: Efficient Cloud-Edge Speculative Decoding over Asymmetric Networks",
+        "link": "http://arxiv.org/abs/2608.04974v1",
+        "abstract": "Cloud-edge speculative decoding places a lightweight draft model at an edge gateway and a higher-quality target model in the cloud, but inserts communication into every speculative block. Under a constrained uplink, candidate messages may queue while the verifier is idle. Stop-and-wait scheduling leaves edge compute underutilized; optimistic same-request runahead can waste work when a rejection or an unexpected bonus token invalidates dependent drafts. We present AsymSpec, which addresses uplink-gated verification and invalid dependent work with two corresponding mechanisms. Its asymmetric verification protocol keeps the common-path acceptance upload compact and moves richer, rejection-only correction information to the downlink. A total-variation (TV) certificate for the residual distribution determines whether a small target top-K response suffices; if not, the protocol progressively escalates through proposal-based exact recovery before falling back to the full distribution. Its confirmed-prefix pipeline exposes only independent, valid requests to the edge scheduler and lets the cloud re-batch arrived blocks, hiding verification waits when another confirmed-prefix request is ready without using same-request runahead. Across three draft-target pairs, two workloads, and three asymmetric network profiles, our end-to-end evaluation shows that AsymSpec delivers 2.82-28.03$\\times$ the output-token throughput of the strongest baseline.",
+        "authors": [
+            "Guotao Yang",
+            "Hao Chen",
+            "Rui Guo",
+            "Xinyu Li",
+            "Liang Zheng",
+            "Sheng Chen",
+            "Yitao Hu",
+            "Keqiu Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.04974v1",
+        "submit_date": "2026-08-05",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "edge",
+            "networking"
+        ],
+        "tldr": "Addresses uplink constraints in cloud-edge speculative decoding. Proposes AsymSpec with asymmetric verification to compact uplink messages and confirmed-prefix pipelining for efficient scheduling. Achieves 2.82-28.03× higher throughput than baselines.",
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04502v1": {
+        "title": "AFD-Ledger: Deployment Provisioning for Attention--FFN Disaggregation",
+        "link": "http://arxiv.org/abs/2608.04502v1",
+        "abstract": "Attention--Feed-Forward Network (FFN) Disaggregation (AFD) is emerging as a promising architecture for serving Mixture-of-Experts (MoE) language models. While existing AFD systems improve the efficiency of disaggregated execution, they leave a deployment question unanswered: under the same model, workload, time-per-output-token (TPOT) service-level objective (SLO), hardware budget, hardware catalog, and runtime capabilities, does AFD provide higher throughput than the best collocated deployment? Answering this question requires jointly optimizing hardware assignment and deployment organization for both architectures, making exhaustive provisioning prohibitively expensive. We present AFD-Ledger, an offline analytical provisioning system that independently provisions AFD and collocated deployments using an analytical execution model and an evaluation-bounded hardware search. Across deployment spaces where exhaustive provisioning is feasible, AFD-Ledger reduces complete deployment evaluations by 68.8%--83.5% while still recovering the globally optimal deployment. On three physical LongCat 2.0 deployments, it preserves the correct architecture decision while predicting AFD-to-collocated throughput within 6.6%--9.6% of measurement. Using this validated framework, we show that homogeneous AFD improves fixed-budget throughput in only a minority of the studied settings, heterogeneous AFD requires deployment-level hardware complementarity rather than heuristic device selection, and role-specific hardware improvements matter primarily when they enable better deployment organizations by crossing deployment capability--price boundaries.",
+        "authors": [
+            "Chengyu Qiu",
+            "Xiao Fu",
+            "Fengcun Li",
+            "Yulei Qian",
+            "Yuchen Xie",
+            "Xunliang Cai",
+            "Yingdi Shan",
+            "Yongwei Wu",
+            "Mingxing Zhang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2608.04502v1",
+        "submit_date": "2026-08-05",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "disaggregation"
+        ],
+        "tldr": "Examines if attention-FFN disaggregation (AFD) yields higher throughput than collocated MoE deployments under constraints. Proposes AFD-Ledger, an analytical offline system for optimal hardware assignment. Reduces provisioning evaluations by 68.8%-83.5% while preserving optimal deployment selection accuracy.",
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04450v1": {
+        "title": "CommBench: Can LLMs Write Correct and Efficient GPU Communication Code?",
+        "link": "http://arxiv.org/abs/2608.04450v1",
+        "abstract": "Training and serving large language models (LLMs) rely heavily on high-performance GPU communication, yet implementing efficient GPU communication primitives requires deep expertise in GPU architectures, networking hardware, and distributed communication patterns, making them particularly challenging for code generation models. We present CommBench, a comprehensive benchmark for GPU communication programming, consisting of over 100 expert-curated tasks spanning point-to-point communication, collective operations, expert-parallel communication, compute--communication fusion, and communication utility functions, with reference implementations either written by GPU communication experts or distilled from production codebases. We further introduce a cheat-resistant evaluation framework that automatically compiles, executes, and validates generated code on multi-GPU systems, and a unified metric that jointly measures functional correctness and communication performance. Evaluating leading frontier and open-source code generation models on both intra-node NVLink and inter-node RDMA platforms reveals that even the strongest model, GPT-5.5, correctly implements and achieves competitive performance on only 30.7\\% of the benchmark tasks. Our results expose a substantial gap between current LLMs and expert-written GPU communication code, establishing CommBench as a challenging benchmark for advancing AI-assisted systems programming.",
+        "authors": [
+            "Shuang Ma",
+            "Yuyi Li",
+            "Yihan Zhang",
+            "Hezhi Xie",
+            "Danyang Chen",
+            "Shuyang Ji",
+            "Ziming Mao",
+            "Cheng Ji",
+            "Ansha Prashanth",
+            "Wenting Yang",
+            "Yiran Wang",
+            "Chihan Cui",
+            "Pei Yu Lin",
+            "Ion Stoica",
+            "Yang Zhou"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.04450v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04443v1": {
+        "title": "MCHA: A Memory-Centric Hierarchical Architecture for Parallel-Sequential Computing",
+        "link": "http://arxiv.org/abs/2608.04443v1",
+        "abstract": "Emerging workloads, such as Multi-Agent Reinforcement Learning (MARL), large-scale neuromorphic computing, and probabilistic graphical models, intrinsically exhibit parallel-sequential computing patterns. While these tasks demand massive parallelism to achieve high throughput, they are severely bottlenecked by irregular data access patterns centralized to main memory. Consequently, conventional architectures face fundamental limitations when executing these workloads, primarily manifesting as global buffer saturation and memory-bound bottlenecks. To address these challenges, we propose the Memory-Centric Hierarchical Architecture (MCHA), a reconfigurable hardware solution tailored for parallel-sequential execution. MCHA leverages a hierarchical communication strategy that facilitates distributed, inter-core data routing, thereby significantly reducing the bandwidth burden on the global memory. Complementing the hardware, MCHA introduces a novel parallel-sequential programming model that utilizes event-driven conditional triggers to effectively hide data transmission latency within the execution pipeline. We benchmark MCHA against a diverse suite of parallel-sequential tasks, including MARL, motor variable control, and Markov random fields. Validated through our open-source, cycle-accurate simulator, MCHA demonstrates performance speedups ranging from 153.06$\\times$ to 2456.96$\\times$ over NVIDIA A100 GPUs on MARL workloads, while maintaining robust programming flexibility across other application domains. Furthermore, the architecture successfully reduces main memory access from 96% to 5.44%. When synthesized in a 28 nm process, the MCHA implementation occupies an area footprint of 2.92mm$^2$ and consumes 115.36 mW of power at 200 MHz. MCHA is open-sourced at https://github.com/carabdis/MCHA.",
+        "authors": [
+            "Daijing Shi",
+            "Hongxiao Zhao",
+            "Yihan Fu",
+            "Zhan Chen",
+            "Jiayi Li",
+            "Yihang Zhu",
+            "Anjunyi Fan",
+            "Yaoyu Tao",
+            "Yuchao Yang",
+            "Bonan Yan"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2608.04443v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04413v1": {
+        "title": "Zero-Instrumentation Dependency Discovery for Guided Microservice Migration Using eBPF",
+        "link": "http://arxiv.org/abs/2608.04413v1",
+        "abstract": "Migrating microservices across virtual machines (VMs) without knowledge of their runtime communication patterns risks creating cross-VM hotspots and latency spikes that are difficult to predict from static analysis alone. We use extended Berkeley Packet Filter (eBPF) kernel-level network tracing to automatically discover inter-service dependencies at runtime, with no application instrumentation, and use the resulting dependency graph to produce a traffic-aware migration plan ranked by return on investment (ROI). A two-pass process-identifier (PID) to port correlation algorithm recovers the identity of all 20 services in a shared-runtime testbed where processes are otherwise indistinguishable, matching the known ground-truth topology. The system discovers 32 dependency edges from 13,615 network events captured in three minutes, and applies spectral graph clustering with Kernighan-Lin refinement to partition services into VM-coherent groups. In simulation over the discovered graph, our ROI-ranked migration order reduces cumulative cross-VM traffic exposure during the migration window by 27% relative to alphabetical ordering, a deterministic proxy for arbitrary dependency-blind ordering. Collection overhead is mixed: in a controlled A/B test at near-saturation load on a host with two virtual CPUs (vCPUs), throughput fell by only 4.4%, but median (p50) latency rose by 383% and 99th-percentile (p99) latency by 1,050%. We therefore recommend running captures off-peak or on dedicated sampling nodes rather than under production saturation. All results are from a single 20-service testbed that we authored; we make no claim about behavior on production dependency graphs.",
+        "authors": [
+            "Eshan Trivedi",
+            "Chandrahasa Pranava"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2608.04413v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04338v1": {
+        "title": "GPU-Resident CUDA Acceleration for OCUDU 5G PHY and O-RAN Fronthaul: Architecture and Preliminary Performance",
+        "link": "http://arxiv.org/abs/2608.04338v1",
+        "abstract": "This paper describes DeepSig's CUDA-based acceleration backend for the OCUDU physical layer and O-RAN fronthaul path, integrated through acceleration interfaces that are largely independent of the underlying acceleration mechanism. The design accelerates PDSCH, PUSCH, SRS, PRACH, split-8 lower-PHY transforms, and O-RAN fronthaul (O-FH) IQ compression/decompression while preserving existing factories, resource-grid interfaces, PRACH-buffer interfaces, and channel processors. CUDA-visible grids, device-side softbit buffers, stream events, pinned staging buffers, and managed-memory policies keep data resident on the accelerator when the platform and radio split permit it. On an NVIDIA DGX Spark platform with a GB10 GPU and ARM CPU host, representative measurements with CPU baselines pinned to high-capacity cores show up to 10.3x PUSCH speedup, 2.7x PDSCH speedup, 19.7x split-8 low-PHY RX speedup with slot-shaped batching and scattered mapped zero-copy, 91.4x O-FH BFP12 decompression speedup, and 28.8x PRACH detector speedup against the production CPU path, with CPU and GPU 10% BLER thresholds agreeing to within 0.064 dB in the tested PUSCH sweeps. The same resident pipeline provides an execution substrate for AI-RAN, allowing machine-learned channel estimation, neural receivers, and AI-native air-interface research to run beside standards-compliant baseband kernels.",
+        "authors": [
+            "Matthew Pennybacker",
+            "Wan Liu",
+            "Andriy Kharchenko",
+            "Timothy OShea"
+        ],
+        "categories": [
+            "eess.SP",
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2608.04338v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04159v1": {
+        "title": "A Distributed Quantum Approximate Optimization Algorithm For Unit Commitment",
+        "link": "http://arxiv.org/abs/2608.04159v1",
+        "abstract": "This paper presents a distributed quantum approximate optimization algorithm (DQAOA)-enabled three-block alternating direction method of multipliers (ADMM) framework for unit commitment (UC). The relaxed commitment and dispatch variables are solved in a continuous quadratic programming block, while the binary commitment block is formulated as a quadratic unconstrained binary optimization (QUBO) problem. The DQAOA interface allows this QUBO to be solved using brute-force enumeration, monolithic QAOA, or distributed QAOA, while the remaining ADMM updates are kept unchanged. In the distributed mode, the logical commitment qubits are allocated across multiple capacity-constrained quantum processing units (QPU), avoiding the requirement that the complete binary problem fits on a single device. The framework is evaluated on a five-unit UC instance containing 15 binary variables. All three solver modes reduce the ADMM primal residual below a certain tolerance and recover the same commitment schedule, dispatch, and operating cost. The results demonstrate solution consistency across the three solver modes and the multi-QPU capacity accommodation provided by the distributed QAOA method.",
+        "authors": [
+            "Ali Rajabi",
+            "Milad Hasanzadeh",
+            "Amin Kargarian"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.04159v1",
+        "submit_date": "2026-08-04",
+        "relevant": false,
+        "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.04458v1": {
+        "title": "Architectural Implications of Agentic AI Workflows",
+        "link": "http://arxiv.org/abs/2608.04458v1",
+        "abstract": "Agentic AI is emerging in datacenters, but its architectural implications remain unexplored. We organize agentic workflows in a taxonomy and present its first architectural characterization with a production study at Microsoft Azure and a controlled study of open-source frameworks. We show that agentic execution is fragmented and heterogeneous. Requests expand into a workflow of LLM inferences, tool invocations, and orchestration decisions that repeatedly cross the CPU-GPU boundary. Our taxonomy explains how this fragmentation turns into resource demand. As orchestration and tools run on the host, the CPU sits on the critical path. Execution structure sets the load over time, which stays low with sudden spikes. Model composition sets how evenly the workflow uses the GPUs. Diversity in tasks and tools widens this range even further. These characteristics expose architectural mismatches of conventional uniform servers. Fragmented execution strands CPU and GPU capacity despite bursty demand. Different software roles make homogeneous CPU provisioning inefficient. Finally, multiplexing many agents onto shared cores degrades microarchitectural locality. Guided by our findings, we derive implications for agentic servers and examine them through Agora, our prototype for commodity servers. Agora dynamically harvests idle CPU cores for co-located throughput work, while protecting agentic tail latency against tool spikes. It oversubscribes GPU memory by placing more agents on each GPU, prefetching the next agent's state to hide swap latency. To match the machine to the heterogeneous roles, Agora pools cores by role and applies affinity-aware scheduling to restore locality. It automatically tunes mechanisms to the workload. Agora improves utilization and server throughput while preserving agent tail latency. Our insights also identify key directions for future server architectures for agentic AI.",
+        "authors": [
+            "Jirong Yang",
+            "Peizhe Liu",
+            "Chaojie Zhang",
+            "Jovan Stojkovic"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.AR",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.04458v1",
+        "submit_date": "2026-08-05",
+        "relevant": true,
+        "tags": [
+            "agentic",
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Studies architectural inefficiencies in agentic AI workflows, exposing fragmented execution and resource mismatches. Proposes Agora, a server prototype with dynamic resource harvesting, GPU memory oversubscription, and role-based scheduling. Improves server utilization and throughput while preserving agent tail latency.",
+        "indexed_date": "2026-08-06"
     }
 }
