@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2943-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2949-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.07-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-07
+* `serving` `networking` [Routing LLM Inference to the Cleanest Grid in Real Time](http://arxiv.org/abs/2608.06188v1)
+  > **TL;DR**: Investigates how to reduce carbon emissions of LLM inference via spatial routing. Proposes real-time, MOER-driven request placement across grid regions, validated in multi-region GPU testbeds. Achieves 50.9% lower operational emissions versus round-robin in modeled replay.
+* `training` `networking` [ML-for-ML](http://arxiv.org/abs/2608.06046v1)
+  > **TL;DR**: Addresses network resource contention in shared cloud clusters during AI training. Proposes ML-for-ML, a cross-layer co-optimization of ML and network parameters for time-to-target-loss. Achieves up to 42% faster training.
+* `serving` `storage` [TensorCast: The Missing Tensor Management Layer in Large Language Model Infrastructure](http://arxiv.org/abs/2608.06007v1)
+  > **TL;DR**: Identifies the need for a unified tensor management layer in LLM infrastructure. Proposes TensorCast, a distributed TaaS system that decouples tensor state management from computation via programmable primitives and runtime. Reduces median TTFT by up to 93.2% in multi-turn agent workloads.
+* `training` [Operating Multi-Node Full Fine-Tuning on NVIDIA B300: A Field Report on Telemetry-Based Triage, Negative Results, and Operational Hardening](http://arxiv.org/abs/2608.05944v1)
+  > **TL;DR**: Reports operational experience for full fine-tuning a 32.76B model on two-node NVIDIA B300 using FSDP/ZeRO-3. Introduces power-draw triage for issue diagnosis and a pre-run invariant gate to prevent deadlocks. Achieves near-linear strong scaling and saves GPU-hours by converting silent failures into immediate rejections.
+* `serving` `LoRA` `offloading` [PLoRA: An NDP-Enhanced Pooled-Memory System for Cost-Efficient Multi-LoRA Serving](http://arxiv.org/abs/2608.05483v1)
+  > **TL;DR**: Addresses efficient multi-LoRA serving by introducing PLoRA, an NDP-enhanced pooled-memory system that offloads adapters and KV cache to near-data processing. Achieves 6.6x lower decode latency than S-LoRA when serving 1000 adapters on an H100.
+* `RAG` `storage` [Filtered Vector Search in a Disaggregated Lakehouse: Composing Table-Format Pruning with Per-File ANN](http://arxiv.org/abs/2608.05441v1)
+  > **TL;DR**: Addresses filtered vector search inefficiency by composing table-format pruning and per-file IVF index in lakehouse. Embeds indices in Parquet footers and uses predicate-driven file pruning before ANN. Achieves 94x speedup on 5M embeddings with region-partitioned layout, reducing latency from 14.7s to 157ms.
+
 ### 2026-08-06
 * `serving` `offloading` `networking` [RAC: Reference-Aware Activation Compression for Communication-Efficient Split LLM Inference](http://arxiv.org/abs/2608.04991v1)
   > **TL;DR**: Addresses communication bottlenecks in split LLM inference. Proposes RAC, a codec that retrieves historical spans and employs quantized alignment to compress activations. Reduces time per token by up to 2.79× with task score changes within −0.4/+2.5 points across nine model-link pairs.

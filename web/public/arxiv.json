@@ -149999,5 +149999,418 @@
         ],
         "tldr": "Studies architectural inefficiencies in agentic AI workflows, exposing fragmented execution and resource mismatches. Proposes Agora, a server prototype with dynamic resource harvesting, GPU memory oversubscription, and role-based scheduling. Improves server utilization and throughput while preserving agent tail latency.",
         "indexed_date": "2026-08-06"
+    },
+    "http://arxiv.org/abs/2608.03695v2": {
+        "title": "Accelerating Dynamic Graph Clustering on GPU Architectures with cuGraph",
+        "link": "http://arxiv.org/abs/2608.03695v2",
+        "abstract": "This work addresses community detection in temporal networks through GPU-accelerated extensions of spectral clustering and modularity-based algorithms originally designed for static graphs. Built on the NVIDIA RAPIDS ecosystem, the framework enables the characterization and tracking of communities in snapshot-based dynamic graphs, either by Leiden greedy optimization with multi-GPU support via Dask-based workload distribution, or eigendecomposition of a symmetric Bethe-Hessian operator. Our multislice modularity backend achieves up to roughly three orders of magnitude speedup over the CPU reference under an equal-work budget, depending on graph density and snapshot count, while preserving compatibility with existing graph analytics pipelines. We demonstrate its applicability on real-world and synthetic datasets, facilitating exploratory analysis of structural network properties over time. Such capabilities are relevant across several application domains, such as epidemic spreading, financial systems, cybersecurity, and trajectory and mobility analysis. We release our implementation as free and open-source software, including Python bindings through the NetworkX-Temporal library for ease of use and zero-code acceleration with existing codebases.",
+        "authors": [
+            "Nelson Aloysio Reis de Almeida Passos",
+            "Emanuele Carlini",
+            "Salvatore Trani"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.03695v2",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.06188v1": {
+        "title": "Routing LLM Inference to the Cleanest Grid in Real Time",
+        "link": "http://arxiv.org/abs/2608.06188v1",
+        "abstract": "Large-language-model inference is a fast-growing electricity load whose marginal carbon intensity varies by more than an order of magnitude across grid regions and across the day, making request placement an attractive lever: no retraining, no hardware change. We report a live validation of carbon-aware inference routing on multi-region GPU testbeds driven by marginal operating emissions rate (MOER) signals, with three properties uncommon in prior work: a blind baseline that is an actual production pressure-based router rather than uniform placement; per-request energy attributed from GPU telemetry (NVIDIA DCGM) via measured concurrency curves rather than nameplate TDP; and carbon settlement of every request against historical MOER, not only the forecast that drove the decision. The central live result is feasibility: a MOER signal steered inference across regions with no observed dispatch failures, as a strict and reversible overlay on the production router. To size the effect, we replay a year of hourly MOER across a grid-diverse CONUS fleet. In the primary modeled configuration, carbon-aware placement reduces modeled GPU-attributable operational emissions by 50.9% versus round-robin (95% block-bootstrap CI 48.5-53.3%). Because the replay dispatches against historical MOER rather than a forecast, this is an upper bound under that configuration; forecast error would reduce operationally realized savings. Before session pinning, hourly lowest-MOER routing contributes about 22.4 percentage points, roughly 40% of the 54.0% placement reduction, beyond a static annual-mean-MOER policy. These are modeled results for one fleet and historical year, not a universal estimate. We also record a practical observation: when comparing regions, rank by absolute MOER rather than the percentile signal-index, which is normalized within each region and answers a temporal, not a spatial, question.",
+        "authors": [
+            "Aleks Bernhard",
+            "Arif Baran Yardimci"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2608.06188v1",
+        "submit_date": "2026-08-06",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "networking"
+        ],
+        "tldr": "Investigates how to reduce carbon emissions of LLM inference via spatial routing. Proposes real-time, MOER-driven request placement across grid regions, validated in multi-region GPU testbeds. Achieves 50.9% lower operational emissions versus round-robin in modeled replay.",
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.03836v2": {
+        "title": "Resume Means Resume: A Machine-Checked Conformance Contract for Checkpoint, Interrupt, and Resume Semantics in Workflow Persistence Layers",
+        "link": "http://arxiv.org/abs/2608.03836v2",
+        "abstract": "A framework that persists execution state so a run can be interrupted, survive a crash, and continue must decide what a resume means for effects that already fired. Five widely deployed agent workflow frameworks answer differently, none exposes a machine-checkable contract, and behavior violates even the fragments they state. The RESUME CONTRACT states six properties over the persistence API (prefix continuation, effect exactly-once, fork determinism, checkpoint validity, consume-once, recovery determinism), plus fork-intent and liveness obligations. A TLA+ model checks a reference semantics exhaustively, unchanged at scaled bounds (7.4 million states); a 39-cell fault matrix and two companion modules yield the separating models independence requires, and consume-once splits, its consumption clause independent of all six others. A deterministic, LLM-free harness measures them at pinned releases. LangGraph 1.2.9 durably records a second resume value and never consults it, persists schema-invalid state silently, and re-executes durably recorded work after a real SIGKILL: exactly-once across interrupts, at-least-once across crashes, on one API. CrewAI 1.15.2 re-executes completed effect-bearing methods against its written claim; pydantic-graph 1.x cannot resume after a mid-node crash; no two probed frameworks share a conformance profile. Consume-once holds sequentially and fails under concurrent delivery: k processes resuming one parked interrupt fire the gated effect k times, saturation 1.0 in 36 of 40 cells, and the failure crosses hosts. REMIT, a reference sequencer whose Verus-verified recovery core is line-identical to the shipped executable, repairs the fork and validity cells. The cross-process cell is repaired at the read path, and that repair ships: an opt-in gate claims consumption in the shared store, serving one racer and refusing the rest before any node executes.",
+        "authors": [
+            "Sajjad Khan"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.LO",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2608.03836v2",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.06140v1": {
+        "title": "PLB: Priority-Aware Load Balancing for Replicated Databases under Constrained Resources",
+        "link": "http://arxiv.org/abs/2608.06140v1",
+        "abstract": "Priority-differentiated services are a standard way for applications to offer different levels of performance, but database systems still often treat all sessions the same way. When database capacity is fixed, meaning replicas cannot be added on demand, and the workload becomes contended, this creates a difficult trade-off between over-provisioning resources and letting lower-priority users experience much larger slowdowns. In such settings, we propose enforcing priority by controlling how client sessions are assigned to database replicas.\n  We present PLB, a priority-aware load balancer implemented as a JDBC driver that enforces priority differentiation through replica assignment under fixed resources. PLB partitions replicas by user group, premium versus freemium, and uses load-based borrowing so that higher-priority users can use idle capacity when available, while degradation for lower-priority users remains controlled. We evaluate PLB on a replicated read-only cluster under OLAP workloads. Compared with static dedicated per-priority partitions, PLB keeps utilization above about 70% in settings where fixed partitions can reduce cluster-wide CPU utilization to about 35%, while maintaining latencies close to those of the best dedicated allocation. Compared with a fully shared round-robin pool, PLB lowers high-priority median latency by about 12% on average, with improvements of up to 28%, while keeping the low-priority median overhead around 11% and overall median latency close to round-robin.",
+        "authors": [
+            "Belkis Djeffal",
+            "Pierre Bourhis",
+            "Romain Rouvoy"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06140v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.06046v1": {
+        "title": "ML-for-ML",
+        "link": "http://arxiv.org/abs/2608.06046v1",
+        "abstract": "AI training workloads are growing rapidly, making their time, energy, and infrastructure costs increasingly important. In shared cloud clusters, training and fine-tuning jobs compete with co-running workloads for network resources, while network mechanisms and ML training choices are typically optimized separately: networking controls how bytes move, whereas ML systems control when and how much communication occurs. We argue that this separation leaves end-to-end performance on the table.\n  We present ML-for-ML, a cross-layer perspective in which network-side and ML-side knobs are selected jointly under a shared time-to-target-loss objective. Our preliminary prototype shows that by co-optimizing the ML and network parameters, we reach the target loss up to 42% faster.",
+        "authors": [
+            "Yutong Zhao",
+            "Noga H. Rotman",
+            "Gianni Antichi",
+            "Ran Ben Basat"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.06046v1",
+        "submit_date": "2026-08-06",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Addresses network resource contention in shared cloud clusters during AI training. Proposes ML-for-ML, a cross-layer co-optimization of ML and network parameters for time-to-target-loss. Achieves up to 42% faster training.",
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.06007v1": {
+        "title": "TensorCast: The Missing Tensor Management Layer in Large Language Model Infrastructure",
+        "link": "http://arxiv.org/abs/2608.06007v1",
+        "abstract": "Modern LLM infrastructure increasingly manages tensors not only as computation data, but also as persistent states shared across distributed components. Existing systems optimize individual tensor management tasks, such as model weight loading, KV cache management, and checkpoint synchronization, by deeply integrating task-specific mechanisms with execution engines, networks, or storage backends. However, this specialization creates isolated silos that hinder the reuse and composition of tensor management strategies across evolving LLM workloads. In this paper, we identify tensor lifecycle management as a missing abstraction layer in LLM infrastructure and propose Tensor-as-a-Service (TaaS), which decouples tensor state management from computation logic. We design and build TensorCast, a distributed tensor management layer that provides first-class tensor abstractions, programmable lifecycle primitives, and a runtime that separates tensor management policies from execution mechanisms. This enables developers to write tensor management programs using TensorCast APIs while transparently leveraging distributed execution and data movement. We integrate TensorCast with vLLM and SGLang and evaluate it across diverse tensor lifecycle workloads, including model weight materialization, weight synchronization, KV cache management, and programmable request routing. Our results show that TensorCast achieves competitive performance with specialized tensor management systems while enabling new cross-component optimization policies. A programmable policy implemented with TensorCast improves median TTFT by up to 93.2% under highly concurrent multi-turn agent workloads.",
+        "authors": [
+            "Yuhan Zhou",
+            "Yuchu Luo",
+            "Hao Nie",
+            "Wangrunze Lv",
+            "Yu Zhou",
+            "Yibo Zhu",
+            "Daxin Jiang",
+            "Chenren Xu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06007v1",
+        "submit_date": "2026-08-06",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "storage"
+        ],
+        "tldr": "Identifies the need for a unified tensor management layer in LLM infrastructure. Proposes TensorCast, a distributed TaaS system that decouples tensor state management from computation via programmable primitives and runtime. Reduces median TTFT by up to 93.2% in multi-turn agent workloads.",
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05944v1": {
+        "title": "Operating Multi-Node Full Fine-Tuning on NVIDIA B300: A Field Report on Telemetry-Based Triage, Negative Results, and Operational Hardening",
+        "link": "http://arxiv.org/abs/2608.05944v1",
+        "abstract": "We report operational experience full-fine-tuning a 32.76B-parameter dense model (Qwen3-32B) on 16 x NVIDIA B300 (two nodes, FSDP / ZeRO-3) -- among the first published field accounts on this accelerator. We claim no new algorithm. The individual mechanisms we use are established practice; our contribution is the integrated field experience and a set of calibrated measurements on new hardware. Concretely we offer four practitioner artifacts. (1) A B300-calibrated power-draw triage table that distinguishes compute / communication / data-starvation / checkpoint-or-deadlock / idle by board wattage (utilization% reads 100% during an NCCL hang). (2) A set of honest negative results that dispel common optimization folklore at this scale: a controlled A/B in which per-step NFS reading matches a pretokenized local cache (~53k tok/s) because the corpus fits in page cache and the job is compute-bound; and a reconstruction of an earlier \"throughput collapse\" as NFS/CPU contention rather than a storage-medium limit. (3) Calibrated 4/8/16-GPU strong-scaling and GPU-hour numbers on B300 (near-linear, as expected in this regime; we report absolute values as reference data). (4) A worked failure case -- an epoch-end NCCL deadlock from per-rank token-packing imbalance -- together with a 2.7-second pre-run invariant gate and an external watcher that turn multi-hour silent failures into instant rejections. This deadlock and its remedy correspond to PyTorch's documented Join / equalize-to-minimum practice; we position our instantiation against that prior art and report the GPU-hours the failure cost and the gate saves. The transferable takeaway is operational, not algorithmic: for data-dependent data-parallel jobs, watch power rather than utilization, and verify invariants before launch -- a passing smoke test is not evidence of a safe full run.",
+        "authors": [
+            "Seon Ho Kim",
+            "Ui Jeong Jeon",
+            "Su Hyeon Kim",
+            "Min Tae Hwang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.05944v1",
+        "submit_date": "2026-08-06",
+        "relevant": true,
+        "tags": [
+            "training"
+        ],
+        "tldr": "Reports operational experience for full fine-tuning a 32.76B model on two-node NVIDIA B300 using FSDP/ZeRO-3. Introduces power-draw triage for issue diagnosis and a pre-run invariant gate to prevent deadlocks. Achieves near-linear strong scaling and saves GPU-hours by converting silent failures into immediate rejections.",
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05855v1": {
+        "title": "RepoOMP: Repository-Aware Hotspot OpenMP Parallelization via Dependency-Aware Context Reduction",
+        "link": "http://arxiv.org/abs/2608.05855v1",
+        "abstract": "OpenMP parallelization of hotspots in mature repositories remains difficult because loop safety and optimization payoff often depend on non-local evidence. Rule-based tools under-parallelize when legality is not locally provable, while agent-based approaches become unstable when retrieval misses decisive dependencies or includes irrelevant code. We present RepoOMP, a hybrid framework that recovers parallelization-relevant evidence before generation. RepoOMP builds a Multi-granularity Attributes Performance graph (MAP), routes hotspots between deterministic rules and an LLM agent, and constructs a Structured Transformation Context (STC) that exposes dependency facts without flooding the model with unrelated repository text. We evaluate RepoOMP on 951 profiled hotspots from NPB, BOTS, FFmpeg, NCNN, and GROMACS. Under compilation, workload-specific checks, and positive speedup, 372 hotspots are accepted, including 330 real-world repository hotspots. RepoOMP achieves average speedups of $8.23\\times$ on NPB and $8.96\\times$ on BOTS. For the nine detailed real-world kernels used in matched-backbone and robustness analyses, RepoOMP reaches a cross-backbone mean of $5.25\\times$, improves speedup by 18--28\\%, and reduces agent-side token cost by 47--68\\% relative to the unstructured Claude Code baseline. Across 330 accepted real-world hotspots, median speedup is $2.25\\times$. Overall, RepoOMP provides an evidence-guided workflow for hotspot parallelization in repository settings. The open-source repository is available at https://github.com/Qlalq/RepoOMP_Simplified.",
+        "authors": [
+            "Yongjie Qian",
+            "Ke Gao",
+            "Zhibin Zhang",
+            "Shaohui Peng",
+            "Ling Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.05855v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05819v1": {
+        "title": "Learning to Rank Tensor Network Contraction Plans for GPU-Accelerated Quantum Circuit Simulation",
+        "link": "http://arxiv.org/abs/2608.05819v1",
+        "abstract": "Classical simulation remains essential for developing and validating quantum algorithms, but its cost grows rapidly with circuit size. Tensor-network contraction can reduce this cost by exploiting circuit structure, although its efficiency depends strongly on the chosen contraction plan. On GPUs, plans with similar theoretical complexity may perform very differently because execution also depends on parallelism, reduction structure, memory traffic, and contraction geometry. We present a learning-to-rank framework for selecting efficient contraction plans before executing them. Each plan is represented by structural features derived directly from its sequence of pairwise contractions, and gradient-boosted rankers are trained from GPU measurements using listwise and pairwise objectives. We evaluate the resulting models on diverse circuit families, using separate in-distribution and circuit-family-shift test sets, and compare them with random and MinFill-based baselines. The learned rankers generally identify better plans, with the listwise model providing the strongest overall decision quality. We also study backend shift by comparing empirical plan orderings on two GPU architectures and evaluating the source-trained models on the second device without retraining. The rankings remain substantially, though not perfectly, stable across GPUs, and the models retain useful decision quality. These results support Learning to Rank as a practical way to reduce contraction-plan search, while showing that performance remains partly backend dependent.",
+        "authors": [
+            "Alfred M. Pastor",
+            "Maribel Castillo",
+            "Jose M. Badia"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.PF",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2608.05819v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05692v1": {
+        "title": "Wireless Linear Computation Broadcast",
+        "link": "http://arxiv.org/abs/2608.05692v1",
+        "abstract": "A linear computation broadcast (LCBC) problem comprises $K$ users (receivers) and a transmitter. The users wish to compute various (vector) linear functions of a common dataset, and possess in advance heterogeneous side information corresponding to various other linear computations. The goal for the broadcast transmitter, who knows the dataset and all desired and side-information functions, is to satisfy all demands as efficiently as possible. Prior work has explored the information-theoretic capacity of LCBC for zero-error finite-field computation over an ideal (noiseless) broadcast channel (BC). This paper develops a wireless LCBC (WLCBC) framework for the Gaussian MIMO BC with noisy receiver-side information under a transmit power constraint and arbitrary antenna configurations. In the WLCBC setting, a Gaussian source is linearly precoded for broadcast; each user requests a linear function of the source and forms an estimate by linearly combining its channel observation with its noisy side information. Assuming perfect channel state information, we cast the centralized joint linear transceiver design as a weighted sum-MSE minimization problem and propose an efficient alternating optimization algorithm. For a fixed precoder, the optimal decoders are the linear minimum mean-square error (LMMSE) estimators. For fixed decoders, the precoder update reduces to a convex quadratically constrained quadratic program which leads to a semi-closed-form solution parameterized by a single dual variable. The resulting algorithm guarantees a monotonic decrease in the objective and convergence of the weighted sum-MSE (WSMSE) objective sequence. Simulations demonstrate pronounced robustness gains over natural baselines obtained from prior works.",
+        "authors": [
+            "Shuo Tan",
+            "Syed A. Jafar"
+        ],
+        "categories": [
+            "cs.IT",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.05692v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05633v1": {
+        "title": "Serverless platform driven CPU loadbalancing",
+        "link": "http://arxiv.org/abs/2608.05633v1",
+        "abstract": "Serverless platforms maintain a global view of function invocations and resource utilization, yet existing systems largely restrict CPU scheduling decisions to the operating system scheduler. This paper presents a serverless platform-driven CPU load balancing framework that enables the control plane to directly influence CPU scheduling through a custom Linux scheduler built on SchedExt(SCX). The proposed scheduler introduces configurable scheduling domains and a shared interface that allows the control plane to assign functions to domains based on their historical inter-arrival times. Within each domain, a single-queue load-balancing strategy combined with a virtual-time prioritization policy improves task placement while reducing interference from busy-polling tasks. Results show that an eight-domain configuration achieves the best trade-off, reducing system energy consumption by approximately 15% while increasing invocation cost by only 5%. Under heavily loaded workloads, the proposed scheduler also reduces request latency by up to 50% compared to the default Linux Completely Fair Scheduler (CFS). These results demonstrate that exposing CPU scheduling decisions to the serverless control plane can improve both energy efficiency and workload performance while preserving scheduling flexibility.",
+        "authors": [
+            "Abdul Rehman"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.05633v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05595v1": {
+        "title": "How Much Reconstruction Does Quantum Machine Learning Need? Late Fusion of Independently Trained Quantum Subcircuits",
+        "link": "http://arxiv.org/abs/2608.05595v1",
+        "abstract": "Circuit cutting lets a large quantum neural network (QNN) run as independent subcircuits on small devices, but rebuilding its outputs by reconstruction carries a classical sampling overhead exponential in the number of cuts - the dominant runtime cost in prior work. We ask whether, for machine-learning tasks, this step is necessary, and replace it with late fusion: each subcircuit is trained and measured independently, and a small classical head combines their outputs - a linear-cost, decision-level combination borrowed from multimodal learning. To characterize the trade-off we introduce a quantumness dial $Q$, a tunable reconstruction budget interpolating from pure fusion to full reconstruction, and a cut-entanglement diagnostic that indicates how much reconstruction a task needs (Spearman $ρ=0.59$ over $104$ runs). Across synthetic and standard datasets, independently trained late fusion matches full reconstruction accuracy within $0.04$ at every point of the controlled sweep and on every classical benchmark, at exponentially lower cost; it is also markedly more robust to shot and device noise. Controlled entangled-data experiments locate the boundary where fusion must fail. We do not claim advantage over classical machine learning - consistent with recent benchmarking, quantum offers no accuracy edge on these datasets. Late fusion is thus an efficient, noise-robust, self-characterizing alternative to reconstruction for circuit-cutting QML.",
+        "authors": [
+            "Prabhjot Singh",
+            "Adel N. Toosi",
+            "Rajkumar Buyya"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.05595v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05572v1": {
+        "title": "Viveka: Context-Aware Sensing for Energy Efficiency in Smart Wearables",
+        "link": "http://arxiv.org/abs/2608.05572v1",
+        "abstract": "The proliferation of multi-sensor Internet of Things (IoT) systems, from Body Sensor Networks (BSNs) to industrial monitoring, is increasingly constrained by strict energy budgets and limited on-device storage. Continuous high-fidelity sensing leads to rapid battery depletion and data gaps that compromise application reliability. Existing strategies address this through sensor selection or adaptive sampling in isolation, or rely on computationally expensive agents for joint optimization. They lack context granularity or introduce significant overhead, and critically, they do not account for the risk that an aggressive, context-specific sensing policy applied to a misidentified context degrades accuracy. In this paper, we formulate joint sensor and sampling-rate selection as an NP-hard energy-minimization problem and propose Viveka, a lightweight, context-aware framework. Viveka couples a cheap, always-on controller that estimates context and how much to trust that estimate with a stability and confidence gated policy that applies an aggressive per-context configuration only when context is certain, and falls back safely otherwise. Per-context configurations are instantiated using permutation feature importance and spectral energy analysis. Evaluation on the MHEALTH and PAMAP2 datasets shows that Viveka achieves up to 75% energy savings and 78% data reduction over standard baselines in a best-case configuration, while maintaining classification accuracy within 3-5% of the baselines.",
+        "authors": [
+            "Nikhil Sreekumar",
+            "Abhishek Chandra"
+        ],
+        "categories": [
+            "cs.ET",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.05572v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05483v1": {
+        "title": "PLoRA: An NDP-Enhanced Pooled-Memory System for Cost-Efficient Multi-LoRA Serving",
+        "link": "http://arxiv.org/abs/2608.05483v1",
+        "abstract": "Multi-LoRA serving is how one base model becomes thousands of specialized variants, one adapter per user, task, or agent, and the deployments can hold 1000-plus adapters. Serving them is hard because the workload inverts what GPUs provide: terabytes of memory against only tens of TFLOPS, and because every published system stages its adapters from CPU DRAM over PCIe, where each access pays a kernel stop and a host-run copy and capacity ends at the motherboard's DIMM slots. Meanwhile, memory-semantic fabrics such as CXL and NVLink are converging on pooled memory that an accelerator addresses with its own loads and stores, and near-data processing (NDP) can place compute beside the pooled data. How to serve multi-LoRA workloads on such hardware remains unexplored.\n  This paper introduces PLoRA, an NDP-enhanced pooled-memory system for cost-efficient multi-LoRA serving. PLoRA keeps adapters and KV cache in the pool and returns only reduced results over the link, through a read-compute interface the GPU drives with its own loads and stores. Above this architecture, a GPU memory management system picks among four LoRA and two attention execution strategies for each adapter and caches the most performance-critical bytes in GPU memory, guided by a link-parameterized cost model. On one H100 serving 1000 adapters, PLoRA attains the lowest decode latency on every model and workload we measure, averaging 6.6x below a real-machine S-LoRA at under 3.4% added device area. The link itself stops mattering: throughput saturates at 32 GB/s on short contexts, a quarter of CXL 3.1, and the verdict survives scale: per-GPU demand falls from 7B to a modeled 1.2T deployment once adapter traffic shards with the tensor parallelism. The design runs unchanged from CXL-class to NVLink-class fabrics, and surplus bandwidth buys pooled capacity rather than speed.",
+        "authors": [
+            "Zhongkai Yu",
+            "Ohm Rishabh Venkatachalam",
+            "Zheng Wang",
+            "Yikai Li",
+            "Yichen Lin",
+            "Zihao Yu",
+            "Yuke Wang",
+            "Liu Liu",
+            "Xulong Tang",
+            "Shuyi Pei",
+            "Yangwook Kang",
+            "Yufei Ding"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.05483v1",
+        "submit_date": "2026-08-06",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "LoRA",
+            "offloading"
+        ],
+        "tldr": "Addresses efficient multi-LoRA serving by introducing PLoRA, an NDP-enhanced pooled-memory system that offloads adapters and KV cache to near-data processing. Achieves 6.6x lower decode latency than S-LoRA when serving 1000 adapters on an H100.",
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05441v1": {
+        "title": "Filtered Vector Search in a Disaggregated Lakehouse: Composing Table-Format Pruning with Per-File ANN",
+        "link": "http://arxiv.org/abs/2608.05441v1",
+        "abstract": "Approximate nearest-neighbor (ANN) search increasingly runs alongside structured data - \"find the 10 nearest documents where tenant='acme' AND lang='en'\" - yet similarity and filtering are usually bolted together: a specialized vector index for one, a separate filter step for the other. We ask what happens when both live inside an open lakehouse table (Apache Iceberg over Parquet on object storage), where the engine already owns a mature file-pruning stack (partition pruning, zone-maps, a bitmap index). We embed an IVF index in place in each Parquet file's footer and make filtered vector queries fast not with a new filtering algorithm but by composing the table's existing file pruning with per-file ANN: the planner prunes data files by the predicate first, then runs IVF only over the survivors. The index is built distributed and non-destructively - a metadata-only Iceberg replace that every other engine still reads - and a rendezvous-hashed per-file cache keeps object-store read latency from swamping the algorithmic win. The payoff comes entirely from file pruning. On an 11.5M x 768 table, warm IVF search is ~32x faster than brute force at recall@10 >= 0.90, a selective predicate having pruned 355 of 444 data files before ANN runs; on 5M real IBM Granite embeddings, a filter arriving across a join prunes four of five region partitions and runs nearly two orders of magnitude (~94x: 14.7 s -> 157 ms) faster than the query-time join at identical top-k, once the reduction is materialized into a region-partitioned layout. We characterize when the composition pays off - it requires file-level locality on the filter column, and the residual predicate is only safe to push into the search over a provably pure (partitioned) column, not a merely sorted one - and report the failure modes we hit bolting ANN onto a lakehouse engine.",
+        "authors": [
+            "Rakesh Jain",
+            "Thomas Griffin",
+            "Syed Zawad"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC",
+            "cs.ET",
+            "cs.IR"
+        ],
+        "id": "http://arxiv.org/abs/2608.05441v1",
+        "submit_date": "2026-08-05",
+        "relevant": true,
+        "tags": [
+            "RAG",
+            "storage"
+        ],
+        "tldr": "Addresses filtered vector search inefficiency by composing table-format pruning and per-file IVF index in lakehouse. Embeds indices in Parquet footers and uses predicate-driven file pruning before ANN. Achieves 94x speedup on 5M embeddings with region-partitioned layout, reducing latency from 14.7s to 157ms.",
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05408v1": {
+        "title": "Application Failures and Machine Computational Efficiency",
+        "link": "http://arxiv.org/abs/2608.05408v1",
+        "abstract": "We present a framework for evaluating uptime efficiency of Exascale-class scientific computers when application failure rates are appreciable. This is the situation that confronts current leadership-class scientific computing platforms and large AI training installations. What distinguishes scientific computing platforms is the heterogeneity of their applications. We argue that this diversity requires that failure rates and mean intervals between failures should be specified in terms of \\emph{usage} (e.g. node-hours) rather than time, as is currently customary. We consider the usage loss terms due to failures, to checkpointing, and to restart costs, and update the framework of Daly (2006) allowing users to specify optimal checkpointing usage intervals that minimize such losses. We derive the machine computational efficiency, which specifies the expected fractional resource allocation that is available for scientific computation. We illustrate the methodology using one year of production runtime data from the \\emph{Frontier} supercomputer at Oak Ridge National Laboratory.",
+        "authors": [
+            "Carlo Graziani",
+            "Bethany Lusch",
+            "O. E. Bronson Messer"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.05408v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05358v1": {
+        "title": "DG-FedReuse: Proxy-Gradient-Gated Cached-Update Reuse with Matched Sparse Uplink Accounting",
+        "link": "http://arxiv.org/abs/2608.05358v1",
+        "abstract": "Federated learning repeatedly incurs local optimization and model-update transmission. We study DG-FedReuse, a simulator-level mechanism that allows selected clients to contribute age-decayed cached updates when a stochastic head-gradient discrepancy proxy remains below a round-dependent threshold. A hard cache-age limit and minimum fresh-client quota constrain reuse, while fresh updates use an adaptive per-tensor Top-K numerical-field representation. Experiments cover six image-classification datasets, 50 virtual clients, Dirichlet label heterogeneity (α=0.5), and three seeds. At a common 90-round budget, DG-FedReuse yields 83.36-85.42% modeled update-data-field uplink saving, compared with 76.88% for matched Top-K FedAvg; the seed-aligned accuracy differences range from -5.29 to -0.14 percentage points. Best-observed test accuracies obtained under test-controlled checkpointing are retained only as exploratory archival evidence and range from -2.38 to +0.45 percentage points relative to matched FedAvg. A symmetric dense-model-downlink sensitivity reduces the headline saving to 41.68-F42.71% and the incremental gain over Top-K FedAvg to 3.24-4.27 percentage points, demonstrating the dependence of communication conclusions on the accounting boundary. The study characterizes the proposed reuse rule in the implemented simulator; it does not establish unbiased generalization, end-to-end bandwidth reduction, runtime or energy savings, faster convergence, or superiority over existing stale-update and lazy-aggregation methods.",
+        "authors": [
+            "Rahil Aftab",
+            "Vineet Kumar Rakesh",
+            "Soumya Mazumdar",
+            "Tapas Samanta"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.05358v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05332v1": {
+        "title": "Hierarchical Server Architecture for Agentic Science",
+        "link": "http://arxiv.org/abs/2608.05332v1",
+        "abstract": "Agentic science is transforming the landscape of computational work, extending to scientific pipelines and workload managers. The workloads require specialized hardware within and across institutions. If assessing workload needs against environments is required for scheduling, automated discovery of resources is an essential step. In this paper, we present a hierarchical, dynamic architecture and software to discover resources across diverse cloud, edge, and HPC systems. The design enables concurrent, asynchronous negotiation, selection, and dispatch of requests for work using secretary agents. The agents probe and discover 51 real and simulated providers across 7 categories. We perform 19,973 negotiation and 6,952 selection simulations to assess reliability of decisions, demonstrating high (87.71\\%) negotiation accuracy and selection costs comparable to more traditional strategies. Designed for extensibility and currently supporting the Genesis Mission, this architecture exemplifies the importance of careful coordination between agents, discovery tools, and infrastructure for agentic science.",
+        "authors": [
+            "Vanessa Sochat",
+            "Daniel Milroy"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2608.05332v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.05300v1": {
+        "title": "eMicro: Real-Time Multi-Hop Access Control for Microservices with eBPF",
+        "link": "http://arxiv.org/abs/2608.05300v1",
+        "abstract": "Modern cloud applications often comprise thousands of microservices whose interactions form complex request paths. Traditional inter-service access control restricts individual service-to-service requests, but fails to prevent multi-hop attacks, where each hop appears legitimate yet the overall path violates security intent. This gap leaves systems exposed to unauthorized access and data exfiltration. In this paper, we present eMicro, a path-aware defense system for microservices that prevents such attacks while remaining efficient and deployable. eMicro enforces real-time multi-hop access control through three key techniques: (1) history-based access control extended to capture service invocation sequences; (2) security policies encoded as efficient deterministic finite automaton (DFA), supporting constant-time lookups and compact label propagation; (3) eBPF-based in-kernel request tracing for transparent, low-overhead enforcement without code changes. Evaluations on DeathStarBench and production cloud traces from Uber, Alibaba, and ByteDance, covering 12 million request workflows and thousands of services, demonstrate the scalability of eMicro. eMicro performs policy checks in 1 microsecond, stores 50 million policies in only 100 MB, and reduces propagation overhead by 90% with negligible runtime impact. These results show that eMicro delivers scalable and efficient protection against multi-hop attacks, making it practical for deployment in large-scale microservice environments.",
+        "authors": [
+            "Rizky Ramadhana Putra",
+            "Osama Bajaber",
+            "Saimon Amanuel Tsegai",
+            "Teryl Taylor",
+            "Frederico Araujo",
+            "Yuede Ji",
+            "Peng Gao"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.05300v1",
+        "submit_date": "2026-08-05",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.06241v1": {
+        "title": "Timestep-Conditioned Transformers for Global Weather Forecasting",
+        "link": "http://arxiv.org/abs/2608.06241v1",
+        "abstract": "Existing machine-learning weather forecasting models rely on predetermined and fixed autoregressive timesteps. The choice of model timestep involves a fundamental trade-off: shorter timesteps (e.g. 1 to 6 hours) finely resolve atmospheric dynamics within the diurnal cycle but increase error accumulation for a given forecast horizon, while longer timesteps (e.g. 24 hours) reduce error accumulation but limit the usability of short-range forecasts where sub-daily predictability is high. In this work, we present GEM-3, a probabilistic global weather model that addresses this trade-off through explicit multi-timestep inference. With a single set of trained weights, the model timestep can be configured at inference time to balance predictability and usability across a broad forecast horizon. Additionally, we find that mixed-timestep training consistently improves rollout stability relative to timestep-specialist models. Under the hood, GEM-3 is a lightweight neighborhood-attention transformer with ~134M parameters on an equirectangular grid with a number of architectural advancements beyond its predecessor GEM-2. The result is a practical forecasting system that couples near-SOTA medium-range probabilistic skill, stable extended-range rollouts, efficient training and inference, and decision-relevant diagnostics.",
+        "authors": [
+            "Sam Levang",
+            "Fran Bartolic",
+            "Ty Dickinson",
+            "Chase Dwelle",
+            "Paulius Rauba",
+            "Viktor Cikojevic"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.06241v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-07"
     }
 }
