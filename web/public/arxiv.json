@@ -150412,5 +150412,357 @@
         "submit_date": "2026-08-06",
         "relevant": false,
         "indexed_date": "2026-08-07"
+    },
+    "http://arxiv.org/abs/2608.07358v1": {
+        "title": "Fast end-to-end cloud application cold-start with initscripts",
+        "link": "http://arxiv.org/abs/2608.07358v1",
+        "abstract": "Serverless functions are a popular way of deploying cloud applications. Because many of these functions are short- running and experience frequent cold-starts, start latencies often dominate their execution latency. Start latency can be broken down into two components: setup and initialization. Setup involves steps the cloud platform takes when starting an application, such as downloading its binary and creating an isolated execution environment. Initialization involves steps the application takes after it has started running but before it can do useful work, such as connecting to other services, coordinating to claim work, and downloading inputs.\n  This paper contributes initscripts, which provide a script- able interface for developers to specify their application's initialization routine to the cloud platform. The platform can then run an application's initscript and reduce application start latency by overlapping setup and initialization steps. Once the application is up and running, the initscript bootstraps the application by transferring initialization results to it. Using initscripts, we were able to speed up cold-starts of several of the ServerlessBench Python applications by an average 1.67X with no modifications to the application. Initscripts also speed up start times for a serverless image recognition workload by 1.81X, and off-the-shelf microservices like etcd and memcached.",
+        "authors": [
+            "Ariel Szekely",
+            "Robert Morris",
+            "M. Frans Kaashoek"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.07358v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.07289v1": {
+        "title": "Synthesizing Voltage Ride-Through Controllers for Data Centers",
+        "link": "http://arxiv.org/abs/2608.07289v1",
+        "abstract": "Data centers are among the power grid's fastest-growing loads. Since data center servers are sensitive electronic components, they need to be protected against the grid's voltage disturbances during grid faults. While disconnecting from the grid achieves this, it can further destabilize the power system if many data centers trip at once. To address this emerging concern, voltage ride-through (VRT) grid codes have been proposed to standardize data center behavior. They require a data center to stay connected for a period of time through the disturbance, hold an active power floor, and recover its draw within a deadline upon restoration. However, systematically designing and certifying controllers that satisfy these coupled temporal and operational requirements remains challenging.\n  We propose SolVRT, a system that synthesizes a grid-code-compliant VRT controller for a given data center using formal methods. We develop a specification language that expresses a grid code in Signal Temporal Logic (STL) as the basis for formal reasoning. Our encoding algorithm takes the specification, along with a model of the data center's power topology, and translates the constraints into a controller synthesis problem. This step produces a correct-by-construction controller if a solution can be found, or a proof that no such controller exists. For the latter case, SolVRT provides a diagnostic step: it traces the facility's \"conflict frontier,\" isolates the conflicting clauses that led to non-compliance, and computes the smallest hardware or workload change that would enable compliance. We evaluate SolVRT through closed-loop simulations of a 200 MW data center connected to a 140-bus transmission system. The results demonstrate that SolVRT can synthesize compliant VRT controllers, certify infeasibility when compliance is unattainable, and identify targeted modifications that enable compliance.",
+        "authors": [
+            "Wayne Wang",
+            "Archit Bhatnagar",
+            "Tongyuan Miao",
+            "Saniya Kalamkar",
+            "Wenqi Cui",
+            "Inigo Incer",
+            "Ang Chen"
+        ],
+        "categories": [
+            "eess.SY",
+            "cs.DC",
+            "cs.LO"
+        ],
+        "id": "http://arxiv.org/abs/2608.07289v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.07157v1": {
+        "title": "Capacity Confounds and Coverage Guarantees in Adaptive Sub-model Federated Learning",
+        "link": "http://arxiv.org/abs/2608.07157v1",
+        "abstract": "Sub-model federated learning lets resource-constrained clients train width-reduced versions of a global model, but existing methods allocate capacity by device resources alone. A natural next step, allocating capacity by each client's data heterogeneity as estimated from the updates the server already observes, has been repeatedly suggested. We ask whether that step is possible, using HAS-FL, an adaptive capacity-allocation framework, as a test case. Our findings are threefold. First, validated against ground-truth label-distribution divergence on reproducible partitions, update-divergence estimates of client heterogeneity are dominated by capacity rather than data: across two corrected estimators, multiple datasets, and all seeds, the estimates correlate strongly and negatively with device capacity, and no data signal remains once capacity is controlled for. This previously undocumented confound affects any method estimating client statistics from sub-model updates. Second, adaptive allocation has a hidden failure mode: when every client is capped below full width, the uncovered parameters stay at random initialization and progressively corrupt the global model. A simple coverage guarantee removes the failure and explains why uniform allocation collapses. Third, a matched-budget control settles what adaptivity contributes: random allocation to the same average budget performs no differently on both image benchmarks, and on the naturally partitioned text benchmark the adaptive policy is the weakest of the three strategies while consuming the most capacity. Sub-model training remains valuable because it admits constrained clients at quadratically reduced cost, but what protects accuracy is parameter coverage rather than allocation intelligence. Its apparent benefits come from capacity budgeting and coverage, and future designs need heterogeneity signals separable from capacity effects.",
+        "authors": [
+            "Alireza Moayedikia",
+            "Alicia Troncoso Lora"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.07157v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.07078v1": {
+        "title": "Scalable High-Fidelity Macromolecular Docking for GPU-Accelerated Supercomputers",
+        "link": "http://arxiv.org/abs/2608.07078v1",
+        "abstract": "Flexible macromolecular docking offers high-fidelity predictions of biomolecular interactions, but remains prohibitively expensive at scale. Among existing approaches, LightDock leverages Glowworm Swarm Optimization (GSO) for accuracy, yet suffers from limited parallelism, irregular computation, and severe load imbalance, preventing efficient execution on GPU supercomputers. We present SparkleDock, a scalable GSO-based docking framework enabling near-real-time flexible docking. We redesign GSO to expose massive fine-grained parallelism at the glowworm-agent level, and restructure the dominant energy scoring computation into a Tensor Core-compatible formulation, enabling efficient execution of irregular pairwise interactions through structured matrix operations. We further introduce a performance-model-driven scheduling for load balancing and out-of-core scaling across GPUs. SparkleDock achieves 9.7 $\\times$ and 18.9 $\\times$ speedups over LightDock on single A100 and H100 GPU, and delivers over two orders of magnitude acceleration at scale. On 512 GPUs, it reduces docking time from hours to seconds, enabling large-scale, high-fidelity virtual screening previously impractical with flexible docking.",
+        "authors": [
+            "Xiangyu Meng",
+            "Peng Chen",
+            "Mingzhen Li",
+            "Jianmin Wang",
+            "Sen Wang",
+            "Guangming Tan",
+            "Weile Jia",
+            "Mohamed Wahib",
+            "Tao Luo",
+            "Xun Wang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2608.07078v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.07009v1": {
+        "title": "HiSparse: Scaling Sparse-Attention Decoding with Hierarchical KV Cache Management",
+        "link": "http://arxiv.org/abs/2608.07009v1",
+        "abstract": "Top-k sparse attention makes long-context LLM decoding cheap to compute: each step reads only a few thousand selected KV entries rather than the full context. Serving systems, however, typically keep the entire KV cache in GPU HBM so that every position stays selectable, so a request's memory bill still grows with its full context length--decoding hits a capacity wall long before it runs out of compute, and a context whose KV cache exceeds HBM cannot be served at all. We present HiSparse, an exact, indexer-agnostic hierarchical KV cache for sparse-attention serving. HiSparse keeps each request's full KV history in host memory and bounds its decode footprint with a small, fixed-size GPU cache; a fused CUDA kernel resolves each layer's selections--hit detection, LRU replacement, and host-to-device fetches--inside the decode CUDA graph; and, for models that share selections across layers, exact layer-wise prefetching hides roughly half of the remaining miss overhead. Because only KV placement changes, model outputs are unchanged. HiSparse is merged into upstream SGLang and evaluated across three sparse-attention families (DSA, NSA, and Quest) on H200, B200, and GH200 platforms: it improves peak generation throughput by up to 4.7x on long-context workloads while preserving comparable per-token latency and reducing time-to-first-token at high load--and a no-IO oracle shows the resolution mechanism itself adds no measurable per-token cost, leaving host-device IO as the only price of bounded residency.",
+        "authors": [
+            "Zhiqiang Xie",
+            "Zhangheng Huang",
+            "Tingwei Huang",
+            "Ziyi Xu",
+            "Ruiyang Ma",
+            "Christos Kozyrakis"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.07009v1",
+        "submit_date": "2026-08-07",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "kernel"
+        ],
+        "tldr": "HiSparse addresses KV cache memory overflow in sparse-attention decoding with hierarchical management: full context in host memory, small GPU cache, and fused CUDA kernel for efficient selection resolution. Achieves up to 4.7x higher throughput on long-context workloads.",
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.07007v1": {
+        "title": "FedLBW: A Loss-Based Weighting Strategy for Federated Learning on Non-IID Data in Wireless Networks",
+        "link": "http://arxiv.org/abs/2608.07007v1",
+        "abstract": "Federated Learning (FL) enables collaborative machine learning (ML) across distributed clients while preserving privacy. However, efficient model convergence in FL remains challenging, especially in wireless networks where non-independent and identically distributed (non-IID) data and frequent client dropouts are common. Traditional FL algorithms, such as FedAvg, rely solely on dataset size to weight client updates. This introduces biases towards clients with larger datasets and makes the process sensitive to non-IID data, outliers, and client dropouts. To address these challenges, we propose Federated Learning with Loss-Based Weighting (FedLBW), a novel aggregation method that assigns each client's update a weight proportional to the inverse of its validation loss, computed using a small proxy dataset on the server, rather than its dataset size. This ensures that lower-loss models exert greater influence during aggregation, prioritizing the most reliable updates and boosting overall performance. Through extensive experiments across multiple datasets, including FashionMNIST (CNN), CIFAR-10 (ResNet-18), and CIFAR-100 (ResNet-34), we demonstrate that FedLBW achieves higher accuracy and faster convergence compared to baseline algorithms such as FedAvg, FedAvgM, FedProx, FedNova, FedLAW and FedDkw, with notable improvements of up to 7.6 % higher accuracy on CIFAR-10 in extreme non-IID cases. Moreover, FedLBW showcases exceptional resilience to increasing dropout probabilities, consistently maintaining significantly higher accuracy even in challenging conditions. These results establish FedLBW as an effective and resilient solution for FL in wireless network environments, offering marked improvements in model accuracy, convergence speed, and robustness to non-IID data and client dropouts.",
+        "authors": [
+            "Majid Kundroo",
+            "Tinku Singh",
+            "Taehong Kim"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC",
+            "cs.ET",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.07007v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06987v1": {
+        "title": "A Kubernetes Scheduler Plugin for Cluster-Wide Placement Optimisation",
+        "link": "http://arxiv.org/abs/2608.06987v1",
+        "abstract": "The default scheduler of Kubernetes, the state-of-the-art container orchestrator, uses fast, local placement decisions. Unfortunately, this design leads to resource fragmentation, reduced cluster usage, and overprovisioning. External solvers can compute global placement plans, but enforcing these plans in upstream clusters is hard. Kubernetes provides no native cross-node preemption, uncoordinated concurrent scheduling leads to inconsistencies, and replacing the default scheduler would sever deployments from upstream cycles. We present OPSche, an open-source Kubernetes Scheduling Framework plugin where external solvers can drive cluster-wide placement decisions in concert with the default scheduler. OPSche atomically validates and enforces solver-produced plans through coordinated framework hooks and supports three trigger modes: scheduling-failure, periodic, and stable-queue -- resp. triggered when a workload cannot be placed, at fixed time intervals, when the set of pending workloads stabilises. Each mode has a blocking variant for a finer tuning of placement quality, latency, and disruption. We pair OPSche with a constraint-based optimisation solver, showing its feasibility across a broad set of cluster configurations and reporting improvements of resource usage by up to 3.0% and scheduling latency by more than a second.",
+        "authors": [
+            "Henrik Daniel Christensen",
+            "Saverio Giallorenzo",
+            "Jacopo Mauro"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06987v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06966v1": {
+        "title": "A Self-Adaptive Extensible CEP framework for the Cloud-Edge Continuum",
+        "link": "http://arxiv.org/abs/2608.06966v1",
+        "abstract": "Traditional complex event processing (CEP) systems focus on extracting information out of simple events in the input event streams to detect complex event patterns. In the context of CEP, a computing unit that executes a complex data transformation task is called an operator. Typically, a CEP system consists of an operator graph that could be distributed over the cloud-edge continuum. However, an operator graph distributed over heterogeneous nodes comes with its own set of challenges. In fact, the nodes of an operator graph are typically subjected to dynamically changing workloads. Unbalanced load distributions across heterogeneous nodes may lead to processing overloads in individual operators that do not have enough resources to properly adapt to an increasing workload. As a result, a framework that can detect and adapt to dynamically changing workload in real time across the various nodes of the cloud-edge continuum becomes paramount. To this end, the goal of this work is to propose a new extensible self-adaptive CEP framework with load regulatory features that help operators continue working even in face of an overload, thus facilitating the deployment of operators in a heterogeneous and/or resource-limited environment.",
+        "authors": [
+            "Olaf Markus Link",
+            "Sukanya Bhowmik"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06966v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06946v1": {
+        "title": "Stream Learning: Partition-Fair Gossip Learning Without Tokens",
+        "link": "http://arxiv.org/abs/2608.06946v1",
+        "abstract": "In gossip learning, a network of nodes trains a shared model collaboratively, without a central coordinator, by repeatedly exchanging parts of their local models. The state-of-the-art protocol, Partitioned Token Gossip Learning (PTGL) of Heged{ü}s et al., splits the weight matrix into S fixed partitions and disseminates them using a token-based fairness mechanism coupled with per-neighbor metadata exchange. We revisit partition scheduling by analogy with peer-to-peer live streaming, where model partitions act as video chunks and partition age acts as chunk scarcity. The analogy yields a design space of two-stage selection strategies (partition first, or neighbor first), from which we instantiate ten concrete protocols collectively called Stream Learning. Our main finding is that the simplest of these protocols, which transmits the locally least-trained partition to a uniformly random neighbor (Ri), matches PTGL on fault-free workloads while requiring neither token counters nor metadata exchange. Under an adversarial 30% permanent crash of the best-performing nodes, Ri matches or outperforms PTGL across all complete-graph configurations tested, with the gap reaching 5.53% on HAR and 5.41% on MNIST in the most heterogeneous regime (Dirichlet $β$ = 0.1). In our experiments, partition fairness, captured by a single local rule on partition age, accounts for the gap; token-based rate control and utility maximization do not improve over this rule and, under heterogeneity, sit below it.",
+        "authors": [
+            "Fabien Mathieu",
+            "Alexandre Pham",
+            "Maria Gradinariu Potop-Butucaru",
+            "S{é}bastien Tixeuil"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.06946v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06876v1": {
+        "title": "FedVAR: Prototype-Aligned Federated Framework for Video Anomaly Recognition",
+        "link": "http://arxiv.org/abs/2608.06876v1",
+        "abstract": "In the era of Industrial Internet of Things (IIoT) and Cyber-Physical Systems (CPS), Federated Learning (FL) offers a promising decentralized intelligence paradigm for Video Anomaly Recognition (VAR). This task is vital for maintaining high-fidelity Digital Twins and ensuring safety in mission-critical environments. However, the inherent data heterogeneity across distributed edge clients leads to a fundamental challenge known as semantic misalignment, where clients learn divergent feature representations of \"normal\" and \"abnormal\" events. The problem becomes particularly pronounced in VAR, where the presence of diverse and fine-grained anomaly categories leads each client to develop distinct semantic interpretations of abnormality. Existing federated methods primarily focus on binary anomaly detection and fail to address this misalignment, preventing effective fine-grained recognition. In this paper, we introduce FedVAR, a weakly-supervised FL framework explicitly designed for VAR. Leveraging the rich representations of Vision-Language Models (VLMs), FedVAR employs a prototype-based alignment mechanism that creates a shared semantic anchor for all clients to re-center and align their visual and textual feature spaces. This process enforces a consistent representation of \"normality\" across the decentralized network, directly mitigating semantic misalignment and enabling robust prompt-learning of anomaly direction vectors with minimal communication overhead. We conduct extensive experiments on challenging benchmarks under various non-IID data partitioning schemes, unseen domains, and novel anomaly classes. The results demonstrate that FedVAR consistently outperforms state-of-the-art federated baselines, establishing a robust framework for distributed intelligence in video-based CPS.",
+        "authors": [
+            "Ghani Haider",
+            "Majid Kundroo",
+            "Boyun Eom",
+            "Dong Hwan Park",
+            "Chen Chen",
+            "Taehong Kim"
+        ],
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.06876v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06838v1": {
+        "title": "StateFlow: Sequence Pipeline Parallelism for Long-Context Modeling with Linear Recurrence",
+        "link": "http://arxiv.org/abs/2608.06838v1",
+        "abstract": "Long-context training is increasingly important for large language models, and linear attention and state space models have become popular for improving long-context efficiency. However, efficiently parallelizing long-sequence training for recurrent and hybrid models remains challenging.\n  We present StateFlow, a sequence pipeline parallelism system for models with linear recurrence. StateFlow partitions each sequence into chunks and schedules their execution while propagating boundary states and gradients across chunks, thereby reducing activation lifetimes and improving training throughput. StateFlow further uses profile-guided nonuniform chunking to balance recurrence and softmax attention computation in hybrid models, and overlaps state transitions that expose limited parallelism with surrounding computation. Applying StateFlow to models with up to 32B parameters and 256K context length, we achieve up to \\(2.22\\times\\) throughput improvements and \\(2.45\\times\\) memory reduction compared to conventional pipeline parallelism, enabling otherwise infeasible configurations.",
+        "authors": [
+            "Wenxuan Zhao",
+            "Yingfa Chen",
+            "Xu Han",
+            "Wenjing Han",
+            "Tianbo Huang",
+            "Zhiyu Li",
+            "Ao Sun",
+            "Jingheng Xu",
+            "Lin Gan",
+            "Guangwen Yang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06838v1",
+        "submit_date": "2026-08-07",
+        "relevant": true,
+        "tags": [
+            "training"
+        ],
+        "tldr": "Addresses the challenge of efficiently parallelizing training for linear recurrent models with long sequences. Proposes StateFlow, a sequence pipeline parallelism system that partitions sequences into chunks with state propagation, profile-guided nonuniform chunking, and overlapping. Achieves up to 2.22× throughput improvement and 2.45× memory reduction compared to conventional pipeline parallelism.",
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06812v1": {
+        "title": "DGEMM with Ozaki Scheme I/II on FP4 Tensor Cores: A Base-13 E2M1 Limb Representation",
+        "link": "http://arxiv.org/abs/2608.06812v1",
+        "abstract": "This paper proposes a method and its implementation for emulating FP64 matrix multiplication (DGEMM) by constructing, on FP4 (E2M1; 2 exponent bits and 1 mantissa bit) Tensor Cores, Ozaki schemes I and II, which realize high-precision matrix multiplication on low-precision arithmetic units. Prior implementations were based on INT8 and FP8, and the use of the faster FP4 had not been realized. The key property is that every FP4 value becomes an integer when doubled, and that shifting this integer set by multiples of 13 covers all integers. Converting an arbitrary integer into base-13 FP4 limbs by this property keeps intermediate sums error-free in FP32 accumulators, which makes FP4 Tensor Cores usable for Ozaki schemes I and II. By the same principle, the integer GEMM of INT8 Tensor Cores can also be emulated bit-exactly on FP4 Tensor Cores. When FP4 Tensor Cores have twice the throughput of FP8, Ozaki scheme II on FP4 theoretically achieves slightly higher performance than its FP8 counterpart. This paper further proposes kernel implementation optimizations raising the attained fraction of peak performance, obtaining a measured speedup on top of the theoretical advantage. We verify this on an RTX PRO 6000 Blackwell, achieving performance competitive with that of an existing FP8-based implementation of Ozaki scheme II, and actually exceeding it at a large problem size ($16384^3$).",
+        "authors": [
+            "Shun-ichiro Hayashi",
+            "Daichi Mukunoki",
+            "Tetsuya Hoshino",
+            "Takahiro Katagiri"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06812v1",
+        "submit_date": "2026-08-07",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06763v1": {
+        "title": "CubicQuant: Parametric Non-Uniform Codebooks for High-Throughput LLM Inference with 1-8-Bit Weights",
+        "link": "http://arxiv.org/abs/2608.06763v1",
+        "abstract": "Weight quantization for large-language-model inference must balance adaptive reconstruction levels with representations regular enough for efficient GPU execution. Uniform integers constrain each group to a linear grid. Low-bit floating-point formats use a fixed exponent-mantissa structure, while learned codebooks gain flexibility at the cost of irregular decoding and additional metadata.\n  We introduce CubicQuant, a parametric non-uniform scalar format that preserves a dense integer code stream while adapting reconstruction levels within each weight group. A monotonic cubic curve, specified by two shape parameters and one scale, maps uniformly spaced magnitude codes to non-uniform levels. The family spans 1-8-bit weight payloads, contains symmetric uniform integer quantization as an exact special case, and has effective width B + 64/G bits per weight for payload width B and group size G. We derive population distortion under Uniform, Gaussian, and Laplace distributions, formulate continuous and Dynamic-A8-carrier-aware fitting objectives, and describe direct packed-weight GPU execution.\n  For finite groups of G=128 with 15,360 samples per distribution, W4 CubicQuant reduced reconstruction RMSE relative to optimally clipped four-bit uniform integer quantization by 3.90% on Uniform, 13.49% on Gaussian, and 28.14% on Laplace samples. Relative to the best enumerated four-bit finite floating-point format, the reductions were 3.90%, 9.44%, and 6.27%. Preliminary H200 kernel measurements show a workload-dependent crossover: model-dtype execution is faster for narrow GEMV, while Dynamic A8 becomes favorable as row count grows. The results establish the format's representational promise and direct executability; downstream model quality and cross-device end-to-end performance remain open evaluation questions.",
+        "authors": [
+            "Xuetian Gao"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06763v1",
+        "submit_date": "2026-08-07",
+        "relevant": true,
+        "tags": [
+            "quantization",
+            "serving"
+        ],
+        "tldr": "Proposes CubicQuant, a parametric non-uniform quantization format for LLM weights, enabling flexible levels via cubic mapping while preserving dense integers for GPU efficiency. Achieves up to 28.14% lower RMSE on Laplace samples versus uniform quantization with G=128.",
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06629v1": {
+        "title": "MARS: A Monte Carlo Tree Search-based Adaptive and Responsive Scheduler",
+        "link": "http://arxiv.org/abs/2608.06629v1",
+        "abstract": "Modern High Performance Computing systems depend on static heuristics and manual administration for job scheduling and reservation management. Deep Reinforcement Learning (DRL) has shown promising scheduling performance but requires historical training data and fixes the optimization goal at training time, forcing operators to retrain whenever priorities shift. We introduce MARS (Monte Carlo Tree Search-based Adaptive and Responsive Scheduler), a training-free HPC scheduler whose optimization goal is configurable through a reward function rather than baked into a learned model. MARS uses a lightweight discrete-event simulator to explore the future consequences of scheduling decisions within a strict time budget, adapting to the configured reward at each scheduling cycle. We evaluate MARS on year-long production workloads from two systems at Argonne Leadership Computing Facility -- 4,360-node Theta and 560-node Polaris---under two reward functions: wait-time minimization (MARS-CW) and utilization maximization (MARS-CU). Unlike DRL and heuristics, which only react to the current queue or wait for backfill to find holes, MARS exploits look-ahead to proactively drain the system and plan around future reservations, packing the system to avoid the fragmentation and utilization drop that typically precede reservation windows. MARS-CW reduces tail wait time by 64% on Theta and 43% on Polaris over the production WFP heuristic, while MARS-CU recovers utilization in the 48 hours leading into maintenance, demonstrating that MARS can target either objective via reward reconfiguration.",
+        "authors": [
+            "Yash Kurkure",
+            "Yihe Zhang",
+            "Zhiling Lan",
+            "Michael E. Papka"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06629v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06557v1": {
+        "title": "Cascade: Exploiting SLO-Aware latency budget for fair and high goodput LLM inference serving",
+        "link": "http://arxiv.org/abs/2608.06557v1",
+        "abstract": "The reasoning and agentic capabilities of large language models have expanded the range of applications they support, from short interactive exchanges to long, compute-heavy requests. LLM serving platforms today define response-latency service-level objectives, even though requests within the same service can differ by orders of magnitude in input length, generation length, execution cost, and the availability of reusable KV-cache state. As a result, requests governed by the same service level objective have different urgency: after accounting for the time required to execute them, some have substantial latency headroom while others have almost none. We define this headroom---the difference between a request's service level objective and its predicted remaining service time---as its per-request latency budget.\n  We present Cascade, an LLM serving system that estimates and continuously updates this budget from request characteristics, KV-cache state, and current system load. Unlike prior SLO-aware schedulers that use deadlines to govern request ordering alone, Cascade uses a single per-request budget to jointly coordinate request scheduling and KV-cache management across the memory hierarchy. Its scheduler prioritizes requests with little remaining budget, while its memory manager uses the same budget to decide whether non-resident KV state should be restored or prefetched from a deeper tier, retained in HBM, or recomputed. By directing queueing and data-movement overhead toward requests that can absorb it, Cascade improves SLO-satisfied goodput while preserving fairness across heterogeneous request classes. On production traces across three large language models, Cascade improves goodput by up to2.4x and reduces SLO violations by 40% relative to the default vLLM first-come, first-served scheduler.",
+        "authors": [
+            "Muhammad Adnan",
+            "Rohan Mahapatra",
+            "Prashant J. Nair",
+            "Daniel Berger",
+            "Pantea Zardoshti",
+            "Rodrigo Fonseca",
+            "Esha Choukse"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.06557v1",
+        "submit_date": "2026-08-06",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Cascade introduces a per-request latency budget to jointly optimize scheduling and KV-cache management in LLM serving. It prioritizes urgent requests and intelligently manages KV state across memory tiers. Achieves up to 2.4x higher goodput and 40% fewer SLO violations than vLLM.",
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06482v1": {
+        "title": "Rendezvous of Mobile Deterministic Automata in Graphs",
+        "link": "http://arxiv.org/abs/2608.06482v1",
+        "abstract": "Two mobile agents, modeled as identical deterministic finite automata (DFA) navigating in synchronous rounds in a graph with unlabeled nodes, have to meet at some node. The well-researched task of meeting in a graph is known as rendezvous. Agents start at adversarially chosen distinct nodes in possibly different rounds. An instance of the rendezvous problem is the underlying graph, together with the initial nodes $u$ and $v$ of the agents. Such an instance is feasible, if there exists a DFA (possibly working only for this instance), such that its identical copies starting at nodes $u$ and $v$, with an arbitrary delay, accomplish rendezvous. A DFA is RV-universal for a class of instances, if it guarantees rendezvous of its copies starting at the designated nodes with arbitrary delay, for all feasible instances of this class. Our goal is to investigate the existence of RV-universal DFA.\n  We start by observing that if agents cannot mark nodes in any way then there does not exist a RV-universal DFA even for the class of instances where the underlying graph is a line. Hence we allow the use of identical pebbles to mark the nodes by the agents. We consider stationary pebbles that can be dropped by agents at nodes but cannot be picked up, and movable pebbles that can be dropped by agents and later picked up. We observe that, even in the more powerful scenario of movable pebbles, if agents are equipped with any finite number of pebbles, there is no RV-universal DFA for the class of all instances. Hence we restrict attention to instances where the underlying graph is a tree. Our main contribution are two contrasting results showing that movability of pebbles is a crucial feature. We first prove that for any finite number of stationary pebbles there is no RV-universal DFA for trees, and then we design a RV-universal DFA for trees, where each agent is equipped with a single movable pebble.",
+        "authors": [
+            "Bibhuti Das",
+            "Andrzej Pelc"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06482v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
+    },
+    "http://arxiv.org/abs/2608.06441v1": {
+        "title": "SNI-GNN: SmartNIC-Assisted Full-Graph GNN Training with In-Network Embedding Prediction",
+        "link": "http://arxiv.org/abs/2608.06441v1",
+        "abstract": "Full-graph GNN training delivers high accuracy but scales poorly on multi-server clusters due to heavy, irregular inter-node embedding exchanges. We present SNI-GNN, a SmartNIC-assisted full-graph training system that reduces communication while preserving accuracy by predicting remote embeddings in-network. SNI-GNN deploys a lightweight linear-trend predictor on SmartNICs to refine cached historical embeddings, coupled with an importance-based boundary-node sampling policy and an asynchronous DPU--GPU data pipeline with intermediate-result reuse. We provide error and convergence bounds showing that predictor bias remains controlled under bounded second-order dynamics and yields standard non-convex convergence with inexact gradients. Implemented on NVIDIA BlueField-3, SNI-GNN integrates with state-of-the-art full-graph systems, cuts communication by 21--45\\%, achieves 1.3--3.6$\\times$ end-to-end speedups over BNS-GCN and up to 1.29$\\times$ over baseline SANCUS, with accuracy loss $\\leq 0.01$, and scales efficiently to 16 GPUs on graphs with up to tens of millions of edges. These results indicate SmartNIC-based in-network prediction is a practical complement to partitioning and compression techniques for communication-efficient full-graph GNN training at scale.",
+        "authors": [
+            "Guofan Yu",
+            "Sitian Chen",
+            "Zhenheng Tang",
+            "Xiaowen Chu",
+            "Amelie Chi Zhou"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.06441v1",
+        "submit_date": "2026-08-06",
+        "relevant": false,
+        "indexed_date": "2026-08-10"
     }
 }

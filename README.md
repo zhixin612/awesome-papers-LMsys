@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2949-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.07-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2953-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-10
+* `serving` `offloading` `kernel` [HiSparse: Scaling Sparse-Attention Decoding with Hierarchical KV Cache Management](http://arxiv.org/abs/2608.07009v1)
+  > **TL;DR**: HiSparse addresses KV cache memory overflow in sparse-attention decoding with hierarchical management: full context in host memory, small GPU cache, and fused CUDA kernel for efficient selection resolution. Achieves up to 4.7x higher throughput on long-context workloads.
+* `training` [StateFlow: Sequence Pipeline Parallelism for Long-Context Modeling with Linear Recurrence](http://arxiv.org/abs/2608.06838v1)
+  > **TL;DR**: Addresses the challenge of efficiently parallelizing training for linear recurrent models with long sequences. Proposes StateFlow, a sequence pipeline parallelism system that partitions sequences into chunks with state propagation, profile-guided nonuniform chunking, and overlapping. Achieves up to 2.22× throughput improvement and 2.45× memory reduction compared to conventional pipeline parallelism.
+* `quantization` `serving` [CubicQuant: Parametric Non-Uniform Codebooks for High-Throughput LLM Inference with 1-8-Bit Weights](http://arxiv.org/abs/2608.06763v1)
+  > **TL;DR**: Proposes CubicQuant, a parametric non-uniform quantization format for LLM weights, enabling flexible levels via cubic mapping while preserving dense integers for GPU efficiency. Achieves up to 28.14% lower RMSE on Laplace samples versus uniform quantization with G=128.
+* `serving` `offloading` [Cascade: Exploiting SLO-Aware latency budget for fair and high goodput LLM inference serving](http://arxiv.org/abs/2608.06557v1)
+  > **TL;DR**: Cascade introduces a per-request latency budget to jointly optimize scheduling and KV-cache management in LLM serving. It prioritizes urgent requests and intelligently manages KV state across memory tiers. Achieves up to 2.4x higher goodput and 40% fewer SLO violations than vLLM.
+
 ### 2026-08-07
 * `serving` `networking` [Routing LLM Inference to the Cleanest Grid in Real Time](http://arxiv.org/abs/2608.06188v1)
   > **TL;DR**: Investigates how to reduce carbon emissions of LLM inference via spatial routing. Proposes real-time, MOER-driven request placement across grid regions, validated in multi-region GPU testbeds. Achieves 50.9% lower operational emissions versus round-robin in modeled replay.
