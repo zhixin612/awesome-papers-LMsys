@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2953-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2966-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-11
+* `serving` [Depth-adaptive Inference of Looped Language Models via Continuous Depth Batching](http://arxiv.org/abs/2608.09444v1)
+  > **TL;DR**: Introduces continuous depth batching (CDB) for efficient adaptive-depth inference in looped LMs, scheduling loop iterations and boundary stages in separate queues with ahead exit decisions. Achieves up to 99% of theoretical speed-up, 1.5-1.9× higher offline throughput, and 45-90% lower latency under dynamic serving.
+* `edge` `sparse` `quantization` [UnionSparse: An Index-Efficient Sparsity Framework for Low-Bit Sparse LLM Inference on Edge](http://arxiv.org/abs/2608.09291v1)
+  > **TL;DR**: Addresses inefficiencies in low-bit sparse LLM inference on edge devices caused by sparse metadata overhead. Introduces UnionSparse framework with index-efficient bitmap encoding and a shared-memory parallel SpMM kernel. Achieves up to 3.46x speedup over cuBLAS Tensor Core under W4A4 quantization.
+* `kernel` `training` [SwiftQK: Fast and Communication-Efficient Tensor Parallelism for Query-Key Normalization](http://arxiv.org/abs/2608.09160v1)
+  > **TL;DR**: Mitigates communication bottlenecks in Tensor Parallelism (TP) for Query-Key Normalization (QK-Norm) during LLM training. Introduces SwiftQK, a multi-GPU RMSNorm kernel that exchanges scalars and overlaps peer-to-peer reduction with computation. Achieves 81.4-93.9% lower QK-Norm latency than All-Gather TP baseline.
+* `serving` `kernel` [Measuring and Reducing WebGPU Dispatch Overhead for LLM Inference](http://arxiv.org/abs/2608.08730v1)
+  > **TL;DR**: Measures WebGPU dispatch overhead for LLM inference and identifies it as the primary bottleneck at batch size 1. Proposes reducing dispatch count via amortization for optimization. Shows overhead is data-type invariant through sequential dispatch measurements.
+* `hardware` `networking` `serving` [C2C-Explorer: An Exploration Framework for Chip-to-Chip Interconnect Architectures in LLM Cloud Computing Systems](http://arxiv.org/abs/2608.08611v1)
+  > **TL;DR**: Proposes C2C-Explorer, a Bayesian framework for chip-to-chip interconnect co-design in LLM systems with workload-driven traffic generation and scalable simulation. Achieves 44.1% higher goodput for DeepSeek inference.
+* `MoE` `serving` `storage` [FlashBoot: Sub-Second Weight Loading for Large Models at Rack Scale](http://arxiv.org/abs/2608.08482v1)
+  > **TL;DR**: Addresses slow weight loading delay in elastic MoE deployments. Designs FabricArena for contiguous memory and FlashClone for zero-setup remote replication. Achieves >270x faster concurrent rack-scale loading (0.32s vs 87s).
+* `networking` [PSP: Low-Overhead Packet-Level Load Balancing for Stale-State and Bandwidth-Asymmetric Networks](http://arxiv.org/abs/2608.08425v1)
+  > **TL;DR**: Addresses packet-level load balancing to mitigate congestion and tail latency in AI data center networks. Proposes probabilistic state-proportional (PSP) dispatching with band-based discrete states and local probability mapping. Outperforms JSQ and Random in loss rate and 99th-percentile buffer occupancy.
+* `serving` [LLMVisor: A Real-Time Latency Attribution Model for Multi-Tenant LLM Serving](http://arxiv.org/abs/2608.08382v1)
+  > **TL;DR**: Proposes LLMVisor, a roofline-guided latency attribution model for multi-tenant LLM serving to decompose batch latency per-request. Uses piecewise-linear modeling of FLOPs and memory I/O. Achieves up to 4.4x lower relative error at p99 for decode phases.
+* `RAG` `serving` [OpRAG: A Resource-Deterministic Runtime for GPU-Backed Multi-Stage RAG Workflows](http://arxiv.org/abs/2608.08340v1)
+  > **TL;DR**: Proposes OpRAG, a distributed runtime for RAG workflows that models stages as operators and uses Arrow zero-copy, prefetching, batching, and overlapped execution. Achieves up to 59.62% retrieval latency reduction and 53.55% generation latency reduction in query serving with 100% recall.
+* `RAG` `serving` [SAGE: SLO-Aware Adaptive Retrieval for Production RAG Systems](http://arxiv.org/abs/2608.08237v1)
+  > **TL;DR**: Addresses meeting strict SLOs on tail latency and cost in production RAG systems with variable query difficulty. Proposes SAGE, an adaptive retrieval policy using lightweight features and imitation learning to set passage count per query. Achieves 95% SLO compliance (vs 30%), 36% lower P95 latency, 51% cost reduction with 2% EM loss.
+* `offloading` `serving` [OasisKV: Scaling In-Decode KV Cache Beyond HBM with Lookahead Sparse Prefetching](http://arxiv.org/abs/2608.08097v1)
+  > **TL;DR**: Addresses KV cache memory bottleneck in LLM decoding. Proposes OasisKV with lookahead sparse prefetching to offload non-critical tokens to higher-capacity memory, staged via attention pipeline. Achieves 2.1x throughput gain over dense vLLM with 6.5-9.7x less KV cache usage.
+* `training` [ZeroLock: Concurrent Memory-Efficient LLM Training via Modular Update Decoupling](http://arxiv.org/abs/2608.07974v1)
+  > **TL;DR**: Proposes ZeroLock, a BP-free algorithm for LLM fine-tuning at the edge, using local objective construction to decouple updates. This reduces activation storage and enables concurrent training. Achieves 26.5% memory reduction and 4.9% higher throughput compared to backpropagation-based methods.
+* `training` `offline` `scaling` [ElastiCo: Elastic Configuration and Interference-Aware Orchestration for GPU Clusters](http://arxiv.org/abs/2608.07971v1)
+  > **TL;DR**: Addresses GPU underutilization from rigid allocations in clusters running deep learning training and offline LLM inference. Introduces ElastiCo with resource shape transformation, elastic shadow pricing, and interference-aware co-location for elastic GPU sharing. Increases cluster throughput by 2.02x and average GPU utilization from 25% to 46%.
+
 ### 2026-08-10
 * `serving` `offloading` `kernel` [HiSparse: Scaling Sparse-Attention Decoding with Hierarchical KV Cache Management](http://arxiv.org/abs/2608.07009v1)
   > **TL;DR**: HiSparse addresses KV cache memory overflow in sparse-attention decoding with hierarchical management: full context in host memory, small GPU cache, and fused CUDA kernel for efficient selection resolution. Achieves up to 4.7x higher throughput on long-context workloads.
