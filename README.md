@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2966-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2974-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-12
+* `serving` `RL` `offloading` [Scheduling Mixed RL Rollouts Beyond Prefix Locality](http://arxiv.org/abs/2608.11152v1)
+  > **TL;DR**: Addresses scheduling for heterogeneous RL rollouts (RLHF, RLVR, agentic) in shared inference services. Proposes MISA-T, a routing-layer policy with adaptive admission and KV-capacity allocation. Improves rollout throughput by 53.3% and reduces mean iteration time by 22.8% over baselines.
+* `training` `scaling` [SCOUT: Symmetric Consensus Outlier Detection for Failure Localization in LLM Pre-Training](http://arxiv.org/abs/2608.11034v1)
+  > **TL;DR**: Addresses failure localization in distributed LLM pre-training where synchronization obscures root causes. Proposes SCOUT, using consensus-based outlier detection (C3) to identify rank-level discrepancies during runtime. Maintains out-of-band observability during hangs and certifies checkpoint integrity to enhance training stability.
+* `serving` `kernel` [Measuring and Reducing WebGPU Dispatch Overhead for LLM Inference](http://arxiv.org/abs/2608.08730v2)
+  > **TL;DR**: Profiles WebGPU dispatch overhead as latency bottleneck for browser-based LLM inference at small batches. Introduces sequential-dispatch measurement method correcting synchronization confounds. Proves dispatch count reduction is more critical than kernel optimization for performance, guiding engine/specification improvements.
+* `agentic` `networking` `scaling` [Conversational Orchestration for Organic 6G](http://arxiv.org/abs/2608.10714v1)
+  > **TL;DR**: Addresses cross-domain orchestration in 6G networks with dynamic domain churn. Proposes a decentralized framework of LLM-driven agents that exchange summaries via A2A overlay and use reachability advertisements for placement. Achieves near-linear overhead scaling during domain joins and robust recovery after objective changes.
+* `edge` `networking` `serving` [ImpactHO: Importance-Aware KV Cache Transfer for Multi-User Edge LLM Handover](http://arxiv.org/abs/2608.10545v1)
+  > **TL;DR**: Addresses how to maintain inference continuity in edge LLM serving during multi-user handover with limited backhaul. Proposes importance-aware KV cache ordering and a convex water-filling allocator. Achieves >93.7% accuracy within 0.5pp of full-cache in a 500ms window.
+* `training` `RL` `agentic` [TideRL: Boosting Agentic RL Goodput with Readiness-Aware Scheduling](http://arxiv.org/abs/2608.10402v1)
+  > **TL;DR**: Addresses low training goodput in agentic RL due to pauses and recomputation. Proposes TideRL with readiness-aware elastic scheduling, Continuous Task Batching, and Ref-Actor pipelining to preserve rollout state and reduce overhead. Improves RL training goodput by 5.6× and KV cache hit rate by 1.58×.
+* `kernel` `quantization` [Hand-Written PTX Tensor-Core GEMM Kernels: A Multi-Precision Study on NVIDIA L4](http://arxiv.org/abs/2608.10103v1)
+  > **TL;DR**: Compares hand-written PTX Tensor Core GEMM kernels with WMMA API on NVIDIA L4. Achieves 1.4x-1.8x speedup for INT8 and 2.9x-4.3x for INT4 by reducing instruction counts and avoiding software emulation, with performance driven by memory-system behavior.
+* `edge` `serving` `offloading` [MemSpec: Memory-Aware Runtime for Adaptive Draft Scheduling in Speculative Decoding on Edge Devices](http://arxiv.org/abs/2608.10362v1)
+  > **TL;DR**: Addresses high draft model switching overhead in adaptive speculative decoding under edge memory constraints. Proposes MemSpec, a runtime with prediction-guided draft selection and proactive working-set management. Achieves 40.7% higher throughput than state-of-the-art adaptive methods on Jetson Orin Nano.
+
 ### 2026-08-11
 * `serving` [Depth-adaptive Inference of Looped Language Models via Continuous Depth Batching](http://arxiv.org/abs/2608.09444v1)
   > **TL;DR**: Introduces continuous depth batching (CDB) for efficient adaptive-depth inference in looped LMs, scheduling loop iterations and boundary stages in separate queues with ahead exit decisions. Achieves up to 99% of theoretical speed-up, 1.5-1.9× higher offline throughput, and 45-90% lower latency under dynamic serving.
