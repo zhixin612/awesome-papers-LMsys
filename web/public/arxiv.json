@@ -152128,5 +152128,219 @@
         ],
         "tldr": "Addresses high draft model switching overhead in adaptive speculative decoding under edge memory constraints. Proposes MemSpec, a runtime with prediction-guided draft selection and proactive working-set management. Achieves 40.7% higher throughput than state-of-the-art adaptive methods on Jetson Orin Nano.",
         "indexed_date": "2026-08-12"
+    },
+    "http://arxiv.org/abs/2608.12146v1": {
+        "title": "RoutePack: Expert Placement and Attention-Aware Data Packing for MoE Reinforcement Learning",
+        "link": "http://arxiv.org/abs/2608.12146v1",
+        "abstract": "Training Mixture-of-Experts (MoE) models for reinforcement learning (RL) couples two load-balancing problems: sequence composition determines dense attention work in each data-parallel microbatch, while token routing determines sparse expert work on expert-parallel ranks. Optimizing either alone can shift the bottleneck to the other. In MoE RL, rollout-time routing replay exposes every sample's sequence length and layer-wise expert demand before its training step. We present RoutePack, a hierarchical planner that coordinates state-consistent, layer-wise expert rerouting with joint attention- and expert-aware data packing over an optimizer-step window. RoutePack first places experts independently at each MoE layer using aggregate routing demand. It then packs samples into the smallest certified, or best-known feasible, number of token-capped execution rows and optimizes their DP layout with a projected EDP-shard-aware objective. The objective combines a window-normalized linear-quadratic attention proxy with per-layer physical EP-rank peaks and minimizes the accumulated cost of the slowest EDP shard. Parallel population annealing searches fixed-row feasible layouts while preserving sample coverage, capacity, nonempty cells, equal microbatch counts, and communicator topology. State-consistent materialization preserves logical top-k routing and existing MoE kernels without microbatch-level expert replication. Across Ling-3.0-Tiny and Ling-3.0-Flash, expert rerouting improves mean trainer-measured token throughput by 3.80% and 10.50%, while routing-aware packing adds another 4.86% and 3.98%, respectively. Overall, RoutePack improves throughput by 8.85% and 14.89% over the baseline.",
+        "authors": [
+            "Yibo Shen",
+            "Xudong Han",
+            "Xiaowei Zhu",
+            "Gen Li",
+            "Zhenxuan Pan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.12146v1",
+        "submit_date": "2026-08-12",
+        "relevant": true,
+        "tags": [
+            "training",
+            "MoE",
+            "RL"
+        ],
+        "tldr": "Addresses training bottlenecks in MoE RL models from imbalanced attention and expert work. Proposes RoutePack, coordinating expert rerouting and data packing to minimize EDP shard costs. Achieves up to 14.89% higher token throughput over baseline.",
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.12123v1": {
+        "title": "Ready Cohorts: Bounding GPU Opportunity and Avoiding Host Round Trips in LLM-Agent Control",
+        "link": "http://arxiv.org/abs/2608.12123v1",
+        "abstract": "LLM-agent services repeatedly execute small deterministic transitions between model and tool calls: route an outcome, update state, and emit the next effect. We ask when this control path exposes enough concurrent work for GPU execution, and what changes when a GPU-computed route decision remains on device. We formalize the ready-cohort boundary using fixed-partition share F, exact offline share P*, local upper bound U, and online achieved share A. Under zero service time, unlimited capacity, and equal relative launch deadlines, a specialized dynamic program computes P* exactly. In a stationary Poisson replay of one pinned 851-session public trace panel, the primary condition at 100,000 target active sessions, K=256, and a 50 ms launch deadline gives F=30.19%, P*=43.00%, and U=45.85%. Exact packing recovers 81.83% of the opportunity lost at fixed window boundaries. The outcome-derived route key is a conditioning proxy, not proof of executable identity. A separate mechanism study keeps a GPU-computed binary decision on device instead of returning four bytes to the host and redispatching. Across four named GPU placements, the device-resident path is faster in all 36 configurations; within-placement row-median ratios range from 1.19x to 2.39x. Across both admissible mechanisms, all 14,557,440 tested batched invocations match a separately implemented host oracle. A fixed nested device graph that removes no host decision is slower in all 60 configurations across five placements. Together, the studies establish two measurable gates for GPU agent control: deadline-feasible cohort supply and observation placement. A joined finite online runtime is required to measure A, CPU displacement, and service-level benefit.",
+        "authors": [
+            "Josef Liyanjun Chen"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.12123v1",
+        "submit_date": "2026-08-12",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic",
+            "kernel"
+        ],
+        "tldr": "Investigates GPU utilization and host round-trip reduction in LLM-agent control. Formalizes ready-cohort boundaries for GPU batching and a device-resident path to avoid data transfer. Achieves 81.83% opportunity recovery in cohort packing and 1.19x-2.39x speedups in device-resident decisions.",
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.11882v1": {
+        "title": "Evaluating OpenMP Offloading for Intra-node Multi-GPU Programming across NVIDIA, AMD, and Intel Architectures: A 3D Heat Transfer Case Study",
+        "link": "http://arxiv.org/abs/2608.11882v1",
+        "abstract": "Currently, most supercomputers are equipped with GPUs from manufacturers such as NVIDIA, AMD, or Intel, which provide substantial parallelism and high throughput. It is common for a single compute node (intra-node) to host multiple GPUs, typically four or more. Therefore, effectively leveraging all these GPUs within a single compute node is essential for applications in scientific and engineering domains. However, several factors must be considered before utilizing these GPUs for scientific computing, including the implementation of data communication, the programming models available for use across these GPUs, and the level of performance that can be achieved with a single codebase across different GPU architectures and configurations within a single compute node. OpenMP Offloading is a prominent directive-based programming model that can be executed on all three GPU types: NVIDIA, AMD, and Intel. In this research, we present an analysis of the benefits and performance challenges of using OpenMP Offloading to address the 3D heat equations, which involve both primary computation, as well as halo computation and communication. We investigate how performance varies in relation to native GPU programming models--CUDA for NVIDIA, HIP for AMD, and SYCL for Intel. Furthermore, we demonstrate that OpenMP Offloading can achieve performance improvements of approximately 2x for 2 GPUs and around 4x for 4 GPUs when compared to single-GPU OpenMP Offloading implementations across all three GPU types. This analysis is conducted systematically through various OpenMP Offloading implementations that utilize different low-level APIs for memory allocation, memory transfer options (synchronous, asynchronous, and peer-to-peer), and other native GPU programming models such as CUDA (NVIDIA), HIP (AMD), and SYCL (Intel)",
+        "authors": [
+            "Ezhilmathi Krishnasamy"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.11882v1",
+        "submit_date": "2026-08-12",
+        "relevant": false,
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.11840v1": {
+        "title": "User-Assisted Collaborative Distributed Inference for Efficient QoS-Aware Autoscaling",
+        "link": "http://arxiv.org/abs/2608.11840v1",
+        "abstract": "Growing demand for artificial intelligence (AI) inference services requires scalable infrastructure, yet centralized serving costs rise with demand. We propose a collaborative distributed inference system combining dedicated infrastructure with resources contributed by service users. Dedicated resources provide baseline capacity for maintaining quality of service (QoS), while volunteered resources absorb increasing demand without proportional growth in centralized infrastructure. To capture stochastic and dynamic interactions among users, resources, tasks, and policies, we develop a high-dimensional generative Markov model with structured temporal factorization. The model supports simulation and provides a foundation for task scheduling and QoS-aware resource allocation optimization. We evaluate the system across user populations, resource capacities, and centralized and distributed scheduling policies. Simulations show that distributed scheduling becomes increasingly advantageous as the user population grows, improving request completion and P99 latency while substantially reducing dedicated resource consumption. These results demonstrate the feasibility of user-assisted collaborative inference for infrastructure-efficient autoscaling.",
+        "authors": [
+            "Alfreds Lapkovskis",
+            "Ali Beikmohammadi",
+            "Sindri Magnússon",
+            "Praveen Kumar Donta"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG",
+            "cs.NI",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2608.11840v1",
+        "submit_date": "2026-08-12",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "edge",
+            "scaling"
+        ],
+        "tldr": "Proposes a collaborative distributed inference system combining dedicated and user resources for efficient AI serving. Uses a generative Markov model for scheduling and QoS-aware resource allocation. Simulations show improved request completion, P99 latency, and substantial reduction in dedicated resource consumption.",
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.11836v1": {
+        "title": "Enabling Differentiated QoS Degradation for Replicated Databases under Failures",
+        "link": "http://arxiv.org/abs/2608.11836v1",
+        "abstract": "Elasticity is commonly presented as the default response to capacity loss after failures, since replacement replicas can compensate for failed nodes and restore pre-incident service levels. Replacement capacity entails both delay and additional resource commitment, as replicas must be provisioned and synchronized before they can serve traffic. Under fixed budgets or constrained operating conditions, capacity restoration cannot be treated as the immediate recovery path. Failure handling must instead define how the service continues while capacity remains reduced. When the service exposes differentiated service levels, capacity loss cannot be handled uniformly. Degradation becomes part of the service behavior, requiring explicit control over how reduced capacity affects each class without erasing the intended differentiation.  We study differentiated QoS degradation in replicated database services with service-class-aware sessions. We present a repair-to-target policy, implemented in PLB, a PostgreSQL JDBC middleware load balancer for service-class-aware routing. When fail-stop failures remove part of the available capacity, PLB updates the role assignment of healthy replicas into Premium, Mixed, and Freemium roles. This keeps the replica pool shared while ensuring that new session assignments continue to reflect the service class. We evaluate PLB under single and cascading replica failures across two deployment strategies: isolated perclass replica pools and shared, priority-agnostic routing. The results show that PLB improves median Premium goodput retention by 26-28 percentage points under a Premium-side fault, achieves more than 2x higher Premium goodput in the most severe cascading-failure phase, and reduces Premium p95 latency by 18.2% relative to shared round-robin.",
+        "authors": [
+            "Belkis Djeffal",
+            "Pierre Bourhis",
+            "Romain Rouvoy"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.11836v1",
+        "submit_date": "2026-08-12",
+        "relevant": false,
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.11770v1": {
+        "title": "Achieving Near-Zero-Overhead Multi-Model Hierarchical Classification in Real-Time Detection Pipelines",
+        "link": "http://arxiv.org/abs/2608.11770v1",
+        "abstract": "Edge-deployed vision systems in target recognition, surveillance, autonomous vehicles, and drone domains require hierarchical inference pipelines where a detection model identifies objects of interest and downstream classifiers provide fine-grained attribute analysis. Running all models on the GPU creates a serial bottleneck that limits real-time throughput as pipeline stages grow. Modern edge SoCs pair GPUs with dedicated neural accelerators (NPUs, DLAs) capable of concurrent execution, yet deploying custom models on these accelerators remains impractical due to strict operator constraints, quantization incompatibilities, and an undocumented end-to-end pipeline. We target NVIDIA Jetson DLA cores as the representative platform. We present a five-step methodology for zero GPU fallback DLA INT8 deployment of classification backbones, comprising architecture adaptation, manual dynamic range workaround to rescue TensorRT's implicit quantization (recovering 94.0% accuracy from implicit quantization's 75%) for rapid pipeline validation before explicit quantization, quantization-aware training, ONNX graph surgery for DLA compilation, and a concurrent GPU-detection/DLA-classification inference pipeline. We document nine engineering constraints with root-cause analysis and generalizable solutions. Validation on a dual-head person attribute classifier running on DLA alongside a GPU object detector on a Jetson Orin NX demonstrates near-zero pipeline overhead (12.5 vs. 13.3~FPS detector-only at 1080p), with dual-DLA scaling at no additional cost. The methodology is backbone-agnostic and generalizes to any detection-classification edge pipeline.",
+        "authors": [
+            "Vaishnav Raju"
+        ],
+        "categories": [
+            "cs.CV",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.11770v1",
+        "submit_date": "2026-08-12",
+        "relevant": false,
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.11524v1": {
+        "title": "Descriptive Dispatch of Computational Work",
+        "link": "http://arxiv.org/abs/2608.11524v1",
+        "abstract": "Agents powered by AI/ML are becoming ingrained in orchestration. Dispatch of work is the task of receiving a request, transforming it for a workload manager, and successfully submitting it. Running scientific workflows across multi-cluster environments introduces substantial challenges of dynamic job transformation, dispatch, and submission to heterogeneous clusters. These tasks are well-suited to agents, which can receive textual instructions for work, prepare job specifications, and dispatch. In this work, we assess the reliability of a dispatch agent across 432 runs, testing all possible combinations of five feature dimensions across four prompt styles. The agent is highly reliable (97.9% success). We test a full orchestration to submit, queue, match, score, select, transform, and dispatch in a multi-cluster experiment. We find that descriptive metadata increases successful execution from 48% to 87% of 220 submitted jobs, eliminating architecture mismatch, and improving performance for five of ten measurable applications by up to 3.3x.",
+        "authors": [
+            "Vanessa Sochat",
+            "Daniel Milroy"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.11524v1",
+        "submit_date": "2026-08-12",
+        "relevant": false,
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.11402v1": {
+        "title": "An Event-Driven Cloud-Native Wearable Analytics Framework for Real-Time Clinical Workloads",
+        "link": "http://arxiv.org/abs/2608.11402v1",
+        "abstract": "Continuous physiological monitoring using consumer-grade wearables offers a transformative opportunity for clinical care and research, yet integration remains hindered by device heterogeneity, proprietary data formats, and strict regulatory requirements. We present an event-driven, cloud-native system designed to ingest, normalize, and analyze high-frequency vital signs from wearables at scale and without vendor lock-in. The system design proposes a multi-layered microservice architecture using cluster orchestration. Data acquisition is handled via a cross-platform mobile application that leverages native health frameworks, ensuring compatibility across fragmented device ecosystems. To address interoperability, we implement an event-driven transformation pipeline using stream processing engines and specialized services to map raw measurements to the FHIR standard for medical interoperability. Our novel dependency-aware FHIR minimization scheme reduces storage overhead while maintaining lossless resource reconstruction. Furthermore, the platform integrates a modular data analytics and machine learning layer based on a medallion lakehouse architecture, supporting the full machine learning lifecycle from real-time stream processing to model serving. Performance evaluation demonstrates that the ingestion pipeline sustains 50 full ingestion requests per second with median response times under 8 ms, satisfying the low-latency requirements for real-time patient monitoring. Our open-source implementation adheres to regulatory compliance standards through role-based access control and secure service-to-service communication, providing a robust foundation for deploying wearable-based monitoring in institutional healthcare settings for clinical decision support and research workloads.",
+        "authors": [
+            "Elias Grünewald",
+            "Daniil Cherepko",
+            "Linus Gustafsson",
+            "Jakob Möhler",
+            "Oskar Rabe",
+            "Paul Robin Reichelt",
+            "Constantin Stahl",
+            "Lukasz Sztukiewicz",
+            "Louis Agha-Mir-Salim",
+            "Felix Balzer"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.11402v1",
+        "submit_date": "2026-08-11",
+        "relevant": false,
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.12114v1": {
+        "title": "The Ingestion Tax: Adopting File-Backed Weights in Tensor Frameworks",
+        "link": "http://arxiv.org/abs/2608.12114v1",
+        "abstract": "Open-weight models can occupy a middle capacity regime: active weights fit in DRAM as cached file pages, but a second framework-owned representation does not fit or must be refilled as layers run, so low-batch decode rereads the weights every token. On integrated and coherent-memory systems the checkpoint's file pages already occupy a GPU-readable domain, yet accelerator-loading paths still copy them into framework-owned allocations. We call this the ingestion tax: the OS holds the bytes as clean, evictable file pages, the architecture makes them GPU-readable, and only the framework's ownership model stands between the two.\n  We present file-backed weight adoption: a framework-independent producer maps each tensor with MAP_SHARED, wraps the pages as a no-copy GPU buffer, and exports a DLPack capsule that PyTorch or MLX imports as ordinary storage. Zero-copy import alone is not enough: a randomized factorial establishes a three-part execution contract - read the mapping, keep activations accelerator-resident, order on the GPU; a bolt-on extension forfeiting the last two runs 2.3x slower than stock. Under the contract, adoption removes the tax at no rate cost: 516 GB/s where default constructors reach 53-82, at parity with the same kernel over resident storage ([-0.66%, +0.48%]; Qwen2.5-72B 7.14 vs 7.23 tok/s).\n  Parity buys ownership: N processes decode one mapped copy where resident loading pays N (at capacity, 5.5 vs 0.08 tok/s); a 65 GB checkpoint reaches its first token 6.4x sooner; the Kimi K3 spine stage falls from 2.62 to 0.35 s per token, 3.8x from storage alone. The same mechanism improves llama.cpp 1.21x at half the footprint on an AMD APU, ties overlapped streaming on a capacity-exceeding GH200, and loses 39x across PCIe: memory topology, not the API, decides the byte path. The deployment rule treats the page cache as a first-class, reclaimable accelerator-storage tier.",
+        "authors": [
+            "Yuan Si",
+            "Yufeng Lin",
+            "Daming Li",
+            "Jialu Zhang"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.12114v1",
+        "submit_date": "2026-08-12",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "kernel"
+        ],
+        "tldr": "Eliminates the 'ingestion tax' of redundant weight copying during LLM inference by adopting file-backed weights via zero-copy GPU import. Proposes a contract ensuring direct access and GPU ordering. Achieves 7.14 tok/s (near parity) for Qwen2.5-72B while enabling N processes to share one copy (5.5 vs 0.08 tok/s).",
+        "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.12103v1": {
+        "title": "Who Should Own the Expert Cache? Kernel-Managed Tiering for Trillion-Parameter MoE Inference",
+        "link": "http://arxiv.org/abs/2608.12103v1",
+        "abstract": "Mixture-of-experts models whose expert pools dwarf DRAM force every serving system to contain a cache, yet existing systems typically implement this cache in user space using expert-granular, frequency-ranked, explicitly pinned tiers. We characterize the alternative already provided by the OS: the page cache as the expert tier. We use router traces from three MoE models spanning 128 to 896 experts per layer, including a production trillion-parameter model with a 1.45 TB expert pool, and replay them natively against the full pool on GH200 nodes with capacity enforced by three independent mechanisms.\n  We find four main results. First, iteration time and device traffic are smooth, reproducible functions of cache capacity, making DRAM a practical sizing knob for trillion-parameter serving. Second, the deep-pressure knee is a reclaim artifact requiring both MGLRU and balloon-style mostly-mlocked memory; cgroup limits and physical-memory configurations show no such amplification, indicating that balloon-based studies can overstate pressured-end device traffic by approximately 2$\\times$. Third, under an enforced equal-memory wall, untuned kernel LRU serves essentially as much demand as a same-domain oracle frequency table (75.3% versus 74.6% at 256 GB), while the oracle's mechanism advantage is only 1.09$\\times$ and disappears off-domain, where LRU remains at 70--71% hit rate. Fourth, router lookahead with 64.7% measured recall provides only a 0.3% benefit as kernel readahead advice and no benefit as synchronous prefetch. End to end, enabling kernel-managed caching improves decode performance by 1.09--1.10$\\times$ with token-identical outputs across nine balanced pairs. The resulting design principle is simple: in this regime, let the kernel own eviction, while model-specific knowledge is best spent on admission and advice.",
+        "authors": [
+            "Yuan Si",
+            "Yufeng Lin",
+            "Daming Li",
+            "Jialu Zhang"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.12103v1",
+        "submit_date": "2026-08-12",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "MoE",
+            "offloading"
+        ],
+        "tldr": "Proposes kernel-managed caching for trillion-parameter MoE inference expert tiering. Tests against router traces, showing kernel LRU matches an oracle frequency table (75.3% vs 74.6% hit rate) and achieves 1.09-1.10× decode speedup with token-identical outputs.",
+        "indexed_date": "2026-08-13"
     }
 }

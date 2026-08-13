@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2974-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.12-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2980-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.13-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-13
+* `training` `MoE` `RL` [RoutePack: Expert Placement and Attention-Aware Data Packing for MoE Reinforcement Learning](http://arxiv.org/abs/2608.12146v1)
+  > **TL;DR**: Addresses training bottlenecks in MoE RL models from imbalanced attention and expert work. Proposes RoutePack, coordinating expert rerouting and data packing to minimize EDP shard costs. Achieves up to 14.89% higher token throughput over baseline.
+* `agentic` `serving` [Ready Cohorts: Bounding GPU Opportunity and Avoiding Host Round Trips in LLM-Agent Control](http://arxiv.org/abs/2608.12123v1)
+  > **TL;DR**: Improves LLM-agent efficiency by formalizing ready-cohort boundaries for GPU execution and avoiding host round trips. Uses exact packing and device-resident decisions, recovering 81.83% of GPU opportunity and achieving speed-ups of up to 2.39x.
+* `serving` `edge` `scaling` [User-Assisted Collaborative Distributed Inference for Efficient QoS-Aware Autoscaling](http://arxiv.org/abs/2608.11840v1)
+  > **TL;DR**: Proposes a collaborative distributed inference system combining dedicated and user resources for efficient AI serving. Uses a generative Markov model for scheduling and QoS-aware resource allocation. Simulations show improved request completion, P99 latency, and substantial reduction in dedicated resource consumption.
+* `serving` `agentic` `kernel` [Ready Cohorts: Bounding GPU Opportunity and Avoiding Host Round Trips in LLM-Agent Control](http://arxiv.org/abs/2608.12123v1)
+  > **TL;DR**: Investigates GPU utilization and host round-trip reduction in LLM-agent control. Formalizes ready-cohort boundaries for GPU batching and a device-resident path to avoid data transfer. Achieves 81.83% opportunity recovery in cohort packing and 1.19x-2.39x speedups in device-resident decisions.
+* `serving` `offloading` `kernel` [The Ingestion Tax: Adopting File-Backed Weights in Tensor Frameworks](http://arxiv.org/abs/2608.12114v1)
+  > **TL;DR**: Eliminates the 'ingestion tax' of redundant weight copying during LLM inference by adopting file-backed weights via zero-copy GPU import. Proposes a contract ensuring direct access and GPU ordering. Achieves 7.14 tok/s (near parity) for Qwen2.5-72B while enabling N processes to share one copy (5.5 vs 0.08 tok/s).
+* `serving` `MoE` `offloading` [Who Should Own the Expert Cache? Kernel-Managed Tiering for Trillion-Parameter MoE Inference](http://arxiv.org/abs/2608.12103v1)
+  > **TL;DR**: Proposes kernel-managed caching for trillion-parameter MoE inference expert tiering. Tests against router traces, showing kernel LRU matches an oracle frequency table (75.3% vs 74.6% hit rate) and achieves 1.09-1.10× decode speedup with token-identical outputs.
+
 ### 2026-08-12
 * `serving` `RL` `offloading` [Scheduling Mixed RL Rollouts Beyond Prefix Locality](http://arxiv.org/abs/2608.11152v1)
   > **TL;DR**: Addresses scheduling for heterogeneous RL rollouts (RLHF, RLVR, agentic) in shared inference services. Proposes MISA-T, a routing-layer policy with adaptive admission and KV-capacity allocation. Improves rollout throughput by 53.3% and reduces mean iteration time by 22.8% over baselines.
