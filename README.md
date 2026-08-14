@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2980-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.13-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2987-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.14-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-14
+* `serving` `scaling` [OpScale: Operator-level Provisioning and Autoscaling for LLM Serving](http://arxiv.org/abs/2608.13499v1)
+  > **TL;DR**: Addresses cost-efficiency and SLO violations in LLM serving via OpScale, an operator-level autoscaling framework. Leverages operator heterogeneity for fine-grained elastic scaling. Reduces GPU usage by 36.3%, power by 28%, or increases throughput by 44% under fixed cost.
+* `serving` `offloading` [vToken: Token-Level Virtualization for Reclaimable KV Caches](http://arxiv.org/abs/2608.13263v1)
+  > **TL;DR**: Addresses KV cache memory inefficiency in LLM serving due to intra-block fragmentation from token-level eviction policies. Introduces vToken, a token-level virtualization layer with token-table indirection and asynchronous repacking. Reduces retained KV blocks per request by 27.2%--72.3% and improves throughput by up to 1.37x.
+* `serving` `MoE` [TEMPO: Makespan-Aware Expert-Parallel Load Balancing Across Memory- and Compute-Bound Regimes](http://arxiv.org/abs/2608.13057v1)
+  > **TL;DR**: Addresses load imbalance in MoE serving due to experts operating in memory- or compute-bound regimes. Introduces TEMPO, a makespan-aware dispatcher that solves a fixed-charge problem. Achieves up to 15.5% lower block time, 4-6% higher throughput, and 15.6% lower p99 latency for Qwen3-235B.
+* `serving` `scaling` [InFactPlanner: Planning Sustainable Geo-Distributed LLM Data Centers](http://arxiv.org/abs/2608.12915v1)
+  > **TL;DR**: Addresses sustainable deployment planning for geo-distributed LLM inference. Proposes InFactPlanner, a framework combining hardware profiles, renewable models, and traces to estimate carbon, energy, water, and latency. Validates energy estimates within 10% of reference values.
+* `edge` `serving` `multi-modal` [A Cloud-Edge System for Multimodal Clinical Screening in Resource-Constrained Rural Settings](http://arxiv.org/abs/2608.12745v1)
+  > **TL;DR**: Proposes a cloud-edge system for efficient medical AI in bandwidth-limited settings: edge models preprocess multimodal clinical data into compact representations, cloud LLM synthesizes outputs. Achieves bandwidth-invariant latency (25-35s) at 4-15x lower token cost versus cloud-only baselines while matching accuracy.
+* `kernel` [A Contract-Grade Verifier for LLM-Generated GPU Kernels, and a Native Blackwell Backward for the Gated-Linear-Recurrence Family](http://arxiv.org/abs/2608.12700v1)
+  > **TL;DR**: Develops a contract-grade verifier with 12 adversarial tests to detect silent errors in LLM-generated GPU kernels that pass naive validation. Flags 62.1% of 2,638 previously accepted kernels as faulty, revealing critical gaps in kernel correctness. Also implements first native Blackwell backward kernel for GLR training.
+* `serving` `offloading` [vToken: Token-Level Virtualization for Reclaimable KV Caches](http://arxiv.org/abs/2608.13263v1)
+  > **TL;DR**: vToken addresses intra-block fragmentation in KV caches by decoupling token liveness from physical blocks via token virtualization and asynchronous repacking. It reduces retained KV blocks by 27.2%-72.3% and improves SLA-constrained throughput by up to 1.37x in vLLM.
+
 ### 2026-08-13
 * `training` `MoE` `RL` [RoutePack: Expert Placement and Attention-Aware Data Packing for MoE Reinforcement Learning](http://arxiv.org/abs/2608.12146v1)
   > **TL;DR**: Addresses training bottlenecks in MoE RL models from imbalanced attention and expert work. Proposes RoutePack, coordinating expert rerouting and data packing to minimize EDP shard costs. Achieves up to 14.89% higher token throughput over baseline.

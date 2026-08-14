@@ -152342,5 +152342,308 @@
         ],
         "tldr": "Proposes kernel-managed caching for trillion-parameter MoE inference expert tiering. Tests against router traces, showing kernel LRU matches an oracle frequency table (75.3% vs 74.6% hit rate) and achieves 1.09-1.10× decode speedup with token-identical outputs.",
         "indexed_date": "2026-08-13"
+    },
+    "http://arxiv.org/abs/2608.13499v1": {
+        "title": "OpScale: Operator-level Provisioning and Autoscaling for LLM Serving",
+        "link": "http://arxiv.org/abs/2608.13499v1",
+        "abstract": "Achieving cost efficiency while meeting strict user-facing SLOs (e.g., time-to-first-token) remains a fundamental challenge for cloud GPU clusters serving large language models (LLMs). Autoscaling is the key mechanism for cluster resource management, yet a basic system design question is open for serving LLMs: what should be the unit of scaling? Existing approaches primarily treat the entire model as a monolithic scaling unit--simple but unable to capture the fine-grained dynamics of inference workloads. As a result, such coarse-grained scaling often leads to either SLO violations under bursty demand or significant GPU under-utilization.\n  Our characterization reveals substantial operator heterogeneity, exposing operator-level elasticity as a viable scaling primitive. We present OpScale, a practical operator-level orchestration framework of profiling, provisioning, placement, and runtime serving. OpScale is designed to tackle the high complexity and the space explosion problem, arising from operating at this finer granularity. Evaluated with production traces on up to 40 A100s and 24 GB200s, OpScale attains SLOs with up to 36.3% fewer GPUs and 28% less power, or achieves 44% higher throughput under fixed cost budgets.",
+        "authors": [
+            "Xingqi Cui",
+            "Chieh-Jan Mike Liang",
+            "Ziang Tang",
+            "Jiarong Xing",
+            "Haoran Qiu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.13499v1",
+        "submit_date": "2026-08-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Addresses cost-efficiency and SLO violations in LLM serving via OpScale, an operator-level autoscaling framework. Leverages operator heterogeneity for fine-grained elastic scaling. Reduces GPU usage by 36.3%, power by 28%, or increases throughput by 44% under fixed cost.",
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.13434v1": {
+        "title": "Fast Tendermint: Speeding Up a Foundational Consensus Protocol",
+        "link": "http://arxiv.org/abs/2608.13434v1",
+        "abstract": "Tendermint is among the most widely studied and deployed Byzantine fault-tolerant (BFT) consensus protocols, owing in part to its native leader-rotation mechanism that subsumes complex view changes. Like most partially-synchronous BFT protocols, Tendermint tolerates $f < n/3$ Byzantine processes and decides in three communication steps. Motivated by the push for lower-latency blockchains, a recent line of work shows that consensus can be solved in two communication steps when $f < n/5$. We present Fast Tendermint, an adaptation of Tendermint to the $n > 5f$ setting that decides in two communication steps in the good case, while preserving Tendermint's leader-rotation structure. Fast Tendermint collapses Tendermint's prevote and precommit steps into a single voting step and merges the $locked$ and $valid$ state. We give proofs of agreement, validity, and termination, and a formal specification in Quint, a modern surface syntax for TLA+, used to model-check the protocol.",
+        "authors": [
+            "Preston Vander Vos",
+            "Daniel Cason"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.13434v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.13357v1": {
+        "title": "Triangle-Free Coloring in LOCAL via Resilient Lovász Local Lemma",
+        "link": "http://arxiv.org/abs/2608.13357v1",
+        "abstract": "The Lovász Local Lemma (LLL) is a probabilistic tool that has been shown to be of central importance in the study of distributed algorithms. For example, the constructive LLL is known to be complete for the class of locally-checkable labeling problems with $o(\\log n)$ randomized complexities in the LOCAL model. One classic application of the LLL is in coloring graphs with some sparse structure, such as triangle-free graphs. Triangle-free coloring therefore serves as a benchmark problem for techniques for sublogarithmic randomized distributed algorithms. The state-of-the-art distributed triangle-free coloring algorithm of Pettie and Su [ICALP 2013, Information and Computation 2015] uses $\\fracΔ{k}$ colors (where $k$ can be up to $(\\frac14 - \\varepsilon)\\ln Δ$) and consists of $O(k+\\log^* n)$ applications of the distributed LLL. However, the distributed LLL is itself a difficult problem; despite significant study, the fastest algorithms known require $O(\\log_Δn)$ or $O(\\fracΔ{\\logΔ})+\\log^{O(1)}\\log n$ rounds. In this work, we adapt the Pettie-Su's algorithm so that the resulting LLL instances can be solved in $\\log^{O(1)}\\log n$ rounds, by employing the 'resilience' definition of Davies [SODA 2023]. This gives an $O(k)+ \\log^{O(1)}\\log n$ complexity (since the LLL is not needed when $k= \\log^{ω(1)}\\log n$), essentially causing the LLL steps to no longer be the bottleneck of the algorithm. As a corollary we obtain the first $\\log^{O(1)}\\log n$-round algorithms for coloring triangle-free graphs with $o(Δ)$ colors. The same framework also yields a companion girth-$5$ algorithm, using $(1+\\varepsilon)Δ/\\ln Δ$ colors in $O(k)+ \\log^{O(1)}\\log n$ rounds, matching the best known existential upper bound for the number of colors.",
+        "authors": [
+            "Peter Davies-Peck",
+            "Xusheng Zhang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2608.13357v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.13263v1": {
+        "title": "vToken: Token-Level Virtualization for Reclaimable KV Caches",
+        "link": "http://arxiv.org/abs/2608.13263v1",
+        "abstract": "Large language model serving faces a critical memory bottleneck: the KV cache grows with sequence length and batch size. PagedAttention uses fixed-size memory blocks to reduce allocator-level fragmentation, but recent KV eviction algorithms operate at a token granularity finer than block-level management. This mismatch causes intra-block fragmentation, leaving a large fraction of allocated KV memory unreclaimable. We present vToken, a lightweight token-level virtualization layer that decouples logical token liveness from physical block placement. vToken maintains a stable logical token view through token-table indirection and realizes physical reclamation by repacking live tokens asynchronously. The design preserves PagedAttention kernels and CUDA Graph compatibility. We implement vToken in vLLM and evaluate it with H2O, Random, and Scissorhands across models. Compared with a paired Naive-Evict baseline, vToken reduces retained KV blocks per request by 27.2\\%--72.3\\% and improves SLA-constrained throughput by up to 1.37$\\times$. Under a constrained active-KV budget, it extends the maximum feasible concurrency by up to 2$\\times$, while reducing the per-policy integration footprint from 500+ lines to under 50.",
+        "authors": [
+            "Yuanhang Gao",
+            "Xiangrui Yang",
+            "Yuanfeng Chen",
+            "Hongjia Chen",
+            "Qianru Lv",
+            "Wenfei Wu",
+            "Dongsheng Li"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.13263v1",
+        "submit_date": "2026-08-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "vToken addresses intra-block fragmentation in KV caches by decoupling token liveness from physical blocks via token virtualization and asynchronous repacking. It reduces retained KV blocks by 27.2%-72.3% and improves SLA-constrained throughput by up to 1.37x in vLLM.",
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.13144v1": {
+        "title": "LipCache: A Local Inference Proxy with Certified Caching for Edge Image Classification Service",
+        "link": "http://arxiv.org/abs/2608.13144v1",
+        "abstract": "As edge-side vision services continue to expand toward low-latency, high-throughput scenarios, reducing the inference cost of vision models without sacrificing reliability has become a central concern. Existing semantic caching methods largely rely on empirical similarity thresholds; while such thresholds improve hit rates, they tend to introduce silent misclassifications near decision boundaries. To address this, we propose \\texttt{LipCache}, a certified semantic caching framework for image classification. Without modifying the existing deployed main model, \\texttt{MainNet}, the framework introduces a lightweight network, \\texttt{GuardNet}, that maps inputs into a low-dimensional feature space subject to a Lipschitz constraint. It then computes a per-sample certified reuse radius from the local classification margin and the spectral norm of the classification head. At runtime, a cached result is reused only when the query feature falls inside the certified reuse ball; otherwise, the query falls back to \\texttt{MainNet}. Thus, cache hits are transformed from empirical threshold tests into geometric certification decisions with explicit theoretical boundaries. Across standard image classification tasks like CIFAR, Tiny-ImageNet, and SVHN, \\texttt{LipCache} achieves a measured speedup of up to $1.65\\times$ with limited end-to-end accuracy degradation, while all accepted cache hits satisfy the \\texttt{GuardNet}-side certified-consistency condition. Furthermore, an enhanced \\texttt{GuardNet} training recipe substantially improves cache hit rates in the Tiny-ImageNet multi-class extension while maintaining a certified-consistency rate of $100\\%$. These results demonstrate that per-sample certified reuse can reduce main-model fallback while preserving theoretical consistency, providing a feasible approach to reliable cache-assisted inference at the edge.",
+        "authors": [
+            "Zhengzhe Xiang",
+            "Yinlin Chen",
+            "Fuli Ying",
+            "Binbin Zhou",
+            "Hailiang Zhao",
+            "Schahram Dustdar"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2608.13144v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.13122v1": {
+        "title": "Validation-Centric AI-Assisted GPU Porting of a 250,000+ Line Legacy Weather Simulation Code",
+        "link": "http://arxiv.org/abs/2608.13122v1",
+        "abstract": "Recent advances in large language models have made CLI-based AI agents a practical tool for accelerating GPU porting of large legacy scientific applications. Such applications, however, are not merely old code bases; they are scientific assets whose credibility has been accumulated through long-term development, comparison with observations, and use in domain studies. GPU porting must therefore preserve this scientific validity while adapting the implementation to GPU-centric HPC systems. This paper presents a validation-centric AI-assisted GPU porting workflow through a case study of CReSS, a legacy Fortran weather simulation code with more than 250,000 lines. The workflow uses an AI agent to extract OpenMP regions, generate dump-based kernel benchmarks from physically meaningful simulation states, apply OpenACC transformations, and validate results through element-wise comparison with dumped reference data and application-level validation. Using a real typhoon simulation, the workflow produced numerically validated GPU implementations for 162 target kernels and achieved a 5.1x application-level speedup within practical wall-clock development cost. In particular, it detected numerical discrepancies in five kernels caused by floating-point and intrinsic-function differences, including threshold-sensitive branch divergence and cancellation effects, enabling feedback to the application developers. The case study suggests that, for large legacy scientific applications requiring dump-based validation, practical AI-assisted GPU porting must manage session-spanning context, runtime-state reconstruction, and costly recovery from small static-analysis omissions. These findings demonstrate that AI-assisted GPU porting requires not only code generation, but validation-centric workflow design.",
+        "authors": [
+            "Tetsuya Hoshino",
+            "Masaya Kato",
+            "Kazuhisa Tsuboki",
+            "Daichi Mukunoki",
+            "Takahiro Katagiri",
+            "Toshihiro Hanawa"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.13122v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.13107v1": {
+        "title": "Meshlib: In-Process Policy Enforcement for Sidecar-less Service Meshes",
+        "link": "http://arxiv.org/abs/2608.13107v1",
+        "abstract": "Service meshes facilitate service-to-service communication and enforce security policies in microservice architectures. However, they often depend on per-pod sidecar proxies, which introduce significant latency and resource overhead due to redundant application-layer parsing on every request. Eliminating sidecars without compromising security guarantees remains a central challenge. To address this, we introduce Meshlib, a sidecar-less service mesh extension built on Cilium as a control-plane extension. Meshlib incorporates a non-intrusive application-bound library that enforces Layer-7 policies within the application process, while delegating transport-level identity and routing to Cilium's eBPF-based data plane. This separation of responsibilities removes sidecar-induced latency and maintains the security semantics of the service mesh. The architecture remains fully interoperable with unmodified services, enabling incremental adoption within existing deployments. We evaluate Meshlib against Istio, Linkerd, and unmodified Cilium on the TrainTicket benchmark, enforcing 126 security policies across 37 services and show that it achieves the lowest end-to-end latency of all evaluated configurations with comparable resource overhead.",
+        "authors": [
+            "Habib Mostafaei",
+            "Tom van Liempd"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.13107v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.13057v1": {
+        "title": "TEMPO: Makespan-Aware Expert-Parallel Load Balancing Across Memory- and Compute-Bound Regimes",
+        "link": "http://arxiv.org/abs/2608.13057v1",
+        "abstract": "In expert-parallel (EP) MoE serving, every layer synchronizes at the slowest GPU. Dispatchers balance token counts (EPLB, LPLB, UltraEP) or activated-expert counts (METRO), assuming expert time is linear in one. Measurements on two datacenter GPU generations show it is neither: below $\\nstar\\!\\approx\\!156$--$168$ tokens, HBM weight streaming dominates---cost attaches to \\emph{activated replicas}, not tokens; above it, grouped GEMM rounds tokens to 128-tile $M$-tiles, so \\emph{splitting} an expert adds padded compute. A max-affine profile $t=\\max(a+bG,\\,c+βN)$ captures both regimes. Realistic decode batches hold hot experts in the linear regime and cold in the flat \\emph{simultaneously}; recorded batches show proxy dispatches differ by $1.4$--$1.6\\times$ in modeled block time (p95 up to $1.7\\times$), and \\emph{which} proxy wins flips with the regime. We formalize per-batch dispatch as a fixed-charge makespan problem---NP-hard on two fully replicated GPUs, polynomial in degenerate limits---and present \\sys{}, a makespan-aware dispatcher solving it in milliseconds off the critical path; its SGLang integration runs out-of-process and fuses dispatch with count collection into one in-graph kernel. Anchored by an 8-GPU Testbed~A microbenchmark, \\sys{} stays within 1\\% of the best fixed baseline everywhere and wins by up to $15.5\\%$ where regimes mix. End-to-end on Testbed~B, Qwen3-235B (inside the win region) gains $4$--$6\\%$ throughput and cuts p99 latency by ${\\sim}15.6\\%$; DeepSeek-V3 (outside, communication-dominated) shows only mechanism cost. A phase diagram, not a universal win, is the claim: it predicts both outcomes before deployment.",
+        "authors": [
+            "Jie Li",
+            "Chenxin Jia",
+            "Jinliang Shen",
+            "Cunzhuang Liu",
+            "Ruiyi Ding",
+            "Jianwen Xian",
+            "Kang He",
+            "Chengru Song"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.CL",
+            "cs.GT"
+        ],
+        "id": "http://arxiv.org/abs/2608.13057v1",
+        "submit_date": "2026-08-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "MoE"
+        ],
+        "tldr": "Addresses load imbalance in MoE serving due to experts operating in memory- or compute-bound regimes. Introduces TEMPO, a makespan-aware dispatcher that solves a fixed-charge problem. Achieves up to 15.5% lower block time, 4-6% higher throughput, and 15.6% lower p99 latency for Qwen3-235B.",
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.12946v1": {
+        "title": "Efficient Randomized LL/SC that Preserves History Independence",
+        "link": "http://arxiv.org/abs/2608.12946v1",
+        "abstract": "We study the fundamental problem of implementing $m$ linearizable LL/SC objects with constant expected step complexity in a system of $n$ processes, using bounded base objects commonly available in hardware. Assuming that each process may have at most $τ$ outstanding LL operations, the best known deterministic algorithm requires $Ω(n^2τ+ m)$ base objects (CAS and registers) [Blelloch and Wei, DISC 2020]. Previously, no comparable randomized algorithm was known.\n  By employing randomization and FADD in addition to CAS and registers, we obtain a space bound of $O(nτ+m)$ against the weak adaptive adversary. For $m=O(1)$ this matches a lower bound for algorithms using CAS and registers [Aghazadeh and Woelfel, PODC 2015].\n  In addition, our object can be employed by quiescently history-independent (QHI) algorithms: Whenever no operation on the object is pending and no process has an outstanding LL operation, its internal memory state is uniquely determined by the values of the $m$ LL/SC objects. An important application is a QHI dynamic hashing algorithm presented at STOC 2025, which uses $Θ(m)$ hardware LL/SC objects to maintain a hash table of size $m$ [Attiya, Bender, Farach-Colton, Oshman, and Schiller, STOC 2025]. But LL/SC is not available in hardware, and prior to our work no wait-free or efficiently lock-free software implementation of LL/SC with similar properties was known. Our work demonstrates that one can actually implement the hashing algorithm on available hardware, without an asymptotic increase in step and space complexity, under the reasonable assumption that $m=Ω(n)$.",
+        "authors": [
+            "Dante Bencivenga",
+            "Homa Habashi",
+            "Philipp Woelfel"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2608.12946v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.12915v1": {
+        "title": "InFactPlanner: Planning Sustainable Geo-Distributed LLM Data Centers",
+        "link": "http://arxiv.org/abs/2608.12915v1",
+        "abstract": "The rapid growth of LLM inference is shifting sustainability concerns from one-time training to continuous serving, where infrastructure decisions shape energy use, carbon emissions, water consumption, and service quality. Yet operators often need to compare deployment alternatives before large-scale infrastructure is built, making direct measurement costly, slow, and sometimes infeasible. We present InFactPlanner, a trace-driven decision-support framework for what-if analysis of sustainable AI data center deployment for LLM inference across single and geo-distributed sites. InFactPlanner combines query traces, hardware-model profiles, candidate site configurations, PUE/WUE parameters, renewable generation models, and time-varying grid carbon intensity to estimate power, energy, carbon emissions, water use, latency, and server utilization. The framework abstracts low-level serving effects into configurable hardware-model profiles, enabling rapid comparison of site selection, capacity placement, hardware, model, renewable integration, and routing choices. We validate the energy accounting pipeline by reproducing reference LLM inference energy estimates with less than 10% deviation, evaluate scalability across multiple data centers and server counts, and demonstrate scenario-driven decision analyses for hardware selection, renewable placement, geographic deployment, and carbon-aware routing. Our results show that sustainability-optimal choices can differ from latency-optimal ones, and that the carbon value of deployment depends strongly on the local grid mix.",
+        "authors": [
+            "Nicoletta Tsiopani",
+            "Moysis Symeonides",
+            "George Pallis",
+            "Marios D. Dikaiakos"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2608.12915v1",
+        "submit_date": "2026-08-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Addresses sustainable deployment planning for geo-distributed LLM inference. Proposes InFactPlanner, a framework combining hardware profiles, renewable models, and traces to estimate carbon, energy, water, and latency. Validates energy estimates within 10% of reference values.",
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.12745v1": {
+        "title": "A Cloud-Edge System for Multimodal Clinical Screening in Resource-Constrained Rural Settings",
+        "link": "http://arxiv.org/abs/2608.12745v1",
+        "abstract": "Medical AI has demonstrated specialist-level diagnostic accuracy, yet these capabilities remain largely inaccessible in resource-constrained rural settings where bandwidth is scarce, compute is limited, and clinical decision-making requires integrating heterogeneous modalities. We introduce a cloud--edge collaborative architecture that addresses these constraints: lightweight, domain-specific models on the edge transform raw medical data into compact structured outputs, while a cloud LLM synthesizes these outputs into clinical summaries. An LLM-based orchestrator dynamically selects diagnostic tools based on patient context, promoting comprehensive modality coverage without processing irrelevant inputs. We evaluate on 20 multimodal clinical cases spanning cardiac, obstetric, trauma, and screening scenarios under three simulated network profiles (500,kbps--5,Mbps). The hybrid system achieves 98--99% diagnostic tool recall with 92--96% precision, matches or exceeds cloud-only baselines on clinical accuracy, and maintains bandwidth-invariant latency (25--35,s) at 4--15x lower token cost. These results highlight the role of architectural design in enabling efficient multimodal integration and improving factual grounding compared to cloud-only approaches under deployment constraints.",
+        "authors": [
+            "Hei Ting",
+            " Chan",
+            "Chenwei Wu",
+            "Xueshen Liu",
+            "Zesen Zhao",
+            "Boyuan Zheng",
+            "Luis Filipe Nakayama",
+            "Michael G. Morley",
+            "Liyue Shen",
+            "Jiasi Chen",
+            "Z. Morley Mao"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.12745v1",
+        "submit_date": "2026-08-13",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "serving",
+            "multi-modal"
+        ],
+        "tldr": "Proposes a cloud-edge system for efficient medical AI in bandwidth-limited settings: edge models preprocess multimodal clinical data into compact representations, cloud LLM synthesizes outputs. Achieves bandwidth-invariant latency (25-35s) at 4-15x lower token cost versus cloud-only baselines while matching accuracy.",
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.12700v1": {
+        "title": "A Contract-Grade Verifier for LLM-Generated GPU Kernels, and a Native Blackwell Backward for the Gated-Linear-Recurrence Family",
+        "link": "http://arxiv.org/abs/2608.12700v1",
+        "abstract": "Systems that generate GPU kernels with language models report high correctness rates. Those rates come from a single loose test: run the kernel on a few random inputs at one fixed shape and accept it if the output is close to a reference. A kernel can pass that test and still be silently wrong. It can return an ordinary number where the true answer is a NaN or an infinity, differ from run to run, break when the shape changes, or accumulate in fp16 where the reference keeps an fp32 total. We build the instrument that checks correctness properly: a contract-grade verifier of twelve adversarial gates, each a property a correct kernel must satisfy, several of them tolerance-free, so no choice of threshold can explain a failure away. Aimed outward, the verifier audits 2,638 machine-generated kernels that a public system's own harness had already accepted as correct. It finds 39.5% broken beyond any tolerance argument and 62.1% carrying at least one violation. The field's standard test accepts 1,487 kernels the verifier rejects, against only 14 the other way. We defend the finding four independent ways: a 7/7 positive control, a threshold-calibration sweep, 98.5% agreement with the reference benchmark's own correctness code, and a stratified hand-audit. Aimed inward, the verifier judges a kernel of our own: the first native Blackwell tcgen05 training backward for the gated-linear-recurrence (GDN) family, including the reverse-state stage the field still runs on a fallback. We establish its correctness independently, against a double-precision oracle, and train five family members through it. The correctness signal behind reported progress in kernel generation is far weaker than the numbers suggest, and a set of tolerance-free contracts would close most of the gap.",
+        "authors": [
+            "Rishi Shah",
+            "Rishav Shrestha"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.12700v1",
+        "submit_date": "2026-08-13",
+        "relevant": true,
+        "tags": [
+            "kernel"
+        ],
+        "tldr": "Develops a contract-grade verifier with 12 adversarial tests to detect silent errors in LLM-generated GPU kernels that pass naive validation. Flags 62.1% of 2,638 previously accepted kernels as faulty, revealing critical gaps in kernel correctness. Also implements first native Blackwell backward kernel for GLR training.",
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.07358v2": {
+        "title": "Fast end-to-end cloud application cold-start with initscripts",
+        "link": "http://arxiv.org/abs/2608.07358v2",
+        "abstract": "Serverless functions are a popular way of deploying cloud applications. Because many of these functions are short- running and experience frequent cold-starts, start latencies often dominate their execution latency. Start latency can be broken down into two components: setup and initialization. Setup involves steps the cloud platform takes when starting an application, such as downloading its binary and creating an isolated execution environment. Initialization involves steps the application takes after it has started running but before it can do useful work, such as connecting to other services, coordinating to claim work, and downloading inputs.\n  This paper contributes initscripts, which provide a script- able interface for developers to specify their application's initialization routine to the cloud platform. The platform can then run an application's initscript and reduce application start latency by overlapping setup and initialization steps. Once the application is up and running, the initscript bootstraps the application by transferring initialization results to it. Using initscripts, we were able to speed up cold-starts of several of the ServerlessBench Python applications by an average 1.67X with no modifications to the application. Initscripts also speed up start times for a serverless image recognition workload by 1.81X, and off-the-shelf microservices like etcd and memcached.",
+        "authors": [
+            "Ariel Szekely",
+            "Hannah Gross",
+            "Robert Morris",
+            "M. Frans Kaashoek"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.07358v2",
+        "submit_date": "2026-08-12",
+        "relevant": false,
+        "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.12633v1": {
+        "title": "Offering Microsecond-Scale Cross-VM Core Elasticity on Colocated Lightweight Virtual Machines",
+        "link": "http://arxiv.org/abs/2608.12633v1",
+        "abstract": "Serverless platforms commonly colocate many diverse workloads, each in a fast-booting, memory-lean virtual machine (VM), to improve deployment density. Overprovisioning each VM for its peak protects tail latency during traffic bursts but hurts density; maintaining high density while effectively protecting tail latency requires the infrastructure to be able to shift physical cores, at a microsecond timescale, to whichever latency-sensitive VM is bursting and reclaim them as the burst subsides. No VM substrate delivers this: conventional VMs resize a guest's cores only through a millisecond-scale vCPU hot-plug path, Firecracker fixes a VM's core count at boot, and the ultralight VMs that boot fastest drop multicore execution entirely.\n  We present HyperFlux, a commodity-KVM ultralight VM substrate that makes a VM's parallelism width (the number of physical cores backing it) elastic at runtime. We show that HyperFlux can move a core across VMs in merely 13$μ$s, even when forcibly reclaiming it from a busy donor, orders of magnitude faster than vCPU hot-plug. A HyperFlux VM incurs only a 3.2MB memory footprint and can cold-boot in 1.37ms, on par with the fastest-booting ultralight VMs, while uniquely supporting multicore parallelism. Under colocation, it can reduce high-priority VMs' tail latency by up to 10x under high load compared to static core-sharing with Firecracker and Cloud Hypervisor, and deliver a lower and more stable tail latency compared to using cgroup and vCPU hot-plug under changing load bursts.",
+        "authors": [
+            "Yibo Yan",
+            "Seo Jin Park"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.12633v1",
+        "submit_date": "2026-08-12",
+        "relevant": false,
+        "indexed_date": "2026-08-14"
     }
 }
