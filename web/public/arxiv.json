@@ -152645,5 +152645,277 @@
         "submit_date": "2026-08-12",
         "relevant": false,
         "indexed_date": "2026-08-14"
+    },
+    "http://arxiv.org/abs/2608.14527v1": {
+        "title": "Validating LLM-Modernized Scientific Software Through Differential Fault Injection",
+        "link": "http://arxiv.org/abs/2608.14527v1",
+        "abstract": "Large language model (LLM) agents are increasingly used to modernize the legacy Fortran underlying production scientific software, but validation of these transformations emphasizes nominal executions and may not test whether a modernization preserves the original code's response to faults, perturbations, and reduced precision. We present a differential fault-injection validation method: a harness instruments the shared self-consistent-field driver of GAMESS at twelve sites and applies identical, deterministic faults to the original and LLM-modernized implementations, isolating the converted integral kernels. Across more than 2,200 runs, transient-fault absorption costs match a contraction-based model (predicted slopes 0.74 and 1.49 iterations per bit; measured 0.82 and 1.50), persistent perturbations halve final-energy error per additional bit, and the campaigns expose phase-dependent parallel deadlocks and false convergence under reduced precision. The original and modernized kernels agree in all 200 paired injections, and a measurement-guided synchronization change composes with the modernization, matching in all 40 pairs.",
+        "authors": [
+            "Evan Coleman",
+            "Yuzhong Shen",
+            "Masha Sosonkina",
+            "Peng Xu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2608.14527v1",
+        "submit_date": "2026-08-14",
+        "relevant": false,
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.14498v1": {
+        "title": "Rollplex: Cross-Phase GPU Spatial Sharing for Vision Language Model Post-Training",
+        "link": "http://arxiv.org/abs/2608.14498v1",
+        "abstract": "Vision-language models (VLMs) enable embodied agents to reason and act from visual observations and language instructions. Reinforcement learning (RL) post-training enhances these capabilities using task feedback, but current on-policy RL runtimes execute rollout, reference scoring, and actor training in strict serial phases. While effective for text-only RL, this phase-granular execution is wasteful for VLMs, where processing dense video inputs and prompt prefixes occupies a large fraction of each phase. Because prefix processing is independent of the generated response, it can be run alongside rollout decoding, which leaves GPU compute capacity underutilized, without breaking synchronous on-policy semantics.\n  We present Rollplex, a runtime that decomposes the reference and training phase and moves the prefix computation into the rollout decode window. Realizing this schedule requires more than concurrent kernel launches: naive colocation of Qwen2.5-VL-32\\,B requires roughly 165\\,GiB per GPU, while rollout and training prefer different tensor-parallel (TP) degrees and weight layouts. Rollplex addresses these constraints with two mechanisms. Phase-aware memory management controls HBM residency according to producer--consumer lifetimes. Parallelism-aware weight sharing uses the same physical storage for layout-compatible tensors across distinct TP degrees and reconstructs only incompatible tensors, avoiding a complete second actor copy. On 32 H800 GPUs, Rollplex achieves $1.23\\times$--$1.30\\times$ speedup over serial colocation and $1.57\\times$--$2.24\\times$ over disaggregation under the same GPU budget, while preserving the synchronous RL update.",
+        "authors": [
+            "Hanfeng Lu",
+            "Tianyu Feng",
+            "Suyi Li",
+            "Yuheng Zhao",
+            "Wei Gao",
+            "Shaopan Xiong",
+            "Ju Huang",
+            "Siran Yang",
+            "Jiamang Wang",
+            "Lin Qu",
+            "Wei Wang"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.14498v1",
+        "submit_date": "2026-08-14",
+        "relevant": true,
+        "tags": [
+            "RL",
+            "multi-modal",
+            "training"
+        ],
+        "tldr": "Improves RL post-training efficiency for vision-language models by overlapping prefix computation with rollout decoding. Rollplex enables cross-phase spatial sharing via phase-aware memory management and parallelism-aware weight sharing. Achieves up to 2.24× speedup over disaggregation on 32 GPUs.",
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.14427v1": {
+        "title": "Large-scale workflow placement in serverless computing using integer nonlinear programming",
+        "link": "http://arxiv.org/abs/2608.14427v1",
+        "abstract": "Serverless edge computing has become a powerful cloud framework that enables the execution of large workflows without the need for the user to manage the underlying servers and edge devices. In this work, we address the challenge of deploying these workflows on a large number of different existing servers and edge devices such that monetary costs for the users and workflow evaluation times are minimized. To this end, the workflow and cloud node attributes are modeled in a mathematical framework. As a result, we present a novel model of the optimal placement problem as a nonlinear integer program. To solve both the issues of scaling towards a larger number of cloud/edge nodes as well as decomposed knowledge of node attributes, we propose a novel decomposition strategy. In a case study, we show the beneficial scaling properties of the decomposition approach and a mean improvement of 10% against a simple deployment heuristic.",
+        "authors": [
+            "Joshua Adamek",
+            "Natalie Carl",
+            "Trever Schirmer",
+            "Moritz Heinlein",
+            "David Bermbach",
+            "Sergio Lucia"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.14427v1",
+        "submit_date": "2026-08-14",
+        "relevant": false,
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.14242v1": {
+        "title": "Could Model Partitioning Make Federated Learning More Sustainable?",
+        "link": "http://arxiv.org/abs/2608.14242v1",
+        "abstract": "As federated learning (FL) extends from distributed machine learning between low-power devices to cross-silo scenarios involving edge servers and data centres, its carbon footprint has become a growing concern. Addressing this, methods for sustainable FL align training with low-carbon energy availability or low grid demand and reduce the energy consumption of clients powered by high-carbon sources by decreasing the size of their models.\n  We propose applying model partitioning, which can shift energy consumption by offloading parts of a model to another participant, in response to carbon- or grid-aware signals. Our preliminary findings show that for some partition points, model partitioning can reduce a participant's energy consumption by up to 76% without any significant time or energy consumption overhead compared to non-partitioned training.",
+        "authors": [
+            "Tobias Frohlich",
+            "Tiffany Vlaar",
+            "Lauritz Thamsen"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.14242v1",
+        "submit_date": "2026-08-14",
+        "relevant": false,
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.13057v2": {
+        "title": "TEMPO: Makespan-Aware Expert-Parallel Load Balancing Across Memory- and Compute-Bound Regimes",
+        "link": "http://arxiv.org/abs/2608.13057v2",
+        "abstract": "In expert-parallel (EP) MoE serving, every layer synchronizes at the slowest GPU. Dispatchers balance token counts (EPLB, LPLB, UltraEP) or activated-expert counts (METRO), assuming expert time is linear in one. Measurements on two datacenter GPU generations show it is neither: below $n^* \\approx 156$--$168$ tokens, HBM weight streaming dominates---cost attaches to $activated replicas$, not tokens; above it, grouped GEMM rounds tokens to 128-tile $M$-tiles, so $splitting$ an expert adds padded compute. A max-affine profile $t=\\max(a+bG,\\,c+βN)$ captures both regimes. Realistic decode batches hold hot experts in the linear regime and cold in the flat $simultaneously$; recorded batches show proxy dispatches differ by $1.4$--$1.6\\times$ in modeled block time (p95 up to $1.7\\times$), and $which$ proxy wins flips with the regime. We formalize per-batch dispatch as a fixed-charge makespan problem---NP-hard on two fully replicated GPUs, polynomial in degenerate limits---and present TEMPO, a makespan-aware dispatcher solving it in milliseconds off the critical path; its SGLang integration runs out-of-process and fuses dispatch with count collection into one in-graph kernel. Anchored by an 8-GPU Testbed A microbenchmark, TEMPO stays within $1\\%$ of the best fixed baseline everywhere and wins by up to $15.5\\%$ where regimes mix. End-to-end on Testbed B, Qwen3-235B (inside the win region) gains $4$--$6\\%$ throughput and cuts p99 latency by $\\sim 15.6\\%$; DeepSeek-V3 (outside, communication-dominated) shows only mechanism cost. A phase diagram, not a universal win, is the claim: it predicts both outcomes before deployment.",
+        "authors": [
+            "Jie Li",
+            "Chenxin Jia",
+            "Jinliang Shen",
+            "Cunzhuang Liu",
+            "Ruiyi Ding",
+            "Jianwen Xian",
+            "Kang He",
+            "Chengru Song"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.CL",
+            "cs.GT"
+        ],
+        "id": "http://arxiv.org/abs/2608.13057v2",
+        "submit_date": "2026-08-14",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "kernel"
+        ],
+        "tldr": "Addresses load imbalance in expert-parallel MoE serving due to variable GPU latency across memory- and compute-bound regimes. Proposes TEMPO, a makespan-aware dispatcher using a max-affine cost model to optimize expert assignment. Achieves 4–6% higher throughput and ~15.6% lower p99 latency for Qwen3-235B.",
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.13914v1": {
+        "title": "Hybrid Quantum-inspired Kolmogorov-Arnold Networks for Privacy-Aware Federated Biosignal Learning",
+        "link": "http://arxiv.org/abs/2608.13914v1",
+        "abstract": "Electrocardiogram (ECG) recordings are sensitive biomedical data, limiting the ability of hospitals and wearable devices to share raw signals for centralized model training. Federated learning addresses this practical privacy constraint by enabling collaborative model training while keeping raw biosignal data at their respective sources. However, federated ECG classification remains challenging due to limited client-side samples, imbalanced arrhythmia labels, and non-independent and identically distributed (non-IID) data across clients. These constraints require classifiers that are both communication-efficient and robust to cross-client distribution shifts. In this work, we evaluate a hybrid quantum-inspired Kolmogorov-Arnold network (HQKAN) against a multilayer perceptron (MLP) for five-class arrhythmia classification on the MIT-BIH dataset and three-class classification on the INCART dataset under federated averaging (FedAvg). Across multiple client configurations, HQKAN improves most aggregate and minority-class metrics while using 37.35% fewer trainable parameters and reducing communication cost by 24.89% on MIT-BIH; on INCART, it achieves corresponding reductions of 44.81% and 36.41%. These results indicate that HQKAN offers a compact, communication-efficient and robust alternative to the MLP baseline for privacy-aware federated learning on biosignal data.",
+        "authors": [
+            "Chun-Hua Lin",
+            "Samuel Yen-Chi Chen",
+            "Yu-Chao Hsu",
+            "Kuo-Chung Peng",
+            "Jiun-Cheng Jiang",
+            "Chi-Sheng Chen",
+            "Tai-Yue Li",
+            "Nan-Yow Chen",
+            "En-Jui Kuo",
+            "Hsi-Sheng Goan"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC",
+            "cs.ET",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2608.13914v1",
+        "submit_date": "2026-08-14",
+        "relevant": false,
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.13844v1": {
+        "title": "Federated Prompt Learning: A Unified Framework, Empirical Analysis, and Future Directions",
+        "link": "http://arxiv.org/abs/2608.13844v1",
+        "abstract": "Large language models (LLMs) have become core components of cloud-based intelligent services in academia and industry, yet their training and deployment are hindered by high computational costs, data centralization, and privacy concerns. Federated learning (FL) offers a decentralized training paradigm that enables clients to collaboratively train a learning model without sharing raw data, making it a promising solution for privacy-preserving LLM training and reasoning. This paper presents a comprehensive survey of federated prompt learning (FPL) to review recent advances in integrating the federated learning paradigm and large language models, answering the following research questions: RQ1: The fundamental motivations, characteristics, and enabling technologies of FPL, and how it differs from conventional FL and full-model federated fine-tuning; RQ2: The trade-offs FPL approaches exhibit in performance, communication efficiency, computational overhead, scalability, personalization, and heterogeneity handling; RQ3: The remaining security, privacy, robustness, and system challenges, along with key future research directions. To this end, we systematically examine existing FPL methods across the full model lifecycle: pre-training, fine-tuning, and practical applications, while discussing security, privacy, and robustness issues and summarizing existing defense mechanisms. Finally, we highlight open challenges and future directions, aiming to help readers understand how the insights drive research in FPL.",
+        "authors": [
+            "Qinglin Yang",
+            "Chen Qiu",
+            "Hongyuan Zhang",
+            "Pengdeng Li",
+            "Yuan Liu",
+            "Zhihong Tian"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.13844v1",
+        "submit_date": "2026-08-14",
+        "relevant": false,
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.13824v1": {
+        "title": "Balancing Workload Performance and Slurm Stress: Four Nextflow Deployment Strategies",
+        "link": "http://arxiv.org/abs/2608.13824v1",
+        "abstract": "Wide Nextflow fan-outs on shared Slurm clusters can submit tens of thousands of short tasks. Deployment choices - individual jobs, arrays, or nested schedulers within allocations - affect both workflow turnaround and RPC volume, a shared cost that can degrade scheduler responsiveness. Existing studies compare whole workflow systems, while per-task queueing metrics do not span architectures that dispatch inside an existing allocation. We present a reproducible measurement protocol and bench harness with two key elements. First, a clean-start clock begins before any backend service or allocation request, placing different architectures on a common time axis. Second, per-user Slurm sdiag counters measure attributable RPC demand, with controller processing time reported as a sensitivity context separate from cluster-wide state. We evaluate four multi-node strategies: Slurm native, Slurm job arrays, HyperQueue, and Flux, on the shared ASU Phoenix production cluster; the single-user Dev campaign includes native, arrays, and Flux. The fixed workload contains 4,823 LASTZ tasks, with one clean-start trial per configuration in this preliminary campaign. Results show a walltime-RPC trade-off. On Phoenix, arrays and HyperQueue reached the milestone in 0.32 h, while Flux took 0.65 h but reduced attributable RPCs to 1,396 per 1,000 terminal tasks; all three were non-dominated. On Dev, arrays and Flux formed the observed frontier: 0.80 h for arrays versus 0.84 h for Flux, with Flux reducing RPCs to 1,769 per 1,000 terminal tasks. The method enables HPC sites to compare deployment strategies using metrics that capture both user experience and scheduler impact, and to choose the fastest strategy within a site-specific RPC budget.",
+        "authors": [
+            "Nil Tianchen Mu",
+            "William Dizon",
+            "Glen Otero",
+            "Torey Battelle"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.13824v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.13757v1": {
+        "title": "A Barrier-Free Synchronization Algorithm for Multi-Engine AI Accelerators",
+        "link": "http://arxiv.org/abs/2608.13757v1",
+        "abstract": "Multi-engine AI accelerators such as AWS Trainium comprise specialized compute engines that execute in parallel, and the compiler must synchronize the data dependencies between them. For straight-line code this is simple: each dependency reduces to waiting for a threshold count of instruction completions, which the compiler computes statically. Loops admit no such static threshold; a simple solution inserts all-engine barriers at iteration boundaries, resetting synchronization state so each loop body can be treated as straight-line, at the cost of parallelism.\n  We present a barrier-free synchronization algorithm that instead enforces each dependency precisely across structured control flow with arbitrarily nested, dynamically bounded loops. The key idea is to compute dynamic thresholds at runtime from tracked loop iteration counts.\n  We implemented it as a compiler backend pass at the AWS Neuron ISA level. On a suite of ML kernels, it reduces latency 10-45% relative to the barrier-based baseline, achieves a 3.3x speedup on a synchronization-bound microbenchmark, and often matches or exceeds hand-tuned manual allocation.\n  Issuing a consumer too early violates its dependency, while issuing too late unnecessarily stalls execution. We formally characterize the minimum synchronization required for correctness and verify in the Lean proof assistant, via bisimulation, that our algorithm meets this criterion.",
+        "authors": [
+            "Chungha Sung",
+            "Nikil V. Shyamsunder",
+            "Hanliang Zhang",
+            "Daniel Kroening",
+            "Joonwon Choi"
+        ],
+        "categories": [
+            "cs.PL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.13757v1",
+        "submit_date": "2026-08-13",
+        "relevant": true,
+        "tags": [
+            "training",
+            "kernel"
+        ],
+        "tldr": "Addresses synchronization bottlenecks in multi-engine accelerators for loop-heavy ML kernels. Proposes a barrier-free algorithm with dynamic thresholds based on runtime loop iteration counts. Achieves 10-45% latency reduction over barrier-based baselines and 3.3x speedup on a synchronization-bound microbenchmark.",
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.13705v1": {
+        "title": "Adaptive Snapshots Require Visible Reads",
+        "link": "http://arxiv.org/abs/2608.13705v1",
+        "abstract": "Snapshots are widely used to record the state of a running execution. Snapshots have been extensively studied in the literature, with the goal of improving performance and extending functionality. In this work, we consider $adaptive$ snapshots over a set of $m$ components. Adaptive snapshots provide a Click() operation that logically creates a new snapshot and an Observe$(i)$ operation that returns the state of component $i$ at the most recent Click(). Several constructions of adaptive snapshots have recently been proposed; interestingly, none of them employs invisible reads, even though invisible reads can improve performance, sometimes significantly. In this paper, we ask whether it is possible to build an adaptive snapshot with invisible reads. We show that, even when restricting the snapshot algorithm to the single-writer, single-scanner setting, under reasonable assumptions satisfied by all existing adaptive snapshot implementations, adaptive snapshots with invisible reads are not linearizable.",
+        "authors": [
+            "Niv Sulimany",
+            "Tomer Cory",
+            "Erez Petrank"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.13705v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.14376v1": {
+        "title": "CoRun: Padding is Simple and Efficient for Deterministic LLM Inference",
+        "link": "http://arxiv.org/abs/2608.14376v1",
+        "abstract": "Despite fixed sampling parameters and random seeds, Large Language Model (LLM) inference exhibits output inconsistency, which undermines downstream tasks such as model evaluation and reinforcement learning. A major source of this nondeterminism is batch-dependent GPU execution: dynamic input shapes change kernel tiling and floating-point reduction orders. Existing systems address this problem with batch-invariant kernels, but these kernels restrict optimized tiling and split reductions, increasing more than 2$\\times$ latency and reducing serving throughput by up to 74 %. This paper observes that although most kernels are not batch-invariant, they are position-invariant. Leveraging this property, we present CoRun, a scheduling-based system that achieves deterministic inference without requiring batch invariance. CoRun employs isolated prefill and fixed-shape batched decode to handle the two stages of LLM inference, respectively, leveraging CUDA graphs for efficient execution and simplified implementation. Experiments on LLMs with diverse architectures, including Qwen and DeepSeek, show that CoRun ensures determinism while improving throughput by 15-324 % over batch-invariant approaches, reducing time-to-first-token by 51.8 % and time-per-output-token by 48.6 % on average.",
+        "authors": [
+            "Shiju Zhao",
+            "Jiacheng Yang",
+            "Qihang Chen",
+            "Junhao Hu",
+            "Jiaqi Zheng",
+            "Guihai Chen",
+            "Xusheng Chen"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2608.14376v1",
+        "submit_date": "2026-08-14",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "kernel"
+        ],
+        "tldr": "Addresses non-determinism in LLM inference due to batch-dependent GPU execution. CoRun uses isolated prefill and fixed-shape batched decode with CUDA graphs for deterministic scheduling. Achieves 15-324% higher throughput, 51.8% lower time-to-first-token, and 48.6% lower time-per-output-token versus batch-invariant methods.",
+        "indexed_date": "2026-08-17"
+    },
+    "http://arxiv.org/abs/2608.13689v1": {
+        "title": "A Bounded Reclaim Actuator for PSI-Guided Compressed Memory: A Controlled Ablation",
+        "link": "http://arxiv.org/abs/2608.13689v1",
+        "abstract": "When the aggregate working set of active processes exceeds physical RAM capacity, the machine experiences memory pressure. Applications may therefore slow down before the kernel kills a process. Linux provides several ways to observe and respond: Pressure Stall Information (PSI) can detect memory-related task stalls, zram can provide compressed in-memory swap space, and cgroup v2 can request memory reclamation within a selected control group. These facilities are often discussed together even though they act at different points in the pressure path. This paper examines that distinction with a controlled systems study. We compare three setups: zram enabled from startup; zram enabled only after PSI indicates memory pressure; and zram enabled from startup with a one-time 96 MiB cgroup reclaim request. We first selected the request size in a 16-case pilot, then ran 180 confirmatory cases, 60 cases for each setup, on nine 1-vCPU Linux virtual machines with compute and SQLite workloads. Compared with static zram, the bounded reclaim configuration reduced compute p99 response time by 6\\%, while the SQLite result was statistically indistinguishable. Delayed activation had higher median p99 latency than both alternatives. These results suggest that the benefit depends on the foreground workload and its memory-access path, rather than a general improvement across workloads.",
+        "authors": [
+            "Abhiyan Dhakal",
+            "Sanjog Sigdel"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.13689v1",
+        "submit_date": "2026-08-13",
+        "relevant": false,
+        "indexed_date": "2026-08-17"
     }
 }

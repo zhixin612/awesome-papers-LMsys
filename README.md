@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2987-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.14-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-2991-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-17
+* `RL` `multi-modal` `training` [Rollplex: Cross-Phase GPU Spatial Sharing for Vision Language Model Post-Training](http://arxiv.org/abs/2608.14498v1)
+  > **TL;DR**: Improves RL post-training efficiency for vision-language models by overlapping prefix computation with rollout decoding. Rollplex enables cross-phase spatial sharing via phase-aware memory management and parallelism-aware weight sharing. Achieves up to 2.24× speedup over disaggregation on 32 GPUs.
+* `MoE` `serving` `kernel` [TEMPO: Makespan-Aware Expert-Parallel Load Balancing Across Memory- and Compute-Bound Regimes](http://arxiv.org/abs/2608.13057v2)
+  > **TL;DR**: Addresses load imbalance in expert-parallel MoE serving due to variable GPU latency across memory- and compute-bound regimes. Proposes TEMPO, a makespan-aware dispatcher using a max-affine cost model to optimize expert assignment. Achieves 4–6% higher throughput and ~15.6% lower p99 latency for Qwen3-235B.
+* `training` `kernel` [A Barrier-Free Synchronization Algorithm for Multi-Engine AI Accelerators](http://arxiv.org/abs/2608.13757v1)
+  > **TL;DR**: Addresses synchronization bottlenecks in multi-engine accelerators for loop-heavy ML kernels. Proposes a barrier-free algorithm with dynamic thresholds based on runtime loop iteration counts. Achieves 10-45% latency reduction over barrier-based baselines and 3.3x speedup on a synchronization-bound microbenchmark.
+* `serving` `kernel` [CoRun: Padding is Simple and Efficient for Deterministic LLM Inference](http://arxiv.org/abs/2608.14376v1)
+  > **TL;DR**: Addresses non-determinism in LLM inference due to batch-dependent GPU execution. CoRun uses isolated prefill and fixed-shape batched decode with CUDA graphs for deterministic scheduling. Achieves 15-324% higher throughput, 51.8% lower time-to-first-token, and 48.6% lower time-per-output-token versus batch-invariant methods.
+
 ### 2026-08-14
 * `serving` `scaling` [OpScale: Operator-level Provisioning and Autoscaling for LLM Serving](http://arxiv.org/abs/2608.13499v1)
   > **TL;DR**: Addresses cost-efficiency and SLO violations in LLM serving via OpScale, an operator-level autoscaling framework. Leverages operator heterogeneity for fine-grained elastic scaling. Reduces GPU usage by 36.3%, power by 28%, or increases throughput by 44% under fixed cost.
