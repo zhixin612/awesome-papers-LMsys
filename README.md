@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-2991-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.17-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3011-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.18-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,48 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-18
+* `serving` `scaling` [Beyond Binary Priorities: Multi-Tier SLA Scheduling for Large Language Model Serving](http://arxiv.org/abs/2608.16336v1)
+  > **TL;DR**: Addresses scheduling for multi-tier SLAs in LLM serving by extending Llumnix with tiered priorities, headroom, and dispatch. Evaluated via simulation, it achieves up to 8.3x prefill speedup, 3.1x P99 latency improvement, and 46-68% cost-per-latency reduction over baselines.
+* `sparse` `kernel` `serving` [DB-SpMSpV: Dual-View Blocked Sparse Matrix-Sparse Vector Multiplication for Dynamic GPU Workloads](http://arxiv.org/abs/2608.16308v1)
+  > **TL;DR**: Addresses efficient SpMSpV for dynamic GPU workloads in sparse model inference. Proposes a dual-view blocked framework (DB-SpMSpV) with runtime selection and microkernel optimizations. Achieves up to 64.34× speedup over cuSPARSE on A100 and accelerates LLM decoding by up to 4.50×.
+* `MoE` `edge` `serving` [FreeToken: Efficient Edge-Native MoE Serving with Bandwidth-Adaptive Execution](http://arxiv.org/abs/2608.16157v1)
+  > **TL;DR**: Addresses efficient MoE model serving on edge devices. FreeToken co-designs the serving stack for bandwidth-adaptive execution, mapping computation and model state to available resources. Enables serving up to 753B parameter models on a single workstation GPU.
+* `offline` `scaling` [A Scalable Pipeline for LLM-Teacher Distillation Labeling: Work-Stealing Job Scheduling and Memory-Aware GPU Concurrency](http://arxiv.org/abs/2608.15975v1)
+  > **TL;DR**: Addresses efficient LLM-teacher batch labeling at scale. Proposes a work-stealing ring pool with crash tolerance and memory-aware GPU concurrency to handle skewed workloads and failures. Achieves 3.4× higher throughput than static sharding under skewed load and 0 task loss when half workers fail.
+* `training` `serving` `offloading` [KV-Pipe: On the Relation Between KV Sharing and Pipeline Parallel Efficiency in LLMs](http://arxiv.org/abs/2608.15943v1)
+  > **TL;DR**: Addresses pipeline imbalance in LLM training by introducing KV-Pipe, a stage-aware KV-sharing mechanism that reshapes workloads to balance stages offline. Achieves 9.2% higher training MFU and reduces KV-cache costs, improving both training throughput and long-context decoding efficiency.
+* `serving` `disaggregation` [Global Simulation-Guided Dynamic Operator Scheduling for Efficient Multi-Tenant Model Serving](http://arxiv.org/abs/2608.15762v1)
+  > **TL;DR**: Proposes SliceScheduler for operator-level scheduling in multi-tenant LLM serving to exploit fragmented GPU idle slices. Uses a Global Mapping Graph and simulation-based scheduler to avoid memory violations and preserve SLA. Achieves 1.10-2.29x higher token throughput than baselines with under 9% SLA violations.
+* `serving` `offloading` [DeltaLog: Deferred Materialization of Recurrent States for Linear Attention Decoding](http://arxiv.org/abs/2608.15533v1)
+  > **TL;DR**: Reduces memory traffic in linear attention decoding via DeltaLog's recurrent state representation (dense base + compact update logs) that defers full write-backs. Achieves up to 7.83× lower write traffic and 1.86× faster state updates during serving.
+* `serving` `kernel` `quantization` [FlashQuant: Sparse-Dense Fusion for Memory-Efficient Outlier-Aware LLM Inference](http://arxiv.org/abs/2608.15531v1)
+  > **TL;DR**: Addresses redundant memory accesses in outlier-aware quantization during LLM inference by fusing sparse outlier and dense quantized paths into a single GPU kernel using sparse-dense tiling, Tile-COO encoding, and pipelined scheduling. Achieves up to 1.53x speedup over unfused baselines and 4.18x over cuBLAS BF16.
+* `serving` `disaggregation` [Q-First: Attention and Feed-Forward Concurrency at the Smallest Change to the Block](http://arxiv.org/abs/2608.15473v1)
+  > **TL;DR**: Eliminates idle time in disaggregated LLM serving by reordering attention and feed-forward layers. Introduces Q-First protocol to run attention queries early for concurrent execution. Achieves 3.2e-3 relative error with no change to hardware and minimal training degradation (<0.0026 bits/byte).
+* `edge` `multi-modal` [FloodReasonBench: Benchmarking VLM Reasoning Segmentation for Embodied Flood Response at the Edge](http://arxiv.org/abs/2608.15410v1)
+  > **TL;DR**: Benchmarks VLM reasoning segmentation for edge-based flood response. Evaluates pipeline optimizations (split inference, compressed representations) on accuracy, latency, energy, and communication. Flood-adapted designs yield consistent accuracy and enable tradeoffs for quality-constrained edge deployment on NVIDIA Jetson AGX Xavier.
+* `edge` `agentic` `training` [LOCAL: Enabling Learning On-device Contiguously for Agent LLMs](http://arxiv.org/abs/2608.15241v1)
+  > **TL;DR**: Addresses contiguous learning-inference for on-device agent LLMs via LOCAL runtime with cooperative scheduler, version-aware KV-cache manager and multi-agent model. Reduces foreground queue-wait p95 by 3.1× over FIFO on a single 24GB GPU.
+* `training` `offloading` `scaling` [TERRA: A Hierarchical Parallel Training and Memory Orchestration Framework for High-Resolution AI-based Earth Modeling](http://arxiv.org/abs/2608.15211v1)
+  > **TL;DR**: Solves high memory consumption in training Earth forecasting models with convolutional-Transformer architectures. Proposes hierarchical parallelism (SAWSTP) and memory orchestration with activation offloading. Achieves 32.2%-51.8% GPU memory savings for long-lead finetuning with ≤20% step-time overhead.
+* `serving` `RAG` `scaling` [P-PAS: Prefill-Pressure Adaptive Scheduling for Long-Context LLM Serving](http://arxiv.org/abs/2608.15171v1)
+  > **TL;DR**: Aims to reduce latency in long-context LLM serving for RAG and agentic systems. Introduces P-PAS, which dynamically adjusts the token scheduling budget (MBT) based on concurrent prefill/decode pressure. Maintains low end-to-end latency across varying load regimes, avoiding degradation from static MBT configurations.
+* `serving` `agentic` `offloading` [From LLM Inference to Agentic Workloads: Characterization and Implications for Serving Systems](http://arxiv.org/abs/2608.15127v1)
+  > **TL;DR**: Characterizes system challenges in shifting from isolated LLM inference to stateful agentic workloads. Proposes AgentSysBench benchmark and design optimizations like task-aware serving and state offloading. Achieves 4.6x memory reduction via state offloading and 29-40% latency improvements.
+* `training` `serving` `networking` [Collective Communication for Distributed LLM Systems: Planning, Runtime Adaptation, and Computation Coordination](http://arxiv.org/abs/2608.15118v1)
+  > **TL;DR**: Optimizes collective communication (AllReduce, AllGather) for distributed LLM systems. Proposes a three-layer approach: topology-aware planning, runtime execution adaptation, and computation-communication coordination. Aims to improve end-to-end training throughput and inference latency in heterogeneous clusters.
+* `quantization` `agentic` [Anatomy of a Quantized Agent: VRAM Stability and Forecasting in Code-Synthesis Agentic Workloads](http://arxiv.org/abs/2608.15117v1)
+  > **TL;DR**: Assesses peak VRAM forecasting for quantized LLMs in code-synthesis agents. Evaluates closed-form analytical models using two empirical constants, achieving 2.2-4.4% test MAPE on three backbones and finding low VRAM variance eliminates need for complex predictive models.
+* `serving` `networking` `offloading` [When Does Distributed AI Inference Need More Wide-Area Bandwidth? A Co-Design Evaluation of Optical, Packet, and Software Levers](http://arxiv.org/abs/2608.14967v1)
+  > **TL;DR**: Evaluates when wide-area bandwidth beats KV recomputation for distributed LLM inference. Models attention architectures and GPU scarcity economics to determine network-vs-compute crossover points (e.g., 9-14 Gbps for grouped-query attention). Shows modern attention and GPU shortages favor optical transfer by 5-20x cost efficiency.
+* `edge` `multi-modal` `MoE` [AdaSprite: Resource-efficient Online Co-Adaptation for V2I Systems Under Large-scale Data Drifts](http://arxiv.org/abs/2608.16188v1)
+  > **TL;DR**: Addresses efficient online co-adaptation of Vision Mixture-of-Experts on resource-constrained edge servers for vehicle-infrastructure systems. Proposes AdaSprite, combining cooperative elastic scaling and multi-level multiplexing to optimize DRAM usage and exploit sparsity. Achieves 17 concurrent tasks, improving SLO attainment by 1.6x and throughput by 2.1x.
+* `serving` [Global Simulation-Guided Dynamic Operator Scheduling for Efficient Multi-Tenant Model Serving](http://arxiv.org/abs/2608.15762v1)
+  > **TL;DR**: Addresses inefficient GPU utilization in multi-tenant LLM serving via SliceScheduler, which employs global simulation for operator-level scheduling. Achieves 1.10-2.29× higher token throughput with SLA violations under 9%.
+* `serving` `offloading` `agentic` [From LLM Inference to Agentic Workloads: Characterization and Implications for Serving Systems](http://arxiv.org/abs/2608.15127v1)
+  > **TL;DR**: Characterizes system behavior of agentic workloads via a benchmark suite and identifies six distinguishing properties. Proposes optimizations including state offloading and tool-result caching that reduce memory usage by 4.6x and remove 35.2% of redundant search calls, saving 19.3% latency.
+
 ### 2026-08-17
 * `RL` `multi-modal` `training` [Rollplex: Cross-Phase GPU Spatial Sharing for Vision Language Model Post-Training](http://arxiv.org/abs/2608.14498v1)
   > **TL;DR**: Improves RL post-training efficiency for vision-language models by overlapping prefix computation with rollout decoding. Rollplex enables cross-phase spatial sharing via phase-aware memory management and parallelism-aware weight sharing. Achieves up to 2.24× speedup over disaggregation on 32 GPUs.
