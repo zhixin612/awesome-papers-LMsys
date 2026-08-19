@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3011-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.18-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3012-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,10 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-19
+* `serving` `offloading` `storage` [Bounded-State Restoration: Decoupling Local Restore Capacity from External LLM State](http://arxiv.org/abs/2608.17826v1)
+  > **TL;DR**: Addresses memory inefficiency in restoring externally stored KV-cache for long-context LLM serving. Introduces Bounded-State Restoration (BSR) that decouples reusable state discovery from local residency using a bounded window (W). Achieves 63.959x external-state-to-local-memory ratio and reduces 512K restore latency from 43.1s to 17.6s.
+
 ### 2026-08-18
 * `serving` `scaling` [Beyond Binary Priorities: Multi-Tier SLA Scheduling for Large Language Model Serving](http://arxiv.org/abs/2608.16336v1)
   > **TL;DR**: Addresses scheduling for multi-tier SLAs in LLM serving by extending Llumnix with tiered priorities, headroom, and dispatch. Evaluated via simulation, it achieves up to 8.3x prefill speedup, 3.1x P99 latency improvement, and 46-68% cost-per-latency reduction over baselines.

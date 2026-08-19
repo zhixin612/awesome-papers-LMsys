@@ -153699,5 +153699,229 @@
         ],
         "tldr": "Addresses efficient online co-adaptation of Vision Mixture-of-Experts on resource-constrained edge servers for vehicle-infrastructure systems. Proposes AdaSprite, combining cooperative elastic scaling and multi-level multiplexing to optimize DRAM usage and exploit sparsity. Achieves 17 concurrent tasks, improving SLO attainment by 1.6x and throughput by 2.1x.",
         "indexed_date": "2026-08-18"
+    },
+    "http://arxiv.org/abs/2608.18029v1": {
+        "title": "Minimizing Commit Rules for DAG-based Atomic Broadcast",
+        "link": "http://arxiv.org/abs/2608.18029v1",
+        "abstract": "A popular class of Byzantine fault-tolerant atomic broadcast protocols rely on directed acyclic graphs (DAGs) that represent causal relations between broadcast messages. Each process applies a protocol-specific \\emph{commit rule} on its local DAG to determine which vertices can be delivered in a total order. Intuitively, commit rules that impose fewer conditions on the DAG to order its vertices imply more efficient protocols, as the broadcast messages are delivered with lower latency.\n  In this paper, we define commit rules on an uncertified round-based DAG construction, and introduce a sub-rule relation between them: a commit rule $cr_1$ is a sub-rule of a commit rule $cr_2$ if, for any DAG, the set of vertices committed by $cr_1$ contains all vertices committed by $cr_2$. We use the sub-rule relation to determine a minimal commit rule in an eventually synchronous model and a minimal commit rule in an asynchronous model, namely, two commit rules that require the least conditions on the DAG to safely commit any set of vertices in their respective models. To the best of our knowledge, no existing DAG-based atomic broadcast protocol relies on such minimal commit rules: we introduce \\emph{Minnow}, a new protocol for DAG-based atomic broadcast, which can be instantiated in both eventually synchronous (S-Minnow) and asynchronous networks (A-Minnow).",
+        "authors": [
+            "Petr Kuznetsov",
+            "Maxence Perion",
+            "Sara Tucci-Piergiovanni"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.18029v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17998v1": {
+        "title": "Multivalued Consensus: General Adversaries Require More Communication",
+        "link": "http://arxiv.org/abs/2608.17998v1",
+        "abstract": "We study $n$-party fault-tolerant consensus against general (non-threshold) adversaries. We describe an infinite family $Z_\\mathsf{proj}^{n,d}$ of $Q^d$-satisfying $n$-party adversary structures based on finite projective geometry which cause error-free $R$-round protocols for interactive consistency on $L$-bit inputs to require $Ω(Ln^{2+1/d})$ bits of expected communication. Likewise, $Z_\\mathsf{proj}^{n,d}$ causes error-free byzantine agreement and broadcast to cost $Ω(Ln^{1+1/d})$ bits. In every case, the lower bound is $Ω(L_{\\mathsf{out}} \\cdot n^{1+1/d})$ bits, where $L_{\\mathsf{out}}$ is the output length.\n  The family $Z_\\mathsf{proj}^{n,d}$ also causes reliable broadcast and byzantine agreement to cost $Ω(Ln^{1+1/d})$ bits of expected communication in asynchronous networks. Moreover, there exists a related family $Z_\\mathsf{2\\textsf-proj}^{n,d}$ of $Q^d$-satisfying adversary structures that make core set agreement cost $Ω(Ln^{2+1/d})$ bits. These asynchronous lower bounds hold against send-omission adversaries, even if the protocol uses cryptography. Their basis is that if a quorum of non-faulty parties agree on an output and terminate, then the messages they sent before terminating must suffice for the parties outside the quorum to also terminate with the same output. Surprisingly, if we do not require the parties to terminate (stop sending messages) after they output, then these bounds no longer hold. We show this by designing a non-terminating omission-tolerant reliable broadcast protocol that can for any parameter $δ> 1$ be tuned to cost $(1 + \\frac{1}{δ- 1})Ln + O(δn^2\\log(δn))$ bits, which is of independent interest. Lastly, we show how to get termination with $O(Ln^{1+1/d} + n^2\\log n)$ bits (assuming the $Q^d$ condition), and thus prove our asynchronous lower bounds tight.",
+        "authors": [
+            "Mose Mizrahi",
+            "Roger Wattenhofer"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR",
+            "cs.IT"
+        ],
+        "id": "http://arxiv.org/abs/2608.17998v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17826v1": {
+        "title": "Bounded-State Restoration: Decoupling Local Restore Capacity from External LLM State",
+        "link": "http://arxiv.org/abs/2608.17826v1",
+        "abstract": "Hierarchical KV-cache systems can retain long-context LLM execution state beyond GPU memory, but retention capacity does not determine the local memory required to make that state executable again. We isolate this second resource as the restoration working set (RWS): the peak local staging state whose lifetimes overlap during restoration. In the pinned upstream LMCache whole-plan path, measured full-reuse points for 1.956, 7.823, and 15.646 GiB/rank states first succeed at 2, 8, and 16 GiB L1 rungs, with successful L1 peaks of 1.956, 7.824, and 15.648 GiB/rank.\n  We introduce Bounded-State Restoration (BSR), which separates complete discovery from local residency. BSR probes the complete reusable prefix without materializing the whole hit in L1, then installs confirmed state through a reusable window of at most $W$ chunks. Under bounded auxiliary state, peak restoration capacity is $O(W)$ while total transfer and installation work remains $Θ(|S|)$. Because reusable state spans heterogeneous allocator groups and tensor-parallel ranks, BSR uses a request-level commit rule: partial installation is never exposed as a valid reusable prefix; failures invalidate the advertised prefix and fall back to a lower valid tier or deterministic recomputation.\n  On DeepSeek-V4-Flash with TP=2 across two DGX Spark nodes, a clean no-resume sweep grows external state from 1.956 to 31.277 GiB/rank while measured L1 RWS remains exactly 500.75 MiB/rank at $W=32$, a 63.959x largest-state external-to-live-staging ratio. A second fresh 524K-token run repeats the largest-state acceptance result. Evaluated tier and rank-asymmetric failures expose either complete reuse or zero external reuse before fallback. A matched SSD optimization reduces 512K restore TTFT from 43.1 to 17.6 seconds without changing RWS.",
+        "authors": [
+            "Zixuan Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.17826v1",
+        "submit_date": "2026-08-18",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "storage"
+        ],
+        "tldr": "Addresses memory inefficiency in restoring externally stored KV-cache for long-context LLM serving. Introduces Bounded-State Restoration (BSR) that decouples reusable state discovery from local residency using a bounded window (W). Achieves 63.959x external-state-to-local-memory ratio and reduces 512K restore latency from 43.1s to 17.6s.",
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17641v1": {
+        "title": "rl-triton: High-Performance Triton GPU Kernels for Reinforcement Learning Credit Assignment",
+        "link": "http://arxiv.org/abs/2608.17641v1",
+        "abstract": "We present rl-triton, an open-source library of high-performance GPU kernels for reinforcement learning credit assignment, implemented in Triton. The core contribution is a unified associative scan framework that recasts seven distinct RL estimation algorithms - Generalized Advantage Estimation (GAE), V-Trace, Retrace($λ$), TD($λ$) returns, discounted returns, eligibility traces, and episodic prefix sums - as instances of a single first-order linear recurrence solved in $O(\\log T)$ parallel steps. All algorithms share the same associative scan operator, with algorithm-specific fused Triton kernels constructing their recurrence coefficients on-chip. We verify the associative operator algebraically and define the treatment of terminated and truncated episodes explicitly. Benchmarks show a 1.6-5.70$\\times$ full-call speedup over a vectorized torch.compile baseline in the massively parallel simulation regime (thousands of environments, short rollouts). The reported range covers all seven algorithms on both GPUs, both with and without per-step truncation handling. For most algorithms, speedups increase at longer sequence lengths, as the baseline requires more scan stages as $\\log T$ grows, each adding an intermediate HBM round-trip. The library is available at https://github.com/simonsays1980/rl-triton.",
+        "authors": [
+            "Lars Simon Zehnder"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2608.17641v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17592v1": {
+        "title": "Communication Reduction via Semantic-Based Encoding in DMPC Using LSTMs",
+        "link": "http://arxiv.org/abs/2608.17592v1",
+        "abstract": "The communication demands of distributed model prediction control (DMPC) can overwhelm even advanced wireless communication technologies as agents must exchange a significant amount of information at least once per time step. To semantically reduce communication demands, this work employs encoder-decoder networks built around long-short term memory (LSTM) cells in a distributed optimization algorithm. Agents publish a reduced representation of a message and receivers reconstruct the original message upon reception. In tests with reduced communication using formations of mobile robots, trained networks retain satisfactory performance and work reliably under conditions overwhelming full communication. As the results show, the usage of LSTMs either allows unprecedented reconstruction accuracy or the usage of different prediction-horizon lengths without the necessity to retrain.",
+        "authors": [
+            "Torben Schiz",
+            "Pedro H. J. Nardelli",
+            "Henrik Ebel"
+        ],
+        "categories": [
+            "eess.SY",
+            "cs.DC",
+            "cs.LG",
+            "cs.MA",
+            "cs.RO"
+        ],
+        "id": "http://arxiv.org/abs/2608.17592v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17590v1": {
+        "title": "Counting in Population Protocols on Graphs",
+        "link": "http://arxiv.org/abs/2608.17590v1",
+        "abstract": "We consider the problem of counting the number of agents in a population protocol where the agents are connected by an underlying graph $G=(V,E)$ with $|V|=n$ nodes. In each step, a random scheduler selects an edge uniformly at random, and the incident nodes make a state transition. As per standard assumptions, agents are identical and anonymous, that is, have no identifiers. To break symmetry, in each interaction one of the agents is declared as the initiator uniformly at random. Our size counting protocol uses $\\tilde O(n)$ states and stabilizes in $O( B(G) \\cdot \\log^2(n) + L(G) \\cdot \\log(n))$ interactions with high probability, where $B(G)$ is the broadcast time and $L(G)$ is the load balancing time. Our protocol is based on novel protocols for sampling independent random bits (given that the scheduler determines an initiator and responder) and approximating $\\log n$ up to an additive error of $O(\\log \\log n)$ with high probability. The latter uses $O(poly\\log(n))$ states and $O(B(G)\\cdot\\log^2 n)$ interactions. Both results may be of independent interest. The main protocol for exact counting requires the presence of a unique leader, the other two do not. None of the protocols requires any knowledge about the graph $G$. We conclude with impossibility results for terminating uniform population protocols that compute graph-size properties (like counting nodes or determining parity) with and without a leader.",
+        "authors": [
+            "Petra Berenbrink",
+            "Robert Elsässer",
+            "Tom Friedetzky",
+            "Thorsten Götte",
+            "Lukas Hintze",
+            "Dominik Kaaser"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.17590v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17552v1": {
+        "title": "Optimal Adaptive Multi-Valued Byzantine Agreement",
+        "link": "http://arxiv.org/abs/2608.17552v1",
+        "abstract": "In Byzantine Agreement (BA), $n$ parties, out of which $t$ can be Byzantine, run a distributed protocol to agree on a common valid input. Traditionally, these protocols have a linear latency and quadratic message complexity, making them impractical at a large scale. In their recent work, Constantinescu, Dufay, Paramonov, and Wattenhofer consider the actual number of byzantine parties $f \\leq t$ and work toward decoupling the dependency on $n$ and $t$ in the complexity. They obtain a BA protocol with $\\tilde{\\mathcal{O}}(n + t\\cdot f)$ message complexity and $\\tilde{\\mathcal{O}}(f)$ round complexity.\n  However, their results are strictly limited to agreement on a binary value. Using the framework given by their work along with novel techniques, we extend these results for BA on an $L$-bit value. With $κ$ being a security parameter, and with optimal resiliency ($t < n/2$ in the synchronous setting or $t < n/3$ otherwise), we obtain:\n  - In synchrony, a deterministic protocol with $\\mathcal{O}(n\\cdot (L + f \\cdot κ))$ bit complexity and $\\mathcal{O}(f + \\log n)$ round complexity.\n  - In synchrony and partial synchrony, deterministic protocols with $\\tilde{\\mathcal{O}}(n \\cdot κ+ t\\cdot (L + f \\cdot κ))$ bit complexity and $\\mathcal{O}(f)$ round complexity.\n  - In asynchrony, a protocol with $\\tilde{\\mathcal{O}}(n \\cdot κ+ t\\cdot(L + t \\cdot κ))$ expected bit complexity and expected $\\mathcal{O}(1)$ latency.",
+        "authors": [
+            "Marc Dufay",
+            "Anton Paramonov",
+            "Roger Wattenhofer"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.17552v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17388v1": {
+        "title": "Generalizing and accelerating consistency checking for non-transactional distributed storage systems",
+        "link": "http://arxiv.org/abs/2608.17388v1",
+        "abstract": "Linearizability checkers check if an operation history, observed by concurrent clients, is linearizable. They are used in testing distributed storage systems, and use the classic Wing-Gong (WG) linearizability checking algorithm.\n  In this paper, we generalize the WG algorithm to make linearizability checkers more versatile: we can check other non-transactional consistency guarantees, like ordered sequential consistency provided by Zookeeper. Equipped with this generalization, we can also check for system-specific consistency guarantees that introduce additional ordering constraints over operations in a history, as per the system's specification.\n  Our experiments with 8 distributed storage systems show that checking for system-specific consistency guarantees is easy to realize, reduces false negatives in testing, helps debug consistency violations, can be up to 370x faster, and can scale to more concurrent clients within the same checking time budget. We report 6 new consistency violation bugs, out of which 5 could not be found with existing consistency checkers.",
+        "authors": [
+            "Kotikala Raghav",
+            "Aman Hassan",
+            "Brian Sajeev Kattikat",
+            "Patel Jay",
+            "RSRS Santhosh",
+            "Abhilash Jindal"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.17388v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17358v1": {
+        "title": "A Black-Box Workload Barrier for Exact Girth via Multi-Scale Nearest-Source Estimation in CONGEST",
+        "link": "http://arxiv.org/abs/2608.17358v1",
+        "abstract": "Recent multi-scale nearest-source methods give polynomially sublinear girth approximations in CONGEST. We isolate the direct black-box route for making this framework exact: sequential calls to the same estimator on fresh exchangeable source sets, with source cardinalities and nearest-source capacities chosen adaptively from previous scalar outputs and with an adaptive stopping rule. On a bounded-degree, logarithmic-diameter family $H_t$ with $n_t$ vertices and a unique girth-$g_t=Θ(\\log n_t)$ cycle, exactness requires a sampled cycle source to survive at an antipodal edge despite a linear number of strictly closer competitors. For any such exactification $\\mathcal A$, a permutation-rank argument yields the implementation-independent workload bound $\\Pr[\\mathcal A(H_t)=g_t]\\leq(3g_t/n_t)\\,\\mathbb E[\\sum_{j=1}^{T}\\min\\{Q_j,k_j\\}]$, where $T$ is the number of executed calls, $Q_j$ is the source-set cardinality, and $k_j$ is the nearest-source capacity of call $j$. Thus constant exactness probability requires $Ω(n_t/g_t)=Ω(n_t/\\log n_t)$ expected retained-source workload. We formally show that retuning the recent multi-scale template solely through its scale count/order, Bernoulli or fixed-cardinality sampling, capacities, and scalar-output stopping rules lies in this class. For the standard sequential packetized estimator realization, the workload theorem gives an $Ω(n_t/\\log n_t)$ expected-round corollary. This is a barrier to a defined black-box exactification strategy, not a lower bound for unrestricted exact girth in CONGEST.",
+        "authors": [
+            "Indraveni Chebolu",
+            "Bhavani Singh Rajpurohit",
+            "Arnab Mallick"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.17358v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17349v1": {
+        "title": "Brief Announcement: Fair Binding for Hidden-State Authorization in Byzantine SMR",
+        "link": "http://arxiv.org/abs/2608.17349v1",
+        "abstract": "Validated Byzantine SMR assumes that replicas can evaluate the validity of an ordered command. Agent authorization creates a different regime: a command may be valid only relative to a committed policy state that validators cannot reconstruct from the log. A proof that an action was authorized at an old commitment is then only a historical attestation, it does not by itself reserve the hidden resource for later use.\n  We isolate two independent requirements for safe live allocation of a hidden consumable resource under a Byzantine leader. First, arrival order at correct replicas must constrain commit order, the gap addressed by fair-ordering protocols. Second, a committed first request must bind later validity: it must make conflicting later requests invalid, not merely record that the first request was once authorized. The second requirement is non-vacuous precisely because the current policy state is hidden and not prefix-recoverable. Using an explicit authorization-witness interface, we characterize the two distinct obligations in this one-shot reservation model and give a fair reserve/use protocol satisfying both authorization safety and first-arrival liveness. Under trusted FIFO admission the two requirements collapse because admission and execution are atomic, Byzantine SMR separates request commitment from use.",
+        "authors": [
+            "Arnab Mallick"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.17349v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.12700v2": {
+        "title": "A Contract-Grade Verifier for LLM-Generated GPU Kernels, and a Native Blackwell Backward for the Gated-Linear-Recurrence Family",
+        "link": "http://arxiv.org/abs/2608.12700v2",
+        "abstract": "Systems that generate GPU kernels with language models report high correctness rates. Those rates come from a single loose test: run the kernel on a few random inputs at one fixed shape and accept it if the output is close to a reference. A kernel can pass that test and still be silently wrong. It can return an ordinary number where the true answer is a NaN or an infinity, differ from run to run, break when the shape changes, or accumulate in fp16 where the reference keeps an fp32 total. We build the instrument that checks correctness properly: a contract-grade verifier of twelve adversarial gates, each a property a correct kernel must satisfy, several of them tolerance-free, so no choice of threshold can explain a failure away. Aimed outward, the verifier audits 2,638 machine-generated kernels that a public system's own harness had already accepted as correct. It finds 39.5% broken beyond any tolerance argument and 62.1% carrying at least one violation. The field's standard test accepts 1,487 kernels the verifier rejects, against only 14 the other way. We defend the finding four independent ways: a 7/7 positive control, a threshold-calibration sweep, 98.5% agreement with the reference benchmark's own correctness code, and a stratified hand-audit. Aimed inward, the verifier judges a kernel of our own: the first native Blackwell tcgen05 training backward for the gated-linear-recurrence (GDN) family, including the reverse-state stage the field still runs on a fallback. We establish its correctness independently, against a double-precision oracle, and train five family members through it. The correctness signal behind reported progress in kernel generation is far weaker than the numbers suggest, and a set of tolerance-free contracts would close most of the gap.",
+        "authors": [
+            "Rishi Shah",
+            "Rishav Shrestha"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.12700v2",
+        "submit_date": "2026-08-17",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
+    },
+    "http://arxiv.org/abs/2608.17529v1": {
+        "title": "CryptDough: A Unified Analytics Engine for Secure Multiparty Computation",
+        "link": "http://arxiv.org/abs/2608.17529v1",
+        "abstract": "We present CryptDough, a unified analytics engine for secure multiparty computation (MPC). CryptDough enables multiple distrusting parties to jointly execute a data analysis pipeline on their private inputs and learn nothing beyond the result (e.g., aggregate statistics). Unlike existing MPC solutions that support a single threat model or workload type, CryptDough provides built-in support for cross-domain analytics (relational, time series, ML inference) under various threat models, all within the same system runtime.\n  CryptDough contributes (i) a hierarchical system design that facilitates modularity and extensibility through progressive lowering of abstractions, and (ii) the concept of virtual vectors that enable users to write single-threaded code across all layers of the software stack, while pushing the complexity of communication, parallelization, and memory management down to the execution engine. We show that CryptDough generalizes the functionality of state-of-the-art MPC systems and remains competitive on the analytics they support, often outperforming them by more than $2\\times$.",
+        "authors": [
+            "Muhammad Faisal",
+            "Alessandra Lanz",
+            "Sam Buxbaum",
+            "Adam Godel",
+            "Vasiliki Kalavri",
+            "Mayank Varia",
+            "John Liagouris"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.17529v1",
+        "submit_date": "2026-08-18",
+        "relevant": false,
+        "indexed_date": "2026-08-19"
     }
 }
