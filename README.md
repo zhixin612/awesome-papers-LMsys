@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3012-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.19-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3016-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.20-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-20
+* `serving` `networking` `scaling` [Pre-Compiled Pipeline Shards for Distributed LLM Inference on Intel AI PC Fleets](http://arxiv.org/abs/2608.19147v1)
+  > **TL;DR**: Proposes pipeline-sharded LLM inference distributing layers across Intel AI PCs over a network. Techniques: per-stage shard optimization for GPU fusion, speculative decoding, and micro-batching. Achieves 1.79× throughput for two concurrent users with two nodes vs. unsplit model on single node.
+* `disaggregation` `serving` [Q-First: Most of Attention Needs Only the Query in Disaggregated LLM Decoding](http://arxiv.org/abs/2608.15473v2)
+  > **TL;DR**: Addresses idle time in disaggregated LLM serving due to dependency between attention and feed-forward. Proposes reordering sub-layers to run attention (using only the query) concurrently with feed-forward. Achieves relative error 3.2e-3 without new operators and minimal training impact (0.0026 bits/byte).
+* `RL` `kernel` [rl-triton: High-Performance Triton GPU Kernels for Reinforcement Learning Credit Assignment](http://arxiv.org/abs/2608.17641v2)
+  > **TL;DR**: Presents a unified associative scan framework using Triton kernels to implement various RL credit assignment algorithms efficiently. Achieves 1.6-5.7x speedup over a vectorized torch-compile baseline in parallel simulations by reducing HBM round-trips.
+* `edge` `multi-modal` `serving` [A Cloud-Edge System for Multimodal Clinical Screening in Resource-Constrained Rural Settings](http://arxiv.org/abs/2608.12745v2)
+  > **TL;DR**: Proposes a cloud-edge system for efficient multimodal clinical screening under bandwidth constraints. Edge models preprocess data into structured outputs and an orchestrator selects tools. Achieves 4–15× lower token cost and maintains invariant latency (25–35s) across bandwidth profiles.
+
 ### 2026-08-19
 * `serving` `offloading` `storage` [Bounded-State Restoration: Decoupling Local Restore Capacity from External LLM State](http://arxiv.org/abs/2608.17826v1)
   > **TL;DR**: Addresses memory inefficiency in restoring externally stored KV-cache for long-context LLM serving. Introduces Bounded-State Restoration (BSR) that decouples reusable state discovery from local residency using a bounded window (W). Achieves 63.959x external-state-to-local-memory ratio and reduces 512K restore latency from 43.1s to 17.6s.
