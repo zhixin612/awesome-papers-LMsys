@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3016-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.20-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3020-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.21-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-21
+* `serving` `networking` [CacheRoute: Planned Prefix-Affinity Routing for Large-Scale LLM Serving](http://arxiv.org/abs/2608.19677v1)
+  > **TL;DR**: Addresses the conflict between KV cache reuse and load balancing in LLM serving. Proposes CacheRoute, a routing plan that assigns high-rate keys to stable destinations based on expected load. Achieves 2.3x higher QPS and 93.2% KV-cache hit rate on Llama-70B.
+* `serving` `scaling` [FleetSieve: Decision-Critical Profiling for SLO-Aware LLM Fleet Configuration](http://arxiv.org/abs/2608.19659v1)
+  > **TL;DR**: Addresses efficient configuration of tensor-parallel degrees and replicas for LLM serving fleets under SLO constraints. Proposes FleetSieve, which selectively profiles configurations based on their impact on capacity and tail latency decisions. Reduces profiling GPU-seconds by 5.4% on average versus random sampling and prevents SLO violations.
+* `RAG` `edge` `serving` [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](http://arxiv.org/abs/2608.19535v1)
+  > **TL;DR**: Proposes adaptive compression for edge RAG systems to reduce latency and energy overhead from long contexts. Uses runtime telemetry to dynamically adjust compression rates. Achieves up to 53.2% GPU and 48.2% SoC energy savings with negligible quality loss.
+* `serving` `storage` [The Lazy Pod That Lies: Deferred Cost and Failure Semantics of Lazy Container Image Pulling for Model Serving on Kubernetes](http://arxiv.org/abs/2608.19412v1)
+  > **TL;DR**: Evaluates lazy container-image pulling for model serving on Kubernetes. Tests AWS SOCI and eStargz, showing near-constant cold-start times (17s) independent of model size vs eager (24.5-573s), but exposes deferred costs and cache-related file failures (up to 94% under load).
+
 ### 2026-08-20
 * `serving` `networking` `scaling` [Pre-Compiled Pipeline Shards for Distributed LLM Inference on Intel AI PC Fleets](http://arxiv.org/abs/2608.19147v1)
   > **TL;DR**: Proposes pipeline-sharded LLM inference distributing layers across Intel AI PCs over a network. Techniques: per-stage shard optimization for GPU fusion, speculative decoding, and micro-batching. Achieves 1.79× throughput for two concurrent users with two nodes vs. unsplit model on single node.
