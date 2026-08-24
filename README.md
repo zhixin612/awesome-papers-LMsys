@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3020-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.21-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3024-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-24
+* `training` `LoRA` `sparse` [Thermo-FL: Thermal-Aware Robust Federated Fine-Tuning of Large Language Models for Edge AI](http://arxiv.org/abs/2608.21172v1)
+  > **TL;DR**: Addresses thermal instability and adversarial attacks during federated LoRA fine-tuning of LLMs on edge devices. Thermo-FL adjusts LoRA-layer fraction and update sparsity based on temperature, and TERRA provides robust aggregation. Preserves GSM8K utility under attacks and reduces compressed upload size.
+* `kernel` [HIERA: Workload-Aware Planning Across Implementation Spaces for GPU Kernel Optimization](http://arxiv.org/abs/2608.21157v1)
+  > **TL;DR**: Proposes HIERA, a hierarchical framework for automated GPU kernel optimization across PyTorch operators, CUDA libraries, and custom kernels. Uses profiling feedback and expert knowledge for iterative refinement. Achieves 1.53× speedup over cuDNN in a stencil operator case study.
+* `serving` `offloading` `edge` [AI Infrastructure in Space: How Far Can We Go?](http://arxiv.org/abs/2608.21034v1)
+  > **TL;DR**: Addresses deploying and managing AI services on satellites under dynamic thermal and connectivity constraints. Proposes a space-native infrastructure layer for cross-spacecraft resource management and state recovery. SateLight reduces application-update transmission latency by 56.54% on average with 100% correctness.
+* `serving` [TreeWY: Speculative Verification for Gated DeltaNet Hybrids](http://arxiv.org/abs/2608.20961v1)
+  > **TL;DR**: Addresses memory inefficiency in speculative decoding for hybrid models with recurrent states. Proposes TreeWY: a tree-structured WY transform that computes draft outputs via triangular solve without per-node snapshots. Reduces memory pressure, improving throughput and time-to-first-token in Qwen3.5 serving benchmarks.
+
 ### 2026-08-21
 * `serving` `networking` [CacheRoute: Planned Prefix-Affinity Routing for Large-Scale LLM Serving](http://arxiv.org/abs/2608.19677v1)
   > **TL;DR**: Addresses the conflict between KV cache reuse and load balancing in LLM serving. Proposes CacheRoute, a routing plan that assigns high-rate keys to stable destinations based on expected load. Achieves 2.3x higher QPS and 93.2% KV-cache hit rate on Llama-70B.

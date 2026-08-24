@@ -154468,5 +154468,271 @@
         ],
         "tldr": "Evaluates lazy container-image pulling for model serving on Kubernetes. Tests AWS SOCI and eStargz, showing near-constant cold-start times (17s) independent of model size vs eager (24.5-573s), but exposes deferred costs and cache-related file failures (up to 94% under load).",
         "indexed_date": "2026-08-21"
+    },
+    "http://arxiv.org/abs/2608.21172v1": {
+        "title": "Thermo-FL: Thermal-Aware Robust Federated Fine-Tuning of Large Language Models for Edge AI",
+        "link": "http://arxiv.org/abs/2608.21172v1",
+        "abstract": "Federated fine-tuning enables large language models to adapt on edge devices without centralizing private data, but practical deployments must address hardware instability and adversarial update corruption together. Thermally constrained clients may throttle, slow local training, or delay synchronous aggregation, while Byzantine clients and communication-layer adversaries can corrupt the updates used to form the global model. To address these challenges, we present Thermo-FL, a thermal-aware federated LoRA fine-tuning framework that uses device temperature as an active control signal for local adapter training and sparse update transmission. On the client side, Thermo-FL adjusts the active LoRA-layer fraction and transmitted update density as devices heat or cool, reducing workload under thermal stress. On the server side, Thermo-FL introduces TERRA, a robust aggregation pipeline for dynamically sparse LoRA updates that combines norm filtering, mask-aware directional validation, adaptive active-coordinate clipping, and mask-aware aggregation. We evaluate Thermo-FL using both a large-scale emulator and a Jetson-based physical testbed. In the emulator, Thermo-FL improves robustness under adversarial sparse aggregation and achieves the strongest BoolQ accuracy across clean and attack settings while remaining competitive on GSM8K. In the physical prototype, Thermo-FL stabilizes device temperature, reduces compressed upload size through bitmap sparse encoding, and preserves GSM8K utility under sign-flip/scale and MITM perturbations. These results show that secure edge LLM adaptation should jointly consider hardware behavior, workload regulation, sparse communication, and aggregation robustness.",
+        "authors": [
+            "Shiva Shrestha",
+            "Kazi Shaharair Sharif",
+            "Zongxing Xie",
+            "Jiajing Huang",
+            "Anhao Xiang",
+            "Honghui Xu"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.21172v1",
+        "submit_date": "2026-08-21",
+        "relevant": true,
+        "tags": [
+            "training",
+            "LoRA",
+            "sparse"
+        ],
+        "tldr": "Addresses thermal instability and adversarial attacks during federated LoRA fine-tuning of LLMs on edge devices. Thermo-FL adjusts LoRA-layer fraction and update sparsity based on temperature, and TERRA provides robust aggregation. Preserves GSM8K utility under attacks and reduces compressed upload size.",
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.21163v1": {
+        "title": "GrAND: GPU-based Dynamic Graph Indexes for Approximate Nearest Neighbour Search",
+        "link": "http://arxiv.org/abs/2608.21163v1",
+        "abstract": "Modern Approximate Nearest Neighbour Search (ANNS) applications operate over continuously evolving vector collections and require graph indexes that sustain high-throughput searches while incorporating insertions and deletions with high recall. However, most GPU graph indexes are static or provide limited update support. Updates require neighbour discovery, reverse-edge creation, pruning, and deletion-induced graph repair; executing these operations concurrently introduces redundant distance computations and conflicting accesses to shared adjacency lists. Background-rebuild-based deletion further incurs substantial computation, additional memory consumption, and interference with foreground queries.\n  We present GrAND (GPU-based Dynamic Graph Indexes for Approximate Nearest Neighbour Search), a GPU-native collection of dynamic-update algorithms for two popular graph indexes, Vamana and CAGRA. GrAND consolidates graph repair across a batch, eliminating redundant pruning computations, and employs a lock-free find-and-replace strategy for parallel adjacency-list updates. For reliable in-place deletion, GrAND constructs an on-demand reverse graph on the GPU, accurately identifying incoming edges without permanently duplicating the index. We evaluate GrAND on seven real-world datasets across five streaming workloads, comparing it against SVFusion and FreshDiskANN-GPU (our GPU adaptation of FreshDiskANN). GrAND improves overall workload throughput by 2.2x-8.7x and 6.5x-25.4x, respectively, while maintaining high search throughput and recall over sustained updates.",
+        "authors": [
+            "Karthik Venkatasubba",
+            "Shivendra Deshpande",
+            "Shivram S",
+            "Jyothi Vedurada"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DB"
+        ],
+        "id": "http://arxiv.org/abs/2608.21163v1",
+        "submit_date": "2026-08-21",
+        "relevant": false,
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.21157v1": {
+        "title": "HIERA: Workload-Aware Planning Across Implementation Spaces for GPU Kernel Optimization",
+        "link": "http://arxiv.org/abs/2608.21157v1",
+        "abstract": "High-performance GPU kernels underpin modern deep learning and scientific computing. As workloads become increasingly diverse and GPU hardware evolves rapidly, developing efficient methods for automated GPU kernel generation and optimization has become increasingly important. Existing LLM-based methods typically optimize within a fixed implementation space, limiting either optimization flexibility or search efficiency. We propose \\textsc{HIERA}, a hierarchical search-space planning framework for GPU kernel optimization. \\textsc{HIERA} constructs contract-augmented task specifications, selects an appropriate implementation space across PyTorch operators, CUDA libraries, and custom CUDA kernels, and uses profiling feedback and expert knowledge to guide structured iterative refinement. Experiments on KernelBench across multiple various workload levels and base LLMs show that \\textsc{HIERA} delivers stronger overall implementation validity, sample efficiency, and optimization performance than existing training-free methods, while remaining competitive with the training-based CUDA-L1 without additional model training. A case study on a specialized stencil operator from scientific computing further achieves a \\(1.53\\times\\) speedup over cuDNN, demonstrating the potentiality of the general framework beyond standard machine-learning workloads.",
+        "authors": [
+            "Jinghao Wang",
+            "Qiqi Gu",
+            "Chenpeng Wu",
+            "Jianguo Yao",
+            "Haibing Guan",
+            "Xijun Li"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2608.21157v1",
+        "submit_date": "2026-08-21",
+        "relevant": true,
+        "tags": [
+            "kernel"
+        ],
+        "tldr": "Proposes HIERA, a hierarchical framework for automated GPU kernel optimization across PyTorch operators, CUDA libraries, and custom kernels. Uses profiling feedback and expert knowledge for iterative refinement. Achieves 1.53× speedup over cuDNN in a stencil operator case study.",
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.21150v1": {
+        "title": "Integrating a Python Dynamical core into ICON",
+        "link": "http://arxiv.org/abs/2608.21150v1",
+        "abstract": "The transition of Earth-system models to exascale is often hindered by rigid, monolithic Fortran codebases and maintenance-heavy compiler directives. While high-level DSLs offer a solution, they frequently fail due to cumbersome integration. We present the integration of a Python-based ICON dynamical core into the original Fortran simulation code. Leveraging the GT4Py DSL and the Data-Centric (DaCe) optimization framework, we demonstrate that high-level Python can be seamlessly integrated into legacy infrastructure without performance loss. Our results challenge the assumption that Python orchestration introduces prohibitive HPC overhead. In production-grade global simulations, our Python dynamical core achieves a 20--30\\% performance improvement over the highly-optimized Fortran+OpenACC implementation, with a 10\\% improvement on the total time for a coupled setup. Driven by advanced data-flow optimizations and automated kernel fusion, this approach replaces hardware-entangled directives by generating optimized device code from a single, portable Python source. This work proves that Python can provide a sustainable, efficient, and hardware-agnostic future for global climate modeling.",
+        "authors": [
+            "Mauro Bianco",
+            "Till Ehrengruber",
+            "Enrique González Paredes",
+            "Andreas Jocksch",
+            "Christos Kotsalos",
+            "Ioannis Magkanaris",
+            "Philip Müller",
+            "Edoardo Paone",
+            "Mikael Simberg",
+            "Hannes Vogt",
+            "Jacopo Canton",
+            "Yilu Chen",
+            "Anurag Dipankar",
+            "Nicoletta Farabullini",
+            "Michael Jähn",
+            "Matthieu Leclair",
+            "Ong Chia Rui",
+            "Nathan Beech",
+            "Nicolas Gruber",
+            "Christoph Müller",
+            "Daniel Hupp",
+            "Xavier Lapillonne"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.21150v1",
+        "submit_date": "2026-08-21",
+        "relevant": false,
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.21137v1": {
+        "title": "BackDFL: A Unified Benchmark For Backdoor Attacks and Defenses In Decentralized Federated Learning",
+        "link": "http://arxiv.org/abs/2608.21137v1",
+        "abstract": "Decentralized Federated Learning (DFL) promises trust-free collaborative learning by replacing the centralized parameter server with peer-to-peer model exchange. However, this architectural shift fundamentally reshapes the threat landscape. Without globally coordinated aggregation, DFL becomes particularly susceptible to backdoor attacks, in which malicious participants implant persistent hidden behaviors while maintaining high clean-task performance. In this paper, we argue that the robustness of DFL has been significantly overestimated. Existing studies rely on simplified threat models, non-adaptive adversaries, fragmented evaluation protocols, inconsistent communication topologies, and ad hoc training configurations, leading to an incomplete understanding of DFL security. To address these limitations, we present BackDFL, a unified benchmark for systematically evaluating DFL under realistic and adaptive backdoor attacks. Through extensive experiments, BackDFL exposes critical failure modes of decentralized learning. Our results demonstrate that both state-of-the-art Byzantine-robust DFL methods and adapted FL backdoor defenses fail under modest malicious participation rates (as low as 15%), especially in heterogeneous settings, while their robustness varies substantially across communication graph topologies.",
+        "authors": [
+            "Mouhamed Amine Bouchiha",
+            "Gregory Blanc",
+            "Yufei Han"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.21137v1",
+        "submit_date": "2026-08-21",
+        "relevant": false,
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.21034v1": {
+        "title": "AI Infrastructure in Space: How Far Can We Go?",
+        "link": "http://arxiv.org/abs/2608.21034v1",
+        "abstract": "Satellites are becoming programmable computing platforms capable of running increasingly demanding AI workloads. This shift raises a systems problem: how can AI services remain deployable, manageable, and recoverable after launch when compute capacity, connectivity, energy, and thermal headroom vary over orbital time? This paper develops a systems vision for AI infrastructure in space. We define it as the systems layer that manages AI capabilities across spacecraft, orbital networks, ground stations, and cloud backends, while treating orbital and physical state as part of the resource model. We synthesize relevant foundations from terrestrial AI infrastructure, satellite networking, and satellite edge computing, and examine the physical constraints that directly shape system design. We further ground this vision in three in-orbit case studies spanning the node, platform, and service levels. Telemetry from BUPT-1 satellite shows that usable compute capacity is bounded by thermal and energy envelopes. SateLight on BUPT-2 satellite reduces application-update transmission latency by 56.54% on average and up to 91.18%, with 100% update correctness. A stateful VLM serving case further shows that thermal interruptions make execution-state recovery a first-class systems problem. These observations motivate a research agenda for space-native resource management, lifecycle support, and sustained AI service across space and ground.",
+        "authors": [
+            "Qing Li",
+            "Qiyang Zhang",
+            "Daliang Xu",
+            "Tianze Huang",
+            "Dingge Zhang",
+            "Yihao Zhao",
+            "Xiaolong Huang",
+            "Jinfeng Wen",
+            "Xiameng Hu",
+            "Tao Qi",
+            "Mengwei Xu",
+            "Shangguang Wang",
+            "Xuanzhe Liu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.21034v1",
+        "submit_date": "2026-08-21",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "edge"
+        ],
+        "tldr": "Addresses deploying and managing AI services on satellites under dynamic thermal and connectivity constraints. Proposes a space-native infrastructure layer for cross-spacecraft resource management and state recovery. SateLight reduces application-update transmission latency by 56.54% on average with 100% correctness.",
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.20961v1": {
+        "title": "TreeWY: Speculative Verification for Gated DeltaNet Hybrids",
+        "link": "http://arxiv.org/abs/2608.20961v1",
+        "abstract": "Modern open models are hybrids: most layers are linear-attention (Gated DeltaNet, GDN) layers carrying a small fixed-size recurrent state instead of a growing key-value (KV) cache. This makes ordinary decoding memory-efficient, but hurts speculative decoding. To verify a batch of draft tokens and then roll back the rejected ones, today's systems snapshot the full recurrent state at every draft position for GDN layers, and those snapshots cannot be shared across branches of a draft tree, so a wide, high-acceptance tree becomes memory-infeasible. We remove the snapshots. Using a tree-structured WY transform of the gated delta rule, we compute every draft node's output with a single triangular solve and reconstruct only the one accepted state on commit, storing a small pseudo-value matrix instead of per-node states; the derivation depends only on the gated delta rule, not on any other architectural detail. In serving benchmarks on two scales of one hybrid model family (Qwen3.5 35B and 397B) this cuts speculative recurrent-state memory and KV-cache pressure at identical acceptance length, turning the freed HBM into higher throughput and much lower time-to-first-token (TTFT) wherever memory binds, and costing a few percent where it does not. For tree width the same memory buys affordability: a wider, higher-acceptance draft becomes possible, though not yet a throughput win.",
+        "authors": [
+            "Sneha Murthy Ghantasala"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2608.20961v1",
+        "submit_date": "2026-08-21",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Addresses memory inefficiency in speculative decoding for hybrid models with recurrent states. Proposes TreeWY: a tree-structured WY transform that computes draft outputs via triangular solve without per-node snapshots. Reduces memory pressure, improving throughput and time-to-first-token in Qwen3.5 serving benchmarks.",
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.20819v1": {
+        "title": "PRICE: Pricing-based Resource Incentives for Quality-of-Result-aware Computing at the Edge",
+        "link": "http://arxiv.org/abs/2608.20819v1",
+        "abstract": "Edge nodes are capacity-constrained by design, yet many edge workloads can trade result quality for resource efficiency at runtime. Existing edge pricing mechanisms largely treat requests as fixed-configuration submissions and rarely exploit per-request quality flexibility under overload. We present PRICE, an incentive mechanism that couples a utilization-dependent price signal to per-request quality selection. As utilization increases, rising acceptance prices make resource-intensive variants less likely to be selected, shifting accepted requests toward lighter execution and allowing the node to serve significantly more requests while operating near capacity. Evaluation on real hardware under sustained overload shows that PRICE outperforms both fixed-allocation and dynamic-pricing baselines in accepted throughput and CPU utilization. The results are robust across pricing function families, task-duration distributions, and client populations. Result-quality flexibility is a powerful but underused control dimension for overload management at the edge, and pricing is an effective mechanism to exploit it.",
+        "authors": [
+            "Uwe Gropengießer",
+            "Sebastian Frenz",
+            "Max Mühlhäuser"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.20819v1",
+        "submit_date": "2026-08-21",
+        "relevant": false,
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.20734v1": {
+        "title": "MEMPOWER: Efficient Power Management with Fine-grained Memory Analysis and Modeling for HPC Workloads",
+        "link": "http://arxiv.org/abs/2608.20734v1",
+        "abstract": "Managing the energy consumption and power efficiency of parallel applications is a significant issue in both HPC environments and in the cloud. As emerging applications continue to push against the memory wall of modern machines, the growing imbalance between compute and data movement creates new opportunities to intelligently tune CPU power consumption. Unfortunately, existing frequency and voltage scaling techniques do not adequately capture fine-grained changes in memory access behavior, rendering the compute/data access imbalance invisible to the components of the system that could capitalize on it, thus leaving potential power savings on the table. In this paper, we propose MEMPOWER, a flexible, model-based approach to exposing compute/data movement imbalance that characterizes the fine-grained memory behavior of parallel workloads. This characterization then informs our automated software framework which can statically instrument the application binary with model-determined voltage/frequency transitions that balance fine-grained changes in memory access behavior with the costs of hardware transitions. Using MEMPOWER, we demonstrate a reduction in EDP of 6% to 42% on a range of HPC benchmarks with minimal impact on execution time when compared to the standard OS/hardware-managed power control mechanism.",
+        "authors": [
+            "Nanda Velugoti",
+            "Joseph Manzano",
+            "Andres Marquez",
+            "Nathan Tallent",
+            "Kyle Hale"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.20734v1",
+        "submit_date": "2026-08-21",
+        "relevant": false,
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.20725v1": {
+        "title": "Enabling Memory-efficient Im2win Convolution with Multi-precision Support on GPU CUDA and Tensor Cores",
+        "link": "http://arxiv.org/abs/2608.20725v1",
+        "abstract": "Convolution is a principal computational bottleneck in deep neural networks, and its efficiency depends on tight integration between algorithms and GPU hardware. Existing GPU convolution methods suffer from large memory overhead, poor cache utilization, limited effectiveness across kernel sizes, or numerical instability. This work extends the im2win paradigm -- a universal, memory-efficient convolution method with contiguous memory access for all kernel sizes -- to run efficiently in full precision on CUDA cores and half precision on tensor cores. By introducing new kernel designs and optimizations such as zig-zag memory access and asynchronous data movement, im2win efficiently exploits hardware-accelerated half-precision matrix multiply-accumulate operations. Across twelve CNN benchmarks, im2win achieves up to 2.8x higher TFLOPS than its CUDA core implementation, 1.4x higher than cuDNN, and 6.4x higher than GEMM-based convolution with cuBLAS, while using as little as 53% and 35% of their memory, respectively. These results establish im2win as a unified, high-performance convolution framework for modern GPU architectures.",
+        "authors": [
+            "Xiang Fu",
+            "Jixiang Ma",
+            "Xinpeng Zhang",
+            "Peng Zhao",
+            "Shuai Lu",
+            "Xu Tony Liu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CV"
+        ],
+        "id": "http://arxiv.org/abs/2608.20725v1",
+        "submit_date": "2026-08-21",
+        "relevant": false,
+        "indexed_date": "2026-08-24"
+    },
+    "http://arxiv.org/abs/2608.20586v1": {
+        "title": "Portability of Fortran's 'do concurrent' on GPUs II",
+        "link": "http://arxiv.org/abs/2608.20586v1",
+        "abstract": "There continues to be growing interest in using standard language constructs for parallel and accelerated HPC computing, avoiding the need for (sometimes vendor-specific) external APIs. For Fortran applications, language features such as 'do concurrent' loops open the door for compilers to implement multi-threaded, GPU-accelerated, and even distributed multi-node code with only the standard language. Here, we explore the current status of using 'do concurrent' for GPU-accelerated Fortran applications across three major GPU vendors (NVIDIA, AMD, and Intel). Using a production application, we test their current capabilities, showing where the standard language alone can be used, and where augmenting the code with a directive-based API (e.g., OpenMP) is still desirable or required. Multi-GPU tests are performed with GPU-aware MPI libraries. We find that the three GPU vendors can now GPU-accelerate pure Fortran (zero directives), but that manual data movement directives can help with performance and compatibility. The results show that there is rapid advancement towards making GPU-accelerated scientific HPC code performance portable using the Fortran standard language.",
+        "authors": [
+            "Ronald M. Caplan",
+            "Miko M. Stulajter",
+            "Jon A. Linker",
+            "Jeff Larkin",
+            "Nikolaos Tselepidis",
+            "Harald Servat",
+            "Shiquan Su",
+            "Giacomo Capodaglio",
+            "Johanna Potyka"
+        ],
+        "categories": [
+            "cs.PL",
+            "astro-ph.IM",
+            "astro-ph.SR",
+            "cs.CE",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.20586v1",
+        "submit_date": "2026-08-20",
+        "relevant": false,
+        "indexed_date": "2026-08-24"
     }
 }
