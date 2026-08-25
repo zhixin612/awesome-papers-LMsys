@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3024-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3030-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-25
+* `edge` `offloading` `sparse` [NeuroPrefetcher: Storage-Aware Sparse LLM Inference via Delta Prefetching](http://arxiv.org/abs/2608.22643v1)
+  > **TL;DR**: Addresses the storage bottleneck in edge LLM inference when models exceed memory by exploiting temporal locality in sparse MLP activity. NeuroPrefetcher predicts neuron activity and prefetches only the delta rows from storage, avoiding OS paging. Achieves 7.9-12.0x speedup over llama.cpp on real edge hardware.
+* `training` `scaling` [Understanding the Synchronization Tax in GPU Scale-Up Domains](http://arxiv.org/abs/2608.22503v1)
+  > **TL;DR**: Investigates synchronization delays (tax) in GPU scale-up domains during collective operations for ML training. Attributes 78% of overhead to GEMM kernel time variability using a graph-based trace analysis. Shows tax consumes >50% of communication time, fundamentally limiting bandwidth scaling.
+* `training` `disaggregation` [Unveiling the Depth-Performance Dilemma in Split-Federated Fine-tuning of LLMs](http://arxiv.org/abs/2608.22188v1)
+  > **TL;DR**: Explores the depth-performance dilemma where deeper partitions in split-federated LLM fine-tuning boost throughput and privacy but cause severe performance collapse. Evaluates adapter aggregation methods and attributes failure to Transformer topology-induced attention disruption. Identifies monotonic throughput gains at the cost of utility degradation.
+* `edge` `scaling` `offline` [PRISM: Predictive Runtime In-place Scaling and Model Selection for Edge Microservices](http://arxiv.org/abs/2608.21910v1)
+  > **TL;DR**: Proposes PRISM, a prediction-based framework for dynamically selecting models and CPU allocations in edge AI microservices to minimize energy under deadlines. Uses container monitoring and regression for runtime adaptations in pipelines. Reduces detection energy by 36% versus best static configuration.
+* `serving` `disaggregation` `scaling` [PowerSlider: Exploiting Phase Asymmetry for LLM Serving under Demand Response](http://arxiv.org/abs/2608.21719v1)
+  > **TL;DR**: Focuses on maintaining LLM serving performance under dynamic power caps. Proposes disaggregating the pipeline into prefill, think, and answer phases with per-stage frequency control and an online KKT solver. Achieves 78.3% goodput at 30% power reduction versus 47.6% for best baseline.
+* `serving` `MoE` `thinking` [SAEM: Stage-Aware Expert Management for Memory-Efficient MoE Inference in Chain-of-Thought Reasoning](http://arxiv.org/abs/2608.21614v1)
+  > **TL;DR**: Addresses memory inefficiency in MoE inference for chain-of-thought reasoning. SAEM uses stage-aware caching, token repacking, and in-situ CPU execution to exploit stage-level expert activation coherence. Achieves 1.33x throughput improvement over baselines under constrained GPU memory, up to 1.54x with calibration.
+
 ### 2026-08-24
 * `training` `LoRA` `sparse` [Thermo-FL: Thermal-Aware Robust Federated Fine-Tuning of Large Language Models for Edge AI](http://arxiv.org/abs/2608.21172v1)
   > **TL;DR**: Addresses thermal instability and adversarial attacks during federated LoRA fine-tuning of LLMs on edge devices. Thermo-FL adjusts LoRA-layer fraction and update sparsity based on temperature, and TERRA provides robust aggregation. Preserves GSM8K utility under attacks and reduces compressed upload size.
