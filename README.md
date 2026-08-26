@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3030-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.25-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3034-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.26-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-26
+* `hardware` `quantization` [Maia 200: A Software Defined Dataflow System for Large-scale AI Acceleration](http://arxiv.org/abs/2608.24664v1)
+  > **TL;DR**: Proposes Maia 200, a dataflow AI accelerator architecture for efficient inference. Features software-defined data orchestration and FP4/FP8 compute, achieving 10,145 Tflop/s FP4 performance within 750W power envelope.
+* `quantization` `sparse` `training` [Compression Trinity: Exploring Sparsity, Quantization, and Low-Rank Approximations for LLM Compression](http://arxiv.org/abs/2608.24070v1)
+  > **TL;DR**: Proposes Compression Trinity, a unified framework combining sparsity, quantization, and low-rank approximations for efficient LLM deployment. Introduces algorithms like SLoPe (1.25x training acceleration) and SLiM (5.66% accuracy gain over SOTA) to jointly optimize costs and recovery.
+* `training` `scaling` `networking` [ShardMeter: Sharded and Geo-Distributed Training Without the Guesswork](http://arxiv.org/abs/2608.23840v1)
+  > **TL;DR**: Proposes ShardMeter, an analytical performance model that predicts training runtime, cost, and bottlenecks for transformer-based models in sharded and geo-distributed settings. Enables quick configuration space exploration and near-optimal deployment without costly trial and error.
+* `serving` `offloading` `storage` [Memory-Sovereign Inference: Output-Exact Execution Beyond Full Residency](http://arxiv.org/abs/2608.23805v1)
+  > **TL;DR**: Enables exact LLM inference beyond device memory limits using storage-backed execution and a falsifiable certificate for resource auditing. Achieves asynchronous execution at 32.3% of the blocking path's wall time with zero memory limit events.
+
 ### 2026-08-25
 * `edge` `offloading` `sparse` [NeuroPrefetcher: Storage-Aware Sparse LLM Inference via Delta Prefetching](http://arxiv.org/abs/2608.22643v1)
   > **TL;DR**: Addresses the storage bottleneck in edge LLM inference when models exceed memory by exploiting temporal locality in sparse MLP activity. NeuroPrefetcher predicts neuron activity and prefetches only the delta rows from storage, avoiding OS paging. Achieves 7.9-12.0x speedup over llama.cpp on real edge hardware.
