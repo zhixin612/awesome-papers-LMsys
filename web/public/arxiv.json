@@ -155927,5 +155927,53 @@
         "submit_date": "2026-08-25",
         "relevant": false,
         "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.26040v1": {
+        "title": "Adaptive Peer Clustering with Hierarchical Random Linear Network Coding for Resilient Decentralized Wireless Networks",
+        "link": "http://arxiv.org/abs/2608.26040v1",
+        "abstract": "Decentralized wireless collectives including vehicular swarms, IoT clusters, and edge AI networks require communication protocols that maintain robustness under dynamic topologies and heterogeneous link quality. While Random Linear Network Coding (RLNC) provides algebraic resilience against packet erasures, its performance degrades significantly when peers exhibit diverse channel conditions. This paper presents Adaptive Peer Clustering with Hierarchical RLNC (APC-RLNC), a system that dynamically groups peers by exponentially weighted moving average (EWMA) reliability metrics and applies multi-tier network coding within and across clusters. We formalize the clustering optimization problem, derive closed-form decoding probability bounds for Markov erasure channels, and prove O(sqrt(T)) regret for online reconfiguration under the Follow-the-Regularized-Leader (FTRL) framework. Our implementation includes both a high-fidelity network simulator and a proof-of-concept testbed deployment on Jetson Nano edge devices. Evaluation across diverse scenarios including high-mobility vehicular networks, burst-error channels, and adversarial interference demonstrates 5.2-9.8 percentage-point packet delivery ratio (PDR) improvements, 10-23% latency reductions, and up to 30% higher node retention compared to state-of-the-art baselines. The system exhibits linear scalability to 500+ nodes and maintains real-time reconfiguration overhead below 3%. APC-RLNC establishes adaptive clustering as a foundational primitive for AI-native 6G wireless systems.",
+        "authors": [
+            "Navaneetha Krishnan Kamalakannan",
+            "Harinisri Velmurugan"
+        ],
+        "categories": [
+            "eess.SP",
+            "cs.DC",
+            "cs.IT",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2608.26040v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.26021v1": {
+        "title": "Slasher: Power Flexibility for Cloud Datacenters",
+        "link": "http://arxiv.org/abs/2608.26021v1",
+        "abstract": "Datacenters consume many megawatts of power, and regularly encounter scenarios that require modulating their power draw. These scenarios include datacenter infrastructure failures, power grid failures, grid services, and more, spanning a diverse range of requirements in terms of the power magnitude, the scope of the reduction, the notice time, and other dimensions. To address these scenarios, we have built Slasher, a general system for modulating the power of \\azure datacenters to handle scenarios ranging from individual racks to regional multi-datacenter grid events. Slasher coordinates datacenter resources with the goal of meeting power targets while minimizing negative impact on hosted workloads.\n  In this paper, we review the main power modulation scenarios, characterize the power reduction levers using data from production cloud datacenters, describe Slasher's system architecture, and formulate the cloud datacenter power modulation control problem. We also develop a high-fidelity datacenter simulator and propose a workload impact model, using them to design and evaluate power control algorithms.",
+        "authors": [
+            "Liuzixuan Lin",
+            "Fiodar Kazhamiaka",
+            "Alok Gautam Kumbhare",
+            "Chaojie Zhang",
+            "Jaylen Wang",
+            "Hassan Khan",
+            "Rodrigo L. Assis",
+            "Mariana Rodrigues",
+            "Kyle Woolcock",
+            "Nithish Mahalingam",
+            "Brijesh Warrier",
+            "Rodrigo Fonseca",
+            "Ricardo Bianchini"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2608.26021v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
     }
 }
