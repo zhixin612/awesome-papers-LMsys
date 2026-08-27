@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3034-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.26-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3038-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.27-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-27
+* `training` `RL` `agentic` [psRL: Efficient Training for Agentic AI via Training-Time Prefix Sharing](http://arxiv.org/abs/2608.25683v1)
+  > **TL;DR**: Addresses training bottleneck in agentic AI caused by update phase dominating execution time. Proposes psRL with prefix-sharing mechanisms for distributed workload scheduling and dynamic KV cache management to exploit sample redundancy. Achieves up to 5.2x throughput improvement over existing systems.
+* `offloading` `storage` `serving` [FLINT: Efficiently Leveraging High Bandwidth Flash for Capacity-Scalable LLM Inference Acceleration](http://arxiv.org/abs/2608.25062v1)
+  > **TL;DR**: Addresses memory capacity constraints for LLM inference by offloading weights to HBF. Proposes FLINT with a hardware burst-buffer for pipelined reads, phantom refresh to avoid critical path delays, and read-only FTL, improving inference efficiency and throughput.
+* `edge` `serving` `quantization` [Hydra: Phase-Aware Workload Characterization of LLM Inference across Edge SoC Generations, Backends, and Quantization Levels](http://arxiv.org/abs/2608.25053v1)
+  > **TL;DR**: Analyzes phase-specific performance and efficiency in edge LLM inference. Presents Hydra, a tracing framework that fuses per-prompt timings with hardware telemetry across prefill/decode phases. Quantization reduces memory traffic by 22% and energy by 24% but introduces power non-monotonicity across SoC generations.
+* `quantization` [FAMPWQ: Fisher Information-based Adaptive Mixed Precision Weight Quantization for Effective LLM Inference](http://arxiv.org/abs/2608.24945v1)
+  > **TL;DR**: Proposes FAMPWQ, an adaptive mixed-precision weight quantization method for efficient LLM inference, using Fisher information and RL-based bit allocation per layer. Achieves up to 3.39× lower perplexity and 6.87% higher accuracy versus baselines on benchmarks.
+
 ### 2026-08-26
 * `hardware` `quantization` [Maia 200: A Software Defined Dataflow System for Large-scale AI Acceleration](http://arxiv.org/abs/2608.24664v1)
   > **TL;DR**: Proposes Maia 200, a dataflow AI accelerator architecture for efficient inference. Features software-defined data orchestration and FP4/FP8 compute, achieving 10,145 Tflop/s FP4 performance within 750W power envelope.

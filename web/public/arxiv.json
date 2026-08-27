@@ -155561,5 +155561,371 @@
         "submit_date": "2026-08-24",
         "relevant": false,
         "indexed_date": "2026-08-26"
+    },
+    "http://arxiv.org/abs/2608.25890v1": {
+        "title": "Scalable Multi-GPU Simulation of 3D Multicellular Growth with RNN-Based Workload Balancing",
+        "link": "http://arxiv.org/abs/2608.25890v1",
+        "abstract": "Detailed multicellular growth simulations based on subcellular element models (SEMs) can capture complex tissue development, but their element-level interactions impose substantial computational cost. This work presents a scalable multi-GPU framework for 3D multicellular growth simulation that combines GPU acceleration, spatial binning, domain decomposition, and workload-aware partitioning. Cell movement, growth, and division continuously reshape the spatial workload distribution, causing initially balanced partitions to become inefficient over time. To address this, we introduce an RNN-based load-balancing controller that observes recent per-rank execution times and partition states and learns residual corrections to a reactive boundary-adjustment rule. The controller is trained offline in a differentiable surrogate of the load-balancing loop with randomized workload dynamics, requiring no measured execution traces for training. We evaluate the framework in terms of single-GPU acceleration, multi-GPU computation scaling, controller-level load-balancing behavior, and end-to-end simulation performance, with comparisons against static partitioning, reactive load balancing, and conventional time-series prediction baselines. A representative embryonic epidermal development use case further demonstrates the type of spatially and temporally evolving workload targeted by the framework. In our evaluation, GPU acceleration with spatial binning accelerates the interaction computation by roughly three orders of magnitude over a serial CPU baseline. RNN-guided load balancing reduces the mean global imbalance from 11.3% under static partitioning to 3.5%, lowers end-to-end runtime by 9.0% relative to static partitioning, and reduces slice migration by 7.7x compared with the reactive baseline, showing that history-aware control can improve workload balance while avoiding unnecessary repartitioning.",
+        "authors": [
+            "Matvey Moisseyev",
+            "Huijing Du",
+            "Dandan Zheng",
+            "Chi Zhang",
+            "Hongfeng Yu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CE",
+            "cs.LG",
+            "math.OC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25890v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25794v1": {
+        "title": "Cooperative Multi-Agent Reinforcement Learning for Adaptive Aggregation in Semi-Supervised Federated Learning with non-IID Data",
+        "link": "http://arxiv.org/abs/2608.25794v1",
+        "abstract": "Federated Learning (FL) enables distributed training of machine learning models while preserving data privacy. However, FL struggles with heterogeneous, non-IID client data distributions, resulting in sub-optimal and biased global models. In this paper, we propose pFedMARL, a novel approach leveraging Multi-Agent Reinforcement Learning (MARL) with Twin Delayed Deep Deterministic Policy Gradient (TD3) to dynamically adapt aggregation strategies in FL settings. Our method employs a server-side agent adjusting client contributions to optimize global model robustness and client-side agents balancing global and local updates to personalize models effectively without pre-training. We demonstrate superior performance of pFedMARL for training a semi-supervised audio spectrogram transformer, matching or outperforming FedAvg, Ditto, and local training approaches across multiple non-IID scenarios and in the presence of adversarial clients. Our results indicate that pFedMARL actively improves accuracy, robustness, and fairness, making it suitable for real-world deployments.",
+        "authors": [
+            "Rene Glitza",
+            "Luca Becker",
+            "Rainer Martin"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.SD",
+            "eess.AS",
+            "eess.SP"
+        ],
+        "id": "http://arxiv.org/abs/2608.25794v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25754v1": {
+        "title": "Quantum Blackhole Learning-Optimized Hadamard Neural Network Model for Dynamic Resource Reservation in Industry Clouds",
+        "link": "http://arxiv.org/abs/2608.25754v1",
+        "abstract": "Accurate workload prediction and proactive resource reservation are crucial for industry clouds. However, the conventional machine learning (CML) models with limited learning capabilities often fail to predict diverse, high-dimensional workloads with sudden changes in resource demand, leading to excessive power consumption and resource management issues. In this context, this article proposes a novel Hadamard neural network with quantum blackhole (QB-HNN) optimization. This model combines the computational efficiency of quantum mechanics with the persuasive learning capability of neural networks (NNs). The workload information is transformed into qubits and propagated via a deep network of qubit neurons comprising a Hadamard-gated activation function to fetch superposition within the QB-HNN model for intuitive pattern learning. Furthermore, a novel quantum blackhole biphase optimization (QB-BiO) algorithm is introduced to train and optimize qubit neural weights. The performance of the proposed model is comprehensively evaluated and compared with five state-of-the-art approaches using six benchmark datasets of three heterogeneous varieties of cloud workloads. The prediction accuracy achieved for an extensive range of workloads confirms its influential performance by minimizing the prediction error up to 36.36% and 22.83% over existing LSTM- and EQNN-based prediction approaches, respectively.",
+        "authors": [
+            "Deepika Saxena",
+            "Hari Mohan Gaur",
+            "Ashutosh Kumar Singh",
+            "Anand Mohan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25754v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25747v1": {
+        "title": "REE-TM: Reliable and Energy-Efficient Traffic Management Model for Diverse Cloud Workloads",
+        "link": "http://arxiv.org/abs/2608.25747v1",
+        "abstract": "Diversity of workload demands lays a critical impact on efficient resource allocation and management of cloud services. The existing literature has either weakly considered or overlooked the heterogeneous feature of job requests received from wide range of internet services users. To address this context, the proposed approach named Reliable and Energy Efficient Traffic Management (REE-TM) has exploited the diversity of internet traffic in terms of variation in resource demands and expected complexity. Specifically, REE-TM incorporates categorization of heterogeneous job requests and executes them by selecting the most admissible virtual node (a software-defined instance such as a virtual machine or container) and physical node (an actual hardware server or compute host) within the cloud infrastructure. To deal with resource-contention-based resource failures and performance degradation, a novel workload estimator 'Toffoli Gate-based Quantum Neural Network' (TG-QNN) is proposed, wherein learning process or interconnection weights optimization is achieved using Quantum version of BlackHole (QBHO) algorithm. The proactively estimated workload is used to compute entropy of the upcoming internet traffic with various traffic states analysis for detection of probable resource-congestion. REE-TM is extensively evaluated through simulations using a benchmark dataset and compared with optimal and without REE-TM versions. The performance evaluation and comparison of REE-TM with measured significant metrics reveal its effectiveness in assuring higher reliability by up to 30.25% and energy-efficiency by up to 23% as compared without REE-TM.",
+        "authors": [
+            "Ashutosh Kumar Singh",
+            "Deepika Saxena",
+            "Volker Lindenstruth"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25747v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25728v1": {
+        "title": "A Spatially-Aware Publish-Subscribe Middleware for IoT Applications",
+        "link": "http://arxiv.org/abs/2608.25728v1",
+        "abstract": "Spatial and proximity awareness are critical enablers for efficient communication in Cyber-Physical Systems (CPS) and the Internet of Things (IoT). However, the lack of suitable middleware support and standardized mechanisms for spatial awareness significantly limits the pervasiveness of location-dependent applications. In this paper, we present a novel approach that extends topic-based publish-subscribe, a dominant messaging model in this domain, with integrated spatial filtering and routing capabilities. Our approach leverages a highly flexible geometric method for describing spatial filters, enabling expressive and efficient spatial subscriptions. A geometric world model operates together with an enhanced topic-based broker to realize spatially constrained message dissemination. Importantly, this functionality is achieved using the MQTT5 protocol without violating the standard or requiring any modifications to existing client implementations. Experimental results based on both synthetic and real-world data demonstrate strong system efficiency, minimal computational overhead at the broker, and the practical feasibility of deploying the approach on existing IoT devices.",
+        "authors": [
+            "Philipp Ungrund",
+            "Kurt Rothermel",
+            "Sukanya Bhowmik"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25728v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25712v1": {
+        "title": "An Oversubscription and Service Pricing Exploitation-Based Profit Maximization Framework for Industry Cloud Resource Management",
+        "link": "http://arxiv.org/abs/2608.25712v1",
+        "abstract": "This article proposed a novel industry cloud resource management framework that exploits resource oversubscription and heterogeneous service pricing models to maximize profitability and operational efficiency for industry cloud providers. The framework proposes an adaptive ensemble machine learning driven prediction model for proactive estimation of resource utilization of Virtual Machines (VM)s based on previous resource utilization of respective users' VMs to minimize resource wastage due to oversubscription by them. Accordingly, the VMs having similar predicted resource usage are grouped using Fuzzy C means clustering. This helps to determine the required number of VMs with specific configuration to be deployed before executing user requests. Concurrently, the framework incorporates two distinct categories of cloud service pricing models, namely the Delay Sensitive Model and the Best-Effort Model. Accordingly, the user requests are classified and executed by selecting the most suitable VMs, with the goal of maximizing revenue and reducing electricity costs in cloud data centers (CDCs). Experimental simulation and comparison against state-of-the-art methods, using two benchmark VM traces, validates the performance of proposed framework. It significantly reduces electricity bills by 55.56 percentage, power consumption and active servers by up to 60.7 percentage and 51 percentage, respectively, while improving resource utilization and profits by up to 60 percentage and 51.18 percentage, respectively",
+        "authors": [
+            "Deepika Saxena",
+            "Ashutosh Kumar Singh"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25712v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25683v1": {
+        "title": "psRL: Efficient Training for Agentic AI via Training-Time Prefix Sharing",
+        "link": "http://arxiv.org/abs/2608.25683v1",
+        "abstract": "In modern agentic AI training, the system bottleneck is shifting from rollout to update. Emerging sampling strategies such as tree-structured and step-wise RL greatly increase training sample volume while incurring relatively low marginal rollout cost, causing the update phase to dominate the end-to-end execution time. Crucially, this shift exposes a new optimization opportunity, as production traces reveal substantial prefix redundancy across training samples. In this paper, we propose psRL (prefix sharing for RL), a new training system for agentic AI designed to exploit prefix redundancy among training samples. Leveraging the global visibility and data immutability inherent to the update phase, psRL achieves efficient workload scheduling and memory management for distributed training. Specifically, psRL introduces two novel prefix-sharing mechanisms that enable flexible, fine-grained workload distribution across GPU workers, simultaneously optimizing prefix reuse and achieving load balancing. Moreover, psRL implements a new underlying KV cache manager that facilitates adaptable block-size allocation and dynamic KV caching, maximizing memory utilization while maintaining a high prefix hit rate. Evaluations using production traces demonstrate that psRL outperforms existing systems by up to 5.2x in throughput. The source code will be publicly available soon.",
+        "authors": [
+            "Mianjie Yu",
+            "Zizhao Mo",
+            "Huanyu Qu",
+            "Zhirong Qian",
+            "Huanle Xu",
+            "Cen Li",
+            "Zifeng Zhao",
+            "Zhi Zhou",
+            "Jinhua Zhou",
+            "Jun Xie",
+            "Chengzhong Xu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25683v1",
+        "submit_date": "2026-08-26",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL",
+            "agentic"
+        ],
+        "tldr": "Addresses training bottleneck in agentic AI caused by update phase dominating execution time. Proposes psRL with prefix-sharing mechanisms for distributed workload scheduling and dynamic KV cache management to exploit sample redundancy. Achieves up to 5.2x throughput improvement over existing systems.",
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.24636v2": {
+        "title": "Asynchronous Verifiable Information Dispersal with Low Space and Communication Complexity",
+        "link": "http://arxiv.org/abs/2608.24636v2",
+        "abstract": "The primary goal of a distributed storage system is to ensure that clients can both write and read data in a reliable and consistent manner, even in the presence of failures. While existing asynchronous verifiable information dispersal (AVID) protocols achieve optimal space complexity for storage and communication complexity for data retrieval in a Byzantine setting, the crucial operations of data dispersal and node recovery have received less attention.\n  We propose an efficient AVID protocol that simultaneously guarantees low complexities for dispersal, storage, retrieval, and recovery. At the core of the proposed protocol lies a novel mechanism to encode data in a two-dimensional matrix and a bespoke dispersal algorithm. The protocol maintains an optimal communication complexity for retrieval while substantially improving upon the state of the art for recovery. Additionally, we describe how the protocol can be modified in order to reduce the space complexity and the communication complexity for dispersal, at the expense of a higher communication complexity for retrieval and recovery. As the proposed protocols strike a balance across all considered metrics, they are suitable for a broad range of real-world use cases.",
+        "authors": [
+            "Thomas Locher",
+            "Yvonne-Anne Pignolet"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR",
+            "cs.IT"
+        ],
+        "id": "http://arxiv.org/abs/2608.24636v2",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25549v1": {
+        "title": "Throughput Maximization for MapReduce-Based Collaborative Computing over Energy-Harvesting Wireless Devices",
+        "link": "http://arxiv.org/abs/2608.25549v1",
+        "abstract": "This paper studies resource allocation for MapReduce-based collaborative computing over heterogeneous wireless devices powered by renewable energy harvesting. We formulate a long-run average throughput maximization problem that jointly optimizes computing load, phase time allocations, transmit power, and per-device energy consumption, subject to battery evolution, CPU frequency, and latency constraints. To solve this problem online without prior knowledge of channel states or energy arrivals, we propose a DDPG-CVX algorithm that couples Deep Deterministic Policy Gradient (DDPG) with convex programming. DDPG determines the per-slot energy budget for each device from observed battery and channel states; the remaining resource allocation variables are then resolved to global optimality by an embedded convex solver. This two-phase decomposition reduces the action-space dimensionality of DDPG while preserving per-slot solution quality. Simulations show that DDPG-CVX achieves 1.25$\\times$$\\sim$32.36$\\times$ the throughput of representative benchmarks.",
+        "authors": [
+            "Yuhang Li",
+            "Siqi Sun",
+            "Hongen Zheng",
+            "Xiaojing Chen",
+            "Shunqing Zhang",
+            "Yanzan Sun"
+        ],
+        "categories": [
+            "eess.SY",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25549v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25535v1": {
+        "title": "Resilient Decentralized Wireless Federated Learning via Gradient Tracking with AdamW",
+        "link": "http://arxiv.org/abs/2608.25535v1",
+        "abstract": "Wireless Internet-of-Things (IoT) edge networks require decentralized learning (DecL) methods that can operate reliably under both heterogeneous local data and communication-constrained wireless links. However, existing decentralized optimization schemes often incur substantial communication overhead and degraded performance when transmissions are constrained by strict airtime budgets, fading channels, and packet losses. This paper proposes QEF-GT-AdamW, a communication-efficient and outage-resilient algorithm for DecL over wireless communication (WCom) networks. The proposed method combines gradient tracking to mitigate the effect of non-IID data, AdamW-based adaptive optimization to improve training stability, and dual-stream biased quantization with error feedback to reduce communication payloads for both model and tracking exchanges. To address unreliable broadcast communication, the proposed framework further employs a local fallback strategy when scheduled packets are not successfully received. We explicitly model the effect of bandwidth, transmit power, airtime constraints, and fading channels on DecL performance, and establish convergence guarantees for the proposed algorithm under compressed and unreliable wireless communication. Experimental results on heterogeneous MNIST and CIFAR-10 settings show that QEF-GT-AdamW consistently improves robustness and convergence performance over representative DecL baselines while achieving favorable accuracy-communication trade-offs under limited wireless resources.",
+        "authors": [
+            "Nguyen Van Thieu",
+            "Ti Ti Nguyen",
+            "Ons Aouedi",
+            "Vu Nguyen Ha",
+            "Symeon Chatzinotas"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2608.25535v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25469v1": {
+        "title": "Hierarchical Shared Memory-Aware Optimization for TRSM on GPU Platforms",
+        "link": "http://arxiv.org/abs/2608.25469v1",
+        "abstract": "Triangular Solve with Multiple Right-hand Sides (TRSM) is a fundamental BLAS Level-3 operation that underpins LU/Cholesky decomposition, sparse direct solvers, and matrix inversion. In the left-side lower-triangular case studied in this paper, efficient GPU implementation remains challenging because forward substitution introduces strict row-wise dependencies, and shared memory is too scarce to hold both operand matrices for wide data types such as double complex. This paper presents HSMA-TRSM, a hierarchical shared memory-aware optimization framework for left-side lower-triangular TRSM on NVIDIA A100, NVIDIA H800, and Hygon DCU Z100 accelerators. For the small-scale regime (m,n<=64), we design a pipelined compute-memory overlap mechanism through loop unrolling and instruction reordering, and propose a dual thread-group seven-stage pipeline strategy to address shared memory constraints for double complex types. For large-scale problems, we introduce a diagonal block decoupling optimization with an O(IB)shared-memory footprint for diagonal block inversion, enabling adaptive block size selection based on matrix scale and hardware characteristics. A compile-time configuration selection framework based on offline profiling and online lookup selects the optimal block size per platform with zero runtime overhead. Evaluated on NVIDIA A100, H800, and Hygon DCU Z100, HSMA-TRSM achieves peak speedups of 2.05xover cuBLAS and 2.06xover rocBLAS. The gains are strongest in shared-memory-constrained double-complex small cases and in large real-type cases where adaptive blocking improves GEMM-dominated updates, while mature vendor kernels leave less optimization headroom in some regimes.",
+        "authors": [
+            "Xinzhe Chen",
+            "Haowei Li",
+            "Lijuan Hu",
+            "Wenjing Ma",
+            "Fangfang Liu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25469v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.24102v2": {
+        "title": "A Few Shared Random Bits Suffice for Constant-Round Almost Stable Matching",
+        "link": "http://arxiv.org/abs/2608.24102v2",
+        "abstract": "We show that almost stable matching can be solved in constant distributed rounds on general bipartite graphs $G=(V,E)$ using only a few shared random bits. Specifically, in the $\\congest$ model, we compute a matching whose expected number of blocking pairs is at most $\\varepsilon |E|$ in $O\\left(\\frac{\\log(1/\\varepsilon)}{\\varepsilon^4}\\right)$ rounds using $O\\left(\\log(1/\\varepsilon)\\right)$ shared random bits. Thus, for every constant $\\varepsilon>0$, the round complexity is $O(1)$, independent of the number of vertices and the maximum degree.\n  Previous algorithms achieve constant round complexity only for bounded-degree or almost-regular graphs; on general graphs, their round complexity depends polylogarithmically on $n$. Our main technical idea is a degree-guarded freezing rule that allows widely varying degrees to be handled by a single global charging argument, avoiding the $Θ(\\log n)$ successive degree thresholds used in previous work. The shared random bits are used only to select a common random output iteration.\n  As consequences, we obtain an $O\\left(\n  \\frac{\\log(1/\\varepsilon)}{\\varepsilon^4}\n  +\n  \\frac{\\log n}{\\varepsilon} \\right)$-round $\\congest$ algorithm without pre-shared randomness, via a low-diameter decomposition, and an $O\\left(\\frac{\\log(1/\\varepsilon)}{\\varepsilon^4}\\right)$-round algorithm in the fully-scalable Massively Parallel Computation ($\\mpc$) model with linear total memory.",
+        "authors": [
+            "Yi-jun Chang",
+            "Kushagra Chatterjee"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.24102v2",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25087v1": {
+        "title": "Probabilistic Performance Analysis of Parallel Signature Search Strategies in Multi-Level Tree Networks",
+        "link": "http://arxiv.org/abs/2608.25087v1",
+        "abstract": "Hierarchical distributed search, locating a data pattern, or signature, across a tree-structured collection of files, underlies distributed index traversal, deep packet inspection and sequence alignment. A practitioner must decide how much parallelism to employ: scan each layer sequentially, fan out within subtrees, or launch the whole tree at once. Existing analyses answer this only partially: they characterize every node by the statistics of a signature-holding file and, for multi-signature files, need quantities revealed only at run time. We develop a probabilistic framework predicting the completion time of five search strategies, spanning sequential to full-tree parallelism, before any file is read. Node scan times are modeled as a mixture over signature presence, layer times as order statistics, and parallel subtree scans by extreme-value arguments; when signature counts are known, occupancy under capacity constraints is treated by generating functions. Each performance formula carries an exactness label: exact (or exact-in-regime), plug-in, asymptotic or bound, with each approximation quantified against Monte Carlo simulation and its regime identified. A multicore prototype reproduces the coarse separation between full-tree, layer- and subtree-level parallelism, but shows that synchronization overhead can erase the predicted separation between close strategies. The framework delivers a priori completion-time predictions with explicit accuracy regimes and negligible computational cost, the design example evaluated in under a millisecond; these timing models can support subsequent resource-cost optimization.",
+        "authors": [
+            "Jingwei Li",
+            "Thomas G. Robertazzi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25087v1",
+        "submit_date": "2026-08-25",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25062v1": {
+        "title": "FLINT: Efficiently Leveraging High Bandwidth Flash for Capacity-Scalable LLM Inference Acceleration",
+        "link": "http://arxiv.org/abs/2608.25062v1",
+        "abstract": "LLM inference is increasingly constrained by accelerator memory capacity rather than compute throughput. This constraint is especially acute in single-accelerator and small-node inference systems, where limited on-package memory capacity restricts the size of deployable models. HBF is an emerging 3D-stacked NAND flash technology that provides multi-terabyte near-accelerator capacity, making it a promising capacity tier for storing LLM weights. However, existing HBF-based proposals face three adoption challenges: they (1) rely on coarse-grained static prefetching for LLM weights aiming to hide the microsecond-level read latency of the NAND flash device while maximizing HBF's read throughput, (2) expose NAND flash management tasks (e.g., refresh operations) to the accelerator-visible critical inference path, and (3) miss optimization opportunities to specialize and optimize the flash-management mechanisms to the workload behavior.\n  Our goal is to design an efficient HBF substrate that integrates HBF as a memory-capacity tier alongside HBM while addressing these three challenges. To this end, we propose FLINT, a workload-driven HBF substrate for capacity-scalable LLM inference. FLINT introduces three mechanisms: (1) a hardware burst-buffer controller that dynamically coalesces and pipelines HBF reads aiming to utilize existing NAND flash buffers while sustaining high HBF bandwidth, (2) a phantom-plane refresh mechanism, which removes refresh from the critical inference path by moving refresh-related NAND flash operations outside the read foreground back via low-cost resource duplication, and (3) a read-only FTL, which replaces SSD-class support for arbitrary writes with a compact table that translates logical weight bursts to physical HBF locations.",
+        "authors": [
+            "Geraldo F. Oliveira",
+            "Arash Tavakkol",
+            "Xiangyu Zhu",
+            "Ahmet Caner Yüzügüler",
+            "Vamanan Arulchelvan",
+            "Lukas Cavigelli",
+            "Renzo Andri",
+            "Mohammad Sadrosadati",
+            "Jia Xinglei",
+            "Onur Mutlu",
+            "Zhou Ke",
+            "Shai Bergman",
+            "Ji Zhang"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25062v1",
+        "submit_date": "2026-08-25",
+        "relevant": true,
+        "tags": [
+            "offloading",
+            "storage",
+            "serving"
+        ],
+        "tldr": "Addresses memory capacity constraints for LLM inference by offloading weights to HBF. Proposes FLINT with a hardware burst-buffer for pipelined reads, phantom refresh to avoid critical path delays, and read-only FTL, improving inference efficiency and throughput.",
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25053v1": {
+        "title": "Hydra: Phase-Aware Workload Characterization of LLM Inference across Edge SoC Generations, Backends, and Quantization Levels",
+        "link": "http://arxiv.org/abs/2608.25053v1",
+        "abstract": "Edge LLM deployment is shaped by more than model size and precision: inference backend, hardware platform, memory traffic, and power management all affect latency and efficiency. We present Hydra, a common-schema, phase-aware workload characterization framework for LLM inference on edge SoCs. Hydra instruments HuggingFace Transformers and llama.cpp with a shared per-prompt timing schema and fuses those records with hardware telemetry, enabling a multi-dimensional characterization of performance, system-resource utilization, and efficiency across prefill and decode phases. Using Hydra, we evaluate three consecutive edge System-on-Chip (SoC) generations (AGX Xavier, AGX Orin, and AGX Thor), 13 instruction-tuned LLMs from seven families, five execution formats, and consider input/output-length sensitivity. The resulting artifact contains roughly 107K per-prompt records and is publicly released with Hydra. Our analysis shows that aggregate latency alone hides key deployment effects: backend structure changes where latency is introduced, quantization reduces memory traffic and energy but does not predict power monotonically, and SoC generation changes how utilization and efficiency should be interpreted. By connecting phase-level timing with system-resource utilization and efficiency metrics, Hydra enables reproducible, phase-aware characterization of edge LLM inference. Hydra's source code and the collected per-prompt trace corpus are available open-source at: https://github.com/amirtaherin/hydra",
+        "authors": [
+            "Amir Taherin",
+            "Sana Taghipour Anvari",
+            "Charles Amante",
+            "Yixiao Chen",
+            "Ruben Noroian",
+            "Zlatan Feric",
+            "Nicolas Bohm Agostini",
+            "Pu Zhao",
+            "José Cano",
+            "Bin Ren",
+            "Yanzhi Wang",
+            "David Kaeli"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.AI",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2608.25053v1",
+        "submit_date": "2026-08-25",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "serving",
+            "quantization"
+        ],
+        "tldr": "Analyzes phase-specific performance and efficiency in edge LLM inference. Presents Hydra, a tracing framework that fuses per-prompt timings with hardware telemetry across prefill/decode phases. Quantization reduces memory traffic by 22% and energy by 24% but introduces power non-monotonicity across SoC generations.",
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.24945v1": {
+        "title": "FAMPWQ: Fisher Information-based Adaptive Mixed Precision Weight Quantization for Effective LLM Inference",
+        "link": "http://arxiv.org/abs/2608.24945v1",
+        "abstract": "Recent years have witnessed remarkable achievements of Large Language Models (LLMs) in multiple domains, while the excessive resource requirements of LLMs hinder the deployment on resource-constrained devices. Although model quantization stands out as an effective approach, conventional quantization approaches typically incur severe performance degradation due to uniform bit-width or simple heuristic sensitivity evaluation. In this paper, we propose a novel Fisher information-based Adaptive Mixed Precision Weight Quantization approach, i.e., FAMPWQ, which performs layer-adaptive weight quantization for effective LLM inference on commodity GPUs. First, we propose a system model with a novel Fisher information metric to measure the layer-wise sensitivity to quantization. Second, we propose a reinforcement learning-based bit-width allocator in FAMPWQ, which generates an adaptive bit-width allocation strategy based on the Fisher information sensitivity metric. Extensive experiments on 7 models and 5 benchmarks demonstrate that FAMPWQ significantly outperforms 7 baseline approaches in terms of PPL (up to 3.39 smaller), accuracy (up to 6.87% higher), and LLM-as-a-judge comparison (up to 76% win rate).",
+        "authors": [
+            "Gongwei Lee",
+            "Ji Liu",
+            "Juncheng Jia",
+            "Ji Wu"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.24945v1",
+        "submit_date": "2026-08-24",
+        "relevant": true,
+        "tags": [
+            "quantization"
+        ],
+        "tldr": "Proposes FAMPWQ, an adaptive mixed-precision weight quantization method for efficient LLM inference, using Fisher information and RL-based bit allocation per layer. Achieves up to 3.39× lower perplexity and 6.87% higher accuracy versus baselines on benchmarks.",
+        "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.25185v1": {
+        "title": "Analyzing and Reducing Search Quality Differences in Vector Similarity Search",
+        "link": "http://arxiv.org/abs/2608.25185v1",
+        "abstract": "Modern database services scalably search over large data collections via Approximate Nearest Neighbor Search, which improves search performance at the cost of search quality, measured by recall. In practice, a database operator seeks to achieve a target mean recall while maximizing throughput across search queries. We show that optimizing for mean recall masks significant differences in recall across queries even when target recall is met. As a result, numerous queries face (1) below-target recall, hurting user experience and revenue and (2) above-target recall, wasting computation to deliver unnecessarily high search quality. Thus, it is critical to detect and reduce recall differences across queries. We design RCheck, a light-weight run-time system that identifies low-recall queries and reduces recall differences while achieving high throughput. RCheck's key design principle is to dynamically, efficiently adapt search effort by increasing effort for queries below target recall and decreasing effort for those above it. RCheck tunes available search effort parameters, making it readily deployable. We evaluate RCheck using the widely-used production-style pgvector database. At the same throughput, RCheck improves mean recall by 11-93% and enables 8-47% more queries to meet target recall compared to the state-of-the-art globally-tuned configuration.",
+        "authors": [
+            "Sara Mahdizadeh Shahri",
+            "Martin Prammer",
+            "Jignesh M. Patel",
+            "Akshitha Sriraman"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.25185v1",
+        "submit_date": "2026-08-25",
+        "relevant": false,
+        "indexed_date": "2026-08-27"
     }
 }
