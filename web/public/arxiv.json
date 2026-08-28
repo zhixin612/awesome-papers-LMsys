@@ -155975,5 +155975,306 @@
         "submit_date": "2026-08-26",
         "relevant": false,
         "indexed_date": "2026-08-27"
+    },
+    "http://arxiv.org/abs/2608.27336v1": {
+        "title": "Consensus with Stochastic Broadcast",
+        "link": "http://arxiv.org/abs/2608.27336v1",
+        "abstract": "We study binary consensus in the \\emph{stochastic broadcast model}, which assumes $n\\geq 2$ processes communicating synchronously by message broadcasts. At each round, every process broadcasts a message to all the other processes. Each broadcast succeeds independently with some probability $p\\in[0,1]$. If a broadcast succeeds, all processes receive the message, and if it fails, no process receives the message. The sender does not know whether its broadcast was successful or not. In this model, consensus is not solvable; the objective is to design, for a given number of rounds $r$, consensus algorithms that terminate in $r$ rounds, minimizing the probability of error disagreement. This problem has been studied in depth for 2 processes [DISC 2025]. We extend the study to $n> 2$.",
+        "authors": [
+            "Pierre Fraigniaud",
+            "Boaz Patt-Shamir",
+            "Sergio Rajsbaum"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.27336v1",
+        "submit_date": "2026-08-27",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.27278v1": {
+        "title": "Decoupled I/O-Dominant Pipelines for Large-Scale Whole-Slide Image Embedding Extraction",
+        "link": "http://arxiv.org/abs/2608.27278v1",
+        "abstract": "Whole-slide images (WSIs) are central to computational pathology but are prohibitively large, making patch-based processing the practical unit for foundation model inference. At scale, however, generating and handling massive numbers of patches on quickly introduces significant I/O and orchestration overhead, often dominating end-to-end performance. We present a decoupled, I/O-aware pipeline for large-scale WSI embedding extraction that decomposes the workflow into three stages: (1) patch generation and staging, (2) embarrassingly parallel embedding inference, and (3) sharded vector database ingestion. This design isolates data movement from compute, enabling efficient patch delivery, scalable multi-node inference with minimal communication. The resulting system produces a distributed vector database where embeddings are persistently coupled with rich metadata (e.g., patient, slide, and patch attributes), enabling efficient filtering, retrieval, and downstream reuse. This representation database is compact and reusable for tasks such as retrieval, classification, and few-shot learning, particularly benefiting low-resource environments. We show that decoupling I/O, computation, and ingestion enables high-throughput WSI embedding extraction at scale. By characterizing the scaling envelope, we demonstrate that storage dominates beyond moderate concurrency, reframing WSI embedding extraction as a data-centric systems problem rather than a purely compute-bound workload.",
+        "authors": [
+            "Mayanka Chandrashekar",
+            "Xi Zhang",
+            "Ethan Seefried",
+            "Tirthankar Ghosal",
+            "John Gounley",
+            "Heidi Hanson"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CV"
+        ],
+        "id": "http://arxiv.org/abs/2608.27278v1",
+        "submit_date": "2026-08-27",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.27099v1": {
+        "title": "Towards Reproducible Evaluation of Distributed Quantum Circuit Partitioning Algorithms",
+        "link": "http://arxiv.org/abs/2608.27099v1",
+        "abstract": "Distributed Quantum Computing (DQC) addresses the physical scaling limitations of monolithic quantum processors by networking modular Quantum Processing Units (QPUs). Efficient execution of quantum algorithms on DQC architectures requires compiling them across QPUs while minimizing inter-QPU communication bottlenecks, primarily through circuit partitioning. However, current evaluations of state-of-the-art partitioning heuristics focus primarily on the total entanglement cost of the partitions, failing to capture the broader structural and temporal overheads introduced by distributed network constraints. This paper addresses this evaluation gap by applying established monolithic benchmarking metrics to partitioned distributed circuits to quantify the performance impact of network constraints. Using an open-source, automated evaluation pipeline, we systematically assess diverse partitioning algorithms across standardized workloads and quantum network topologies. Our empirical results reveal that partitioning algorithms with comparable entanglement costs can still introduce drastically different physical execution penalties. By exposing these hidden trade-offs, such as severe increases in circuit depth and substantial reductions in gate density, this study demonstrates that comprehensive circuit-level metrics are essential for guiding the future design of DQC compilers.",
+        "authors": [
+            "Javier Vela-Tambo",
+            "Davud Azizov",
+            "Tian Guo"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.27099v1",
+        "submit_date": "2026-08-27",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.27091v1": {
+        "title": "Sintr: Safe Interactive Transactions in the Presence of Byzantine Clients",
+        "link": "http://arxiv.org/abs/2608.27091v1",
+        "abstract": "Byzantine fault-tolerant (BFT) systems are, in principle, an appealing foundation for transactional applications involving mutually distrustful participants. Yet their adoption has been hampered by two persistent stumbling blocks-performance and developer convenience-which are often in tension with one another. Recent systems show promising progress on both fronts by shifting to a client-centric architecture; clients execute transactions locally and concurrently, while the system resolves any data conflicts to maintain database serializability. We argue that, in its current form, this approach introduces a critical vulnerability: it leaves the integrity of the database exposed to Byzantine clients, which may issue malicious or incorrect transactions. We address this threat with Sintr, a framework that prevents Byzantine clients from compromising database integrity by executing rogue transactions. Sintr combines redundant execution to validate transaction outcomes with a flexible, heterogeneous policy framework for expressing an application's data-integrity requirements. We apply Sintr to harden several existing BFT database systems and find that it imposes only modest overheads-3%-16% in throughput and 3%-21% in latency.",
+        "authors": [
+            "Austin T. Li",
+            "Daniel H. Lee",
+            "Lorenzo Alvisi",
+            "Natacha Crooks",
+            "Florian Suri-Payer"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.27091v1",
+        "submit_date": "2026-08-27",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.27046v1": {
+        "title": "Performance Foundations of Parallel & Distributed Reasoning Language Models",
+        "link": "http://arxiv.org/abs/2608.27046v1",
+        "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) and other RL-style post-training paradigms have been used for aligning large language models (LLMs) with reasoning standards. The resulting recent Reasoning Language Models (RLMs) such as DeepSeek-R1, o3, and Kimi k1.5 show that such RL-style post-training (\"RL-for-LLMs\") can substantially improve chain-of-thought reasoning, long-horizon planning, and self-correction. However, the computational footprint of these systems is massive: state-of-the-art RLM training requires millions of GPU-hours and tightly coupled multi-model pipelines that stress modern hardware far beyond classical supervised LLM training. This makes RLM training as much a parallel and distributed systems problem as an algorithmic one. In this work, to facilitate developing RLMs that are simultaneously high-performance, scalable, and cost-effective, we first systematize the RL-for-LLM paradigm and provide a compute-centric analysis of prominent post-training algorithmic frameworks: Proximal Policy Optimization (PPO), Group Relative Policy Optimization (GRPO), as well as their variants. Second, we develop a taxonomy of intra- and inter-model parallelism strategies for RL-for-LLMs, covering both traditional techniques (data, tensor, pipeline, sequence, context, and expert parallelism) as well as novel forms of parallelism and optimization techniques for multi-model RLM training, for example disaggregated placement, stage fusion, hybrid parallelism, and asynchronous execution. We harness the work-depth model of parallel computing to make our taxonomy and its insights rigorous and portable. Finally, we analyze existing RLM frameworks and we distill practical guidelines and outline open research directions for building scalable, fast, and cost-effective RLMs.",
+        "authors": [
+            "Maciej Besta",
+            "Leonard Schmidt",
+            "Lara Nonino",
+            "Robert Gerstenberger",
+            "Pierre Pang",
+            "Patrik Okanovic",
+            "Ales Kubicek",
+            "Tiancheng Chen",
+            "Baraq Lipshitz",
+            "Torsten Hoefler"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2608.27046v1",
+        "submit_date": "2026-08-27",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL",
+            "disaggregation"
+        ],
+        "tldr": "Addresses high computational cost and scalability limitations of Reinforcement Learning-based Reasoning Language Models (RLMs). Proposes a taxonomy of intra/inter-model parallelism strategies with novel techniques like disaggregated placement and stage fusion for efficient multi-model training. Targets state-of-the-art RLM training requiring millions of GPU-hours.",
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.26575v1": {
+        "title": "Benchmarking Confidential Computing Performance on NVIDIA Blackwell GPUs",
+        "link": "http://arxiv.org/abs/2608.26575v1",
+        "abstract": "This paper measures the performance impact of running large language model inference and training inside a Trusted Execution Environment (TEE) on NVIDIA B200 GPUs, using Intel Trust Domain Extensions (TDX) confidential VMs together with NVIDIA Confidential Computing (CC) on Blackwell GPUs. The performance impact is derived from paired confidential versus non-confidential runs on a single physical host where the only variable is the GPU CC bit and the TDX guest object in the VM launch. The main result is that confidential inference on Blackwell achieves low single-digit throughput overhead when the stack is configured correctly, at about 1-3%. Stock inference stacks incur 30 to 40% penalties due to avoidable configurations rather than the achievable operating point. The cost is not fully represented by a single number because it is governed by two independent axes, a fixed per-host-operation cost that amortizes as batch size grows and a per-NVLink-traffic cost that tracks the share of the step spent in encrypted collectives, and which of the two dominates is set by the workload and the software. We localize each cost to a specific encrypted boundary, give a microbenchmark that predicts the serving penalty to within a submission count, and end with concrete deployment guidance. GPU compute, energy draw, and usable memory capacity are unaffected by CC.",
+        "authors": [
+            "Daniyal Khan",
+            "Amean Asad",
+            "Ansgar Grunseid"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR"
+        ],
+        "id": "http://arxiv.org/abs/2608.26575v1",
+        "submit_date": "2026-08-27",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "training"
+        ],
+        "tldr": "Measures the performance overhead of confidential computing for LLM inference and training on NVIDIA B200 GPUs. Uses paired runs to isolate TEE costs and provides configuration guidance. Achieves 1-3% inference throughput overhead when configured correctly, versus 30-40% penalties in stock setups.",
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.26573v1": {
+        "title": "Optimizing API Gateway Placement in Multi-Cloud Kubernetes",
+        "link": "http://arxiv.org/abs/2608.26573v1",
+        "abstract": "The use of API gateways within geographically distributed multi-cloud Kubernetes clusters poses a tradeoff between infrastructure cost, computational resources, and network latencies. We present an optimization formulation that addresses API gateway placement as a capacitated facility location problem that jointly determines which candidate clusters to activate, how many gateway replicas to deploy, and how regional traffic should be distributed across the selected clusters. The formulation imposes an upper bound on estimated client-to-cluster network round-trip latency, excluding gateway processing, queuing, and backendservice latency, and incorporates a utilization headroom factor for gateway replica capacity. We present both a mixed-integer linear programming (MILP) formulation and a constructive greedy heuristic that ranks candidates according to incremental cost, comprising cluster-activation and marginal replica costs, per unit of assignable capacity while explicitly accounting for already committed load. Both formulations are applied to deterministic, seed-controlled, geography-based synthetic instances. For each problem size, 30 instances are generated with random seeds to analyze their performance. The greedy algorithm achieves an optimality gap of 3.2% to 4.7% to the MILP optimal solution, with a maximum observed gap of 25.0% for one particular instance, and a speedup of approximately 660x to 3,490x for 3 to 12 candidate clusters. In a canonical 10-candidate, 10-demand region instance, MILP-optimal deployment saves 24.2% in terms of monthly cost compared to the full-replication baseline. On the other hand, selecting the single cheapest candidate yields savings of 24.8% compared to the MILP optimum but does not satisfy the latency requirement for 3 out of 10 demand regions.",
+        "authors": [
+            "Vinoth Punniyamoorthy",
+            "Murali Shankar Dulam",
+            "Aswathnarayan Muthukrishnan Kirubakaran",
+            "Akshay Deshpande",
+            "Nachiappan Chockalingam",
+            "Bikesh Kumar",
+            "Naga Surya Pasupuleti",
+            "Narender Reddy Bitla"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.26573v1",
+        "submit_date": "2026-08-27",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.24102v3": {
+        "title": "A Few Shared Random Bits Suffice for Constant-Round Almost Stable Matching",
+        "link": "http://arxiv.org/abs/2608.24102v3",
+        "abstract": "We show that almost stable matching can be solved in constant distributed rounds on general bipartite graphs $G=(V,E)$ using only a few shared random bits. Specifically, in the $\\congest$ model, we compute a matching whose expected number of blocking pairs is at most $\\varepsilon |E|$ in $O\\left(\\frac{\\log(1/\\varepsilon)}{\\varepsilon^4}\\right)$ rounds using $O\\left(\\log(1/\\varepsilon)\\right)$ shared random bits. Thus, for every constant $\\varepsilon>0$, the round complexity is $O(1)$, independent of the number of vertices and the maximum degree.\n  Previous algorithms achieve constant round complexity only for bounded-degree or almost-regular graphs; on general graphs, their round complexity depends polylogarithmically on $n$. Our main technical idea is a degree-guarded freezing rule that allows widely varying degrees to be handled by a single global charging argument, avoiding the $Θ(\\log n)$ successive degree thresholds used in previous work. The shared random bits are used only to select a common random output iteration.\n  As consequences, we obtain an $O\\left(\n  \\frac{\\log(1/\\varepsilon)}{\\varepsilon^4}\n  +\n  \\frac{\\log n}{\\varepsilon} \\right)$-round $\\congest$ algorithm without pre-shared randomness, via a low-diameter decomposition, and an $O\\left(\\frac{\\log(1/\\varepsilon)}{\\varepsilon^4}\\right)$-round algorithm in the fully-scalable Massively Parallel Computation ($\\mpc$) model with linear total memory.",
+        "authors": [
+            "Yi-Jun Chang",
+            "Kushagra Chatterjee"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.24102v3",
+        "submit_date": "2026-08-27",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.26537v1": {
+        "title": "IBLTs Measure Before They Decode: Self-Sizing Set Reconciliation from Pre-Peeling Counts",
+        "link": "http://arxiv.org/abs/2608.26537v1",
+        "abstract": "Set reconciliation recovers the symmetric difference $A\\triangle B$ with communication far below the data volume. Invertible Bloom Lookup Tables (IBLTs) are a standard tool, but their capacity must match the unknown difference cardinality~$d$. In database deployments, $d$ spans orders of magnitude, so undersizing causes rescans or replays while oversizing wastes network and memory.\n  We show that an IBLT measures $d$ before decoding. Each cell count records how many difference elements map to it; a quadratic statistic over the count array gives an exactly unbiased estimate with no extra transmitted bytes. The estimate remains valid after decoding failure because it is read from the same sketch. For standard IBLTs, we derive exact mean and variance formulas and chi-square confidence intervals. The same chi-square law governs failed instances in deep overload. A mapping-aware theorem extends the construction to Irregular, Rateless, and MET IBLTs through per-variant adapters.\n  Our self-sizing protocol uses a first-round failure to compute the second-round capacity in one step, completing within two interaction rounds with an explicit success-probability guarantee. We profile 41{,}603 reconciliation runs over 90 days at NineData Cloud, compare end-to-end against Merkle-style localization in a cross-engine replay of production tables, and deploy across Redis and Pika in China Mobile. The first round therefore turns an unknown difference cardinality into a measurement it has already paid for.",
+        "authors": [
+            "Min Wu",
+            "Ji Qi",
+            "Chengdui Luo",
+            "Shudong Lu",
+            "Zhengsheng Ye",
+            "Zhengyang Wei"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.26537v1",
+        "submit_date": "2026-08-27",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.26523v1": {
+        "title": "VPP: Virtual Pipeline Parallelism for Efficient Chunked Prefill in Long-Context LLM Inference",
+        "link": "http://arxiv.org/abs/2608.26523v1",
+        "abstract": "Chunked prefill pipeline parallelism (CPP) is a key technique for LLM inference. However, equal-size chunks exhibit imbalanced latency, as later chunks attend longer prefix KV caches and incur higher attention costs, leading to pipeline bubbles. Existing approaches mitigate this imbalance through dynamic chunk resizing (Dynamic CPP, DCPP), but our measurements show that this trades scheduling overhead for load balancing, which becomes unfavorable on long sequences. In this study, we propose Virtual Pipeline Parallelism (VPP), which keeps chunk sizes fixed and optimizes the pipeline layout through virtual stages. A V-shaped virtual-stage traversal overlaps each chunk's expensive middle stages with the lighter head and tail stages of its neighbors, while asynchronous communication and pipelined packing further reduce communication stalls and cross-request drain bubbles. We implement VPP in vLLM-Ascend and evaluate it on three MoE-based LLMs with sequences up to 1M tokens on 16 Ascend 910C NPUs. VPP improves throughput by up to 13.1% over DCPP on long sequences and 6.7% on mixed workloads, while preserving performance on short sequences. On a 512K-token DeepSeek-V3.1 prefill workload, VPP reduces the pipeline bubble ratio from 6.4% to 0.1%, achieving a 98.0% reduction compared with DCPP.",
+        "authors": [
+            "Yan Shi",
+            "Xiaochao Wang",
+            "Jingchun Gao",
+            "Jintao Luo",
+            "Xinyi Zhou",
+            "Feng Liu",
+            "Kui Luo",
+            "Xushi Li",
+            "Xinjie Guo",
+            "Liangjun Feng"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.26523v1",
+        "submit_date": "2026-08-27",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "MoE"
+        ],
+        "tldr": "Addresses pipeline bubbles in chunked prefill LLM inference for long sequences. Proposes Virtual Pipeline Parallelism (VPP) with virtual stages and V-shaped traversal, reducing bubble ratio from 6.4% to 0.1% (98% reduction) on a 512K-token workload.",
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.26453v1": {
+        "title": "Distributed Training using an Intelligent Network",
+        "link": "http://arxiv.org/abs/2608.26453v1",
+        "abstract": "Distributed training across a wide area network (WAN) is challenging, as continuous parameter exchange by islands of compute is constrained by limited bandwidth, high latency, and uneven topology. We propose making the network an active participant in training. On the systems side, such networks should leverage (i) multicast technology to replicate outbound traffic and (ii) in-line FPGAs to aggregate inbound traffic, to ease egress and ingress bottlenecks. These technologies are used for training across workers within a data center, but this paper extends them to the WAN. On the algorithms side, we develop an optimization framework that produces rich synchronization schedules (namely, rotating cliques of islands) around the underlying network topology and these technologies, to maximize information exchange. Finally, we illustrate this on a nine-city topology modeled on the DoubleZero network, a live programmable WAN equipped with both technologies, and show how the optimal schedules shift with the network's capabilities. Together, these can narrow the gap to the gold standard of colocated training.",
+        "authors": [
+            "Nihar Shah",
+            "Ben Blier"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2608.26453v1",
+        "submit_date": "2026-08-26",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Addresses distributed training inefficiencies over WANs by integrating multicast for egress, FPGA-aggregation for ingress, and topology-aware synchronization schedules. Demonstrates reduced performance gap to colocated training in a nine-city testbed.",
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.26283v1": {
+        "title": "Multi-Dataset Inverse Problem Solving with Distributed Generative AI",
+        "link": "http://arxiv.org/abs/2608.26283v1",
+        "abstract": "Extracting a shared set of unknown, not directly measurable quantities from multiple, heterogeneous datasets is a common challenge across scientific domains. A prominent example is the combination of datasets obtained from different measurements with different settings (e.g. varying detector resolutions). Analyzing such datasets jointly, rather than independently or after naive merging, is essential for obtaining precise and unbiased estimates of the unknowns, but requires careful treatment of dataset heterogeneity and is computationally demanding. We present a generalized framework for simultaneously analyzing multiple heterogeneous datasets in the context of generative AI-based inverse problem solvers. Building on our recent Scalable Asynchronous Generative Inverse Problem Solver (SAGIPS) framework, we extend the well-established distributed data-parallel training paradigm to non-identically distributed datasets, where each dataset is controlled by the same set of unknown inference parameters but covers a different region of the available feature space. Each dataset is processed through its own forward operator and discriminator, providing complementary constraints that collectively guide a shared generator toward global parameter consistency. We validate the approach using a controlled setup inspired by a multi-detector scattering experiment. We provide numerical evidence that our framework is robust to different data fidelities, which arise from unknown detector systematics in the Rutherford experiment, and we show the scaling behavior on multi-GPU leadership computing systems. The results show that our approach is well suited for real-world multi-dataset analyses in which experimental conditions vary across measurements.",
+        "authors": [
+            "Daniel Lersch",
+            "Steven Goldenberg",
+            "Johann Rudi",
+            "Markus Diefenthaler",
+            "Kevin Brager",
+            "Xingfu Wu",
+            "Yaohang Li",
+            "Nobuo Sato"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.26283v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.26225v1": {
+        "title": "Agent Mesh: Reliability Primitives for Non-Idempotent Agent Delegation - Identity Adequacy and Evidence Adequacy",
+        "link": "http://arxiv.org/abs/2608.26225v1",
+        "abstract": "Autonomous agents increasingly perform bounded software tasks under an orchestrator that retries, resumes, and budgets them. The machinery such orchestrators reach for is the service mesh's: retry, timeout, and error-rate circuit breaking. We report a failure study of a production agentic software-delivery platform over 147 numbered incidents spanning 81 runs, each with a measured cost and, in most cases, a mutation proof reproducing the failure. All three assumptions those primitives rest on are violated in practice, and we quantify the consequences: a loop of fifty-four consecutive successful tool calls no error-rate breaker could see; a progress signal constant by construction, guaranteeing a false trip on the third repair round and driving one run from six of six components to three; twenty-one events accumulated across six invocations of one delegation, making a correct, idempotent component unwinnable; a misrouted failure that woke five components for a two-component fault, leaving three bystanders regressing working code; and twelve incidents in which the enforcement layer blocked correct work, the most expensive costing 107 agent turns and zero accepted writes. We find one cross-cutting cause and its dual. Identity adequacy: in five separate subsystems an identity that failed to discriminate produced a confident wrong answer, and two of them derived the corrective rule independently. Evidence adequacy: a reliability decision may be taken only on evidence capable of moving, attributable to what it measures, and deterministic under identical conditions. From the findings we derive seven reliability primitives whose enforcement unit is the delegation rather than the message, and specify the controlled evaluation the study motivates but does not constitute.",
+        "authors": [
+            "Mazhar Shaikh",
+            "Anurag Rajkumar Bombarde",
+            "Harshal Pathak"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC",
+            "cs.MA",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2608.26225v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.26220v1": {
+        "title": "MeshReduce-U: Compiler-Guided Communication Reduction for Irregular Neural Reductions on Mesh NoCs",
+        "link": "http://arxiv.org/abs/2608.26220v1",
+        "abstract": "Many irregular neural workloads induce skewed many-to-one reductions with repeated neighborhoods and nonlocal communication. Conventional NoC mappers optimize placement and routes for a fixed communication graph, even though associative reductions expose legal opportunities to eliminate traffic before routing. We present MeshReduce-U, a compiler-guided communication-reduction and routing framework for mesh-NoC-based spatial accelerators.\n  MeshReduce-U coalesces colocated sources, forms local aggregation islands, blocks channels with compatible fan-in structure, selects capacity-feasible sinks, and routes the remaining fixed-width carriers using fused usage-aware costs. A deterministic route-replay model reports schedule-derived communication latency, total link usage (TLU), and fused link usage (FusedTLU) separately.\n  Across a 20-workload lowerable neural-network zoo, MeshReduce-U reduces mean latency, TLU, and FusedTLU by 40.3%, 56.0%, and 48.7%, respectively, relative to an ABC-style source-aggregation baseline, improving all three metrics on every workload. Across 40 synthetic irregular reductions, it reduces mean latency and TLU by 12.3% and 19.7%. A new 30-instance pass-by-pass study further shows that the structural rewrites reduce the global carrier count by 60.9% and replay latency by 63.0%. These results show that rewriting reducible neural communication before routing can be more effective than searching harder over an unreduced traffic graph.",
+        "authors": [
+            "Amirreza Khorasanian"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.26220v1",
+        "submit_date": "2026-08-26",
+        "relevant": false,
+        "indexed_date": "2026-08-28"
     }
 }

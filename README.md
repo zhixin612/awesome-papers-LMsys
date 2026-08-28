@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3038-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.08.27-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3042-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.08.28-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-08-28
+* `training` `RL` `disaggregation` [Performance Foundations of Parallel & Distributed Reasoning Language Models](http://arxiv.org/abs/2608.27046v1)
+  > **TL;DR**: Addresses high computational cost and scalability limitations of Reinforcement Learning-based Reasoning Language Models (RLMs). Proposes a taxonomy of intra/inter-model parallelism strategies with novel techniques like disaggregated placement and stage fusion for efficient multi-model training. Targets state-of-the-art RLM training requiring millions of GPU-hours.
+* `serving` `training` [Benchmarking Confidential Computing Performance on NVIDIA Blackwell GPUs](http://arxiv.org/abs/2608.26575v1)
+  > **TL;DR**: Measures the performance overhead of confidential computing for LLM inference and training on NVIDIA B200 GPUs. Uses paired runs to isolate TEE costs and provides configuration guidance. Achieves 1-3% inference throughput overhead when configured correctly, versus 30-40% penalties in stock setups.
+* `serving` `MoE` [VPP: Virtual Pipeline Parallelism for Efficient Chunked Prefill in Long-Context LLM Inference](http://arxiv.org/abs/2608.26523v1)
+  > **TL;DR**: Addresses pipeline bubbles in chunked prefill LLM inference for long sequences. Proposes Virtual Pipeline Parallelism (VPP) with virtual stages and V-shaped traversal, reducing bubble ratio from 6.4% to 0.1% (98% reduction) on a 512K-token workload.
+* `training` `networking` [Distributed Training using an Intelligent Network](http://arxiv.org/abs/2608.26453v1)
+  > **TL;DR**: Addresses distributed training inefficiencies over WANs by integrating multicast for egress, FPGA-aggregation for ingress, and topology-aware synchronization schedules. Demonstrates reduced performance gap to colocated training in a nine-city testbed.
+
 ### 2026-08-27
 * `training` `RL` `agentic` [psRL: Efficient Training for Agentic AI via Training-Time Prefix Sharing](http://arxiv.org/abs/2608.25683v1)
   > **TL;DR**: Addresses training bottleneck in agentic AI caused by update phase dominating execution time. Proposes psRL with prefix-sharing mechanisms for distributed workload scheduling and dynamic KV cache management to exploit sample redundancy. Achieves up to 5.2x throughput improvement over existing systems.
