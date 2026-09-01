@@ -156579,5 +156579,287 @@
         "submit_date": "2026-08-28",
         "relevant": false,
         "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.31004v1": {
+        "title": "Storage-Centric System Designs for Enabling Fast, Efficient, and Low-Cost Genomic and Metagenomic Analyses",
+        "link": "http://arxiv.org/abs/2608.31004v1",
+        "abstract": "Genomic and metagenomic analyses play critical roles in many fields, such as precision medicine, urgent clinical settings, discovering early warnings of communicable diseases, ensuring food safety through pathogen monitoring, agriculture, and scientific discovery. Due to the challenges of analyzing and storing massive volumes of genomic and metagenomic sequence data, significant efforts have been made to accelerate (meta)genomic analyses and store sequence data compressed. Despite the benefits of these techniques, we identify two major outstanding problems in accessing stored sequence data and supplying it to the analysis units: (i) the data movement bottleneck due to moving large amounts of low-reuse data from storage and the unnecessary burden on the rest of the system, and (ii) the data preparation bottleneck, where compressed sequence data needs to be first decompressed and formatted before analysis.\n  In this dissertation, we present customized storage-centric systems, which efficiently (i) analyze (meta)genomic data inside the storage system, and (ii) enable highly-compressed storage and high-performance access of large-scale sequence data, thereby alleviating the overheads of data movement, computation, and data preparation. We demonstrate that the proposed systems significantly improve system performance, energy efficiency, and system cost-efficiency of (meta)genomic analysis. We hope that the storage-centric systems proposed in this dissertation facilitate the broader adoption of (meta)genomic analyses and inspire future research to fundamentally improve the performance, energy efficiency, and cost-effectiveness of other data-intensive application domains related to health and life sciences.",
+        "authors": [
+            "Nika Mansouri Ghiasi"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC",
+            "q-bio.GN",
+            "q-bio.QM"
+        ],
+        "id": "http://arxiv.org/abs/2608.31004v1",
+        "submit_date": "2026-08-31",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.27091v2": {
+        "title": "Sintr: Safe Interactive Transactions in the Presence of Byzantine Clients",
+        "link": "http://arxiv.org/abs/2608.27091v2",
+        "abstract": "Byzantine fault-tolerant (BFT) systems are, in principle, an appealing foundation for transactional applications involving mutually distrustful participants. Yet their adoption has been hampered by two persistent stumbling blocks-performance and developer convenience-which are often in tension with one another. Recent systems show promising progress on both fronts by shifting to a client-centric architecture; clients execute transactions locally and concurrently, while the system resolves any data conflicts to maintain database serializability. We argue that, in its current form, this approach introduces a critical vulnerability: it leaves the integrity of the database exposed to Byzantine clients, which may issue malicious or incorrect transactions. We address this threat with Sintr, a framework that prevents Byzantine clients from compromising database integrity by executing rogue transactions. Sintr combines redundant execution to validate transaction outcomes with a flexible, heterogeneous policy framework for expressing an application's data-integrity requirements. We apply Sintr to harden several existing BFT database systems and find that it imposes only modest overheads-3%-16% in throughput and 3%-21% in latency.",
+        "authors": [
+            "Austin T. Li",
+            "Daniel H. Lee",
+            "Lorenzo Alvisi",
+            "Natacha Crooks",
+            "Florian Suri-Payer"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.27091v2",
+        "submit_date": "2026-08-31",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.24516v2": {
+        "title": "SatDL: Jointly Optimizing Data Redistribution and Training for Satellite-Based Distributed Learning",
+        "link": "http://arxiv.org/abs/2608.24516v2",
+        "abstract": "Satellite-based distributed learning promises to train machine-learning models directly in orbit using massive, globally dispersed sensor data, thereby avoiding large-scale data downloads to ground servers. However, training convergence is significantly slowed by severe non-IID data, specifically label imbalance, as each satellite observes different geographic regions with distinct labels. This imbalance extends training duration and increases energy consumption for solar-powered satellites. Existing approaches either fully redistribute data to enforce IID conditions - accelerating convergence but incurring substantial communication delays - or avoid redistribution entirely by modifying local learning algorithms to mitigate the impact of label imbalance, which, however, still prolong training and increase energy use. Both extremes result in excessive total end-to-end learning time (data-transfer delay plus training time) and thus elevated onboard energy consumption.\n  We present SatDL, a data-redistribution framework designed to minimize total end-to-end learning time. At its core, SatDL develops a Distributor-Critic framework that jointly models and optimizes data-transfer delay and training time. Evaluations through trace-driven simulations of a 1,584-satellite Starlink constellation and hardware emulations using NVIDIA Jetson and A100 GPUs across five datasets show SatDL reduces total end-to-end learning time by up to 18.6% and onboard energy consumption by 12.23-88.00%, while maintaining inference accuracy within a few percentage points of state-of-the-art baselines.",
+        "authors": [
+            "Hao Wu",
+            "Kin Whye Chew",
+            "Yizhan Han",
+            "Han Li",
+            "Jingxian Wang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.24516v2",
+        "submit_date": "2026-08-31",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.30299v1": {
+        "title": "Beating Quadratic Time--Message Trade-off in Distributed Minimum Spanning Tree Construction",
+        "link": "http://arxiv.org/abs/2608.30299v1",
+        "abstract": "We present a new distributed algorithm for computing a minimum spanning tree (MST) in the \\textsf{CONGEST-KT$_{1}$} model, where messages are limited to $O(\\log n)$ bits and each vertex initially knows the identifiers of its neighbors. Our algorithm exposes a two-parameter time--message trade-off: for any $0 \\leq λ\\leq κ\\leq 1/2$, it runs in $\\tilde{O}(n^λD_G + n^{1 - κ- λ} + n^{1 - 2κ+ λ} + n^{1/2})$ rounds and uses $\\tilde{O}(\\min\\{m, n^{1 + κ}\\})$ messages, where $n$, $m$, and $D_G$ are the number of vertices, edges, and thenetwork diameter, respectively. In particular, setting $(κ, λ) = (1/3, 1/6)$ yields an MST algorithm running in $\\tilde{O}(n^{1/2} + n^{1/6}D_G)$ rounds with only $\\tilde{O}(n^{4/3})$ messages. Under the mild assumption $D_G = O(n^{1/3})$, this is round-optimal while improving the best known message bound of $\\tilde{O}(n^{3/2})$. More broadly, our algorithm breaks the quadratic time--message trade-off barrier $\\mathrm{\\# rounds} \\cdot \\mathrm{\\# messages} = \\tildeΩ(n^2)$, which no previous MST algorithm in the \\textsf{CONGEST-KT$_{1}$} model has been able to overcome, and it does so for almost the entire range of the diameter $D_G$. As a byproduct, we also obtain new low-message broadcast, spanning-tree, and leader-election algorithms.",
+        "authors": [
+            "Taisuke Izumi",
+            "Naoki Kitamura",
+            "Toshimitsu Masuzawa"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.30299v1",
+        "submit_date": "2026-08-31",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.26537v2": {
+        "title": "IBLTs Measure Before They Decode: Self-Sizing Set Reconciliation for Database Consistency Verification",
+        "link": "http://arxiv.org/abs/2608.26537v2",
+        "abstract": "Cross-system data replication pipelines cannot confirm end-to-end consistency from the local guarantees of each hop, so the two endpoints must be compared directly on a periodic basis. Once the rows of a fixed snapshot are normalized into fingerprints, the task reduces to finding the symmetric difference of the two sets. Set reconciliation encodes both sets with an Invertible Bloom Lookup Table (IBLT), whose communication grows only with the difference cardinality $d$ and is independent of table size, which suits large tables. The capacity of an IBLT, however, must be fixed while $d$ is still unknown. Across 41,603 production reconciliations over 90 days, nonzero $d$ spans about seven orders of magnitude, and no reliable empirical constant exists.\n  We show that the count array of an IBLT has already measured $d$ before decoding. The measurement is in-band: it is carried by the recovery sketch itself and adds no bytes dedicated to estimation. A mapping-aware theorem carries the same construction to Irregular, Rateless, and MET IBLTs. The protocol reads the estimate only after a decoding failure; we prove that the failure-conditioned lower quantile bounds the risk of underestimation, which gives the second-round capacity a configurable success-probability guarantee. On this basis we build a self-sizing protocol: the first round attempts recovery with a small sketch and stops there on success; on failure it reads $d$ and sets the second-round capacity, completing reconciliation in at most two rounds. Against a controlled oracle, communication is 1.29--1.47 times that of a scheme given $d$ in advance; production workload characterization, relational-database replay, and a cross-city KV deployment confirm the end-to-end mechanism. Measurement and recovery share one IBLT and need no separate estimation structure.",
+        "authors": [
+            "Min Wu",
+            "Ji Qi",
+            "Zhengsheng Ye",
+            "Chengdui Luo",
+            "Shudong Lu",
+            "Zhengyang Wei"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.26537v2",
+        "submit_date": "2026-08-31",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.30159v1": {
+        "title": "Projection-Free Bandit Online Optimization for Multi-Agent Systems with Dynamic Regret",
+        "link": "http://arxiv.org/abs/2608.30159v1",
+        "abstract": "This paper investigates distributed online optimization for multi-agent dynamical systems with constrained inputs and time-varying cost functions. While online convex optimization offers a principal framework for sequential decision-making, existing online learning and optimization algorithms typically require accurate system models, limiting their applicability in practical settings. To overcome this challenge, we propose a distributed bandit online feedback optimization algorithm that relies solely on real-time input-output data. The algorithm employs a smoothing zeroth-order one-point estimator to construct local gradient approximations directly from cost evaluations. Additionally, to enforce input constraints effectively, we integrate a projection-free conditional gradient update, making the algorithm well-suited for online and large-scale settings. Furthermore, we establish a sublinear dynamic regret bound that depends on a temporal variation measure of system non-stationarity. Finally, numerical simulations demonstrate the effectiveness of the proposed algorithm.",
+        "authors": [
+            "Xia Jiang",
+            "Lu Liu",
+            "Gang Feng"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.30159v1",
+        "submit_date": "2026-08-31",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.29656v1": {
+        "title": "A Smallest-Need-First Job Scheduling Framework with Adaptive Optimization of Idle Node Counts for Energy-Efficient HPC Systems",
+        "link": "http://arxiv.org/abs/2608.29656v1",
+        "abstract": "Power-state management in high-performance computing (HPC) clusters must reduce idle energy without excessive wake-up delays for rigid parallel jobs. This paper presents SNF-ICON, an event-driven controller combining smallest-need-first (SNF) gang scheduling, predictive wake timing, and adaptive warm-spare control. At each scheduler invocation, recent interarrival and completed-service samples are screened for sufficiency, exponential-like variability, low lag-one autocorrelation, and acceptable Kolmogorov-Smirnov distance. Rejected or data-sparse windows use SNF+IPM (Intelligent Power Manager), whereas accepted windows activate release prediction and an exponential next-event model. Warm-spare optimization is applied only when queue, event, and arrival-recency conditions permit, balancing estimated waiting and non-compute energy over a timeout-capped horizon. We evaluate four DAS2 trace segments and a generated Markovian workload on AOBA-derived 64-node models, plus SDSC Blue on an AOBA-derived 1152-node model. SNF-ICON is compared with SNF+IPM and First Come First Served (FCFS) + backfilling with IPM. It reduces average waiting time relative to the FCFS-based baseline in all six cases and remains close to at least one heuristic energy baseline in five. The generated workload spends substantial time in ICON mode, whereas DAS2 workloads operate mainly in fallback. Furthermore, cross-platform results show strong dependence on node-transition and power models. Thus, no single policy or parameter set works best in every case.",
+        "authors": [
+            "Reza Pulungan",
+            "Raka Satya Prasasta",
+            "Santana Yuda Pradata",
+            " Mursalim",
+            "Hiroyuki Takizawa",
+            "Muhammad Alfian Amrizal"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.29656v1",
+        "submit_date": "2026-08-30",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.29581v1": {
+        "title": "Bridging Agent Semantics with Spot Capacity: An Elastic and Recoverable Service Model",
+        "link": "http://arxiv.org/abs/2608.29581v1",
+        "abstract": "LLM agents increasingly drive long-running cloud inference workloads in which model calls differ in urgency, redundancy, completion semantics, and replay cost. Model-as-a-Service (MaaS) platforms expose several service models for trading cost against latency, availability, and capacity commitment. These models operate primarily at request, job, or endpoint scopes and provide limited support for combining transient platform supply with the evolving semantics of an agent task.\n  We present SemSpot, a semantics-aware service model that allows agent applications to leverage the spot capacity of LLM inference platforms. At the request level, SemSpot lets a provider publish short-lived offers over successful price, completion probability, and failure-notification deadline; the agent runtime selects among these offers using the current task state and completion rule. An audit of 1,535 cases from six agent benchmarks identifies four recurring workflow structures and shows how this service model may produce different cost, service-time, and fallback behavior. With specialized MaaS support, token-level SemSpot further preserves provider inference state and runtime-verified semantic segments inside a long request. We develop the service model, economic boundary, and the cross-layer research agenda required to realize SemSpot.",
+        "authors": [
+            "Minchen Yu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.29581v1",
+        "submit_date": "2026-08-30",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic",
+            "scaling"
+        ],
+        "tldr": "Proposes SemSpot, a semantics-aware service model for LLM agents leveraging spot capacity. Offers request-level pricing/completion selection and token-level state preservation. An audit of 1,535 agent cases shows varied cost and service-time behaviors.",
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.29528v1": {
+        "title": "MedCache: Efficient and Temporally Valid Memory for Longitudinal Clinical Agents",
+        "link": "http://arxiv.org/abs/2608.29528v1",
+        "abstract": "Longitudinal clinical agents must maintain an evolving patient state from evidence distributed across visits, time points, and specialties. However, how agent memory should be designed for this setting remains unclear. We introduce a benchmark of multi-visit, multi-specialty patient records that evaluates long-context evidence retrieval, cross-time evidence aggregation, and cross-specialty clinical reasoning. Using this benchmark, we systematically study four memory design choices: curation, organization, retrieval, and memory-augmented reasoning. We find that temporal validity is more important than simply retaining more history; specialty-factorized memory reduces context but can hide shared evidence; and multiple agents help when specialists must reason together, not merely when evidence comes from multiple memories. Guided by these findings, we propose \\textit{MedCache}, a hybrid framework that constructs temporally valid patient memory, organizes evidence into overlapping specialty views, routes each query to relevant memories, and adaptively invokes one or multiple specialists. Experiments show that MedCache improves reasoning accuracy and memory efficiency over strong single-agent and multi-agent baselines, while generalizing across model backbones and external datasets.",
+        "authors": [
+            "Hei Ting",
+            " Chan",
+            "Chenwei Wu",
+            "Xueshen Liu",
+            "Boyuan Zheng",
+            "Liyue Shen",
+            "Jiasi Chen",
+            "Z. Morley Mao"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2608.29528v1",
+        "submit_date": "2026-08-30",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.29103v1": {
+        "title": "CLASP: Chained-Request-Aware Scaling and Operator Placement for Serverless Stream Processing",
+        "link": "http://arxiv.org/abs/2608.29103v1",
+        "abstract": "Stateful serverless (Function-as-a-Service) environments, whose workers host state servers, are increasingly used for stream processing. A stream application is a pipeline of operators, where each operator forwards intermediate data downstream through a chained request. As input rates fluctuate, the system should adjust operator parallelism and place instances across workers to sustain the incoming rate. Existing approaches do so without fully accounting for chained-request overhead, leading them to misestimate the required number of workers. Too few leave the cluster unable to keep up with the input rate, while too many route a larger fraction of chained requests across worker boundaries, increasing end-to-end latency.\n  We propose CLASP, a scaling and scheduling strategy for stream processing in stateful serverless environments. At runtime, CLASP estimates execution cost and chained-request cost from observed metrics. Under a capacity model that covers the two costs, it adjusts operator parallelism and packs operators onto the fewest workers that can sustain the target input rate. Once a scaling decision is made, CLASP migrates each operator's state together with its instances, thereby minimizing execution pause time. Experiments show that CLASP improves throughput by up to 3.3x and reduces median end-to-end latency by up to 76% compared with state-of-the-art scaling strategies.",
+        "authors": [
+            "Tianyu Qi",
+            "Maria A. Rodriguez",
+            "Rajkumar Buyya"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.29103v1",
+        "submit_date": "2026-08-29",
+        "relevant": true,
+        "tags": [
+            "scaling",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Proposes CLASP for scaling stateful serverless stream processing pipelines. Chained-request-aware capacity modeling enables packing operators onto minimal workers while migrating state. Improves throughput by up to 3.3× and reduces median latency by 76% versus state-of-the-art schedulers.",
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.29053v1": {
+        "title": "Performance Evaluation of RED-ONION: A High-Speed Disk-to-Disk Transfer System",
+        "link": "http://arxiv.org/abs/2608.29053v1",
+        "abstract": "Modern experimental instruments produce data faster than general-purpose file transfer interfaces can move it, so delivery to the computing infrastructure has become a bottleneck in the research process. At many universities and research institutes, moreover, the instruments that generate research data and the high-performance computing systems that analyze it are separated both geographically and organizationally, because each demands its own expertise and installation environment. Connecting the two seamlessly is a pressing challenge for data-driven science. This article presents RED-ONION, a high-speed disk-to-disk transfer system that connects research facilities, on campus and beyond, to a computing center. The system combines data transfer nodes, a dedicated high-bandwidth network, an all-flash parallel file system, and multi-threaded transfer software that parallelizes network transmission and storage access. The design targets the wire rate both along the entire path, from the read on the sender storage to the write on the receiver storage, and for a single file between one pair of nodes rather than only in aggregate over many files or nodes. We describe the end-to-end optimizations across the transfer software, the operating system, and the storage that this requires. We evaluate a prototype deployed over a 100 Gbps transpacific path between Atlanta and Tokyo with a 150 ms round-trip time, on which a single 1 TB file transfer reached 90 Gbps, delivering a terabyte in approximately 95 s. Moving a dataset of this size therefore becomes a routine step, and the computing center serves an instrument as if the two were co-located.",
+        "authors": [
+            "Keichi Takahashi",
+            "Hiroaki Kataoka",
+            "Takeo Hosomi",
+            "Ayahiro Takaki",
+            "Yasunori Kakizawa",
+            "Shuichi Ihara",
+            "Nobuaki Hashizume",
+            "Susumu Date"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2608.29053v1",
+        "submit_date": "2026-08-29",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28988v1": {
+        "title": "B$^3$-PWL: GPU-Batched Branch-and-Bound for Piecewise-Linear Optimization with SOS2 Constraints",
+        "link": "http://arxiv.org/abs/2608.28988v1",
+        "abstract": "Piecewise-linear (PWL) optimization problems arise in many mixed-integer programming (MIP) optimization applications, including portfolio optimization, workforce scheduling, and resource allocation. But solving them to global optimality remains computationally expensive because branch-and-bound repeatedly solves LP relaxation subproblems. Existing solvers are largely CPU-centric, leaving the scalability of modern GPUs underutilized. Few prior GPU-accelerated branch-and-bound either targets neural network which is not suitable for general PWL optimization, or accelerates only auxiliary subroutines such as strong branching heuristics within CPU-centric MIP solvers. To bridge this gap, we propose B$^3$-PWL, a GPU-centric batched branch-and-bound framework for piecewise-linear optimization with Special Ordered Set of type 2 (SOS2) constraints. Our method solves batches of LP relaxation subproblems concurrently on the GPU using a first-order primal-dual solver, enabled by a specialized batched block-tiled sparse matrix kernel. To complement bound computation, we further introduce a unified feasibility search module that combines an SOS2 repair primal heuristic with a batched feasibility pump to rapidly obtain feasible incumbents and improve pruning efficiency. On a benchmark of 43 PWL-MIP instances, B$^3$-PWL achieves a 9.25x geometric-mean speedup over NVIDIA cuOpt while reaching high-quality feasible incumbents on every tested instance. On a public valve-point unit-commitment benchmark, it further outperforms NVIDIA cuOpt and the open-source CPU solvers SCIP and HiGHS, demonstrating the potential of first-order LP methods as the central engine of GPU-accelerated branch-and-bound.",
+        "authors": [
+            "Yilin Guan",
+            "Shuqing Luo",
+            "Pingzhi Li",
+            "Tianlong Chen",
+            "Kaidi Xu"
+        ],
+        "categories": [
+            "math.OC",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.28988v1",
+        "submit_date": "2026-08-29",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28955v1": {
+        "title": "Algorithmic Simplification for Million-Vertex Diffusion History Reconstruction",
+        "link": "http://arxiv.org/abs/2608.28955v1",
+        "abstract": "Diffusion history reconstruction infers latent node states between sparse observations of SI or SIR processes. HERMES combines parameter fitting, a learned graph-neural proposal, and feasibility-aware Markov chain Monte Carlo. We remove these stages one at a time and evaluate each version on all 12 canonical datasets. The final method uses deterministic mean-field forward-backward inference, threshold decoding, and fixed rates. This fixed-rate variant, Battus-Z, achieves mean macro-F1 of 0.8726 and NRMSE of 0.1010, compared with published HERMES aggregates of 0.8692 and 0.1483. The benchmark pins the final observed frame before scoring, so we also exclude all observed frames. Under this metric, Battus-Z obtains macro-F1 0.8431 and NRMSE 0.1181. Thus, the learned proposal, MCMC, and fitting stages can be removed while retaining the published aggregate quality on the evaluated HERMES benchmark and scoring protocol. A CUDA implementation processes generated histories with up to 4.84M vertices on LiveJournal and 117M edges on Orkut. On the same CUDA backend, Battus-Z reduces the geometric-mean algorithm interval relative to fitted Battus by 5.1x for SI and 20.3x for SIR. Its event-weighted causal-violation rates are 7.50% for SI and 8.77% for SIR; graph-constrained decoding remains future work.",
+        "authors": [
+            "Gökhan Göktürk"
+        ],
+        "categories": [
+            "cs.SI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.28955v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.30830v1": {
+        "title": "Adaptive KV Retention for LLM Agents at Human-Approval Timescales",
+        "link": "http://arxiv.org/abs/2608.30830v1",
+        "abstract": "Unlike the seconds-scale tool-call pauses targeted by prior agent-serving systems, agentic LLM requests can be suspended for minutes or hours while waiting for human approval. We study how suspension and resumption affect GPU serving performance and develop a retention policy that balances active-serving capacity against future recomputation under uncertain approval waits. The central tension is severe because retaining suspended KV preserves fast resume but can consume enough GPU capacity to reduce active-serving goodput by 41%, while evicting it avoids that residency cost at the expense of nearly $10\\times$ higher resume latency when the request returns. We develop a tiered retention controller around GPU opportunity cost, which expresses the serving capacity consumed by preserving or reconstructing a suspended request's KV state in a common GPU-time cost. Within host memory, the controller selects between indefinite retention and load-indexed expiration using calibration wait samples, without requiring per-request wait prediction. On human-scale approval workloads, our controller improves active-request goodput by 23-51% over the vLLM baselines, 22-29% over MORI, and 41-52% over Continuum.",
+        "authors": [
+            "Minseo Choi",
+            "Ananya Joshi"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.30830v1",
+        "submit_date": "2026-08-31",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic",
+            "offloading"
+        ],
+        "tldr": "Optimizes LLM agent serving during long human-approval pauses by adaptively retaining or evicting KV caches based on GPU opportunity cost. Tiered controller balances active-serving capacity against recomputation without per-request prediction. Achieves up to 51% higher goodput than vLLM baselines.",
+        "indexed_date": "2026-09-01"
     }
 }

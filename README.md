@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3046-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-3049-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.09.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-01
+* `serving` `agentic` `scaling` [Bridging Agent Semantics with Spot Capacity: An Elastic and Recoverable Service Model](http://arxiv.org/abs/2608.29581v1)
+  > **TL;DR**: Proposes SemSpot, a semantics-aware service model for LLM agents leveraging spot capacity. Offers request-level pricing/completion selection and token-level state preservation. An audit of 1,535 agent cases shows varied cost and service-time behaviors.
+* `scaling` `serving` `networking` [CLASP: Chained-Request-Aware Scaling and Operator Placement for Serverless Stream Processing](http://arxiv.org/abs/2608.29103v1)
+  > **TL;DR**: Proposes CLASP for scaling stateful serverless stream processing pipelines. Chained-request-aware capacity modeling enables packing operators onto minimal workers while migrating state. Improves throughput by up to 3.3× and reduces median latency by 76% versus state-of-the-art schedulers.
+* `serving` `agentic` `offloading` [Adaptive KV Retention for LLM Agents at Human-Approval Timescales](http://arxiv.org/abs/2608.30830v1)
+  > **TL;DR**: Optimizes LLM agent serving during long human-approval pauses by adaptively retaining or evicting KV caches based on GPU opportunity cost. Tiered controller balances active-serving capacity against recomputation without per-request prediction. Achieves up to 51% higher goodput than vLLM baselines.
+
 ### 2026-09-01
 * `training` `RL` `MoE` [HARTS: Efficient Agentic Reinforcement Learning for Hybrid-Attention Models over Arbitrary Rollout Trees](http://arxiv.org/abs/2608.28158v1)
   > **TL;DR**: Proposes HARTS to avoid redundant computation in training agentic reinforcement learning with hybrid-attention models over arbitrary rollout trees. HARTS schedules microbatches and data parallelism while compressing shared prefixes. Achieves 4.81-4.87x forward/backward/gradient speedup on SWE-bench tasks with activation recomputation.
