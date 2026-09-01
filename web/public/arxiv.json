@@ -156276,5 +156276,308 @@
         "submit_date": "2026-08-26",
         "relevant": false,
         "indexed_date": "2026-08-28"
+    },
+    "http://arxiv.org/abs/2608.25087v2": {
+        "title": "Probabilistic Performance Analysis of Parallel Signature Search Strategies in Multi-Level Tree Networks",
+        "link": "http://arxiv.org/abs/2608.25087v2",
+        "abstract": "Hierarchical distributed search, locating a data pattern, or signature, across a tree-structured collection of files, underlies distributed index traversal, deep packet inspection and sequence alignment. A practitioner must decide how much parallelism to employ: scan each layer sequentially, fan out within subtrees, or launch the whole tree at once. Existing analyses answer this only partially: they characterize every node by the statistics of a signature-holding file and, for multi-signature files, need quantities revealed only at run time. We develop a probabilistic framework predicting the completion time of five search strategies, spanning sequential to full-tree parallelism, before any file is read. Node scan times are modeled as a mixture over signature presence, layer times as order statistics, and parallel subtree scans by extreme-value arguments; when signature counts are known, occupancy under capacity constraints is treated by generating functions. Each performance formula carries an exactness label: exact (or exact-in-regime), plug-in, asymptotic or bound, with each approximation quantified against Monte Carlo simulation and its regime identified. A multicore prototype reproduces the coarse separation between full-tree, layer- and subtree-level parallelism, but shows that synchronization overhead can erase the predicted separation between close strategies. The framework delivers a priori completion-time predictions with explicit accuracy regimes and negligible computational cost, the design example evaluated in under a millisecond; these timing models can support subsequent resource-cost optimization.",
+        "authors": [
+            "Jingwei Li",
+            "Thomas G. Robertazzi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.25087v2",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28529v1": {
+        "title": "Relaxed Sender Anonymity for CBDC Interbank Settlement: A Zero-Knowledge Approach on Permissioned EVM",
+        "link": "http://arxiv.org/abs/2608.28529v1",
+        "abstract": "Central Bank Digital Currency (CBDC) interbank settlement systems operating on Distributed Ledger Technology (DLT) face a fundamental trade-off: blockchain transparency enables trustless verification but exposes commercially sensitive bilateral transaction flows to all network participants. We propose a confidential interbank settlement protocol for permissioned Ethereum-compatible networks that resolves this tension through a relaxed sender anonymity model tailored to regulatory AML/CFT requirements. In this model, the initiating institution remains publicly identifiable on-chain for accountability and compliance, while the receiving institution, transfer amount, and business payload are cryptographically obfuscated. We realize the protocol on Hyperledger Besu using QBFT consensus, combining Groth16 zero-knowledge proofs over BN254, Poseidon hash commitments in an incremental Merkle tree, multi-recipient ECIES payload encryption, and an on-chain NoteRegistry contract that stores encrypted notes as an append-only ledger log, eliminating trusted off-chain custody servers. The protocol supports shield, confidential transfer, and unshield state transitions. Experimental evaluation across a five-node network (three commercial banks, a central bank operator, and a securities depository) demonstrates end-to-end settlement in 8-16 s, proof verification overhead of about 1 ms (around 220k gas) via EVM precompiles, and client proof generation in 4-12 s on commodity ARM hardware. While receiver confidentiality is established at the protocol level, the current proof-of-concept NoteRegistry uses owner-indexed events, a trade-off addressable in production via uniform event broadcasting.",
+        "authors": [
+            "Pietro Tiberi",
+            "Gabriele Marcelli",
+            "Vitangelo Lasorella"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.28529v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28352v1": {
+        "title": "No Silver Bullet: Boosting GaussDB Performance on the 30TB TPC-H Workload",
+        "link": "http://arxiv.org/abs/2608.28352v1",
+        "abstract": "GaussDB is Huawei's premier database system, designed for large-scale deployments and the most demanding workloads. It is a distributed shared-nothing system, capable of handling all types of workloads. This paper outlines a series of modifications to GaussDB aimed at improving its performance on large-scale and complex analytical workloads. After these changes, its performance on the TPC-H workload exceeded the best published result by 40% at 30 TB.\n  The key enhancements to achieve this elite performance include adopting a pipeline execution model, a faster and more scalable inter-node data shuffle, exploiting a unified bus and unified remote memory access. We also expanded the support of cost-based Bloom filter placement and implemented several Bloom filter streaming strategies, enabling their use across nodes.",
+        "authors": [
+            "Tim Zeyl",
+            "Jason Lam",
+            "Shu Lin",
+            "Reza Pournaghi",
+            "Qi Cheng",
+            "Calvin Wong",
+            "Kaixiang Du",
+            "Yuliang He",
+            "Yang Sun",
+            "Weicheng Wang",
+            "Paul Lee",
+            "Chen Ruo",
+            "Yang Xinyi",
+            "Li Qunan",
+            "Wang Junjie",
+            "Hu Dongxing",
+            "Chong Chen",
+            "Per-Ake Larson"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.28352v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28183v1": {
+        "title": "Memory-efficient GPU pipelines for real-time non-line-of-sight reconstruction",
+        "link": "http://arxiv.org/abs/2608.28183v1",
+        "abstract": "Non-line-of-sight (NLOS) imaging reconstructs scenes hidden around a corner from indirect light recorded by a single-photon avalanche diode (SPAD). A single reconstruction is a large inverse problem: billions of photon timestamps must be binned, moved through memory, transformed and inverted. As SPAD arrays raise acquisition throughput, reconstruction becomes the limiting stage. We rebuild the GPU execution of two established wave-based algorithms, f-k migration and phasor-fields, for both streaming and offline processing. On the phasor-fields side we assemble the ring-and-radius kernels of previous work once and offline, using the analytic Fourier transform of a ring, so the propagation kernel never exists in dense form at runtime, reducing the memory and bandwidth. We reorganize the pipeline of both algorithms with fused kernels, warp-level photon binning, batched transforms, CUDA graph replay, and FP16 storage applied only where it reduces the actual bottleneck. Our implementations are up to 42x faster than the reference streaming pipeline and up to 14x faster than the fastest published GPU baseline, all while using a fraction of the memory (down to 2.5%), enabling vastly larger and finer reconstructions on the same hardware, or comparable ones within a much lower memory budget. We report an ablation of each implementation choice and propose three denoising strategies enabled by the resulting frame budget for next-generation NLOS video processing.",
+        "authors": [
+            "Alfonso López-Ruiz",
+            "Diego Royo"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CV"
+        ],
+        "id": "http://arxiv.org/abs/2608.28183v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28158v1": {
+        "title": "HARTS: Efficient Agentic Reinforcement Learning for Hybrid-Attention Models over Arbitrary Rollout Trees",
+        "link": "http://arxiv.org/abs/2608.28158v1",
+        "abstract": "Agentic reinforcement learning (RL) often produces irregular rollout trees with shared histories. Training root-to-leaf trajectories independently recomputes these shared prefixes. Existing systems primarily target full-attention models and lack dense, differentiable hybrid-attention execution compatible with activation recomputation. We present HARTS (Hybrid-Attention RL over Tree Structures). HARTS jointly plans microbatches, data-parallel (DP) replica assignments, and microbatch-slot schedules using non-replay compact-token work after prefix compression. For chunkwise linear attention, a linear-time algorithm coordinates chunk-boundary state recovery and replay and produces the minimum number of sequential linear-attention calls under our packed execution model. HARTS preserves the chunkwise state partitioning of trajectory-wise training: it does not repeat projections, MLP/MoE computation, or final outputs, and performs only bounded state replay for numerical alignment. Per round, HARTS batches all branches into one packed call, propagates gradients through differentiable state handoffs, supports activation recomputation, and restores per-token log-probabilities. For deterministic, no-token-drop top-$k$ MoE routing, semantic multiplicities restore MoE-objective token weights and load statistics. Existing RL objectives retain their interface. To our knowledge, HARTS is the first system to demonstrate arbitrary-rollout-tree prefix-sharing speedups on a real hybrid-attention model. On an Agentic RL workload generated from SWE-bench tasks, HARTS achieves $4.81$--$4.87\\times$ forward/backward/gradient speedup with activation recomputation across multiple parallel configurations. Its numerical differences are comparable to baseline self-rerun variation, and its reward trend is similar to the baseline over the first 120 steps of $τ^3$-Bench training.",
+        "authors": [
+            "Boyuan Meng",
+            "Peihua Bao",
+            "Hong Liu",
+            "Xiaowei Zhu",
+            "Chao Wang",
+            "Gen Li",
+            "Zhenxuan Pan"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.28158v1",
+        "submit_date": "2026-08-28",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL",
+            "MoE"
+        ],
+        "tldr": "Proposes HARTS to avoid redundant computation in training agentic reinforcement learning with hybrid-attention models over arbitrary rollout trees. HARTS schedules microbatches and data parallelism while compressing shared prefixes. Achieves 4.81-4.87x forward/backward/gradient speedup on SWE-bench tasks with activation recomputation.",
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28097v1": {
+        "title": "Great Expectations: Benchmarking the Real-World Performance of RVV 1.0 in HPC",
+        "link": "http://arxiv.org/abs/2608.28097v1",
+        "abstract": "Following the ratification of the RISC-V Vector Extension (RVV 1.0), new commercially available silicon has been adopting the extension. This paper revisits the question of RISC-V viability for High-Performance-Computing (HPC) by benchmarking the latest RVV 1.0-capable hardware (SiFive X280 (Tenstorrent Blackhole), SpacemiT X60 (K1) and X100/A100 (K3), and T-Head C920v2 (Sophon SG2044)). We assess these platforms using standard HPC benchmarks (BLAS, FFTW, HPL, HPCG) and synthetic workloads (STREAM, FMA throughput) and compare them to a state-of-the-art HPC ARM64 chip (NVIDIA Grace). Our findings show that while RVV 1.0 delivers significant performance improvements over scalar execution, hardware-specific implementation challenges remain. We detail these performance characteristics and discuss the remaining hurdles for RISC-V, including RVV, to become a mainstay in the HPC landscape.",
+        "authors": [
+            "Stepan Nassyr",
+            "Prateek Chawla",
+            "Daniel Seibel",
+            "Jayesh Badwaik",
+            "Kaveh Haghighi Mood",
+            "Andreas Herten"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR",
+            "cs.ET"
+        ],
+        "id": "http://arxiv.org/abs/2608.28097v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28076v1": {
+        "title": "Performance Evaluation of Fast Fourier Transforms on Emerging RISC-V Hardware with Vector Extension Support",
+        "link": "http://arxiv.org/abs/2608.28076v1",
+        "abstract": "This manuscript presents a performance evaluation of Fast Fourier Transform (FFT) implementations on emerging processors supporting the RISC-V Vector Extension (RVV 1.0). By introducing juFFTe, a light-weight high-performance library for discrete Fourier transforms, it is demonstrated how effective vectorization of performance-critical FFT kernels can be achieved on RVV-enabled hardware. Comprehensive benchmarks on three RVV 1.0-ready processors, the SiFive X280, the X100 core of the SpacemiT K3 and the C920v2 core of the Sophon SG2044, reveal substantial performance improvements of juFFTe (https://github.com/FZJ-JSC/juFFTe) over the widely used FFTW3 library. Although RVV-enabled platforms show promising results at this stage of development, a comparison with AMD's Zen 5 architecture indicates that RISC-V needs further maturing to reach the performance of established micro-architectures.",
+        "authors": [
+            "Daniel Seibel",
+            "Kaveh Haghighi Mood",
+            "Jayesh Badwaik",
+            "Prateek Chawla",
+            "Stepan Nassyr",
+            "Andreas Herten"
+        ],
+        "categories": [
+            "cs.MS",
+            "cs.DC",
+            "math.NA"
+        ],
+        "id": "http://arxiv.org/abs/2608.28076v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28048v1": {
+        "title": "AI Hardware Accelerators for Large Language Models: Architectures and the Memory Wall",
+        "link": "http://arxiv.org/abs/2608.28048v1",
+        "abstract": "Large language models (LLMs) place unprecedented and still-growing demands on the hardware that trains and serves them. This review surveys the full landscape of AI hardware accelerators for LLMs, including general-purpose GPUs, custom ASICs such as TPUs, Trainium, Groq, and Cerebras, reconfigurable FPGAs, processing-in-memory and near-memory architectures, and emerging neuromorphic and photonic approaches across cloud and edge deployment. Using the transformer's computational structure and roofline analysis as a common framework, we show that the decisive constraint on LLM acceleration is not arithmetic but memory: the autoregressive decode phase is bandwidth-bound, the key-value cache can rival the model weights in size, and data movement dominates energy. Comparing platforms on compute, memory, energy, programmability, and scalability, we find that no single architecture is optimal across workloads: GPUs remain the flexible default and the workhorse of training; domain-specific ASICs win at scale for stable, high-volume workloads; processing-in-memory is the most promising near-term response to the memory wall, entering systems as a heterogeneous complement; and neuromorphic and photonic computing, while promising, are not yet production-ready at frontier scale. Future progress depends on hardware-algorithm co-design and heterogeneous, memory-centric systems: for large language models, the memory system has become the computer.",
+        "authors": [
+            "Siddharth Patel",
+            "Rohit Singh"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.28048v1",
+        "submit_date": "2026-08-28",
+        "relevant": true,
+        "tags": [
+            "hardware",
+            "training",
+            "serving"
+        ],
+        "tldr": "Surveys AI hardware accelerators for LLM training and serving, emphasizing the memory wall as the key constraint. Compares platforms (GPUs, ASICs, PIM) on compute, memory, and energy. Finds GPUs best for flexible training, ASICs for high-volume workloads, and data movement dominating energy.",
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28044v1": {
+        "title": "Characterization of Request and Token Energy Costs for LLM Inference Workloads on GPU Platforms",
+        "link": "http://arxiv.org/abs/2608.28044v1",
+        "abstract": "Large language model (LLM) inference serving is priced by tokens, but GPU energy is consumed over inference windows. This accounting mismatch makes token-normalized metrics incomplete, since average output-token energy can decrease even when total request energy increases. We characterize this behavior with a decomposed energy model: a fixed one-time prefill with a fixed generation setup cost, while each output-token generation step adds marginal step energy. We evaluate this LLM inference energy model on NVIDIA H100 and H200 GPUs across dense and mixture-of-experts (MoE) models, reporting both request energy and token energy as functions of model type (M), phase (P), batch size (B), context length (C), and output length (N). For Llama-3.2-1B on H200 at batch-16 and context-4K, increasing output length from 10 to 512 tokens reduces token energy from 7.46 to 0.72 J/token while total batched inference-window energy increases from 1.19 to 5.93 kJ. Batching also reduces token energy, but the gain is context-bounded: at 10 output tokens, the batch-16 to batch-1 gain falls from 6.31x at context-512 to 1.17x at context-4K. MoE models amplify this effect: sparse routing and fragmented expert execution increase fixed energy at low concurrency, while batching spreads that energy across more generated tokens and substantially narrows the dense-vs.-MoE token-energy gap. These results show that energy-aware serving should jointly optimize both request energy and token energy, rather than only reducing per-token energy cost.",
+        "authors": [
+            "Prabhu Vellaisamy",
+            "Vanessa Lam",
+            "Shawn Blanton",
+            "John Paul Shen"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2608.28044v1",
+        "submit_date": "2026-08-28",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "MoE"
+        ],
+        "tldr": "Characterizes energy consumption in LLM inference via a decomposed model (fixed request cost + per-token step). Evaluates on H100/H200 GPUs showing output-length increase reduces per-token energy (7.46→0.72 J/token for Llama-3.2-1B at batch-16) but raises total energy, with MoE amplifying fixed costs.",
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.27975v1": {
+        "title": "Learning-Augmented Heuristics: Simple, yet Smart, Robust and Interpretable Cache Eviction",
+        "link": "http://arxiv.org/abs/2608.27975v1",
+        "abstract": "Caching is widely used across the system stack to improve performance and efficiency, with eviction algorithms at its core. Existing cache eviction policies fall into two broad categories: static heuristics (e.g., 2Q, S3-FIFO) and smart algorithms (e.g., ARC, LRB). Smart caches can adapt to workloads and have the potential to achieve higher efficiency and robustness than static heuristics. However, we find that existing smart caches suffer from objective mismatches and instability. We introduce Learning-Augmented Heuristics (LAH), a framework that learns the cache-level parameters of static heuristics. By decoupling the data and control planes, LAH supports simple, high-speed data reads and writes on the data plane, while performing occasional asynchronous learning on the control plane using cache-level features. We demonstrate the effectiveness of LAH through S4-FIFO, a Smart S3-FIFO cache eviction algorithm. We pre-train a single model on 4,140 production traces and embed it in S4-FIFO to learn optimal cache parameters. On 1,035 evaluation traces, S4-FIFO improves the mean efficiency by 26% compared to S3-FIFO and by 8% compared to 3L-Cache, the best state-of-the-art algorithm. S4-FIFO is also robust---increasing miss ratio over FIFO by 0.8% on the worst trace, whereas 3L-Cache increases FIFO's miss ratio by 8.8%. Finally, S4-FIFO's decisions are also interpretable: a language model can provide a rationale for why a particular configuration was chosen.",
+        "authors": [
+            "Haocheng Xia",
+            "William Nixon",
+            "Bintang Dwi Marthen",
+            "Pranav Bhandari",
+            "Juncheng Yang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.27975v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.27874v1": {
+        "title": "TerraceMoE: A Cost Model for Hierarchical MoE All-to-All Communication",
+        "link": "http://arxiv.org/abs/2608.27874v1",
+        "abstract": "Hierarchical two-hop dispatch can reduce slow-fabric traffic in expert-parallel Mixture-of-Experts training, but it adds a second collective and an arrival-side operator chain. We present a cost model for screening that trade at the communication-call level, bounded by validation gates that withdraw a capability in code when they fail rather than reporting a caveat. At a reference geometry with 16 groups of 8 ranks, $q=3$, $H=2048$, and 4096 tokens per rank, the corrected effective breakeven hierarchy ratio is 3.98 for the measured PyTorch arrival chain, 1.49 for a hypothetical fused target, and 1.10 at zero implementation overhead. These are ratio-only sensitivity results, not deployment predictions: platform A measures 1.03, platform B has no separated fast/slow measurement, and neither machine measured here reaches the hierarchical regime. Four communication-level corpora pass their gates; a drift probe and the step-level gate fail. The latter failure is enforced in code, so we make no training-throughput prediction. The enabling routing constraint fixes per-token fan-out and per-selected-group quota, while aggregate per-peer counts remain data-dependent. Its measured validation-loss cost is small but nonzero (+0.0034 nats); downstream equivalence is reported with incomplete estimator provenance and is therefore not independently reconstructible from the artifact. Code, calibration constants and the validation gates are at https://github.com/weich97/TerraceMoE-simulator.",
+        "authors": [
+            "Weicheng Xue",
+            "Bingqiang Wang",
+            "Li Yuan",
+            "Huihui Zhou",
+            "Yonghong Tian"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.27874v1",
+        "submit_date": "2026-08-28",
+        "relevant": true,
+        "tags": [
+            "training",
+            "MoE",
+            "networking"
+        ],
+        "tldr": "Proposes a cost model for hierarchical MoE training communication to evaluate trade-offs of two-hop dispatch. Introduces validation gates that disable if validation fails. Achieves a breakeven hierarchy ratio of 3.98 for measured PyTorch arrival chain at reference geometry.",
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.27836v1": {
+        "title": "FISGuard: Defending Against Membership Inference via Fixed Input Subspaces",
+        "link": "http://arxiv.org/abs/2608.27836v1",
+        "abstract": "As large language models are increasingly adopted in federated learning, protecting user privacy while performing parameter-efficient fine-tuning on distributed private data has become an important challenge. Although clients only share gradients instead of directly uploading raw data, the shared gradients may still leak membership information about training samples. ProjRes (S&P, 2026) further increases this risk: with less information and without accessing model outputs, an attacker can effectively distinguish members from non-members solely based on the projection residual between a candidate representation and the subspace induced by server-observable gradients. Existing defenses against membership inference mostly rely on gradient perturbation or regularization, which can not only degrade model utility but also fail to effectively defend against the membership inference attack introduced by ProjRes, which exploits the geometric structure of gradients.\n  To address this issue, we propose FISGuard, a lightweight defense. Its key idea is to construct and fix a low-dimensional representation subspace using independent public data, thereby restricting the space through which private representations are exposed via gradients while preserving the primary information required for downstream tasks. This substantially reduces the projection-residual discrepancy between members and non-members.\n  We evaluate FISGuard against five representative defense methods across three NLP datasets, two LLMs, and two fine-tuning strategies, Adapter and LoRA. The results show that FISGuard reduces the ProjRes attack AUC to near the random-guessing level of 0.5 in most settings, while maintaining downstream task performance close to that of the undefended model and introducing only limited computational overhead, thereby achieving a favorable privacy--utility trade-off.",
+        "authors": [
+            "Haocheng Jiang",
+            "Hua Shen"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.27836v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.27642v1": {
+        "title": "Characterizing the I/O Behavior of HPC Applications through Modeling and Simulation",
+        "link": "http://arxiv.org/abs/2608.27642v1",
+        "abstract": "Parallel applications process large amounts of data, leading to intensive parallel I/O operations. These operations can exhibit different levels of complexity, including, among others, multiple I/O access patterns, data staging, and contention risks. Therefore, in order to exploit high-performance computing (HPC) systems efficiently and optimize the I/O performance, it is crucial to consider the I/O behaviour of the HPC applications. In this work, we have developed a framework that reproduces the I/O access pattern of real applications in a simulated environment provided by ElastiSim, a batch-system simulator for rigid, malleable, and evolving workloads. The simulated applications are generated based on I/O traces captured from real applications provided by the HPC Input/Output (HPCIO) analysis repository. The HPCIO analysis database includes traces combined with information about real applications' performance across different parallel I/O libraries and layers of the I/O stack. We have conducted detailed case studies of real-world applications' traces to demonstrate how the proposed modeling framework can provide insights into the performance characteristics of I/O applications, including the I/O congestion analysis based on the application's I/O access pattern.",
+        "authors": [
+            "Njoud O. Almaaitah",
+            "David E. Singh",
+            "Taylan Özden",
+            "Jesus Carretero",
+            "Raffaele Montella"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2608.27642v1",
+        "submit_date": "2026-08-27",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
+    },
+    "http://arxiv.org/abs/2608.28165v1": {
+        "title": "CrabOS: An Operating System for Human-AI Co-inhabitation",
+        "link": "http://arxiv.org/abs/2608.28165v1",
+        "abstract": "AI agents are evolving into long-running computational entities that can invoke tools, maintain memory, and complete complex tasks across applications. In real-world settings, completing a task often requires humans and AI to take turns leading its execution. Such alternation depends on the seamless handoff of the work state of the task between humans and AI. Existing agent systems, however, provide humans and AI with separate work environments. AI agents must therefore rely on additional bridges to continue work: either developers build task-specific interfaces to access the work state, or users manually transfer relevant parts of it through screenshots or textual descriptions. Both approaches make handoffs costly and scale poorly.\n  We propose Human-AI Co-inhabitation, a type of work environment that enables humans and AI to seamlessly take turns continuing work on the same task, and design and implement CrabOS to realize this concept. CrabOS represents the work state as natural-language-readable text objects shared by humans and AI, allowing both to access and manipulate it directly through the same auditable interface without bridges. Case studies show that CrabOS elevates support for complex tasks with alternating human and AI leadership from bridge-dependent application-level solutions to native operating-system capabilities, which provide a new foundation for developing and running AI agents.",
+        "authors": [
+            "Qi Yang",
+            "Yun Ma"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.HC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2608.28165v1",
+        "submit_date": "2026-08-28",
+        "relevant": false,
+        "indexed_date": "2026-09-01"
     }
 }
