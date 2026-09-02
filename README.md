@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3049-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.01-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3057-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.02-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-02
+* `training` `edge` `networking` [Just Talk Once: Communication-Efficient Split Federated LLM Fine-Tuning on Edge Devices](http://arxiv.org/abs/2609.01457v1)
+  > **TL;DR**: Addresses high communication costs and continuous client involvement in split federated LLM fine-tuning on edge devices. Proposes L-shaped SFT (server-side loss via weight tying) and one-shot SFT (cached activations). Significantly reduces communication and client online time versus baselines.
+* `training` `multi-modal` `networking` [Contribution-Aware Bandwidth Allocation for Multimodal Split Learning](http://arxiv.org/abs/2609.01406v1)
+  > **TL;DR**: Addresses inefficient bandwidth allocation in multimodal split learning training. Proposes ModalShare, which uses Shapley contribution scores to dynamically assign keep-ratios per modality under fixed uplink budget. Improves accuracy by up to 15.4 percentage points on CREMA-D with 5x compression.
+* `edge` `offloading` [mzCache: On-Device LLM Memory Management under Multitasking](http://arxiv.org/abs/2609.01338v1)
+  > **TL;DR**: Addresses slow responsiveness in on-device LLM inference due to multitasking-induced memory eviction. Proposes mzCache, fine-grained memory management with concurrent GPU execution and CPU restoration using hybrid swap policies. Achieves 2.1-5.5× reduction in Time-to-First-Token compared to baselines.
+* `serving` `MoE` `RL` [AInfer-PD: Communication-Safe In-Place Prefill-Decode Multiplexing for Distributed MoE Rollouts](http://arxiv.org/abs/2609.00993v1)
+  > **TL;DR**: Addresses communication interference in distributed MoE rollout inference. Proposes AInfer-PD with collective order coordination and isolated communication state for concurrent prefill/decode. Reduces fixed-workload completion time by up to 35.3% vs same engine without multiplexing and 32.9% vs SGLang.
+* `training` `scaling` [Characterizing the Scalability and Performance of Large-Scale AI Training Under Multi-Tenancy](http://arxiv.org/abs/2609.00817v1)
+  > **TL;DR**: Characterizes scalability and performance of large-scale AI training under multi-tenancy. Designs a benchmark suite for parallelization strategies and a noise model to evaluate interference. Quantifies communication overheads at scale up to 2400 GPUs across interconnects.
+* `serving` `training` `hardware` [Benchmarking Confidential Computing Performance on NVIDIA Blackwell GPUs](http://arxiv.org/abs/2608.26575v2)
+  > **TL;DR**: Measures performance overhead of confidential computing for LLM inference and training on NVIDIA Blackwell GPUs. Uses paired runs to isolate overhead sources and provide deployment configurations. Achieves 1-3% throughput overhead for inference when properly configured, down from 30-40%.
+* `edge` `serving` `scaling` [DRLM: Deep Reinforcement Learning-Based LLM Query Orchestration in Edge Environments](http://arxiv.org/abs/2609.00442v1)
+  > **TL;DR**: Proposes DRLM, a deep reinforcement learning-based system for orchestrating LLM queries in edge environments. It uses two predictors and a PPO agent to optimize model-device selection, reducing inference latency by up to 51% and queuing delay by up to 67% with less than 8% accuracy loss.
+* `edge` `offloading` [mzCache: On-Device LLM Memory Management under Multitasking](http://arxiv.org/abs/2609.01338v1)
+  > **TL;DR**: Addresses slow LLM inference restoration under memory pressure during on-device multitasking. Introduces mzCache with fine-grained memory partitioning and concurrent CPU-GPU restoration via hybrid swap policies. Achieves 2.1-5.5× reduction in Time-to-First-Token compared to partial offload.
+
 ### 2026-09-01
 * `serving` `agentic` `scaling` [Bridging Agent Semantics with Spot Capacity: An Elastic and Recoverable Service Model](http://arxiv.org/abs/2608.29581v1)
   > **TL;DR**: Proposes SemSpot, a semantics-aware service model for LLM agents leveraging spot capacity. Offers request-level pricing/completion selection and token-level state preservation. An audit of 1,535 agent cases shows varied cost and service-time behaviors.
