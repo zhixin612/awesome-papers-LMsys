@@ -157291,5 +157291,285 @@
         "submit_date": "2026-09-01",
         "relevant": false,
         "indexed_date": "2026-09-02"
+    },
+    "http://arxiv.org/abs/2609.02876v1": {
+        "title": "GRADSOLVE: fast exact gradients for ODE ensembles on GPUs",
+        "link": "http://arxiv.org/abs/2609.02876v1",
+        "abstract": "Ordinary differential equations (ODEs) underlie models in science and engineering, and many applications need derivatives of their solutions with respect to parameters. Ensembles of independent trajectories suit graphics processing units (GPUs), but current GPU software forces a trade-off: the fastest ensemble solvers cannot be differentiated in reverse mode at the speed they solve, and the solvers built for differentiation solve more slowly. No single tool has yet offered a reverse-mode gradient at the speed of a fused-kernel solve.\n  We present GRADSOLVE, an open-source JAX library for solving and reverse-mode differentiating low-dimensional ODE ensembles on NVIDIA GPUs. It records the steps an adaptive solver accepts and differentiates a fixed-step replay of them; the returned gradient is the exact discrete adjoint of those steps, the same derivative Diffrax returns by default, obtained more cheaply from a fixed-length chain than from an adaptive loop. It targets ensembles differentiated many times against one recorded mesh, keeps Diffrax as a fallback, and supports explicit and Rosenbrock integrators.\n  Used as a solver, GRADSOLVE's forward-only kernel ran 2.8x faster than DiffEqGPU.jl; used for gradients, once a record exists, it computed them 5.6-14.1x faster than Diffrax's checkpointed adjoint at matched forward-state accuracy across three GPU generations, the advantage narrowing on large ensembles and, on stiff systems, down to parity at tight accuracy. GRADSOLVE is released at https://github.com/ECLIPSE-AI4Science/gradsolve.",
+        "authors": [
+            "Alessio Spurio Mancini"
+        ],
+        "categories": [
+            "cs.MS",
+            "cs.DC",
+            "cs.LG",
+            "math.NA"
+        ],
+        "id": "http://arxiv.org/abs/2609.02876v1",
+        "submit_date": "2026-09-02",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.02866v1": {
+        "title": "When Does Authorization End? Effect Closure at Provider Boundaries",
+        "link": "http://arxiv.org/abs/2609.02866v1",
+        "abstract": "Revocation completion, clean state, or operation success can leave authorized work able to cause an effect the application rejects while the provider stays within its contract. We call the absence of all such paths policy-relative effect closure, or effect closure for short. Thus, a grant is closed when its existing authorizations retain no such path, and it cannot issue any new ones.\n  We present EFFECTBOUND, which uses an evidence-supported finite contract to decide whether an interface can truthfully report closure while required work completes. It reduces this to finite control with hidden state and returns a strategy, an impossibility certificate, or no verdict when evidence is insufficient. Machine-checked proofs establish the reduction and checker soundness; the checker derives closure results and validates certificates. Across GitHub, Kubernetes, NATS, and Kafka, closure fails in three ways: an interface lacks a needed control, clean visible state hides active work, or the model stops before the effect frontier---the last point where the effect can be prevented. The GitHub tool cannot bind a merge to the reviewed commit; a controlled run confirms that it may merge a different commit. NATS can report no stored or pending messages while dispatched work can still publish downstream. In Kafka, all fixed-set brokers had applied the revocation, yet an earlier authorized request could still append. We add a gate that blocks new use of revoked authority and delays return until earlier in-flight work completes. In a fixed-set Kafka~4.3.1 test deployment, this closes the studied synchronous, nontransactional write path without blocking unrelated requests. For a grant, authorization ends only when issuance stops and no earlier authorization can reach an effect the application rejects.",
+        "authors": [
+            "Igor Santos-Grueiro"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.02866v1",
+        "submit_date": "2026-09-02",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.02736v1": {
+        "title": "QArray+: A physics-informed GPU-accelerated simulator for quantum dot arrays",
+        "link": "http://arxiv.org/abs/2609.02736v1",
+        "abstract": "Semiconductor quantum-dot arrays are a compelling platform for scalable quantum technologies, yet their practical operation is hindered by the complexity of tuning large-scale devices. Existing automation tools rely on simplified physical models---such as constant-capacitance approximations and equilibrium Hubbard models---which assume instantaneous relaxation to a steady state. These frameworks fail in experimentally critical regimes where measurement rates exceed tunneling dynamics, necessitating more sophisticated non-equilibrium control strategies. To bridge this gap, we introduce QArray+, an extension of the QArray framework that incorporates gate-dependent tunnel coupling and a quantum open-system description of dissipative processes. This approach enables the unified simulation of coherent interdot charge-state hybridization and the non-equilibrium latching dynamics essential for training robust machine-learning models for automated device operation. Implemented in JAX with GPU acceleration, QArray+ scales across GPUs and multi-node systems. For example, a charge stability diagram for a 100X100 grid of gate voltages over 64 dots can be computed in $\\sim0.17\\,\\mathrm{s}$ on multiple GPUs. Since interdot interactions are short-ranged and the corresponding tuning corrections are local, simulations at these scales capture the physics relevant to even larger devices. These capabilities support high-throughput dataset generation for automated device tuning.",
+        "authors": [
+            "Pranav Vaidhyanathan",
+            "Barnaby van Straaten",
+            "Alice Petrillo",
+            "Rahul Marchand",
+            "Edwin De Nicolo",
+            "Menno Veldhorst",
+            "Brucek Khailany",
+            "Taylor L. Patti",
+            "Natalia Ares"
+        ],
+        "categories": [
+            "cond-mat.mes-hall",
+            "cs.DC",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2609.02736v1",
+        "submit_date": "2026-09-02",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.02514v1": {
+        "title": "AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference",
+        "link": "http://arxiv.org/abs/2609.02514v1",
+        "abstract": "Deploying Large Language Models (LLMs) on edge devices typically relies on model compression or split inference. However, compression degrades reasoning capabilities, while split inference suffers from severe Wide Area Network (WAN) communication bottlenecks. Edge-cloud speculative decoding emerges as a promising alternative, leveraging an edge small model to draft tokens for cloud verification. Yet, over volatile WANs, inevitable prediction rejections trigger catastrophic pipeline stalls and network-wide rollbacks, neutralizing collaborative gains. To overcome this, we propose AceSpec, an asymmetric edge-cloud collaborative framework. AceSpec utilizes un-saturated edge compute to proactively construct a probabilistic state cache, effectively transforming network-wide pipeline flushes into $\\mathcal{O}(1)$ local memory lookups. To preserve bandwidth, it employs an asymmetric communication protocol that transmits minimal main-chain indices uplink and compact sparse distributions downlink. Furthermore, we introduce a network-aware, Lagrangian-optimized resource allocation strategy that dynamically maximizes the local cache hit rate. Evaluations demonstrate that AceSpec achieves up to a 3.52$\\times$ throughput speedup and exhibits exceptional bandwidth immunity, sustaining near-peak inference performance even under severely constrained 50 Kbps WAN conditions.",
+        "authors": [
+            "Yida Zhang",
+            "Zhiyong Gao",
+            "Shuaibing Yue",
+            "Jie Li",
+            "Rui Wang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.02514v1",
+        "submit_date": "2026-09-02",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "serving",
+            "networking"
+        ],
+        "tldr": "AceSpec optimizes edge-cloud LLM inference by using edge compute to build a probabilistic state cache (avoiding network-wide rollbacks) and asymmetric communication (minimal uplink indices, sparse downlink). Achieves up to 3.52× throughput speedup and sustains near-peak performance at 50 Kbps.",
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.02450v1": {
+        "title": "CACTUS: Mask-Guided Semantic Clean-Label Backdoors in Decentralized Federated Learning",
+        "link": "http://arxiv.org/abs/2609.02450v1",
+        "abstract": "Semantic triggers in federated learning (FL) can be less conspicuous than synthetic patches, but sample-dependent placement may weaken backdoor implantation across aggregation rounds. This challenge is compounded in decentralized FL (DFL), where topology-dependent peer aggregation repeatedly mixes local models. CACTUS converts label-consistent semantic pairs into target-directed representation shifts. Mask-guided, modality-specific operators isolate trigger effects, couple them across samples, and apply the shifts counterfactually to clean non-target embeddings before peer aggregation. Experiments cover speech, text, tabular, and image tasks under nine aggregation rules. With 30\\% malicious nodes, CACTUS reaches a nine-rule mean attack success rate (ASR) of 51.2\\% on Speech Commands and the highest nine-rule mean ASR among evaluated attacks on three of four modalities. Sensitivity analyses show that ASR varies with network topology and increases with the malicious-node ratio. These results indicate that CACTUS can propagate backdoors through repeated DFL aggregation.",
+        "authors": [
+            "Chao Feng",
+            "Burkhard Stiller"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.02450v1",
+        "submit_date": "2026-09-02",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.02238v1": {
+        "title": "Federated Learning on the American Science Cloud using APPFL",
+        "link": "http://arxiv.org/abs/2609.02238v1",
+        "abstract": "The American Science Cloud (AmSC), established under the Genesis Mission of the U.S. Department of Energy (DOE), aims to integrate DOE high-performance computing systems, experimental facilities, and data resources into a single, coordinated, AI-driven discovery platform. AmSC's early services focus on curated artifacts, such as gated inference access to hosted models, experiment tracking, and function execution across computing facilities. However, what these services lack is a means to train a model across organizational boundaries where data cannot be centralized due to policy, privacy, or scale. This is, by definition, a use case for federated learning (FL) and a growing class of scientific AI. In this paper, we show that this gap can be bridged by deploying the orchestration logic of the Advanced Privacy-Preserving Federated Learning (APPFL) framework as a scalable cloud service on top of the primitives AmSC already provides: project-scoped authentication that supports secure and reliable federation membership, function execution that drives distributed training at each site, experiment tracking that records round-level performance, and finally, the model-hosting and inference infrastructure that can be leveraged to distribute the federated trained models to authorized participants. We argue that offering federated computing as an important AmSC service would unlock privacy-constrained scientific collaborations, enabling public-private partnerships in model building while exercising and enhancing the platform's own federated infrastructure.",
+        "authors": [
+            "Zilinghan Li",
+            "Abhijit Chunduru",
+            "Harinarayan Krishnan",
+            "Eric Chagnon",
+            "Peter Nugent",
+            "Kibaek Kim",
+            "Ravi Madduri"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.02238v1",
+        "submit_date": "2026-09-02",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.02227v1": {
+        "title": "Towards Global Federated Genome-Wide Association Meta-Analysis Using GA4GH TES",
+        "link": "http://arxiv.org/abs/2609.02227v1",
+        "abstract": "Genome-wide association studies (GWAS) gain statistical power from large, ancestrally diverse cohorts, but privacy regulations and data-residency constraints often prevent genomic data from being centrally pooled across institutional or national borders. We present a privacy-preserving federated GWAS meta-analysis pipeline built on the APPFL framework, in which each site computes local GWAS summary statistics and transmits only aggregate results, never individual-level genotypes. Analysis is executed through a global network of Global Alliance for Genomics and Health (GA4GH) Task Execution Service (TES) endpoints, which allows computation to move to the data rather than the reverse. The server performs inverse-variance-weighted fixed-effect meta-analysis and returns aggregated results to all sites, while HiveWatch, our developed geographic observability toolkit, provides real-time monitoring of distributed task execution. In a five-site simulation over 100,000 synthetic individuals and roughly 240,000 variants for Type 2 Diabetes and Body Mass Index, the federated meta-analysis reproduces the association signal expected from a pooled analysis without centralizing any genotype data, showing that standards-based task execution and federated learning enables a practical privacy-preserving infrastructure for international GWAS meta-analysis.",
+        "authors": [
+            "Abhijit Chunduru",
+            "Matthew Joel",
+            "Zilinghan Li",
+            "Ravi Madduri"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.02227v1",
+        "submit_date": "2026-09-02",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.02109v1": {
+        "title": "MeanField Surrogate Modeling for Scalable Runtime Scheduling of Concurrent Heterogeneous AI Inference on Shared GPUs",
+        "link": "http://arxiv.org/abs/2609.02109v1",
+        "abstract": "Deploying heterogeneous AI models concurrently on a shared GPU introduces resource contention that complicates runtime scheduling. While surrogate models avoid costly online benchmarking, their profiling requirements typically grow combinatorially with the number of co-running models, limiting scalability. We propose a MeanField surrogate that predicts per-model performance from local configuration and aggregate GPU state rather than explicitly modeling all joint interactions. Experiments on concurrent LLM and vision workloads across $N \\in \\{2,3,4,5,6\\}$ show high predictive accuracy ($R^2 \\approx 0.96$) with an empirical sample budget that grows approximately linearly in $N$, in contrast to the combinatorial cost of fully joint profiling. Integrated into a genetic algorithm scheduler, the surrogate scales to an $N=5$ problem with 78,732 feasible joint configurations, remaining within 0.10% of the exhaustive search with zero SLA violations across eight dynamic workload scenarios, while complete online GA decisions take 26 ms median, about $5\\times$ faster than exhaustive surrogate search.",
+        "authors": [
+            "Youssef Ennouri",
+            "Soonhoi Ha"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.02109v1",
+        "submit_date": "2026-09-02",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Proposes MeanField surrogate for scalable runtime scheduling of concurrent heterogeneous AI models on shared GPUs. It predicts performance from local and aggregate state, reducing profiling cost from combinatorial to near-linear. Achieves 26 ms median scheduling time for 78,732 configurations (5× faster) without SLA violations.",
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.01975v1": {
+        "title": "RT-HiSS: Ray Tracing Accelerated High Dimensional Vector Similarity Searches",
+        "link": "http://arxiv.org/abs/2609.01975v1",
+        "abstract": "Recent GPU generations include special-purpose ray tracing (RT) cores for graphics applications. While RT cores are primarily used for rendering, recent works show they can be leveraged for general-purpose tasks, including similarity searches. However, existing approaches do not support datasets exceeding three dimensions. In this work, we propose RT-HiSS, the first exact GPU RT-core-based similarity search algorithm for high-dimensional datasets. GPU similarity search often scales poorly for large datasets with substantial search distances. To address this, RT-HiSS uses RT cores for fast index construction and searches, followed by candidate refinement on CUDA cores. We introduce a two-pass approach to estimate an upper bound on result size, enabling efficient batching under GPU memory constraints with near-perfect load balancing. Additionally, we examine shared memory tiling and compressed result masks to improve GPU resource utilization. RT-HiSS yields speedups up to 8.37$\\times$ over competitive state-of-the-art GPU algorithms and up to 2,368.26$\\times$ relative to the brute-force algorithm across six real-world datasets.",
+        "authors": [
+            "Revanth Reddy Munugala",
+            "Michael Gowanlock"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DB"
+        ],
+        "id": "http://arxiv.org/abs/2609.01975v1",
+        "submit_date": "2026-09-02",
+        "relevant": true,
+        "tags": [
+            "RAG"
+        ],
+        "tldr": "Addresses high-dimensional vector similarity search scaling on GPUs. Uses RT cores for indexing and searches with a two-pass batching method for memory efficiency. Achieves up to 8.37× speedup over state-of-the-art GPU algorithms.",
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.01939v1": {
+        "title": "Bonded Recourse for Smart-Contract Settlement of Compensable Agent Side Effects",
+        "link": "http://arxiv.org/abs/2609.01939v1",
+        "abstract": "Autonomous agent runtimes execute tool actions that mutate databases, repositories, and cloud services across organizational boundaries. Authorization and local compensation cover pre-action admission and in-runtime rollback, but neither settles the residual harm left after a permitted action fails. We design Recourse, a smart-contract settlement protocol for compensable agent side effects that binds each admitted action to scope, recovery, evidence, payout, and collateral. Recourse separates ex ante eligibility from ex post objective settleability: typed receipts make objective residual claims computable under an optimistic-oracle challenge pattern, while subjective or incomplete claims route to ERC-792 arbitration or exclusion. We implement the contract suite, deploy it on Base Sepolia, build adapters against Postgres, Git, and cloud-compatible local sandboxes, and evaluate the system on a deterministic harness, sandbox traces, adversarial sweeps, and property-based fuzzing. Against authorization-only and local-compensation baselines, bonded coverage cuts uncompensated harm. The on-chain tier supplies neutral custody, public challenge, non-cooperative payout, and portable history under cross-organizational trust assumptions.",
+        "authors": [
+            "Laurent Bindschaedler",
+            "Quentin Botha",
+            "Christoph Siebenbrunner"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2609.01939v1",
+        "submit_date": "2026-09-01",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.01864v1": {
+        "title": "CREDIT: Cost-guided Reduction-reuse with Efficient DSMEM Inter-CTA Tiling",
+        "link": "http://arxiv.org/abs/2609.01864v1",
+        "abstract": "NVIDIA distributed shared memory (DSMEM) enables direct shared-memory access within a thread block cluster. However, cluster synchronization, remote access, and resource costs make it difficult to determine when DSMEM improves performance. To fill this gap, we propose CREDIT, a cost-guided framework that identifies DSMEM-profitable workload patterns, predicts their profitability range, and delivers consistent speedups across diverse workloads. CREDIT combines three innovations: (1) a profiling-driven characterization that identifies workload patterns likely to benefit from DSMEM; (2) a transformation that applies DSMEM to reduction-reuse workloads; (3) a cost model based on profiling data, to determine its profitability range. Evaluations on diverse workloads show CREDIT achieves 91.7% prediction accuracy on profitability. CREDIT beats torch.compile, Triton, and optimized non-DSMEM CUDA baselines on all six workloads, with geometric-mean speedups of 1.466x on RTX 5090 and 1.318x on H100. CREDIT's source code is publicly available at https://github.com/zhengxiongli08/CREDIT.",
+        "authors": [
+            "Zhengxiong Li",
+            "Tsung-Wei Huang",
+            "Umit Ogras"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.01864v1",
+        "submit_date": "2026-09-01",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.01821v1": {
+        "title": "Scaling Inference Prefill with High-Radix Photonic Interconnects",
+        "link": "http://arxiv.org/abs/2609.01821v1",
+        "abstract": "With the rise of inference as today's dominant AI workload, the industry is transitioning to high-bandwidth photonic interconnects to meet the large scale-up requirements of increasingly complex Mixture-of-Experts (MoE) models. This paper quantifies the benefits of 3D-integrated photonic interconnects for inference prefill by analyzing tradeoffs between high-concurrency throughput for Large Language Model (LLM) chat and the large context windows typically required for reasoning and agentic AI. We simulate three MoE models: short context (1K--8K tokens), medium context (128K tokens), and long context (1M tokens). We evaluate this workload across existing copper-based GPU systems and one with high bandwidth integrated photonics. We show 2.1--3.2x latency improvements in the stressed high-batch regimes and 2.8--5.8x improvements over baselines in communication-limited configurations. 3D photonics enable the 1152-GPU footprint required to lower time-to-first-token, yielding 2.2--4.5x speedups across production-grade platforms when electrical systems cross their inherent scale-up-pod limits.",
+        "authors": [
+            "Arulselvan Madhavan",
+            "Peter Carson",
+            "Taylor Groves",
+            "Thomas Graham"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR"
+        ],
+        "id": "http://arxiv.org/abs/2609.01821v1",
+        "submit_date": "2026-09-01",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "scaling",
+            "networking"
+        ],
+        "tldr": "Addresses communication bottlenecks in MoE LLM inference prefill for large context windows and high concurrency. Proposes high-radix 3D-integrated photonic interconnects for GPU systems, achieving 2.1-5.8x latency improvements and 2.2-4.5x speedups in time-to-first-token over electrical systems.",
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.00275v1": {
+        "title": "The Irreversibility Budget: Fleet-Level Risk Accounting and Admission Control for Agent Operating Systems",
+        "link": "http://arxiv.org/abs/2609.00275v1",
+        "abstract": "Fleets of LLM agents now externalize effects that cannot be fully undone: they move money, deploy code, delete data, and disclose information. Current controls check one effect at a time, so a fleet of individually authorized agents can overdraw its principal's risk under a shared trigger while every local gate stays correct. We propose the irreversibility budget, a cumulative account of residual value-at-risk that a trusted runtime maintains for each principal across agents, workflows, and tenants. Treating irreversibility as a first-class resource, the runtime charges each effect its residual loss below the agent and denies the marginal effect once the aggregate would overdraw the budget. Getting the price right is hard, because effects are heterogeneous, adversarially declared, and correlated. We perform a controlled study in which per-effect gates admit fleet-level overdraws of up to 48 times the tenant's risk limit while the budget holds every correctly charged run within that limit. Conservative, dependency-aware pricing remains the central open problem for a deployable design.",
+        "authors": [
+            "Bardia Mohammadi",
+            "Laurent Bindschaedler"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.00275v1",
+        "submit_date": "2026-08-31",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
+    },
+    "http://arxiv.org/abs/2609.02052v1": {
+        "title": "SchedBlame: Who Ran While You Waited? Culprit-Attributed CPU Contention for Containers on Stock Kernels",
+        "link": "http://arxiv.org/abs/2609.02052v1",
+        "abstract": "Containers that share a machine compete for CPU. When one slows down, the operator needs to know which co-tenant is responsible, and no deployed signal can say. Pressure stall information, per-cgroup wait counters, and run-queue latency histograms are all victim-side: they report that a container waited, never who it waited for. Recovering the culprit means a kernel patch, full scheduler tracing, or statistical inference: unportable, too costly to leave on, or unreliable when victims coexist.\n  SchedBlame is an eBPF tracer that attributes CPU contention to the cgroups that caused it, on stock kernels, continuously. It inverts the accounting: instead of measuring how long a victim waited, it measures the CPU time every other cgroup consumed while that victim was runnable but not running on the same CPU. The mechanism is a per-CPU bitmap of which measured cgroups are waiting, maintained from the kernel's own runnable counts at four scheduler hooks. Every run slice carries that bitmap, so one 16-byte record charges CPU time to a full row of a competitor x victim blame matrix; the kernel stores no per-pair state.\n  Three properties follow. Slices are self-describing, so userspace holds no waiting state and a lost record costs measurements, not correctness. The measured set is reconfigured by publishing an epoch, invalidating every cache and per-CPU bitmap in constant time while the hooks keep running. Sampling never touches waiting state, so rescaling by the inverse keep probability keeps the estimator unbiased.\n  SchedBlame splits each container's per-second CPU demand into runtime, internal contention, external contention, and throttling, flags anomalies against a rolling 99th-percentile baseline, and names the competitors responsible. In production on unmodified 4.18 and 5.10 kernels, tracking 84 containers on a 96-core host, it costs about 1% of Redis throughput and 6% of one core.",
+        "authors": [
+            "Hao Li",
+            "Tonghao Zhang",
+            "Honglei Wang"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.02052v1",
+        "submit_date": "2026-09-02",
+        "relevant": false,
+        "indexed_date": "2026-09-03"
     }
 }

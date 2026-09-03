@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3057-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.02-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3061-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-03
+* `edge` `serving` `networking` [AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference](http://arxiv.org/abs/2609.02514v1)
+  > **TL;DR**: AceSpec optimizes edge-cloud LLM inference by using edge compute to build a probabilistic state cache (avoiding network-wide rollbacks) and asymmetric communication (minimal uplink indices, sparse downlink). Achieves up to 3.52× throughput speedup and sustains near-peak performance at 50 Kbps.
+* `serving` `scaling` [MeanField Surrogate Modeling for Scalable Runtime Scheduling of Concurrent Heterogeneous AI Inference on Shared GPUs](http://arxiv.org/abs/2609.02109v1)
+  > **TL;DR**: Proposes MeanField surrogate for scalable runtime scheduling of concurrent heterogeneous AI models on shared GPUs. It predicts performance from local and aggregate state, reducing profiling cost from combinatorial to near-linear. Achieves 26 ms median scheduling time for 78,732 configurations (5× faster) without SLA violations.
+* `RAG` [RT-HiSS: Ray Tracing Accelerated High Dimensional Vector Similarity Searches](http://arxiv.org/abs/2609.01975v1)
+  > **TL;DR**: Addresses high-dimensional vector similarity search scaling on GPUs. Uses RT cores for indexing and searches with a two-pass batching method for memory efficiency. Achieves up to 8.37× speedup over state-of-the-art GPU algorithms.
+* `MoE` `scaling` `networking` [Scaling Inference Prefill with High-Radix Photonic Interconnects](http://arxiv.org/abs/2609.01821v1)
+  > **TL;DR**: Addresses communication bottlenecks in MoE LLM inference prefill for large context windows and high concurrency. Proposes high-radix 3D-integrated photonic interconnects for GPU systems, achieving 2.1-5.8x latency improvements and 2.2-4.5x speedups in time-to-first-token over electrical systems.
+
 ### 2026-09-02
 * `training` `edge` `networking` [Just Talk Once: Communication-Efficient Split Federated LLM Fine-Tuning on Edge Devices](http://arxiv.org/abs/2609.01457v1)
   > **TL;DR**: Addresses high communication costs and continuous client involvement in split federated LLM fine-tuning on edge devices. Proposes L-shaped SFT (server-side loss via weight tying) and one-shot SFT (cached activations). Significantly reduces communication and client online time versus baselines.
