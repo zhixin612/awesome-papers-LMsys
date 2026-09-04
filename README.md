@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3061-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3067-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.04-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-04
+* `training` `networking` [Every Kernel Is a Join: Automatic Multi-GPU Parallelism for AI Computations in Einsummable](http://arxiv.org/abs/2609.03905v1)
+  > **TL;DR**: Proposes Einsummable for automatic parallelization of AI computations on multi-GPU servers. Models tensor operations as relational joins, optimizes decomposition to minimize communication, and implements with synthesized exchange programs. Achieves 8.97 ms per LLaMA transformer block (eight-GPU), vs 13.80 ms for PyTorch.
+* `training` `scaling` `networking` [Characterizing the Scalability and Performance of Large-Scale AI Training Under Multi-Tenancy](http://arxiv.org/abs/2609.00817v2)
+  > **TL;DR**: Characterizes scalability and performance of large-scale AI training under multi-tenancy. Benchmarks five parallelization strategies across clusters, quantifying communication overheads and interference with a noise model. Provides insights for execution efficiency up to 2400 GPUs.
+* `recommendation` [FlowTT: Exploiting Computation Flow Reuse in Irregular Tensor-Train Embedding](http://arxiv.org/abs/2609.03459v1)
+  > **TL;DR**: Addresses inefficient embedding lookup in recommendation models using Tensor-Train decomposition. Proposes FlowTT, a GPU framework that exploits prefix-shared computation via grouping, fused execution, and scheduling optimizations. Reduces inference latency by 42.2% and training by 49.2% at batch size 32,768 with lower memory usage.
+* `serving` `agentic` `scaling` [Latency-Aware Orchestration for Multi-Agent LLM Workflows on Heterogeneous GPUs](http://arxiv.org/abs/2609.03335v1)
+  > **TL;DR**: Addresses orchestration for multi-agent LLM workflows on heterogeneous GPUs. Proposes a prediction-guided runtime that builds an optimized physical execution graph by forecasting workflow dependencies and model demand. Reduces makespan by up to 36.8%, p95 latency by 25.9%, and saves 24.63 GPU-s per session.
+* `edge` `offloading` `serving` [Iapetus: Content-Aware Hierarchical Scheduling for Collaborative ViT Inference in LEO Satellite Networks](http://arxiv.org/abs/2609.03318v1)
+  > **TL;DR**: Addresses efficient ViT inference in LEO satellite networks with dynamic conditions. Proposes Iapetus, a hierarchical scheduler jointly optimizing content-aware token compression and layer offloading. Achieves 91.6% task completion at 5 tasks/s, with 53.0% lower latency and 70.8% reduced battery draw.
+* `training` `networking` [BASP: Communication-Efficient Batch-Aware Sequence Parallelism for LLM Training](http://arxiv.org/abs/2609.03151v1)
+  > **TL;DR**: Addresses communication inefficiency in sequence parallelism for long-context LLM training. Proposes BASP, which partitions GPUs by micro-batch size to reduce all-to-all communication groups. Achieves up to 1.31x training speedup in Llama and Qwen models while maintaining accuracy.
+
 ### 2026-09-03
 * `edge` `serving` `networking` [AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference](http://arxiv.org/abs/2609.02514v1)
   > **TL;DR**: AceSpec optimizes edge-cloud LLM inference by using edge compute to build a probabilistic state cache (avoiding network-wide rollbacks) and asymmetric communication (minimal uplink indices, sparse downlink). Achieves up to 3.52× throughput speedup and sustains near-peak performance at 50 Kbps.
