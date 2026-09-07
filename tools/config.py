@@ -18,7 +18,7 @@ INDEX_FILE = Path("web/public/arxiv.json")
 ARXIV_CATEGORIES: List[str] = ["cs.DC", "cs.OS"]
 
 # Use SiliconFlow by default; keep names consistent with original script
-API_KEY = os.environ["API_KEY"]  # Use .get to avoid error if not set locally
+API_KEY = os.environ.get("API_KEY", "")  # Use .get to avoid KeyError if not set locally
 BASE_URL = "https://api.siliconflow.cn/v1"
 # MODEL = "Qwen/Qwen3-Next-80B-A3B-Instruct"
 # MODEL = "deepseek-ai/DeepSeek-V3.1-Terminus"
