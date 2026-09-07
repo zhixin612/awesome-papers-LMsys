@@ -157970,5 +157970,333 @@
         "submit_date": "2026-09-03",
         "relevant": false,
         "indexed_date": "2026-09-04"
+    },
+    "http://arxiv.org/abs/2609.05406v1": {
+        "title": "Beyond Scalar Flexibility: From Eligible AI Workloads to Dependable Load Relief",
+        "link": "http://arxiv.org/abs/2609.05406v1",
+        "abstract": "Grid studies often represent data-center flexibility as a fixed percentage of load, although no public production trace has shown how much eligible load persists across event durations or co-moves across clusters. We reconstruct 4,439 hourly power observations from a 185-day trace of 155,410 GPUs and derive a workload-semantic flexibility envelope. The fleet's time-averaged Monte Carlo median facility demand is 55.8 MW, while immediate eligible curtailment averages 3.55 MW after retaining allocated-GPU idle power: 12.1% of workload power and 6.35% of median facility power. Under full realization of that eligibility, 95%-available relief falls from 2.51 MW for one hour to 2.32 MW for four hours and 1.95 MW for 24 hours; a common realizable fraction q scales every value exactly by q. A mean-calibrated scalar overstates these quantities by 17%, 25%, and 47%, while a scalar tail-calibrated at four hours understates the one-hour product by 6% and overstates the 24-hour product by 17%; the share that reproduces the surface varies by a factor of 1.6 across durations and reliability levels. Aggregating 13 clusters raises four-hour firmness from 0.38 to 0.66, but cross-cluster covariance limits the gain. The production scheduler exposes almost no additional delay-based capacity: newly deferrable arrivals average 0.008 MW and have zero 95%-available capacity. These results replace an assumed flexibility percentage with duration, reliability, portfolio, and realizability terms that can be written into interconnection and demand-response contracts.",
+        "authors": [
+            "Meiyi Li"
+        ],
+        "categories": [
+            "eess.SY",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.05406v1",
+        "submit_date": "2026-09-04",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.05012v1": {
+        "title": "Solution-space heterogeneity shapes federated learning dynamics across partial differential equations",
+        "link": "http://arxiv.org/abs/2609.05012v1",
+        "abstract": "Federated scientific machine learning enables institutions to train neural surrogates without centralizing local physical data, yet studies of partial differential equations (PDEs) lack a transferable definition of non-independent and identically distributed data. Existing protocols partition coordinates, coefficients, boundary conditions, or geometries according to equation-specific rules. Here, we introduce solution-space PDE-Dirichlet, a protocol that converts continuous supervised responses into reusable solution bins and quantifies the realized separation between clients through optimal transport over the geometry of these bins. We derive an exact inverse relation between population allocation heterogeneity and the Dirichlet concentration, and we establish conditions under which response heterogeneity induces gradient disagreement, local-update dispersion, and parameter divergence. Across seven controlled and public PDE tasks, three neural-operator families, and five random seeds, a lower concentration consistently increases the realized solution distance and optimization heterogeneity. The degradation in final error is task dependent: the largest effect occurs for low-viscosity Burgers, reaching 4.157 percentage points under the most heterogeneous setting, whereas additional communication or smoother dynamics can reduce the final gap despite persistent parameter separation. These results distinguish a reproducible geometric mechanism from task-dependent generalization outcomes and provide a common basis for evaluating non-IID federated PDE learning.",
+        "authors": [
+            "Ping Luo",
+            "Jiahuan Wang",
+            "Ziqing Wen",
+            "Tao Sun",
+            "Dongsheng Li"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.05012v1",
+        "submit_date": "2026-09-04",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04952v1": {
+        "title": "GreenPipe: Power Modeling for Containerized DNN Inference on Kubernetes Edge Nodes",
+        "link": "http://arxiv.org/abs/2609.04952v1",
+        "abstract": "Distributed DNN inference is increasingly deployed in containerized edge-cloud environments, where workloads run on-device or are exposed to remote clients over the network. Accurate online power estimation on resource-constrained ARM nodes without hardware power counters such as RAPL remains a challenge, and CPU-only models fail to capture multi-resource behavior. We present GreenPipe, an automated profiling-training-validation pipeline that builds multi-resource regression models from external power meter measurements and attributes power to containers proportionally. GreenPipe is evaluated on a Raspberry Pi 4 edge node in a K3s edge-cloud testbed, covering DNN inference with three vision models, multiple precisions, thread counts, and both local and serving scenarios. System-level MAPE is 6.3-9.4%, improving over CPU-stress and utilization-only baselines by 26.9% MAPE on average. We jointly report inference latency and energy per inference, exposing performance-energy trade-offs across workload configurations.",
+        "authors": [
+            "Mengxue Wang",
+            "Peini Liu",
+            "Amir Taherkordi",
+            "Jordi Guitart"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.04952v1",
+        "submit_date": "2026-09-04",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04763v1": {
+        "title": "Resilience Beyond Stationary Client Unavailability: Unlocking Efficient and Unbiased Federated Learning",
+        "link": "http://arxiv.org/abs/2609.04763v1",
+        "abstract": "Due to resource constraints or external and internal uncertainties, clients in real-world federated learning systems are often intermittently available edge devices. In highly dynamic environments, the parameter server lacks prior real-time knowledge of clients' availability, making it challenging to adapt traditional federated learning algorithms to be resilient to uncertainties in client availability. If not carefully addressed, complex client availability can introduce significant bias, potentially harming the performance of the trained model. Most prior work either fails to account for non-stationary client availability dynamics or demands significant memory and computational overhead. This paper aims to develop efficient federated learning algorithms that are provably resilient to heterogeneous and non-stationary stochastic client availability. We propose FedSWE, which admits novel algorithmic structures to (i) compensate for missed computations, (ii) stabilize and diffuse the global updates over rounds, and (iii) evenly mix the local updates through implicit gossiping, despite being agnostic to non-stationary dynamics. Compared with the standard FedAvg, FedSWE introduces light additional memory and computation overhead. We show that FedSWE converges to a stationary point of non-convex objectives while achieving the desired linear speedup property in certain special cases. We corroborate our analysis with numerical experiments over diversified client unavailability dynamics on real-world data sets.",
+        "authors": [
+            "Ming Xiang",
+            "Stratis Ioannidis",
+            "Edmund Yeh",
+            "Carlee Joe-Wong",
+            "Lili Su"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "math.OC"
+        ],
+        "id": "http://arxiv.org/abs/2609.04763v1",
+        "submit_date": "2026-09-04",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04748v1": {
+        "title": "Same Request, Different Answer: Quantization Amplifies Cache-Induced Divergence in LLM Serving",
+        "link": "http://arxiv.org/abs/2609.04748v1",
+        "abstract": "Prefix caching, in which a serving engine reuses the key and value tensors of a shared prompt prefix across requests, is enabled by default in the major open-source stacks and treated as a transparent optimization. We measure what it costs in reproducibility, and find that the cost rises sharply with weight quantization. Holding the model, decoding parameters, seed, and request order fixed, and issuing every request serially at batch size one, we ran an eighty-episode multi-turn agentic tool-use workload with caching enabled and disabled across two engines and four weight formats. Enabling the cache changed the agent's trajectory on 36.2 percent of episodes at 16-bit precision and on 75.0 percent at four-bit, a gradient that survives re-measurement under a controlled cache configuration. With caching disabled, repeated execution was bit-identical in every configuration, 0 of 800 episodes, which bounds other sources of nondeterminism at 0.5 percent. Repeated cache-enabled runs did diverge, and three experiments locate the cause: a single server-level prompt-cache setting moves run-to-run divergence by 37.5 percentage points, execution order acts only while that setting is active, and restoring cache state makes the cached and recompute paths each reproduce on 40 of 40 items while still differing from each other on 14. Cached serving is deterministic given cache state, and irreproducible in practice because that state is absent from the request and never reset by default. A single-turn bridge shows the divergence reaching task outcomes without shifting aggregate accuracy. We release the harness, logs, and analysis pipeline.",
+        "authors": [
+            "Aditi Patodiya"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.04748v1",
+        "submit_date": "2026-09-04",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "quantization"
+        ],
+        "tldr": "Investigates how weight quantization exacerbates output divergence caused by prefix caching in LLM serving. Experimental analysis across engines and weight formats shows cache activation alters agent trajectories in 75.0% of episodes at 4-bit quantization due to unreproducible cache state.",
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04663v1": {
+        "title": "BF16 Component-Product Emulation of FP32 and FP64 GEMM on Intel AMX",
+        "link": "http://arxiv.org/abs/2609.04663v1",
+        "abstract": "Modern CPUs increasingly integrate high-throughput matrix engines optimized for low-precision AI workloads, while many scientific computing applications still rely on FP32 and FP64 GEMM to meet their numerical accuracy requirements. This mismatch motivates an algorithmic bridge that uses low-precision matrix products to emulate higher-precision GEMM. This paper presents a CPU-oriented method based on Intel Advanced Matrix Extensions (AMX) and BF16 matrix products. For FP32, each operand is decomposed into three BF16 components and six selected component products are evaluated, targeting FP32-level accuracy relative to oneMKL SGEMM without claiming elementwise or bitwise identity. For FP64 inputs within the supported BF16 exponent range, the method uses a simplified fixed six-slice Ozaki decomposition. Each retained BF16 product is first produced in FP32, then widened and accumulated in FP64. Four product-count settings retain 6, 10, 15, or 21 component products, exposing the accuracy--performance tradeoff relative to oneMKL DGEMM. The implementation combines precomputed packed component buffers, VNNI-packed $B$ panels, and an FP32 tile-resident operand-reuse schedule. On the tested square matrices, AMX-FP32 exceeds oneMKL SGEMM throughput. For AMX-FP64, low-product-count variants can exceed DGEMM at sufficiently large orders, while retaining more products improves accuracy at additional cost.",
+        "authors": [
+            "Bing Cui",
+            "Yu Liu"
+        ],
+        "categories": [
+            "cs.MS",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.04663v1",
+        "submit_date": "2026-09-04",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "quantization"
+        ],
+        "tldr": "Enables efficient FP32/FP64 GEMM on BF16 matrix engines via operand decomposition. Uses Intel AMX with packed component buffers and FP32 tile-resident scheduling. AMX-FP32 exceeds oneMKL SGEMM throughput; FP64 variants trade accuracy versus DGEMM via product count customization.",
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04609v1": {
+        "title": "CIERA: Cross-Iteration Exponent Reuse for Lossless Allgather in Sharded MoE Training",
+        "link": "http://arxiv.org/abs/2609.04609v1",
+        "abstract": "In training Mixture-of-Experts (MoE) models, sharded data parallelism partitions each expert's parameters across GPUs, requiring an Allgather operation to reconstruct the full weight matrix before each layer executes. This communication often dominates iteration time. Prior work often reduces this overhead using lossy compression methods that sacrifice numerical fidelity, while existing lossless methods do not exploit cross-iteration exponent stability. In this paper, we propose Cross-Iteration Exponent Reuse Allgather (CIERA), a lossless, system-aware communication method for sharded MoE training. We observe that after a brief warmup phase, the exponent values of most weights remain unchanged across iterations. Based on this, we cache exponents locally and transmit only the sign and mantissa when exponents are unchanged. The receiver reconstructs the original weights exactly by combining the cached exponents with the received data. Since parameter matrices vary in shape across layers, compression is applied only when it yields net time savings. Moreover, the compression operation is overlapped with both Allgather communication and computation. Our real experiments and large-scale trace-driven simulator show that on OLMoE-1B-7B at 16 GPUs, CIERA achieves a 3.70x speedup over the lossless baseline and 3.68x over the lossy baseline, projected to reach 4.28x and 4.42x respectively at 128 GPUs, while preserving bitwise-exact parameter reconstruction in all evaluated runs.",
+        "authors": [
+            "Ali Zafar Sadiq",
+            "Haiying Shen",
+            "Masahiro Tanaka"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.04609v1",
+        "submit_date": "2026-09-04",
+        "relevant": true,
+        "tags": [
+            "training",
+            "MoE",
+            "networking"
+        ],
+        "tldr": "Reduces Allgather communication in sharded MoE training via cross-iteration exponent reuse, transmitting only sign and mantissa for lossless compression. Overlaps compression with communication and computation. Achieves 3.70x speedup over lossless baseline and 3.68x over lossy baseline on 16 GPUs.",
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04573v1": {
+        "title": "Improving Progressive Compression with Adaptive Interpolation and Coefficient Decomposition",
+        "link": "http://arxiv.org/abs/2609.04573v1",
+        "abstract": "Exascale simulations generate data far faster than it can be stored or analyzed, making efficient data reduction essential. Error-controlled lossy compression offers high compression ratios under user-specified error bounds, but the target tolerance must be fixed at compression time. Progressive compression relaxes this restriction, yet existing methods still rely on fixed refactoring strategies and do not fully exploit correlations among decomposed coefficients, limiting the efficiency of progressive retrieval. In this work, we present an adaptive progressive compression framework that improves retrieval efficiency for two common targets, namely error-bound and peak Signal-to-Noise ratios. Our contributions are fourfold. (1) We propose to leverage two complementary interpolation schemes for adaptive progressive compression toward different targets, and we optimize them to achieve high efficiency. (2) We propose coefficient decomposition, a novel method that exploits the commonly overlooked spatial correlations among decorrelated data, which further improves the efficiency. (3) We develop the adaptive progressive compression workflow with automatic selection of the best-fit refactoring pipeline and tailored optimizations. (4) We evaluate the proposed framework on five real-world scientific datasets against three state-of-the-art progressive compressors. Experimental results demonstrate that the proposed framework improves the compression ratio by up to $42.3\\%$ under the same requested error tolerance and up to $92.5\\%$ at the same PSNR, compared with the best-performing existing methods. When transferring $512$ GB of scientific data to remote sites, the framework delivers up to $1.26\\times$ speedup in the end-to-end data transfer performance. Furthermore, our method achieves the highest visualization quality while retrieving the least amount of data from storage.",
+        "authors": [
+            "Wenbo Li",
+            "Xuan Wu",
+            "Qian Gong",
+            "Pu Jiao",
+            "Jieyang Chen",
+            "Qing Liu",
+            "Norbert Podhorszki",
+            "Scott Klasky",
+            "Xin Liang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.04573v1",
+        "submit_date": "2026-09-04",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04547v1": {
+        "title": "Revisiting MemGuard Overhead: A Reproduction Report",
+        "link": "http://arxiv.org/abs/2609.04547v1",
+        "abstract": "As an increasing number of embedded platforms incorporate multiple processing units, shared resource contention induced unpredictable execution time poses a challenge for real-time system design. Memory bandwidth regulation is a popular mitigation approach, and MemGuard is the canonical example. Recently, MemPol introduced a new bandwidth regulation mechanism, which was compared with MemGuard. Specifically, they reported significant overheads for MemGuard, citing up to a 1.79x slowdown, to contextualize MemPol's comparative benefits.\n  This report is meant to clarify and add the necessary nuance to the experiments carried out in that prior work. Specifically, we show that the MemGuard overheads presented in these prior evaluations were unintentionally amplified as the result of using a suboptimal configuration with an older version of MemGuard, wherein the benchmark under test was pinned directly to the master core responsible for handling global timer interrupts. By faithfully reproducing these specific experiments using a modern, decentralized implementation of MemGuard, we demonstrate that the actual execution overhead drops significantly under identical conditions.\n  Consequently, when evaluated with a properly configured recent version, MemGuard exhibits an overhead that is highly comparable to MemPol's overhead. By revisiting these baseline metrics, this report provides an updated and comprehensive perspective required for future evaluations of memory bandwidth regulators.",
+        "authors": [
+            "Weifan Chen",
+            "Heechul Yun",
+            "Renato Mancuso"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.04547v1",
+        "submit_date": "2026-09-03",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04524v1": {
+        "title": "DPRQ: A Dynamic Programming-based Qubit Routing Algorithm for Collective Communication in Distributed Quantum Computing",
+        "link": "http://arxiv.org/abs/2609.04524v1",
+        "abstract": "Distributed quantum computing (DQC) offers a promising approach to scale quantum computing by overcoming the resource limitations of a single quantum processor. However, inter-node communication remains a major bottleneck of DQC due to inefficient and error-prone entanglement distribution. Optimizing inter-node communication can not only reduce the amount of entanglement resource needed to execute a quantum circuit but also improve execution speed and accuracy of the results. This paper proposes DPRQ, a qubit routing algorithm for minimizing inter-node communication in distributed quantum circuits divided into collective communication blocks. Unlike current approaches that utilize greedy block-level qubit routing strategies, DPRQ employs a dynamic programming-based technique focused on global circuit-level optimization, while capturing inter-block dependencies. We evaluated DPRQ on four sets of quantum circuits and a variety of DQC configurations. The results demonstrate that DPRQ's innovative routing strategy achieves an average of 24.40% reduction with a maximum of 85.06% reduction in inter-node communication, when compared to the state-of-the-art collective communication-based DQC compiler QuComm.",
+        "authors": [
+            "Dhaval Vaidya",
+            "Ruozhou Yu"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.04524v1",
+        "submit_date": "2026-09-03",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04513v1": {
+        "title": "Atlas: Optimizing Deployment of Compound AI Workflows on Heterogeneous Clusters",
+        "link": "http://arxiv.org/abs/2609.04513v1",
+        "abstract": "Compound AI workflows are increasingly used to serve complex AI tasks by coordinating multiple AI models and software components. This approach enables deployment flexibility, as each workflow stage can expose different model variants and resource requirements, but it also expands the deployment choices. A deployment must choose an execution plan that selects AI models for each compound AI workflow stage and places them on a heterogeneous cluster in order to satisfy SLOs. Deployment optimizers therefore need estimates to compare many candidate plans and identify feasible ones. System metrics can often be profiled per stage and composed according to workflow topology, but accuracy cannot, as errors and information loss at upstream stages affect the accuracy of downstream stages. Existing approaches either profile complete configurations end to end, which scales poorly, or use product-based accuracy surrogates that treat stages as independent and can misrank candidate plans. We introduce Atlas, a framework for optimizing compound AI deployments under SLO constraints. Atlas uses MAP, a Markovian Accuracy Predictor, to estimate configuration accuracy from local conditional accuracy transitions between adjacent workflow stages. MAP discretizes intermediate outputs into accuracy buckets and composes transition profiles according to workflow topology, giving the optimizer an accuracy estimate without exhaustive end-to-end profiling. Atlas formulates execution-plan selection as a mixed-integer linear program that maximizes predicted accuracy subject to SLOs. Across four compound AI workflows, MAP achieves Spearman correlation up to 0.947 while reducing profiling cost by up to 2.6x relative to exhaustive end-to-end profiling. Guided by MAP, the Atlas optimizer selects execution plans within 0.03 of oracle accuracy while reducing deployment cost by up to 42% through heterogeneous placement.",
+        "authors": [
+            "Milos Gravara",
+            "Andrija Stanisic",
+            "Stefan Nastic"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.04513v1",
+        "submit_date": "2026-09-03",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04478v1": {
+        "title": "Performance Study of Serverless Workloads in Confidential Virtual Machines",
+        "link": "http://arxiv.org/abs/2609.04478v1",
+        "abstract": "Confidential serverless computing is rapidly emerg- ing as a critical paradigm for application domains requiring strong confidentiality guarantees, such as healthcare, finance, and machine learning. To enable this paradigm in untrusted cloud environments, Confidential Virtual Machines (CVMs) provide isolation by encrypting the entire guest memory, and thus securing serverless workloads against host-level access and inter- ference. However, the implications of CVMs for serverless systems remain insufficiently understood. This paper presents an empirical study of serverless work- loads in CVMs, systematically covering memory efficiency and runtime overhead on both warm-starts and cold-starts. Our results show that CVMs incur substantial memory overhead because encrypted memory disables cross-VM page deduplication and reduces memory reclaimability, thereby limiting warm- container capacity under a fixed memory budget. Runtime overhead in warm-starts is workload dependent. Workloads with frequent VMEXITs, particularly idle transitions, suffer substantial slowdowns. These slowdowns are further amplified by common serverless deployment practice that couples vCPU allocation to memory size, as higher-memory configurations expose more vCPUs than some functions can use effectively. For cold starts, the study focuses on container creation, a common and major contributor to startup latency. Motivated by the memory-efficiency results, we consider the deployments in which multiple containers of the same function are consolidated within the same CVM to improve efficiency, and show that selectively relaxing certain isolation mechanisms in this setting can substan- tially reduce startup overhead. These results clarify the main performance tradeoffs of confidential serverless computing and suggest practical ways to improve efficiency and latency.",
+        "authors": [
+            "Rikesh Niroula",
+            "Jianchen Shan",
+            "Xiaoning Ding"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.04478v1",
+        "submit_date": "2026-09-03",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04417v1": {
+        "title": "Tuning Collective Patterns to Alleviate Congestion in Shared AI Clusters",
+        "link": "http://arxiv.org/abs/2609.04417v1",
+        "abstract": "Distributed AI training involves recurring rounds of data exchange between multiple pairs of GPU nodes. Slowdown in even one flow due to congestion can cause the entire communication round to slowdown. Current approaches for evading congestion in AI clusters assume global control over the entire workload (e.g. coordinating the schedule of all jobs) or assume infrastructural support (e.g. adaptive routing in switches). They are thus ill-suited in a shared cloud setting where AI jobs belonging to one user can face external congestion from other users' jobs or background traffic beyond its own control. In this paper, we build a system, REACT, that tunes the recurring pattern of data exchange between GPU nodes (known as communication collectives) in response to congestion. REACT works at the application (communication library) layer, where it detects congestion at runtime using readily available flow stats, and tunes the collective pattern to alleviate congestion - changing the set of incident flows while retaining the semantics of information exchange (e.g. selecting which node aggregates data in an AllReduce tree). REACT requires no explicit support from the underlying network infrastructure and can be unilaterally deployed by individual users in a shared cloud setting. We prototype REACT as a shim layer over NCCL, and evaluate it on a shared academic GPU cluster - enabling REACT improves communication performance (algorithm bandwidth) by 13%-38% under network congestion. Our simulations across a range of congestion scenarios further reveal up to 75% performance improvement, highlighting the effectiveness of our approach.",
+        "authors": [
+            "Eashan Gupta",
+            "Yongzhou Chen",
+            "Apoorve Mohan",
+            "Pavlos Maniotis",
+            "Abdullah Kayi",
+            "Radhika Mittal"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.04417v1",
+        "submit_date": "2026-09-03",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Addresses network congestion in distributed training communication collectives within shared cloud environments. Proposes REACT, a system that dynamically adjusts collective patterns at the application layer using flow stats. Improves communication performance by 13%-38% under congestion.",
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04397v1": {
+        "title": "Accelerating Atom Simulations with Variable-Block Sparse Matrix Library",
+        "link": "http://arxiv.org/abs/2609.04397v1",
+        "abstract": "Modern atomistic simulations increasingly employ localized orbitals to represent quantum operators, yielding sparse block matrices whose block shapes vary with chemical species and basis choice. Conventional scalar sparse formats store the entries of each block individually, obscuring this local structure and limiting the use of efficient block algorithms. We present VBCSR, a distributed sparse matrix library that preserves variable-size atomic blocks and accelerates the core linear algebra of large-scale atomistic simulations. A unified interface automatically maps scalar, uniform-basis, and multispecies operators to compressed sparse row (CSR), block sparse row (BSR), or variable-block compressed sparse row (VBCSR). Our advanced acceleration method groups blocks of equal shape and dispatches them to optimized dense kernels. In the reported benchmarks, VBCSR outperforms the tested Python-accessible reference implementations for several block-sparse benchmarks. We further demonstrate VBCSR in an InP nanoparticle application containing more than \\(10^6\\) atoms.",
+        "authors": [
+            "Zhanghao Zhouyin",
+            "Hong Guo"
+        ],
+        "categories": [
+            "cond-mat.mtrl-sci",
+            "cs.DC",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2609.04397v1",
+        "submit_date": "2026-09-03",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04382v1": {
+        "title": "Privacy Failure in Split-LLM Training, The Returned Gradient Nullifies the Decoys",
+        "link": "http://arxiv.org/abs/2609.04382v1",
+        "abstract": "We present a systems-security case study of a two-node split-LLM training system whose privacy evaluation passed while leaving an observable channel untested. The Trusted Local Node (TLN) sends protected activations to the Untrusted Cloud Node (UCN), the UCN returns its output, and TLN, holding the private loss, returns the output gradient. The frame the UCN receives mixes real rows with decoys, and the loss ignores the decoys. Their gradients are exactly zero, so the pattern of zeros reveals which rows were real. We measure it with a protocol fixed in advance: a leak injected at known strength to prove the instrument can see one, a shuffled-label control to prove it does not report absent leaks, and a threshold set before the runs. Across nine seeds, the zeros identified the real rows on every frame, 4,096 of 4,096 per run. An attack on the frame contents recovered about one extra token per hundred over a constant-guess baseline (+0.65 to +1.50 percentage points); the shuffled controls recovered nothing. A second set of runs repeated this on a configuration that keeps model quality within budget, so the finding is not confined to a setting nobody would deploy. On both datasets, every such run passed the forward-channel privacy check and the quality check, yet failed that same check once the returned gradient was included. Clipping and noising each row of the gradient closed the leak for about 0.01 nats of held-out cross-entropy. The system is not thereby safe: five classes of attack, including those accumulating observations across training steps, were never measured.",
+        "authors": [
+            "Georgios Politis",
+            "Evangelos Pappas"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.04382v1",
+        "submit_date": "2026-09-03",
+        "relevant": false,
+        "indexed_date": "2026-09-07"
+    },
+    "http://arxiv.org/abs/2609.04774v1": {
+        "title": "Adaptive Context Parallelism for Production LLM Serving",
+        "link": "http://arxiv.org/abs/2609.04774v1",
+        "abstract": "As LLM context windows expand and input sequences grow longer, serving systems face increasing computational and memory demands. Context parallelism (CP), which partitions the input sequence across multiple ranks to parallelize the computation, has therefore become increasingly important for efficient LLM serving. However, existing CP-enabled systems either rely on static CP configurations or adjust the CP degree only for active requests or batches. In this paper, we present Vertumnus, an adaptive CP serving system designed for heterogeneous and evolving workloads. At the request level, Vertumnus routes requests among workers with different CP degrees using a placement cost that combines predicted queuing delay, cache-aware prefill time, and GPU-time cost. At the cluster level, Vertumnus adapts the worker composition through seconds-scale split and merge operations as workload demand changes. Vertumnus further introduces a global prefix-cache management policy that coordinates cache placement and replication among workers with the same or different CP degrees, preserving cache locality as request assignments and worker composition change. Experiments on a 64-GPU cluster with public and production workloads show that, under the highest evaluated loads, Vertumnus reduces mean TTFT by up to 28.1% and improves token-weighted SLO attainment by up to 13.3 percentage points over the strongest baseline.",
+        "authors": [
+            "Jiarui Guo",
+            "Rongle Wang",
+            "Peijun Huang",
+            "Zongwei Lv",
+            "Ziqing Wang",
+            "Kan Liu",
+            "Tao Lan",
+            "Lin Qu",
+            "Xiaolin Wang",
+            "Tong Yang"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.04774v1",
+        "submit_date": "2026-09-04",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "disaggregation",
+            "scaling"
+        ],
+        "tldr": "Addresses inefficiency in serving LLMs with long contexts under dynamic workloads. Proposes Vertumnus, an adaptive context parallelism system with request routing, cluster-level worker adjustment, and coordinated prefix-cache management. Achieves up to 28.1% reduction in mean TTFT.",
+        "indexed_date": "2026-09-07"
     }
 }

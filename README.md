@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3067-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.04-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3072-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.07-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-07
+* `serving` `quantization` [Same Request, Different Answer: Quantization Amplifies Cache-Induced Divergence in LLM Serving](http://arxiv.org/abs/2609.04748v1)
+  > **TL;DR**: Investigates how weight quantization exacerbates output divergence caused by prefix caching in LLM serving. Experimental analysis across engines and weight formats shows cache activation alters agent trajectories in 75.0% of episodes at 4-bit quantization due to unreproducible cache state.
+* `kernel` `quantization` [BF16 Component-Product Emulation of FP32 and FP64 GEMM on Intel AMX](http://arxiv.org/abs/2609.04663v1)
+  > **TL;DR**: Enables efficient FP32/FP64 GEMM on BF16 matrix engines via operand decomposition. Uses Intel AMX with packed component buffers and FP32 tile-resident scheduling. AMX-FP32 exceeds oneMKL SGEMM throughput; FP64 variants trade accuracy versus DGEMM via product count customization.
+* `training` `MoE` `networking` [CIERA: Cross-Iteration Exponent Reuse for Lossless Allgather in Sharded MoE Training](http://arxiv.org/abs/2609.04609v1)
+  > **TL;DR**: Reduces Allgather communication in sharded MoE training via cross-iteration exponent reuse, transmitting only sign and mantissa for lossless compression. Overlaps compression with communication and computation. Achieves 3.70x speedup over lossless baseline and 3.68x over lossy baseline on 16 GPUs.
+* `training` `networking` [Tuning Collective Patterns to Alleviate Congestion in Shared AI Clusters](http://arxiv.org/abs/2609.04417v1)
+  > **TL;DR**: Addresses network congestion in distributed training communication collectives within shared cloud environments. Proposes REACT, a system that dynamically adjusts collective patterns at the application layer using flow stats. Improves communication performance by 13%-38% under congestion.
+* `serving` `disaggregation` `scaling` [Adaptive Context Parallelism for Production LLM Serving](http://arxiv.org/abs/2609.04774v1)
+  > **TL;DR**: Addresses inefficiency in serving LLMs with long contexts under dynamic workloads. Proposes Vertumnus, an adaptive context parallelism system with request routing, cluster-level worker adjustment, and coordinated prefix-cache management. Achieves up to 28.1% reduction in mean TTFT.
+
 ### 2026-09-04
 * `training` `networking` [Every Kernel Is a Join: Automatic Multi-GPU Parallelism for AI Computations in Einsummable](http://arxiv.org/abs/2609.03905v1)
   > **TL;DR**: Proposes Einsummable for automatic parallelization of AI computations on multi-GPU servers. Models tensor operations as relational joins, optimizes decomposition to minimize communication, and implements with synthesized exchange programs. Achieves 8.97 ms per LLaMA transformer block (eight-GPU), vs 13.80 ms for PyTorch.
