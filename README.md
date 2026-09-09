@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3072-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.07-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3087-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.09-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,38 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-09
+* `quantization` `kernel` `hardware` [Ozaki 2.5: Engineering the Deconstruction Path of fp64-Emulated Dense Matrix Multiplication on FP8 Tensor Cores](http://arxiv.org/abs/2609.09095v1)
+  > **TL;DR**: Addresses the overhead in emulating FP64 matrix multiplication on FP8 tensor cores. Engineers the deconstruction path with residue workspaces, constant-reduction GEMM, pipelining, and modulus co-design. Projects lifting throughput from 235 to 473 TFLOPS on NVIDIA Rubin GPU.
+* `training` `networking` [Tools-CC-Bench: a Benchmark Suite for Collective Communication with Compression in HPC and AI Workloads](http://arxiv.org/abs/2609.08739v1)
+  > **TL;DR**: Presents CC-Bench, a benchmark suite to evaluate communication compression in distributed HPC and LLM training. Uses declarative modeling and hardware monitoring to profile per-phase latency, hardware use, and accuracy. Evaluates three libraries, revealing trade-offs and bottlenecks for deployment optimization.
+* `kernel` `serving` `sparse` [Sample-Guided Exact Top-K Selection for Long-Context Sparse Attention](http://arxiv.org/abs/2609.08450v1)
+  > **TL;DR**: Proposes HPC-Ops Top-K, a sample-guided exact selector for efficient top-K in sparse attention. Uses fixed-stride views for coarse boundaries and fused GPU certification to reduce computation. Achieves 1.29-1.75x speedup over exact baselines across configurations.
+* `edge` `serving` `quantization` [A Measurement Study of LLM Inference Trade-offs Across Edge Continuum Hardware](http://arxiv.org/abs/2609.08307v1)
+  > **TL;DR**: Measures LLM inference trade-offs on edge (Jetson AGX Orin) and near-edge (server with CPU/GPU) hardware for a QA workload. Evaluates quantization, latency, and energy. GPU server achieves lowest compute-side latency, Jetson Orin lowers energy; CPU-only is dominated. Pareto-frontier analysis guides deployment.
+* `networking` `disaggregation` `MoE` [SemBridge: Compiling Consumer Observations into Cross-Stack Communication Plans](http://arxiv.org/abs/2609.08231v1)
+  > **TL;DR**: Addresses inefficiency in cross-vendor communication for distributed-tensor systems. SemBridge compiles runtime graphs into observation contracts, generating backend-neutral plans that reduce transmission. Achieves 99.97% result traffic reduction and up to 80.20% throughput increase across MoE workloads.
+* `MoE` `serving` `kernel` [Analytical Resource Management for Fine-grained MoE Computation-Communication Overlap](http://arxiv.org/abs/2609.07536v1)
+  > **TL;DR**: Addresses GPU resource contention during fine-grained computation-communication overlap in distributed MoE inference. Introduces wave-quantized analytical model and launch-time resource manager for dynamic partitioning without profiling. Achieves 2.528x geometric-mean speedup at GEMM2+GatherRS operator level.
+* `training` [Parallelism Strategy Chaining for Fast Training Convergence](http://arxiv.org/abs/2609.07236v1)
+  > **TL;DR**: Proposes CONA, an online strategy chaining method for fast training convergence. Dynamically ranks and switches parallelism strategies during training using a surrogate metric based on compute and gradient statistics. Achieves 1.4-9.6x faster time-to-target perplexity versus state-of-the-art methods.
+* `training` `RL` [Online Draft Co-Training for Speculative Decoding in Large-Scale, Long-Context RL Post-Training](http://arxiv.org/abs/2609.07108v1)
+  > **TL;DR**: Tackles scaling speculative decoding in RL post-training to long contexts and large models. Proposes an attention extension merging branch and causal attention and TapChannel for pipeline transport. Achieves strong scaling at 256K tokens with substantial speedups for up to 122B models.
+* `offline` `training` [TreeRedux: Separating Concerns in Spark's Distributed Tree Aggregation](http://arxiv.org/abs/2609.06982v1)
+  > **TL;DR**: Addresses driver memory bottlenecks in Spark's tree-based aggregation for large datasets. Proposes TreeRedux, adding executor-side finalization to map intermediate state U to compact result V before driver materialization. Enables exact quantile computation on 28 billion elements without driver OOM, vs prior 16-18B limit.
+* `serving` `offloading` `edge` [Unified AI Gateway: A Framework for Joint Model Routing and KV Cache Management](http://arxiv.org/abs/2609.06940v1)
+  > **TL;DR**: Addresses integration costs and KV cache rebuilding in multi-model LLM inference via a Unified AI Gateway that jointly selects models and manages KV caches. Achieves 1.25x-13.28x TTFT speedup and 1.20x-6.16x cost reduction across workloads.
+* `MoE` `offloading` `edge` [EStream: Fast and Memory-Efficient MoE Prefill through Expert Virtualization on Mobile NPUs](http://arxiv.org/abs/2609.06551v1)
+  > **TL;DR**: Addresses efficient MoE prefill on mobile NPUs despite dynamic expert routing and memory constraints. Proposes EStream, using a single compiled expert graph with runtime binding and virtualizing experts via paging from flash, plus a hardware-aware algorithm. Achieves up to 27.57X faster TTFT and 12.29X memory reduction.
+* `training` `storage` `networking` [Sharing a Fabric with Collective Communication: Two Storage Penalties in Deep Learning Training](http://arxiv.org/abs/2609.06506v1)
+  > **TL;DR**: Addresses training slowdowns caused by shared fabric between collective communication and parallel filesystems. Proposes node-local NVMe staging (DYAD) to avoid storage I/O on shared fabric. Achieves 7.4x speedup over Lustre and 1.31x over VAST after cache warmup, eliminating DataLoader stalls.
+* `training` `scaling` `disaggregation` [Poseidon: DAG-Guided Parallelism Search for LLM Pre-Training on Heterogeneous Clusters](http://arxiv.org/abs/2609.06086v1)
+  > **TL;DR**: Addresses inefficient LLM pre-training parallelization on heterogeneous clusters due to inaccurate timing models. Proposes Poseidon, a framework using DAG-based time modeling with stage pruning and distribution-aware mapping for parallelism search. Achieves up to 2.76× training throughput improvement over state-of-the-art systems.
+* `serving` `scaling` `networking` [Toward Sustainable Distributed LLM Inference: A Systems Synthesis and Research Agenda for an Energy-, Carbon-, and Cache-Aware llm-d Control Plane](http://arxiv.org/abs/2609.05565v1)
+  > **TL;DR**: Proposes a Sustainable Inference Control Plane (SICP) for distributed LLM inference that jointly optimizes energy, carbon, and cost while meeting SLOs. Synthesizes design patterns and outlines evaluation via SLO-satisfied goodput per joule and per gram CO2e.
+* `offloading` [AutoUVM: Automated Prefetching Framework for LLMs under UVM Oversubscription](http://arxiv.org/abs/2609.06172v1)
+  > **TL;DR**: Addresses inefficiencies in UVM due to page faults for LLMs under GPU memory oversubscription. Introduces AutoUVM, a framework-aware prefetching system using tensor-level access policies. Achieves an average 3.1x speedup over baseline UVM across ten LLMs.
+
 ### 2026-09-07
 * `serving` `quantization` [Same Request, Different Answer: Quantization Amplifies Cache-Induced Divergence in LLM Serving](http://arxiv.org/abs/2609.04748v1)
   > **TL;DR**: Investigates how weight quantization exacerbates output divergence caused by prefix caching in LLM serving. Experimental analysis across engines and weight formats shows cache activation alters agent trajectories in 75.0% of episodes at 4-bit quantization due to unreproducible cache state.
