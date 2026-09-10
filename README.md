@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3087-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.09-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3091-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-10
+* `kernel` `hardware` [PASCAL: A Phase-Aware Shared-Cache Model for Parallel Scans](http://arxiv.org/abs/2609.10515v1)
+  > **TL;DR**: Addresses high cache miss rates and DRAM traffic from progress divergence in AI accelerator parallel scans like attention/GEMM. Proposes PASCAL, a phase-aware shared-cache model predicting miss rates using occupancy and pipeline factors without execution traces. Achieves 13.84% MAPE against 44.79% for TileSight on NVIDIA GB10.
+* `agentic` `offline` [Avatar: Toward Autonomous End-to-End Orchestration of Scientific Workflows using LLMs](http://arxiv.org/abs/2609.10509v1)
+  > **TL;DR**: Addresses rigid orchestration in scientific workflows by introducing Avatar, an actor-based system with pluggable LLM agents for autonomous decision-making. Reduces compute wastage by 55% and GPU-busy time by 40% across evaluated workloads.
+* `serving` `MoE` `diffusion` [Epoch: Compiling Diffusion Blocks for Sparse MoE Serving](http://arxiv.org/abs/2609.09748v1)
+  > **TL;DR**: Addresses inefficiencies in serving MoE-based diffusion models due to redundant computation. Proposes a block-plan compilation approach with three optimizations: coverage-driven expert support, live position routing, and fresh worklist propagation. Achieves up to 2.7x end-to-end speedup and better memory scalability on 8 GPUs.
+* `edge` `serving` `hardware` [PELM: Power Efficient On-Device LLM Inference with Speculative Decoding and Dynamic Voltage Frequency Scaling](http://arxiv.org/abs/2609.09662v1)
+  > **TL;DR**: Explores power-efficient on-device LLM inference under thermal constraints. Proposes PELM, augmenting DVFS with speculative decoding and variable verification depth for energy and latency reduction. Achieves up to 23.1% speedup and 52.4% energy savings while maintaining task performance.
+
 ### 2026-09-09
 * `quantization` `kernel` `hardware` [Ozaki 2.5: Engineering the Deconstruction Path of fp64-Emulated Dense Matrix Multiplication on FP8 Tensor Cores](http://arxiv.org/abs/2609.09095v1)
   > **TL;DR**: Addresses the overhead in emulating FP64 matrix multiplication on FP8 tensor cores. Engineers the deconstruction path with residue workspaces, constant-reduction GEMM, pipelining, and modulus co-design. Projects lifting throughput from 235 to 473 TFLOPS on NVIDIA Rubin GPU.

@@ -159494,5 +159494,265 @@
         "submit_date": "2026-09-05",
         "relevant": false,
         "indexed_date": "2026-09-09"
+    },
+    "http://arxiv.org/abs/2609.10515v1": {
+        "title": "PASCAL: A Phase-Aware Shared-Cache Model for Parallel Scans",
+        "link": "http://arxiv.org/abs/2609.10515v1",
+        "abstract": "In modern AI Accelerators and GPGPUs, many concurrent cores repeatedly access the same shared data. This pattern occurs in attention, where different query tiles share the same K/V block, GEMM, where every tile in a row reads the same panel, and many other operators. We name this pattern parallel scan. Due to a significant amount of data reuse in this pattern, the cache is expected to capture as much data reuse as possible and largely reduce requests sent to the main memory for both performance and energy consumption concerns. However, in reality, because of the intrinsic asynchrony of multi-cores, the actual cache miss rate and DRAM traffic can be much higher compared to ideal cases. In this paper, we propose PASCAL, a shared-cache model for parallel scans. It is aware of the dynamic feature of progress divergence across multi-cores, correlate the divergence with the combination of different factors such as occupancy, and predicts the cache miss rate before execution. Because prediction needs no target trace, timing, or counters, PASCAL supports design-space exploration at scales where cycle-accurate simulation is impractical, and its policy-independent bound states how much traffic no replacement policy can avoid. A MAPE of 13.84% is achieved in a 60-configuration dataset with various software pipeline depths, occupancies, and memory access data paths on an NVIDIA GB10 GPU, against 44.79% for physical-wave TileSight and 54.16% for exact symbolic SDCM.",
+        "authors": [
+            "Zhongchun Zhou",
+            "Chengtao Lai",
+            "Songtao Mao"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.10515v1",
+        "submit_date": "2026-09-09",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "hardware"
+        ],
+        "tldr": "Addresses high cache miss rates and DRAM traffic from progress divergence in AI accelerator parallel scans like attention/GEMM. Proposes PASCAL, a phase-aware shared-cache model predicting miss rates using occupancy and pipeline factors without execution traces. Achieves 13.84% MAPE against 44.79% for TileSight on NVIDIA GB10.",
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.10509v1": {
+        "title": "Avatar: Toward Autonomous End-to-End Orchestration of Scientific Workflows using LLMs",
+        "link": "http://arxiv.org/abs/2609.10509v1",
+        "abstract": "Scientific workflow management (WMSs) systems automate execution, yet orchestrate using fixed, hand-tuned rules. LLM agents promise more autonomous orchestration, but it remains unclear where to introduce agentic reasoning, how to bound its risk, and when it actually helps. We present Avatar, an actor-based architecture comprising an orchestrator, an executor, and a provenance monitor. Each actor's decision policy is pluggable (rule-based or LLM-backed) via a single adapter-validated action catalog, so conventional and agentic control run on the same core across different WMSs. We present an implementation using the Academy framework and evaluate Avatar across three workloads. We observe that Avatar's rule mode reproduces native execution, with a single unchanged core running all three. Moreover, LLM-backed Avatar reports a reduction of compute wastage by $55\\%$ and cuts GPU-busy time by $40\\%$. Overall, we envision Avatar as a step toward workflow systems that reason about their own orchestration rather than follow pre-fixed rules.",
+        "authors": [
+            "Suman Raj",
+            "Hai Duc Nguyen",
+            "Haochen Pan",
+            "Ryan Chard",
+            "Kyle Chard",
+            "Ian Foster"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2609.10509v1",
+        "submit_date": "2026-09-09",
+        "relevant": true,
+        "tags": [
+            "agentic",
+            "offline"
+        ],
+        "tldr": "Addresses rigid orchestration in scientific workflows by introducing Avatar, an actor-based system with pluggable LLM agents for autonomous decision-making. Reduces compute wastage by 55% and GPU-busy time by 40% across evaluated workloads.",
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.10368v1": {
+        "title": "Stencil Computation at the Intersection of AI and HPC",
+        "link": "http://arxiv.org/abs/2609.10368v1",
+        "abstract": "Tensor compilers such as TinyTC and OpenAI Triton were originally developed for AI workloads, but the same tiling and memory abstractions can be applied to implement efficient high-order stencils for scientific and industrial applications. We demonstrate this for an 8th-order, 25-point acoustic stencil with boundary conditions over an a demanding-sized grid, targeting GPGPUs, where we compare the hardware-specialized TinyTC implementation with a portable PyTorch/Triton implementation. The target platforms for evaluation include Intel B70, B580, GPU MAX 1550, NVIDIA A100/RTX6000 Blackwell/H100, and AMD MI325x. For instance, on Battlemage B580 TinyTC reaches 15.6 Gpts/s versus 13.5 Gpts/s for PT/Triton under random initialization, while zero-initialized runs reach up to 35.8 Gpts/s due to hardware memory compression. Using roofline and memory-hierarchy profiling, we show that -as expected- performance is predominantly bandwidth-limited and that compiler-managed L1/LSC caching can effectively replace programmer-managed shared-memory staging for this stencil class. Overall, the results position TinyTC as the performance-oriented path on Intel hardware and PyTorch/Triton as a strong portability/productivity baseline for cross-vendor HPC stencil development.",
+        "authors": [
+            "Timothee Ewart",
+            "Mauricio Araya-Polo"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.10368v1",
+        "submit_date": "2026-09-09",
+        "relevant": false,
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.10151v1": {
+        "title": "CEDD-optimizer: Enabling Cost-Efficient Dataset Distillation on Geographically Distributed Edge Systems",
+        "link": "http://arxiv.org/abs/2609.10151v1",
+        "abstract": "Centralized learning is a fundamental paradigm in modern AI, in which data are collected from distributed edge devices and aggregated at a central host for model training. However, this pipeline is often bottlenecked by the substantial communication overhead of data collection. Dataset Distillation (DD), with its high compression ratio, is therefore attractive for centralized learning on distributed data. Yet, the cost efficiency of DD in non-uniform edge environments remains largely unexplored. Geographically distributed edge devices face different energy and data-transfer prices, while key DD hyperparameters, such as the target compression ratio and number of distillation steps, substantially affect energy use, transfer overhead, and downstream test accuracy. These hyperparameters must therefore be tuned both locally and globally. We propose the Cost-Efficient Dataset Distillation optimizer (CEDD-optimizer), a hyperparameter-tuning framework for cost-efficient distributed DD. It minimizes total cost under a training-quality constraint by optimizing hyperparameter settings across edge devices while accounting for environmental non-uniformity. The framework comprises two modules: CEDD-calibrator and CEDD-solver. CEDD-calibrator identifies parameters for our energy and training-quality models: the former is determined through offline calibration, whereas the latter is estimated online through a three-step tuning scheme. Based on these models, CEDD-solver solves the cost-minimization problem to steer and improve the distributed DD workflow. Experiments across various image datasets show that our approach achieves up to a 20.8 improvement over the baseline DD method under the same quality constraint.",
+        "authors": [
+            "Dai Liu",
+            "Eishi Arima",
+            "Martin Schulz"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.10151v1",
+        "submit_date": "2026-09-09",
+        "relevant": false,
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.10044v1": {
+        "title": "Introvert Clustering for Distributed Graph Algorithms",
+        "link": "http://arxiv.org/abs/2609.10044v1",
+        "abstract": "We introduce a graph decomposition primitive called introvert clustering, which strengthens standard low-diameter clustering by guaranteeing that every clustered vertex keeps at least a $\\left(\\frac12-\\varepsilon\\right)$-fraction of its relevant neighbors in its own cluster. Repeatedly applying this primitive yields a layered introvert network decomposition with $O(\\log n)$ layers and weak diameter $O(\\log n)$.\n  We give two applications in the $\\mathsf{LOCAL}$ model. For every constant $\\varepsilon>0$, we obtain a $\\widetilde O(\\log^2 n)$-round deterministic algorithm for list $\\left(\\frac32+\\varepsilon\\right)Δ$-edge coloring on graphs of maximum degree $Δ\\geqΔ_0(\\varepsilon)$; for bipartite graphs, the result holds for all $Δ$. For every constant $0<\\varepsilon<1/4$, we also obtain a $\\widetilde O(\\log^2 n)$-round deterministic algorithm for a $\\left(\\frac14-\\varepsilon\\right)$-locally balanced cut, where every vertex has at least a $\\left(\\frac14-\\varepsilon\\right)$-fraction of its neighbors on the opposite side.\n  The resulting algorithms are remarkably simple: edge coloring processes the layers in reverse order and colors each cluster, while locally balanced cut processes them forward and computes a locally maximum cut within each cluster. The introvert guarantee enables these procedures beyond the usual greedy regime of network decomposition.\n  We construct the decomposition in $O(\\log^2 n)$ randomized rounds using Miller--Peng--Xu low-diameter clustering and a simple trimming procedure, and deterministically in $\\widetilde O(\\log^2 n)$ rounds via a white-box adaptation of the recursive network decomposition algorithm of Ghaffari and Grunau [FOCS 2024].",
+        "authors": [
+            "Yi-Jun Chang",
+            "Nima Dolatabadi"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2609.10044v1",
+        "submit_date": "2026-09-09",
+        "relevant": false,
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.09961v1": {
+        "title": "Decentralized network congestion control for DAG-based distributed ledger system",
+        "link": "http://arxiv.org/abs/2609.09961v1",
+        "abstract": "We propose a variable and behavior-based node-specific proof-of-work (PoW) model for a directed acyclic graph (DAG)-based distributed ledger technology (DLT) network to mitigate decentralized network congestion control. Network congestion control for centralized communication systems is an established field of study, with detailed and continuous research being done on the subject. However, attention to congestion control in decentralized networks is relatively recent and underexplored, especially with DLT, such as blockchain and DAG-based networks. For the DLT networks, the network congestion is caused by factors such as transaction spamming, an increase in the user base, and the launch of new tokens. We focus on the congestion caused by the spamming of transactions within the blockchain and DAG-based DLT network. Based on the network throughput of transactions per second and consensus procedure, the DAG-based DLT needs to control network spamming more than the blockchain network. The PoW model within the DLT consensus framework is a limited deterrent against spamming. Our model provides equal opportunities for all stakeholders regardless of their computational resources. It prevents and penalizes any node that attempts to spam or dominate the network with more than the prescribed number of transactions. Since the system nodes compete to issue transactions with finite network resources, we display the system behavior through a non-cooperative game. Further, we show that our model enforces prescribed behavior amongst the nodes through the proof of the existence of Nash equilibrium in the game.",
+        "authors": [
+            "Mayank Pandey",
+            "Rachit Agarwal",
+            "Sandeep Kumar Shukla",
+            "Nishchal Kumar Verma"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2609.09961v1",
+        "submit_date": "2026-09-09",
+        "relevant": false,
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.09748v1": {
+        "title": "Epoch: Compiling Diffusion Blocks for Sparse MoE Serving",
+        "link": "http://arxiv.org/abs/2609.09748v1",
+        "abstract": "Diffusion language models generate text by refining a fixed-size block of token positions through many forward passes, a loop that does not match the per-forward execution unit used by most LLM serving systems. A dense MoE runtime binds all work to the refinement-iteration clock: it rebuilds similar routing structure on every forward, recomputes expert outputs for positions whose logits are already dead, and sends those positions through dense expert-parallel collectives. This paper presents \\sys{}, a serving system that treats the diffusion block as a compilation unit. \\sys{} compiles a small \\emph{block plan} for the block-clock structure of one diffusion block and refreshes every value that can affect a live decode decision on the iteration clock.\n  \\sys{} realizes this plan along three dense axes of an MoE forward: \\atlas{} compiles a coverage-driven active expert support per layer while recomputing gate logits every iteration; \\lsp{} keeps full sequence shards as model state but routes only live, newly decoded, and refresh-required positions through fresh routed-expert computation; \\freshlane{} carries this fresh token--expert worklist through expert-parallel dispatch, kernels, and combine, then restores the dense logical shard at the layer boundary. We implement \\sys{} on 8 NVIDIA H100 GPUs and evaluate it on three open-weight block-diffusion MoE models (LLaDA-MoE, LLaDA2.0-mini, and LLaDA2.0-Flash, spanning 7B to 100B total parameters) across GSM8K, HumanEval, MGSM, and MT-Bench. \\sys{} improves end-to-end execution time by up to 2.7$\\times$ over the strongest surviving baseline under the same 8-GPU placement and remains feasible at the largest batch sizes where multiple baselines run out of memory, while preserving task quality relative to the dense reference.",
+        "authors": [
+            "Jianian Zhu",
+            "Hang Wu",
+            "Yinghui Li",
+            "Haojie Wang",
+            "Ruixuan Li",
+            "Jidong Zhai"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.09748v1",
+        "submit_date": "2026-09-09",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "MoE",
+            "diffusion"
+        ],
+        "tldr": "Addresses inefficiencies in serving MoE-based diffusion models due to redundant computation. Proposes a block-plan compilation approach with three optimizations: coverage-driven expert support, live position routing, and fresh worklist propagation. Achieves up to 2.7x end-to-end speedup and better memory scalability on 8 GPUs.",
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.09742v1": {
+        "title": "Breaking Fault Lines: Unifying TEE-Assisted BFT Consensus in Partially Trusted Worlds",
+        "link": "http://arxiv.org/abs/2609.09742v1",
+        "abstract": "This paper revisits TEE-assisted BFT under a universal partial-TEE model, where an arbitrary subset of replicas execute inside TEEs while the remaining replicas operate without hardware trust guarantees. We show that heterogeneous trust changes the structure of quorum formation and fault tolerance. In particular, we derive a tight resilience bound f < max {n/3, m/2}, where n is the total number of replicas and m is the number of TEE-enabled replicas. The result reveals a sharp threshold phenomenon: TEEs improve fault tolerance only once they exceed two-thirds of the deployment.\n  Guided by this characterization, we introduce two protocol principles: (1) a dual-quorum construction that safely combines TEE-only and mixed quorums, and (2) a TEE-leader fast path that leverages hardware-enforced non-equivocation to reduce both consensus and view-change latency. We realize these ideas in Raftel, which is, to our knowledge, the first HotStuff-style BFT protocol designed explicitly for arbitrary partial-TEE deployments, and in chained-Raftel, a pipelined variant that further accelerates mixed-trust execution. We implement both protocols atop Intel SGX and evaluate them in LAN and WAN environments. Our results show that Raftel achieves up to 625 TPS with sub-670 ms latency in WAN settings, outperforming HotStuff by up to 308 TPS in throughput while approaching the performance of fully TEE-assisted protocols.",
+        "authors": [
+            "Xiaoqing Wen",
+            "Tong Liu",
+            "Jianyu Niu",
+            "Jialin Li",
+            "Cong Wang",
+            "Yinqian Zhang",
+            "Chen Feng"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.09742v1",
+        "submit_date": "2026-09-09",
+        "relevant": false,
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.09348v1": {
+        "title": "Smart Adaptive Computing Across the Continuum: LLMs in IoT-Edge-Cloud Resource Management",
+        "link": "http://arxiv.org/abs/2609.09348v1",
+        "abstract": "Managing resources across IoT, edge, and cloud layers calls for continuous, context-aware decisions under constraints that rarely stay fixed. Deep reinforcement learning (DRL) handles this class of problems well, and large language models (LLMs) are increasingly used to augment DRL pipelines, yet the architectural relationship between the two is seldom made explicit. We build on Wang et al.'s taxonomy of Continuum Orchestration Systems employing DRL techniques and extend it with two further dimensions. The AI Augmentation Paradigm measures how LLMs are exploited, while the Feedback channel captures whether and through which system path the execution feedback returns to the LLM in order to close the MAPE control loop at the LLM Orchestration layer. We apply this taxonomy to six recent system architectures and find a common gap, as none combines full LLM orchestration with full agent-layer feedback in a Cloud Continuum setting. We relate this gap to a missing cross-tier feedback abstraction, bridging the incommensurable per-tier signals and the LLM Orchestrator.",
+        "authors": [
+            "Antonino Vaccarella",
+            "Lanpei Li",
+            "Vincenzo Lomonaco",
+            "Massimo Coppola"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2609.09348v1",
+        "submit_date": "2026-09-08",
+        "relevant": false,
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.09270v1": {
+        "title": "Python in the front, party in the Backline: compiling quantum workloads across CPUs, GPUs, and FPGAs",
+        "link": "http://arxiv.org/abs/2609.09270v1",
+        "abstract": "Moving from quantum research and development to production-grade, fault-tolerant quantum workload execution remains one of the most significant challenges facing quantum platform builders. While Python frameworks have enabled an easy entry point for quantum algorithm design, the low-latency requirements for real-time quantum error correction (QEC) demand performance that traditional interpreted environments cannot provide. FPGAs and ASICs play a central role at these layers, but their specialized programming models make development rigid and time-consuming. CPUs, GPUs, and other accelerators introduce a different challenge: as infrastructure becomes increasingly heterogeneous, programming across different devices and their associated abstractions becomes more complex. Allowing researchers to write workloads in high-level languages that map to low-latency execution across diverse distributed target platforms will enable the development of key infrastructure for utility-scale quantum systems. For this, we introduce $\\textit{Backline}$, a heterogeneous compilation and runtime framework built within PennyLane and Catalyst. Backline allows us to design and build quantum-classical workloads for high-performance and low-latency devices, with compilation directly from a Python interface through MLIR. We demonstrate the compilation and execution of several quantum workloads with low-latency data movement across a mix of CPUs, GPUs, and FPGAs, for both local and distributed remote hardware targets, all from a vendor-agnostic Python frontend. With an AMD VPK120 FPGA board as the controller, issuing each round from its hardware-handshake engine, we measured median steady-state round-trip latencies over RoCE v2 of $2.305~μ$s to an AMD Ryzen Threadripper PRO CPU and $4.5~μ$s to an AMD Instinct MI210 GPU across $10^6-1$ rounds per path, demonstrating microsecond-scale synchronous co-processing.",
+        "authors": [
+            "Joseph K. L. Lee",
+            "Mehrdad Malekmohammadi",
+            "Hong-Sheng Zheng",
+            "Shuli Shu",
+            "Cheick Doumbia",
+            "Kalman Szenes",
+            "Mehran Zamani Abnili",
+            "Thomas Ainsworth",
+            "Matthew Seymour",
+            "Thomas Germain",
+            "Leonhard Neuhaus",
+            "Josh Izaac",
+            "Lee J. O'Riordan"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2609.09270v1",
+        "submit_date": "2026-09-08",
+        "relevant": false,
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.09833v1": {
+        "title": "Violet: Enabling Full Virtualization for M-mode RTOS on RISC-V",
+        "link": "http://arxiv.org/abs/2609.09833v1",
+        "abstract": "In embedded systems, complex configurations may be required, such as the simultaneous execution of a real-time operating system (RTOS) and a general-purpose operating system (GPOS), or the operation of multiple RTOS instances. Embedded system hypervisors have been studied and developed to meet these requirements for architectures like ARM and x86. RISC-V is experiencing growing adoption in embedded systems and faces similar needs. However, RISC-V's virtualization support targets only U-mode (where applications run) and S-mode (where general-purpose OSs run) as virtualization levels. The M-mode, where RTOSs like FreeRTOS or Zephyr run, is excluded from virtualization. This means that, similar to architectures like ARM, running an RTOS on a Virtual Machine (VM) using methods based on virtualization support features is impossible. Therefore, this paper proposes the Violet hypervisor. Violet combines RISC-V's virtualization features with software-based emulation, enabling the execution of unmodified M-mode RTOSs. Evaluation verified the validity of the M-mode emulation functionality using RISC-V architecture tests. Furthermore, this was implemented on the SiFive HiFive Premier P550 hardware, demonstrating that existing RTOSs can run on Violet's VM and that coexistence with GPOSs like Linux is also possible. The performance evaluation also quantified the overhead introduced by M-mode emulation on M-mode CSR accesses, timer interrupt latency, and context switching.",
+        "authors": [
+            "Taro Kito",
+            "Ryosuke Yamamoto",
+            "Keisuke Horii",
+            "Hiroki Masuda",
+            "Koichi Mouri"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.09833v1",
+        "submit_date": "2026-09-09",
+        "relevant": false,
+        "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.09662v1": {
+        "title": "PELM: Power Efficient On-Device LLM Inference with Speculative Decoding and Dynamic Voltage Frequency Scaling",
+        "link": "http://arxiv.org/abs/2609.09662v1",
+        "abstract": "Deploying Large Language Models (LLMs) directly on mobile platforms at the edge is gaining traction due to a myriad of benefits, such as increased privacy, personalization, and reduced latency. However, LLMs have heavy computational requirements, which are difficult for resource-constrained mobile and edge platforms to fulfill. In addition to limited compute resources, mobile and edge systems often have a compact form factor and lack physical mechanisms to dissipate heat generated from high processor usage rates (e.g., fans) to prevent throttling and reduced processing power, which LLMs can easily cause. To mitigate these effects, prior works have proposed various power governing strategies, such as dynamic voltage and frequency scaling (DVFS), for reducing power and heat generation for heavy computational tasks on mobile platforms. Recently, DVFS methods tailored for mobile LLMs have also been proposed. However, these methods mostly focus on optimizing hardware parameters and processor frequencies, and they fall short under some thermally constrained scenarios. Drawing from recent advances in machine learning, we identify and take advantage of the key insight that not all tokens require full-depth inference to maintain high-quality generation. Motivated by this, we present PELM, a solution that augments traditional DVFS processor frequency tuning with two additional workload-specific knobs: 1) speculative decoding and 2) variable verification depth to expand the optimization space to multiple dimensions for more power efficient on-device LLM inference. In extensive evaluations across hardware platforms and datasets, PELM demonstrates superior performance compared to state-of-the-art power governing methods, with up to 23.1% speedup and 52.4% reduction in energy consumption, while maintaining comparable task performance. The source code is available at https://github.com/imec-nu/PELM.",
+        "authors": [
+            "Weisi Yang",
+            "Stephen Xia"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.OS",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.09662v1",
+        "submit_date": "2026-09-09",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "serving",
+            "hardware"
+        ],
+        "tldr": "Explores power-efficient on-device LLM inference under thermal constraints. Proposes PELM, augmenting DVFS with speculative decoding and variable verification depth for energy and latency reduction. Achieves up to 23.1% speedup and 52.4% energy savings while maintaining task performance.",
+        "indexed_date": "2026-09-10"
     }
 }
