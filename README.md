@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3091-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3100-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-11
+* `offloading` `serving` `storage` [Building py-kvcache: A Performance Characterization of External KV Caching for vLLM with NVMe SSDs](http://arxiv.org/abs/2609.11744v1)
+  > **TL;DR**: Analyzes the performance trade-offs of external KV caching for LLM serving in vLLM. Proposes py-kvcache with asynchronous direct I/O, bounded shared staging, and scheduler-aware preloading. Achieves up to 2.0× faster loading from disk than LMCache and 1.23× overall speedup.
+* `training` `networking` [Entwine: Coordinating Tiled Computation and Fine-Grained Communication across GPUs](http://arxiv.org/abs/2609.11562v1)
+  > **TL;DR**: Addresses inefficient overlap between computation and communication in tiled GPU workloads. Proposes Entwine to coordinate tile execution order, fine-grained communication, and SM resource allocation. Achieves 1.232x geomean speedup over cuBLAS+NCCL in tensor-parallel LLMs.
+* `kernel` `training` [Taming Bitwise Behavior in GPU Kernels with Tensor Core: Black-Box Reconstruction, Compiler Enforcement, and Static Verification](http://arxiv.org/abs/2609.11356v1)
+  > **TL;DR**: Tackles bitwise non-reproducibility in GPU kernels (e.g., GEMM) due to floating-point reduction order. Develops Triton GEMMs matching cuBLAS, compiler enforcement of balanced-tree reduction, and a static checker for kernel equivalence. Data-layout optimization brings 19/27 tested kernels within 10% of free-order performance.
+* `networking` `training` `edge` [The Computing Channel: How Modulation Programs the Airwaves](http://arxiv.org/abs/2609.11145v1)
+  > **TL;DR**: Proposes digital function-oriented communication to aggregate quantized model updates in federated edge learning without recovering individual inputs, using joint finite-alphabet modulation and receiver design. Achieves reduced user data-bearing resources for training by directly computing the aggregation via multiple-access superposition.
+* `serving` `disaggregation` `MoE` [Phase-Decoupled, Model-Calibrated Power Control for Disaggregated LLM Serving](http://arxiv.org/abs/2609.11133v1)
+  > **TL;DR**: Proposes a phase-decoupled power controller for disaggregated LLM serving, with prefill SM-clock guarantees and decode power capping calibrated above latency cliffs. Achieves +20.4% tokens/J at +3.5% latency on MoE models versus baseline, with 32.3% electricity savings in sustained runs.
+* `edge` `multi-modal` `networking` [EMMI: Edge Multi-Modal Intelligence for Communication-Efficient MLLM Inference via Fused Representation Compression](http://arxiv.org/abs/2609.11058v1)
+  > **TL;DR**: Addresses high communication overhead in edge MLLM inference. Proposes EMMI: edge-side fused representation compression through modality encoding and learned compression for compact transmission. Achieves 32x communication reduction and 3.4x end-to-end latency improvement under bandwidth constraints.
+* `serving` `scaling` [ExaServe: Large-Scale LLM Serving on Exascale HPC Systems](http://arxiv.org/abs/2609.10812v1)
+  > **TL;DR**: Addresses deploying LLM serving on exascale HPC systems. Proposes ExaServe, a pip-installable framework with declarative YAML for reproducible large-scale deployment. Achieves near-linear scaling to 256 nodes, reaching 27.1k requests/s.
+* `serving` `offloading` `disaggregation` [Composable CXL Memory as a Kubernetes-Native Shared Memory for LLM Serving](http://arxiv.org/abs/2609.10790v1)
+  > **TL;DR**: Proposes a Kubernetes-native composable CXL memory system enabling shared KV-cache across nodes for LLM inference. The design uses CXL-based memory disaggregation and offloading to eliminate metadata overhead, reducing TTFT by 5.5x-36.6x at 95.4-99.5% hit rate.
+* `agentic` `storage` `serving` [Memory Compression for High-Fanout Agent Sandboxes](http://arxiv.org/abs/2609.11294v1)
+  > **TL;DR**: Proposes AgentZip, a memory compression system for AI-agent sandboxes that exploits template-relative and cross-sandbox redundancy via compression, prefetching, and agent-execution-aware scheduling. Achieves up to 8.7x memory reduction and reduces slowdown to 1.40x from 3.1x.
+
 ### 2026-09-10
 * `kernel` `hardware` [PASCAL: A Phase-Aware Shared-Cache Model for Parallel Scans](http://arxiv.org/abs/2609.10515v1)
   > **TL;DR**: Addresses high cache miss rates and DRAM traffic from progress divergence in AI accelerator parallel scans like attention/GEMM. Proposes PASCAL, a phase-aware shared-cache model predicting miss rates using occupancy and pipeline factors without execution traces. Achieves 13.84% MAPE against 44.79% for TileSight on NVIDIA GB10.

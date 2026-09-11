@@ -159754,5 +159754,392 @@
         ],
         "tldr": "Explores power-efficient on-device LLM inference under thermal constraints. Proposes PELM, augmenting DVFS with speculative decoding and variable verification depth for energy and latency reduction. Achieves up to 23.1% speedup and 52.4% energy savings while maintaining task performance.",
         "indexed_date": "2026-09-10"
+    },
+    "http://arxiv.org/abs/2609.11923v1": {
+        "title": "GPU-CFR: 80x Faster Counterfactual Regret Minimization by Compiling the Game to Static Dataflow and CUDA Graph Replay",
+        "link": "http://arxiv.org/abs/2609.11923v1",
+        "abstract": "Counterfactual regret minimization (CFR) is one of the few large numerical workloads that still runs faster on CPUs than on GPUs. Each iteration sweeps a game tree with up to billions of states in millions of small, interdependent gather and scatter steps issued through a generic tree interface. On a GPU every kernel finishes in microseconds, so kernel launches and framework dispatch dominate the run time, and prior GPU implementations have lost to optimized CPU code. We observe that for a fixed game, everything about a CFR iteration except the numerical values is known before the first iteration runs. We propose GPU-CFR, a compiler and runtime built on this observation. It compiles any game once into static dataflow: flat edge and information-set arrays, precomputed indices, and depth-level batched passes fix the entire operation sequence, and only solver state changes between iterations. Static chance folding, depth-level execution blocks, and a dual-lane reach buffer cut the number of framework operations by up to 18.1x. Because shapes, indices, and buffer addresses never change, CUDA Graph Replay records the iteration once and replays it with a single graph launch. On one A100, across an eight-game suite that spans card games, dice games, and board games, GPU-CFR runs 29.8--80.4x faster than the fastest prior GPU CFR on the same accelerator, and 14--258x faster than LiteEFG, one of the fastest open-source CPU implementations, on the four largest games. The compiled representation carries most of that margin: on eight CPU threads with no accelerator it is already 2.2--51.1x faster than the GPU baseline. On the CPU the optimized path reproduces the reference iterates bitwise, and tree construction and graph capture pay for themselves within the first solve. GPU-CFR beats every CPU and GPU baseline on the mid-to-large games of the suite without changing the update rule.",
+        "authors": [
+            "Boning Li",
+            "Longbo Huang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.GT",
+            "cs.MS",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2609.11923v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11744v1": {
+        "title": "Building py-kvcache: A Performance Characterization of External KV Caching for vLLM with NVMe SSDs",
+        "link": "http://arxiv.org/abs/2609.11744v1",
+        "abstract": "Prefix caching can reduce the time to first token (TTFT) of long-context LLM requests by reusing previously computed key-value (KV) states, but for short prefixes or fast GPUs, recomputation can be faster than loading from an external cache. We characterize this tradeoff in vLLM across GPU, CPU, and NVMe tiers using synthetic workloads, long-context benchmarks, production traces, and find that cache performance depends on transfer granularity, intermediate memory use, and when transfers enter the request schedule, not only on device bandwidth. These findings motivate py-kvcache, a vLLM KV Offload connector with asynchronous direct I/O, bounded shared staging, and scheduler-aware preloading, which starts disk reads while requests are still waiting, overlapping with compute. At 80k tokens, py-kvcache loading from disk is 2.0x faster than LMCache, with preloading contributing 1.34x. With GPU, CPU, and disk caching enabled, it is 1.23x faster than LMCache and within approximately 4% of the native vLLM KV Offload implementation. LongBench and SCBench show that these benefits extend to irregular prefix chains and multi-turn workloads. Bailian trace replays improve TTFT on a weaker GPU, but on an H100 the average request falls below the break-even point and GPU memory alone retains enough prefixes. External KV caching should therefore be treated as a setup specific admission decision. The py-kvcacheimplementation is available at: https://github.com/atlarge-research/py-kvcache.",
+        "authors": [
+            "Joseph Kanichai",
+            "Tiziano De Matteis",
+            "Animesh Trivedi"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.11744v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "offloading",
+            "serving",
+            "storage"
+        ],
+        "tldr": "Analyzes the performance trade-offs of external KV caching for LLM serving in vLLM. Proposes py-kvcache with asynchronous direct I/O, bounded shared staging, and scheduler-aware preloading. Achieves up to 2.0× faster loading from disk than LMCache and 1.23× overall speedup.",
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11562v1": {
+        "title": "Entwine: Coordinating Tiled Computation and Fine-Grained Communication across GPUs",
+        "link": "http://arxiv.org/abs/2609.11562v1",
+        "abstract": "Modern high-performance GPU computations partition tensors into tiles to exploit data reuse and parallelism. Individual tile computations complete earlier than the full tensor computation, creating opportunities to overlap computation and communication. However, a mismatch between computation and communication progress can limit these opportunities. Communication stalls when no data is ready, and may lag when data arrives in bursts. Communication can also slow computation by consuming shared resources, offsetting the benefits of overlap.\n  We present Entwine, which coordinates tile computation order, fine-grained communication, and SM resource allocation to minimize overall completion time. Entwine reorders tile computation to produce data for communication at a more regular pace. Entwine couples this schedule with fine-grained SM-based communication to process tile results with low latency and low overhead. Since the communication kernel also consumes SM resources, Entwine coordinates their allocation to balance communication progress against computation slowdown. Across representative tensor-parallel LLM workloads, Entwine achieves a geomean speedup of 1.232x (up to 1.433x) over cuBLAS+NCCL, and outperforms state-of-the-art overlap baselines by 3.1-9.8% in geomean. We will open-source our implementation upon publication.",
+        "authors": [
+            "Kai Ma",
+            "Quanfeng Lv",
+            "Jingguo Ge",
+            "Bowei Dai",
+            "Kefan Ruan"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR"
+        ],
+        "id": "http://arxiv.org/abs/2609.11562v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Addresses inefficient overlap between computation and communication in tiled GPU workloads. Proposes Entwine to coordinate tile execution order, fine-grained communication, and SM resource allocation. Achieves 1.232x geomean speedup over cuBLAS+NCCL in tensor-parallel LLMs.",
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11356v1": {
+        "title": "Taming Bitwise Behavior in GPU Kernels with Tensor Core: Black-Box Reconstruction, Compiler Enforcement, and Static Verification",
+        "link": "http://arxiv.org/abs/2609.11356v1",
+        "abstract": "Determinism and numerical reproducibility are increasingly required of GPU kernels in machine learning systems, yet deterministic implementations of the same kernel can still differ bit for bit. Floating-point reduction order is the primary cause, alongside partial-sum precision, fused multiply-add operations, and rounding placement. These choices may be hand-coded, selected by a block-level language such as Triton, or hidden inside a closed-source library such as cuBLAS or rocBLAS. A tile shape chosen for performance therefore also determines the arithmetic, potentially breaking batch invariance. Preserving a fixed order can cost up to 20 percent, while an autotuner cannot identify which configurations are bitwise equivalent.\n  We characterize the factors determining the bitwise behavior of reductions and general matrix multiplication (GEMM). First, we introduce a descriptor of GEMM reduction order, including the partitioning of K in split-K GEMM. Using it, we perform the first black-box reconstruction of a closed-source library's arithmetic for bit-level correctness. Our family of Triton GEMMs matches NVIDIA cuBLAS in all tested cases on Blackwell and Hopper. For realistic LLM shapes with fused epilogues, it matches or exceeds torch.compile performance. Second, we enforce balanced-tree reduction during Triton lowering and introduce a data-layout optimization that brings 19 of 27 kernels on GB300 and H100 within 10 percent of free-order performance. Third, we develop sound static checkers for bitwise equivalence between compiled GPU kernels, including the first checker spanning NVIDIA PTX and AMD GCN. Integrated into Triton's autotuner, the checker restricts search to a single bit-equivalence class.",
+        "authors": [
+            "Ziteng Yang",
+            "Nicholas J. Riasanovsky",
+            "Warren Deng",
+            "Vivek Sarkar"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2609.11356v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "training"
+        ],
+        "tldr": "Tackles bitwise non-reproducibility in GPU kernels (e.g., GEMM) due to floating-point reduction order. Develops Triton GEMMs matching cuBLAS, compiler enforcement of balanced-tree reduction, and a static checker for kernel equivalence. Data-layout optimization brings 19/27 tested kernels within 10% of free-order performance.",
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11352v1": {
+        "title": "Rethinking Sparse Formats for RISC-V: A Hierarchical Approach to High-Performance SpMV",
+        "link": "http://arxiv.org/abs/2609.11352v1",
+        "abstract": "The sparse matrix-vector multiplication (SpMV) algorithm is a fundamental computational kernel of linear algebra and serves as a building block for numerous applications, primarily iterative solvers for systems of linear equations used in scientific and engineering simulations. This paper compares vectorized implementations of the SpMV algorithm across eight established sparse matrix storage formats and proposes a novel modification of the CSR format, Hierarchical CSR (HCSR), which enhances SpMV performance on RISC-V processors. Our SpMV implementations utilize RVV 1.0 intrinsics and are publicly available as an open-source C++ library named RVVLASparse. Computational experiments conducted on SpacemiT K1 and K3 RISC-V boards demonstrate that selecting an appropriate matrix storage format accelerates SpMV computations by an average of 1.6x, while the proposed HCSR format achieves the shortest execution time among all considered formats across a broad class of sparse matrices.",
+        "authors": [
+            "Anna Pirova",
+            "Anastasia Vodeneeva",
+            "Konstantin Kovalev",
+            "Alexander Ustinov",
+            "Maksim Zagriadskov",
+            "Daniil Litvyakov",
+            "Arthur Kulik",
+            "Evgeny Kozinov",
+            "Valentin Volokitin",
+            "Iosif Meyerov"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.11352v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11264v1": {
+        "title": "Can AI Remediate Backend Failures Safely? GuardedAct with Blast-Radius-Aware Sandboxing",
+        "link": "http://arxiv.org/abs/2609.11264v1",
+        "abstract": "Large Language Models (LLMs) have shown promising capabilities in generating remediation actions for microservice failures. However, directly executing AI-generated repair actions in production risks cascading collateral damage. We propose GuardedAct, a sandbox-first remediation framework that interposes a blast-radius-aware verification layer between the LLM action generator and the production environment. GuardedAct operates in four phases: (1) ingesting a diagnosis report together with the live system topology and recent telemetry, (2) prompting an LLM to produce a ranked list of candidate remediation actions, (3) simulating each action in a lightweight digital-twin sandbox that estimates the blast radius and assigns a risk label, and (4) enforcing a rollback-confidence gate that auto-executes only low-risk actions while escalating high-risk ones for human review. We evaluate GuardedAct on five fault scenarios injected into the DeathStarBench social-network application. Experimental results show that GuardedAct achieves an overall recovery rate of 87.4% while reducing collateral damage by 79.7% relative to direct LLM execution (from 25.6% to 5.2%), at the cost of a modest sandbox-induced increase in mean time to recovery (approximately 8 s). Ablation studies confirm that each component contributes meaningfully to the safety-speed trade-off.",
+        "authors": [
+            "Wanrong Cai",
+            "Tianyu Yu",
+            "Shaorui Pi",
+            "Xiaoxuan Sun",
+            "Wenrui Ma"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2609.11264v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11251v1": {
+        "title": "You've Got a BUD in Me: Authenticated Reads from Per-Block Write Logs",
+        "link": "http://arxiv.org/abs/2609.11251v1",
+        "abstract": "Blockchains usually pay for authenticated reads by maintaining a structure that spans the entire state. We show how validators can support historical membership and exclusion proofs by authenticating each block's writes instead. A Block Update Digest (BUD) commits a write log whose predecessor pointers link successive modifications of each key. A SuperBUD summarizes last writes over a window; an exponential hierarchy turns long unchanged intervals into short proofs. The digest count is logarithmic in the gap within the hierarchy's range, with one additional digest per top-level window beyond it. We prove soundness against adversarial provers and up to f Byzantine validators, and completeness for queries anchored by a post-deployment modification, assuming archive, attestation, and committee evidence is available. Across a 50x increase in state size, the measured base-BUD path rises by 1.24x, compared with 3.1x and 69.5x for in-memory and cache-bounded disk-backed Merkle Patricia tries. On the synthetic trace, two-digest read-layer payloads stay below 800 bytes, and warm hash-path verification takes at most 146 microseconds at p99.",
+        "authors": [
+            "Alejandro Ranchal-Pedrosa",
+            "Cody Littley",
+            "Ben Marsh"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.11251v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11145v1": {
+        "title": "The Computing Channel: How Modulation Programs the Airwaves",
+        "link": "http://arxiv.org/abs/2609.11145v1",
+        "abstract": "Distributed computing and distributed artificial intelligence require frequent exchanges of intermediate results, although many applications need only an aggregate rather than messages from individual devices. Conventional systems recover each message before computing the aggregate, whereas over-the-air computation (OAC) exploits simultaneous transmission to obtain it directly. However, dominant OAC implementations rely on analog signaling, creating a mismatch with finite-precision data and digital communication procedures. This article presents digital function-oriented communication, in which finite-alphabet symbol representations and receiver decisions are jointly designed so that multiple-access superposition encodes the desired function without recovering individual inputs. We introduce its computational-constellation principle, main design approaches, extensions, and implementation challenges. Federated edge learning illustrates how the framework can reduce user-dependent data-bearing resources while operating directly on quantized model updates.",
+        "authors": [
+            "Saeed Razavikia",
+            "Carlo Fischione"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.11145v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "networking",
+            "training",
+            "edge"
+        ],
+        "tldr": "Proposes digital function-oriented communication to aggregate quantized model updates in federated edge learning without recovering individual inputs, using joint finite-alphabet modulation and receiver design. Achieves reduced user data-bearing resources for training by directly computing the aggregation via multiple-access superposition.",
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11133v1": {
+        "title": "Phase-Decoupled, Model-Calibrated Power Control for Disaggregated LLM Serving",
+        "link": "http://arxiv.org/abs/2609.11133v1",
+        "abstract": "Datacenter GPU power is the binding constraint on LLM serving capacity, and production serving has shifted to prefill/decode (PD) disaggregation. Deploying NVIDIA's Max-Q inference profile on a disaggregated B200 system, we found its realized gain modest (+8.6% tokens/J), model-dependent, and carrying a mean end-to-end latency cost (+5.2%) that throughput-only evaluation does not surface; the profile also applies one setting to prefill and decode GPUs that operate in opposite hardware regimes. We hypothesize that the optimal power setting is a property of the deployed (model, quantization, engine, hardware) combination rather than of the GPU class, that each lane warrants its own profile, and that converting SLO headroom into energy safely requires latency-gated calibration under a runtime SLO guard rather than a fixed recipe. We present a phase-decoupled, model-calibrated controller: the prefill lane runs under an SM-clock window whose floor is a latency guarantee by construction, and the decode lane under a power cap placed by automatic calibration just above a measured throughput/latency cliff. Because a disaggregated decode lane draws flat, memory-bound power, the cap binds continuously, the reactive-overshoot weakness that led POLCA to reject capping is absent, and the GPU's own power manager retains throughput under the cap. On an 8x B200 node serving Qwen3-Coder-480B (FP8) under agentic load, our balanced mode delivers +20.4% tokens/J at +3.5% mean e2e versus +8.6% at +5.2% for Max-Q, a Pareto improvement on both axes. On Qwen3-235B-A22B (NVFP4) every operating mode meets the ITL-p99 SLO in every repetition; both vendor profiles miss it. A decode-actuator A/B shows the calibrated cap beats static clock locks, and a three-day sustained run saves 32.3% of a lane pair's electricity. Both models are MoE; a dense model recovers roughly 5x less, so we scope our claims to MoE serving.",
+        "authors": [
+            "Jae Gon Kim",
+            "Donghoon Yoo",
+            "Hanyul Ryu",
+            "Sungho Ha",
+            "Juyeon Lee",
+            "Soojung Ryu"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.11133v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "disaggregation",
+            "MoE"
+        ],
+        "tldr": "Proposes a phase-decoupled power controller for disaggregated LLM serving, with prefill SM-clock guarantees and decode power capping calibrated above latency cliffs. Achieves +20.4% tokens/J at +3.5% latency on MoE models versus baseline, with 32.3% electricity savings in sustained runs.",
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11122v1": {
+        "title": "A Model-Centric DevOps Architecture for DEVS-Based Digital Twin Simulation Services",
+        "link": "http://arxiv.org/abs/2609.11122v1",
+        "abstract": "Digital twin simulation models are evolved and redeployed like software, yet DEVS-based engines offer a sound formal basis with little support for versioning, automated validation, or continuous delivery in cloud-native environments, leaving model lifecycle management ad hoc in most deployments. This paper proposes a model-centric DevOps architecture for deploying DEVS-based digital twin simulations as managed services. Simulation models are treated as first-class DevOps artefacts defined in a declarative YAML language with a formal mapping to multiPDEVS, supporting structural and semantic validation in a CI/CD pipeline that produces immutable versioned artefacts, so that reverting to an earlier validated version reduces to pinning its identifier. The platform is decomposed into containerised microservices on Kubernetes, with engine adaptations for state externalisation and lifecycle control. An initial case study on the Riga Route 22 public-transit corridor, the first instantiation of a planned city-wide multi-modal transport digital twin for Riga, Latvia, exercises the full lifecycle and reports single-container engine throughput for a scenario with roughly 47,870 DEVS atomic components; pipeline-level catch statistics and cluster-level concurrent multi-scenario execution are the subject of companion empirical studies.",
+        "authors": [
+            "Arnis Lektauers",
+            "Gusts Linkevičs",
+            "Guntis Mosāns",
+            "Arina Fokina",
+            "Rasa Gulbe"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.CE",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.11122v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11058v1": {
+        "title": "EMMI: Edge Multi-Modal Intelligence for Communication-Efficient MLLM Inference via Fused Representation Compression",
+        "link": "http://arxiv.org/abs/2609.11058v1",
+        "abstract": "Recent advances in multimodal large language mod- els (MLLMs) have opened new opportunities for edge intelligence by enabling reasoning across heterogeneous sensor modalities, such as vision, text, and telemetry data. However, deploying these capabilities on resource-constrained edge platforms remains challenging due to the substantial computational, memory, and communication demands of modern MLLMs. Rather than transmitting raw sensor observations or partitioning neural networks at intermediate layers, Edge Multi-Modal Intelligence (EMMI) communicates a compact representation between edge devices and server resources, enabling communication-efficient edge MLLM inference. To achieve this, EMMI performs modality-specific encoding, cross-modal representation fusion, and learned compression at the edge, transmitting only a compact latent representation to server-side resources for high-capacity MLLM reasoning. This representation-centric design reduces communication overhead, preserves local data privacy, and provides a fixed-size interface between heterogeneous edge devices and server-side MLLMs. Evaluation on a representative multimodal benchmark demonstrates that EMMI can reduce the communication payload by 32x while maintaining comparable downstream accuracy, resulting in up to a 3.4x reduction in estimated end-to-end inference latency under bandwidth-constrained edge conditions.",
+        "authors": [
+            "Motahare Mounesan",
+            "Irfan Khan"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.11058v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "multi-modal",
+            "networking"
+        ],
+        "tldr": "Addresses high communication overhead in edge MLLM inference. Proposes EMMI: edge-side fused representation compression through modality encoding and learned compression for compact transmission. Achieves 32x communication reduction and 3.4x end-to-end latency improvement under bandwidth constraints.",
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11013v1": {
+        "title": "Online Treasure Hunt in Vertex-Permuted Dynamic Rings",
+        "link": "http://arxiv.org/abs/2609.11013v1",
+        "abstract": "We study the problem of treasure hunt by a group of $k \\geq 1$ agents in vertex-permuted dynamic rings (VP). In this model, the $n$ vertices remain on a ring but are permuted at each time step. We first show that treasure hunt is impossible for any $k \\leq n-3$ agents, if there are no restrictions on the sequence of permutations used in the dynamic ring. We then study the $VP(δ)$ setting, in which for every pair $i, j$ of vertices, the edge $(i, j)$ is guaranteed to appear within $δ$ steps. We show that the class $VP(δ)$ is feasible only for $δ\\geq \\left\\lceil \\frac{n-1}{2}\\right\\rceil$. For the one-agent case, we show a tight bound of $Θ(δn)$ on the worst-case search time as well as competitive ratio of any online algorithm for treasure hunt, provided $δ\\geq 2n$. We then give an optimal algorithm for $k$ agents, thereby showing that $k$ agents can obtain a speedup of $k$ on the worst-case search time. Finally, in the R-VP setting, in which in every step, the vertices are arranged as a ring according to a random permutation, we show that treasure hunt takes expected $Θ(n)$ steps against an oblivious adversary and $Θ(n \\log n)$ steps against an adaptive adversary.",
+        "authors": [
+            "Kamran Ayoubi",
+            "Bernard Mans",
+            "Lata Narayanan"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CC"
+        ],
+        "id": "http://arxiv.org/abs/2609.11013v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.10885v1": {
+        "title": "Navigating Small-World Networks with Distance Predictions",
+        "link": "http://arxiv.org/abs/2609.10885v1",
+        "abstract": "The small-world phenomenon was given an algorithmic foundation by Kleinberg, who showed that in an augmented $k$-dimensional lattice a decentralized greedy algorithm delivers a message in $O(\\log^2 n)$ expected steps. We study predicted-greedy routing, in which a mobile agent forwarding the message moves at each step to the neighbor minimizing a noisy $(\\varepsilon,δ)$-prediction of its distance to the target, redrawn at every step from an oracle conditioned on the full routing history. Two cases arise from what this agent can observe. An agent with the coordinate awareness can still compute lattice distance exactly, but not graph distance in the shortcut-augmented network, since that depends on the shortcuts of nodes it has not yet visited; given an $(\\varepsilon,δ)$-prediction of graph distance, information the classical model never supplies, it achieves expected delivery time $O(\\log n/(1-4k\\varepsilonδ))$, an asymptotic improvement over $Θ(\\log^2 n)$. An agent with no coordinate awareness at all, the natural model for a privacy-preserving network whose nodes never disclose their coordinates, cannot compute even lattice distance; given an $(\\varepsilon,δ)$-prediction of lattice distance instead, it still reaches the target in $O(n/(1-4k\\varepsilonδ))$ expected steps. Together these results show that a modest amount of predicted information, of the right kind, is enough to accelerate decentralized routing well below Kleinberg's classical bound, and that even when nodes reveal no coordinates at all, reliable delivery remains achievable.",
+        "authors": [
+            "Ladan Kian",
+            "Ming Ming Tan",
+            "Dariusz Kowalski"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2609.10885v1",
+        "submit_date": "2026-09-09",
+        "relevant": false,
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.10812v1": {
+        "title": "ExaServe: Large-Scale LLM Serving on Exascale HPC Systems",
+        "link": "http://arxiv.org/abs/2609.10812v1",
+        "abstract": "Cloud-native LLM serving frameworks have made deployment routine in data centers, yet deploying them on leadership-class supercomputers remains an engineering challenge requiring scheduler integration, MPI launch, accelerator selection, node-local weight staging, and platform-specific patches. We present \\textit{ExaServe}, a pip-installable framework that transforms a declarative YAML specification into a reproducible large-scale LLM serving deployment. Using ExaServe, we deploy LLM serving on ALCF Aurora from 1 to 256 nodes (3072 vLLM replicas). Non-streaming inference scales nearly linearly to 256 nodes, reaching 27.1\\,k requests/s (3.8\\,M tokens/s). Token streaming scales differently: a centralized proxy plateaus at $\\sim$4.7\\,k requests/s despite the model servers remaining within the service-level objective. We also identify an \\emph{O}(\\emph{N}\\textsuperscript{2}) Ray Serve control-plane bottleneck that increases cluster bring-up to $\\sim$30 minutes at 256 nodes. ExaServe provides a practical, reproducible deployment path while exposing key barriers to future exascale LLM serving.",
+        "authors": [
+            "Wenyi Wang",
+            "Shu Shi",
+            "Yadu Babuji",
+            "Ian Foster",
+            "Kyle Chard"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.10812v1",
+        "submit_date": "2026-09-09",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Addresses deploying LLM serving on exascale HPC systems. Proposes ExaServe, a pip-installable framework with declarative YAML for reproducible large-scale deployment. Achieves near-linear scaling to 256 nodes, reaching 27.1k requests/s.",
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.10790v1": {
+        "title": "Composable CXL Memory as a Kubernetes-Native Shared Memory for LLM Serving",
+        "link": "http://arxiv.org/abs/2609.10790v1",
+        "abstract": "We present a Kubernetes Dynamic Resource Allocation (DRA) driver that makes composable CXL memory a schedulable cluster resource, and evaluate the resulting shared-memory tier for cross-node KV-cache reuse in LLM serving. The driver composes CXL regions on demand, materializes them as DAX devices on each participating host, and injects them into pods under a single Container Device Interface (CDI) name so that pods on different nodes access the same physical region. A shared-memory connector for vLLM/llm-d uses that region as a KV-cache tier with a slot directory embedded inside the shared medium, which eliminates the need for an external metadata service. On a two-node cluster with a 512\\,GiB CXL appliance and Qwen2.5-7B-Instruct, cross-node prefix reuse reduces TTFT by 5.5$\\times$--36.6$\\times$ at an external hit rate of 95.4--99.5\\,\\%, while node-local tiers (GPU prefix caching, CPU-DRAM offload) fall back to full recompute. The sharing gap, defined as the latency ratio between cross-node and same-node reuse, is 1--4\\%, indicating that cross-node reuse incurs little additional latency relative to same-node reuse on our testbed. Both replicas run full engines; the study demonstrates memory disaggregation rather than prefill/decode disaggregation. We report this as a feasibility study rather than a performance evaluation.",
+        "authors": [
+            "Hongjian Fan",
+            "Kevin Zhang",
+            "David Habinsky",
+            "Sean Dykstra"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.10790v1",
+        "submit_date": "2026-09-09",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "disaggregation"
+        ],
+        "tldr": "Proposes a Kubernetes-native composable CXL memory system enabling shared KV-cache across nodes for LLM inference. The design uses CXL-based memory disaggregation and offloading to eliminate metadata overhead, reducing TTFT by 5.5x-36.6x at 95.4-99.5% hit rate.",
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.05814v2": {
+        "title": "Towards Continuous Profiling and Optimization of Quantum-Classical Pipelines",
+        "link": "http://arxiv.org/abs/2609.05814v2",
+        "abstract": "Quantum applications increasingly execute as multi-stage quantum-classical pipelines, interleaving QPU computation with classical stages like circuit generation, transpilation, layout mapping, quantum error mitigation (QEM), and post-processing. These stages have diverse resource requirements and exhibit stochastic behavior under drifting hardware noises, yet existing workflow frameworks treat them as static, isolated components. We present LLQM (Low-Level Quantum Machine), a profiling-driven meta-framework for quantum-classical pipelines. LLQM decomposes pipelines into fine-grained tasks and continuously profiles their CPU/GPU, memory, QPU, and queue dependencies alongside real-time hardware states. This unified runtime abstraction captures cross-stage resource dependencies and reveals how classical and quantum decisions interact, enabling characterization of their impact on fidelity and resource consumption. We evaluate LLQM using QEM as a representative pipeline stage, on IBM 156-qubit Heron r2 processors with circuits up to 100 qubits and 1e7 transpiled gates. Our results show that continuous profiling exposes runtime bottlenecks and enables hardware-, fidelity-, and workload-aware optimizations.",
+        "authors": [
+            "Ayush Bansal",
+            "Owen Cochell",
+            "Santiago Núñez-Corrales",
+            "Marcos Frenkel",
+            "Seetharami Seelam",
+            "Apoorve Mohan",
+            "Tianyin Xu"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.ET",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.05814v2",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.11294v1": {
+        "title": "Memory Compression for High-Fanout Agent Sandboxes",
+        "link": "http://arxiv.org/abs/2609.11294v1",
+        "abstract": "High-fanout agent workloads create a growing memory bottleneck because a single task may spawn many concurrent sandbox sessions. Yet these sandboxes are far from independent: they originate from a shared template and execute related trajectories, exposing substantial template-relative and cross-sandbox memory redundancy. Conventional memory compression is poorly matched to this setting in three fundamental dimensions: how to compress, because they fail to exploit similarity across non-identical sandbox pages; what to compress, because they control page-fault overhead through conservative page selection; and when to compress, because compression is either triggered by memory pressure or performed without awareness of agent execution phases.\n  We present AgentZip, the first memory compression system designed specifically for AI-agent sandboxes. AgentZip introduces compression mechanisms that exploit both the template-relative and cross-sandbox redundancy. It broadens the compression scope to any page with a profitable representation and shifts overhead control from compression-time page selection to restore-time prefetching. It further aligns expensive compression with LLM waiting periods to avoid interfering with foreground tool execution. Across LLM training and inference workloads, AgentZip reduces sandbox-owned memory by up to 8.7x, compared with 2.1x for the Linux configuration. Restore prefetching and agent-execution-aware scheduling reduce the slowdown of aggressive compression from as high as 3.1x to 1.40x while retaining nearly all of its memory-saving benefit.",
+        "authors": [
+            "Mengming Li",
+            "Ceyu XU",
+            "Qijun Zhang",
+            "Jiangnan Yu",
+            "Xiangfeng Sun",
+            "Haohui Mai",
+            "Zhiyao Xie"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.11294v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "agentic",
+            "storage",
+            "serving"
+        ],
+        "tldr": "Proposes AgentZip, a memory compression system for AI-agent sandboxes that exploits template-relative and cross-sandbox redundancy via compression, prefetching, and agent-execution-aware scheduling. Achieves up to 8.7x memory reduction and reduces slowdown to 1.40x from 3.1x.",
+        "indexed_date": "2026-09-11"
     }
 }
