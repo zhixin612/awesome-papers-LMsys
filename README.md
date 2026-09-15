@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3100-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3110-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.15-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,28 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-15
+* `serving` `kernel` [Dissecting GPU Utilization for LLM Inference on Nvidia Hopper](http://arxiv.org/abs/2609.12923v1)
+  > **TL;DR**: Proposes eight metrics from Nsight Compute to diagnose GPU utilization in LLM inference. Profiling vLLM on H100 across batch/sequence for four models and six kernel roles identifies fragment fill as a key bottleneck for small-batch decode.
+* `training` `scaling` [4D Parallelism Unlocks Exascale Bayesian Neural Networks for High-Fidelity Atmospheric Modeling](http://arxiv.org/abs/2609.12815v1)
+  > **TL;DR**: Addresses computational bottlenecks in training large Bayesian Swin Transformers for atmospheric forecasting. Introduces a 4D-parallelization scheme with domain-tensor and uncertainty parallelism for efficient GPU scaling. Generates large ensembles 3 to 4 times faster than current-best models.
+* `serving` `kernel` [RoofLang: Enabling AI-Driven Architecting of LLM Inference Systems](http://arxiv.org/abs/2609.12551v1)
+  > **TL;DR**: Proposes RoofLang, a DSL that enables AI-driven architecting of LLM inference systems by providing workload representation and mutation space. Reveals architectures with 3.5-39.5× higher peak decode throughput and improves throughput and interactivity by 6.23-50.1% for DeepSeek V4 models.
+* `edge` `serving` [HeatCache: Thermal-aware Energy-efficient LLM Inference Scheduling for Chassis-level Liquid Cooling in Sustainable Edge Server Rooms](http://arxiv.org/abs/2609.12449v1)
+  > **TL;DR**: Addresses thermal and energy inefficiencies in edge LLM inference under high ambient temperatures. Proposes HeatCache, a scheduler using AIO cooling as a heat buffer and request scheduling based on heat budgets. Reduces computing energy by 18.0%, thermal-throttle exposure by 81.7% at up to 48°C.
+* `edge` `serving` `quantization` [HoliBench: A Cross-Platform Benchmarking and Deployment Toolkit for Foundation Models in CPS-IoT Applications](http://arxiv.org/abs/2609.12412v1)
+  > **TL;DR**: Mitigates the lack of unified tools for deploying foundation models on edge devices by developing HoliBench, a toolkit that jointly benchmarks accuracy, latency, and energy across platforms. Quantitatively shows constant average power in autoregressive inference and predicts multi-model latency within 1.2% error.
+* `recommendation` `serving` `kernel` [OneLA: Scaling Linear-Attention Decoding to Large Beams in Generative Recommendation](http://arxiv.org/abs/2609.12399v1)
+  > **TL;DR**: OneLA addresses memory and traffic overhead in large-beam decoding for generative recommendation. It uses a shared prompt state and compact append-only divergent transition records with an ancestry index, plus a fused GPU kernel. Achieves 1.54-2.46x end-to-end decode speedups and reduces recurrent-state memory use and data movement.
+* `kernel` `serving` [ForgeMegakernel: A General Framework for Efficient Auto-Regressive Model Decode Megakernels](http://arxiv.org/abs/2609.12379v1)
+  > **TL;DR**: Improves auto-regressive model decode efficiency by generating megakernels via coding agents with milestones and test oracle. ForgeMegakernel achieves 50.5-85.9% memory bandwidth utilization and 1.21x-1.54x speedups over existing systems.
+* `kernel` [Unleashing the Power of Equality Saturation for Tensor Program Superoptimization](http://arxiv.org/abs/2609.12330v1)
+  > **TL;DR**: Proposes EqiForge, a tensor program superoptimizer using equality saturation to jointly optimize high-level algebra and low-level kernels in a unified IR. Techniques include early compaction and subgraph composition. Achieves up to 1.87x decode speedup over FlashAttention and geometric mean speedup of 1.32x.
+* `kernel` [Argus: Orchestrating Cross-Layer GPU Performance Measurements around Semantic Regions](http://arxiv.org/abs/2609.12299v1)
+  > **TL;DR**: Addresses fragmented GPU performance evidence collection for neural-network operator regions. Introduces Argus, an automated interference-aware measurement planner that orchestrates transformations and profiling across backends. Achieves 1.65 ms/token (vs. 4.92 ms/token without) for a TinyLlama decode kernel via optimization agents.
+* `serving` `disaggregation` `edge` [Efficient Vision-Language-Action Management and Serving for Robot Factories](http://arxiv.org/abs/2609.12075v1)
+  > **TL;DR**: Addresses efficient serving of Vision-Language-Action models for multi-robot requests on edge servers under strict SLOs. Proposes Robion, which disaggregates VLM and ADiT stages within a GPU via two streams, co-locates models, and employs intelligent traffic control. Achieves 6.7× higher robot load at 98% SLO attainment vs. baselines.
+
 ### 2026-09-11
 * `offloading` `serving` `storage` [Building py-kvcache: A Performance Characterization of External KV Caching for vLLM with NVMe SSDs](http://arxiv.org/abs/2609.11744v1)
   > **TL;DR**: Analyzes the performance trade-offs of external KV caching for LLM serving in vLLM. Proposes py-kvcache with asynchronous direct I/O, bounded shared staging, and scheduler-aware preloading. Achieves up to 2.0× faster loading from disk than LMCache and 1.23× overall speedup.

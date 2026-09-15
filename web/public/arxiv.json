@@ -160141,5 +160141,503 @@
         ],
         "tldr": "Proposes AgentZip, a memory compression system for AI-agent sandboxes that exploits template-relative and cross-sandbox redundancy via compression, prefetching, and agent-execution-aware scheduling. Achieves up to 8.7x memory reduction and reduces slowdown to 1.40x from 3.1x.",
         "indexed_date": "2026-09-11"
+    },
+    "http://arxiv.org/abs/2609.13115v1": {
+        "title": "Extreme-Scale Linear-Scaling Kohn-Sham DFT at 100 Million Atoms: Bridging Quantum Simulations and Experiments",
+        "link": "http://arxiv.org/abs/2609.13115v1",
+        "abstract": "Kohn-Sham density functional theory (DFT) remains the workhorse of ab initio materials simulation, yet cubic computational and quadratic memory scaling have confined calculations to a few hundred to thousands of atoms, spanning only nanometers, far below experimentally relevant length scales. We introduce XLSDFT, a linear-scaling DFT framework based on divide-and-conquer decomposition of the one-particle density matrix and Chebyshev-filtered subspace iteration, achieving linear computational and memory scaling while retaining DFT accuracy. Deployed on the LineShine exascale supercomputer, XLSDFT reduces computational complexity by orders of magnitude, enabling unprecedented DFT scale: a 200-million-atom silicon crystal, twentyfold beyond the prior record. Our implementation achieves 96.6% weak-scaling efficiency and sustained 157.9 Pflop/s (FP64) for a 100-million-atom scaling study. We further simulate an 11-million-atom all-solid-state battery interface of unprecedented complexity, 1,000 times beyond prior DFT for such systems, revealing how lithium metal reacts with the solid electrolyte at atomic resolution, in quantitative agreement with spectroscopy experiments.",
+        "authors": [
+            "Qimen Xu",
+            "Yu Zhang",
+            "Dixing Ni",
+            "Lei Gao",
+            "Guangnan Feng",
+            "Qinrui Zheng",
+            "Jianting Liu",
+            "Haitian Lu",
+            "Zhaopeng Jia",
+            "Wei Xue",
+            "Shriram Chandran",
+            "Torsten Hoefler",
+            "Haohuan Fu",
+            "Yutong Lu"
+        ],
+        "categories": [
+            "cs.CE",
+            "cs.DC",
+            "physics.comp-ph"
+        ],
+        "id": "http://arxiv.org/abs/2609.13115v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.13064v1": {
+        "title": "NFT-Based Reward Mechanisms: Sybil Farming, Vesting, and Stochastic Verification",
+        "link": "http://arxiv.org/abs/2609.13064v1",
+        "abstract": "We study NFT-based reward mechanisms in which a user can create multiple identities and submit fraudulent claims that mature a reward subject to vesting. We assume that the issuer stochastically verifies claims during the vesting period and that identities can be linked into clusters so that the detection of one identity submitting a fraudulent claim causes the whole cluster to be forfeited through a penalty. A farmer's payoff is then non-linear in the number of identities: rewards increase linearly, while the probability of avoiding detection decreases geometrically. We characterise the optimal farming scale in the continuous relaxation of the problem. This allows us to derive a sufficient condition for deterrence and then consider the issuer's choice of reward vesting and claim verification. Vesting reduces the probability that a fraudulent claim is paid but also affects genuine participants, while verification is costly for the issuer. We characterise the sufficient deterrence frontier for the issuer in terms of auditing cost, vesting schedule, and penalty value. When small amounts of audit capacity can be added at negligible marginal cost, vesting alone is not optimal. We also distinguish the role of penalties from that of cluster-level auditing. Finally, we discuss the implications for NFT reward programmes on high-throughput ledgers, such as Hedera.",
+        "authors": [
+            "Marco Alberto Javarone",
+            "Stefanos Leonardos",
+            "Carmine Ventre"
+        ],
+        "categories": [
+            "cs.CE",
+            "cs.DC",
+            "cs.GT"
+        ],
+        "id": "http://arxiv.org/abs/2609.13064v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12975v1": {
+        "title": "A Dynamic Vertical Scaling Strategy for Distributed Stream Processing Applications in Edge Computing",
+        "link": "http://arxiv.org/abs/2609.12975v1",
+        "abstract": "Distributed Stream Processing applications at the edge must reconcile low latency and high throughput with limited and heterogeneous resources. This paper presents a dynamic vertical scaling strategy based on Proximal Policy Optimization, formulated as a Partially Observable Markov Decision Process. The policy jointly adjusts task allocations and prioritizes compliance with a p95 end-to-end latency Service Level Objective. In EdgeStreamPy simulation experiments with two application profiles, two workloads, and ten paired placements per combination, the selected policies preserved throughput, obtained mean violation rates from 0.03% to 0.30%, below VRebalance in every scenario, and used less CPU in three of four combinations. The comparison covers complete controller configurations with different decision frequencies.",
+        "authors": [
+            "Guilherme Hiago Costa dos Santos",
+            "Carlos Henrique Kayser",
+            "Tiago Coelho Ferreto"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12975v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12923v1": {
+        "title": "Dissecting GPU Utilization for LLM Inference on Nvidia Hopper",
+        "link": "http://arxiv.org/abs/2609.12923v1",
+        "abstract": "A single SM utilization percentage can make an LLM inference workload look compute-saturated while hiding how much useful work is being done. The problem is not that the counter is wrong, but that it collapses several different mechanisms into one number. This is most severe during decode, where each request contributes only one new token and dense projection GEMMs become small-row matrix multiplications. On Hopper, the bfloat16 GMMA path executes these operations in fixed 64-row matrix fragments, so small-batch decode can fill only a small fraction of each fragment with real token rows.\n  In this paper, we profile vLLM with FlashAttention-3 and cuBLASLt on an H100 NVL across cold prefill, warm prefill, and decode, sweeping sequence length and batch size. We replace the usual single utilization number with eight counter-validated views derived from raw Nsight Compute reports, each pinned to an NCU counter or explicit formula. Together, these views map utilization gaps to concrete mechanisms - fragment fill, occupancy limits, stall signatures, wave quantization, and kernel selection - across four production models and six per-layer kernel roles.",
+        "authors": [
+            "Mohammad Siavashi",
+            "Gerald Q. Maguire",
+            "Dejan Kostic",
+            "Marco Chiesa"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.AR",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.12923v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "kernel"
+        ],
+        "tldr": "Proposes eight metrics from Nsight Compute to diagnose GPU utilization in LLM inference. Profiling vLLM on H100 across batch/sequence for four models and six kernel roles identifies fragment fill as a key bottleneck for small-batch decode.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12903v1": {
+        "title": "Hidden in Rounds: Predicting the Time Cost of 802.11 Contention in Federated Learning",
+        "link": "http://arxiv.org/abs/2609.12903v1",
+        "abstract": "Federated learning over IEEE~802.11 shares the wireless channel among clients that send model updates. We use ns-3 to measure the frame-delivery ratio and saturation throughput for different client densities and offered loads. A separate FedAvg trainer uses the frame-delivery ratio as a first-order proxy for the update-admission probability and uses an equation to estimate communication time. The method does not simulate the delivery of a complete model update or measure end-to-end training time. Across 720 evaluated runs with two datasets, two data partitions, six client densities, six offered loads, and five seeds, all runs reached their predefined target accuracy within the round budget. Rounds-to-target changed little with offered load, while communication time-to-target increased by about two orders of magnitude across the client-density range. A Bianchi-anchored estimator produced a mean absolute percentage error from $2.3\\%$ to $10.2\\%$ on held-out configurations. This error is measured against communication time constructed from the same round-duration equation, not against independently measured completion time. We also compare uniform participation with persistent heterogeneous participation. The study does not detect a statistically distinguishable excluded-class accuracy gap over five seeds, but the confidence intervals are wide. The results apply only to the evaluated configurations and do not provide a general convergence or fairness guarantee.",
+        "authors": [
+            "Satwat Bashir",
+            "Tasos Dagiuklas"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12903v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12815v1": {
+        "title": "4D Parallelism Unlocks Exascale Bayesian Neural Networks for High-Fidelity Atmospheric Modeling",
+        "link": "http://arxiv.org/abs/2609.12815v1",
+        "abstract": "We present BEAST, the first-ever Bayesian Swin Transformer for atmospheric forecasting on 0.25$^\\circ$ global resolution able to accurately quantify both aleatoric and epistemic uncertainty. To overcome the associated computational bottlenecks, we devise an orthogonal 4D-parallelization scheme that introduces a unique domain-tensor-parallelism strategy and a novel uncertainty parallel method, enabling us to fully leverage GPU capacity and efficiently scale model training. For a 2.4-billion-parameter model, we achieve a peak performance of 3.96 EFLOP/s on 20,480 NVIDIA GH200 GPUs on the JUPITER supercomputer. We train BEAST as a 700-million-parameter model with 96 random weight samples on 384 nodes on 40 years of data for nearly one million gradient updates. This model achieves predictive skill scores competitive with state-of-the-art probabilistic atmospheric AI models and numerical models, and can predict extreme events with exceptional skill, while generating large ensembles 3 to 4 times faster than the current-best AI model. Our contribution unlocks the potential of high-fidelity uncertainty quantification in atmospheric AI models, heralding a new era for AI-based models in climate and Earth system sciences.",
+        "authors": [
+            "Deifilia Kieckhefen",
+            "Juan Pedro Gutiérrez Hermosillo Muriedas",
+            "Lars Helge Heyen",
+            "Mathis Bode",
+            "Iida Hakulinen",
+            "Andreas Herten",
+            "Chelsea Maria John",
+            "Thorsten Kurth",
+            "Anni Moisala",
+            "Asena Karolin Özdemir",
+            "Kaleb Phipps",
+            "Oskar Taubert",
+            "Arvid Weyrauch",
+            "Markus Götz",
+            "Charlotte Debus"
+        ],
+        "categories": [
+            "physics.ao-ph",
+            "cs.AI",
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.12815v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling"
+        ],
+        "tldr": "Addresses computational bottlenecks in training large Bayesian Swin Transformers for atmospheric forecasting. Introduces a 4D-parallelization scheme with domain-tensor and uncertainty parallelism for efficient GPU scaling. Generates large ensembles 3 to 4 times faster than current-best models.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12649v1": {
+        "title": "Hybrid Monitoring for Early Fault Detection in Cloud-Native 5G Systems",
+        "link": "http://arxiv.org/abs/2609.12649v1",
+        "abstract": "This paper presents the design implementation and evaluation of NetMon a hybrid network monitoring system designed for Kubernetes-based 5G packet core deployments specifically evaluated on Ericssons Access and Mobility Management Function AMF clusters NetMon combines eBPF-based passive kernel-level traffic observation with active TCP probing and centralized correlation to detect and localize network degradation within seconds The evaluation results demonstrate that the system detects faults as subtle as 10ms of added latency or 5 packet loss correctly attributes them to the affected infrastructure component and maintains this capability under application loads up to 50 simulated UE load The total resource overhead of 34 millicores CPU and 45 MiB memory per pod suggests that the approach is promising for further validation without impacting the monitored workload The hybrid approach addresses a gap in existing monitoring tools standard health checks cannot detect partial degradation scrape-based systems introduce detection delays measured in tens of seconds and purely passive tools cannot verify idle network paths By combining these complementary techniques and centralizing the analysis the system provides the early detection and fault localization capabilities required for maintaining service quality in cloud-native 5G infrastructure.",
+        "authors": [
+            "Anton Andersson",
+            "Sai Akshara Naineni",
+            "Mats Jansborg",
+            "Yixing Zhang",
+            "Romaric Duvignau"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12649v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12605v1": {
+        "title": "A Feature-Rich Embedded NIDS with eBPF/XDP: Detector and Architecture Trade-offs",
+        "link": "http://arxiv.org/abs/2609.12605v1",
+        "abstract": "Distributed Denial-of-Service (DDoS) attacks remain a serious threat to transport networks, with recent attack volumes exceeding 30 Tbps, and the telecommunications industry being the main target. Recent work has yet to study the impact of the hosting software architecture on network monitoring solutions, or to assess recent algorithms for improving attack detection. This paper presents a Network Intrusion Detection System (NIDS) for DDoS detection in transport networks, developed in collaboration with Ericsson. Building on a statistical baseline, we improve detection effectiveness with an Isolation Forest trained on a wider set of flow features, extracted by GoFlowMeter, our open-source Go implementation of CICFlowMeter, and we integrate eBPF/XDP so that the NIDS filters real traffic at the kernel level. We further compare three deployments, monolithic, Kafka-based, and gRPC-based microservices, on a Raspberry Pi 5 testbed replaying the CIC-DDoS2019 dataset as real network traffic. Detection quality is governed mainly by the choice of detector rather than by the transport: the Isolation Forest raises recall and F1 score (0.965 live in the monolithic variant) over the baseline by flagging low-volume attack windows that the baseline misses. The transport is not neutral, however: gRPC reaches almost the same accuracy as the monolithic variant while adding less than 2 milliseconds of transport time per window, whereas the asynchronous Kafka pipeline trails by roughly nine percentage points and adds about 27 milliseconds. These findings clarify the trade-off between detection quality and architectural overhead when deploying a NIDS on resource-constrained hardware.",
+        "authors": [
+            "Shiqi Wu",
+            "Oleksii Koshovyi",
+            "Georgios Pseiridis Pseiras",
+            "Victor Morel",
+            "Romaric Duvignau"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2609.12605v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12602v1": {
+        "title": "GreenDirector: carbon- and water-aware workload placement for sustainable computing",
+        "link": "http://arxiv.org/abs/2609.12602v1",
+        "abstract": "The rapid growth of data center electricity demand, accelerated by AI, makes carbon-only accounting an incomplete measure of computing's environmental impact: low-carbon electricity mixes are often water-intensive, and the resulting harm depends on local, seasonal scarcity rather than on the volume of water consumed. We propose the Environmental Score (ES), a unified, dimensionless index in $[0, 100]$ that jointly captures the carbon footprint and the spatial-temporal, scarcity-weighted water impact of the electricity a workload consumes. It combines real-time, cross-border electricity flow tracing with monthly AWARE2.0 water-scarcity characterization factors, weighting global greenhouse-gas emissions together with the local, seasonal severity of water stress. Building on it, we define the Green Score (GS), a scheduling metric proportional to the useful computational work delivered per unit of real environmental impact, which also accounts for data center power and hardware efficiency. We add both metrics as a green-affinity feature to the GreenDirector schedulers of two production federated infrastructures, the AI4EOSC scientific cloud and the DIRAC workload management system. In AI4EOSC, a cluster-filling experiment over four pan-European providers shows that greener sites are filled first without degrading scheduling latency or end-user experience. In DIRAC, a trace-driven simulation of 133,631 jobs and a preliminary production deployment for the KM3NeT community reduce carbon emissions and improve carbon efficiency by about 40\\%, while making the carbon-water trade-off explicit when the lowest-carbon site also carries higher water stress. The results show that hydrological stress can be dynamically weighted into workload placement in live, multi-tenant systems",
+        "authors": [
+            "Jime Iglesias Blanco",
+            "Ignacio Heredia",
+            "María Castrillo",
+            "Andrei Tsaregorodtsev",
+            "Mazen Ezzeddine",
+            "Álvaro López García"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12602v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12582v1": {
+        "title": "NovaFabric: Tamper-Evident, Replayable Evidence for Autonomous AI Agent Runs",
+        "link": "http://arxiv.org/abs/2609.12582v1",
+        "abstract": "When an autonomous AI agent does something consequential, what can be proven about what it did? Agent-observability platforms capture traces, but a trace is mutable: alterable undetected, with no recipe for re-executing it, silent on whether captured secrets were removed. Regulation (EU AI Act, ISO 42001, NIST AI RMF) presumes records an independent party can check.\n  We present NovaFabric, producing audit-grade execution evidence: provider-neutral, tamper-evident, replayable, shareable. It records an agent run, without modifying agent logic, into a portable Run Capsule (fifteen-entity schema), sealed with a holistic DSSE signature, RFC 3161 timestamp, Merkle log and redaction attestation. Sealed runs are re-executable under a four-mode replay protocol and exportable as an Evidence Bundle for third-party verification with stock tooling (specified, not evaluated). The contribution is integration, not new cryptography: OpenTelemetry, DSSE/in-toto and W3C PROV.\n  We evaluate eight research questions at measured scope. Mocked replay serves every model response from the capsule (no live model call, 10/10) but is offline w.r.t. models, not the network; only 2/10 tool-using workloads completed; the gap is missing tool-response substitution. Tampering is rejected across three tested classes. Declared-stream completeness is 0.652 (95% CI +/-0.064, ten scenarios). A repaired rule pack redacts 14/14 credential types, preserving 9/9 decoys; diff localises 140/140 mutations. Blast-radius queries: 45.5ms p99 over 10M edges (3.3x faster than a columnar baseline), 167.9ms over 100M (1 client, n=30). A 314-machine, ten-region run finds capsule REST ingest lossless but capped at 61.6 req/s (p99 26.8s) by per-worker serialisation. Six defects found in NovaFabric and its evaluation corpus: four fixed, one withdrawn, one open.\n  Verification is conditional on a stated trusted computing base.",
+        "authors": [
+            "Mohsen Seyedkazemi Ardebili"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12582v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12551v1": {
+        "title": "RoofLang: Enabling AI-Driven Architecting of LLM Inference Systems",
+        "link": "http://arxiv.org/abs/2609.12551v1",
+        "abstract": "AI is beginning to make substantive contributions to LLM inference optimization. Existing AI optimizations are predominantly profiling-based. Profiling-bound feedback confines the search to the capabilities and performance of an existing software stack, preventing a fundamentally better architecture of LLM inference systems from being identified. To enable the AI-driven LLM inference system architecting loop, we argue that a general workload representation, a verifiable mutation space, and an implementation-independent evaluator are required. We present the RoofLang domain-specific language (DSL) that provides these features. In our evaluation, RoofLang reveals that DeepSeek V4-series models could achieve 3.5-39.5$\\times$ higher peak decode throughput than other representative models. This gap is disproportionate to their total parameter counts and arises largely from compact KV-cache designs that support larger batches and reduce memory traffic. A persistent optimizer agent further discovered several new architectures that improved both throughput and interactivity of DeepSeek V4 Pro on NVIDIA B300 by 6.23-50.1%.",
+        "authors": [
+            "Ziyue Yang",
+            "Yuting Jiang",
+            "Lei Qu",
+            "Peng Cheng"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.12551v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "kernel"
+        ],
+        "tldr": "Proposes RoofLang, a DSL that enables AI-driven architecting of LLM inference systems by providing workload representation and mutation space. Reveals architectures with 3.5-39.5× higher peak decode throughput and improves throughput and interactivity by 6.23-50.1% for DeepSeek V4 models.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12449v1": {
+        "title": "HeatCache: Thermal-aware Energy-efficient LLM Inference Scheduling for Chassis-level Liquid Cooling in Sustainable Edge Server Rooms",
+        "link": "http://arxiv.org/abs/2609.12449v1",
+        "abstract": "LLM inference is increasingly deployed at institution-scale edges to meet service requirements. However, multi-GPU inference consumes a large amount of electricity and produces substantial heat. To improve sustainability, operators and regulations often demand raising the ambient setpoint to reduce cooling electricity. This can increase thermal throttling and hardware aging, leading to Service-Level Objective violations. In this paper, we present HeatCache, a thermal-aware, energy-efficient LLM inference scheduler for commercial chassis-level AIO liquid-cooled GPUs at sustainable ambient temperatures. HeatCache treats AIO loops as a temporary heat buffer, measured by heat budget and schedules requests to minimize energy subject to thermal safety and SLO constraints, based on an electrical-informed heat-demand estimation from HeatiTS. We implement HeatCache atop vLLM and show that it reduces computing energy by up to 18.0%, decreases thermal-throttle exposure by 81.7%, and maintains SLO violation rates below 0.9% even up to $48~^{\\circ}\\mathrm{C}$.",
+        "authors": [
+            "Rui Lu",
+            "Huanghuang Liang",
+            "Kaiqi Guan",
+            "Dan Wang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2609.12449v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "serving"
+        ],
+        "tldr": "Addresses thermal and energy inefficiencies in edge LLM inference under high ambient temperatures. Proposes HeatCache, a scheduler using AIO cooling as a heat buffer and request scheduling based on heat budgets. Reduces computing energy by 18.0%, thermal-throttle exposure by 81.7% at up to 48°C.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12412v1": {
+        "title": "HoliBench: A Cross-Platform Benchmarking and Deployment Toolkit for Foundation Models in CPS-IoT Applications",
+        "link": "http://arxiv.org/abs/2609.12412v1",
+        "abstract": "Foundation models, including large language models, vision-language models, and time-series foundation models, are increasingly deployed on embedded and edge platforms for CPS and IoT applications, where energy, latency, and memory are as critical as task accuracy. Existing benchmarking tools evaluate model capability in isolation, reporting accuracy assuming sufficient compute, while hardware profiling tools remain platform-specific and mutually incompatible. As a result, users lack a unified workflow for making deployment decisions across heterogeneous devices. We present HoliBench, a modular benchmarking and deployment toolkit that jointly characterizes accuracy, latency, and energy across platforms from single-board computers to GPU servers. Its platform abstraction layer calibrates cross-device measurement, and the toolkit supports multiple model modalities, inference engines, concurrencies, and existing evaluation harnesses. An interactive interface exposes constraint-aware configuration selection over a design space that is profiled once and reused across studies. Using HoliBench, we characterize 20 models across 7 device types, 3 quantization levels, 8 inference backends, and over 30 tasks, surfacing tradeoffs that existing tools miss: quantization reduces latency only on hardware with low-precision support, accuracy gains show diminishing returns relative to energy, and for autoregressive workloads, average inference power is approximately constant across output lengths. We further find that single-model profiles compose under sequential co-resident execution. In a multi-model CPS deployment, standalone profiles predict combined-pipeline latency and power within 1.2% and 2.5%, enabling deployment exploration without exhaustively profiling every pipeline configuration. We release HoliBench as open-source infrastructure for deployment-aware evaluation of foundation models.",
+        "authors": [
+            "Inesh Chakrabarti",
+            "Zejun Xiong",
+            "Pragya Sharma",
+            "Mani Srivastava"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.12412v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "serving",
+            "quantization"
+        ],
+        "tldr": "Mitigates the lack of unified tools for deploying foundation models on edge devices by developing HoliBench, a toolkit that jointly benchmarks accuracy, latency, and energy across platforms. Quantitatively shows constant average power in autoregressive inference and predicts multi-model latency within 1.2% error.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12399v1": {
+        "title": "OneLA: Scaling Linear-Attention Decoding to Large Beams in Generative Recommendation",
+        "link": "http://arxiv.org/abs/2609.12399v1",
+        "abstract": "Generative recommendation (GR) relies on large-beam decoding to generate hundreds of candidate items, creating a new scaling challenge for recurrent linear attention. Existing linear attention serving systems either materialize a full recurrent state for every beam or repeatedly replay shared history, incurring substantial memory and traffic overhead. To address this, we present OneLA, a linear-attention decoding framework that exploits the shared prompt and short divergent suffixes of GR workloads. Specifically, OneLA represents all beam states using a single shared prompt-derived state and compact, append-only records of their divergent transitions. Using this representation, OneLA computes only the state information required at each decoding step, without reconstructing a full recurrent state for every beam. Furthermore, OneLA uses a lightweight ancestry index to track the transition records that make up each beam's history, allowing beams to be updated without moving or copying existing records. A fused GPU kernel further reuses the shared state across beams. Our analysis shows that OneLA achieves 1.54-2.46x end-to-end decode speedups while substantially reducing recurrent-state memory use and data movement.",
+        "authors": [
+            "Xiangrui Yang",
+            "Cheng Peng",
+            "Yunfeng Zhao",
+            "Liang Zeng",
+            "Ao Hu",
+            "Jiawei Yang",
+            "Shengzhe Wang",
+            "Jingshan Lv",
+            "Xiao Liang",
+            "Chen Yang",
+            "Jiaqiang Liu",
+            "Yiming Qiu"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC",
+            "cs.IR"
+        ],
+        "id": "http://arxiv.org/abs/2609.12399v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "recommendation",
+            "serving",
+            "kernel"
+        ],
+        "tldr": "OneLA addresses memory and traffic overhead in large-beam decoding for generative recommendation. It uses a shared prompt state and compact append-only divergent transition records with an ancestry index, plus a fused GPU kernel. Achieves 1.54-2.46x end-to-end decode speedups and reduces recurrent-state memory use and data movement.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12379v1": {
+        "title": "ForgeMegakernel: A General Framework for Efficient Auto-Regressive Model Decode Megakernels",
+        "link": "http://arxiv.org/abs/2609.12379v1",
+        "abstract": "Auto-regressive model decode is bandwidth-bound, since every weight and key/value-cache byte crosses high-bandwidth memory once per token. A megakernel is an ideal solution, but existing automatic megakernel generation approaches cannot achieve both generalization across models and correctness guarantees.\n  We present ForgeMegakernel, which generates a per-model high-performance decode megakernel using coding agents. ForgeMegakernel pairs a universal knowledge base of ten progressive milestones with an independent mid-state test oracle. The milestones provide the megakernel's structural properties: a fine-grained instruction stream for each SM, dependency counters replacing the global synchronization, and a shared-memory buffer pool for workload balance across SMs and greater parallelism. The test oracle derives the mid-states of the megakernel and checks the performance, error and precision during the generation process, guaranteeing a correct and trustworthy forged megakernel.\n  We evaluated ForgeMegakernel on 14 representative decoding operations across eight model families spanning 0.6B-13B parameters. The generated megakernels achieved 50.5-85.9% MBU and geometric mean speedups of 1.21x over SGLang 0.5.18 and 1.54x over a megakernel compiler under identical configurations. Inside SGLang, evaluated on GSM8K with ragged prompts, all 14 megakernels decoded faster than the SGLang engine at comparable answer accuracy.",
+        "authors": [
+            "Leshan Li",
+            "Zhui Zhu",
+            "Xianglong Deng",
+            "Yaojian Chen",
+            "Qingfeng He",
+            "Yuxuan Li",
+            "Rong Zhao",
+            "Xu Han",
+            "Zhiyuan Liu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12379v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "serving"
+        ],
+        "tldr": "Improves auto-regressive model decode efficiency by generating megakernels via coding agents with milestones and test oracle. ForgeMegakernel achieves 50.5-85.9% memory bandwidth utilization and 1.21x-1.54x speedups over existing systems.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12330v1": {
+        "title": "Unleashing the Power of Equality Saturation for Tensor Program Superoptimization",
+        "link": "http://arxiv.org/abs/2609.12330v1",
+        "abstract": "Efficient GPU implementations of tensor programs often require joint optimization of high-level algebraic formulations and low-level execution strategies. However, the resulting search space grows rapidly as transformations combine across operators, making joint optimization difficult to scale. We present EqiForge, a tensor program superoptimizer based on equality saturation. Its unified IR represents high-level tensor expressions and tiled computations in a single expression language. By composing equality rules, EqiForge derives fused implementations such as FlashAttention-style kernels directly from tensor expressions. Early compaction prunes redundant partial programs before completion, while subgraph composition extends the search to larger graphs. Across tensor-program benchmarks, EqiForge achieves a geometric mean speedup of 1.32x and a maximum of 2.74x over the fastest available baseline per configuration. Its attention kernels outperform FlashAttention by up to 1.87x in decode and approach its performance in prefill. EqiForge also discovers new implementations that outperform torch.compile on various Transformer layers, including QK-normalized MLA (3.16x) and mHC (5.84x).",
+        "authors": [
+            "Qi Zhan",
+            "Xing Hu",
+            "Xin Xia",
+            "Shanping Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12330v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "kernel"
+        ],
+        "tldr": "Proposes EqiForge, a tensor program superoptimizer using equality saturation to jointly optimize high-level algebra and low-level kernels in a unified IR. Techniques include early compaction and subgraph composition. Achieves up to 1.87x decode speedup over FlashAttention and geometric mean speedup of 1.32x.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12299v1": {
+        "title": "Argus: Orchestrating Cross-Layer GPU Performance Measurements around Semantic Regions",
+        "link": "http://arxiv.org/abs/2609.12299v1",
+        "abstract": "GPU developers and automated optimizers need performance evidence for semantic code regions--such as neural-network operator implementations and pipeline stages--but this evidence is fragmented across profiling tools. Answering a region-level question can require manually constructing probes and program variants, isolating interfering measurements, and mapping evidence to regions and execution contexts. We present Argus, a region-centric measurement planner and runtime that automates this workflow. Clients identify regions with boundary markers and select signals and execution scopes. Argus preserves region identity across compilation, execution, and measurement variants, constructs interference-aware multi-run plans, and orchestrates transformations and profiling across backends. It joins compiler-, hardware-, and system-level evidence using region identity and dynamic execution context, producing reports that record measurement origins and attribution ambiguity.\n  We evaluate Argus across agentic kernel optimization, persistent megakernel optimization, and cross-level PGO. Across 44 persistent-GEMM and attention configurations, Argus improves 39/44 cases and raises AlphaEvolve's geometric-mean speedup from 5.4% to 8.9%. On a persistent TinyLlama-1.1B decode megakernel, an optimization agent reaches 1.65 ms/token with Argus versus 4.92 ms/token without it, producing a kernel $2.1\\times$ faster than PyTorch with CUDA Graphs. Finally, Argus-guided cross-level PGO improves compute--communication overlap, increasing throughput by 7% on average across five multi-GPU settings.",
+        "authors": [
+            "Jianzhu Yao",
+            "Yue Guan",
+            "Srivatsan Ramesh",
+            "Yuanwei Fang",
+            "Jian Jiao",
+            "Boda Li",
+            "Yueming Hao",
+            "Xinwei Qiang",
+            "Pramod Viswanath",
+            "Yufei Ding",
+            "Bill Yoshimi",
+            "Alexey Loginov",
+            "Shane Nay",
+            "Adnan Aziz"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.12299v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "kernel"
+        ],
+        "tldr": "Addresses fragmented GPU performance evidence collection for neural-network operator regions. Introduces Argus, an automated interference-aware measurement planner that orchestrates transformations and profiling across backends. Achieves 1.65 ms/token (vs. 4.92 ms/token without) for a TinyLlama decode kernel via optimization agents.",
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12239v1": {
+        "title": "Specifying Paxos for System Builders: Pseudocode Made Executable",
+        "link": "http://arxiv.org/abs/2609.12239v1",
+        "abstract": "This paper presents a precise executable specification---as a faithful mapping from the pseudocode---of Paxos for System Builders, a practical protocol for replication and consensus in distributed systems. Paxos for System Builders has both a robust implementation in C and a clean pseudocode for critical protocol details.\n  This paper shows how the protocol pseudocode can be expressed easily, essentially line-by-line, in a precise high-level language, DistAlgo, for direct execution in distributed systems. Precise specification and direct execution help significantly in understanding the protocol logic and in automatically checking, tracing, and visualizing protocol runs. They also led to discoveries and fixes of small, difficult-to-catch omissions and liveness bugs in the pseudocode though not the C code. The resulting program also has acceptable performance while having similar size as the pseudocode.",
+        "authors": [
+            "Yanhong A. Liu",
+            "Rahul Sihag"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12239v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12143v1": {
+        "title": "Consensus-based Decentralized Distributed Swarm Learning with Heterogeneous Big Data",
+        "link": "http://arxiv.org/abs/2609.12143v1",
+        "abstract": "Artificial intelligence increasingly relies on large-scale, distributed, and heterogeneous data collected by edge devices. However, the practice of edge intelligence remains challenging due to non-convex objectives, data heterogeneity, and complex wireless network topology. To address these issues, this paper proposes a consensus-based decentralized distributed swarm learning (CD-DSL) framework for wireless edge networks. Our CD-DSL integrates consensus optimization with particle swarm optimization (PSO), by reaching the model consensus among neighboring devices while leveraging the PSO exploration and exploitation. The consensus mechanism supports decentralized coordination without raw-data exchange, while PSO-inspired updates utilize historical and neighbor-shared experience to enhance exploration for non-convex optimization, improve robustness to data heterogeneity, and accelerate convergence. We further develop an adaptive neighbor-mixing strategy that learns performance-aware consensus weights, improving decentralized collaboration among heterogeneous edge devices. Theoretical analysis establishes that CD-DSL maintains participant consistency and achieves non-ergodic convergence to a neighborhood of a stationary point under non-convex objectives. Experimental results show that CD-DSL can mitigate the performance degeneration of existing decentralized baselines caused by heterogeneous data.",
+        "authors": [
+            "Zhuoyu Yao",
+            "Dong Yang",
+            "Yue Wang",
+            "Songyang Zhang",
+            "Yingshu Li",
+            "Zhi Tian",
+            "Zhipeng Cai"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12143v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12091v1": {
+        "title": "Shards on a Shoestring: Empirical Characterization of NEAR Protocol Nightshade Sharding on Commodity Hardware",
+        "link": "http://arxiv.org/abs/2609.12091v1",
+        "abstract": "NEAR Protocol's Nightshade architecture targets one million transactions per second (TPS) through horizontal sharding of both state and computation. Published benchmarks were produced on expensive Google Cloud Platform infrastructure costing approximately \\$700 per hour, leaving a significant reproducibility gap for academic research. We present the first independent empirical characterization of NEAR Nightshade sharding on commodity hardware: a Chameleon Cloud bare-metal node with 48 hyperthreaded Intel Xeon cores, 128\\,GB RAM, and HDD storage at 80--100\\,MB/s. We systematically sweep shard count from $N{=}1$ to $N{=}24$, measuring aggregate TPS, per-shard TPS, block time, BFT finality, memory, and disk I/O. We identify three distinct bottleneck regimes: L3 cache pressure at low $N$, witness gossip pipeline saturation at mid $N$, and coherence collapse at high $N$. A key unexpected finding is that HDD write latency acts as implicit flow control for the witness gossip pipeline. Removing it via RAM-backed tmpfs causes complete chain stall at $N{=}16$, with a 29$\\times$ spike in orphan witness rate at 47\\% CPU utilization. Aggregate TPS peaks at $N{=}8$ (+40\\% over $N{=}1$) then reverses, with per-shard TPS collapsing 23$\\times$ by $N{=}24$. Our dataset provides the first commodity-hardware calibration baseline for the companion SimPy sharding simulator.",
+        "authors": [
+            "Sohini Sahukar",
+            "Om Amit Gandhi",
+            "Ioan Raicu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.12091v1",
+        "submit_date": "2026-09-10",
+        "relevant": false,
+        "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.12075v1": {
+        "title": "Efficient Vision-Language-Action Management and Serving for Robot Factories",
+        "link": "http://arxiv.org/abs/2609.12075v1",
+        "abstract": "Vision-Language-Action (VLA) models show high robotic manipulation capabilities via a two-stage design: a Vision-Language Model (VLM) stage followed by an Action Diffusion Transformer (ADiT) stage. Since robots must meet strict Service-Level Objectives (SLOs) for safety, VLA inference is inherently latency-critical. Meeting these SLOs requires high-end GPUs, yet weight, cost, and power constraints preclude integrating such GPUs on-robot. Prior works offload VLA inference to edge servers that serve many robots on VLA models. However, current VLA systems lack support for multi-request, multi-model execution on a multi-GPU server under SLOs, while existing serving systems for multi-stage models are optimized for throughput and stage disaggregation across separate GPUs, which are ill-suited for the millisecond-scale stages of VLA models. We design Robion, the first VLA serving and management system for multi-robot, multi-model requests on multi-GPU edge servers that meets SLOs. Our serving engine disaggregates the VLM and ADiT stages within a GPU via two streams, dynamically restricting the SMs on VLM stream so ADiT always finds SMs to run alongside it, and co-locates multiple models by sharing these streams across them, prioritizing requests by least remaining SLO time. Our management engine enables flexible model placements on multi-GPU servers, and integrates an intelligent traffic controller that maximizes per-model batching under the chosen placement while bounding each GPU's load to meet SLOs. For individual models, Robion serves on average 6.7$\\times$ and 1.5$\\times$ higher robot load within 98% SLO attainment over vLLM-Omni, the most widely used multi-stage serving system, and Monolithic, which runs VLM and ADiT as a single pipeline, respectively. In a large-scale experiment of serving 8 different models on a 4-GPU server, Robion can serve up to 64 robots within 98% SLO attainment.",
+        "authors": [
+            "Dionysios Adamopoulos",
+            "Nattapol Chanpaisit",
+            "Basel Fakhri",
+            "Christina Giannoula"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR",
+            "cs.LG",
+            "cs.PF",
+            "cs.RO"
+        ],
+        "id": "http://arxiv.org/abs/2609.12075v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "disaggregation",
+            "edge"
+        ],
+        "tldr": "Addresses efficient serving of Vision-Language-Action models for multi-robot requests on edge servers under strict SLOs. Proposes Robion, which disaggregates VLM and ADiT stages within a GPU via two streams, co-locates models, and employs intelligent traffic control. Achieves 6.7× higher robot load at 98% SLO attainment vs. baselines.",
+        "indexed_date": "2026-09-15"
     }
 }
