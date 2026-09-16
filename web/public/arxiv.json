@@ -160639,5 +160639,1100 @@
         ],
         "tldr": "Addresses efficient serving of Vision-Language-Action models for multi-robot requests on edge servers under strict SLOs. Proposes Robion, which disaggregates VLM and ADiT stages within a GPU via two streams, co-locates models, and employs intelligent traffic control. Achieves 6.7× higher robot load at 98% SLO attainment vs. baselines.",
         "indexed_date": "2026-09-15"
+    },
+    "http://arxiv.org/abs/2609.15889v1": {
+        "title": "Cnuas: A Software-Defined AI/HPC Rack-scale Emulation Platform and Hyperscale Data Center Facility Twin",
+        "link": "http://arxiv.org/abs/2609.15889v1",
+        "abstract": "Modern AI and HPC systems integrate accelerators, high-speed networks, and management controllers at rack scale. Developing software for this infrastructure typically requires access to scarce, costly hardware, while software abstractions can obscure how workloads depend on resources across servers and accelerators. This paper presents Cnuas, an open-source, experimental rack-scale emulation platform whose baseline architecture follows the Open Compute Project (OCP) Open Rack v3 specifications. Through functional emulation, it supports experimentation, learning and software development within academic and industrial research and development, rather than matching the throughput or latency of physical hardware. Its web-based user interface visualizes racks, devices and their interconnections to help developers build a system-level mental model of the infrastructure supporting their workloads. At its core, CnuasNIC and CnuasSwitch implement a guest-visible remote direct memory access (RDMA) adapter and a host-resident hybrid software switch supporting both RoCEv2 and native InfiniBand. The platform also provides a dedicated AI/ML accelerator (GPU) peer fabric and OpenBMC-based rack management with executable power supply and battery backup firmware over RS-485. These components support the study of device, driver, and firmware interfaces on commodity hosts. The accelerator software stack remains an early research prototype, and facility modeling with OpenUSD is an exploratory extension. The paper presents the architecture, interfaces, and bounded prototype results as a basis for community collaboration across the core platform and its extensions.",
+        "authors": [
+            "Weqaar Janjua",
+            "Eoin OConnell",
+            "Mihai Penica"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2609.15889v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15681v1": {
+        "title": "Scalability and Performance Evaluation of Federated Learning Frameworks: A Comparative Analysis",
+        "link": "http://arxiv.org/abs/2609.15681v1",
+        "abstract": "This paper presents a systematic examination and experimental comparison of the prominent Federated Learning (FL) frameworks FedML, Flower, Substra, and OpenFL. The frameworks are evaluated experimentally by implementing Federated Learning over a varying number of clients, emphasizing a thorough analysis of scalability and key performance metrics. The study assesses the impact of increasing client counts on total training time, loss and accuracy values, and CPU and RAM usage. Results indicate distinct performance characteristics among the frameworks, with Flower displaying an unusually high loss, FedML achieving a notably low accuracy range of 66% to 79%, and Substra demonstrating good resource efficiency, albeit with an exponential growth in total training time. Notably, OpenFL emerges as the most scalable platform, demonstrating consistent accuracy, loss, and training time across different client counts. OpenFL's stable CPU and RAM underscore its reliability in real-world scenarios. This comprehensive analysis provides valuable insights into the relative performance of FL frameworks, offering good understanding of their capabilities and providing guidance for their effective deployment across diverse user bases.",
+        "authors": [
+            "Bassel Soudan",
+            "Sohail Abbas",
+            "Ahmed Kubba",
+            "Manar Wasif Abu Talib",
+            "Qassim Nasir"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.15681v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15664v1": {
+        "title": "CIDERS: Cloud-Edge LLM Collaborative Learning via Accelerating Personalized Bilevel Optimization",
+        "link": "http://arxiv.org/abs/2609.15664v1",
+        "abstract": "Amid the rapid advancement of physical-world intelligence, cloud-edge collaborative large language models (LLMs) have emerged as a promising roadmap for practical LLM deployment. However, existing cloud-edge paradigms struggle to balance global consensus with local personalization, which fails to satisfy the need for a unified knowledge foundation on the cloud and domain-specific adaptation at the edge. To address this, we introduce, for the first time, a personalized bilevel optimization framework that formalizes cloud-edge LLM collaboration as a dual structure: the upper level optimizes edge-side personalization, while the lower level governs cloud-side knowledge transfer, reaching cloud-edge evolving in coordination. We then propose CIDERS, an efficient solver that decomposes the model into a learnable backbone and a messenger. While the cloud performs knowledge transfer to the learnable backbone, the key lies in embedding global trajectories into each local personalization step via consensus-variate correction to reconcile personalization with consensus. We provide a comprehensive theoretical analysis, including a geometric characterization of the local trajectory and a full convergence guarantee, revealing an explicit trade-off structure between personalization and global convergence. Extensive experiments demonstrate that CIDERS consistently outperforms competitive baselines on the compressed edge path, with 3.1x and 1.7x gains on mathematical reasoning and code generation, respectively, and a 10\\% relative gain on instruction metrics. Mechanism experiments attribute these gains to early consensus-corrected coordination and task-aware distillation. Overall, CIDERS offers a viable path toward consensus-guided continuous personalization in cloud-edge LLM systems.",
+        "authors": [
+            "Victor H. Chen",
+            "Hairui Yu",
+            "Stella K. Chung",
+            "Hong Yan"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.15664v1",
+        "submit_date": "2026-09-14",
+        "relevant": true,
+        "tags": [
+            "training",
+            "edge",
+            "networking"
+        ],
+        "tldr": "Proposes CIDERS, a personalized bilevel optimization for cloud-edge LLM collaboration, using consensus-variate correction to balance global consensus with local personalization. Achieves 3.1x gain in reasoning, 1.7x in code generation, and 10% improvement on instruction metrics.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15627v1": {
+        "title": "DeepSeek-V4-Flash on AMD gfx90a: Correctness Recovery and Inference Performance Engineering",
+        "link": "http://arxiv.org/abs/2609.15627v1",
+        "abstract": "We present the enablement, correctness recovery, and performance engineering of DeepSeek-V4-Flash inference on AMD Instinct MI250 GPUs using the gfx90a/CDNA2 architecture. The system integrates native safetensors loading, tensor and expert parallelism, FP4 routed mixture-of-experts computation, FP8 dense projections, sparse attention, HIP graph execution, and OpenAI-compatible serving within SGLang. An initially fast execution path was found to be numerically incorrect because of a routed-expert W2 layout mismatch. We identify the output permutation, repair the weight layout at load time, and establish fixed-token and hash-based correctness checks before further optimization. On the corrected path, decode performance is improved through packed FP4 weights, INT8 activation quantization, CDNA2 dot-product instructions, peer-read all-reduce, and topology-aware kernel geometry. Prefill is accelerated using CDNA2 MFMA kernels, improved packed-weight reuse, reduced sparse-attention overhead, larger chunks, and retuned expert sorting. On four MI250 GCDs, TP4/EP1 native autoregressive decode reaches approximately 74.5 tok/s, while a 4,604-token prompt reaches 2.061-2.062 s TTFT, or approximately 2,234 input tok/s. The results show that efficient DeepSeek-V4-Flash inference on CDNA2 is limited not only by memory bandwidth, but also by FP4 execution-format mismatch, low-M utilization, and per-layer synchronization costs.",
+        "authors": [
+            "Siming Huang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.15627v1",
+        "submit_date": "2026-09-14",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "MoE",
+            "quantization"
+        ],
+        "tldr": "Optimizes DeepSeek-V4-Flash inference on AMD MI250 GPUs by correcting numerical issues and implementing FP4/INT8 quantization, CDNA2 kernel optimizations, and expert parallelism. Achieves 74.5 tok/s decode throughput and 2,234 input tok/s prefill on a 4,604-token prompt with four GCDs.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15558v1": {
+        "title": "Opportunistic ZGC: Leveraging Idle Cores for More Effective Concurrent Garbage Collection",
+        "link": "http://arxiv.org/abs/2609.15558v1",
+        "abstract": "Managed language runtimes often provide concurrent garbage collectors so that latency-critical applications with large working sets can keep running while most collection work proceeds in the background. ZGC is a production-quality, generational, concurrent collector in OpenJDK with sub-millisecond pause times. While ZGC is designed to run concurrently, frequent and excessive collections with ZGC can still slow the mutators due to synchronization costs and interference with shared computing resources. Hence, the ZGC scheduler is conservative by default, and in most cases, will grow the heap toward the maximum allowed before scheduling a collection. While this approach minimizes collection effort, it can be wasteful, or even harmful, if the maximum heap size is not well tuned to the actual working set.\n  We propose Opportunistic ZGC (OppZGC), a feedback-directed ZGC scheduling policy that constrains the heap dynamically and automatically, without per-application tuning. OppZGC identifies periods when CPU cores are underutilized and leverages them for concurrent collection with ZGC. We describe the design and implementation of OppZGC in OpenJDK's HotSpot Java VM and evaluate it with standard and latency-sensitive benchmarks from DaCapo Chopin and SPECjbb. OppZGC limits heap usage when there is CPU capacity sufficient for additional collections, and avoids scheduling extra collections when they would substantially degrade performance. Overall, it reduces maximum heap usage for our DaCapo benchmarks by between 61% and 90%, on average, depending on configuration, with minimal impact on throughput and request latency compared to default ZGC.",
+        "authors": [
+            "Jacob Malloy",
+            "Michael R. Jantz",
+            "Terry Jones"
+        ],
+        "categories": [
+            "cs.PL",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.15558v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15397v1": {
+        "title": "When Tool Calls Succeed but Workflows Fail: Anomalies at the Agent-Tool Boundary",
+        "link": "http://arxiv.org/abs/2609.15397v1",
+        "abstract": "AI agents increasingly execute long-running workflows that externalize effects through independently supplied tools. Under retries, speculative execution, concurrency, and partial failures, the resulting external state may be inconsistent with the workflow's intended resolution: required effects may be missing or duplicated, aborted effects may survive, and committed effects may depend on provisional state that is later withdrawn. Advanced transaction models address related failures, but assume that lower-level operations expose the semantics they depend on: whether an effect occurred, whether it can be compensated, staged, or safely reordered. Shared agent-tool interfaces usually do not.\n  We contribute an effect-history model that separates events in the external world from the runtime's observations of them, and a catalog of eight recurring external-effect anomalies. From the catalog we derive the boundary capabilities required to exclude each anomaly in general, and four points where black-box tool invocation alone cannot provide a general guarantee. We then ask how much of this is expressible in a widely used shared tool interface, measuring the use of the standard annotation vocabulary across 98,291 tools exposed by registered Model Context Protocol (MCP) servers. The fields are widely emitted but provide only coarse call-level hints, and none of the required capabilities is fully expressible. These results motivate reusable transactional contracts at the tool boundary.",
+        "authors": [
+            "Artem Trofimov",
+            "Boris Novikov"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DB",
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2609.15397v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15311v1": {
+        "title": "FlashGPU-sim: Enabling GPU Modeling for Modern Architectures and AI Workloads",
+        "link": "http://arxiv.org/abs/2609.15311v1",
+        "abstract": "As AI becomes increasingly ubiquitous, modern AI systems are shaped by a tight software-hardware co-design loop. Later GPUs expose features such as asynchronous data movement, tensor core pipelines, and fine-grained synchronization that high-performance kernels aggressively exploit, while emerging application behaviors increasingly influence the next generation of hardware design. Unfortunately, the latest open-source simulators for NVIDIA GPUs focus on architectures and software stacks from roughly six years ago. Therefore, they cannot support many state-of-the-art AI kernels generated by modern compiler stacks, e.g. Triton, or accurately model the hardware features they depend on. As a result, architects lack a credible platform for analyzing bottlenecks in this flywheel or evaluating design trade-offs for future AI systems. To bridge this gap, we present FlashGPU-sim, an open-source, execution-driven, cycle-accurate GPU simulator for modern AI workloads. FlashGPU-sim faithfully models modern hardware features such as asynchronous data movement, fine-grained synchronization, tensor-core execution, and distributed shared memory. A Triton extraction front-end allows direct simulation of optimized AI operators without manual porting, while multi-threaded execution makes large-scale software-hardware co-design practical. Across 131 workload configurations on RTX 5090, H100, and B200, FlashGPU-sim achieves a cycle-level MAPE of 5.24%, while multi-threaded simulation reaches a 7.86x speedup with 16 host threads. An H100 case study further demonstrates its utility for microarchitectural design exploration.",
+        "authors": [
+            "Siying Yu",
+            "Yixun Hong",
+            "Guozhi Qiu",
+            "Jingci Liu",
+            "Feng Gu",
+            "Chenbo Geng",
+            "Zhengrong Wang",
+            "Chen Zhang",
+            "Bei Yu"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.15311v1",
+        "submit_date": "2026-09-14",
+        "relevant": true,
+        "tags": [
+            "hardware"
+        ],
+        "tldr": "Addresses the lack of GPU simulators for modern AI workloads with FlashGPU-sim, an execution-driven cycle-accurate simulator modeling asynchronous data movement, tensor cores, and distributed shared memory. Achieves 5.24% cycle-level MAPE accuracy and 7.86x simulation speedup with 16 host threads.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15230v1": {
+        "title": "ETCInfer: An Energy-efficient Thermal-aware Cooling-joint Scheduler for LLM Inference in AI Datacenters",
+        "link": "http://arxiv.org/abs/2609.15230v1",
+        "abstract": "Large language model (LLM) inference in AI datacenters creates a coupled control problem between GPU serving and facility cooling. Raising ambient temperature setpoints can reduce cooling energy and carbon, but also shrinks thermal headroom, induces GPU throttling, and leads to Service-Level-Objective (SLO) violations. In this paper, we study joint cooling--computing control for LLM inference: minimizing per-job GPU-plus-cooling energy while satisfying thermal safety and latency SLO constraints. We present ETCInfer, an energy-efficient, thermal-aware scheduler that selects a pre-job Computer Room Air Conditioner (CRAC) setpoint and adapts per-GPU frequency and micro-batch size during execution. ETCInfer builds compact physics-informed control models by calibrating GPU heat generation, chassis heat dissipation, CRAC power, and prefill/decode latency relations from telemetry. These models estimate hidden thermal states and time-to-throttle, enabling the scheduler to evaluate energy, temperature, and latency before applying an action. We formulate this joint setpoint--frequency--micro-batch control problem as a partially observable Markov decision process and design ETCAdapter, a learning-based controller that minimizes per-job energy under thermal safety and SLO constraints. We implement ETCInfer as a coordination layer over typical inference and cluster management stacks. Evaluation across real-trace simulation and validation experiments shows that ETCInfer reduces total job energy by up to 33.1%, thermal throttle exposure by up to 92.9%, and keeps SLO violation rates below 0.7% even at ambient temperatures up to $48^{\\circ}\\mathrm{C}$.",
+        "authors": [
+            "Rui Lu",
+            "Rui Ge",
+            "Huanghuang Liang",
+            "Xiaobo Zhou",
+            "Dan Wang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2609.15230v1",
+        "submit_date": "2026-09-14",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Addresses joint cooling-computing energy minimization for LLM inference under thermal safety and latency SLO constraints. ETCInfer uses physics-informed models and learning-based control to schedule CRAC setpoints, GPU frequencies, and micro-batches. Achieves up to 33.1% energy savings with SLO violation rates below 0.7%.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15217v1": {
+        "title": "Accelerating the Solving of Many Tiny General Linear Systems on GPUs: Application to Constitutive Laws",
+        "link": "http://arxiv.org/abs/2609.15217v1",
+        "abstract": "Many applications require solving large numbers of independent linear systems on GPUs. While this need is well addressed for small to large systems, tiny ones, understood here as systems of dimension below 32, remain challenging. This is especially relevant in constitutive law evaluation, where millions of integration points are handled independently, and where each constitutive update generally relies on a Newton iterative method. Each iteration then requires the double-precision solution of a tiny general square linear system using LU factorization with partial pivoting (LUpp). The present study was conducted within a closed-source prototype, which serves as a demonstrator for porting to NVIDIA GPUs constitutive law evaluations currently provided on CPUs by TFEL/MFront, an open-source code generation tool for material knowledge. We compare several double-precision LUpp solvers, including implementations from GPU linear algebra libraries as well as custom-designed CUDA kernels. The comparison is performed first on large batches of standalone linear systems, and then within the full constitutive-law evaluation workflow, where each integration point requires a sequence of distinct linear systems, one per iteration of its own Newton loop. The study shows that the best LUpp solving strategy strongly depends on several factors including system size and application context. We discuss several key aspects, including register pressure, occupancy, the ability to invoke the LUpp solver directly from device code, and whether assigning several threads to each system is the most efficient strategy. Experiments on an NVIDIA H100 GPU show that the specialized LUpp solvers proposed in this work can outperform existing state-of-the-art approaches for this class of workloads, with speedups of up to 6.5x over cuSolverDx, and up to 17.7x over MAGMA.",
+        "authors": [
+            "Tristan Chenaille",
+            "Francesca Cuteri",
+            "Rapha{ë}l Prat",
+            "Guillaume Latu",
+            "Thomas Helfer"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.15217v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15034v1": {
+        "title": "FastPair: GPU-Optimized String Decoding",
+        "link": "http://arxiv.org/abs/2609.15034v1",
+        "abstract": "Modern data systems compress data at rest and decompress it only when needed to preserve interconnect bandwidth. This design is often inefficient on GPU-based compute platforms because many conventional compression techniques exhibit serial data dependencies that limit GPU parallelism, leaving resources idle. Recent NVIDIA GPUs address this decoding deficiency through the Decompression Engine (DE), an on-die, fixed-function decompression accelerator for general-purpose compression formats such as Deflate, LZ4, and Snappy. Recent work has proposed string codecs that replace frequent substrings with fixed-width codes from a small, trained dictionary, making each code's lookup independent. While these lookups can run in parallel, the resulting scattered reads and short output writes still do not align well with GPU hardware, which handles contiguous memory accesses more efficiently. We present FastPair, a GPU decoder that optimizes the existing dictionary decoding process by reorganizing lookups and assembling decoded substrings for contiguous output writes. On a B300, FastPair decodes ten real-world columns 2.4 to 4.2x faster than the DE, reaching up to 1.6 TB/s.",
+        "authors": [
+            "Joseph Isaacs",
+            "Francesco Gargiulo",
+            "Peter Boncz",
+            "Robert Kruszewski",
+            "Nicholas Gates",
+            "Rossano Venturini",
+            "Will Manning",
+            "Martin Prammer"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.15034v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15030v1": {
+        "title": "Validating Hybrid-State Cache Recovery for GLM-5.3-Flash with vLLM and LMCache",
+        "link": "http://arxiv.org/abs/2609.15030v1",
+        "abstract": "External cache transfers can succeed while a hybrid language model resumes from an inconsistent state. We examine the full 45-layer GLM-5.3-Flash model, using the RedHatAI/ GLM-5.3-Flash-NVFP4 quantized checkpoint with vLLM and LMCache under four-way tensor parallelism. A complete-hit recovery mismatch restored state for the full prompt while the scheduler credited one fewer token. We aligned recovery through strict-prefix lookup and established a numerical comparison using shared computation corrections, matched checkpoint scheduling, and fixed per-rank kernel configurations. In a nine-length serial workload, agreement with the modified recomputation control improved from 34/36 to 36/36 generations, each containing 64 token IDs. A separate instrumented run passed recorded transfer-page, effective-tail, and delayed-save checks. Three additional synthetic templates passed 72 paired 256-token continuations across two fresh-container runs. A subsequent serial performance study preserved output equality across 120 requests; among the measured trials, CPU reload reduced time to first token by 46-64% and total request time by 1.9-7.0% relative to modified cold recomputation. The contribution is an experimentally validated integration repair applying an existing checkpoint-alignment principle. The evidence is confined to one model revision and controlled configuration; it does not establish general determinism, task-quality equivalence, concurrent-serving gains, or capacity beyond GPU memory.",
+        "authors": [
+            "Frank Li"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.15030v1",
+        "submit_date": "2026-09-14",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "quantization"
+        ],
+        "tldr": "Addresses inconsistent state recovery during LLM inference serving. Proposes strict-prefix lookup and aligned checkpoint scheduling for GPU offloading and quantization. Achieves 46-64% faster first token latency and restores error-free generation agreement in 36/36 cases.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.15021v1": {
+        "title": "Shared KV Caching for Replicated 27B Inference: Correctness Failures and Performance Boundaries",
+        "link": "http://arxiv.org/abs/2609.15021v1",
+        "abstract": "Shared host-memory caching can avoid repeated prefill when a request moves between inference replicas. Its usefulness depends on both correct state transfer and lost prefix locality. We study two single-GPU 27B vLLM replicas sharing a 256 GiB LMCache pool. After adopting an existing packed-page patch, we isolate a raw-pointer fallback that omits the dependency on the current CUDA stream. Controlled byte tests fail under an imposed delay and pass when the dependency is restored; the existing mixed allocator provides a working deployment path. Full-pool allocation checks and service regression complete the validation. A four-block OFF-ON-ON-OFF comparison contains 768 measured requests within two block pairs. Median cross-replica time to first content token falls from 31.715 to 0.605 seconds at 128k input and from 92.047 to 0.790 seconds at 256k. Six-turn synthetic sessions alternating replicas improve by approximately 35% and 45% at initial contexts of 32k and 128k, while fixed placement shows little benefit. This engineering case study identifies practical validation steps and the locality conditions in which shared caching pays off.",
+        "authors": [
+            "Frank Li"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.15021v1",
+        "submit_date": "2026-09-14",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Investigates how shared KV caching across inference replicas can avoid redundant prefill computations. Proposes a shared host-memory caching approach ensuring correct state transfer. Reduces median first token latency from 31.7s to 0.6s for 128k inputs.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14898v1": {
+        "title": "Agentic Autoscaling through Worker-Pool Orchestration for LLM-driven Text Classification in Cloud Computing Environments",
+        "link": "http://arxiv.org/abs/2609.14898v1",
+        "abstract": "The growing adoption of large language model (LLM)-based systems for large-scale text processing has created a critical need for dynamic autoscaling to manage high-latency, bursty, and computationally intensive workloads. This paper proposes an agentic autoscaling framework through worker-pool orchestration for LLM-driven text classification. The framework integrates a priority task queue, a dynamic pool of agent workers, a real-time metrics collector, and an application-layer autoscaler. Its classifier-agnostic design supports both zero-shot and fine-tuned language models without modifying the autoscaling logic. The framework is evaluated using Autoscaling+BART and Autoscaling+DeBERTa against static allocation and standalone RoBERTa and DistilBERT baselines. On the AG News dataset, Autoscaling+BART achieves 84.5% accuracy, while Autoscaling+DeBERTa improves it to 90.5%. On the SMS Spam Collection dataset, Autoscaling+DeBERTa achieves 99.5% accuracy, whereas Autoscaling+BART attains 84.5% accuracy with lower execution time. Overall, the proposed framework consistently outperforms the baseline approaches in resource efficiency while maintaining high classification performance, demonstrating that elastic worker-pool orchestration provides an effective and cost-efficient solution for scalable LLM-driven text classification in cloud environments.",
+        "authors": [
+            "Bablu Kumar",
+            "Anshul Verma",
+            "Rajkumar Buyya"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14898v1",
+        "submit_date": "2026-09-14",
+        "relevant": true,
+        "tags": [
+            "scaling",
+            "serving"
+        ],
+        "tldr": "Proposes an agentic autoscaling framework with worker-pool orchestration for LLM text classification. The design uses priority queues and dynamic workers to improve resource efficiency, achieving 99.5% accuracy on SMS Spam while outperforming baselines in resource consumption.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14894v1": {
+        "title": "Stability-Aware Proactive Autoscaling Using a Double Deep Q-Network in Cloud Computing Environments",
+        "link": "http://arxiv.org/abs/2609.14894v1",
+        "abstract": "Dynamic workloads and latency-sensitive applications require efficient autoscaling in cloud computing environments. However, most existing approaches rely on reactive mechanisms based on static thresholds, resulting in delayed responses and scaling oscillations under workload uncertainty. To address these limitations, we propose a double deep Q-Network-based proactive autoscaling approach (DDQN-Proactive) along with Resource Removal Strategy (RRS). The proposed (DDQN+RRS) enhances decision-making by decoupling action selection from value evaluation, enabling more stable and adaptive scaling. Experimental results demonstrate that the proposed method outperforms both reactive and existing proactive approaches. Specifically, DDQN+RRS achieves a lower Service Level Agreement (SLA) violation rate (11.81%), higher CPU utilization (52.23%), improved scaling stability, fewer scaling events (2,488), and reduced pod restarts (1,246). Furthermore, the approach ensures smoother autoscaling behavior by significantly reducing oscillations over time (0-60 s). While reactive methods exhibit substantial fluctuations in pod allocation, Reactive reduces these variations, and DDQN+RRS achieves the most stable and smooth scaling, particularly during the 15-30 s, 40-45 s, and 55-60 s intervals.",
+        "authors": [
+            "Bablu Kumar",
+            "Anshul Verma",
+            "Rajkumar Buyya"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14894v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14879v1": {
+        "title": "Fast Stencil Computations on a Single Arbitrarily Moving Interval",
+        "link": "http://arxiv.org/abs/2609.14879v1",
+        "abstract": "A stencil computation repeatedly updates every cell of a grid from its neighbours' values at the previous timestep. Simulating T steps on N cells directly costs Theta(NT), and a line of work beginning with Ahmad et al. reduces this by composing many timesteps into one linear operator and applying it with a Fast Fourier Transform. That technique needs to know which cells will still obey the same operator when the composed step ends, and in a free-boundary problem they do not: the region governed by a given rule is determined by the solution and moves as it evolves.\n  We study one spatial dimension, a three-point stencil with time-varying coefficients, and a computed region that is a single interval whose two endpoints move by arbitrary amounts at every step, revealed online. Let B be the horizon plus the total variation of the boundary trajectory. We give a schedule whose work is O((B+N) log T log(N+B)) and whose span is O(T log T log(N+B)), and we prove that the values it computes are exact.\n  The best existing bound for a region that moves requires its boundary to travel at most one cell per timestep. We drop that requirement and lose nothing by it: a boundary obeying it has B <= 3T, so our bound stays near-linear on every trajectory the earlier result covers. Elsewhere, B grows only by the distance the boundary actually travels -- one jump of width N costs T + 2N.\n  The reason total variation suffices is that everything the two endpoints touch over a time window of any length lies in two intervals, one per endpoint. This cannot be relaxed: with p regions the bound degrades by a factor p, and at p = sqrt(T) there is an instance on which the work is Theta(T^{3/2}) while B + N = Theta(T).\n  All results are machine-checked in Lean 4, apart from the classical convolution bound, which is imported as an interface.",
+        "authors": [
+            "Aaron Gregory"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14879v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14775v1": {
+        "title": "CATS: A Carbon-Aware Task Simulator for Reducing AI Data Center Emissions",
+        "link": "http://arxiv.org/abs/2609.14775v1",
+        "abstract": "The rapid rise of generative AI is accelerating cloud data center expansion, with electricity demand projected to double by 2026. Because carbon-intensity varies by more than 5.5x across grids and times of day, where and when inference tasks execute significantly affects operational emissions. We address this issue with three aspects in this paper. First, we compile a global alignment dataset unifying 140 operational and planned cloud regions across 8 major providers with five-minute carbon-intensity traces for 145 grid regions from 2022 to 2024, revealing that 50% of current sites lie in medium-to-high carbon-intensity grids, indicating a siting-carbon mismatch and unrealized carbon reduction potential. Second, we develop CATS (Carbon-Aware Task Simulator), a flexible trace-driven framework that profiles six AI inference tasks across multiple GPU types, synthesizes realistic diurnal curve, geographical and task mixes, and SLA constraints, and evaluates spatial and temporal schedulers against two baselines while reporting comprehensive metrics including carbon emissions, energy consumption, runtime, queue delay, and hardware utilization. Third, we quantify achievable CO2 savings under realistic constraints: in a 24-hour trace with 600,000 tasks at fleet utilization of 0.37, spatial shifting reduces CO2 by 38.4% versus speed-first baseline, while temporal shifting yields 16% savings with bounded SLA violations at 3.27%. These results advocate locating future data centers in low carbon-intensity grids and demonstrate that carbon-aware scheduling on today's fleets can achieve substantial operational emissions reduction.",
+        "authors": [
+            "Dayuan Chen",
+            "Ziliang Zong"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14775v1",
+        "submit_date": "2026-09-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Proposes carbon-aware scheduling for AI inference to reduce operational emissions by exploiting grid carbon variations. Introduces CATS, a flexible trace-driven simulator to evaluate spatial and temporal shift strategies under SLA constraints. Achieves 38.4% lower CO2 via spatial shifting in a 600k-task scenario at 0.37 utilization.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14762v1": {
+        "title": "TriCalRAG: A Three-Strategy, Retrieval-Augmented Benchmark for On-Premise LLM-Based Root Cause Analysis in AIOps",
+        "link": "http://arxiv.org/abs/2609.14762v1",
+        "abstract": "Cloud-hosted large language models (LLMs) are increasingly used for root cause analysis (RCA) in AIOps pipelines, but they introduce data privacy risk, network latency, and per-query cost that scale poorly with production log volumes. We present TriCalRAG, a benchmark evaluating open-weight LLMs served locally via vLLM on a single high-memory workstation GPU (NVIDIA RTX PRO 6000, 96GB) against a classical LSTM-based log anomaly detector (DeepLog), across four real, publicly available log datasets (BGL, HDFS, Thunderbird, OpenStack). We evaluate two open-weight models (Qwen2.5-14B, Mistral-Small) under three prompting strategies: zero-shot, few-shot, and retrieval-augmented generation (RAG) over a labeled incident history, reporting accuracy, precision/recall, and F1 with bootstrap 95% confidence intervals across 3 random seeds, alongside throughput and VRAM footprint. Our results show that RAG not only improves mean F1 by 0.10-0.27 over zero-shot prompting but, more importantly, substantially stabilizes model calibration: zero-shot prompting drives both models toward near-degenerate behavior (predicting \"anomaly\" on up to 100% of incidents on some datasets), while RAG keeps predicted-positive rates close to the true class balance in the majority of configurations. Mistral-Small achieves higher macro-averaged F1 than Qwen2.5-14B (0.644 vs. 0.560) but exhibits calibration failures in more configurations (7 vs. 5 of 12), while running at roughly half the throughput - indicating the better model choice depends on whether a deployment prioritizes peak accuracy or predictable behavior across prompting conditions. Ablations show batching scales throughput 41 times on a single card and that 4-bit quantization reduces latency 20% with no measurable accuracy loss. We release our benchmark harness, dataset splits, and evaluation code to support reproducible on-premise AIOps research.",
+        "authors": [
+            "Rohit Patel",
+            "Susil Kumar Mohanty",
+            "Jeenal Chaudhary"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.CR",
+            "cs.ET",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.14762v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14734v1": {
+        "title": "OCT-FedSIR: Toward Trustworthy Federated Ophthalmic Learning under Annotation Noise",
+        "link": "http://arxiv.org/abs/2609.14734v1",
+        "abstract": "Federated learning enables collaborative model development without centralizing patient data, but annotation reliability at participating institutions cannot always be assumed. In ophthalmic imaging, differences in disease prevalence and class composition can resemble changes caused by corrupted supervision. We introduce OCT-FedSIR, a reliability-aware spectral framework for federated OCT classification under client-dependent annotation noise and heterogeneous data distributions. OCT-FedSIR combines class-balanced spectral estimation, Stage-I logit adjustment, complementary spectral descriptors, selective spectral relabeling, and noise-aware federated optimization. We evaluated the framework on the Kermany, University of Illinois Chicago, and Wake Forest datasets under symmetric and structured asymmetric noise and three levels of non-IID heterogeneity. Across 117 experimental conditions, OCT-FedSIR achieved a mean accuracy of 86.73%, compared with 79.94% for RoFL and 78.75% for FedCorr. It correctly separated clients with original and corrupted annotations across all evaluated conditions, while the original FedSIR identification procedure was less robust, particularly under asymmetric noise. Spectral relabeling recovered 77.2% of corrupted annotations with 91.3% correction precision and a 3.5% false-correction rate. Retaining corrected clients outperformed spectral pruning by 9.30 percentage points on average. These findings show that annotation noise can often be identified and corrected without discarding informative client data.",
+        "authors": [
+            "Sina Gholami",
+            "Abdulmoneam Ali",
+            "Tania Haghighi",
+            "Rashadul H. Badhon",
+            "Behafarin Emam",
+            "Sally S. Y. Ong",
+            "Atalie C. Thompson",
+            "Theodore Leng",
+            "Ahmed Arafa",
+            "Jennifer I. Lim",
+            "Minhaj Nur Alam"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14734v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14660v1": {
+        "title": "MANE: A Multi-Path Adaptive Network for Edge Onloading of Deep Neural Networks",
+        "link": "http://arxiv.org/abs/2609.14660v1",
+        "abstract": "Split computing constitutes a widely used distributed inference approach, where a lightweight head model is onloaded onto the device and a heavier tail model resides on an edge server, leveraging the growing computational capabilities of modern System-on-Chips while alleviating server load. As intelligent indoor environments such as smart offices grow increasingly populated with diverse IoT devices, a single edge server must simultaneously assist multiple devices, each competing for the same shared inference resources. Without a principled mechanism to manage this shared load, the server is quickly overwhelmed, causing latency SLO violations and rendering server-assisted inference ineffective. In this work, we present MANE, a distributed inference framework that equips the server with a multi-path tail architecture, enabling a dynamic accuracy--throughput trade-off at runtime. By introducing a novel multi-path model architecture, a three-stage training scheme featuring a Joint Head Network Distillation loss and a hysteresis-based scheduler with an equitable device-fallback policy, MANE maintains over 80% SLO satisfaction rate where state-of-the-art onloading methods fail completely, while preserving accuracy 6pp higher than on-device alternatives, across up to 40 concurrent devices.",
+        "authors": [
+            "Sokratis Nikolaidis",
+            "Stylianos I. Venieris",
+            "Leonidas Malachias",
+            "Iakovos S. Venieris"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.14660v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14643v1": {
+        "title": "BigMoMo: Efficient Inference of Large-Scale MoE with Speculative Decoding on Mobile Devices",
+        "link": "http://arxiv.org/abs/2609.14643v1",
+        "abstract": "Mixture-of-Experts (MoE) models expand language model capacity on smartphones, but expert offloading remains constrained by limited DRAM capacity and costly data movement. Sequential token routing couples expert execution to fragmented flash reads and multistage NPU preparation, leaving sparse computation stalled on weight transfers. Each transfer serves few tokens before execution moves on. We exploit the multi-token verification window of speculative decoding to decouple expert movement from single-token execution, enabling weight reuse, contiguous flash reads, and load-compute overlap. We present \\textsc{BigMoMo}, a mobile MoE runtime that exploits this window across the memory hierarchy. It prunes speculative branches and expert activations using acceptance rates, routing impact, and movement cost; reorganizes on-flash experts according to runtime co-loading patterns; and batches ready experts to overlap NPU computation with pending transfers. Across four MoE models and five benchmarks on two mobile platforms, \\textsc{BigMoMo} achieves mean decoding speedups of $4.83\\times$ over on-demand autoregressive offloading and $1.82\\times$ over the best speculative MoE baseline, supporting MoE models up to 30B parameter.",
+        "authors": [
+            "Maoliang Li",
+            "Hailong Zou",
+            "Taohong Han",
+            "Haoze Chi",
+            "Jiayu Chen",
+            "Zihao Zheng",
+            "Jie Zhang",
+            "Guojie Luo",
+            "Xiang Chen"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14643v1",
+        "submit_date": "2026-09-13",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "MoE",
+            "offloading"
+        ],
+        "tldr": "Proposes BigMoMo, a mobile MoE runtime that exploits speculative decoding to decouple expert offloading for weight reuse and load-compute overlap. Achieves 4.83× mean speedup over autoregressive offloading and 1.82× over speculative MoE baselines.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14640v1": {
+        "title": "PaxosLease Revisited: A Checked Model of Diskless Distributed Leases",
+        "link": "http://arxiv.org/abs/2609.14640v1",
+        "abstract": "PaxosLease is a protocol by which a quorum of acceptors grants time-bounded exclusive ownership with no durable acceptor lease state and no disk write on the lease acquisition path. This paper gives a precise, machine-checked statement of the protocol and of its standard use, electing a Multi-Paxos leader that recovers once per epoch and then commits with single-round appends. Three results are new. First, the restart quarantine an acceptor must observe after losing its volatile state is the proposer attempt duration, a bound tight in the checked model and machine-checked at the boundary in both directions. Second, timer placement is safety-critical: starting the attempt timer at prepare-quorum receipt can produce two simultaneous lease owners. Third, when a proposer abandons an acquisition attempt and retries, messages left over from the abandoned attempt can make acceptors report a lease the proposer itself appears to own; unless such a report counts as open only while the proposer is renewing that exact lease, two simultaneous owners follow at any quarantine length. The lease transition system is formalized in TLA+ and checked by TLC, and the timing arithmetic is proved in TLAPS. An executable reference model encodes the same rules a second time, independently of the TLA+, so that a wrong rule has to survive two separate encodings. A single-file runnable demonstration gives the algorithm in readable Python code.",
+        "authors": [
+            "Márton Trencséni"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14640v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14507v1": {
+        "title": "Physically Partitioned KVCache Format for CPU--GPU Load Balancing in MoE Inference",
+        "link": "http://arxiv.org/abs/2609.14507v1",
+        "abstract": "Single-GPU long-context inference with Mixture-of-Experts (MoE) models requires spilling the key-value cache (KVCache) to CPU memory. The spilled KV serves two complementary purposes---transferring to the GPU for attention computation, or computing in-place on the CPU---which demand opposing physical states. The optimal split between them varies with workload, yet existing KVCache abstractions offer only storage semantics over a monolithic object of a single physical state, and cannot express dynamic load balancing. We propose InplaceKVCache, the first KVCache abstraction whose format fixes each byte's physical residency at write time, so that the CPU--GPU load balance can be adjusted without moving data after placement. It realizes this as a four-region layout along two dimensions---device affinity and access pattern---turning load balancing into pure scheduling. Built on this abstraction, WriteScope splits CPU--GPU shares along the sequence dimension, and a portable roofline performance model determines the optimal CPU share as sequence length evolves, with online feedback tracking CPU cost drift. On three MoE models (DeepSeek-V2-Lite, Qwen3-30B-A3B, Mixtral-8$\\times$7B) with a 32~GB VRAM budget, WriteScope supports end-to-end inference at the 1M-token aggregate scale. In the long-context regime ($\\ge$8K), it achieves geometric-mean speedups of $1.5\\times$--$2.5\\times$ on A100 and $1.4\\times$--$1.7\\times$ on V100 over four reproduced baselines, while vLLM, SGLang, and KTransformers fail even with a doubled KV budget. A DeepSeek-V4-Flash case study validates composition with native sparse attention.",
+        "authors": [
+            "Enda Yu",
+            "Dezun Dong",
+            "Xiangke Liao"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.14507v1",
+        "submit_date": "2026-09-13",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "offloading",
+            "serving"
+        ],
+        "tldr": "Addresses CPU-GPU load imbalance in MoE long-context inference by proposing InplaceKVCache with partitioned residency and WriteScope scheduler. Achieves 1.5×–2.5× geometric-mean speedups on A100 over baselines for 1M-token contexts.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14356v1": {
+        "title": "Color Complexity of Recolorable Graph Exploration: Upper and Lower Bounds via Block Structure",
+        "link": "http://arxiv.org/abs/2609.14356v1",
+        "abstract": "We study exploration of anonymous, port-free graphs by a single agent with no internal memory. To compensate for the lack of memory, the agent uses writable vertex colors as external memory. From every starting vertex, the agent must visit all vertices, return to its start, and terminate there. Throughout, recoloring is unrestricted, and the color count includes the common initial color. However, to our knowledge, no nontrivial color lower bound was known for unrestricted recoloring. We determine the optimal number of colors on two classes defined by block structure and prove the first nontrivial color lower bounds for unrestricted recoloring. First, a single three-color algorithm explores every tree and every simple cycle in $O(n)$ moves, and no algorithm with at most two colors explores $P_3$, the path on three vertices. Second, we give a four-color algorithm that explores every graph whose blocks are cycles or complete bipartite graphs in $O(n)$ moves, and we prove that no algorithm with at most three colors explores all subcubic pseudotrees. Hence four colors are optimal for every class between subcubic pseudotrees and this block-defined class. On cacti, this improves the previous five-color upper bound to a tight four. The lower bound reduces the possible initial actions by hand and rules out the remaining cases by a machine-checked SAT certificate on nine graphs with at most five vertices. Finally, we extend the known five-color algorithm for triangle-free graphs to graphs whose blocks are cliques or triangle-free, using $O(nΔ)$ moves, where $Δ$ is the maximum degree.",
+        "authors": [
+            "Shoma Hiraoka",
+            "Shunsuke Imori",
+            "Shota Takahashi",
+            "Yuichi Sudo"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2609.14356v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14306v1": {
+        "title": "Flattening Every Memory Peak in Long-Context Mixture-of-Experts Training",
+        "link": "http://arxiv.org/abs/2609.14306v1",
+        "abstract": "Training a Mixture-of-Experts (MoE) model at long context or large batch size fails as soon as any one component's peak allocation exceeds device memory, so the target is every peak at once, not the average footprint. Four are left unbounded by the parallelism plans in common use, and each grows differently: expert dispatch with the routing matrix, the vocabulary projection with tokens times vocabulary, gradient checkpoint boundaries with depth times sequence length, and optimizer state with parameter count. Which one runs out first changes with the model, the context length, and the device count, so lowering the largest only exposes the next. We bound all four with schedules whose GPU working set is fixed at launch: PipelinedLLEP extends least-loaded expert parallelism with a cap on the tokens each source contributes to a dispatch chunk, Ring-DTP circulates activations or weight shards around a ring at the vocabulary projection and folds each block of logits into an online log-sum-exp, Selective checkpoint offload (SCO) keeps the one long-lived tensor of each checkpoint boundary in CPU memory, and OffloadStreamAdamW turns the serial CPU Adam update of optimizer offload into a bucket pipeline. All four change only the order and granularity of computation and data movement, so the loss and gradients stay exact. In matched component tests, they cut the MoE dispatch peak by up to $59.3\\%$ without losing throughput, the vocabulary projection peak by $86.6\\%$, and the offloaded optimizer step by $2.05\\times$ faster. Composed on MoE models from 120B to 667B parameters, they train at 1M context length, $8$--$32\\times$ the reach of a tuned FSDP2 baseline, and up to $10.4\\times$ its throughput.",
+        "authors": [
+            "Shrey Pandit",
+            "Xuan-Phi Nguyen",
+            "Yiran Zhao",
+            "Shafiq Joty"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14306v1",
+        "submit_date": "2026-09-13",
+        "relevant": true,
+        "tags": [
+            "training",
+            "MoE",
+            "offloading"
+        ],
+        "tldr": "Addresses memory peaks during Mixture-of-Experts (MoE) training at long context lengths. Proposes PipelinedLLEP, Ring-DTP, selective checkpoint offload, and OffloadStreamAdamW to bound GPU memory usage and maintain exact gradients. Achieves up to 59.3% dispatch peak reduction, 86.6% vocab projection peak reduction, and 10.4x throughput at 1M context length.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14246v1": {
+        "title": "Joint Optimization for Federated Learning and Transmission over Unreliable Wireless Networks with Heterogeneous Data",
+        "link": "http://arxiv.org/abs/2609.14246v1",
+        "abstract": "In wireless federated learning (FL), data heterogeneity and multiple local updates induce client drift, degrading model convergence. It is further affected by unreliable wireless links, as transmission errors may invalidate model updates. To address these challenges, we propose a federated random walk averaging (FedRW) framework, which is a variant of federated averaging (FedAvg) that mitigates data heterogeneity by updating models along random walk (RW) paths and aggregating them at the server. Model parameters are transmitted in packets with retransmission support to improve training quality by mitigating wireless errors along RW paths. Meanwhile, wireless transmission delays hinder the exploration of FedRW. To this end, we formulate a joint optimization problem that integrates learning, RW path selection, and transmission parameter tuning, aiming to minimize the training loss under delay constraints. By deriving an upper bound on the expected convergence of FedRW over unreliable wireless networks, we reduce the problem to a general form agnostic to task type and model architecture. A distributed solution is then proposed, in which the server or clients optimize packet size and maximum number of retransmissions locally, and efficiently select reliable and expandable next-hop nodes via a resilience-aware beam search with dynamic pruning. Simulation results show that FedRW achieves 2.26%-9% higher accuracy than state-of-the-art baselines under high data heterogeneity. Furthermore, the jointly optimized FedRW yields at least 2.78% higher accuracy and faster convergence compared to baselines.",
+        "authors": [
+            "Changheng Wang",
+            "Xianchao Zhang",
+            "Zhiqing Wei",
+            "Lingzhu Zhao",
+            "Zhongming Yang",
+            "Zhiyong Feng"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.14246v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14237v1": {
+        "title": "OpWeave: Flexible Operator Disaggregation for Heterogeneous LLM Serving",
+        "link": "http://arxiv.org/abs/2609.14237v1",
+        "abstract": "LLM serving systems increasingly disaggregate inference into finer-grained stages, with recent approaches separating attention from FFN or MoE execution during decode. This operator-level disaggregated serving (ODS) can improve hardware matching and enable independent scaling, particularly across heterogeneous devices. However, existing systems fix operator boundaries and lack a unified characterization of when disaggregation reduces serving cost. We present OpWeave, an end-to-end framework for heterogeneous ODS. OpWeave provides an analytical cost model that bounds the gains of homogeneous and heterogeneous ODS over colocated serving. It jointly optimizes operator partitioning and deployment configuration through a regularity-aware planner that keeps the search tractable even for hybrid-attention models. A vLLM-based runtime executes the synthesized plans with flexible operator stages across heterogeneous device groups. In our evaluation, OpWeave reduces serving cost by up to $1.78\\times$ on homogeneous and $1.89\\times$ on heterogeneous GPU clusters relative to the best feasible baseline, while meeting latency SLOs.",
+        "authors": [
+            "Zikun Li",
+            "Yixuan Mei",
+            "Shiqi Pan",
+            "Zixuan Chen",
+            "Xiaowen Zhang",
+            "Mengdi Wu",
+            "Shuhuai Lin",
+            "Yutong Yang",
+            "Zhihao Zhang",
+            "Xupeng Miao",
+            "Rashmi Vinayak",
+            "Zhihao Jia"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.14237v1",
+        "submit_date": "2026-09-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "disaggregation",
+            "scaling"
+        ],
+        "tldr": "Proposes OpWeave for cost-efficient LLM serving via flexible operator disaggregation. Designs an analytical cost model and regularity-aware planner to optimize partitioning across heterogeneous devices. Achieves up to 1.89x cost reduction on GPU clusters while maintaining SLO adherence.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14213v1": {
+        "title": "Partition-Aware Scheduling for Mobile Heterogeneous Inference Co-Execution",
+        "link": "http://arxiv.org/abs/2609.14213v1",
+        "abstract": "Modern mobile inference runs on heterogeneous platforms combining mobile GPUs with multiple CPU core clusters. Existing optimizations typically exploit either inter-operator parallelism, by assigning entire operators to CPU cores or to the GPU, or intra-operator parallelism, by partitioning each operator for CPU-GPU co-execution. We consider these two forms of parallelism together, to improve inference latency of tasks that can be represented by a static DAG of operators with predefined input/output tensor shapes (e.g., CNNs or vision transformers). We define the problem of partition-aware DAG scheduling for mobile heterogeneous inference, illustrating that the best strategy depends on the structure of the inference DAG, thus motivating a joint formulation capturing operator partition choices, device assignment, and execution order. We propose an online iterative search framework, which decomposes large DAGs into stages, focuses search on critical operators, and uses latency predictors to estimate partitioned execution without exhaustive profiling. Across representative mobile inference workloads, our approach achieves latency close to an offline solution while keeping scheduling overhead to a fraction of the model initialization cost, allowing platform-specific scheduling at deployment time.",
+        "authors": [
+            "Zhuojin Li",
+            "Marco Paolieri",
+            "Leana Golubchik"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.14213v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14211v1": {
+        "title": "ECAS: An Edge-Controlled Agentic System for Validation-Gated Scientific Application Execution",
+        "link": "http://arxiv.org/abs/2609.14211v1",
+        "abstract": "Scientific applications increasingly rely on high-performance computing (HPC), yet translating a scientist's high-level goal into a correct target-scale execution remains brittle and labor-intensive. Large language model (LLM) agents promise to automate this, but two obstacles remain: granting a cloud-hosted model direct HPC access exposes credentials and execution authority, while withholding it demands continuous human supervision; and one-shot generation cannot adapt when generated artifacts fail in a site-specific HPC environment. We present \\textsc{ECAS}, an \\textbf{E}dge-\\textbf{C}ontrolled \\textbf{A}gentic \\textbf{S}ystem for closed-loop execution of scientific computing campaigns with limited human intervention. \\textsc{ECAS} separates \\emph{reasoning}, \\emph{control}, and \\emph{execution}: a cloud-hosted LLM proposes plans, artifacts, and repairs; a user-controlled edge agent retains credentials, workflow state, and execution authority while enforcing policy and resource constraints; and the HPC system computes. Its core mechanism is \\emph{validation-gated execution}: generated artifacts pass static checks and small-scale validation, failures trigger repairs from sanitized execution feedback, and target-scale execution is permitted only after validation and policy checks pass. \\textsc{ECAS} also draws on an edge-resident library of expert-distilled, site-specific skills that is never disclosed to the cloud. In preliminary experiments with three scientific applications on two production ALCF systems under six injected fault types, closed-loop repair improves application success from 0/6 to 6/6 over one-shot generation, validation gating prevents all three observed target-scale failures, and skill conditioning improves success from 4/6 to 6/6. These results show the feasibility of delegating adaptive reasoning to the cloud while retaining execution control at the edge.",
+        "authors": [
+            "Baixi Sun",
+            "Mingze Xia",
+            "Huihuo Zheng"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.14211v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14123v1": {
+        "title": "Grouper: Scheduling Groups for Multi-Tenant Microsecond-Scale Microservices",
+        "link": "http://arxiv.org/abs/2609.14123v1",
+        "abstract": "Microsecond-scale core allocation makes colocating latency-critical services with batch work worthwhile. A thread that finds no work parks within microseconds and its core goes to a batch task. Putting one back costs $\\sim$18 $μ$s, as the allocator must discover that a core is wanted and then take it from the batch task holding it. A monolith pays that tax once per request, a microservice chain pays it at every hop in both directions, and a multi-tenant host multiplies it again, because every tenant's hops queue at the same allocator. On our port of DeathStarBench's hotelReservation, going from two tenants to ten takes a hop from 39 to 222 $μ$s and a 10-RPC path's median from 456 to 2,445 $μ$s, a fivefold degradation even though no tenant's own load changed.\n  We introduce Grouper and the scheduling group, a set of isolated runtimes that the allocator treats as one allocation and accounting unit, whose members may hand cores directly to one another. A service sending an RPC donates its core to the peer through an unprivileged kernel fast path, so the core follows the request through the call graph. The allocator retains control through reconciliation, core-addressed revocation and a pooled budget but leaves the critical path; its load falls from $Θ(R \\cdot H)$ to $Θ(R)$ in request rate $R$ and hop count $H$. Over a grid of two to ten tenants at 1,000-30,000 requests per second each, Grouper outperforms Caladan (the allocator Junction also builds on) and Linux by up to 7.9$\\times$ and 3.4$\\times$ at the median and 4.1$\\times$ and 14.2$\\times$ at the tail, and leaves batch work more throughput than Caladan at over 70% of load points.",
+        "authors": [
+            "Koosha Kazemi",
+            "Mohammad Siavashi",
+            "Ahmad Siavashi",
+            "Mohammad Izadi"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14123v1",
+        "submit_date": "2026-09-12",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14117v1": {
+        "title": "DQN-Scheduler: A Multi-Objective Optimization Framework for Scheduling Microservices in Cloud Computing",
+        "link": "http://arxiv.org/abs/2609.14117v1",
+        "abstract": "Cloud computing has emerged as an information technology solution, providing software and infrastructure solutions for companies and individuals. The pay-as-you-go approach has increased demands for the cloud. The massive range of resources, the variety of services, and flexible pricing grab attention. In addition, microservices have emerged as a new way of building software, with applications developed as loosely dependent tasks. Additionally, container technology has boosted the popularity of microservices by offering a platform for this type of architecture. Containers and microservices improve the flexibility and scalability of cloud applications. There are two primary types of microservices: batch and online services, with the majority of applications falling into the online service category. Scheduling microservices is challenging because it requires careful management of resource utilization, load balancing, network latency, reliability, and availability. In this study, we introduce the DQN-Scheduler, a novel reinforcement learning-based agent designed to optimize microservice scheduling in cloud environments. Our approach aims to optimize multiple scheduling objectives simultaneously, such as resource utilization, load balancing, latency, reliability, and availability. To our knowledge, this is the first framework to address all these objectives simultaneously. The DQN-Scheduler was tested against benchmark algorithms in the field. The experimental results demonstrate that the DQN-Scheduler outperforms benchmark algorithms.",
+        "authors": [
+            "Abdullah Alelyani",
+            "Amitava Data",
+            "Ghulam Mubasher"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14117v1",
+        "submit_date": "2026-09-12",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14040v1": {
+        "title": "Reducing Cold-Start Latency in Serverless Applications via Dynamic Slicing",
+        "link": "http://arxiv.org/abs/2609.14040v1",
+        "abstract": "We present PyXtrim, a system that reduces the cold-start latency of serverless applications through debloating. We focus on Python, a dominant language for serverless applications whose dynamic features and extensive use of native extensions make traditional static debloating particularly challenging. PyXtrim frames debloating as a dynamic slicing problem, using the application's externally visible behavior as the slicing criterion. Everything outside the resulting slice is removed, both from the application and its dependencies. Our key technical contribution is that the slice is computed by a cross-language dynamic dependence engine that tracks data and control dependences across Python and native code and identifies operations that interact with the operating system, which form the slicing criterion.\n  As a result, PyXtrim can effectively handle real-world applications that rely on dynamic features such as reflection, interoperate with native code and interact with system resources. Across 31 applications on AWS Lambda, PyXtrim reduces cold-start latency by 21.7% and peak memory usage by 17.1% at the median. This is more than double the reduction achieved by the state of the art, while debloating each application in minutes.",
+        "authors": [
+            "Georgios Alexopoulos",
+            "Konstantinos Karakatsanis",
+            "Nikolaos Alexopoulos",
+            "Dimitris Mitropoulos",
+            "Thodoris Sotiropoulos"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PL",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2609.14040v1",
+        "submit_date": "2026-09-12",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14036v1": {
+        "title": "Real-World Deployment and Performance Characterisation of Fog-Based Deep Learning for Cold-Chain Temperature Prediction over LoRaWAN",
+        "link": "http://arxiv.org/abs/2609.14036v1",
+        "abstract": "Fresh fruits and vegetables (FFVs) are highly perishable, and cold-chain breaks contribute significantly to global food waste. While Machine Learning (ML) can enable proactive intervention, cloud-based inference faces challenges such as latency and data loss. Fog computing addresses these issues but has been tested only in simulation for FFV cold-chain temperature prediction. To the best of the authors' knowledge, this paper presents its first real-world deployment. A fog-deployed LSTM-GRU model predicted cold-room temperature using LoRaWAN sensor data collected from a South African apple cold-storage facility with induced cold-chain breaks. Running entirely on a Raspberry Pi 4 with no cloud dependency, the system generated conditional SHAP explanations only when a break is predicted. The deployed system predicts cold-room temperature with an MAE of 0.2°C at roughly 0.2 kWh per day (0.7 Wh per prediction). Predictions were delivered in under one second (555 ms), dominated by network and messaging rather than computation, with conditional explanations adding modest cost. SHAP consumes 28% more CPU but is well within the hardware's capacity. The model attributes its predictions primarily to temperature, humidity, and their interaction. Critically, the deployment surfaced what simulation cannot: a sensor-triggered single point of failure, alongside genuine resilience, autonomous recovery from infrastructure faults and continued operation through internet loss. These are the first published deployment benchmarks for fog-based temperature prediction in FFV cold chains, establishing that explainable temperature forecasting is feasible on resource-constrained edge hardware. Future work includes asynchronous sensor fusion, commercial cold chain deployment, alternative model architectures, and causal analysis.",
+        "authors": [
+            "Jeremiah Taguta",
+            "Jean Frederic Isingizwe Nturambirwe",
+            "Clement Nthambazale Nyirenda"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.14036v1",
+        "submit_date": "2026-09-12",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14017v1": {
+        "title": "Deterministic Temporal Reconciliation for Effective-Dated Identity Lifecycle Events",
+        "link": "http://arxiv.org/abs/2609.14017v1",
+        "abstract": "Identity lifecycle automation processes workforce changes that carry two distinct notions of time: when a business fact becomes effective and when an authoritative source last revised it. Corrections, cancellations, future-dated changes, duplicate delivery, and out-of-order arrival can therefore produce divergent account states when processors rely on transport order or effective time alone. This paper presents a deterministic temporal reconciliation method for effective-dated identity events. The method separates logical business facts from their physical revisions, deduplicates exact replays, selects the authoritative revision of each fact using transaction-time freshness, removes canceled facts, and then applies surviving facts in valid-time order. We establish permutation invariance, replay idempotence, revision dominance, and deterministic snapshot construction under explicit source assumptions. A reproducible synthetic fault-injection benchmark compares the method with arrival-order, effective-time, and transaction-time processing. Across 250,000 generated identity histories and 1,585,589 delivered records, the proposed method reconstructed the separately retained authoritative final state in all tested cases. At 75% delivery disorder, exact-state accuracy was 42.35% for arrival-order processing, 85.38% for effective-time sorting, 76.61% for transaction-time sorting, and 100% for the proposed method. A separate 40,000-permutation experiment produced the same final state for every tested permutation under the proposed reconciliation contract.",
+        "authors": [
+            "Pramod Ubbala"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.14017v1",
+        "submit_date": "2026-09-12",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13922v1": {
+        "title": "Minibatch persistency, eight years later: what batch reuse costs in steps and joules, and what it saves in data",
+        "link": "http://arxiv.org/abs/2609.13922v1",
+        "abstract": "Minibatch persistency reuses data instead of reading it: rather than drawing a fresh minibatch at every optimizer step, it takes K consecutive steps on the same one. Absorbed into data echoing in 2019, it has carried one objection -- that reuse merely imitates a larger learning rate -- and no baseline tuned as carefully as the method itself. This paper runs the missing test. A pre-registered study trains a 49M-parameter Transformer on FineWeb-Edu at minibatch size B in {32, 128, 512}, 8 seeds per cell, tuning the learning rate separately for every batch size and every arm, against a reuse-free control that changes the sampling and nothing else. Each headline claim is a cost to reach a fixed loss, read on four axes: optimizer steps, fresh tokens, seconds, and joules at the socket. We then replicate on new seeds and a newer GPU generation, and put the three arms on one schedule in steps. The outcome of our study is that what minibatch reuse buys is neither speed nor energy but data, and only at large minibatch size: at B = 32 it reads more fresh tokens than the baseline, not fewer. On steps, seconds and joules it is at best free; and at B = 512, where it looks best, a registered control cannot separate the effect of reuse from the position on the learning-rate schedule at n = 8 seeds. The technique is therefore worth using where fresh data rather than compute is the binding cost: a corpus that runs out, a pipeline that pays per sample, a stream that cannot be rewound. Where the data can simply be read again, spaced epochs do as well or better.",
+        "authors": [
+            "Matteo Fischetti"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.13922v1",
+        "submit_date": "2026-09-12",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13846v1": {
+        "title": "Affinity-Aware Sharding for Delayed Tensor Parallelism",
+        "link": "http://arxiv.org/abs/2609.13846v1",
+        "abstract": "Delayed Tensor Parallelism (DTP) removes the blocking all-reduce of tensor-parallel Transformer inference. Every device adds its own partial output to its residual stream (and broadcasts it) immediately, but only gathers (receives) the other devices' partials $δ$ modules later. A TP to DTP change therefore amounts to a real architecture change, and dense Transformer models need to be retrained or distilled after adaptation. We show that DTP breaks the permutation symmetry of neurons inside FFNs and of KV heads inside attention modules, and that this symmetry breakage makes the sharding itself a modelling decision. We show that maximising the affinity between the KV heads and the FFN neurons co-located on a device, by permuting the dense model before sharding, speeds up the distillation or retraining process. The affinity is measured with a first-order approximation of the damage that losing a head's contribution does to each neuron's output, and the co-located affinity is maximised with a coordinate-ascent optimiser that alternates an exact balanced assignment of neurons with an exhaustive search over the KV head partitions. The whole procedure takes under two minutes on one GPU for Qwen3-0.6B and Danube3-500M. On these models, at $δ=1$, the affinity-optimised layouts reach any distillation target in about half to two thirds of the steps needed by the naive contiguous layouts, over the whole 10k-step range we tested, and every optimised seed beats every contiguous seed and all but one of the sixteen random layouts. We also show that the co-located affinity score at initialisation predicts the KL to the base model after training, across seventeen layouts ranging from anti-optimised to optimised (Pearson $-0.81$ and $-0.89$).",
+        "authors": [
+            "Eloi de Reynal"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.13846v1",
+        "submit_date": "2026-09-12",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "training"
+        ],
+        "tldr": "Reduces distillation steps for adapting dense Transformers to Delayed Tensor Parallelism (DTP) inference with affinity-aware sharding, using model permutation and an optimizer for co-located affinity. On Qwen3-0.6B and Danube3-500M, achieves half to two-thirds the steps of naive layouts for any distillation target.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13645v1": {
+        "title": "ForgeTrain: Forging Production-Grade Training Frameworks via Harness-Driven AI Development",
+        "link": "http://arxiv.org/abs/2609.13645v1",
+        "abstract": "Training large models still relies on general-purpose frameworks such as Megatron-LM, whose generality tax constrains scenario-specific optimization and adds runtime overhead through accumulated abstraction. AI code generation reduces the cost of building a framework, and makes it affordable to forge one per scenario. We propose Forge Engineering: building a dedicated implementation from scratch for each scenario and iteratively optimizing it toward peak performance under correctness and usability constraints. Dedicated implementations inherit no abstraction boundaries, so they can integrate optimizations across the stack and reach a higher performance ceiling. We instantiate this paradigm for training frameworks as ForgeTrain, which holds a trusted framework as a golden reference and relaxes equivalence monotonically from Bit-for-Bit to Surpass. Experiments across multiple model--hardware configurations show that ForgeTrain consistently produces correct training engines and improves MFU over established training frameworks by 4.7--33.2%. To our knowledge this is the first production-grade training framework forged end-to-end by AI to match or surpass its human reference.",
+        "authors": [
+            "Qingfeng He",
+            "Zhui Zhu",
+            "Shangzhan Li",
+            "Yaojian Chen",
+            "Haojun Sun",
+            "Xu Chen",
+            "Leshan Li",
+            "Yifei Shen",
+            "Changjingxing Zhao",
+            "Mengyuan Fan",
+            "Wenyu Guan",
+            "Yiyun Zheng",
+            "Yuxuan Zuo",
+            "Zhen Li",
+            "Zhenghang Luo",
+            "Yuxuan Li",
+            "Xu Han",
+            "Zhiyuan Liu"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.13645v1",
+        "submit_date": "2026-09-12",
+        "relevant": true,
+        "tags": [
+            "training"
+        ],
+        "tldr": "Proposes ForgeTrain for AI-generated, scenario-specific training frameworks to overcome overhead from general frameworks like Megatron-LM. Uses harness-driven development with reference equivalence relaxation. Achieves up to 33.2% higher Model FLOPs Utilization (MFU) than existing systems.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13592v1": {
+        "title": "BOOST: Concurrent Access to Host Memory and HBM to Accelerate LLM Inference",
+        "link": "http://arxiv.org/abs/2609.13592v1",
+        "abstract": "GPU memory bandwidth and capacity limit throughput in large language model (LLM) inference. The GPU memory system consists of a primary tier of high-bandwidth memory (HBM) and a secondary tier of host memory connected via CPU-to-GPU interconnect. Current serving systems treat the tiers hierarchically: they serve exclusively from HBM when data fits, and otherwise prefetch data from host memory to HBM before use. In both cases, the host memory bandwidth is never well utilized. Prefetching expands capacity by utilizing host memory, but consumes HBM bandwidth for writes, reducing the bandwidth available for demand loads. We observe that fully utilizing both host and HBM bandwidth requires each wave of GPU threadblocks to access both tiers concurrently and in proportion to their bandwidth ratio. Existing bandwidth-proportional placement strategies fail to provide concurrency because they are not aware of GPU waves, and the large 2MB GPU page size.\n  This paper presents BOOST, the first runtime system that provides concurrent and proportional access to both GPU memory tiers, extracting the combined bandwidth of host memory and HBM for LLM inference without kernel changes. The key insight in BOOST is to use kernel access patterns to make page allocation and runtime data management wave-aware. For static model weights, BOOST applies modulo-based page placement that eliminates access-ratio variance; for dynamically provisioned attention key-value (KV) pairs, it makes the free KV page pool wave-aware. We integrate BOOST into vLLM and evaluate on a Grace Hopper system. At iso-batch size, BOOST improves Time-per-Output-Token (TPOT) by 4.3% over HBM-only serving, whereas prefetching degrades TPOT by 6%. In high-throughput serving, BOOST improves throughput by 31% on average, outperforming prefetching by 15%.",
+        "authors": [
+            "Anish Saxena",
+            "Jae Hyung Ju",
+            "Hritvik Taneja",
+            "Po-An Tsai",
+            "Aamer Jaleel",
+            "Christos Kozyrakis",
+            "Moinuddin Qureshi"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.13592v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Addresses underutilized host memory bandwidth in GPU inference systems. Proposes BOOST, a wave-aware runtime for concurrent access to HBM and host memory using modulo-based page placement and dynamic KV management. Achieves 31% higher throughput and 4.3% lower TPOT in vLLM.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13585v1": {
+        "title": "mKernel: Fast Multi-GPU, Multi-Node Fused Kernels",
+        "link": "http://arxiv.org/abs/2609.13585v1",
+        "abstract": "Communication has become a bottleneck in distributed training and inference of large models. Overlapping communication with computation at the granularity of kernels, on separate streams, reduces only part of this communication cost. Fused kernels often have better performance by transmitting each output tile as soon as it is produced, but existing fused kernels are largely confined to a single NVLink domain. We present mKernel, a library of multi-GPU, multi-node fused kernels that overlap computation, intra-node NVLink communication, and inter-node RDMA at tile granularity. mKernel partitions the streaming multiprocessors (SMs) of a persistent kernel into compute and communication roles, and an on-GPU controller tunes the SM partition adaptively at run time, since the best SM partition varies with the kernel and the input shape. It structures data movement hierarchically so that data traversing the inter-node network is minimized. Finally, it drives the network from the GPU through a lightweight command queue and host proxy implemented directly on RDMA verbs, which allows the same kernels to run on any network backend (e.g. InfiniBand and on AWS EFA); we observe, surprisingly, that GPUDirect Async (IBGDA) yields little additional benefit over host-assisted GPU-initiated communication. We implement five kernels spanning tensor, sequence, and expert parallelism. On two 16-GPU H200 clusters, mKernel achieves speedups of up to 1.72x on GEMM+AllReduce and $1.88\\times$ on Ring Attention.",
+        "authors": [
+            "Ziming Mao",
+            "Yihan Zhang",
+            "Shawn Wei Chew",
+            "Shuang Ma",
+            "Costin Raiciu",
+            "Yang Zhou",
+            "Scott Shenker",
+            "Ion Stoica"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2609.13585v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "training",
+            "kernel",
+            "networking"
+        ],
+        "tldr": "Addresses communication bottlenecks in distributed training and inference of large models. Proposes mKernel, a library of fused kernels overlapping computation and communication with adaptive SM partitioning and hierarchical data movement. Achieves up to 1.88x speedup on Ring Attention.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13571v1": {
+        "title": "Object Model Analysis of a Supercomputer with Digital Twin",
+        "link": "http://arxiv.org/abs/2609.13571v1",
+        "abstract": "Operators and developers need a mental model of both the structure and the live behavior of a large supercomputer, but its physical layout, logical organization, and streams of per-node telemetry are difficult to relate to one another, making it hard to trace a metric or event back to a specific hardware component. We present DAT, an interactive three-dimensional digital analytics twin of a compute cluster built in a real-time game engine, Unreal Engine. DAT expands a compact, parametric description of a supercomputer, a reusable Digital Twin Prototype (DTP), into a navigable Digital Twin Instance (DTI) that mirrors its physical containment hierarchy of racks, chassis, blades, and network links, encoding each node's role and health in its appearance, while a lightweight event-driven simulator animates job and hardware activity over a virtual clock. Our current implementation adds a two-path node-selection mechanism, unifying direct 3D pointing with command-shell queries, that opens an in-world visual-analytics panel beside any selected component showing summary statistics and live, time-varying metrics. We describe this architecture, report qualitative behavior from the working prototype, and outline the path toward driving the panels with recorded telemetry and in-situ anomaly detection.",
+        "authors": [
+            "Shilpika Shilpika",
+            "George K. Thiruvathukal",
+            "Venkatram Vishwanath",
+            "Michael E. Papka"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.13571v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13555v1": {
+        "title": "The Essence of Git: Concepts for P2P Replication",
+        "link": "http://arxiv.org/abs/2609.13555v1",
+        "abstract": "Git is most commonly known as a decentralized version control system. Underneath the surface, the design of Git exhibits an elegant object model and incremental replication protocols that have been used to build a variety of applications that go much beyond version control. In this paper, we survey those applications and show how application concepts have been mapped to Git concepts to show the latter's generality. We also show the connection between the Git commit history and the theory of distributed algorithms and convergent replicated data structures, suggesting that it approaches their essence. We finally compare to current peer-to-peer frameworks to establish the level of abstraction of the Git object model and peek at its potential universality. Throughout, we frame our discussion using the \\textit{conceptual design} approach proposed by Daniel Jackson.",
+        "authors": [
+            "Erick Lavoie"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.13555v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13544v1": {
+        "title": "PEAT: Pseudo-Error Assessment for GPU Kernel Validation in DNN Training",
+        "link": "http://arxiv.org/abs/2609.13544v1",
+        "abstract": "Deep neural networks (DNNs) are widely adopted in various fields, driving an emerging trend in developing software stacks associated with DNN training systems. For example, many codes have been ported across different frameworks or developed to leverage the computing power of GPUs or domain-specific accelerators. However, validating a kernel implementation in DNN training is time-consuming and generally requires massive storage. Specifically, this poses a fundamental question: how to characterize the behavior of a new implementation when it is integrated into a DNN training flow. Unfortunately, this problem is not well investigated in the literature, to the best of our knowledge. To address this shortcoming, we present PEAT - a lightweight inspection framework for \\underline{P}seudo-\\underline{E}rror \\underline{A}ssessment associated with GPU kernel validation in DNN \\underline{T}raining. Firstly, inspired by conventional fault injection (FI), PEAT's Profiler invokes an operation-wise kernel in a training flow to collect a DNN model's states (e.g., checkpoints and activations). More importantly, the Profiler introduces two simple yet effective techniques, playback FI and frequency-based runtime FI, leveraging persistent kernel calling during the training process. Secondly, PEAT's Analyzer characterizes profiled errors, revealing some signatures from the error distribution of a kernel compared to the golden one. Lastly, PEAT's Detector provides some guidelines as a sufficient condition, which enables associating several well-known error models with signature patterns. We demonstrate the applicability of our approach by presenting the results and analysis using GPUs from the two most popular vendors, NVIDIA V100 and AMD MI250, on various AI models, from vision tasks to language models, for both pretraining and finetuning scenarios.",
+        "authors": [
+            "Xuan Truong Nguyen",
+            "Hong Quan Tran",
+            "Tuan Duc Chu",
+            "Thanh Tuan Dao"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CE",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2609.13544v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13537v1": {
+        "title": "Dynamic HBM Repartitioning for Multi-Turn MoE Serving",
+        "link": "http://arxiv.org/abs/2609.13537v1",
+        "abstract": "Long-running multi-turn requests accumulate reusable key-value (KV) state. Once this state exceeds a fixed GPU KV-cache allocation, serving systems evict reusable prefixes, repeat prefill work, and may preempt requests. This pressure is particularly acute for Mixture-of-Experts (MoE) models: their expert weights occupy most GPU high-bandwidth memory (HBM), even though each token activates only a sparse subset of experts. A static boundary between weights and the KV cache prevents serving systems from using expert memory to preserve reusable state as conversations grow.\n  We present VAMP, an MoE serving framework that changes this HBM boundary at runtime. When a KV allocation cannot be satisfied, VAMP compares the estimated future work of three alternatives: staging expert weights from host memory, evicting cached prefixes that may require re-prefill, or preempting and rescheduling requests. It then converts a bounded expert-weight region into KV-cache capacity when that action has the lowest estimated penalty. CUDA Virtual Memory Management page remapping performs this conversion without copying resident KV data.\n  We implement VAMP in the vLLM serving engine and evaluate Qwen3-Next-80B on recorded and controlled multi-turn workloads. Across five replays of a recorded 2,103-turn SWE-bench agent workload, VAMP with a 15% maximum expert-offloading ratio reduces time-to-first-token (TTFT) p90 from 26.1 s to 1.10 s (23.6 times) and increases request throughput by 20.7% relative to unmodified vLLM, while increasing time per output token (TPOT) by 31.1%.",
+        "authors": [
+            "Jinpyo Kim",
+            "Mingi Kwon",
+            "Younghoon Min",
+            "Jongryool Kim",
+            "Jishen Zhao"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.13537v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Addresses memory inefficiency in multi-turn MoE serving due to fixed KV-cache allocations. Proposes VAMP, a framework for dynamic HBM repartitioning via CUDA virtual memory. Achieves 23.6x lower TTFT p90 and 20.7% higher throughput versus vLLM.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.10812v2": {
+        "title": "ExaServe: Large-Scale LLM Serving on Exascale HPC Systems",
+        "link": "http://arxiv.org/abs/2609.10812v2",
+        "abstract": "Cloud-native LLM serving frameworks have made deployment routine in data centers, yet deploying them on leadership-class supercomputers remains an engineering challenge requiring scheduler integration, MPI launch, accelerator selection, node-local weight staging, and platform-specific patches. We present ExaServe, a pip-installable framework that transforms a declarative YAML specification into a reproducible large-scale LLM serving deployment. Using ExaServe, we deploy LLM serving on ALCF Aurora from 1 to 256 nodes (3072 vLLM replicas). Non-streaming inference scales nearly linearly to 256 nodes, reaching 27.1k requests/s (3.8M tokens/s). Token streaming scales differently: a centralized proxy plateaus at about 4.7k requests/s despite the model servers remaining within the service-level objective. We also identify an O(N^2) Ray Serve control-plane bottleneck that increases cluster bring-up to roughly 30 minutes at 256 nodes. ExaServe provides a practical, reproducible deployment path while exposing key barriers to future exascale LLM serving.",
+        "authors": [
+            "Wenyi Wang",
+            "Shu Shi",
+            "Yadu Babuji",
+            "Ian Foster",
+            "Kyle Chard"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.10812v2",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Addresses deploying scalable LLM inference on exascale HPC systems. Proposes ExaServe, a pip-installable framework that converts declarative YAML specifications to reproducible deployments. Achieves 27.1k requests/s (3.8M tokens/s) with near-linear scaling to 256 nodes for non-streaming inference.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13512v1": {
+        "title": "Adaptive Phase-Switching for Communication-Efficient Federated LoRA Fine-Tuning",
+        "link": "http://arxiv.org/abs/2609.13512v1",
+        "abstract": "Federated fine-tuning of large language models with low-rank adaptation reduces per-client trainable parameters, but client-to-server communication remains the dominant cost. Existing accounting for federated LoRA protocols omits the asymmetric transition round when a protocol changes aggregation mode, and reports savings that ignore grouped-query attention shapes. This paper measures per-round upload and download bytes for a bidirectional B-only federated LoRA protocol and places five methods, three from prior work, on a single communication-quality frontier. The frontier has a knee, which an adaptive phase-switching aggregator, ReverseAdaptive, locates by monitoring the relative improvement in global training loss against a dimensionless threshold rather than by fixing a phase boundary in advance. On TinyLlama-1.1B-Chat with Alpaca, ReverseAdaptive attains 40.5 percent measured round-trip savings over FLoRA at a held-out instruction-following loss cost of 0.0063. It outperforms FFA-LoRA, which freezes the first of the two LoRA factors at initialization, by 0.0182 in held-out loss, more than twenty times the largest per-method seed standard deviation on that metric, so learning that factor before freezing it produces better adapters. The same threshold transfers across model scales without retuning, and the quality cost of the transition is stable across the two datasets tested.",
+        "authors": [
+            "Jerry Adams Franklin"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.13512v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "training",
+            "LoRA"
+        ],
+        "tldr": "Proposes ReverseAdaptive for federated LoRA fine-tuning to cut communication costs by adaptively switching phases based on loss improvement. Achieves 40.5% round-trip savings over FLoRA with only 0.0063 instruction-following loss increase.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13452v1": {
+        "title": "COMPASS: Steering Distributed Vector Search with Scientific Knowledge Graphs",
+        "link": "http://arxiv.org/abs/2609.13452v1",
+        "abstract": "Vector databases use hashing to partition data across \"shards,\" logical units for distributed execution. This placement, however, destroys semantic locality, forcing each query into scatter-gather limited by the slowest shard. Vector-space clustering can help, but scientific evidence is often connected by factual relations that do not align with embedding distance. We present COMPASS, a framework that uses a knowledge graph (KG) to determine data placement and query-time shard selection. COMPASS detects communities, splits oversized communities, inserts embeddings by subject entity, and routes queries to a small set of shards. Across four biomedical KGs, our method searches only 13-18% of the corpus while preserving broadcast recall and recovering up to 2.6x more multi-hop evidence than an embedding-based baseline. On 15 HPC nodes, COMPASS sustains 7.9x higher throughput with lower tail latency than hash-based broadcast. These results show that KG structure provides a compact complement to embedding geometry for scalable vector search.",
+        "authors": [
+            "Song Young Oh",
+            "Amal Gueroudji",
+            "Seth Ockerman",
+            "Rob Latham",
+            "Orcun Yildiz",
+            "Ian Foster",
+            "Kyle Chard",
+            "Robert Ross"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.13452v1",
+        "submit_date": "2026-09-11",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14631v1": {
+        "title": "LLM Agent Capabilities Should Follow Task Intent and Context Source",
+        "link": "http://arxiv.org/abs/2609.14631v1",
+        "abstract": "LLM agents take real actions, including executing code, modifying files, calling services, and delegating tasks, driven by context sources: user requests, tool results, documents, shell outputs, Skill and MCP instructions, memory. Unlike traditional systems, where capability is predefined, the least-privilege capability an agent needs is dynamic, depending on its task intent: what it wants to do and how. This creates a security and safety challenge: all inputs enter one shared planning channel with equal influence, by adversarial injection or accidental scope widening, yet a user's explicit request and a document's extracted text carry different trust and should not share authority to choose a destination or widen access. Existing defenses constrain operations and information flow; we study task-scoped, multi-source authority composition.\n  We argue that agent capabilities should be scoped to the current task intent, not a sandbox or session lifetime, and that no single context source defines a complete capability. IntentCap composes capabilities from four such sources: user intent, workflow instructions, tool schemas, and runtime environment, with field-level ownership and monotonic narrowing. Each source contributes specific fields, none can fill another's, and the lease only narrows the user's authorized authority, never widens it. IntentCap uses an LLM to generate short-lived leases from these sources, validated by a deterministic checker before any side effect commits and enforced by tool- and OS-level information flow policies. Evaluation shows IntentCap blocks tested violations without rejecting benign actions, each source boundary is independently necessary, and the checker generalizes across tool, execution, placement, and delegation boundaries.",
+        "authors": [
+            "Yusheng Zheng",
+            "Wenhui Zhang",
+            "Yu Mao"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.14631v1",
+        "submit_date": "2026-09-13",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.13728v1": {
+        "title": "TyPatch: Transforming Patches into Typestate Rules for Kernel Bug Detection",
+        "link": "http://arxiv.org/abs/2609.13728v1",
+        "abstract": "Historical Linux kernel patches capture defect knowledge that applies beyond their original repair sites. Recent work has shown that large language models (LLMs) can generate static-analysis checkers from historical patches and use them to uncover new kernel bugs. However, complete-checker generation requires the model both to recover the defect semantics expressed by a patch and to implement sophisticated program-analysis machinery, including object tracking, alias analysis, path-state maintenance, and interprocedural propagation. Coupling these responsibilities in a single end-to-end code-generation task can turn a simple defect rule into an unstable and expensive analyzer-implementation problem.\n  To address this problem, we present TyPatch, which decouples patch-specific defect semantics from analyzer implementation. An LLM translates each patch into a typestate rule specifying its tracked object, actions, guards, transitions, and violations. A shared backend then executes these rules, binding their actions to program events, tracking object identity across aliases, propagating typestate along program paths, and producing reports for all rules. On Linux v6.16, TyPatch finds 559 distinct bugs, 121 of which have been confirmed by kernel developers. In a matched 38-patch comparison with the state-of-the-art complete-checker construction workflow, TyPatch uses 88.3-90.1% fewer generation tokens, while its initial report pools achieve 3.42-14.95$\\times$ the precision of those produced by that workflow.",
+        "authors": [
+            "Ruoyu Wang",
+            "Tuo Li",
+            "Jia Li"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.AI",
+            "cs.CR",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.13728v1",
+        "submit_date": "2026-09-12",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.12978v1": {
+        "title": "SeqMoE: Toward Full-Load Performance via Predictive and Graph-Compatible MoE Offloading",
+        "link": "http://arxiv.org/abs/2609.12978v1",
+        "abstract": "Mixture-of-Experts (MoE) creates a structural advantage for offloading: only a small fraction of activated experts need to reside in device memory, and if they can be loaded in time for computation, offloading can in principle approach full-load performance, where all model weights reside in device memory. Yet translating MoE's structural advantage into practical offloading gains remains challenging. We propose SeqMoE to bridge this gap. To maximize expert hits, we build predictive memory management: (i) Sequence-to-sequence prediction. We are the first to recast expert activation prediction as sequence modeling, enabling accurate multi-step, multi-layer forecasts that provide a long and reliable window for downstream decisions. (ii) Joint prefetch scheduling. We formulate prefetch scheduling as Job Sequencing with Deadlines to maximize expected expert hits and improve bandwidth efficiency. (iii) Forecast-driven caching. Leveraging the recursive nature of sequence modeling, we introduce a probabilistic Belady policy for future-aware eviction. To eliminate execution bottleneck, we develop (iv) Graph-compatible offloading runtime. We derive general runtime principles encompassing compute-transparent expert placement and synchronization-free orchestration disciplines for end-to-end graph capture. With 45% expert residency, SeqMoE averages a 96.97% hit rate and 80.22% of full-load performance, advancing the state of the art in MoE offloading.",
+        "authors": [
+            "Zihan Wang",
+            "Yuqi Wang",
+            "Lei Gong",
+            "Cheng Tang",
+            "Wenqi Lou",
+            "Teng Wang",
+            "Chao Wang",
+            "Xuehai Zhou"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.12978v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "offloading",
+            "serving"
+        ],
+        "tldr": "Addresses MoE offloading to approach full-load performance. Develops predictive sequence modeling for expert activation forecasts and graph-compatible runtime for efficient computation. Achieves 80.22% of full-load performance with 45% expert residency and a 96.97% hit rate.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.12597v1": {
+        "title": "Invisible Yet Dominant: Big Stalls of Kernel I/O Mechanisms in Cloud OLTP Databases",
+        "link": "http://arxiv.org/abs/2609.12597v1",
+        "abstract": "Most databases, including PostgreSQL, RocksDB, and recent AI KV-cache middleware, rely on buffered I/O, delegating write-back to the Linux kernel. On the distributed block storage standard in the cloud, this delegation inherits a hidden bottleneck: each device is drained by a single kernel flusher thread over a high-latency, shallow-queue path. When the drain falls behind, dirty throttling pauses write() system calls, and even reads that must evict dirty pages stall. These stalls are invisible to iostat and every standard counter. This poster observes the stall from inside the kernel, using the multi-volume data placement proposed in SteelDB as the experimental lever. eBPF probes on writeback and block tracepoints separate write-back by issuing context and count every throttle pause. Across three configurations with identical provisioned IOPS and bandwidth but 1, 2, and 4 devices, we show that adding drains, not bandwidth, cuts throttle pauses by 70%, reduces maximum transaction latency by 59%, and raises throughput by 23%.",
+        "authors": [
+            "Mitsumasa Kondo"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.12597v1",
+        "submit_date": "2026-09-11",
+        "relevant": true,
+        "tags": [
+            "storage",
+            "offloading"
+        ],
+        "tldr": "Addresses kernel I/O stalls in buffered I/O systems affecting databases and AI KV-cache middleware. Uses eBPF probes and multi-volume data placement to add write-back drains. Achieves 70% fewer throttle pauses, 59% lower max latency, and 23% higher throughput.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.12276v1": {
+        "title": "AKTS: Sub-Microsecond Kernel Policy Switching for Language-Model Agents",
+        "link": "http://arxiv.org/abs/2609.12276v1",
+        "abstract": "GPU-backed LLM servers often multiplex interactive requests with background batch work on the same CPUs. During a request burst, the scheduler should protect time-to-first-token; between bursts, it should let background work make progress. A fixed kernel policy leaves one of these objectives on the table, so agentic OS control needs a way to switch scheduler behavior as the workload changes. The hard part is not deciding that a switch is useful, but applying it safely and fast enough for the kernel. Scheduler events occur every 1-10 $μ$s, and any code that runs there must satisfy the eBPF verifier. Scalar knobs are fast but expose only limited policy behavior, while generating new eBPF policy code is expressive but puts compilation, verification, loading, and possible verifier rejection on the runtime path. We present AKTS, which verifies a policy library once, at load time, and reduces the agent's runtime action to writing an integer index into an in-kernel array of preverified policies. An in-kernel tail call resolves that index. Because the agent emits an index rather than code, verifier failure is not a runtime outcome. On Linux 6.14, AKTS applies a policy switch in 920 ns (p50), matching scalar writes while switching whole policies; makes an invalid index inert across 60,217 invocations on an attached scheduler; and switches policies in a vLLM workload to capture 97% of a throughput policy's batch work while matching a latency policy's burst response.",
+        "authors": [
+            "Mohammadali Khodabandehlou",
+            "Mahdi Alizadeh"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.12276v1",
+        "submit_date": "2026-09-10",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "kernel",
+            "scaling"
+        ],
+        "tldr": "Proposes AKTS for sub-microsecond kernel policy switching to optimize LLM server CPU scheduling between interactive bursts and background work. It uses preverified policy indices for fast switching without runtime verification, achieving 920 ns switch time and 97% batch throughput capture while matching burst latency.",
+        "indexed_date": "2026-09-16"
     }
 }
