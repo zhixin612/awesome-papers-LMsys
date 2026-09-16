@@ -161734,5 +161734,297 @@
         ],
         "tldr": "Proposes AKTS for sub-microsecond kernel policy switching to optimize LLM server CPU scheduling between interactive bursts and background work. It uses preverified policy indices for fast switching without runtime verification, achieving 920 ns switch time and 97% batch throughput capture while matching burst latency.",
         "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.17464v1": {
+        "title": "Decomposition Buys Integrity, Not Yield",
+        "link": "http://arxiv.org/abs/2609.17464v1",
+        "abstract": "Multi-agent systems split a task across a tree of agents and justify the split with folklore: smaller contexts, cleaner separation, parallelism. We ask what the split does to how much of what the leaves discover reaches the root. Model a decomposition as a tree in which an agent handed $b$ items keeps any one with probability $r(b)$. If $r(b)=1/b$, every tree delivers exactly one finding, for every task size and every shape; we verify this to $2.4 \\times 10^{-15}$ on 20,000 random irregular trees. If $r(b)=Cb^{-δ}$, a depth-$k$ tree over $N$ findings yields $C^k N^{1-δ}$: task size and architecture separate, and architecture contributes only $C \\le 1$ per level, so flat is optimal for yield and no arrangement of agents escapes the exponent $δ$. On 600 production deep-research traces $δ= 0.34$ [0.30, 0.38], by three identifications that do not share a failure mode. At a hop where item boundaries come from the tool rather than a text heuristic, and where $b=1$ occurs 550 times, $C = 0.571$ [0.527, 0.615] is observed rather than extrapolated, over 16,082 hops. A tier also costs alignment: on 1,012 annotated multi-agent traces one brief in sixteen goes off-target, giving $μ= 0.939$ and a per-tier penalty $Cμ= 0.536$. Depth is bought on two other axes. The root context is the only state that persists and the only one that cannot cheaply forget, and depth cuts its exposure from $N$ items to $N^{1/k}$. Depth is also cheaper: production flat agents bill as $N^{1.39}$, not the $N^2$ an append-only context predicts, and at equal spend two tiers overtake flat at 403 findings. Across every parameter we measured the model says 0.7% to 11.3% of production sessions are worth delegating, against 7.8% that do. A hazard model on 743,819 production tool calls finds that delegation does not respond to a filling context and is instead an opening move.",
+        "authors": [
+            "Rong He"
+        ],
+        "categories": [
+            "cs.MA",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.17464v1",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.17185v1": {
+        "title": "DS2-Based Cross-Data-Space Interoperability for Precision Agriculture",
+        "link": "http://arxiv.org/abs/2609.17185v1",
+        "abstract": "Despite the strategies of modern precision agriculture to leverage the integration of legacy agricultural systems, the challenges of IoT data fragmentation, farmers' sovereignty preservation, and limited interoperability still persist. This paper presents our work, conducted within the Horizon Europe DS2 project (DataSpace, DataShare 2.0), that applies an interoperability-oriented framework supporting participants of different agricultural data spaces to share data products and services under secure, sovereign, and transparent methods. The suggested methodology follows a layered reference architecture, where each layer consists of independent operational modules that facilitate the inter-sector data exchange between DigiAgro and AgroScience Data Spaces. The result of this work is an automated ecosystem for sharing diverse farm IoT measurements, satellite images and metrics, weather forecasts, and analytics services across distinct data spaces, aiming to generate accurate recommendations on crop practices, such as irrigation schedules, that farmers and agronomists will rely on to increase crop production while maintaining sustainability.",
+        "authors": [
+            "Katerina Kyriakou",
+            "Ilias Syrigos",
+            "Ioannis Moutsinas",
+            "Panagiotis Tzimotoudis",
+            "Thanasis Korakis"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.17185v1",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.17074v1": {
+        "title": "Byzantine Reliable Broadcast with Causal Ordering",
+        "link": "http://arxiv.org/abs/2609.17074v1",
+        "abstract": "Reliable and total-order broadcasts in the Byzantine-fault model are well studied, but adding causal order has received comparatively little attention, largely due to the complexity that stems from actions of Byzantine processes. Existing solutions almost exclusively build causal ordering on top of total-order broadcast. The combination of causal order with reliable broadcast remains rare, and the few solutions that exist adopt the classical definition of causality based on events occurring at individual processes (the happened-before relation). This definition is not sufficient to enforce causal ordering among broadcast messages: Byzantine processes can lie about, omit, and forge dependency information and thereby violate the causal order among self-reported events. Such manipulations remain indistinguishable from correct behavior to any single observer. We demonstrate the issue and its consequences via a front-running attack.\n  To close this gap, we extend the notion of reliable broadcast to externalize local potential knowledge. We use this to formalize the first complete definition of causal message ordering in reliable broadcast under Byzantine faults. Unlike the classical formalization, this notion is grounded in the joint observations of a sufficiently large group of correct processes rather than a process's own view. Building on this definition, we characterize the properties of a Byzantine reliable broadcast channel that guarantees causal ordering. We then present an efficient protocol that satisfies these properties: it is resilient to the optimal number of $f < n/3$ Byzantine faults and for one instance that broadcasts payload message~$m$, it has bit complexity $O(n^2(|m| + λ+ n))$, where $λ$ denotes the maximal size of a unique (cryptographic) label for~$m$. Finally, we prove the protocol achieves Byzantine reliable broadcast with causal ordering.",
+        "authors": [
+            "Mariarosaria Barbaraci",
+            "Christian Cachin"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.17074v1",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16977v1": {
+        "title": "Structural Negative Transfer in Federated Graph Neural Networks: Diagnosis, Causal Investigation, and the Limits of Divergence-Aware Mitigation",
+        "link": "http://arxiv.org/abs/2609.16977v1",
+        "abstract": "Federated learning lets multiple participants train a shared model without pooling raw data, by exchanging locally trained model updates instead. Federated averaging assumes that averaging local models is a reasonable way to solve one shared problem when participants' data are broadly similar. Work on non-IID federated learning has shown that this assumption can withstand differences in label and feature distributions. We ask whether it survives a different strain specific to graph neural networks, where client graphs differ not in label or feature distribution but in structure itself, requiring the same shared weights to operate over fundamentally different topologies. We call the resulting harm structural negative transfer. In a federation of real citation networks and synthetic structural proxies, a structurally atypical client lost more than half its achievable accuracy simply by joining. In an initial six-client federation, two label-free structural statistics computable before training were strongly associated with this harm. Expanding to twenty clients showed that degree divergence remained associated with harm, although more weakly, and survived removal of domain contrast. Spectral divergence did not replicate, which we trace to a confound caused by the composition of the reference pool used for leave-one-out statistics. A causal intervention isolating topology found no significant effect. A degree-normalization mechanism held across twenty-four seeds but did not explain the harm when corrected. The best of five candidate fixes beat a tuned baseline only until a matched, structurally blind control was applied, after which the gain disappeared. What survives is a modest, partially replicated, degree-specific signal that is not yet a validated predictor at scale.",
+        "authors": [
+            "Chethana Prasad Kabgere",
+            "Shylaja SS"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.16977v1",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.14036v2": {
+        "title": "Real-World Deployment and Performance Characterisation of Fog-Based Deep Learning for Cold-Chain Temperature Prediction over LoRaWAN",
+        "link": "http://arxiv.org/abs/2609.14036v2",
+        "abstract": "Fresh fruits and vegetables (FFVs) are highly perishable, and cold-chain breaks contribute significantly to global food waste. While Machine Learning (ML) can enable proactive intervention, cloud-based inference faces challenges such as latency and data loss. Fog computing addresses these issues but has been tested only in simulation for FFV cold-chain temperature prediction. To the best of the authors' knowledge, this paper presents its first real-world deployment. A fog-deployed LSTM-GRU model predicted cold-room temperature using LoRaWAN sensor data collected from a South African apple cold-storage facility with induced cold-chain breaks. Running entirely on a Raspberry Pi 4 with no cloud dependency, the system generated conditional SHAP explanations only when a break is predicted. The deployed system predicts cold-room temperature with an MAE of 0.2°C at roughly 0.2 kWh per day ($\\approx 0.7$ Wh per prediction). Predictions were delivered in under one second (555 ms), dominated by network and messaging rather than computation, with conditional explanations adding modest cost. SHAP consumes 28% more CPU but is well within the hardware's capacity. The model attributes its predictions primarily to temperature, humidity, and their interaction. Critically, the deployment surfaced what simulation cannot: a sensor-triggered single point of failure, alongside genuine resilience, autonomous recovery from infrastructure faults and continued operation through internet loss. These are the first published deployment benchmarks for fog-based temperature prediction in FFV cold chains, establishing that explainable temperature forecasting is feasible on resource-constrained edge hardware. Future work includes asynchronous sensor fusion, commercial cold chain deployment, alternative model architectures, and causal analysis.",
+        "authors": [
+            "Jeremiah Taguta",
+            "Jean Frederic Isingizwe Nturambirwe",
+            "Clement Nthambazale Nyirenda"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.14036v2",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16787v1": {
+        "title": "Nested Parallel von Neumann Architecture and Nested BSP",
+        "link": "http://arxiv.org/abs/2609.16787v1",
+        "abstract": "Large-scale AI computing is no longer a contest of ''one stronger processor,'' but of how an army of processors under one command can still be one computer. This paper offers two interlocking extensions.\n  First, extend BSP to Nested BSP. The Turing machine describes computation as a single tape, in sequence. A million processors need not a longer tape, but a battle plan nested layer within layer: at every layer, parallel work, barrier, exchange and aggregate, then the next phase. Every ``parallel advance'' inside a layer repeats the same four steps. Nested BSP extends classic BSP by nesting it recursively, a computing paradigm for million-scale parallelism, under one rule: every node at every layer is a peer.\n  Second, extend von Neumann to the Nested Parallel von Neumann Architecture, and Unified Bus is its interconnect. Von Neumann taught us how to build one stored-program computer. The false extrapolation of eighty years was that wiring many computers into a network yields one larger computer. A second habit ran deeper: nearly every design assumes a master that commands and slaves that obey---host over device, CPU over accelerator, center over edge. The Nested Parallel Architecture extends that idea rather than discarding it. Two nesting dolls must fit: Nested BSP in software, and the Nested Parallel von Neumann Architecture from package to autonomous zone, joined by one memory-semantic bus end to end, with full peer equality: physically sparse, logically tight. It pairs with Huawei's $τ$ Scaling law: $τ$ governs how each layer folds time, while the Architecture governs how the nested parallel computer stands, layer by layer, peer by peer.\n  In summary, the paper extends BSP to Nested BSP and extends von Neumann to the Nested Parallel von Neumann Architecture. $τ$ folds time, peer-equal parallelism nests layer by layer---many processors, still one computer.",
+        "authors": [
+            "Heng Liao"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR"
+        ],
+        "id": "http://arxiv.org/abs/2609.16787v1",
+        "submit_date": "2026-09-15",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling",
+            "hardware"
+        ],
+        "tldr": "Addresses coordinating millions of processors for large-scale AI as one computer. Proposes Nested BSP for software and Nested Parallel von Neumann Architecture with peer equality and unified bus, scaling with τ law for time folding.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16731v1": {
+        "title": "The Price of Random Access: Measuring Block Granularity Across Four Compressed Formats",
+        "link": "http://arxiv.org/abs/2609.16731v1",
+        "abstract": "Random access into compressed data is normally bought with density. We measure the exchange rate. Across four formats and nine axes on a common corpus, the cost of cutting a 254 MB archive into independently addressable 16 KiB units is 1.632% of the archive for an absolute-offset format against 6.57% for seekable zstd, and the gap widens as the unit shrinks: at 4 KiB, 5.33% against 10.06%. Because the cost is small, several properties follow that are usually unavailable: splitting an archive is free and occasionally profitable (-0.28% on tiled input), append needs no format change, seek latency does not depend on position, and one archive is read by both a CPU and a GPU decoder. We give three structural results with proofs and bit-perfect verification - that the repeat-distance chain of an LZ77 parse forms a substitution monoid and is therefore prefix-scannable without touching the bitstream, that self-overlapping matches are periodic rather than chained, and that dependency depth admits an encoder-enforced bound - and we report each measured limit together with the mechanism that sets it. Seventeen rejected directions are listed with their numbers, including one that improved density by 26% and was declined. Every claim carries a level: reproducible by command, measured with a stated reason, or estimated. The measurement tool is released separately (DOI 10.5281/zenodo.22713364) with 435 provenanced records.",
+        "authors": [
+            "Yakiv Shavidze"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2609.16731v1",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16682v1": {
+        "title": "DeepShare: Assurance-Driven Deep Learning Job Scheduling for Multi-Tenant Clusters",
+        "link": "http://arxiv.org/abs/2609.16682v1",
+        "abstract": "Multi-tenant GPU clusters frequently remain underutilized even when tenants experience long queueing delays, because quota control, queue ordering, preemption, and GPU sharing are driven by different local signals. We present DeepShare, a scheduler that uses a continuous tenant-assurance signal to coordinate these decisions at runtime. DeepShare combines elastic quota borrowing, tenant-specific runtime prediction, cost-aware best-effort preemption, and interference-aware MPS colocation, while using the same assurance signal to decide when borrowed capacity should be reclaimed and when sharing should become more conservative. In trace-driven experiments on 23,859 Venus jobs and 3,200 internal jobs, DeepShare achieves an average GPU utilization of 70.58%, a 29.5% improvement over the strongest non-intrusive sharing baseline, while reducing average queueing delay by 46%. On a 16-GPU Kubernetes testbed, it reduces the average job completion time by 34% and maintains 93% QoS compliance for guaranteed tenants. These results show that treating tenant assurance as a runtime control loop achieves a more advantageous utilization-QoS trade-off than optimizing quotas, scheduling, and resource sharing independently.",
+        "authors": [
+            "Jinghao Wang",
+            "Yihang Zhou",
+            "Xiao Zhou",
+            "Xinlei Zheng",
+            "Xiaoyang Sun",
+            "Tianyu Wo",
+            "Chunming Hu",
+            "Renyu Yang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.16682v1",
+        "submit_date": "2026-09-15",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling"
+        ],
+        "tldr": "Proposes DeepShare, a scheduler to optimize GPU utilization and QoS in multi-tenant clusters. Uses tenant-assurance-based coordination for quota borrowing, preemption, and colocation. Achieves 29.5% higher GPU utilization and 34% lower job completion times while maintaining 93% QoS compliance.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16531v1": {
+        "title": "XMPIaaS: Towards Cloud Native MPI via Cooperative Process Migration",
+        "link": "http://arxiv.org/abs/2609.16531v1",
+        "abstract": "Message Passing Interface (MPI) has been the dominant programming model for High Performance Computing (HPC) for three decades, and as HPC workloads increasingly migrate to cloud infrastructure for scalability and cost efficiency, MPI applications must contend with an execution environment fundamentally unlike traditional supercomputers: ephemeral resources, dynamic pricing and preemptable instances. In such a volatile setting, the ability to relocate running MPI processes between nodes without restarting the job is a necessity for cost-effective, resilient execution. Existing approaches either require restarting the entire job from a global checkpoint, or transparently intercepting the full MPI stack at prohibitive complexity. To address these challenges, we propose \\name, a cooperative migration system for MPI that enables selective process group migration on-the-fly. When a cloud instance is scheduled for preemption, only the affected ranks are relocated while the remaining processes briefly quiesce and resume in place, avoiding the cost of a full-job checkpoint. \\name tackles this through a cooperative protocol between the MPI process management runtime and rank processes. We expose an \\texttt{XMPI\\_quiesce} interface built atop the MPI Sessions API that allows applications to mark safe migration points, and we extend the Hydra process manager to orchestrate the full migration lifecycle: rank quiescence, CRIU checkpoint/restore, proxy relaunch on the target node, and seamless rank reconnection. We evaluate and show that the cooperative quiesce phase accounts for less than 1.4\\% of total migration downtime, and that this downtime is governed by the migrating node's rank count alone, independent of job size, and the instrumentation introduces no measurable overhead during normal execution.",
+        "authors": [
+            "Shunyu Yao",
+            "Dimitrios S. Nikolopoulos",
+            "Ali R. Butt"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.16531v1",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16500v1": {
+        "title": "High-Performance Tensor Formulation of the Viterbi Algorithm for Hidden Semi-Markov Models",
+        "link": "http://arxiv.org/abs/2609.16500v1",
+        "abstract": "Hidden Semi-Markov Models (HSMMs) are fundamental probabilistic models widely adopted across diverse domains, from computational biology to finance and signal processing. The Viterbi algorithm decodes the most likely state sequence given an HSMM and can be applied iteratively for ab initio model learning. However, existing Viterbi implementations remain sequential, and GPU-accelerated solutions are entirely absent, making HSMM decoding impractical for large-scale workloads. We present a tensor-based formulation of the Viterbi algorithm for HSMMs, restructuring the inner loops into tensor operations that naturally map onto SIMD units and massively parallel architectures. Building on this formulation, we provide optimized implementations spanning single- and multi-core CPUs, and, for the first time, GPU. Experimental evaluation demonstrates speedups of up to 14x on a single core, over 200x with multi-core, and over 570x on GPU over the state-of-the-art sequential baseline, establishing a new performance baseline for large-scale HSMM decoding.",
+        "authors": [
+            "Lorenzo Piarulli",
+            "Elia Belli",
+            "Daniele De Sensi"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2609.16500v1",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16491v1": {
+        "title": "PipeSwift: Revisiting Pipeline Parallelism for Large-Scale Completion-Oriented Agentic Serving",
+        "link": "http://arxiv.org/abs/2609.16491v1",
+        "abstract": "LLM agents execute long-horizon workflows where each model response determines the progress of subsequent tool interactions and environment transitions. Unlike chatbot serving, where TTFT and TPOT SLO constraints are critical, agentic workloads are increasingly governed by completion time. This shift challenges existing LLM serving designs, which are optimized around token-level SLOs.\n  We revisit scheduling and parallelism under this completion-oriented objective. Through systematic exploration, we show that job completion time (JCT) is governed by the balance between prefill and decode efficiency. Prefill-prioritized scheduling, while achieving the best TTFT and decode throughput, renders suboptimal JCT; across the scheduling-policy space, completion time varies by up to 1.40$\\times$, with the optimum at neither extreme. We further show that pipeline parallelism (PP), previously overlooked due to its limited decode latency advantage, benefits JCT by providing a favorable balance of prefill--decode trade-off.\n  Based on these insights, we build \\name{}, an optimized open-source pipeline-parallel runtime that co-designs scheduling and parallelism through a JCT-aware scheduling layer and pipeline-integrated multi-token prediction. Evaluated on deterministic replays of real coding and web-search agent trajectories with two 360B+ MoE models on 64 H800 GPUs, \\name{} reduces overall JCT by up to 1.45$\\times$ over SGLang wide-EP, 2.33$\\times$ over vLLM PP2, and 1.54$\\times$ over today's state-of-the-art open-source PD-disaggregated deployment.",
+        "authors": [
+            "Shiju Wang",
+            "Fei Ren",
+            "Fangcheng Fu",
+            "Zhanhong Tan",
+            "Kairui Li",
+            "Jingwei Cai",
+            "Kaisheng Ma"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.16491v1",
+        "submit_date": "2026-09-15",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic",
+            "MoE"
+        ],
+        "tldr": "Optimizes job completion time (JCT) for agentic LLM serving by co-designing pipeline parallelism with JCT-aware scheduling and multi-token prediction. PipeSwift reduces JCT by up to 2.33x over vLLM and 1.45x over SGLang on 360B+ MoE models.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16446v1": {
+        "title": "Adaptive Bayesian Partner Selection for Federated Clinical Centers",
+        "link": "http://arxiv.org/abs/2609.16446v1",
+        "abstract": "Federated learning (FL) in healthcare faces pronounced heterogeneity and temporal concept drift across clinical centers, where evolving patient populations and care practices shift data distributions. Existing approaches rely on persistent global communication, incurring substantial bandwidth overhead while risking negative transfer from poorly aligned peers. We propose Adaptive Bayesian Partner Selection (ABPS), a peer-to-peer framework that governs who collaborates, when, and at what cost. Each center maintains a Beta-Bernoulli posterior over prospective peers' Shapley marginal utility, ranks candidates with an Upper Confidence Bound (UCB) criterion, and forms collaborations through a lightweight propose-reject mechanism, with the option to abstain from communication when no mutually beneficial partner exists. The framework admits a stochastic decision interpretation, yielding finite-sample concentration guarantees and O(kappa log T) regret in partner selection, along with conditions under which intentional isolation is optimal under negative transfer. Lightweight extensions (head personalization, bfloat16 quantized communication, and a tunable active-set size) further improve efficiency, and a goal-aware metadata filter enables institution-specific collaboration strategies. On binary in-hospital mortality prediction over the first 24 hours of an ICU stay, with 230 non-IID clinical centers drawn from MIMIC-IV, the full ABPS-X variant matches the strongest federated baseline (FedDyn, AUROC 0.758) at 0.09x the communication cost of FedAvg, with reduced variability. A diversity-driven configuration activates intentional isolation for a substantial fraction of centers. These results show that adaptive, utility-aware collaboration reduces communication without sacrificing accuracy when centers are numerous and small, offering a scalable paradigm for healthcare FL.",
+        "authors": [
+            "Navid Seidi",
+            "Satyaki Roy",
+            "Sajal K. Das"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.16446v1",
+        "submit_date": "2026-09-15",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16313v1": {
+        "title": "Cognitive Admission Control: Risk-Conditioned Assurance for Consequential Actions in Agentic Distributed Systems",
+        "link": "http://arxiv.org/abs/2609.16313v1",
+        "abstract": "In agentic distributed systems, an agent may be authorized to mutate external infrastructure while lacking evidence that the mutation is ready to execute. Cognitive Admission Control (CAC) makes this evidence requirement explicit. A policy maps a typed action and its modeled risk to assurance obligations specifying predicates, evidence classes, scope, freshness, and witness-set constraints. A deterministic evaluator distinguishes satisfied, violated, and unresolved obligations; unresolved conditions produce targeted evidence-acquisition requests. Successful admission produces a certificate binding the action, its witness manifest, and dispatch-time guards.\n  We formalize the admission calculus and the assumptions connecting it to mediated execution. The guarantees are policy-relative: physical safety additionally requires sound evidence, an adequate environment model, and preservation of relevant conditions through the effect. A TypeScript prototype is evaluated in 2,730 controlled local trials with independent effect observation and matched fault schedules. Across 390 CAC trials, 120 effects complete without modeled harm and no harmful effects occur. A live-policy baseline achieves the same completion count but admits the constructed correlated-witness failure. Mechanism ablations isolate guard, evidence-class, structural-cut, and remediation behavior. A further 9,000 measurements exercise the complete local dispatch path with persistent replay protection. These results establish tested implementation behaviors and local costs, not production failure rates or comparisons of language-model capability.",
+        "authors": [
+            "Jun He",
+            "Deying Yu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2609.16313v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16175v1": {
+        "title": "BOA: Beamwidth Online Adaptation for Filtered-ANNS on a GPU",
+        "link": "http://arxiv.org/abs/2609.16175v1",
+        "abstract": "Filtered approximate nearest neighbor search, i.e. returning the top-k vectors nearest to a query vector among those satisfying one or more attribute predicates, has become a fundamental operation in modern vector search systems. Graph-based solutions employ beam search to solve a batch of queries in parallel for high throughput and employ high fixed beamwidth of 100 or greater for ensuring high recall. We observe that, given a batch of queries, more than half of the queries across multiple data sets can be solved precisely with a beamwidth of just 50 or less. Therefore, existing systems based on fixed high beamwidth sacrifice throughput to achieve high recall by forcing every query to search as thoroughly as the hardest query in the batch even though majority of queries can be resolved by a shallow search. In this paper we present a filtered ANNS engine for a single GPU named BOA that uses online beamwidth adaptation to customize the search effort across queries within a batch under multi-attribute range filters. We address the recall throughput tradeoff with a multi-phase search: all queries are first evaluated under a narrow beam, and only those with uncertain results are progressively refined with wider beamwidths. This renders recall largely insensitive to the starting beamwidth, whereas prior methods must use a fixed high beamwidth for high recall. BOA+ overlaps execution of phases to further enhance throughput. Our experiments show that, for 10,000 queries, online adaptation achieves 94.05% to 99.96% recall with average beamwidth ranging from 22 to 77, while a non-adaptive approach requires a fixed beamwidth of 500 to achieve similar or lower recall. Consequently, adaptivity increases throughput by 7x to 12.5x",
+        "authors": [
+            "Farhana Akter Tumpa",
+            "Rajiv Gupta"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.16175v1",
+        "submit_date": "2026-09-14",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "RAG"
+        ],
+        "tldr": "Addresses throughput inefficiency in filtered approximate nearest neighbor search (ANNS) within vector search systems. Proposes BOA, a beamwidth adaptation method with multi-phase search and overlapping execution, achieving 7x to 12.5x higher throughput while maintaining high recall for batch queries on a GPU.",
+        "indexed_date": "2026-09-16"
+    },
+    "http://arxiv.org/abs/2609.16099v1": {
+        "title": "SWB-DM: A Calibrated Sliced-Wasserstein-Barycenter Aggregator with Delayed-Momentum Caching for Byzantine-Robust Federated Learning under Partial Participation",
+        "link": "http://arxiv.org/abs/2609.16099v1",
+        "abstract": "Robust aggregation methods for federated learning quietly rest on a fragile assumption: that whoever shows up in a given round is a fair sample of the full population. In practice, they rarely are. When only a handful of clients participate per round, even a modest fraction of adversaries can dominate that sample and silently invalidate the finite-sample guarantees that coordinate-wise median, Krum, Bulyan, and trimmed mean all depend on.\n  We introduce SWB-DM to address this directly. SWB treats each slice of a client update as a one-dimensional distribution, computes a trimmed Wasserstein barycenter across clients, and recovers coordinate identity via a medoid-based gauge-fixing step -- a heuristic we developed and do not claim it belongs to standard optimal-transport theory. DeMoA-style delayed momentum then caches updates across the full client population each round, decoupling robustness from whoever happened to be sampled. Trim ratio calibration is not cosmetic: under-trimming causes collapse at corruption levels a properly calibrated model survives.\n  Across 448 CIFAR-10 configurations, plus CIFAR-100, FEMNIST, and a 500-client scalability run, we find several mechanistically distinct failure modes. Even-sample coordinate-wise median degrades to a deterministic wrong answer. Krum silently violates its own n greater than 2f+2 precondition and diverges without warning. Bulyan's n greater than or equal to 4f+3 threshold produces a sharp pass/fail boundary. On attacks, IPM defeats order-statistic defenses -- including SWB -- more reliably than ALIE, confirmed through delta-space measurements against a convergence bound.\n  SWB-DM's cache carries a real warm-up cost, but extending all baselines to the same round budget shows its CIFAR-10 gains are disproportionately large. On CIFAR-100, FLTrust benefits more -- for reasons entirely unrelated to caching.",
+        "authors": [
+            "Saranraj S",
+            "Saranya M S",
+            "Alex David S",
+            "Ajay Kumar A"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.16099v1",
+        "submit_date": "2026-09-14",
+        "relevant": false,
+        "indexed_date": "2026-09-16"
     }
 }

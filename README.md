@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3132-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-3136-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.09.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,16 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-16
+* `training` `scaling` `hardware` [Nested Parallel von Neumann Architecture and Nested BSP](http://arxiv.org/abs/2609.16787v1)
+  > **TL;DR**: Addresses coordinating millions of processors for large-scale AI as one computer. Proposes Nested BSP for software and Nested Parallel von Neumann Architecture with peer equality and unified bus, scaling with τ law for time folding.
+* `training` `scaling` [DeepShare: Assurance-Driven Deep Learning Job Scheduling for Multi-Tenant Clusters](http://arxiv.org/abs/2609.16682v1)
+  > **TL;DR**: Proposes DeepShare, a scheduler to optimize GPU utilization and QoS in multi-tenant clusters. Uses tenant-assurance-based coordination for quota borrowing, preemption, and colocation. Achieves 29.5% higher GPU utilization and 34% lower job completion times while maintaining 93% QoS compliance.
+* `serving` `agentic` `MoE` [PipeSwift: Revisiting Pipeline Parallelism for Large-Scale Completion-Oriented Agentic Serving](http://arxiv.org/abs/2609.16491v1)
+  > **TL;DR**: Optimizes job completion time (JCT) for agentic LLM serving by co-designing pipeline parallelism with JCT-aware scheduling and multi-token prediction. PipeSwift reduces JCT by up to 2.33x over vLLM and 1.45x over SGLang on 360B+ MoE models.
+* `serving` `RAG` [BOA: Beamwidth Online Adaptation for Filtered-ANNS on a GPU](http://arxiv.org/abs/2609.16175v1)
+  > **TL;DR**: Addresses throughput inefficiency in filtered approximate nearest neighbor search (ANNS) within vector search systems. Proposes BOA, a beamwidth adaptation method with multi-phase search and overlapping execution, achieving 7x to 12.5x higher throughput while maintaining high recall for batch queries on a GPU.
+
 ### 2026-09-16
 * `training` `edge` `networking` [CIDERS: Cloud-Edge LLM Collaborative Learning via Accelerating Personalized Bilevel Optimization](http://arxiv.org/abs/2609.15664v1)
   > **TL;DR**: Proposes CIDERS, a personalized bilevel optimization for cloud-edge LLM collaboration, using consensus-variate correction to balance global consensus with local personalization. Achieves 3.1x gain in reasoning, 1.7x in code generation, and 10% improvement on instruction metrics.
