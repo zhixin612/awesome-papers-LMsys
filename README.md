@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3136-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3149-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-17
+* `agentic` `serving` `offloading` [Ask the Tool, Don't Guess: Agent Tool Calls Hold Their Progress, and the Serving System Should Read It](http://arxiv.org/abs/2609.18849v1)
+  > **TL;DR**: Addresses inefficiency in agentic LLM serving where tool calls hold KV cache, wasting GPU memory. Proposes explicit progress reporting from tools to optimize KV cache offloading decisions. Reduces p90 time to first token after tool calls by 20.7-20.8% compared to LRU baselines.
+* `serving` `agentic` `scaling` [PipeSwift: Revisiting Pipeline Parallelism for Large-Scale Completion-Oriented Agentic LLM Serving](http://arxiv.org/abs/2609.16491v2)
+  > **TL;DR**: Optimizes job completion time for agentic LLM serving by co-designing JCT-aware scheduling and pipeline parallelism. Introduces multi-token prediction and scheduling policies balanced between prefill and decode. Achieves up to 2.33× lower JCT than vLLM PP2 on 360B+ MoE models with 64 GPUs.
+* `training` `scaling` `video` [RayOrch: Programming and Executing Lineage-Controlled Multi-Grain Dataflows for Foundation-Model Data Preparation](http://arxiv.org/abs/2609.18703v1)
+  > **TL;DR**: Addresses scalable, lineage-controlled data preparation for foundation models. Introduces RayOrch, a programming model and engine preserving parent-child relations via expansions and gathers with FIFO queues. Achieves 15.14x speedup scaling from 4 to 64 GPUs and reduces end-to-end time by 13.1% versus Ray Data.
+* `training` `scaling` [COMPASS-ABS: Reducing Fragmentation in Shared GPU Clusters for Deep Learning Training Workloads](http://arxiv.org/abs/2609.18519v1)
+  > **TL;DR**: Reduces resource fragmentation in GPU clusters for deep learning training jobs. Proposes COMPASS-ABS scheduler with SIF metric to confine cluster states, bounding fragmentation. Evaluations show improved utilization and reduced job completion times.
+* `training` `quantization` `networking` [GeoMesh: Workload-Balanced and Sign-Compressed Geo-Distributed LLM Training](http://arxiv.org/abs/2609.18388v1)
+  > **TL;DR**: Improves geo-distributed LLM training efficiency over slow WAN and heterogeneous GPUs. Proposes GeoMesh with workload balancing (per-GPU batch/inner steps) and sign-compressed gradient communication. Reduces time-to-target perplexity by up to 70.2% and straggler-induced GPU idle time by 8.0x.
+* `training` `storage` [Zero-I/O Fault Recovery for Sharded Deep Learning via Dynamic Framework Dependency Rebinding](http://arxiv.org/abs/2609.18178v1)
+  > **TL;DR**: Addresses high overhead from checkpoint-based fault recovery in distributed training. Introduces AccelPact, a runtime for zero-I/O in-memory recovery via dynamic dependency rebinding. Achieves up to 1.698x goodput improvement over cold restart for Mistral-7B training on 16 GPUs.
+* `serving` `scaling` [Token Latency Fairness: Performance Isolation for Multi-Tenant LLM Serving](http://arxiv.org/abs/2609.18112v1)
+  > **TL;DR**: Addresses performance isolation for token-level latencies in multi-tenant LLM serving. Proposes FairInference, enforcing per-token deadlines and bounding GPU sharing delays. Achieves δ-token fairness and improves throughput versus state-of-the-art systems.
+* `MoE` `offloading` `storage` [SSD-LLaMA: SSD-Native Inference for Trillion-Parameter MoE at 1+ Token/s on a Consumer PC](http://arxiv.org/abs/2609.18110v1)
+  > **TL;DR**: SSD-LLaMA enables local inference for trillion-parameter MoE models on consumer PCs via an SSD-native three-tier storage hierarchy and CPU-GPU execution. It achieves >1 token/s for trillion-parameter models and improves decode token rate by up to 15.58x over baselines.
+* `video` `diffusion` `offloading` [vidax: A Unified JAX Framework for Video Generative Models on Accelerator Meshes](http://arxiv.org/abs/2609.18077v1)
+  > **TL;DR**: Addresses missing TPU support for video generative model inference. vidax is a JAX framework that uses parallelism and per-layer weight offloading to handle large spatiotemporal attention, enabling resolutions exceeding single-device memory on TPU v4-8.
+* `training` `networking` [Towards Training Private LLMs: Exploring Fine-Tuning Language Models on Apple Silicon with RDMA over Thunderbolt](http://arxiv.org/abs/2609.18066v1)
+  > **TL;DR**: Explores Apple Silicon for private LLM fine-tuning. Proposes network optimizations (multi-trunk, persistent workers, gradient overlap) for RDMA-over-Thunderbolt. Achieves 1.6x throughput improvement and 936 tokens/s for fine-tuning Qwen3-9B on a 4-node cluster with 17408 sequence length.
+* `serving` `sparse` [ASPIRE: Asynchronous Batched Self-Speculative Decoding for Long-Context LLM Inference](http://arxiv.org/abs/2609.17943v1)
+  > **TL;DR**: Proposes ASPIRE for efficient batched long-context LLM inference by asynchronously scheduling self-speculative decoding. Uses mixed forward passes for draft-verify coexistence, online speculation scheduling, and intra-draft refresh layers to reduce staleness. Achieves 1.70-4.58× throughput speedup over autoregressive baselines.
+* `offloading` `quantization` `sparse` [Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches](http://arxiv.org/abs/2609.17652v1)
+  > **TL;DR**: Addresses the bottleneck in scanning offloaded KV caches during decoding by introducing Fathom, which uses bit-plane storage and per-query adaptive read depth based on channel importance. Achieves 1.67x faster GPU decoding and 18% fewer bytes read on Qwen3-8B.
+* `serving` `agentic` `offloading` [Ask the Tool, Don't Guess: Agent Tool Calls Hold Their Progress, and the Serving System Should Read It](http://arxiv.org/abs/2609.18849v1)
+  > **TL;DR**: Addresses latency in agentic LLM serving from tool calls monopolizing GPU memory. Proposes explicit progress reporting from tools for smarter KV cache management. Reduces p90 time to first token by up to 20.8% compared to LRU baselines.
+
 ### 2026-09-16
 * `training` `scaling` `hardware` [Nested Parallel von Neumann Architecture and Nested BSP](http://arxiv.org/abs/2609.16787v1)
   > **TL;DR**: Addresses coordinating millions of processors for large-scale AI as one computer. Proposes Nested BSP for software and Nested Parallel von Neumann Architecture with peer equality and unified bus, scaling with τ law for time folding.
