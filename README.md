@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3149-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.17-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3161-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.18-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-18
+* `diffusion` `serving` `networking` [PixelFlow: Token-Level Workload Management for Efficient Distributed DiT Serving](http://arxiv.org/abs/2609.20723v1)
+  > **TL;DR**: Addresses distributed Diffusion Transformer (DiT) serving for image generation under latency SLOs. Proposes token-level workload management by partitioning requests and optimizing token placement to minimize cross-GPU communication, with overlapped transfers. Achieves 43% higher SLO attainment and 2.8× goodput over state-of-the-art systems.
+* `training` `hardware` `networking` [Towards Training Private LLMs: Exploring Fine-Tuning Language Models on Apple Silicon with RDMA over Thunderbolt](http://arxiv.org/abs/2609.18066v2)
+  > **TL;DR**: Investigates Apple Silicon as a cost-effective platform for private LLM fine-tuning by optimizing RDMA-over-Thunderbolt communication. Proposes multi-trunk links, persistent workers, and gradient overlap. Achieves 1.6x higher throughput and 936 tokens/s on four nodes for fine-tuning Qwen3-9B.
+* `serving` `scaling` [A Kubernetes-Native Request Router for Quality-Aware Inference Serving in the Computing Continuum](http://arxiv.org/abs/2609.20497v1)
+  > **TL;DR**: Addresses efficient ML inference routing in Kubernetes by dynamically balancing latency-accuracy trade-offs. Proposes ASRB, an adaptive, score-based router with selective monitoring. Achieves 10ms lower latency when latency-tuned and ~70% lower monitoring costs versus state-of-the-art.
+* `training` `networking` [Accelerating Sharded Data Parallelism at Scale with Federated Learning](http://arxiv.org/abs/2609.20359v1)
+  > **TL;DR**: Proposes hybrid algorithms (FL+FSDP/FL+HSDP) combining sharded data parallelism with federated learning to reduce communication overhead in large-scale LLM training. Achieves 8.04× faster data processing and 4.48 lower perplexity when training Llama3.1 8B on 512 A100 GPUs.
+* `offloading` `quantization` `sparse` [Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches](http://arxiv.org/abs/2609.17652v2)
+  > **TL;DR**: Addresses KV cache access bottlenecks in offloaded inference for agentic sessions. Introduces Fathom, a per-query scan method using variance-weighted reverse water-filling to read quantized bit planes adaptively. Achieves 1.67× speedup over 136-bit methods with matching accuracy at 92 bits on coding tasks.
+* `training` `networking` [The Life of a Token: from Words to Bits on the Wire](http://arxiv.org/abs/2609.19924v1)
+  > **TL;DR**: Characterizes network communication requirements in LLM training through tokenization and parallelization. Uses architectural analysis and traffic modeling to illustrate data flows and provide insights into communication demands for large-scale training.
+* `training` `edge` `scaling` [Xronos: Heterogeneity-Aware Tensor Parallelism for Collaborative LLM Fine-Tuning on Edge CPUs](http://arxiv.org/abs/2609.19909v1)
+  > **TL;DR**: Proposes Xronos, a heterogeneity-aware tensor parallelism framework for efficient collaborative LLM fine-tuning on CPU edge devices. Combines lightweight profiling and tensor partitioning to minimize stragglers and CPU contention. Reduces fine-tuning time by 18-56% and device idle time by 5.9× over SOTA methods while maintaining accuracy.
+* `training` `quantization` [Sketching the Error, Not the Product: Post Hoc Fault Recovery for Half Precision GPU Matrix Multiplication](http://arxiv.org/abs/2609.19758v1)
+  > **TL;DR**: Proposes FP-Sketch, a post-hoc verifier, to detect and localize silent data corruption in half-precision GEMMs without kernel modification. It uses sum and hashed first moment sketches for fault recovery. Achieves 99.9% removal of perplexity damage from bit flips in Llama-2-7B.
+* `quantization` `kernel` [Syndrome Decoding for Silent Data Corruption in Quantized Integer GPU Arithmetic](http://arxiv.org/abs/2609.19743v1)
+  > **TL;DR**: Investigates silent data corruption in quantized integer GPU arithmetic during LLM inference. Introduces SProbe, a verification kernel using randomized Freivalds gate and Reed-Solomon decoding for detection and correction. In an INT8 medical LLM, it eliminates all corruptions with 30% throughput overhead.
+* `serving` [Sample Count Is Not Enough: Candidate-Generation Strategy Shapes the Energy and Performance of LLM Test-Time Scaling](http://arxiv.org/abs/2609.19499v1)
+  > **TL;DR**: Examines how candidate-generation strategies affect LLM inference systems despite fixed candidate counts. Compares batched vs. serial execution schedules for multi-candidate reasoning tasks. One batched call (8x1) uses 4.6-4.9x less GPU energy than eight serial calls (1x8).
+* `serving` `edge` [SiliconBench: Speed, Memory, and Fidelity for LLM Serving on Unified-Memory Desktops](http://arxiv.org/abs/2609.19169v1)
+  > **TL;DR**: Proposes SiliconBench, a benchmark for evaluating LLM serving engines on unified-memory desktops across speed, memory, and fidelity. vllm-metal doubles throughput when concurrency scales from 1 to 16 and achieves lower first-token latency via packed prefill-decode scheduling.
+* `agentic` `serving` [Position: It is Time to Virtualize Foundation Models with a Self-evolving Operating System Layer](http://arxiv.org/abs/2609.19203v1)
+  > **TL;DR**: Addresses fragmentation in compound agentic systems via a Foundation Model Operating System (FMOS) that virtualizes FM interactions for resource allocation and policy enforcement. Aims to improve resource utilization and governance portability through self-adapting policies.
+
 ### 2026-09-17
 * `agentic` `serving` `offloading` [Ask the Tool, Don't Guess: Agent Tool Calls Hold Their Progress, and the Serving System Should Read It](http://arxiv.org/abs/2609.18849v1)
   > **TL;DR**: Addresses inefficiency in agentic LLM serving where tool calls hold KV cache, wasting GPU memory. Proposes explicit progress reporting from tools to optimize KV cache offloading decisions. Reduces p90 time to first token after tool calls by 20.7-20.8% compared to LRU baselines.

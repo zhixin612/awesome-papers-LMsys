@@ -162563,5 +162563,602 @@
         "submit_date": "2026-09-16",
         "relevant": false,
         "indexed_date": "2026-09-17"
+    },
+    "http://arxiv.org/abs/2609.20739v1": {
+        "title": "Efficient Non-Uniform Quantum Hermite Transform through Adaptive Sampling",
+        "link": "http://arxiv.org/abs/2609.20739v1",
+        "abstract": "On the span of the first $N$ oscillator modes, Gauss--Hermite quadrature gives an exact change of basis between mode coefficients and $N$ weighted position space samples. We implement this transform with $O(N\\operatorname{polylog}(N,1/\\varepsilon))$ logical gates and polylogarithmic quantum width. The operator-error bound $\\varepsilon$ holds on arbitrary superpositions and includes all auxiliary registers. The construction uses signed averages on adaptive windows to convert uniform-grid samples into weighted Hermite-root samples. Their varying widths control the amplification cost, giving the near-linear bound.",
+        "authors": [
+            "Nitay Mayo",
+            "Aryeh Lev Zabokritskiy"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC",
+            "cs.ET"
+        ],
+        "id": "http://arxiv.org/abs/2609.20739v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20723v1": {
+        "title": "PixelFlow: Token-Level Workload Management for Efficient Distributed DiT Serving",
+        "link": "http://arxiv.org/abs/2609.20723v1",
+        "abstract": "Online image generation with Diffusion Transformers (DiTs) must meet latency service-level objectives (SLOs) while using GPU resources efficiently. Existing systems improve GPU utilization by batching multiple requests for joint execution. However, request-level batching offers limited control over batch size: batches may be too small to saturate GPU compute, while larger ones may violate latency SLOs. Globally coordinated scheduling introduces further delays by requiring independently progressing GPUs to synchronize before admitting new work.\n  We present PixelFlow, a distributed DiT serving system that addresses these limitations through token-level workload management. Its key idea is to use image tokens (the units a DiT processes to generate an image) to divide and batch request workloads at a finer granularity. This allows each GPU to take on a portion of additional work under latency constraints. By distributing these portions across GPUs, PixelFlow accommodates more concurrent requests, improving GPU utilization while reducing queueing delays. To realize this flexibility, PixelFlow provides a runtime that splits requests into variable-sized partitions and batches them efficiently on each GPU. To reduce the resulting communication overhead, it optimizes token placement to limit cross-GPU data exchange while balancing GPU workloads. It further exploits similarity across denoising steps to overlap the remaining transfers with computation. An SLO-aware scheduler groups GPUs to share compute resources among requests with compatible latency requirements. Each group progresses independently, synchronizing with others only when their combined resources are needed to admit a new request. Evaluation with Stable Diffusion 3 and FLUX.1-dev on H100 GPUs shows that PixelFlow improves SLO attainment by up to 43% and achieves up to 2.8 times the goodput of state-of-the-art DiT serving systems.",
+        "authors": [
+            "Zhexiang Zhang",
+            "Minchen Yu",
+            "Yifan Sun",
+            "Xu Bai",
+            "Xingliang Yuan",
+            "Adel N. Toosi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20723v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "diffusion",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Addresses distributed Diffusion Transformer (DiT) serving for image generation under latency SLOs. Proposes token-level workload management by partitioning requests and optimizing token placement to minimize cross-GPU communication, with overlapped transfers. Achieves 43% higher SLO attainment and 2.8× goodput over state-of-the-art systems.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.18066v2": {
+        "title": "Towards Training Private LLMs: Exploring Fine-Tuning Language Models on Apple Silicon with RDMA over Thunderbolt",
+        "link": "http://arxiv.org/abs/2609.18066v2",
+        "abstract": "Private large language model (LLM) fine-tuning is increasingly important for organizations that need to adapt models using sensitive data, but it often exceeds the memory capacity of commodity datacenter accelerators. Apple Silicon offers a different design point through large unified memory and lower complete-system cost, while recent Apple software support enables distributed execution over RDMA-over-Thunderbolt (TB). This paper studies whether Apple Silicon can serve as a practical platform for private LLM fine-tuning. We characterize RDMA-over-TB communication on Mac Studio nodes, showing that the measured bandwidth is far below nominal TB specifications. Next, we extend Apple's implementation with multi-trunk communication, persistent worker threads, and CPU-side gradient overlap to better exploit multiple direct TB links for LLM fine-tuning workloads. Finally, on a four-node Mac Studio cluster that fine-tunes a Qwen3-9B, our optimizations improve weak-scaling throughput by up to 1.6X over the single-trunk, non-overlapped baseline and reach 936 tokens/s for sequence length 17408. We further compare Apple Silicon with an NVIDIA H100 platform to quantify the trade-off between memory capacity, throughput, and acquisition cost, showing that Apple Silicon can provide a cost-effective solution for private LLM fine-tuning.",
+        "authors": [
+            "En-Ming Huang",
+            "Yao-Ting Hsieh",
+            "Hsiang-Yu Tsou",
+            "Mu-Chi Chen",
+            "Shih-Hao Hung",
+            "H. T. Kung"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.18066v2",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "training",
+            "hardware",
+            "networking"
+        ],
+        "tldr": "Investigates Apple Silicon as a cost-effective platform for private LLM fine-tuning by optimizing RDMA-over-Thunderbolt communication. Proposes multi-trunk links, persistent workers, and gradient overlap. Achieves 1.6x higher throughput and 936 tokens/s on four nodes for fine-tuning Qwen3-9B.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20650v1": {
+        "title": "Multi-center Medical Data Mining with FL-Net - A One-stop Shop for Federated Learning",
+        "link": "http://arxiv.org/abs/2609.20650v1",
+        "abstract": "Federated learning enables collaborative training without sharing patient-level data, but most studies remain simulations. Based on five requirements derived from the literature, we analyzed 14 FL frameworks and found that none fully satisfied these requirements. We present FL-Net, a novel federated clinical research framework to fulfill all requirements. It integrates modular data harmonization, data discovery, disclosure control, securely built versioned FL-Net-Tools and containerized federated workflow execution into a persistent network. It enables the re-use of harmonized data and workflows across studies. FL-Net's end-to-end capabilities were evaluated through harmonization, cross-study patient discovery across MIMIC and US-130, and reproducible, audited federated workflows with up to 50 concurrent clients. FL-Net is being developed within the dAIbetes and Microb-AI-ome EU projects and will cover over 800,000 patients across 10 hospitals in 9 countries covering longitudinal and single point in time data, FL-Net provides a practical foundation for interoperable, reproducible, and privacy-preserving multicenter clinical research.",
+        "authors": [
+            "Simon Süwer",
+            "Julian Klemm",
+            "Elisa Acitelli",
+            "Mathieu Almeida",
+            "Lucia Altucci",
+            "Zsolt Bagyura",
+            "Michelangela Barbieri",
+            "Zsolt-Zoltán Bedő",
+            "Rosaria Benedetti",
+            "Béla Bihari",
+            "Csongor Csalóka",
+            "Lucia Dicunta",
+            "Stanislav Ehrlich",
+            "Bjoern M. Eskofier",
+            "Sándor-József Fejér",
+            "Georg Fröwis",
+            "Walter Hötzendorfer",
+            "Alexandra Kautzky-Willer",
+            "Jens Johann Georg Lohmann",
+            "Marianna Maranghi",
+            "Lorenzo Marconi",
+            "Rudolf Mayer",
+            "Wouter Leonard Megchelenbrink",
+            "Monika Moga",
+            "Adham Mottalib",
+            "Sanjeev Mehta",
+            "Madeleine Müller",
+            "Thomas Nyström",
+            "Balázs-Attila Orbán",
+            "Paul O'Toole",
+            "Giuseppe Paolisso",
+            "Paolo Parini",
+            "Matteo Pedrelli",
+            "Enrico Petrillo",
+            "Philipp Poindl",
+            "Niklas Probul",
+            "Anastasia Pustozerova",
+            "Tanja Šarčević",
+            "Lukas Weilguny",
+            "Jan Baumbach",
+            "Andreas Maier"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20650v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20497v1": {
+        "title": "A Kubernetes-Native Request Router for Quality-Aware Inference Serving in the Computing Continuum",
+        "link": "http://arxiv.org/abs/2609.20497v1",
+        "abstract": "We introduce Adaptive Score-based Routing Balancer (ASRB), a dynamic, score-based request routing mechanism for Kubernetes-based service deployments over the computing continuum. ASRB jointly considers infrastructure-level information, response time measurements, and application-level quality indicators, with a particular focus on serving Machine Learning (ML) workloads. For these workloads, ASRB balances requests over service instances deployed in the continuum, following service provider-defined policies encoded as weighted combinations of QoS criteria to flexibly address latency-accuracy trade-offs. To drive routing decisions and swiftly adapt to changes in the operating environment, ASRB monitors a range of runtime metrics across multiple system layers. To deal with the associated monitoring overhead, particularly important for large-scale deployments, it selectively and adaptively controls monitoring intensity without sacrificing on routing quality. ASRB is implemented without requiring any modifications to Kubernetes, making it straightforward to deploy and operate in existing cluster environments. Our testbed experiments demonstrate the versatility of ASRB: When tuned for latency reduction, it achieves at least 10 ms lower mean response time compared with latency-oriented state-of-the-art routing mechanisms, while it achieves higher accuracy when this is prioritized through specific configurations, thus enabling flexible and operator-controllable trade-offs. At the same time, it attains reduced failure rates, higher responsiveness to changes in the operating environment, and up to ~70% less monitoring cost than relevant state-of-the-art solutions, at the potential expense of only a modest latency penalty in some configurations.",
+        "authors": [
+            "Ignjat Karanovic",
+            "Pantelis A. Frangoudis",
+            "Ivan Čilić",
+            "Ivana Podnar Žarko",
+            "Schahram Dustdar"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20497v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Addresses efficient ML inference routing in Kubernetes by dynamically balancing latency-accuracy trade-offs. Proposes ASRB, an adaptive, score-based router with selective monitoring. Achieves 10ms lower latency when latency-tuned and ~70% lower monitoring costs versus state-of-the-art.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20359v1": {
+        "title": "Accelerating Sharded Data Parallelism at Scale with Federated Learning",
+        "link": "http://arxiv.org/abs/2609.20359v1",
+        "abstract": "The symbiotic scaling of artificial intelligence models and high-performance computing systems continually creates algorithmic challenges in their convergence. Foundation models (FMs) are a crucial example, requiring months-long training on thousands of cutting-edge GPUs. Sharded data parallelism (DP) is the dominant strategy to accelerate such computations by splitting data and models across multiple GPUs. However, it incurs prohibitive communication overhead when deployed at scale, particularly on multi-tier interconnects with heterogeneous performance. Inspired by the efficient communication principles of federated learning (FL), this work introduces two hybrid algorithms - FL+FSDP and FL+HSDP - interleaving sharded DP with FedAvg-style aggregations. Such approaches decouple large DP deployments into smaller, loosely-coupled federation groups, requiring minimal inter-group traffic while keeping the global batch size bounded by the groups' size. Formal analysis of communication costs and experimental validation prove their scalability and flexibility. A Llama3.1 8B pre-training on 512 A100 GPUs shows that, under identical hyperparameters, FL+FSDP and FL+HSDP achieve up to 8.04 faster data processing and 4.48 lower evaluation perplexity than their counterparts, demonstrating superior computational efficiency and improved model quality. These properties stem from reduced communication overhead and the bounded growth of the global batch size relative to the federation group size.",
+        "authors": [
+            "Gianluca Mittone",
+            "Marco Aldinucci"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.20359v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Proposes hybrid algorithms (FL+FSDP/FL+HSDP) combining sharded data parallelism with federated learning to reduce communication overhead in large-scale LLM training. Achieves 8.04× faster data processing and 4.48 lower perplexity when training Llama3.1 8B on 512 A100 GPUs.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.17652v2": {
+        "title": "Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches",
+        "link": "http://arxiv.org/abs/2609.17652v2",
+        "abstract": "When agentic sessions run to a million tokens with many sessions resident at once, the KV cache and the index that ranks it live in host memory, and the scan that ranks all n keys for a top-k step becomes the traffic that bounds decoding. We present Fathom, a key scan in which each query decides how many bits of each key channel to read. The 4-bit K cache is stored channel-major as bit planes, so a prefix of t planes is exactly the channel's t-bit quantizer, and the query spends its bit budget by reverse water-filling over the variance-weighted importance of its channels. At one million tokens on Qwen3-8B a decode step is 1.67x faster in GPU time than with the 136-bit scans of Double Sparsity, Loki and SparQ r=32, and in the same GPU time as SparQ's 68-bit read (r=16) Fathom reads 18% fewer bytes with lower attention error on six of seven model and context settings. On RULER-style tasks every per-token scan matches exact top-k decoding, and on real coding-agent sessions Fathom reaches the step agreement of the most accurate 136-bit scan at 92 bits. The store is the 4-bit K copy a quantized serving stack already holds, and the method is not faster when the index is resident in GPU memory.",
+        "authors": [
+            "Vivek Kalyanarangan"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.17652v2",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "offloading",
+            "quantization",
+            "sparse"
+        ],
+        "tldr": "Addresses KV cache access bottlenecks in offloaded inference for agentic sessions. Introduces Fathom, a per-query scan method using variance-weighted reverse water-filling to read quantized bit planes adaptively. Achieves 1.67× speedup over 136-bit methods with matching accuracy at 92 bits on coding tasks.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20069v1": {
+        "title": "Competition, Collusion, and Corruption: The Spectrum of MEV Attacks on DAG-Based BFT Consensus Protocols",
+        "link": "http://arxiv.org/abs/2609.20069v1",
+        "abstract": "Byzantine Fault-Tolerant (BFT) protocols guarantee safety and liveness despite the malicious failure of nodes. However, they do not prevent adversarial manipulation of transaction order, where the order a proposer assigns diverges from the order in which clients submitted their transactions. Exploiting this discretion for profit is known as maximal extractable value (MEV), and it is intensified in DAG-based BFT protocols, where every replica proposes blocks concurrently rather than routing transactions through a single designated proposer each round. The proliferation of MEV attacks on DAG-based BFT protocols has made the resulting landscape difficult to navigate: attacks are reported individually, on different protocols, and under different metrics, making it unclear whether two attacks differ fundamentally or merely in how they are described. This paper closes that gap by presenting an attack space for MEV on DAG-based BFT protocols, organized around four families: the adversary, the protocol, the target, and the deployment. For each family, we identify the dimensions that shape an attack's impact. Each point in the attack space fixes one value per dimension, thereby representing a distinct, potential MEV attack, which can then be instantiated on a specific DAG-based BFT protocol. We perform a set of experiments, each isolating a single dimension where the protocol permits it, to empirically measure its effect on the success rate of MEV attacks against six production DAG-based BFT protocols. Our experimental evaluation reveals that every protocol we evaluate is vulnerable to at least a subset of the MEV attacks in this space, and that which attacks succeed is mostly dictated by the protocol's own design rather than by attacker effort.",
+        "authors": [
+            "Iliya Mirzaei",
+            "Heer Patel",
+            "Chenyuan Wu",
+            "Mohammad Javad Amiri"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20069v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20026v1": {
+        "title": "FedeRICo: Federated Region-Influenced Coupling for Traffic Flow Prediction",
+        "link": "http://arxiv.org/abs/2609.20026v1",
+        "abstract": "Urban traffic forecasting often relies on information distributed across stakeholders who may be unable to share raw data due to privacy or commercial constraints, motivating federated spatial-temporal approaches. In such federated settings, each client observes traffic over a distinct sensor subgraph with its own spatial topology and temporal dynamics, leading to significant heterogeneity across clients. Existing federated spatial-temporal methods typically rely on model parameter aggregation and provide limited mechanisms for recovering spatial dependencies across client boundaries. This introduces two key limitations. Specifically, parameter aggregation across heterogeneous graph domains tends to dilute client-specific representations, while road network partitioning breaks the propagation of traffic dynamics across client boundaries. To address these challenges, we propose FedeRICo, a federated traffic forecasting framework that combines gradient-level collaboration with boundary-aware residual communication. FedeRICo employs a dual-branch forecasting architecture in which a globally guided branch captures transferable forecasting structure, while a private residual branch preserves client-specific corrections and incorporates boundary residual signals. The global branch is coordinated through gradient alignment across all clients, enabling collaborative optimisation without destructive parameter interference. To recover cross-client spatial dependencies, boundary messages are extracted through a trend-residual decomposition that suppresses periodic structure and communicates only transient spatial-temporal residual signals between physically adjacent clients. Experiments across four real-world traffic forecasting benchmarks demonstrate that FedeRICo consistently outperforms state-of-the-art federated spatial-temporal baselines while maintaining competitive training runtime.",
+        "authors": [
+            "Fermin Orozco",
+            "Man Luo",
+            "Johan Wahlström"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20026v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20010v1": {
+        "title": "XIR: A Framework for Interoperability across Cross-Chain Protocols Based on a Verifiable Intermediate Representation",
+        "link": "http://arxiv.org/abs/2609.20010v1",
+        "abstract": "Cross-chain protocols enable applications to exchange messages across blockchains. Under point-to-point configurations, communication depends on a direct connection between the source and destination blockchains, limiting blockchain reachability and requiring additional configurations to connect more blockchains. To quantify this problem, this paper analyzes approximately 25 million mainnet cross-chain transaction events collected from six protocols (Axelar, CCIP, Hyperlane, LayerZero, Relay, and Wormhole) between January and October 2025. The resulting graph covers 286 active blockchains and 11,935 directly connected ordered blockchain pairs. These connections provide a direct reachability of 14.64%, while full direct connectivity would require 81,510 point-to-point configurations. We present XIR, a framework for interoperability across cross-chain protocols based on a verifiable intermediate representation. This representation binds an application message to an ordered record of authenticated cross-chain protocol deliveries, preserving message identity and verification history across protocol boundaries. XIR Gateways and XIR Adapters use this representation to compose existing connections into same-protocol and cross-protocol multi-hop paths. We implement an XIR prototype integrating Hyperlane and LayerZero and evaluate it in local and public-testnet environments. Theoretical analysis and evaluation show that, with correctly configured cross-chain protocol connections, XIR avoids 67,018 additional point-to-point configurations, equivalent to 84.88% of the total required by a point-to-point configuration baseline serving the same reachable pairs, and increases reachability from 14.64% to 96.86% of all ordered blockchain pairs.",
+        "authors": [
+            "Yushen Li",
+            "Linpeng Jia",
+            "Jiaying Feng",
+            "Ziliang Liao",
+            "Yi Sun"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20010v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20009v1": {
+        "title": "Distributed Edge Inference: an Experimental Study on Multiview Detection",
+        "link": "http://arxiv.org/abs/2609.20009v1",
+        "abstract": "Computing is evolving rapidly to cater to the increasing demand for sophisticated services, and Cloud computing lays a solid foundation for flexible on-demand provisioning. However, as the size of applications grows, the centralised client-server approach used by Cloud computing increasingly limits the applications' scalability. To achieve ultra-scalability, cloud/edge/fog computing converges into the compute continuum, completely decentralising the infrastructure to encompass universal, pervasive resources. The compute continuum makes devising applications benefitting from this complex environment a challenging research problem. We put the opportunities the compute continuum offers to the test through a real-world multi-view detection model (MvDet) implemented with the FastFL C/C++ high-performance edge inference framework. Computational performance is discussed considering many experimental scenarios, encompassing different edge computational capabilities and network bandwidths. We obtain up to 1.92x speedup in inference time over a centralised solution using the same devices.",
+        "authors": [
+            "Gianluca Mittone",
+            "Giulio Malenza",
+            "Marco Aldinucci",
+            "Robert Birke"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20009v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.20006v1": {
+        "title": "P-GADMM: Parallel Group-Based ADMM for Asynchronous Optimization in Heterogeneous Edge Networks",
+        "link": "http://arxiv.org/abs/2609.20006v1",
+        "abstract": "The Alternating Direction Method of Multipliers (ADMM) is widely used for distributed optimization, but its synchronous implementation can suffer from efficiency loss in heterogeneous edge networks, where fast clients or groups need to wait for slower ones before global updates can be completed. Existing group-based ADMM methods reduce communication overhead through grouping, but their grouping rules usually focus on data similarity or network topology and do not explicitly account for computation heterogeneity. To address this issue, this paper proposes Parallel Group-Based ADMM (P-GADMM) for distributed optimization in heterogeneous edge networks. P-GADMM forms computation-aware edge groups according to client computational capabilities and local data sizes, which reduces training-speed variation within each group. It further combines edge-level aggregation with bounded asynchronous coordination at the cloud, allowing active groups to participate in global updates without waiting for slower groups while controlling stale group information through a delay threshold. For strongly convex group objectives, we establish convergence guarantees for an idealized form of P-GADMM under bounded group-level staleness, showing a time-averaged convergence behavior up to a staleness-induced asymptotic error neighborhood. Experiments show that P-GADMM reduces wall-clock training time compared with representative baselines while maintaining comparable final accuracy.",
+        "authors": [
+            "Gaiguo Wei",
+            "Qingying Zhang",
+            "Heqiang Wang",
+            "Yu Zhang",
+            "Xiaoxiong Zhong"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20006v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19972v1": {
+        "title": "Efficiently Distributed Federated Learning",
+        "link": "http://arxiv.org/abs/2609.19972v1",
+        "abstract": "Federated Learning (FL) is experiencing a substantial research interest, with many frameworks being developed to allow practitioners to build federations easily and quickly. Most of these efforts do not consider two main aspects that are key to Machine Learning (ML) software: customizability and performance. This research addresses these issues by implementing an open-source FL framework named FastFederatedLearning (FFL). FFL is implemented in C/C++, focusing on code performance, and allows the user to specify any communication graph between clients and servers involved in the federation, ensuring customizability. FFL is tested against Intel OpenFL, achieving consistent speedups over different computational platforms (x86-64, ARM-v8, RISC-V), ranging from 2.5x and 3.69x. We aim to wrap FFL with a Python interface to ease its use and implement a middleware for different communication backends to be used. We aim to build dynamic federations in which relations between clients and servers are not static, giving life to an environment where federations can be seen as long-time evolving structures and exploited as services.",
+        "authors": [
+            "Gianluca Mittone",
+            "Robert Birke",
+            "Marco Aldinucci"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19972v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19936v1": {
+        "title": "VERA: Reinforcement Learning for Dynamic Memory Scaling of HPC Workloads in Kubernetes",
+        "link": "http://arxiv.org/abs/2609.19936v1",
+        "abstract": "Memory over-provisioning results in resource underutilization when HPC workloads run on Kubernetes. The default Vertical Pod Autoscaler (VPA) cannot anticipate phase-driven memory spikes for first-run HPC jobs. In this work, we present a reinforcement learning (RL) recommender VERA that formulates vertical memory scaling as a Markov Decision Process and trains an agent on 3353 real Prometheus traces. Evaluated on a live Google Kubernetes Engine cluster using LAMMPS, graph analytics, in-memory analytics, and MLPerf 3D-UNet, the RL agent reclaims 31.6% of the available memory headroom and incurs at most one OOM event while VPA reclaims -7.9% over the same runs, raising memory provisioning, and its recommendation would have been insufficient to avoid OOM in 30 runs. The results demonstrate that an observation-driven RL recommender could outperform retrospective heuristics for dynamic memory scaling.",
+        "authors": [
+            "Ade Pramono",
+            "Jie Ren",
+            "Ivy Peng"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19936v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19924v1": {
+        "title": "The Life of a Token: from Words to Bits on the Wire",
+        "link": "http://arxiv.org/abs/2609.19924v1",
+        "abstract": "Large Language Models (LLMs) transform vast collections of unstructured text into semantic patterns used for language generation and reasoning tasks. Behind their ease of use lies a complex process: words become tokens, tokens become vectors, and vectors ultimately give rise to streams of bits that flow through High-Performance Computing (HPC) systems. As modern LLMs grow to billions or trillions of parameters, this path increasingly unfolds across thousands of interconnected accelerators, making the underlying communication fabric a critical and often opaque component of model training. This tutorial aims to walk the reader through the journey from words to network traffic, shedding light on how language is translated into communication flows within HPC training systems. Using concrete examples from Dante's Divine Comedy, we illustrate how model architecture, tokenization, embeddings, and parallelization strategies shape the volume, structure, and timing of data exchanged across the network. We combine architectural analysis with analytical traffic models and numerical examples to characterize the communication requirements of LLM training. We try to demystify how words travel across the network and provide practical insights into the network requirements needed to support the journey from text to trained model.",
+        "authors": [
+            "Davide Avesani",
+            "Pengwenlong Gu",
+            "Sotiris Skaperas",
+            "Stefano Secci"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.NI",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.19924v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Characterizes network communication requirements in LLM training through tokenization and parallelization. Uses architectural analysis and traffic modeling to illustrate data flows and provide insights into communication demands for large-scale training.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19909v1": {
+        "title": "Xronos: Heterogeneity-Aware Tensor Parallelism for Collaborative LLM Fine-Tuning on Edge CPUs",
+        "link": "http://arxiv.org/abs/2609.19909v1",
+        "abstract": "Collaborative fine-tuning on edge devices adapts large language models to domain-specific data while keeping each device's data local. State-of-the-art (SOTA) collaborative fine-tuning techniques are largely designed for GPU-based edge devices and rely on pipeline parallelism (PP). However, many edge platforms, including IoT gateways, smart-home hubs, and in-vehicle computers, are primarily CPU-based. This paper reports that PP is ineffective on CPU-based edge devices because the same CPU handles both model computation and communication, which causes severe CPU contention. Our analysis shows that this leads to 5.75$\\times$ higher computation stall ratios than on GPU devices on average. Tensor parallelism (TP) can alleviate this contention by separating computation and communication, but existing TP techniques assume homogeneous devices. On heterogeneous CPU edge devices, we find that this assumption causes faster workers to remain idle for up to 34% while waiting for slower devices at synchronization points. To address the limitations, we propose Xronos, a collaborative fine-tuning framework for heterogeneous CPU edge devices. Xronos uses TP as its execution backbone and combines lightweight profiling with heterogeneity-aware tensor partitioning to reduce the straggler bottleneck. Across diverse devices, models, and benchmark tasks, Xronos reduces fine-tuning time by 18% (TP) to 56% (PP) and the ratio of device idle time by $\\sim$5.9$\\times$ over SOTA techniques, while maintaining the accuracy.",
+        "authors": [
+            "Wonmi Choi",
+            "Sunjae Park",
+            "Dohyeok Kwon",
+            "Zhixiong Niu",
+            "Yeonho Yoo",
+            "Chuck Yoo",
+            "Gyeongsik Yang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19909v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "training",
+            "edge",
+            "scaling"
+        ],
+        "tldr": "Proposes Xronos, a heterogeneity-aware tensor parallelism framework for efficient collaborative LLM fine-tuning on CPU edge devices. Combines lightweight profiling and tensor partitioning to minimize stragglers and CPU contention. Reduces fine-tuning time by 18-56% and device idle time by 5.9× over SOTA methods while maintaining accuracy.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19893v1": {
+        "title": "Hopper: Bounded-Memory Collaborative Debiasing for Byzantine-Tolerant Peer Sampling",
+        "link": "http://arxiv.org/abs/2609.19893v1",
+        "abstract": "Byzantine-tolerant peer sampling relies on continuously refreshed views, yet an adversary can bias the identifier streams used to construct them. Frequency-aware debiasing downweights overrepresented identifiers, but existing designs rely on cumulative per-identifier counts. We show that even exact, unbounded counters fail under a delayed balanced attack, in which a long benign prefix masks a subsequent adversarial frequency shift. We introduce Hopper, a bounded-memory debiasing protocol for Byzantine-tolerant peer sampling. We identify the stream-estimation properties required for debiasing and select BitMatcher as the estimator that best preserves adversarial frequency structure among the evaluated alternatives. Hopper adds BMDecay, a saturation-triggered decay and reconstruction mechanism that keeps this signal fresh over long executions. Hopper also supports trusted collaboration through authenticated fingerprint-aware reconstruction and role-specific debiasing. Experiments show that Hopper recovers from delayed attacks faster than when relying on BitMatcher, and debiaising as well as non-debiasing baselines under a fixed memory budget. Trusted collaboration reduces post-attack pollution peaks but creates a re-identification trade-off at high trusted-node densities. These results show the importance of occurence freshness, rather than exact counting alone, as a key requirement for practical frequency-aware Byzantine peer sampling.",
+        "authors": [
+            "Joachim Bruneau-Queyreix",
+            "Laurent Reveillère",
+            "Augusta Mukam"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19893v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19845v1": {
+        "title": "Safe Exploration of Arbitrary Dynamic Dangerous Networks",
+        "link": "http://arxiv.org/abs/2609.19845v1",
+        "abstract": "Given a team of agents on the nodes of a graph-based network, the exploration problem requires each node to be visited by at least one agent. In the classical distributed setting of static networks, agents do not know the topology of the network; in the more recently investigated setting of dynamic networks, they may have prior knowledge about the graph class (e.g., trees, tori, rings) or other parameters (e.g., number of nodes). Gotoh et al. (2021) are the first to study the exploration problem of arbitrary dynamic networks, under the necessary minimal assumption that any two nodes will be connected by a temporal path infinitely often (temporal connectivity assumption). In this paper, we extend their study of exploration under temporal connectivity by considering dangerous dynamic networks, i.e., containing possibly one or more black holes. Whenever an agent enters a black hole, it will be trapped forever. The safe exploration problem requires a team to explore all the safe nodes, ensuring that at least one agent will never be trapped in a black hole. We first prove that, given the necessary (and sufficient) number of agents, a team of oblivious agents can perpetually explore the safe nodes without any prior knowledge of the network or the team, without agent or node IDs, under semi-synchronous schedulers. Then, we provide an algorithm that enables agents to safely explore the network and terminate. In this case, agents are equipped with unique IDs and persistent memory, and they know the number of safe nodes. Yet, in both cases, we prove that it is impossible for a team of agents on dynamic networks to correctly mark only the ports leading to black holes.",
+        "authors": [
+            "Caterina Feletti",
+            "Paola Flocchini",
+            "Giuseppe Prencipe",
+            "Nicola Santoro"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19845v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.18512v2": {
+        "title": "PatchyBFT: Automating Diversification of Fault-Tolerant Systems using LLMs",
+        "link": "http://arxiv.org/abs/2609.18512v2",
+        "abstract": "Fault-tolerant agreement protocols fail if replicas share a common flaw that simultaneously affects more replicas than the tolerable threshold. Therefore replicas should ideally fail independently, which can be achieved through diversification. However, in practice, often the same protocol implementation is shared by all replicas which is not surprising given that the provision of multiple diverse implementations is difficult and highly laborious. This poses a major risk, as a shared protocol implementation is a prime candidate for common bugs due to its complexity. With PatchyBFT, we demonstrate how, given a reference implementation, Large Language Models (LLMs) can be utilised for the automated and scalable generation of code that compiles, passes tests, and crucially differs semantically/binary-wise, that can re- place code in the reference implementation, thereby significantly reducing diversification costs. We demonstrate the feasibility of diversification of replication protocol implementations using LLMs by diversifying three implementations: PBFT, HotStuff, and Raft, showing how up to 65% of the codebase can be diversified.",
+        "authors": [
+            "Arne Vogel",
+            "Christian Berger",
+            "Rüdiger Kapitza"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.18512v2",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19758v1": {
+        "title": "Sketching the Error, Not the Product: Post Hoc Fault Recovery for Half Precision GPU Matrix Multiplication",
+        "link": "http://arxiv.org/abs/2609.19758v1",
+        "abstract": "Silent data corruption (SDC) from defective accelerators now interrupts large scale training, yet deployed mitigations act on whole nodes. Algorithm based fault tolerance (ABFT) for a single GEMM has to be fused into the kernel or encode the operands, and it localizes at most one error per checksum. We present FP-Sketch, a verifier that runs after an unmodified tensor core GEMM whose half precision operands are accumulated and delivered at FP32. A sum sketch detects corruption on every call. Hashed first moment sketches, confirmed by independent recomputation, then localize several corrupted entries with no false positives by construction, and each fault yields a coordinate and a magnitude for fleet diagnosis. In floating point, sketch noise rather than bucket collisions limits localization. We measure that noise and find that its constant depends on the BLAS and the operand format and that the bucket count must grow as $n^{2.57}$ for a square product. Sizing the bucket count by measured noise rather than by a fitted power of $n$ raises recovery on eight transformer shapes from 0.402 to 1.000, and measuring the noise at run time adapts the bucket count to the kernel and the model. Instruction level injection with NVBit shows that upsets in a live accumulator are often only 2 to 9% of a typical entry, a population that output side injection cannot produce. Output side injection recovers every fault, while under NVBit the same engine sized for faults of typical magnitude recovers 0.550, and sizing for the measured magnitudes restores 1.000. On Llama-2-7B, guarding the MLP down projections removes 99.4% (BF16) and 99.9% (FP16) of the perplexity damage caused by 2048 bit flips, and the clean path probe costs 0.78 to 3.06 ms against GEMMs of 0.35 to 12.47 ms.",
+        "authors": [
+            "Pranav Napolean",
+            "Vikas Srivastava",
+            "Napolean Periathambi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19758v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "training",
+            "quantization"
+        ],
+        "tldr": "Proposes FP-Sketch, a post-hoc verifier, to detect and localize silent data corruption in half-precision GEMMs without kernel modification. It uses sum and hashed first moment sketches for fault recovery. Achieves 99.9% removal of perplexity damage from bit flips in Llama-2-7B.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19743v1": {
+        "title": "Syndrome Decoding for Silent Data Corruption in Quantized Integer GPU Arithmetic",
+        "link": "http://arxiv.org/abs/2609.19743v1",
+        "abstract": "Quantized neural network inference runs integer matrix multiplications on GPU tensor cores, and the INT32 accumulators inside those cores have neither parity nor ECC. A transient fault in this datapath returns a valid but wrong integer and raises no interrupt. Checksum based Algorithm Based Fault Tolerance (ABFT) can detect such silent data corruptions (SDCs), but its verdict is binary. It cannot identify the corrupted element or its magnitude, and unweighted row and column checksums are blind by construction to errors that cancel on both axes. We present SProbe, a trailing verification kernel that reads the output of an unmodified vendor GEMM. A randomized Freivalds gate with three independent evaluation points in a 61 bit prime field misses a nonzero error with probability at most $2^{-141}$. When the gate fires, per row power sum syndromes over three primes are decoded with the Reed Solomon chain of Berlekamp Massey, Chien search, and Forney, recovering the column and exact magnitude of up to four colliding errors per row. SProbe then repairs the accumulator in place or recomputes the GEMM. On an NVIDIA H100, SProbe detects every injected fault across seven fault classes and four matrix sizes, including constructed patterns that TR-ABFT never detects and patterns that a weighted grid code detects but cannot correct. The gate costs 49% of the cuBLASLt GEMM time at N=16384 and 11% at N=65536. In an INT8 medical LLM, protection eliminates all observed silent corruptions at a 30% throughput cost. Our measurements also show that recomputation is faster than in place recovery in every configuration we tested, that diagnosis rather than repair dominates recovery cost, and we report the defects we found while validating the verifier itself.",
+        "authors": [
+            "Pranav Napolean",
+            "Vikas Srivastava",
+            "Napolean Periathambi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19743v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "quantization",
+            "kernel"
+        ],
+        "tldr": "Investigates silent data corruption in quantized integer GPU arithmetic during LLM inference. Introduces SProbe, a verification kernel using randomized Freivalds gate and Reed-Solomon decoding for detection and correction. In an INT8 medical LLM, it eliminates all corruptions with 30% throughput overhead.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19531v1": {
+        "title": "Detecting Soft Errors in Parallel Software with LLM-tuned Instruction Duplication",
+        "link": "http://arxiv.org/abs/2609.19531v1",
+        "abstract": "We propose PaRID (PaRallel Instruction Duplication), a software-directed soft error detection framework that requires only compile-time effort for multithreading parallel programs. PaRID addresses two key challenges: supporting parallel programs with mixed serial and parallel regions and minimizing performance overhead without relying on costly dynamic profiling. It combines parallel-aware code transformation with LLM-tuned performance modeling, guided by eight generalizable findings from an offline characterization study, to enable fast soft error detection in parallel applications. Evaluation on NPB benchmarks shows that PaRID reduces protection overhead from 162.79% to 59.84% on average and achieves up to 5x speedup while maintaining full error detection effectiveness.",
+        "authors": [
+            "Yafan Huang",
+            "Guanpeng Li"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2609.19531v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19502v1": {
+        "title": "Reputation as Community Memory for the Agentic Web",
+        "link": "http://arxiv.org/abs/2609.19502v1",
+        "abstract": "Agents can now externalize experience into memory, consolidating historical traces into semantic knowledge and procedural shortcuts that persist between sessions. Such memory is typically private to a single agent. We argue that agentic memory benefits from being collective, because trustworthy knowledge of the shared environment---the data sources, services, and tools agents depend on---cannot be established by any single agent, only corroborated across many independent observers. We present Cairn, a community reputation platform that captures collective knowledge, allowing agents to query the community's opinion of a resource before use and to submit evidence-backed ratings afterward. Cairn aggregates observations via a time-decayed Beta model with confidence shrinkage and supports semantic discovery over reviewer rationales. We evaluate Cairn's reputation engine under adversarial simulation (e.g., lying, collusion, camouflage), benchmark its retrieval performance, and report a case study of rating heterogeneous agents in production.",
+        "authors": [
+            "Ryan Chard",
+            "Gus Ellerm",
+            "Alexander Brace",
+            "Alok Kamatar",
+            "Suman Raj",
+            "Ian Foster",
+            "Kyle Chard"
+        ],
+        "categories": [
+            "cs.MA",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19502v1",
+        "submit_date": "2026-09-16",
+        "relevant": false,
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19499v1": {
+        "title": "Sample Count Is Not Enough: Candidate-Generation Strategy Shapes the Energy and Performance of LLM Test-Time Scaling",
+        "link": "http://arxiv.org/abs/2609.19499v1",
+        "abstract": "Test-time scaling can improve large language model reasoning by generating and combining multiple candidate responses. In sampling-based methods, the inference budget is often described by the number of generated candidates, N. However, N tells us how many candidates are generated, not how they are executed. The same candidate budget can be produced in one batched generation call or split across several sequential calls with smaller batch sizes. We first study the effect of increasing N on reasoning accuracy using Phi-3-mini and Qwen2.5-1.5B on 500 GSM8K prompts. As expected, increasing N from 1 to 8 improves accuracy by 8.4 percentage points for Phi-3-mini and 18.4 points for Qwen2.5-1.5B. However, accuracy alone does not show the systems cost of using a larger candidate budget. We therefore fix N = 8 and compare four generation schedules: 1x8, 2x4, 4x2, and 8x1, where axb denotes a generation calls with b candidates per call. We measure latency, throughput, GPU-hours, and gross GPU-device energy while keeping the total candidate count fixed. On A100 GPUs, eight serial calls use 4.64-4.86x as much gross GPU-device energy and have 5.77-6.12x the P95 latency of one batched call with eight candidates. The same pattern appears across three independently scheduled A100 nodes per model and in short-output SciQ/V100 experiments. These results show that candidate count alone is not enough to describe the systems cost of multi-candidate test-time scaling. When candidates are independent and memory allows it, fewer generation calls with larger batch sizes are more efficient. Evaluations should therefore report not only candidate count and accuracy, but also generation schedule and GPU-level systems metrics.",
+        "authors": [
+            "Mobina Kashaniyan",
+            "Ali Jannesari"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.19499v1",
+        "submit_date": "2026-09-16",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Examines how candidate-generation strategies affect LLM inference systems despite fixed candidate counts. Compares batched vs. serial execution schedules for multi-candidate reasoning tasks. One batched call (8x1) uses 4.6-4.9x less GPU energy than eight serial calls (1x8).",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19169v1": {
+        "title": "SiliconBench: Speed, Memory, and Fidelity for LLM Serving on Unified-Memory Desktops",
+        "link": "http://arxiv.org/abs/2609.19169v1",
+        "abstract": "Concurrent local LLM serving on unified-memory desktops must preserve memory headroom and output fidelity, which speed-only rankings overlook. We introduce SiliconBench, which evaluates nine Apple Silicon serving engines through three lenses: speed, memory, and fidelity. We evaluate chat and agent serving on Qwen3, Qwen3.5, and Gemma 4. We use a classification task to check for quality regressions against an NVIDIA reference. DGX Spark provides a complementary serving-performance reference. Three desiderata guide interpretation: serving architecture readiness, memory discipline, and multi-node scaling. On Qwen3-0.6B, vllm-metal alone more than doubles throughput on both workloads from concurrency 1 to 16. CUDA vLLM and SGLang show stronger concurrency scaling on the same prompts. Explicit memory budgets do not guarantee memory headroom: two stacks complete every request while memory use approaches physical capacity and throughput declines. The newer model architectures have narrower engine support. Their evaluated implementations match the fidelity reference. Only three stacks satisfy the completion, fidelity, and model-coverage gates. Comparisons on larger dense and MoE models reinforce the importance of scheduling prompt processing alongside ongoing generation: vllm-metal's packed prefill-decode path maintains lower first-token latency than omlx under concurrent load. In the tested two-machine configurations, tensor parallelism over Thunderbolt RDMA scales while pipeline parallelism over TCP regresses. We release benchmark code, per-run results, and maintenance journals, supported by a workflow combining bounded agent fixes with human review.",
+        "authors": [
+            "Ranran Haoran Zhang",
+            "Aysa Xuemo Fan",
+            "David Munhá Correia",
+            "Alex Cheema",
+            "Rui Zhang"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2609.19169v1",
+        "submit_date": "2026-09-12",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "edge"
+        ],
+        "tldr": "Proposes SiliconBench, a benchmark for evaluating LLM serving engines on unified-memory desktops across speed, memory, and fidelity. vllm-metal doubles throughput when concurrency scales from 1 to 16 and achieves lower first-token latency via packed prefill-decode scheduling.",
+        "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.19203v1": {
+        "title": "Position: It is Time to Virtualize Foundation Models with a Self-evolving Operating System Layer",
+        "link": "http://arxiv.org/abs/2609.19203v1",
+        "abstract": "AI applications have shifted from single, monolithic foundation models (FM) to compound agentic systems. Yet today's stacks remain fragmented: even as protocols (e.g., MCP, A2A) ease tool/agent connectivity, each framework embeds an implicit runtime for state, memory, budgets, and guardrails, making behavior non-portable and governance brittle. It mirrors computing before operating systems, when every program re-implemented basic services. This position paper argues that the field now needs a Foundation Model Operating System (FMOS) -- a system layer that virtualizes FM interactions analogous to how virtual machines abstract physical hardware, giving applications the illusion of dedicated, trustworthy FM instances with effectively unbounded capabilities. Internally, the FMOS orchestrates knowledge across memory tiers, model selection and resource allocation, and verification and policy enforcement. Like the human brain switching between fast intuition and slow deliberation, the FMOS learns when to intervene and when to let inference proceed directly and continuously adapting its policies based on operational experience.",
+        "authors": [
+            "Suparna Bhattacharya",
+            "Tarun Kumar",
+            "Cong Xu",
+            "Satish Kumar Mopur",
+            "Jiahao Li",
+            "Ashish Mishra",
+            "Aalap Tripathy",
+            "Annmary Justine Koomthanam",
+            "Martin Foltin",
+            "Ian Foster"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.LG",
+            "cs.MA",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.19203v1",
+        "submit_date": "2026-09-16",
+        "relevant": true,
+        "tags": [
+            "agentic",
+            "serving"
+        ],
+        "tldr": "Addresses fragmentation in compound agentic systems via a Foundation Model Operating System (FMOS) that virtualizes FM interactions for resource allocation and policy enforcement. Aims to improve resource utilization and governance portability through self-adapting policies.",
+        "indexed_date": "2026-09-18"
     }
 }
