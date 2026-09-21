@@ -163160,5 +163160,441 @@
         ],
         "tldr": "Addresses fragmentation in compound agentic systems via a Foundation Model Operating System (FMOS) that virtualizes FM interactions for resource allocation and policy enforcement. Aims to improve resource utilization and governance portability through self-adapting policies.",
         "indexed_date": "2026-09-18"
+    },
+    "http://arxiv.org/abs/2609.21848v1": {
+        "title": "Distributed Balanced Butterfly Counting in Signed Bipartite Graphs",
+        "link": "http://arxiv.org/abs/2609.21848v1",
+        "abstract": "The balanced butterfly is a fundamental primitive for analyzing signed bipartite graphs and provides a basis for studying higher-order structural properties, such as clustering coefficients and community structure. Despite its importance, existing approaches primarily rely on serial algorithms for balanced butterfly counting, which become inefficient on large-scale graphs. To address this limitation, we propose a distributed algorithm, D-BBC, based on a hybrid MPI+TBB framework that exploits MPI for inter-process communication and Intel TBB for intra-node parallelism. We conduct an experimental assessment of the proposed approach across 15 real-world datasets. Experimental results demonstrate that, on a single-node distributed system, D-BBC achieves average speedups of 1321x and 16.2x over the serial BB2K and multi-core M-BBC implementations, respectively. Furthermore, D-BBC achieves a maximum speedup of 23.58x over the distributed baseline S-Monarch in terms of end-to-end execution time. These results demonstrate the efficiency of the proposed distributed approach and its potential to enable high- performance signed motif analysis on large-scale bipartite graphs.",
+        "authors": [
+            "Kiran Mekala",
+            "Apurba Das",
+            "Suman Banerjee"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21848v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21728v1": {
+        "title": "Verifiable Computation with Trusted Execution Environments and On-Chain Digital Rights Tokens",
+        "link": "http://arxiv.org/abs/2609.21728v1",
+        "abstract": "We present an architecture that enables data owners to combine private data into data pools using Trusted Execution Environments (TEEs) and manage these pools by issuing narrowly scoped computational rights, encoded as Digital Rights Tokens (DRTs), to third-party data analysts. Each DRT binds specific open-source code to a pool and is issued and redeemed on a distributed ledger. Data analysts can obtain the right to execute open-source code on the combined sealed data inside a TEE and receive the result from this code execution, but not the underlying data. We argue for a control-centric view of privacy in which creators retain ex ante control over how their data is processed. A reference implementation runs WebAssembly (WASM)/Python jobs over sealed datasets and records redemptions on Solana, illustrating the feasibility and limitations of the platform.",
+        "authors": [
+            "Bingle Stegmann Kruger",
+            "Co-Pierre Georg"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21728v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.19893v2": {
+        "title": "Hopper: Bounded-Memory Collaborative Debiasing for Byzantine-Tolerant Peer Sampling",
+        "link": "http://arxiv.org/abs/2609.19893v2",
+        "abstract": "Byzantine-tolerant peer sampling relies on continuously refreshed views, yet an adversary can bias the identifier streams used to construct them. Frequency-aware debiasing downweights overrepresented identifiers, but existing designs rely on cumulative per-identifier counts. We show that even exact, unbounded counters fail under a delayed balanced attack, in which a long benign prefix masks a subsequent adversarial frequency shift. We introduce Hopper, a bounded-memory debiasing protocol for Byzantine-tolerant peer sampling. We identify the stream-estimation properties required for debiasing and select BitMatcher as the estimator that best preserves adversarial frequency structure among the evaluated alternatives. Hopper adds BMDecay, a saturation-triggered decay and reconstruction mechanism that keeps this signal fresh over long executions. Hopper also supports trusted collaboration through authenticated fingerprint-aware reconstruction and role-specific debiasing. Experiments show that Hopper recovers from delayed attacks faster than when relying on BitMatcher, and debiaising as well as non-debiasing baselines under a fixed memory budget. Trusted collaboration reduces post-attack pollution peaks but creates a re-identification trade-off at high trusted-node densities. These results show the importance of occurence freshness, rather than exact counting alone, as a key requirement for practical frequency-aware Byzantine peer sampling.",
+        "authors": [
+            "Augusta Mukam",
+            "Joachim Bruneau-Queyreix",
+            "Laurent Reveillère"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.19893v2",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21627v1": {
+        "title": "PoVD: Efficient Consensus Protocol based on Verifiable Delay Function",
+        "link": "http://arxiv.org/abs/2609.21627v1",
+        "abstract": "Consensus protocols ensure the robustness and scalability of blockchains and decentralized applications built on them. However, existing consensus mechanisms often impose high computational cost or require heavy communication overhead. To address these challenges, we propose proof of verifiable delay (PoVD), a lightweight consensus protocol based on the verifiable delay function (VDF). We present the detailed protocol of PoVD, including the block mining and verification rules, and illustrate how PoVD can flexibly adjust the block time distribution according to the network condition. Through mathematical proof, we point out that, under a relatively weak network assumption, PoVD can achieve a lower fork rate than PoW while maintaining the same throughput. Our experiments verify that PoVD exhibits low computation and communication complexity and can also improve the blockchain consistency, making it particularly suitable for resource-constrained nodes and bandwidth-limited networks.",
+        "authors": [
+            "Rui Jiang",
+            "Xintong Ling",
+            "Bin Cao",
+            "Jiaheng Wang",
+            "Xiqi Gao",
+            "Zhi Ding"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21627v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21594v1": {
+        "title": "HyperParallel-FSDP: Topology-Aware Fully Sharded Training with Layout-Driven Muon on Ascend SuperPods",
+        "link": "http://arxiv.org/abs/2609.21594v1",
+        "abstract": "Declarative SPMD programming uses tensor sharding descriptions to drive distributed execution, separating parallelization from model code. However, the evaluated PyTorch DTensor stack dispatches every operator below autograd, incurring repeated dispatch and metadata costs, while lacking an inexpensive end-to-end validation path. Existing FSDP and distributed Muon implementations also mismatch two-tier supernode topologies: FSDP relies on explicit parameter packing and unpacking, and Muon's whole-matrix orthogonalization conflicts with parameter sharding.\n  We observe that distributed tensors need only express sharding semantics at the tensor API boundary above autograd, allowing differentiation and kernels to operate on plain tensors. Based on this insight, we present HyperParallel-FSDP, featuring: (1) dual-mode DTensor execution, using one sharding plan for both a production mode with one-time layout resolution and no steady-state dispatch overhead, and a validation mode with end-to-end metadata propagation, fail-fast checks, and gradient-equivalence testing; (2) topology-aware FSDP, with zero-copy intra-supernode collectives, fused inter-supernode reduction, and a cross-layer backward pipeline that avoids waits on slow links; and (3) layout-driven distributed Muon, with sharding-derived communication groups, deduplicated orthogonalization, and shape-fused Newton-Schulz iterations.\n  On Atlas 900 A3 SuperPoD, HyperParallel-FSDP scales from 16 dies to 384 cards (768 ranks), sustaining 421k tokens/s for a 505B-parameter MoE while FSDP communication uses 2.9% of step time. It reduces mean step time by 29.7% versus PyTorch FSDP2 and 25.5% versus Megatron DDP, with Pearson correlation above 0.999997 over 1,000 steps. Distributed Muon improves profiler step time by 5.4-16.0% over competing systems. Source code is available at https://atomgit.com/mindspore/hyper-parallel.",
+        "authors": [
+            "Mo Sun",
+            "Yifan Yao",
+            "Yanwei Liu",
+            "Luobin Liu",
+            "Zhenzhang Yang",
+            "Kaisheng Wang",
+            "Xiangyu Meng",
+            "Chen Li",
+            "Xizheng Pang",
+            "Huilan Li",
+            "Xinglei Xu",
+            "Yushi Cui",
+            "Xinyao Lin",
+            "Kaiqi Chen",
+            "Jie Zhang",
+            "Zeke Wang",
+            "Teng Su"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21594v1",
+        "submit_date": "2026-09-18",
+        "relevant": true,
+        "tags": [
+            "training",
+            "MoE"
+        ],
+        "tldr": "HyperParallel-FSDP addresses training inefficiency in existing sharded data parallelism for large models on two-tier supernode topologies. It introduces dual-mode DTensor execution, topology-aware collectives, and layout-driven distributed Muon. On 384 Ascend cards, it sustains 421k tokens/s for a 505B MoE and reduces step time by 29.7% versus FSDP2.",
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21483v1": {
+        "title": "Weave: Fine-Grained Dynamic SM Scheduling in an MoE Megakernel for Compute-Communication Overlap",
+        "link": "http://arxiv.org/abs/2609.21483v1",
+        "abstract": "Mixture-of-Experts (MoE) inference under expert parallelism (EP) turns each MoE layer into a distributed computation with costly dispatch and combine communication. State-of-the-art systems reduce this cost through communication-computation overlap, splitting the GPU's SMs for communication and computation respectively. However, this approach still leaves GPU resources wasted along two dimensions. Spatially, the best SM split is determined by each layer's routing result and varies across layers and GPUs, so fixed policies mismatch the workload and waste either NVLink bandwidth or compute throughput. Temporally, complex MoE data dependencies introduce bubbles that leave SMs idle.\n  We present Weave, to our knowledge the first MoE overlap system that performs fine-grained dynamic SM scheduling - deciding per layer and per GPU by routing results at runtime. Once routing completes, each layer's communication and computation volumes become known; Weave exploits this predictability through a lightweight cost model running inside the persistent megakernel: a spatial scheduler partitions SMs into communication workers and computation workers to match the communication/computation throughput ratio, and a temporal scheduler coordinates the two worker groups to minimize SM idleness. On 4x H100 SXM GPUs across six mainstream MoE models, Weave achieves a 2.89x geometric-mean MoE-layer speedup and a 1.33x geometric-mean end-to-end speedup over five state-of-the-art baselines.",
+        "authors": [
+            "Ziyu Huang",
+            "Yangjie Zhou",
+            "Chenhao Zhu",
+            "Zihan Liu",
+            "Jinyu Liu",
+            "Shulai Zhang",
+            "Xingxun Tang",
+            "Hongzhe Yan",
+            "Xinhao Luo",
+            "Minyi Guo",
+            "Xiu Lin",
+            "Yinghao Yu",
+            "Guodong Yang",
+            "Liping Zhang",
+            "Shixuan Sun",
+            "Jingwen Leng"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21483v1",
+        "submit_date": "2026-09-18",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "kernel"
+        ],
+        "tldr": "Addresses spatial and temporal resource wastage in MoE-layer inference under expert parallelism. Introduces Weave, a fine-grained dynamic scheduler that partitions SMs and coordinates communication-computation overlap at runtime using a lightweight cost model. Achieves a 1.33× geometric-mean end-to-end speedup over baselines.",
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21419v1": {
+        "title": "TrustBOM: A Scalable Architecture for Confidentiality-Preserving SBOMs Across Organizations",
+        "link": "http://arxiv.org/abs/2609.21419v1",
+        "abstract": "Software Bills of Materials (SBOMs) have emerged as a key mechanism for software supply chain governance in enterprise architectures. However, their adoption across organizations remains limited due to concerns about exposing sensitive dependency information. To address this limitation, we propose TrustBOM, a scalable architecture for confidentiality-preserving SBOMs integrated into enterprise CI/CD workflows. TrustBOM enables software providers to attest that specific vulnerabilities or restricted licenses are absent from their software without revealing the underlying dependency graph. This is achieved using zero-knowledge non-membership proofs, which are applied selectively based on consumer-defined policy constraints. The architecture ensures that proof generation scales linearly with the number of asserted constraints rather than with the size of the SBOM, enabling efficient operation in large-scale enterprise environments. Empirical evaluation demonstrates linear performance, with an average proof generation time of 0.9 seconds per constraint on commodity hardware, indicating the feasibility of deployment in enterprise platform ecosystems.",
+        "authors": [
+            "Van Thang Nguyen",
+            "Frederic Rupprecht",
+            "Tom Lawrence",
+            "Lucca Di Benedetto",
+            "Sören Schubert",
+            "Amor Rezgui",
+            "Sebastian Werner",
+            "Maria C. Borges",
+            "Stefan Tai"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21419v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21366v1": {
+        "title": "TokaGLINT: A Scalable GPU-Tailored Implicit Solver for Full 3D Tokamak Electromagnetic Simulations",
+        "link": "http://arxiv.org/abs/2609.21366v1",
+        "abstract": "We introduce TokaGLINT, a GPU-accelerated implicit solver for electromagnetic field computations in full 3D tokamak simulations, aimed at efficient large-scale parallel GPU computing. Its central innovation lies in the co-design of hierarchical domain decomposition and a fast exact local solver, where hierarchical partitioning is tailored to match fine-grained intra-card subdomains and exploit the tensor-based solver dedicated to curvilinear-coordinate symplectic CN-FDTD-discretized 3D Maxwell equations. Backed by automated operator fusion and batching customized for the intra-card multi-subdomain structure, the solver decouples unknowns through discrete transformations and leverages tensor-structured computations to achieve high hardware utilization, while preserving the long-time stability characteristic of symplectic discretizations. TokaGLINT scales the electromagnetic field solve beyond 10,000 GPUs, achieving 90.1% weak and 53.9% strong scaling efficiency, while delivering a 2.67X single-node speedup over an unpreconditioned BiCGStab baseline (HIP-enabled HYPRE). It is validated in EAST tokamak simulations within the SymPIC plasma simulation code, enabling high-fidelity long-duration modeling.",
+        "authors": [
+            "Zifan Yang",
+            "Haoyuan Zhang",
+            "Jialin Li",
+            "Wu Yuan",
+            "Xiazhen Liu",
+            "Jian Zhang",
+            "Jianyuan Xiao",
+            "Shan Liang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21366v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.17652v3": {
+        "title": "Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches",
+        "link": "http://arxiv.org/abs/2609.17652v3",
+        "abstract": "When agentic sessions run to a million tokens with many sessions resident at once, the KV cache and the index that ranks it live in host memory, and the scan that ranks all n keys for a top-k step becomes the traffic that bounds decoding. We present Fathom, a key scan in which each query decides how many bits of each key channel to read. The 4-bit K cache is stored channel-major as bit planes, so a prefix of t planes is exactly the channel's t-bit quantizer, and the query spends its bit budget by reverse water-filling over the variance-weighted importance of its channels. At one million tokens on Qwen3-8B a decode step is 1.67x faster in GPU time than with the 136-bit scans of Double Sparsity, Loki and SparQ r=32, and in the same GPU time as SparQ's 68-bit read (r=16) Fathom reads 18% fewer bytes with lower attention error on six of seven model and context settings. On RULER-style tasks every per-token scan matches exact top-k decoding, and on real coding-agent sessions Fathom reaches the step agreement of the most accurate 136-bit scan at 92 bits. The store is the 4-bit K copy a quantized serving stack already holds, and the method is not faster when the index is resident in GPU memory.",
+        "authors": [
+            "Vivek Kalyanarangan"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.17652v3",
+        "submit_date": "2026-09-18",
+        "relevant": true,
+        "tags": [
+            "offloading",
+            "quantization",
+            "serving"
+        ],
+        "tldr": "Addresses the KV cache scan bottleneck in offloaded inference. Proposes Fathom, which adaptively reads bits per query via bit planes and reverse water-filling. Achieves 1.67x faster GPU time for decode steps on Qwen3-8B at one million tokens.",
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21299v1": {
+        "title": "Brain API: An Intent-Aware Control Plane for Policy-Governed Agentic Systems",
+        "link": "http://arxiv.org/abs/2609.21299v1",
+        "abstract": "Contemporary cloud and distributed systems expose control through resource-centric abstractions: services, deployments, network flows, execution graphs. Agentic and tool-augmented systems have meanwhile shifted application logic toward intent-driven, adaptive execution. Existing control planes, workflow engines and service meshes lack abstractions for intent-level decision governance: they cannot represent high-level goals as first-class control objects, cannot enforce policy over the mapping from intent to execution plan, and cannot produce auditable records of why one execution path was chosen over its alternatives. Control logic is therefore embedded in application code, leaving systems brittle, opaque and hard to govern.\n  We propose Brain API, an intent-aware control plane for policy-governed agentic systems. Its central contribution is the decision artifact: a durable, versioned, auditable record of how an intent became an executable plan, capturing which policies applied, which capabilities were evaluated, which alternatives were rejected, and why. A motivating use case is agentic datasets: datasets participating as policy-governed capabilities under residency, compliance and cost constraints.\n  We evaluate a prototype of the decision layer against two external policy corpora we did not author. On the OPA Gatekeeper constraint library it agrees with the library's own published verdicts on 42 of 42 encodable cases, 19 admit and 23 deny. On Cedar example policies, labeled by differential testing against its reference implementation, a deliberately dissimilar domain exposed three defects in our model, including a default-allow assumption that would have inverted every authorization policy. The evaluation covers policy filtering and selection; context-signal and ranking remain design claims, and decision latency under load is unquantified.",
+        "authors": [
+            "Alexander Chernov"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21299v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21281v1": {
+        "title": "Hybrid GPU-CPU Retrieval for Personalized Search at Ultra-Large Scale",
+        "link": "http://arxiv.org/abs/2609.21281v1",
+        "abstract": "Embedding-based retrieval on user-generated content at the trillion-document scale exposes a sharp conflict between two production demands: deep, expressive personalization for queries with rich user intent, and broad coverage of a massive inventory under fixed latency and resource budgets. We characterize this as the personalization-scale paradox: hosting the full serving inventory in GPU memory is too resource intensive, while CPU compute cannot execute the same interaction-heavy model on the latency-critical path.\n  We present a hybrid GPU-CPU co-serving system that resolves the paradox through orchestration rather than a new model class. A high-depth GPU pathway fuses retrieval and interaction pre-ranking over a curated online pool on the order of a billion documents, while a high-breadth CPU pathway searches an independently selected online inventory roughly twenty times larger with lightweight personalized scoring. Either or both pathways can run per request; candidates are deduplicated before shared downstream ranking.\n  The system is deployed in production. A full-system A/B test against the legacy CPU-only configuration improves model-scored relevance and substantive engagement, while separate pathway experiments show positive value at their own deployment scopes. Retrieval logs show that the pathways contribute structurally distinct candidates, production serving measurements characterize their latency, and a matched capacity plan quantifies the economic rationale for assigning modeling depth to GPUs and inventory breadth to CPUs. Together, these results validate a practical, independently evolvable depth-breadth architecture for ultra-large-scale personalized search.",
+        "authors": [
+            "Hao Fu",
+            "Jichao Sun",
+            "Baiting Zhu",
+            "Qiaoling Liu",
+            "Yan Shi",
+            "Cheng Lu",
+            "Liu Liu",
+            "Yubo Wang",
+            "Xin Yao",
+            "Xiangyu Niu",
+            "Xu Dong",
+            "Wenhan Lyu",
+            "Chiyao Shen",
+            "Yinjie Huang",
+            "Minglei Chen",
+            "Shuai Ding",
+            "Li Fan",
+            "Xiao Kong"
+        ],
+        "categories": [
+            "cs.IR",
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.21281v1",
+        "submit_date": "2026-09-18",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "hardware",
+            "scaling"
+        ],
+        "tldr": "Addresses the personalization-scale paradox in ultra-large-scale embedding-based retrieval by proposing a hybrid GPU-CPU serving system. GPU handles high-depth fusion on a small curated pool, while CPU executes high-breadth lightweight scoring on a larger inventory. A/B testing shows improved relevance, engagement, and economic efficiency compared to CPU-only systems.",
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21173v1": {
+        "title": "Adapting the Actor Model of Concurrency for High-Frequency Trading: Synchronous Message Delivery (fast_send) and a Tick-to-Book Latency Study",
+        "link": "http://arxiv.org/abs/2609.21173v1",
+        "abstract": "The actor model - state isolation, data-race freedom, deadlock resistance, and sequential single-message reasoning - has long been dismissed as unsuitable for high-frequency trading (HFT): actors seem to imply many threads, a mailbox per actor, and a heap-allocated message plus a context switch per interaction, overhead incompatible with a microsecond budget. This paper argues the dismissal is wrong for co-located actors, and supports it both analytically and with a deployed, measured implementation: kaspar-hft, an open-source C++20 framework. Four extensions adapt the model for HFT: fast_send, a synchronous delivery mechanism in which the sending thread runs the receiver's handler inline and returns the reply as a value; actor groups, which co-schedule actors on one thread behind a shared mailbox; per-actor selectable mailbox queues; and a memory pool. fast_send has receiver transparency: the handler cannot tell whether delivery was synchronous or asynchronous, or which thread runs it. A grouped synchronous chain runs on one thread, cutting scheduler context switches from O(N) to O(1), and a thread-local call-chain test catches cyclic invocation before any lock is taken. Microbenchmarks put the synchronous round trip at tens of nanoseconds. On a live CME market-data feed (ES, NQ, ZN futures), socket-to-book latency decomposes into a ~7 microsecond decode-and-book floor plus a per-message slope; the framework's own contribution is under 1% of the floor. The tail is set not by the actor machinery but by the market's non-Poisson, clustered arrival process, characterized in a companion paper. The shared-queue group also yields a production/simulation duality: the same actor code runs unchanged in live trading and deterministic backtest.",
+        "authors": [
+            "Vincent Maciejewski"
+        ],
+        "categories": [
+            "q-fin.TR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21173v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21162v1": {
+        "title": "AI-Driven Scientific Computing Workflows: A Systems Review of Orchestration, Execution, Reproducibility and Provenance",
+        "link": "http://arxiv.org/abs/2609.21162v1",
+        "abstract": "Artificial intelligence (AI) is increasingly embedded within scientific computing workflows that combine simulation, data processing, optimisation, visualisation and experimental or observational components. Learned models may serve as explicit workflow components, retain persistent state and, in adaptive settings, influence subsequent computation. Existing work has characterised scientific workflow management systems, dynamic and steered workflows, AI--HPC coupling motifs and the machine-learning lifecycle, although these areas are often discussed separately. This review brings them together from a systems perspective. We distinguish conventional scientific workflows, machine-learning pipelines, AI-coupled high-performance computing (HPC) workflows and broader automated research workflows, and propose a continuum describing the depth of AI participation from a computational stage to co-adaptive workflow control. The associated systems requirements are organised around five concerns: control and orchestration; compute and execution; data and model state; reproducibility and provenance; and governance and assurance. Representative systems and applications include AI-steered molecular simulation, drug and materials discovery, simulation--surrogate coupling and distributed self-driving laboratories. Workflow-level evaluation is considered in terms of scientific progress, execution cost, data movement, resource use, resilience and decision traceability. We conclude by identifying open problems in dynamic workflow representation, state-aware recovery, heterogeneous scheduling, interoperable data planes, model-mediated decision provenance and reproducible adaptive execution.",
+        "authors": [
+            "Jamie J. Alnasir"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21162v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21143v1": {
+        "title": "Cloud-Side Transactional Orchestration Framework for Resource-Constrained Embedded Systems",
+        "link": "http://arxiv.org/abs/2609.21143v1",
+        "abstract": "As digital commerce ecosystems expand into low-end consumer electronics (CE), hardware constraints-specifically limited CPU duty cycles and volatile heap fragmentation-become significant bottlenecks for complex transactional flows. Traditional on-device middleware requires high \"network chattiness\" to manage multi-step state machines, leading to increased latency and potential transaction failure on unstable residential networks. This paper proposes a novel Transactional Backend-for-Front-End (T-BFF) Orchestration Framework designed for resource-constrained embedded platforms. By migrating the transactional state machine and microservice orchestration to a cloud-side layer, we achieve a significant reduction in client-side overhead. Our framework introduces a \"Double-Handshake\" protocol utilizing non-volatile flash memory for state recovery after hardware reboots. Experimental results on an ARM Cortex-A53 platform demonstrate a 35% reduction in maximum heap usage and a 40% improvement in end-to-end transaction latency. This framework provides a scalable, sustainable blueprint for maintaining transactional integrity on legacy hardware in the 2026 IoT landscape.",
+        "authors": [
+            "Pravin Nagare",
+            "Aditya Sabbineni",
+            "Preetam Dedu",
+            "Willison Lopes"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2609.21143v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21110v1": {
+        "title": "SensorWF: A FAIR Generalizable Workflow Framework for Scientific Time-Series Analysis",
+        "link": "http://arxiv.org/abs/2609.21110v1",
+        "abstract": "Scientific sensor data is foundational across disciplines including spacecraft engineering, clinical medicine, and atmospheric science. In each context, pipelines are constructed to ingest raw archives, assess data quality, perform feature engineering and semantic annotation, and record provenance. However, these pipelines are often implemented as monolithic, domain-specific scripts with implicit assumptions and limited reusability across fields. This work introduces SensorWF, a FAIR-annotated workflow framework for generalizable scientific time-series analysis. The framework features a five-module reusable core (M1-M5) with typed input/output contracts. A domain adapter pattern isolates all domain-specific logic within M1, enabling modules M2-M5 to operate identically across disciplines. Domain assumptions are encoded in a machine-readable component registry, enabling reuse across sensor domains without modifying the analytical core. SensorWF also generates runtime PROV-O/ProvONE provenance traces with SHA-256 checksums for all file-path entities and emits SSN/SOSA-aligned OWL ontologies as primary outputs. To assess generalizability, SensorWF is instantiated in three distinct scientific domains: spacecraft telemetry, ambulatory ECG, and atmospheric climate, with synthetic fault injection and multi-detector anomaly detection demonstrated as use-case extensions. Results show that a single codebase, parameterized solely through M1 adapters of approximately 170-500 lines each, supports analytical pipelines across domains with varying sampling rates, channel counts, and fault taxonomies. All code, the component registry, ontology artifacts, and datasets are made available as an open scientific object. Our codebase is publicly available at https://purl.archive.org/sensor-wf.",
+        "authors": [
+            "Logan Luna",
+            "Joseph Rigo",
+            "Kellan Shew",
+            "Raul Alejandro Vargas-Acosta"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21110v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21079v1": {
+        "title": "DLB: Distributed Load Balancing at Scale for Generative AI Inference",
+        "link": "http://arxiv.org/abs/2609.21079v1",
+        "abstract": "The reliance on scarce and expensive accelerators such as GPUs and TPUs in modern datacenters places unprecedented demands on backend infrastructure. For workloads characterized by heterogeneous service times and complex multi-stage processing, such as Generative AI, conventional load balancing techniques are often inadequate, relying heavily on costly overprovisioning to maintain service level objectives. This paper introduces DLB, the Distributed Load Balancer, a novel system designed to minimize end-to-end user latency for large-scale, heterogeneous workloads.\n  DLB employs a scalable, distributed design with peer-to-peer probing to maintain real-time visibility into server capacity across large-scale, geographically distributed infrastructure. The system continuously learns latency models to estimate the latency impact of routing decisions, allowing it to effectively manage heterogeneous hardware and diverse model architectures. We provide a novel theoretical analysis of our routing algorithms that establishes their stability and global performance guarantees over time. We also evaluate DLB through extensive simulations, which show substantial gains compared to state-of-the-art load balancing algorithms. Finally, following a 22-month deployment of DLB at Google, where it facilitates large-scale Generative AI inference for thousands of different machine learning models and millions of requests per second, we detail the design choices and practical experiences gained from the system in production. Analysis of production migrations demonstrates that DLB yields statistically significant latency reductions compared to the legacy baseline, including a 17\\% decrease in median latency and a 13\\% decrease at the p95 tail.",
+        "authors": [
+            "Santiago R. Balseiro",
+            "Bartek Wydrowski",
+            "Sameer Agarwal",
+            "David Applegate",
+            "Aaron Archer",
+            "Soheil Hassas Yeganeh",
+            "Alex Iriza",
+            "Bobby Kleinberg",
+            "Balasubramanian Sivan",
+            "Pranav Vaish",
+            "Oscar Zegarra",
+            "Wenxin Zhang",
+            "Vahab Mirrokni",
+            "Amin Vahdat"
+        ],
+        "categories": [
+            "cs.DC",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2609.21079v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "networking",
+            "scaling"
+        ],
+        "tldr": "Proposes DLB, a distributed load balancer using P2P probing and latency modeling to minimize user latency in generative AI inference. Achieves 17% lower median and 13% lower p95 latency across large-scale deployments handling millions of RPS.",
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21058v1": {
+        "title": "How Much of a Real Workload Can LLM-Generated GPU Kernels Actually Reach?",
+        "link": "http://arxiv.org/abs/2609.21058v1",
+        "abstract": "Language models can now write GPU kernels that outperform PyTorch. We evaluate five model configurations on KernelBench level 1 and find that a frontier model produces correct kernels for 91.1% of problems and independently verified speedups on 22 of 56, including three convolutions, with a median of 1.235x. Open-weights models are far behind: the best reaches 30.4% correct with three verified speedups and solves zero convolutions.\n  We then ask a question the literature does not: what fraction of a real model's wall clock do such kernels govern? Profiling seven workloads across three domains, we find the addressable fraction ranges from 8.9% to 58.2%. On transformers, 80-86% of runtime is spent in cuBLAS GEMM and FlashAttention, bounding realistic end-to-end improvement at roughly 1%, and the fraction shrinks with model scale. On recommenders it is 58.2%, concentrated in a single embedding kernel. We introduce DLRM-Bench, 12 recommender kernel problems in KernelBench format, and measure a 41.7% win rate at a 1.552x median there, projecting 8.63% end-to-end.\n  Separately, we show that KernelBench's correctness check (torch.allclose with an absolute tolerance) is satisfied by a tensor of zeros on 4 of 60 level-1 problems. Two kernels in our own results exploited this before we detected them, including one scored at 283x that wrote 0.3% of its output buffer. We propose scale-invariant replacements and release all 879 evaluations.",
+        "authors": [
+            "Gaurav Agarwal",
+            "Ashish Garg",
+            "Isha Singhal"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.21058v1",
+        "submit_date": "2026-09-17",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "recommendation"
+        ],
+        "tldr": "Assesses the real-world impact of LLM-generated GPU kernels on model runtimes through workload profiling and kernel benchmarking. Introduces DLRM-Bench for recommenders, reporting a 41.7% win rate with 1.552x median speedup, projecting an 8.63% end-to-end speedup.",
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.21057v1": {
+        "title": "FedeRage: Provably Convergent Agnostic Federated Learning under General Client Drift",
+        "link": "http://arxiv.org/abs/2609.21057v1",
+        "abstract": "Federated learning (FL) enables collaborative model training without sharing raw data, but its performance degrades under non-IID data and stochastic client participation. Remedies built on classical Federated Averaging (FedAvg) typically presuppose that client participation probabilities are known to the server, which is rarely the case in deployed systems. We first discuss and then characterize the optimization problem that \\emph{distributionally agnostic} FedAvg actually solves when participation is entirely unknown, possibly highly skewed, and of variable size across rounds: uniform aggregation is shown to minimize a well-defined stochastic objective, weighted by the participation-induced marginal, at a standard $\\mathcal{O}(1/\\sqrt{T})$ rate for convex and possibly nonsmooth losses. Building on this characterization, we propose \\emph{Federated Risk-Averse Averaging} (\\textsc{FedeRage}), a risk-averse extension of FedAvg that embeds the \\emph{Conditional Value-at-Risk} (CVaR) into the local objective within a natural distributionally robust optimization (DRO) framework. \\textsc{FedeRage} implicitly upweights high-loss and infrequently participating clients while adding only a \\emph{single scalar per-client}, and admits an $\\mathcal{O}(κ/\\sqrt{T})$ rate in which the factor $κ$ is the upper bound on the ``price\" of risk aversion. In contrast with aggregation-alignment schemes based on optimal transport, which require the availability distribution as an input, \\textsc{FedeRage} remains agnostic to it. Several experiments on three heterogeneous benchmarks indicate consistent improvements over state-of-the-art methods in accuracy, fairness, and convergence speed.",
+        "authors": [
+            "Herlock Rahimi",
+            "Dionysis Kalogerias"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "eess.SP",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2609.21057v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.20874v1": {
+        "title": "Decomposing Predictive Kubernetes Autoscaling for Large Language Model Serving Under Long Startup Delays",
+        "link": "http://arxiv.org/abs/2609.20874v1",
+        "abstract": "Large language model (LLM) inference deployed on Kubernetes faces an autoscaling challenge that conventional web services do not: new serving replicas take two to ten minutes to start because multi-gigabyte model weights must be loaded, which makes purely reactive scaling structurally late. We ask a sharp question: among the components of a predictive autoscaler, which ones actually matter under such long actuation delays? We answer it by decomposing predictive autoscaling into four factors---token-aware demand tracking, startup-delay lookahead, a bounded uncertainty margin, and plant-state observation---and measuring each factor's contribution in isolation on production-derived heavy-tailed workloads generated by ServeGen. Our main finding is that a simple exponentially weighted moving average (EWMA) predictor with delay-aware lookahead and an upper confidence bound (UCB) margin captures most of the benefit, reducing time-to-first-token (TTFT) service-level-objective (SLO) violations from 53% (reactive, queries-per-second based) to 0.5% across five random seeds; lookahead alone is the single largest factor, a 14$\\times$ reduction. Kalman filter variants do not consistently improve the cost--SLO tradeoff. Controlled experiments isolate the reason token granularity is necessary: context length, through key--value cache pressure, degrades TTFT far more than request rate at matched throughput. Finally, a validation on a real Kubernetes cluster (Qwen2.5-7B, A100, vLLM) confirms the central mechanism: a delay-aware lookahead controller cuts TTFT violations from 63.5\\% to 3.7\\% relative to reactive KEDA scaling. We distinguish throughout which findings are specific to Kubernetes actuation and which are general to LLM serving.",
+        "authors": [
+            "Tianrui Liu",
+            "Xiaohai Hu"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20874v1",
+        "submit_date": "2026-09-16",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Investigates which predictive autoscaling components matter for LLM serving under long startup delays. Proposes an EWMA predictor with delay lookahead and UCB margin to anticipate demand. Reduces TTFT SLO violations from 53% (reactive) to 0.5% in simulations and from 63.5% to 3.7% in real clusters.",
+        "indexed_date": "2026-09-21"
     }
 }

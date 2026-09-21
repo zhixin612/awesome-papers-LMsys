@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3161-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.18-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3168-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.21-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-21
+* `training` `MoE` [HyperParallel-FSDP: Topology-Aware Fully Sharded Training with Layout-Driven Muon on Ascend SuperPods](http://arxiv.org/abs/2609.21594v1)
+  > **TL;DR**: HyperParallel-FSDP addresses training inefficiency in existing sharded data parallelism for large models on two-tier supernode topologies. It introduces dual-mode DTensor execution, topology-aware collectives, and layout-driven distributed Muon. On 384 Ascend cards, it sustains 421k tokens/s for a 505B MoE and reduces step time by 29.7% versus FSDP2.
+* `MoE` `serving` `kernel` [Weave: Fine-Grained Dynamic SM Scheduling in an MoE Megakernel for Compute-Communication Overlap](http://arxiv.org/abs/2609.21483v1)
+  > **TL;DR**: Addresses spatial and temporal resource wastage in MoE-layer inference under expert parallelism. Introduces Weave, a fine-grained dynamic scheduler that partitions SMs and coordinates communication-computation overlap at runtime using a lightweight cost model. Achieves a 1.33× geometric-mean end-to-end speedup over baselines.
+* `offloading` `quantization` `serving` [Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches](http://arxiv.org/abs/2609.17652v3)
+  > **TL;DR**: Addresses the KV cache scan bottleneck in offloaded inference. Proposes Fathom, which adaptively reads bits per query via bit planes and reverse water-filling. Achieves 1.67x faster GPU time for decode steps on Qwen3-8B at one million tokens.
+* `serving` `hardware` `scaling` [Hybrid GPU-CPU Retrieval for Personalized Search at Ultra-Large Scale](http://arxiv.org/abs/2609.21281v1)
+  > **TL;DR**: Addresses the personalization-scale paradox in ultra-large-scale embedding-based retrieval by proposing a hybrid GPU-CPU serving system. GPU handles high-depth fusion on a small curated pool, while CPU executes high-breadth lightweight scoring on a larger inventory. A/B testing shows improved relevance, engagement, and economic efficiency compared to CPU-only systems.
+* `serving` `networking` `scaling` [DLB: Distributed Load Balancing at Scale for Generative AI Inference](http://arxiv.org/abs/2609.21079v1)
+  > **TL;DR**: Proposes DLB, a distributed load balancer using P2P probing and latency modeling to minimize user latency in generative AI inference. Achieves 17% lower median and 13% lower p95 latency across large-scale deployments handling millions of RPS.
+* `kernel` `recommendation` [How Much of a Real Workload Can LLM-Generated GPU Kernels Actually Reach?](http://arxiv.org/abs/2609.21058v1)
+  > **TL;DR**: Assesses the real-world impact of LLM-generated GPU kernels on model runtimes through workload profiling and kernel benchmarking. Introduces DLRM-Bench for recommenders, reporting a 41.7% win rate with 1.552x median speedup, projecting an 8.63% end-to-end speedup.
+* `serving` `scaling` [Decomposing Predictive Kubernetes Autoscaling for Large Language Model Serving Under Long Startup Delays](http://arxiv.org/abs/2609.20874v1)
+  > **TL;DR**: Investigates which predictive autoscaling components matter for LLM serving under long startup delays. Proposes an EWMA predictor with delay lookahead and UCB margin to anticipate demand. Reduces TTFT SLO violations from 53% (reactive) to 0.5% in simulations and from 63.5% to 3.7% in real clusters.
+
 ### 2026-09-18
 * `diffusion` `serving` `networking` [PixelFlow: Token-Level Workload Management for Efficient Distributed DiT Serving](http://arxiv.org/abs/2609.20723v1)
   > **TL;DR**: Addresses distributed Diffusion Transformer (DiT) serving for image generation under latency SLOs. Proposes token-level workload management by partitioning requests and optimizing token placement to minimize cross-GPU communication, with overlapped transfers. Achieves 43% higher SLO attainment and 2.8× goodput over state-of-the-art systems.
