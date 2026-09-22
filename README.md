@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3168-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.21-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3186-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.22-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,44 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-22
+* `serving` [Who Pays for the KV Cache? Attributing Shared AI Inference Spend Across Kubernetes and LLM Provider Bills](http://arxiv.org/abs/2609.24991v1)
+  > **TL;DR**: Studies attribution of shared inference costs, particularly for KV cache, between Kubernetes and LLM billing systems. Introduces unalloc to merge cost data from sources like OpenCost and API providers. Finds 66% of GPU bill unowned due to missing leader pod labels in multi-pod deployments.
+* `edge` `hardware` `serving` [SPECTRA: Adaptive Execution of Speculative Decoding on a Runtime-Reconfigurable Tiled Architecture](http://arxiv.org/abs/2609.24847v1)
+  > **TL;DR**: Addresses efficient LLM inference on edge via speculative decoding's varying arithmetic intensity. Proposes SPECTRA, a runtime-reconfigurable tiled architecture with systolic/vector-lane execution switching per tile and system-wide dynamic parallelism adaptation. Achieves up to 2.09x speedup from tile-level and 1.25x gain from system-level reconfiguration.
+* `serving` `scaling` `disaggregation` [Analytical Power-Aware Provisioning for Prefill-Decode Disaggregated AI Inference](http://arxiv.org/abs/2609.24639v1)
+  > **TL;DR**: Proposes an analytical framework for power-aware provisioning in PD-disaggregated inference. Models serving capacity considering KV-cache, queueing, and hardware limits, and power as a function of throughput. Enables selection of deployments on the capacity-power Pareto front as workload or power changes.
+* `training` `RL` `storage` [Conduit: An Experience Data Plane for Distributed Reinforcement Learning](http://arxiv.org/abs/2609.24456v1)
+  > **TL;DR**: Addresses high latency in distributed RL training experience management. Introduces Conduit with an Experience Data Plane for bandwidth-aware placement and latency-aware scheduling. Reduces exposed experience-path latency by up to 97%.
+* `serving` [Dissecting How Die Scaling Breaks GPU Fine-grained Scheduling](http://arxiv.org/abs/2609.24270v1)
+  > **TL;DR**: Explores how GPU die scaling asymmetries impair resource scheduling. Develops lightweight characterization methods and asymmetry-aware scheduling that assigns physical resources strategically. Improves multiplexed LLM inference latency by up to 14.3%.
+* `training` `hardware` `scaling` [A principled approach for energy-efficient training via phase-aware GPU frequency tuning](http://arxiv.org/abs/2609.24205v1)
+  > **TL;DR**: Reduces training energy waste from system bottlenecks via GPU frequency tuning. Proposes PAFT, which dynamically adjusts clock frequencies to match stalled pipeline stages, saving energy without impacting execution time. Achieves up to 46% energy savings with 4% average overhead.
+* `training` `kernel` `quantization` [Explicit State and Resource Contracts for Low-Precision Pipeline Parallel Training under Captured Graphs](http://arxiv.org/abs/2609.23536v1)
+  > **TL;DR**: Addresses silent data corruption in FP8 pipeline training due to static CUDA Graphs. Proposes QEffect runtime with explicit invariants for state synchronization and resource management, and affine gradient placement to eliminate memory copies. Achieves 1.82–2.79x speedup over eager execution and 1.132x additional gain via copy elimination.
+* `agentic` `serving` `MoE` [PipeSwift: Revisiting Pipeline Parallelism for Large-Scale Completion-Oriented Agentic LLM Serving](http://arxiv.org/abs/2609.16491v3)
+  > **TL;DR**: Investigates job completion time (JCT) reduction for agentic LLM workflows. Introduces PipeSwift, a pipeline-parallel runtime with micro-batch partitioning and multi-token prediction. Achieves up to 2.33× lower JCT than vLLM on 360B+ MoE models using 64 GPUs.
+* `diffusion` `LoRA` `serving` [Co-occurrence Patterns of LoRA Adapters in Production Diffusion Model Inference Services](http://arxiv.org/abs/2609.23321v1)
+  > **TL;DR**: Characterizes co-occurrence patterns of LoRA adapters in production diffusion model inference services. Proposes graph-based analysis and preloading strategy using top-k co-occurrence statistics, achieving 81.0% coverage on test-set pairs. Provides insights for cache preloading and memory management optimization.
+* `networking` `training` [Accurate Distributed Tracing for Large-Scale AI Infrastructure: Time Synchronization as a Foundation for Reliable Observability](http://arxiv.org/abs/2609.23301v1)
+  > **TL;DR**: Addresses unreliable distributed tracing due to clock inaccuracy in large AI clusters. Proposes TempoTrace with PTP synchronization, hardware timestamping, and in-band telemetry to preserve causal ordering. Achieves 99.1% attribution accuracy and 0.056 us timestamp residual std dev.
+* `training` `networking` [Accurate Simulation of Distributed Training Jobs with Network Contention Modeling](http://arxiv.org/abs/2609.23278v1)
+  > **TL;DR**: Addresses inaccurate network contention modeling in distributed training simulators. Proposes MoSim, combining GPU-free characterization and dynamic network contention estimation. Reduces average job completion time simulation error by up to 3.28× and input overhead by 44.6×.
+* `serving` [Sample Count Is Not Enough: Candidate-Generation Strategy Shapes the Energy and Performance of LLM Test-Time Scaling](http://arxiv.org/abs/2609.19499v2)
+  > **TL;DR**: Investigates how candidate-generation schedules impact energy and performance in multi-candidate LLM inference. Compares batched and sequential execution for fixed candidate counts. Batched calls (1x8) reduce energy by 4.64-4.86x and latency by 5.77-6.12x versus serial (8x1).
+* `serving` `RL` [Measured Joules, Learned Routes: Learning to Route for Energy-Efficient LLM Serving](http://arxiv.org/abs/2609.23085v1)
+  > **TL;DR**: Investigates adaptive routing across heterogeneous LLMs to reduce inference energy without sacrificing performance. Designs an LLM-based router trained via offline profiling, supervised fine-tuning, and group relative policy optimization. Demonstrates improved accuracy-energy tradeoff and a sharp phase transition across seven benchmark tasks.
+* `training` `RL` `scaling` [DeepSeek Elastic Compute (DSec): A Sandbox Infrastructure for Effective Agentic Training at Scale](http://arxiv.org/abs/2609.22978v1)
+  > **TL;DR**: Proposes DeepSeek Elastic Compute (DSec), a sandbox infrastructure for scalable agentic LLM training with reinforcement learning. It unifies sandbox backends, co-designs with RL frameworks, and integrates distributed filesystem for high-density execution. Sustains over 5,000 sandbox creations per second and reduces setup overhead.
+* `edge` `multi-modal` [Scout: Open-World Species Recognition on the Edge](http://arxiv.org/abs/2609.22897v1)
+  > **TL;DR**: Explores enabling open-world species recognition on edge devices under resource constraints. Proposes Scout, which intermittently invokes a cloud VLM to autonomously update a compact edge model. Achieves 59-71% lower deployment energy than full cloud offload, with 53.7-59.1% accuracy for new species (compared to 56.5-65.1%).
+* `training` `MoE` [NSP: Accelerating Variable-Length LLM Training via Nested Sequence Parallelism](http://arxiv.org/abs/2609.22755v1)
+  > **TL;DR**: Addresses imbalance in variable-length LLM training. Introduces nested sequence parallelism (NSP) that assigns sequences to optimally sized parallel groups under memory constraints. Achieves up to 1.48x higher throughput than Static SP.
+* `edge` `serving` [Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration](http://arxiv.org/abs/2609.22753v1)
+  > **TL;DR**: Reduces LLM inference latency and API costs during edge service orchestration by replacing LLMs with Jev decision models. Jev extracts bounded intent fields and implements shared validation, admission policy, and scheduling. Achieves 15.9-26.5% lower median decision latency and 69.0-70.6% lower fees per correct completion in OCR tasks.
+* `training` `sparse` `video` [Mask-Aware Execution for Efficient JEPA Training](http://arxiv.org/abs/2609.22674v1)
+  > **TL;DR**: Addresses inefficiencies in Joint Embedding Predictive Architectures (JEPA) training due to redundant mask-specific execution. Proposes M-JEPA, a mask-aware framework with shared context encoding, fused routing, and sparse target computation. Achieves up to 1.7× end-to-end training speedup and 4.75× patch embedding speedup.
+
 ### 2026-09-21
 * `training` `MoE` [HyperParallel-FSDP: Topology-Aware Fully Sharded Training with Layout-Driven Muon on Ascend SuperPods](http://arxiv.org/abs/2609.21594v1)
   > **TL;DR**: HyperParallel-FSDP addresses training inefficiency in existing sharded data parallelism for large models on two-tier supernode topologies. It introduces dual-mode DTensor execution, topology-aware collectives, and layout-driven distributed Muon. On 384 Ascend cards, it sustains 421k tokens/s for a 505B MoE and reduces step time by 29.7% versus FSDP2.

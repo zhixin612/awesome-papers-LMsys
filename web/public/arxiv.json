@@ -163596,5 +163596,1008 @@
         ],
         "tldr": "Investigates which predictive autoscaling components matter for LLM serving under long startup delays. Proposes an EWMA predictor with delay lookahead and UCB margin to anticipate demand. Reduces TTFT SLO violations from 53% (reactive) to 0.5% in simulations and from 63.5% to 3.7% in real clusters.",
         "indexed_date": "2026-09-21"
+    },
+    "http://arxiv.org/abs/2609.24991v1": {
+        "title": "Who Pays for the KV Cache? Attributing Shared AI Inference Spend Across Kubernetes and LLM Provider Bills",
+        "link": "http://arxiv.org/abs/2609.24991v1",
+        "abstract": "Organizations pay for AI through disconnected ledgers: Kubernetes allocations for self-hosted inference, gateway logs, and per-token bills from API providers. We present unalloc, an open-source tool that joins OpenCost, LiteLLM, OpenAI and Anthropic cost data into one exact ledger and reports the share of spend with no owner, and use it to study where attribution breaks at the seams between these systems. Five case studies run inference for real or simulate it: a vLLM-style serving simulator with paged KV memory and prefix caching; a PyTorch transformer serving a multi-tenant trace with a real KV cache; tensor- and pipeline-parallel inference on torch.distributed; the unmodified CLI against mock provider APIs; and four downstream use cases. At the seams, in a constructed multi-pod deployment scenario -- one month of synthetic OpenCost allocations, not observed billing data -- owner labels set only on LeaderWorkerSet leader pods leave 66% of that deployment's GPU bill unowned, and the natural fallback key assigns 61% of it to a Helm chart name while the headline unallocated share falls to 4%; enabling every source double counts all gateway spend; and reading one page of a billing API reports a quarter of spend. Inside a shared inference server the metering rule decides who pays: on an NVIDIA H100 running vLLM, a token meter assigns a retrieval-heavy tenant 12-14 percentage points more of the bill than an equal time-share meter at every load tested, while GPU utilization reads 97-99% across configured loads of 2 to 16 requests per second (3.7 to 26.9 completed requests per second; the configured rate counts session-initial arrivals only) and power draw tracks load. Neither meter is a ground truth; we position these results against recent Shapley-based energy attribution. Code, raw data, captured evidence, figures and the paper regenerate from the repository.",
+        "authors": [
+            "Timothy Urista"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.24991v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Studies attribution of shared inference costs, particularly for KV cache, between Kubernetes and LLM billing systems. Introduces unalloc to merge cost data from sources like OpenCost and API providers. Finds 66% of GPU bill unowned due to missing leader pod labels in multi-pod deployments.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24847v1": {
+        "title": "SPECTRA: Adaptive Execution of Speculative Decoding on a Runtime-Reconfigurable Tiled Architecture",
+        "link": "http://arxiv.org/abs/2609.24847v1",
+        "abstract": "LLM inference on edge devices is constrained by computational and memory resources, making efficient autoregressive decoding challenging. Speculative decoding alleviates this bottleneck by generating tokens with a smaller draft model and verifying multiple tokens in parallel with a batched target model pass. However, verification introduces a runtime-dependent intermediate regime between memory-bound general matrix-vector (GEMV) operations in decoding and compute-bound general matrix-matrix (GEMM) operations in prefill, as its arithmetic intensity varies with speculation length and acceptance rate. We present SPECTRA, a runtime-reconfigurable tiled architecture that sustains high utilization across the full speculative decoding pipeline. Within each tile, the compute engine switches between systolic execution for GEMMs and vector-lane execution for GEMVs. Across tiles, SPECTRA dynamically adapts computation parallelism by selecting tile count, kernel partitioning, and communication pattern. Both tile-level and system-level reconfiguration operate on a per-kernel basis, enabling efficient execution across these diverse regimes. Evaluated on a 20-tile FPGA prototype across the Pythia, SmolLM2, and GPT-2 families, SPECTRA achieves up to $2.09\\times$ speedup from tile-level reconfiguration and a further $1.25\\times$ gain from system-level adaptability over fixed designs.",
+        "authors": [
+            "Gabriele Tombesi",
+            "William Baisi",
+            "Je Yang",
+            "Elisavet Lydia Alvanaki",
+            "Kevin Lee",
+            "Michael Lippe",
+            "Biruk Seyoum",
+            "Luca P. Carloni"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.24847v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "hardware",
+            "serving"
+        ],
+        "tldr": "Addresses efficient LLM inference on edge via speculative decoding's varying arithmetic intensity. Proposes SPECTRA, a runtime-reconfigurable tiled architecture with systolic/vector-lane execution switching per tile and system-wide dynamic parallelism adaptation. Achieves up to 2.09x speedup from tile-level and 1.25x gain from system-level reconfiguration.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24802v1": {
+        "title": "Tiga: Compiling Graph Message Passing at Scale",
+        "link": "http://arxiv.org/abs/2609.24802v1",
+        "abstract": "Graph message passing offers a common way to express learning algorithms, physical simulations, and numerical solvers. Efficient execution depends on interaction structure and data movement, which can be obscured when a program is expressed as a sequence of tensor operations. On memory-constrained systems such as laptops, materializing connectivity and intermediate messages can also exhaust device memory. We present Tiga, a just-in-time compiler that separates the definition of a message-passing program from how its interactions are traversed, computed, and stored. Tiga preserves graph relations and reducer algebra in a multi-level intermediate representation, enabling traversal specialization, fusion of relation generation with aggregation, and reverse-mode automatic differentiation. Backend-specific lowering targets CPUs and GPUs. Its runtime extends execution beyond device-memory capacity by streaming graph partitions from disk through host memory with page-sized device staging buffers; partition ownership and halo exchange extend the same programming model to distributed execution. A Python interface interoperates with ordinary PyTorch tensors and autograd for forward and backward computation. Numerical checks validate outputs and gradients for differentiable workloads. A differentiated geometric workload characterizes the memory--time tradeoff of fused forward and backward execution. Evaluation against matched Torch and PyTorch Geometric baselines demonstrates reduced runtime and device-memory use for generated-relation workloads, while offloaded forward execution processes billion-edge graphs on a single memory-limited GPU. Measurements on heterogeneous devices further characterize the communication and load-balance costs of distributed execution.",
+        "authors": [
+            "Mingyuan Chi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.24802v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24713v1": {
+        "title": "Mitigating Front-Running Attacks through Fair and Resilient Transaction Dissemination",
+        "link": "http://arxiv.org/abs/2609.24713v1",
+        "abstract": "In modern blockchains, efficient, fair, and faulttolerant information dissemination is critical for performance and security. Several stages of the transaction lifecycle are affected, from the creation and dissemination of transactions to the dissemination of blocks in the consensus layer. Mempool protocols, such as L{Ø}, already address some of modern blockchains' security threats. However, others remain unless fairness is embedded most fundamentally in the dissemination layer used by these protocols to share transactions and blocks and to reconcile mempools. This paper introduces HERMES, a novel dissemination protocol for mempools that leverages robust minimal structures to optimize data propagation, balance load, and ensure fairness despite faults and Byzantine actors. Specifically, we address front-running attacks by randomizing the choice of an overlay structure while forcing nodes to prove adherence to the mempools' dissemination policies and the random choice made. Experimental results show significant performance improvements compared to traditional broadcast protocols for both permissioned and permissionless blockchains.",
+        "authors": [
+            "Wassim Yahyaoui",
+            "Joachim Bruneau-Queyreix",
+            "Jérémie Decouchant",
+            "Marcus Völp"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.24713v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24639v1": {
+        "title": "Analytical Power-Aware Provisioning for Prefill-Decode Disaggregated AI Inference",
+        "link": "http://arxiv.org/abs/2609.24639v1",
+        "abstract": "Power availability increasingly constrains the operation of AI inference fleets, creating a need for provisioning methods that jointly consider serving capacity and power consumption. Prefill--decode (PD) disaggregation has emerged as a prevalent architecture for large-scale inference serving. However, determining the appropriate numbers of prefill and decode instances is challenging because serving capacity depends jointly on workload characteristics, hardware constraints, queueing, and KV-cache reservations. Existing approaches largely rely on profiling and simulation, providing limited analytical insight into how provisioning decisions shape the tradeoff between serving capacity and power consumption.\n  This paper develops an analytical framework for power-aware provisioning of PD-disaggregated AI inference. Given an inference workload and hardware, the framework models the serving capacity and average power consumption of a provisioned deployment. The serving-capacity model is derived from the joint distribution of input--output lengths and hardware compute and memory limits. In particular, it explicitly captures the coupling between prefill and decode induced by KV-cache reservations, as well as the impact of request queueing. On this basis, the power model determines per-instance power consumption as a function of normalized serving throughput. Together, the models determine the serving capacity--power Pareto front among candidate provisioned deployments, enabling the service provider to choose a provisioned deployment as the workload or available power changes.",
+        "authors": [
+            "Mingyuan Yan",
+            "Haiyu Wang",
+            "Linxuan Biao",
+            "H. Jonathan Chao",
+            "Sai Qian Zhang",
+            "Wenqi Cui"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2609.24639v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling",
+            "disaggregation"
+        ],
+        "tldr": "Proposes an analytical framework for power-aware provisioning in PD-disaggregated inference. Models serving capacity considering KV-cache, queueing, and hardware limits, and power as a function of throughput. Enables selection of deployments on the capacity-power Pareto front as workload or power changes.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24628v1": {
+        "title": "Bridging the Vendor Gap: Enabling AMD GPU Support for Awkward Array via ROCm/HIP for the HL-LHC Era",
+        "link": "http://arxiv.org/abs/2609.24628v1",
+        "abstract": "The High-Luminosity LHC (HL-LHC) will demand order-of-magnitude gains in analysis throughput, and increasingly those gains must come from GPUs that are not made by a single vendor. Leadership-class systems such as El Capitan, Frontier and LUMI are built on AMD accelerators, yet the Scikit-HEP analysis stack---and Awkward Array in particular---has grown up CUDA-first. We report on $rawkward$, a Rust-backed kernel engine that adds a ROCm/HIP backend for Awkward Array's nested, jagged, variable-length data structures. Our central finding is that a naive source-level port of CUDA kernels to HIP loses $5$--$10\\times$ in performance on irregular kernels, because AMD's $64$-lane wavefronts, higher register pressure and more expensive divergence behave fundamentally differently from NVIDIA's $32$-thread warps. We show that a small, reusable set of optimization patterns---loop flattening, $128$-bit vectorized loads, splitting fused kernels, and profile-guided launch configuration---recovers CUDA-class performance without changing the public API. A Rust macro-and-match dispatch layer keeps a single, backend-agnostic call site while emitting vendor-specific kernel strategies, and the type system enforces buffer-size and lifetime correctness at compile time. On a two-socket AMD Instinct MI210 node we measure GPU speedups from $1.03\\times$ (bandwidth-bound $sum$) up to $12.5\\times$ ($count$) over $128$ EPYC~7763 CPU cores, and the Rust CPU kernels match or beat on aggregate the incumbent C++ kernels (geometric-mean runtime ratio $0.37\\times$ across twelve kernels). We argue that these patterns constitute a practical recipe for performance-portable, vendor-agnostic HEP analysis kernels.",
+        "authors": [
+            "Ianna Osborne",
+            "Maxym Naumchyk",
+            "Tai Sakuma",
+            "Andres Rios-Tascon",
+            "Peter Elmer"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2609.24628v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24456v1": {
+        "title": "Conduit: An Experience Data Plane for Distributed Reinforcement Learning",
+        "link": "http://arxiv.org/abs/2609.24456v1",
+        "abstract": "Distributed reinforcement learning (RL) scales training by parallelizing actors and learners around an Experience Buffer. As RL workloads grow, however, the buffer becomes more than a replay queue: it is the storage substrate of a large-capacity, latency-critical experience path that every iteration traverses to move, transform, sample, and batch experiences before learner updates can begin. Existing RL systems embed this path inside framework control flow or expose it as a request-driven buffer service, leaving experience placement fixed and experience-path work difficult to schedule independently as a runtime-level optimization target. We present Conduit, a framework-agnostic runtime that exposes RL experience management as an explicit systems optimization problem. At its core is the Experience Data Plane (EDP), a runtime abstraction that separates RL experience-handling semantics from framework-specific execution logic by exposing experience ingestion, experience placement, and experience delivery as explicit control points. Built on EDP, Conduit introduces capacity-constrained, bandwidth-aware placement, which distributes experience state across CPU/GPU memory tiers and nodes under heterogeneous interconnect and device-memory constraints, and latency-aware scheduling, which controls when experience-path handling runs to reduce exposed experience-path latency while preserving RL semantics. Integrated with RLlib without changing its framework execution logic, Conduit reduces exposed experience-path latency by up to 97% and end-to-end iteration latency by up to 38%, scales to 1,024 GPUs, and preserves convergence.",
+        "authors": [
+            "Sitong Zhang",
+            "Tuo Shi",
+            "Mario Di Francesco",
+            "Zeke Wang",
+            "Bo Zhao"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2609.24456v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL",
+            "storage"
+        ],
+        "tldr": "Addresses high latency in distributed RL training experience management. Introduces Conduit with an Experience Data Plane for bandwidth-aware placement and latency-aware scheduling. Reduces exposed experience-path latency by up to 97%.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24436v1": {
+        "title": "Categorical Message Passing Language (CaMPL): Syntax and Semantics",
+        "link": "http://arxiv.org/abs/2609.24436v1",
+        "abstract": "We introduce a novel functional-style concurrent programming language called Categorical Message Passing Language (CaMPL) which is designed using the mathematics of linear actegories. This mathematical underpinning gives CaMPL programs useful properties such as deadlock freedom, and additionally, livelock freedom for programs without general recursive processes.\n  We explore CaMPL's type system through a series of code examples. The current proto-alpha version of the compiler and the abstract machine is implemented in Haskell. A reader is encouraged to experiment with writing CaMPL programs either using the online compiler https://campl-app.vercel.app/ or by installing CaMPL from https://campl-ucalgary.github.io -- our website has detailed instructions on how to run CaMPL code.",
+        "authors": [
+            "Robin Cockett",
+            "Daniel Kiyoshi Hashimoto",
+            "Alexanna Little Berg",
+            "Priyaa Varshinee Srinivasan"
+        ],
+        "categories": [
+            "cs.PL",
+            "cs.DC",
+            "cs.LO"
+        ],
+        "id": "http://arxiv.org/abs/2609.24436v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24404v1": {
+        "title": "SkelOT: Reusing AOT Compilation Across EVM Contract Families",
+        "link": "http://arxiv.org/abs/2609.24404v1",
+        "abstract": "Ahead-of-time (AOT) compilers (e.g., revmc, evmone, and DTVM) for the Ethereum Virtual Machine (EVM) reuse compilation artifacts at contract-code-hash granularity. This granularity is poorly matched to real EVM workloads dominated by \\emph{contract families}: factory-, proxy-, and template-driven deployments that share instruction structure but differ in a small set of embedded constants. Across four EVM chains (Base, Ethereum, BSC, and Arbitrum), we find that 23.1--47.6\\% of unique compilable bytecodes map to shared family skeletons within 10K-block windows. Per-hash AOT therefore redundantly recompiles structurally equivalent code, inflating compile time and artifact footprint while reducing workload coverage under finite compile budgets.\n  We present \\textsc{SkelOT}, an AOT framework that lifts the unit of compilation reuse from code hash to family skeleton. \\textsc{SkelOT} compiles one native artifact per family, bakes invariant constants into the artifact, and reads variant constants from a per-contract runtime table. Built on revmc/LLVM and evaluated on a 10K-block Base mainnet corpus (3.52M transactions), \\textsc{SkelOT} reduces compilation units by 47.5\\%, artifact footprint by 57.4\\%, and compile time by $2.19\\times$, while preserving byte-identical execution outcomes versus per-hash AOT. At runtime, \\textsc{SkelOT} delivers a $1.31\\times$ median per-contract speedup across family members. Under a compile budget targeting 75\\% execution-time coverage, \\textsc{SkelOT} needs far fewer artifacts than per-hash AOT, and the advantage holds at every coverage target.",
+        "authors": [
+            "Sipeng Xie",
+            "Qianhong Wu",
+            "Minghang Li",
+            "Qin Wang",
+            "Zhipeng Wang",
+            "Bo Qin"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.ET"
+        ],
+        "id": "http://arxiv.org/abs/2609.24404v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24294v1": {
+        "title": "Toward GPU-Resident Climate Models: A Feasibility Study on Lossy Compression for the Spherical Harmonic Transform's Communication Bottleneck",
+        "link": "http://arxiv.org/abs/2609.24294v1",
+        "abstract": "Operational pseudospectral atmospheric models such as the ECMWF Integrated Forecasting System (IFS) run today almost exclusively on CPUs; GPU ports are under active development but not yet used in production. These models rely on the Spherical Harmonic Transform (SHT). Each time-step requires forward and inverse SHTs, and both passes depend on global pencil transposition that redistribute multi-dimensional arrays across compute nodes. At large node counts these global collectives dominate wall-clock time. We investigate GPU-resident lossy compression, using representative fields from the DYAMOND high-resolution operational dataset as input, and combining measured GPU compression throughput with SimGrid network simulation, we show that ZFP at 16 bits per value (rate-16), about the same storage budget as float16, matches the communication-time reduction of float16 truncation while delivering approximately $\\mathbf{1600\\times}$ lower mean relative error. ZFP at 8 bits per value (rate-8) achieves approximately $\\mathbf{1.93\\times}$ the speedup of float16 while retaining $\\mathbf{4\\times}$ lower mean relative error.",
+        "authors": [
+            "Lorenzo Breschi",
+            "Flavio Vella"
+        ],
+        "categories": [
+            "cs.DC",
+            "physics.ao-ph"
+        ],
+        "id": "http://arxiv.org/abs/2609.24294v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24270v1": {
+        "title": "Dissecting How Die Scaling Breaks GPU Fine-grained Scheduling",
+        "link": "http://arxiv.org/abs/2609.24270v1",
+        "abstract": "Modern GPUs are no longer physically symmetric. Die scaling leads to both manufacturing-driven floorsweeping and cache and memory partitioning. The former creates chip-specific compute topologies, while the latter causes non-uniform memory access. These asymmetries are substantial. Topology-oblivious compute unit allocation can lead to up to 1.33x performance variation, while remote accesses increase HBM latency by up to 67% and nearly double L2 latency.\n  However, these asymmetries are hidden behind the GPU's logical resource abstractions and can vary across chips. We develop lightweight characterization methods to uncover per-chip compute topology and memory affinity. We then use the discovered information to make existing fine-grained scheduling asymmetry-aware, considering not only how many resources are allocated but also which physical resources are assigned. Across full-GPU kernel execution, intra-application multiplexing, and inter-application co-location, asymmetry-aware scheduling improves mainstream kernels by up to 1.22x, multiplexed LLM inference by up to 14.3%, and avoids up to 1.33x performance variation.",
+        "authors": [
+            "Xiaoze Fan",
+            "Jianhao Wang",
+            "Weihao Cui",
+            "Han Zhao",
+            "Zhuobin Huang",
+            "Yangjie Zhou",
+            "Yuxian Qiu",
+            "Shixuan Sun",
+            "Bingsheng He",
+            "Quan Chen",
+            "Minyi Guo"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.24270v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Explores how GPU die scaling asymmetries impair resource scheduling. Develops lightweight characterization methods and asymmetry-aware scheduling that assigns physical resources strategically. Improves multiplexed LLM inference latency by up to 14.3%.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24205v1": {
+        "title": "A principled approach for energy-efficient training via phase-aware GPU frequency tuning",
+        "link": "http://arxiv.org/abs/2609.24205v1",
+        "abstract": "Modern AI model training imposes unprecedented computational demands, making it a key contributor to datacenter energy consumption. Yet a significant fraction of the energy consumed during training does not translate to useful computation due to bottlenecks throughout the training pipeline. We present PAFT, a phase-aware, dynamically adaptable GPU frequency tuning system that reduces energy consumption of training workloads with minimal performance overhead. The key insight behind PAFT is that bottlenecks represent an energy optimization opportunity, rather than purely a performance problem: when GPUs are bound to stall, PAFT opportunistically reduces their clock frequencies to match the pace of bottlenecked devices, saving energy without impacting execution time. PAFT achieves this by continuously monitoring pipeline behavior and applying fine-grained frequency adjustments, adapting to workload and system changes. Experiments conducted on twelve widely used models show that PAFT consistently outperforms all baselines, achieving energy savings of up to 46% with an average overhead of 4%.",
+        "authors": [
+            "Miguel Braga",
+            "Júlio Pinto",
+            "Rahma Nouaji",
+            "Olivier Michaud",
+            "Bettina Kemme",
+            "Oana Balmau",
+            "Cláudia Brito",
+            "Ricardo Macedo"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.24205v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "training",
+            "hardware",
+            "scaling"
+        ],
+        "tldr": "Reduces training energy waste from system bottlenecks via GPU frequency tuning. Proposes PAFT, which dynamically adjusts clock frequencies to match stalled pipeline stages, saving energy without impacting execution time. Achieves up to 46% energy savings with 4% average overhead.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24161v1": {
+        "title": "MCP-GRANITE Benchmark: GRANularity Interface TEsting for MCP-Based LLM Agents",
+        "link": "http://arxiv.org/abs/2609.24161v1",
+        "abstract": "As LLM agents increasingly interact with external tools through standardized protocols such as MCP, tool-interface design becomes a critical yet underexplored factor. How funψtionality is decomposed into tools affects whether an agent can select the right tool and construct valid arguments. This choice is especially consequential at the edge, where resource constraints limit which models can run locally and scaling up is often not an option. We present MCP-GRANITE, an open-source extensible benchmark framework that treats tool-interface granularity as a controlled variable for MCP-based agents, evaluated under edge and IoT scenarios. It comprises 81 multi-step scenarios across 9 domains, instantiated at 4 granularity levels from fine-grained primitive tools to a single tool. We evaluate 9 locally deployed models (268M-20.9B parameters) across 8,748 trials using task completion, tool selection F1, argument accuracy, latency, and resource-usage metrics. Results show that a 4-tool interface offers the best trade-off, improving task completion by 16.4% over fine-grained primitives and 33.6% over a single monolithic tool, while nearly doubling argument accuracy. Model size is only weakly correlated with task completion and strongly with latency, while its association with argument accuracy is less robust, and a 3.2B model at the optimal granularity outperforms a 20.9B model at a mismatched one. These findings identify tool-interface granularity as a key design parameter for MCP-based agents.",
+        "authors": [
+            "Demetris Paschalides",
+            "Moysis Symeonides",
+            "George Pallis",
+            "Marios D. Dikaiakos"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.24161v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.24018v1": {
+        "title": "Byzantine Causal Reliable Broadcast (BCRB) with Constant-Size Message Metadata",
+        "link": "http://arxiv.org/abs/2609.24018v1",
+        "abstract": "Asynchronous Byzantine Reliable Broadcast (BRB) is a fundamental primitive that guarantees agreement and validity in distributed systems subject to Byzantine faults, but it lacks ordering guarantees. In this paper, we address Byzantine Causal Reliable Broadcast (BCRB), which builds on BRB to enforce causal message ordering. We present a novel BCRB protocol that decouples causal ordering from the BRB layer, achieving constant-size $\\mathcal{O}(1)$ message metadata overhead and $\\mathcal{O}(n^2)$ communication word complexity as against $\\mathcal{O}(n^3)$ communication word complexity of existing protocols; here $n$ is the number of processes.\n  We present two variants of our protocol: a cryptographic version using a threshold encryption scheme and sequence gating, and its non-cryptographic version. In the cryptographic version, senders broadcast ciphertexts immediately, and decryption shares are piggybacked on out-of-band ACKs, preventing early decryption and front-running. In both versions, causal safety is achieved probabilistically. We evaluate the probability of causal safety violations using a random variable path analysis under independent exponential link delay distributions. We show that both variants satisfy liveness and the probability of weak safety violation is bounded by $\\mathcal{O}(f^{-3}\\cdot\\ln^3 f)$, where $f$ is the upper bound on the number of Byzantine processes, and $f < n/3$ and $f=\\mathcal{O}(n)$. Further, for the crypto version, we show that the probability of strong safety violation is bounded by $\\mathcal{O}(f^{-1} \\cdot \\ln^2 f)$. We also show how to modify our two protocols to guarantee 100\\% weak safety keeping $\\mathcal{O}(1)$ message space overhead but with $\\mathcal{O}(n^3)$ messages and $\\mathcal{O}(n^3)$ communication word complexity.",
+        "authors": [
+            "Purv Patel",
+            "Ajay D. Kshemkalyani"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2609.24018v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23843v1": {
+        "title": "Adaptive Determinantal Client Scheduling in Federated Learning",
+        "link": "http://arxiv.org/abs/2609.23843v1",
+        "abstract": "Scheduling clients for model training is critical in federated learning due to both data and system heterogeneity. Most previous works focus on the quality of the scheduled clients to achieve faster convergence, shorter wall-clock convergence time, or better average model performance. They rarely consider the diversity of clients, which is important to counter heterogeneity and improve performance for the worst-off clients. In this work, we advocate the use of determinantal point processes (DPPs) to model and enhance the diversity in client scheduling. We first design the kernel matrices of DPPs using gradient information and quality scores, which inherently enables a flexible quality-diversity trade-off. Applying fast MAP inference over DPPs, we propose Adaptive Determinantal Client Scheduling (ADCS) in FL. We further quantify the gradient approximation error of ADCS and develop convergence analysis for general biased client selection in FL with non-convex loss functions. We conduct comparative numerical experiments showing that ADCS outperforms state-of-the-art client scheduling algorithms, including both quality-based and diversity-based ones.",
+        "authors": [
+            "Wen Xu",
+            "Ben Liang",
+            "Gary Boudreau",
+            "Hamza Sokun"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.23843v1",
+        "submit_date": "2026-09-20",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23773v1": {
+        "title": "SAGE: Optimal-Stopping Peer Selection for Decentralised Federated Learning",
+        "link": "http://arxiv.org/abs/2609.23773v1",
+        "abstract": "Decentralised federated learning replaces server aggregation with peer-to-peer model exchange, making collaborator selection a local decision under uncertainty. Fixed probe budgets waste effort on easy choices yet fall short when peers are hard to distinguish. We propose SAGE (Sequential Anchor-Gated Exchange), an optimal-stopping peer selector under a one-model-bearing-exchange budget. A receiver scores candidate neighbours on receiver-owned anchor evidence and selects once an advantage is certified. It continues probing only while further evidence repays its cost, and otherwise falls back to random gossip. We show that the stopping problem admits an optimal rule attained at a finite stage, and that the anchor schedule is order-optimal in the peer-risk gap and the confidence level. We further show that the selector never returns a peer worse than random gossip with high probability, and prove that no such guarantee holds for selectors that commit without a certificate. A separability threshold follows, below which no probing budget improves on gossip. Experiments span two image benchmarks, two graph families and three heterogeneity levels. Selectors that always act on their evidence lose to gossip in every configuration tested. SAGE-OS matches gossip on 75.5% less evidence than a fixed budget, at half the communication overhead of two published selectors. The operative decision is not which peer to rank first, but whether the evidence justifies ranking at all.",
+        "authors": [
+            "Ke Xiao",
+            "Qiyuan Wang",
+            "Christos Anagnostopoulos"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.23773v1",
+        "submit_date": "2026-09-20",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23766v1": {
+        "title": "TriFleetRCA: On-Premise LLM Root Cause Analysis for Kubernetes",
+        "link": "http://arxiv.org/abs/2609.23766v1",
+        "abstract": "Root cause analysis at a remote site is slow: evidence is scattered across pod logs, Kubernetes events and cluster-level objects, and many operators cannot send production logs to a hosted model at all. On-premise inference removes the second constraint but raises a question live-cluster benchmarks have not addressed: when one workstation GPU fixes both the model and the context budget, how should evidence be retrieved, and what happens when the runbooks the model consults have been tampered with? We present TriFleetRCA, a pipeline running entirely on one on-premise GPU that collects evidence at one of three scopes (pod, namespace, cluster), ranks it by template de-duplication then BM25, filters runbooks through an ingest guard, and returns a root cause with the evidence lines supporting it. We evaluate on a live Kubernetes cluster into which we inject four faults, so ground truth is known by construction, across 100 analyses with Qwen2.5-14B-Instruct at temperature 0. The hit rate was 0.85, 0.90 and 0.95 at pod, namespace and cluster scope; intervals overlap, but the whole scope effect comes from the one fault whose cause is a cluster-level object, and cluster scope costs 55% more tokens. De-duplication before ranking raised the hit rate from 0.75 to 0.90 at equal token cost. A poisoned runbook telling the model to delete the namespace was rejected by the guard every run; with the guard disabled the model declined to follow it in all 20 analyses, making the guard defence in depth rather than the sole barrier. Separating citation quality from accuracy proved informative: one fault was diagnosed correctly and cited incorrectly every trial, a failure mode accuracy conceals. Median latency was 1.6 s at 2,200 prompt tokens. We release the pipeline, the fault injector and all records.",
+        "authors": [
+            "Rohit Patel",
+            "Susil Kumar Mohanty",
+            "Jeenal Chaudhary"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.AI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.23766v1",
+        "submit_date": "2026-09-20",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23536v1": {
+        "title": "Explicit State and Resource Contracts for Low-Precision Pipeline Parallel Training under Captured Graphs",
+        "link": "http://arxiv.org/abs/2609.23536v1",
+        "abstract": "CUDA Graphs eliminate launch overheads by replaying tensor operations over static virtual addresses. However, FP8 pipeline training continuously alters the scaling states, microbatches, and deferred backward tasks that those fixed addresses represent. Split-backward schedules (e.g., 1F1B, Zero-Bubble) decouple input-gradient ($dI$) and weight-gradient ($dW$) computations to minimize bubbles, breaking traditional LIFO lifecycles. Standard dataflow graphs cannot inform the runtime of hidden numerical updates, non-LIFO work ownership, or cache validity, leading to silent cross-stream data corruption. We present QEffect, an explicit state and resource contract runtime for low-precision pipeline training. QEffect formalizes four foundational invariants: (1) temporal serialization of hidden scaling updates, (2) generational ownership of retained backward resources, (3) validity versioning for cached weights across optimizer boundaries, and (4) bidirectional caller-graph stream completion synchronization. These invariants uniformly govern eager and captured execution, allowing ephemeral graph resources to be cleanly rebuilt across process restarts. Leveraging work-ownership semantics, we also introduce an affine direct-gradient placement mechanism that eliminates redundant memory copies. Integrated with TorchTitan and NVIDIA Transformer Engine, QEffect maintains strict bitwise parity with native baselines across delayed-scaling rollovers, deterministically traps cross-stream ordering violations, and enables flawless cold-start resumption. On NVIDIA H800 GPUs, captured Transformer layers achieve 1.82--2.79x speedup over eager execution, while direct gradient placement delivers an additional 1.132x gain by eliminating 96 matrix copies per rank-step.",
+        "authors": [
+            "Genlang Chen",
+            "Junyi Zhu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.23536v1",
+        "submit_date": "2026-09-20",
+        "relevant": true,
+        "tags": [
+            "training",
+            "kernel",
+            "quantization"
+        ],
+        "tldr": "Addresses silent data corruption in FP8 pipeline training due to static CUDA Graphs. Proposes QEffect runtime with explicit invariants for state synchronization and resource management, and affine gradient placement to eliminate memory copies. Achieves 1.82–2.79x speedup over eager execution and 1.132x additional gain via copy elimination.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23454v1": {
+        "title": "Conflicting Pattern Formation by Teams of Anonymous, Fully Disoriented Robots",
+        "link": "http://arxiv.org/abs/2609.23454v1",
+        "abstract": "Two groups of autonomous, anonymous, and oblivious mobile robots are deployed in the two-dimensional Euclidean plane, each assigned a distinct task. We study a setting where the two groups must simultaneously solve two conflicting pattern formation problems: the \\textit{gathering problem}, where robots gather at a point not known to them a priori, and the \\textit{circle formation problem}, where robots occupy distinct positions on the boundary of a circle. Although each robot knows its own task, it cannot identify other members of its group. A prior solution~\\cite{Conflict-1} addressed this problem for asynchronous robots having {\\it direction-only axis agreement} and {\\it global weak multiplicity detection} capability available to all robots in both groups. In contrast, in this work, we consider fully {\\it disoriented robots} without any axis agreement or common \\textit{chirality}. We study the feasibility of a solution to this problem for {\\it disoriented robots}. We propose a distributed algorithm that solves the problem for semi-synchronous disoriented robots with non-rigid movements. Our proposed algorithm assumes global weak multiplicity detection only for the gathering group, while for the circle formation group, it requires local weak multiplicity detection.",
+        "authors": [
+            "Animesh Maiti",
+            "Prakhar Shukla",
+            "Subhash Bhagat"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CG",
+            "cs.MA",
+            "cs.RO"
+        ],
+        "id": "http://arxiv.org/abs/2609.23454v1",
+        "submit_date": "2026-09-20",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23438v1": {
+        "title": "Economical and efficient big data sharing with i-Cloud",
+        "link": "http://arxiv.org/abs/2609.23438v1",
+        "abstract": "Big data can be hosted on cloud and being shared distributedly through cloud services in an unprecedented volume, variety and velocity. This causes not only cloud network congestions and delayed cloud services but also increases in public cloud data-out charges. Client-side cloud cache alleviates these problems. Furthermore, cloud cache must be aware of nonuniform data-out costs when big data is stored in hybrid clouds built with different public cloud providers. Deploying i-Cloud approach as the core mechanism of cloud cache could save data-out cost up to 14.78% or 4,425 USD saved per annum based on our representative scenario, and delivered 17.24% byte-hit, 17.96% delay-saving and 29.33% cache hit outperforming LRU, GDSF and LFU-DA approaches. A main finding is that i-Cloud, learning uniform cost patterns, could perform well against nonuniform cost environment.",
+        "authors": [
+            "Thepparit Banditwattanawong",
+            "Masawee Masdisornchote",
+            "Putchong Uthayopas"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.23438v1",
+        "submit_date": "2026-09-20",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.16491v3": {
+        "title": "PipeSwift: Revisiting Pipeline Parallelism for Large-Scale Completion-Oriented Agentic LLM Serving",
+        "link": "http://arxiv.org/abs/2609.16491v3",
+        "abstract": "LLM agents execute long-horizon workflows where each model response determines the progress of subsequent tool interactions and environment transitions. Unlike chatbot serving, where TTFT and TPOT SLO constraints are critical, agentic workloads are completion-oriented and increasingly governed by job completion time (JCT). This shift challenges existing LLM serving designs optimized around token SLOs.\n  Through a systematic exploration of scheduling and parallelism, we uncover a previously overlooked principle for agent serving: JCT is governed by the balance between prefill and decode efficiency. A prefill-prioritized scheduling policy achieves the best TTFT and the highest decode throughput, yet fails to attain the lowest JCT. This principle further reshapes the parallelism landscape: we show that pipeline parallelism (PP), long overlooked because it offers little decode-latency advantage, can reduce JCT by providing a more favorable balance between prefill and decode efficiency.\n  Based on these insights, we build PipeSwift, an optimized open-source pipeline-parallel runtime integrated with a tailored micro-batch partitioning strategy co-designed with schedule considering the above trade-off, and pipeline-integrated multi-token prediction. Evaluated on real coding and web-search agent trajectories with two 360B+ MoE models on 64 H800 GPUs, PipeSwift reduces overall JCT by up to 1.45$\\times$ over SGLang wide-EP, 2.33$\\times$ over vLLM PP2, and 1.54$\\times$ over today's state-of-the-art open-source PD-disaggregated deployment.",
+        "authors": [
+            "Shiju Wang",
+            "Fei Ren",
+            "Fangcheng Fu",
+            "Zhanhong Tan",
+            "Kairui Li",
+            "Jingwei Cai",
+            "Kaisheng Ma"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.16491v3",
+        "submit_date": "2026-09-20",
+        "relevant": true,
+        "tags": [
+            "agentic",
+            "serving",
+            "MoE"
+        ],
+        "tldr": "Investigates job completion time (JCT) reduction for agentic LLM workflows. Introduces PipeSwift, a pipeline-parallel runtime with micro-batch partitioning and multi-token prediction. Achieves up to 2.33× lower JCT than vLLM on 360B+ MoE models using 64 GPUs.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23321v1": {
+        "title": "Co-occurrence Patterns of LoRA Adapters in Production Diffusion Model Inference Services",
+        "link": "http://arxiv.org/abs/2609.23321v1",
+        "abstract": "Low-rank adaptation (LoRA) has become a key technology for serving large-scale personalized large language models and diffusion models in the cloud. However, the co-occurrence patterns, resource contention relationships, and evolutionary regularities of adapters under production inference workloads have not been systematically or quantitatively studied. Based on GenTD26, Alibaba's production diffusion model inference dataset, this paper adopts a graph-theoretic framework to construct an adapter co-occurrence network and conducts a characterization from both static structure and dynamic evolution. Our main findings are as follows. (1) The co-occurrence network is extremely sparse, and adapter usage frequency follows a significant heavy-tailed distribution. (2) Introducing the first adapter incurs a 66.1% execution-latency overhead, with diminishing marginal costs afterwards. (3) Co-occurrence relationships are driven by base models: in 90.6% of multi-adapter requests, all adapters share the same dominant base model; 66.2% of significant co-occurrence edges connect same-model adapter pairs; and in 85.8% of multi-adapter requests, all adapter pairs form significant co-occurrence edges. (4) The adapter ecosystem exhibits a core-periphery bipolar structure, with a weekly Jaccard similarity of 0.696 at the model level and a churn rate of 54.5% for the top-10 hottest models within a 12-hour window. Based on these findings, we propose a preloading strategy built on top-k co-occurrence statistics; offline experiments show that it covers 81.0% of test-set co-occurrence pairs at k=3, and sensitivity analyses across frequency thresholds and time windows verify the robustness of the conclusions. These results provide a data-driven basis for cache preloading, adaptive scheduling, and GPU memory management in LoRA inference services.",
+        "authors": [
+            "Tao Zhang",
+            "Bin Liao",
+            "Tao Zhou",
+            "Yanping Liu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.23321v1",
+        "submit_date": "2026-09-20",
+        "relevant": true,
+        "tags": [
+            "diffusion",
+            "LoRA",
+            "serving"
+        ],
+        "tldr": "Characterizes co-occurrence patterns of LoRA adapters in production diffusion model inference services. Proposes graph-based analysis and preloading strategy using top-k co-occurrence statistics, achieving 81.0% coverage on test-set pairs. Provides insights for cache preloading and memory management optimization.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.20010v2": {
+        "title": "XIR: A Framework for Interoperability across Cross-Chain Protocols Based on a Verifiable Intermediate Representation",
+        "link": "http://arxiv.org/abs/2609.20010v2",
+        "abstract": "Cross-chain protocols enable applications to exchange messages across blockchains. Under point-to-point configurations, communication depends on a direct connection between the source and destination blockchains, limiting blockchain reachability and requiring additional configurations to connect more blockchains. To quantify this problem, this paper analyzes approximately 25 million mainnet cross-chain transaction events collected from six protocols (Axelar, CCIP, Hyperlane, LayerZero, Relay, and Wormhole) between January and October 2025. The resulting graph covers 286 active blockchains and 11,935 directly connected ordered blockchain pairs. These connections provide a direct reachability of 14.64%, while full direct connectivity would require 81,510 point-to-point configurations. We present XIR, a framework for interoperability across cross-chain protocols based on a verifiable intermediate representation. This representation binds an application message to an ordered record of authenticated cross-chain protocol deliveries, preserving message identity and verification history across protocol boundaries. XIR Gateways and XIR Adapters use this representation to compose existing connections into same-protocol and cross-protocol multi-hop paths. We implement an XIR prototype integrating Hyperlane and LayerZero and evaluate it in local and public-testnet environments. Theoretical analysis and evaluation show that, with correctly configured cross-chain protocol connections, XIR avoids 67,018 additional point-to-point configurations, equivalent to 84.88% of the total required by a point-to-point configuration baseline serving the same reachable pairs, and increases reachability from 14.64% to 96.86% of all ordered blockchain pairs.",
+        "authors": [
+            "Yushen Li",
+            "Linpeng Jia",
+            "Jiaying Feng",
+            "Ziliang Liao",
+            "Yi Sun"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.20010v2",
+        "submit_date": "2026-09-20",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23301v1": {
+        "title": "Accurate Distributed Tracing for Large-Scale AI Infrastructure: Time Synchronization as a Foundation for Reliable Observability",
+        "link": "http://arxiv.org/abs/2609.23301v1",
+        "abstract": "Distributed tracing in large-scale AI infrastructure fails silently when clock accuracy is insufficient: causal events are misordered, fault attribution is corrupted, and performance diagnoses are unreliable. We present TempoTrace, a system that co-designs IEEE 1588v2 PTP time synchronization with distributed tracing to preserve causal ordering across heterogeneous, multi-tenant GPU clusters. We formally prove that NTP-grade clocks produce causal inversions at 25-30% of directed operation pairs under WAN/cloud conditions (11.3% under LAN NTP). A Laplace heavy-tail noise model extends the analysis beyond Gaussian assumptions, giving a weighted expected misorder rate of 27.76% vs. 29.37% Gaussian, confirming robustness to tail shape. TempoTrace reduces GPU-to-host timestamp uncertainty from 2.1 us to a design target of 0.056 us residual standard deviation via GPUDirect RDMA hardware timestamping, with sub-100 ns PTP synchronization. A bounded Sketch Vector Clock tracks causal relationships with false-positive rate below 10^-5 for up to four participants. A hybrid rule-based and XGBoost diagnosis engine achieves macro-F1 0.974 in controlled validation (1,800-incident corpus; McNemar p=1.25e-23). A formally proven multi-tenant model provides isolated logical clock domains. For RoCEv2/ECMP fabrics, P4-based in-band network telemetry corrects path-delay asymmetry, yielding 99.1% attribution accuracy. Application Confidence Policies let workloads specify precision requirements and degraded-mode fallback. Evaluation combines physical five-node measurements (NTP inversion rate 44.978%, Laplace fit preferred over Gaussian by AIC under congestion) and controlled synthetic validation with illustrative configurations from 512 to 16,384 H100 GPUs across InfiniBand and RoCEv2 fabrics.",
+        "authors": [
+            "Hesham Elbakoury",
+            "Ankur Sharma"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.23301v1",
+        "submit_date": "2026-09-20",
+        "relevant": true,
+        "tags": [
+            "networking",
+            "training"
+        ],
+        "tldr": "Addresses unreliable distributed tracing due to clock inaccuracy in large AI clusters. Proposes TempoTrace with PTP synchronization, hardware timestamping, and in-band telemetry to preserve causal ordering. Achieves 99.1% attribution accuracy and 0.056 us timestamp residual std dev.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23278v1": {
+        "title": "Accurate Simulation of Distributed Training Jobs with Network Contention Modeling",
+        "link": "http://arxiv.org/abs/2609.23278v1",
+        "abstract": "Trace-driven simulation is widely used to evaluate distributed training (DT) jobs in GPU clusters, but existing simulators either ignore network contention or approximate it with a fixed penalty. This misses how scheduling decisions determine which jobs share server network interfaces and inter-server links, thereby changing networking time during training. As a result, our motivating experiments demonstrate that they incur large errors, reaching up to 73.64% mean absolute percentage error (MAPE) in average job completion time (JCT). This paper introduces MoSim, a GPU-cluster simulator that models DT job execution under dynamic network contention. MoSim combines GPU-free characterization with network contention model: it obtains each job's compute time, networking time, and networking volume without GPUs, then uses the current worker assignment to estimate how shared network interfaces affect each job's iteration time. Our evaluation shows that, compared with existing simulators, MoSim reduces simulation error for average JCT by up to 3.28$\\times$, tail (99th-percentile) JCT by up to 7.79$\\times$, and makespan by up to 8.48$\\times$, while modeling NIC contention factors with only 8.63% error on average. By avoiding real-GPU profiling, MoSim also reduces input construction overhead by 44.6$\\times$.",
+        "authors": [
+            "Yeonho Yoo",
+            "Hyunho Lee",
+            "Hyunmok Choi",
+            "Chuck Yoo",
+            "Gyeongsik Yang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2609.23278v1",
+        "submit_date": "2026-09-20",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Addresses inaccurate network contention modeling in distributed training simulators. Proposes MoSim, combining GPU-free characterization and dynamic network contention estimation. Reduces average job completion time simulation error by up to 3.28× and input overhead by 44.6×.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.19499v2": {
+        "title": "Sample Count Is Not Enough: Candidate-Generation Strategy Shapes the Energy and Performance of LLM Test-Time Scaling",
+        "link": "http://arxiv.org/abs/2609.19499v2",
+        "abstract": "Test-time scaling can improve large language model reasoning by generating and combining multiple candidate responses. In sampling-based methods, the inference budget is often described by the number of generated candidates, N. However, N tells us how many candidates are generated, not how they are executed. The same candidate budget can be produced in one batched generation call or split across several sequential calls with smaller batch sizes. We first study the effect of increasing N on reasoning accuracy using Phi-3-mini and Qwen2.5-1.5B on 500 GSM8K prompts. As expected, increasing N from 1 to 8 improves accuracy by 8.4 percentage points for Phi-3-mini and 18.4 points for Qwen2.5-1.5B. However, accuracy alone does not show the systems cost of using a larger candidate budget. We therefore fix N = 8 and compare four generation schedules: 1x8, 2x4, 4x2, and 8x1, where axb denotes a generation calls with b candidates per call. We measure latency, throughput, GPU-hours, and gross GPU-device energy while keeping the total candidate count fixed. On A100 GPUs, eight serial calls use 4.64-4.86x as much gross GPU-device energy and have 5.77-6.12x the P95 latency of one batched call with eight candidates. The same pattern appears across three independently scheduled A100 nodes per model and in short-output SciQ/V100 experiments. These results show that candidate count alone is not enough to describe the systems cost of multi-candidate test-time scaling. When candidates are independent and memory allows it, fewer generation calls with larger batch sizes are more efficient. Evaluations should therefore report not only candidate count and accuracy, but also generation schedule and GPU-level systems metrics.",
+        "authors": [
+            "Mobina Kashaniyan",
+            "Ali Jannesari"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.19499v2",
+        "submit_date": "2026-09-19",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Investigates how candidate-generation schedules impact energy and performance in multi-candidate LLM inference. Compares batched and sequential execution for fixed candidate counts. Batched calls (1x8) reduce energy by 4.64-4.86x and latency by 5.77-6.12x versus serial (8x1).",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23085v1": {
+        "title": "Measured Joules, Learned Routes: Learning to Route for Energy-Efficient LLM Serving",
+        "link": "http://arxiv.org/abs/2609.23085v1",
+        "abstract": "Large language models (LLMs) and agentic AI systems are creating rapidly growing inference energy demands as model sizes grow and reasoning trajectories extend. While in practice, many queries do not require the capabilities of the largest available model, and routinely directing such queries to a high-capability model can introduce unnecessary, considerable computation and energy consumption. In this paper, we investigate whether adaptive routing across a heterogeneous pool of LLMs can reduce this energy burden without substantially compromising task performance. We design a language-model-based router that reads in each query and selects an answer model from a fixed candidate pool. The candidate models are first profiled through an offline tournament that records their correctness, latency, power, and GPU energy for each query. Using these measurements, the router is trained through supervised fine-tuning followed by group relative policy optimization (GRPO) with the tailored paradigms. Results demonstrate that learned routing can selectively allocate expensive model capacity based on query context and improve the accuracy-energy tradeoff in multi-LLM serving. Across seven benchmark tasks, we also observe a sharp accuracy-energy phase transition among routers, providing practical insights into improving energy efficiency while maintaining LLM performance.",
+        "authors": [
+            "Muhammad Abdur Rab Siddiqui",
+            "Daniela Rojas",
+            "Chen Yang",
+            "Wenqi Cui",
+            "Yuanyuan Shi",
+            "Yize Chen"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.DC",
+            "cs.LG",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2609.23085v1",
+        "submit_date": "2026-09-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "RL"
+        ],
+        "tldr": "Investigates adaptive routing across heterogeneous LLMs to reduce inference energy without sacrificing performance. Designs an LLM-based router trained via offline profiling, supervised fine-tuning, and group relative policy optimization. Demonstrates improved accuracy-energy tradeoff and a sharp phase transition across seven benchmark tasks.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22991v1": {
+        "title": "Silent Failures at the $2^{32}$ Boundary: A Technical Report on Large-Tensor Matrix Multiplication in PyTorch's Apple MPS Backend",
+        "link": "http://arxiv.org/abs/2609.22991v1",
+        "abstract": "Apple Silicon machines with 192GB or more of unified memory make it routine to place tensors with more than $2^{32}$ elements on a desktop GPU. We show that PyTorch's Metal Performance Shaders (MPS) backend silently returns wrong results for batched matrix multiplication at this scale. On macOS 27.0, torch.bmm, and therefore torch.matmul and eager attention, returns relative errors above 1 without an exception or a warning, in every PyTorch release from 2.4.1 to 2.14.0 that we tested. On one machine, we sweep bmm over two dtypes, four memory layouts, six shapes and 42 batch sizes between 4096 and 65538 (1584 runs on PyTorch 2.14.0, and a reduced sweep on ten earlier releases), and judge every result against a float64 computation on the CPU. Three rules account for every outcome on 2.14.0. When the output exceeds $2^{32}$ elements and an operand is a transposed view, the entire output is wrong and equals a computation that ignores the strides of that operand. When a contiguous input exceeds $2^{32}$ elements, only the batches beyond that point are wrong, and they equal a computation whose index wraps around at $2^{32}$. Operands that are views with at least $2^{31}$ elements raise an exception instead, so a larger problem can turn an explicit error into a silent failure. A control on CUDA is correct for bmm, although torch.arange is silently wrong above $2^{32}$ elements there as well. In a public sentiment classifier, one oversized batch corrupts a third of the outputs and collapses them onto a single class. The study is black-box: we report what the backend returns, compared with reference results. We release the sweep harness, the raw results and a guard that stops any MPS operation touching $2^{32}$ or more elements at https://github.com/jniimi/mps-silent-failures.",
+        "authors": [
+            "Junichiro Niimi"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.22991v1",
+        "submit_date": "2026-09-19",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22978v1": {
+        "title": "DeepSeek Elastic Compute (DSec): A Sandbox Infrastructure for Effective Agentic Training at Scale",
+        "link": "http://arxiv.org/abs/2609.22978v1",
+        "abstract": "Large-scale agentic training and evaluation with large language models (LLMs) rely on isolated, stateful execution environments in which models inspect repositories, invoke tools, execute commands, and interact with task-specific services. These workloads create sandboxes in large bursts, span heterogeneous functionality and isolation requirements, retain state across long interactions, and draw from large image corpora with limited reuse. Supporting them therefore requires an elastic execution platform rather than a single sandbox runtime.\n  This report presents DeepSeek Elastic Compute (DSec), a production sandbox platform that exposes FnCall, container, microVM, and full-VM sandbox backends through a unified SDK. DSec coordinates placement and lifecycle management across the cluster, composes environments from independently versioned layers, combines memory sharing, reclamation, and CPU scheduling for high-density execution, and loads image data on demand from Fire-Flyer File System (3FS), a cluster-wide distributed filesystem. DSec is co-designed with the reinforcement learning (RL) framework, decouples stateful rollout execution from preemptible GPU training, coordinates sandbox lifecycle with training to preserve rollout state while reclaiming idle resources, and mitigates agent misbehavior such as reward hacking.\n  A single production-scale unit of DSec spans around 160 nodes, serving about 3 million sandboxes per day; in production, it supports over 380,000 concurrent sandboxes and sustains over 5,000 sandbox creations per second. Our evaluation and deployment experience show that these mechanisms reduce environment setup and image-distribution overhead, improve memory efficiency, and preserve latency-sensitive performance under high-density overcommit.",
+        "authors": [
+            "Jialiang Huang",
+            "Hongxuan Tang",
+            "Jingchang Chen",
+            "Yuxuan Liu",
+            "Yixiao Chen",
+            "Yuan Cheng",
+            "Yi Tao",
+            "Jingli Zhou",
+            "Yupeng Chen",
+            "Haoyu Chen",
+            "Jiarui Wang",
+            "Shengkai Lin",
+            "Chuqi Zhang",
+            "Bryan Lee Teng",
+            "Lian Guo",
+            "Zhe Fu",
+            "Wenjun Gao",
+            "Yisong Wang",
+            "Liang Zhao",
+            "Zehao Wang",
+            "Ziwei Xie",
+            "Yongqiang Guo",
+            "Peixin Cong",
+            "Ziyi Gao",
+            "Shuiping Yu",
+            "Hanwei Xu",
+            "Zuofan Wu",
+            "Zhizhou Ren",
+            "Yuyang Zhou",
+            "Bowei Zhang",
+            "Zhihuan Huang",
+            "Qihao Zhu",
+            "Lei Wang",
+            "Tianle Lin",
+            "Han Yu",
+            "Jiewen Hu",
+            "Dejian Yang",
+            "Shuo Yang",
+            "Shanghao Lu",
+            "Shaoyuan Chen",
+            "Junjie Qiu",
+            "Zhangli Sha",
+            "Yinmin Zhong",
+            "Yongtong Wu",
+            "Shiyu Wang",
+            "Wei Liu",
+            "Bingzheng Xu",
+            "Longhao Chen",
+            "Qiushi Du",
+            "Yuzhen Huang",
+            "Shirong Ma",
+            "Yaohui Wang",
+            "Mingshu Chen",
+            "Tongrui Xiong",
+            "Y. C. Yan",
+            "Haowen Luo",
+            "Haofen Liang",
+            "Xiaokang Zhang",
+            "Weihao Zeng",
+            "Runxin Xu",
+            "Peiyi Wang",
+            "Jinhua Zhu",
+            "Ruoyu Zhang",
+            "Wenkai Yang",
+            "Qi Tang",
+            "Jiping Yu",
+            "Tian Ye",
+            "Ruizhe Pan",
+            "Honghui Ding",
+            "Xiaodong Liu",
+            "Lingxiao Luo",
+            "Zhihong Shao",
+            "Yuhan Wu",
+            "Jibai Lu",
+            "Wen Liu",
+            "Haoling Zhang",
+            "Jingcheng Hu",
+            "Yaoyang Ye",
+            "Chaofan Lin",
+            "Zhaochen Zhang",
+            "Jianan Tong",
+            "Hengxu Wu",
+            "Zhihao Li",
+            "Yicheng Wang",
+            "Luyao Wang",
+            "Yuzhuo Bai",
+            "Lingyue Fu",
+            "Ruifan Xu",
+            "Y. Z. Wang",
+            "Zonglin Li",
+            "Mingqi Wei",
+            "Haiyang Shen",
+            "Chengyuan Zhang",
+            "Chao Jin",
+            "Zili Zhang",
+            "R. H. Yang",
+            "Xinbo Xu",
+            "Jian Zhou",
+            "Ruidong Zhu",
+            "Yuzhe Guo",
+            "Zelun Pan",
+            "Shaoheng Nie",
+            "Erhang Li",
+            "Shuhan Lin",
+            "Zheng Liu",
+            "Anshuo Chen",
+            "Zilong Lyu",
+            "Sinuo Cao",
+            "Rui Yu",
+            "Chuhao Wang",
+            "Junyi Guo",
+            "Junxiao Song",
+            "Kaifeng Chen",
+            "Menghao Ye",
+            "Junxian Li",
+            "Di Wu",
+            "Haiyang Ma",
+            "Yilun Wang",
+            "Haoran Yang",
+            "Yizai Cai",
+            "Shichun Liu",
+            "Yiping Wang",
+            "Junbo Sun",
+            "Shicheng Xu",
+            "Xiao Bi",
+            "Ying He",
+            "Yichao Zhang",
+            "Mingxing Zhang",
+            "Liyue Zhang",
+            "Panpan Huang",
+            "Wenfeng Liang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.22978v1",
+        "submit_date": "2026-09-19",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL",
+            "scaling"
+        ],
+        "tldr": "Proposes DeepSeek Elastic Compute (DSec), a sandbox infrastructure for scalable agentic LLM training with reinforcement learning. It unifies sandbox backends, co-designs with RL frameworks, and integrates distributed filesystem for high-density execution. Sustains over 5,000 sandbox creations per second and reduces setup overhead.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22897v1": {
+        "title": "Scout: Open-World Species Recognition on the Edge",
+        "link": "http://arxiv.org/abs/2609.22897v1",
+        "abstract": "Large vision-language models (VLMs) enable recognition beyond a fixed class set, but their computational demands prevent them from running on many edge devices. Cloud offload makes this capability accessible, but sending every image consumes scarce bandwidth and communication energy. We ask how to bring the open-world recognition capability of VLMs to the edge while operating within tight compute, energy, and bandwidth budgets. Wildlife monitoring provides a natural setting for exploring this question because camera traps encounter species not known at deployment. We present Scout, an autonomous open-world recognition system that invokes a cloud VLM intermittently to teach new classes to a compact edge model. Given only the deployment location and empty site frames, Scout autonomously turns each species identified by the VLM into persistent, site-conditioned recognition capability in a resource-efficient edge model, without a predefined species list, human labeling, or manual tuning. Across 30 camera-trap deployments in three regions on an NVIDIA Jetson Orin Nano, the accuracy of Scout remains within 0.1-2.5% of a model given a predefined species list. On species outside its initial class set, Scout achieves 53.7-59.1% accuracy, compared with 56.5-65.1% for full cloud offload, while using 59-71% less deployment energy.",
+        "authors": [
+            "Mohammad Mehdi Rastikerdar",
+            "Hui Guan",
+            "Deepak Ganesan"
+        ],
+        "categories": [
+            "cs.CV",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.22897v1",
+        "submit_date": "2026-09-19",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "multi-modal"
+        ],
+        "tldr": "Explores enabling open-world species recognition on edge devices under resource constraints. Proposes Scout, which intermittently invokes a cloud VLM to autonomously update a compact edge model. Achieves 59-71% lower deployment energy than full cloud offload, with 53.7-59.1% accuracy for new species (compared to 56.5-65.1%).",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22814v1": {
+        "title": "From Idle to Urgent: A Resource-Harvested HPC Workflow for High-Fidelity Seismic Estimation",
+        "link": "http://arxiv.org/abs/2609.22814v1",
+        "abstract": "We propose an Urgent Interactive HPC workflow that dynamically integrates high-fidelity 3D nonlinear analysis with surrogate neural networks (NNs) to enable rapid decision-making during large-scale earthquakes. This approach achieves both \"Resource Harvesting\", which utilizes idle computing capacity during non-emergency periods, and immediate response during crises. By developing two specialized HPC kernels, the proposed method reduces energy-to-solution by 76% and improves throughput by 3.7-fold during normal operations to efficiently construct training datasets, while during emergencies, it couples NN-based inverse analysis with physics-based simulations and dynamic refinement to reduce conventional computational costs by over 97.9%, enabling the generation of highly reliable spatial time-history ground motion distributions within 30 minutes post-earthquake.",
+        "authors": [
+            "Tsuyoshi Ichimura",
+            "Kohei Fujita",
+            "Hideaki Ito",
+            "Wataru Sakurai",
+            "Muneo Hori",
+            "Lalith Maddegedara"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CE"
+        ],
+        "id": "http://arxiv.org/abs/2609.22814v1",
+        "submit_date": "2026-09-19",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22755v1": {
+        "title": "NSP: Accelerating Variable-Length LLM Training via Nested Sequence Parallelism",
+        "link": "http://arxiv.org/abs/2609.22755v1",
+        "abstract": "Long-context LLM training on long-tailed corpora faces a central communication--balance tradeoff. Such sequence-length heterogeneity makes any single sequence-parallelism (SP) degree a poor fit for the workload: a small degree leaves the few long sequences badly imbalanced, while a large degree forces the many short sequences that dominate the workload to pay excessive communication. Existing dynamic-SP systems mix SP degrees within a batch, but to run several groups at once they partition the GPUs into disjoint groups, which reintroduces imbalance across groups and forces costly micro-batch workarounds.\n  We present NSP, a sequence-parallel training system that resolves this tradeoff by nesting differently sized SP groups on shared GPUs within a single training iteration. This lets long sequences use larger SP groups while keeping short sequences on smaller ones, so communication is incurred only where needed and load is balanced per GPU rather than per group. NSP realizes this idea with a tree-structured routing planner that assigns sequences under memory constraints and an executor that exploits the resulting hierarchy through inter-level phase streaming and tree-level recomputation. NSP supports common SP backends and requires no model changes. We evaluate NSP on Qwen3-MoE workloads with up to 384K-token contexts across multiple long-tail datasets on an internal production GPU cluster. Across these settings, NSP consistently improves end-to-end training throughput, outperforming Static SP by up to 1.48x and FlexSP by up to 1.16x.",
+        "authors": [
+            "Yi'ou Wang",
+            "Xiaoyang Li",
+            "Yijie Zheng",
+            "Shouda Liu",
+            "Yuxuan Wang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.22755v1",
+        "submit_date": "2026-09-19",
+        "relevant": true,
+        "tags": [
+            "training",
+            "MoE"
+        ],
+        "tldr": "Addresses imbalance in variable-length LLM training. Introduces nested sequence parallelism (NSP) that assigns sequences to optimally sized parallel groups under memory constraints. Achieves up to 1.48x higher throughput than Static SP.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22753v1": {
+        "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+        "link": "http://arxiv.org/abs/2609.22753v1",
+        "abstract": "Natural-language service requests can require a language-model decision before execution starts, consuming part of the request's latency budget. We integrate Jev's decision-oriented application programming interface (API) into edge service orchestration to reduce this overhead while retaining service completion. The integration extracts four bounded intent fields and applies a shared validator, admission policy, and scheduler, accounting for decision waiting throughout the request timeline. We compare Jev with a short, structured-output DeepSeek deployment using live API measurements followed by modeled execution, and then a real two-node optical character recognition (OCR) service with self-hosted Qwen and rule-based references. Across three consecutive measurement blocks, Jev reduces median client decision latency by 15.9-26.5%. In eight paired OCR conditions, Jev matches DeepSeek's correct, on-time completion count in seven and exceeds it in one. Without caching, median end-to-end latency on requests completed correctly by both systems is 11.1-25.3% lower; API fees per correct completion are 69.0-70.6% lower. Repeated-request caching largely removes the latency difference. The results demonstrate that decision-model substitution can lower both response latency and API fees in the tested service path, and identify fresh interpretation as the main opportunity for latency savings.",
+        "authors": [
+            "Delong Li",
+            "Xu Wang",
+            "Haochen Gong",
+            "Rui Lang",
+            "Guangsheng Yu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2609.22753v1",
+        "submit_date": "2026-09-19",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "serving"
+        ],
+        "tldr": "Reduces LLM inference latency and API costs during edge service orchestration by replacing LLMs with Jev decision models. Jev extracts bounded intent fields and implements shared validation, admission policy, and scheduling. Achieves 15.9-26.5% lower median decision latency and 69.0-70.6% lower fees per correct completion in OCR tasks.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22674v1": {
+        "title": "Mask-Aware Execution for Efficient JEPA Training",
+        "link": "http://arxiv.org/abs/2609.22674v1",
+        "abstract": "Joint Embedding Predictive Architectures (JEPAs) are becoming a core representation-learning primitive and a building block for latent world models across vision, video, audio, brain dynamics, and time series. Despite (potential of) wide deployment, current JEPA training pipelines are inefficient: each input is executed through multiple mask-specific branches, with redundant target-side work, and memory-bound token routing. These costs grow with the number of masks and limit GPU efficiency. We present M-JEPA, a mask-aware execution architecture that restructures JEPA training without changing the learning objective. M-JEPA separates mask-independent computation from mask-dependent routing, enabling shared context encoder execution, fused token routing and slicing with backward support, sparse target encoder execution over the union of target tokens, and masked patch embedding for sparse inputs. The resulting pipeline preserves training semantics while reducing computation, memory traffic, and synchronization overhead. We implement M-JEPA for five JEPA variants and evaluate it on NVIDIA A100 GPUs. Compared against the state-of-the-art baselines, M-JEPA achieves up to 1.7x end-to-end training speedup for 2-10 masks. Separately, with masked patch embedding, 4.75x patch-embedding speedup at high sparsity. These results show that execution restructuring, rather than changes to the JEPA objective, is a key lever for efficient JEPA training.",
+        "authors": [
+            "Md Musfiqur Rahman Sanim",
+            "Zhihao Shu",
+            "Bahram Afsharmanesh",
+            "Amirali Mirian",
+            "Wei Niu",
+            "Gagan Agrawal"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.22674v1",
+        "submit_date": "2026-09-19",
+        "relevant": true,
+        "tags": [
+            "training",
+            "sparse",
+            "video"
+        ],
+        "tldr": "Addresses inefficiencies in Joint Embedding Predictive Architectures (JEPA) training due to redundant mask-specific execution. Proposes M-JEPA, a mask-aware framework with shared context encoding, fused routing, and sparse target computation. Achieves up to 1.7× end-to-end training speedup and 4.75× patch embedding speedup.",
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22645v1": {
+        "title": "Extreme-Scale Ising Machines with Cluster Mean-Field Theory",
+        "link": "http://arxiv.org/abs/2609.22645v1",
+        "abstract": "Scaling analog and digital Ising machines to larger problems requires overcoming finite device capacity and the cost of communication between devices. We present cluster mean-field theory (CMFT), a framework that partitions a large interaction graph into clusters sized to fit available hardware. Each cluster performs local updates independently, while interactions across cluster boundaries enter through periodically updated effective biases computed from boundary-spin averages. To reduce the error introduced by fixed cluster boundaries, we introduce dynamic partitioning, which cycles through multiple partitions so that interactions approximated by mean fields at one stage can act through instantaneous spins at another. On three-dimensional spin glasses and planted Pegasus instances, dynamic CMFT exhibits power-law decay of residual energy over sweep budgets. This shows that solution quality continues to improve with computational effort despite the mean-field approximation. An automated graph partitioner combined with a weighted recovery ratio provides a practical heuristic for selecting partition combinations on graphs without natural cut directions. We demonstrate CMFT on four GPUs with approximately four million p-bits, reaching comparable energy densities up to 15 times faster than a single-GPU implementation of the full graph. By coupling locally evolving clusters through programmable effective biases, CMFT provides a route to extreme-scale Ising machines on both analog and digital hardware.",
+        "authors": [
+            "Xiuqi Zhang",
+            "Shuvro Chowdhury",
+            "Shaila Niazi",
+            "Christian Z. Pratt",
+            "Navid Anjum Aadit",
+            "Kerem Y. Camsari"
+        ],
+        "categories": [
+            "cond-mat.dis-nn",
+            "cs.DC",
+            "cs.ET"
+        ],
+        "id": "http://arxiv.org/abs/2609.22645v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22601v1": {
+        "title": "Fairly Compensated Distributed Information Retrieval and Augmentation for AI Agents",
+        "link": "http://arxiv.org/abs/2609.22601v1",
+        "abstract": "The increasing reliance of autonomous AI agents on external and distributed knowledge sources introduces a fundamental challenge for decentralized information marketplaces: retrieval agents must evaluate the quality and relevance of data before purchase, while data providers must avoid revealing valuable information prior to guaranteed compensation. This paradox becomes particularly critical in trustless multi-agent environments, where no centralized intermediary can enforce fairness between parties. In this paper, we propose a fairly compensated protocol for distributed information retrieval and augmentation in autonomous agent networks. Our framework enables retrieval agents to securely evaluate and rank candidate documents without learning their plaintext contents, while ensuring that data providers are compensated only when valid information is successfully delivered. We further analyze the security properties of the protocol against malicious adversaries and evaluate its practical feasibility through implementations. Experimental results demonstrate that the proposed design is practical with current cryptographic infrastructures while preserving confidentiality, correctness, integrity, and fairness. We believe such mechanisms provide an important cryptographic foundation for trustworthy and economically sustainable decentralized knowledge marketplaces for future AI agent ecosystems.",
+        "authors": [
+            "Yixiang Yao",
+            "Pasha Barahimi",
+            "Srivatsan Ravi"
+        ],
+        "categories": [
+            "cs.ET",
+            "cs.AI",
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.22601v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22443v1": {
+        "title": "Trust-Aware Output Management for Physical Neural Network in Cloud-Continuum Systems",
+        "link": "http://arxiv.org/abs/2609.22443v1",
+        "abstract": "Physical Neural Networks (PNNs) introduce new opportunities for cloud continuum computing, but their outputs may be affected by noise, drift, delay, and incomplete reliability information. Existing substrate-management approaches mainly focus on discovery, invocation, and monitoring, while the reliability of the returned output is often left unaddressed. This paper proposes a trust-aware output management framework for heterogeneous PNNs. Each output is represented with quality and context information, and a lightweight edge-level trust score decides whether it should be accepted, rejected, or forwarded to the fog. At the fog layer, compatible outputs are checked for disagreement and combined using reliability- and uncertainty-aware fusion. Historical trust is also tracked to detect sustained degradation and support recalibration requests. The framework is evaluated using controlled and randomized PNN output models. Across 20 random seeds, the proposed full-trust policy reduces unsafe acceptance from approximately 61.5\\% for raw output handling to about 5.0\\%, while accepted-output MAE decreases from 0.504 to 0.242. Risk coverage analysis shows that this improvement is not explained only by lower local acceptance. The proposed fog fusion method also achieves the lowest aggregate mean error among the evaluated methods, with a small but consistent advantage over strong uncertainty-aware baselines. The prototype adds about $2~μ\\text{s}$ of edge processing per evidence record. These results show that post-invocation reliability management can improve the safe use of PNN outputs across edge--fog--cloud systems.",
+        "authors": [
+            "Maliheh Hariri",
+            "Stefan Fischer"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NE"
+        ],
+        "id": "http://arxiv.org/abs/2609.22443v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.22358v1": {
+        "title": "The Tethys Dataset: Seven Years of Hourly Smart Water Metering and a Pipeline for Making It Usable",
+        "link": "http://arxiv.org/abs/2609.22358v1",
+        "abstract": "Methods for water demand forecasting and leak detection are based on public datasets, and for water those are scarce, short, or released only after an undocumented cleaning process, hiding defects of the deployment they came from. We present Tethys: 91 months of hourly water consumption data from 24 buildings of a municipal water network, published with a quantitative account of its quality, rather than in place of one. Raw availability is 59.4%, while loss is not random: 4 fleet-wide outages totalling 595 days interrupt the entire estate at once. We show that the aggregation producing the released files silently introduced 205,200 impossible decreases in a cumulative index, and that correcting it is a one-line change. Because the meters are cumulative, the readings bracketing a short gap fix the volume that passed through it, so 75.9% of hours rest on a measurement, while 24.1% are reported as unknown. We release the dataset, its per-hour provenance, and the pipeline that produces it.",
+        "authors": [
+            "Dimitrios Amaxilatis",
+            "Themistoklis Sarantakos",
+            "Georgios Mylonas",
+            "Ioannis Chatzigiannakis"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CY"
+        ],
+        "id": "http://arxiv.org/abs/2609.22358v1",
+        "submit_date": "2026-09-17",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23700v1": {
+        "title": "When the Agent Becomes the Kernel: A Systematization of Security on the Path to AI-Native Operating Systems",
+        "link": "http://arxiv.org/abs/2609.23700v1",
+        "abstract": "Large language model agents are now privileged principals that take consequential actions: editing code repositories, operating inboxes, completing purchases. Their authority is kernel-grade, but it comes without what classical systems security requires: a trusted mediator interposed on every access. Operating-system vendors are now rebuilding the platform around this de-facto agent kernel, inheriting complete mediation as a design problem. We systematize the security of such systems around a single distinction: a crossing mediated over provenance admits a deterministic check, while one over content semantics does not. A trust-boundary taxonomy locates where mediation must occur and isolates the central mediation gap at two kinds of semantic judgment: distinguishing data from instruction in untrusted input, and an authorized action from an unauthorized one. We argue that this gap leaves an irreducible residual of undetected attacks wherever inputs and actions are not restricted in advance to an enumerated set. The same distinction makes attack-success statistics actionable, placing each number on a spectrum from deployment debt (a sound deterministic mediator left unused) to a structural gap (no such mediator known). We systematize defenses across runtime monitoring, architectural separation, and authorization, and show that current evaluations tend to overstate deployed security through evaluation-validity failures. Finally, we carry that analysis forward beyond the de-facto kernel, to an architecture in which the model itself becomes the arbitration core, and derive the design constraints, open challenges, and research agenda for a security-first AI-native OS.",
+        "authors": [
+            "Li Zhang",
+            "Yang Sun",
+            "Jie Shi"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.AI",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.23700v1",
+        "submit_date": "2026-09-20",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.23218v1": {
+        "title": "SoK: From Finding to Deployment: Systematizing the OS Kernel Bug Lifecycle",
+        "link": "http://arxiv.org/abs/2609.23218v1",
+        "abstract": "Automated kernel bug discovery has advanced rapidly. Continuous fuzzing and static analysis systems, such as syzbot, now expose Linux kernel bugs at a scale that downstream processes struggle to absorb. Yet a crash report is only the beginning. Before a bug is eliminated, it must be triaged, understood, patched, validated, reviewed, integrated, and often backported. These later stages remain far less automated, creating a persistent gap between bug discovery and patch deployment.\n  This SoK systematizes the Linux kernel bug lifecycle from discovery to deployment. We organize prior work and production systems into five stages: discovery, triage, patch generation, patch validation, and integration. We explain the resulting automation gradient through kernel-specific challenges such as concurrency, implicit invariants, cross-syscall state, hardware dependence, lack of fault isolation, and architecture/configuration multiplicity. We further ground the analysis in a measurement of real syzbot-fixed bugs. The data shows that the crash-to-patch gap is not merely a backlog of unfixed reports but a structural failure mode of the repair pipeline: even after being fixed, bugs often remain open for weeks, require review-driven patch revisions, or lack reproducers that current repair and validation systems assume. This exposes a mismatch between where kernel-security automation is mature and where bug closure actually breaks down. These findings expose a deeper mismatch: today's repair and validation techniques often assume reliable reproducers, localized root causes, and checkable correctness oracles, yet these are precisely the artifacts missing from many real kernel bug reports. Closing the crash-to-patch gap, therefore, requires treating such artifacts as outputs to be produced, not prerequisites to be assumed.",
+        "authors": [
+            "Luyao bai",
+            "Gengda She",
+            "Kenan Alghythee",
+            "Hang Zhang",
+            "Xiaoguang Wang"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.OS",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2609.23218v1",
+        "submit_date": "2026-09-19",
+        "relevant": false,
+        "indexed_date": "2026-09-22"
     }
 }
