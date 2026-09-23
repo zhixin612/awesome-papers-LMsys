@@ -164599,5 +164599,439 @@
         "submit_date": "2026-09-19",
         "relevant": false,
         "indexed_date": "2026-09-22"
+    },
+    "http://arxiv.org/abs/2609.26788v1": {
+        "title": "Quantum Advantage for Distributed Symmetry Breaking",
+        "link": "http://arxiv.org/abs/2609.26788v1",
+        "abstract": "We present a distributed quantum algorithm that $3$-colors cycles in $O(1)$ rounds, with high probability. It follows that all locally checkable labeling problems (LCLs) that have round complexity $O(\\log^* n)$ in the classical LOCAL model can be solved in $O(1)$ rounds in the quantum-LOCAL model, with high probability; this includes problems such as maximal independent set and maximal matching in bounded-degree graphs. This presents the first natural examples of graph problems with an asymptotic distributed quantum advantage for the LOCAL model; all prior examples that separate LOCAL and quantum-LOCAL are artificial problems constructed merely for the sake of demonstrating quantum advantage.",
+        "authors": [
+            "Maxime Flin",
+            "Longcheng Li",
+            "Jukka Suomela"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.26788v1",
+        "submit_date": "2026-09-22",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.26763v1": {
+        "title": "SARA: SLO-Aware Resource Allocation for Disaggregated Agentic LLM Services",
+        "link": "http://arxiv.org/abs/2609.26763v1",
+        "abstract": "Recent advances in large language models (LLMs) are driving the emergence of multi-modal and agentic services for mobile users through cloud and edge infrastructures, where long-context workloads pose daunting challenges for inference latency. Existing disaggregated LLM serving systems largely rely on hardware profiling, configuration enumeration, or heuristic scheduling, offering limited analytical guidance for cost-efficient resource allocation. In this paper, we propose SARA, a Service level objectives (SLOs)-Aware Resource Allocation framework for disaggregated agentic LLM serving systems, which maximizes goodput under a deployment cost constraint and a series of quantile-based SLO constraints. By capitalizing on queuing theory, we first model the prefill, KV cache transfer, and decode stages as an M/G/k queue, an M/G/1 queue, and a generalized birth-death process, respectively. The analysis reveals that the prefill and decode stages are dominantly limited by computational capacity and high-bandwidth memory (HBM) resources, respectively. With these mathematical models, we further derive tractable tail behaviors of different stage-wise service level metrics for both light- and heavy-tailed workloads. These characterizations explicitly map workload, model architecture, and hardware parameters to stage-wise SLO constraints and minimum resource requirements. Finally, we develop an effective resource allocation framework to maximize system goodput under limited cost budgets. Simulation and hardware results demonstrate that the proposed framework accurately predicts the stage-wise SLO with mean errors below 5%, and improves system goodput by 26.6% on average over state-of-the-art baseline methods under the same deployment cost.",
+        "authors": [
+            "Shicong Liu",
+            "Xianghao Yu",
+            "Zhen Gao",
+            "Jun Zhang"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.26763v1",
+        "submit_date": "2026-09-22",
+        "relevant": true,
+        "tags": [
+            "disaggregation",
+            "serving",
+            "agentic"
+        ],
+        "tldr": "SARA optimizes resource allocation for disaggregated agentic LLM serving to maximize goodput under cost. Models stages via queuing theory to derive resource requirements from SLOs, achieving 26.6% higher goodput and <5% SLO prediction error vs. baselines.",
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.26616v1": {
+        "title": "Seeking Cost-Optimal Infrastructure Size for Distributed Filesystems: A Ceph Case Study",
+        "link": "http://arxiv.org/abs/2609.26616v1",
+        "abstract": "Distributed Filesystems (DFS) are a crucial component of modern computing environments, and their performance is critical to the success of all the facilities that rely on them. However, predicting the DFS I/O performance solely based on the storage system hardware is not trivial. In this paper, we address this challenge by presenting an empirical method that tries to quantitatively assess how hardware configuration choices influence the performance of a DFS using Ceph as a case study. We investigate the influence of three hardware parameters-number of CPU cores, amount of RAM, and disk bandwidth. To control these variables, we relied on the Linux hotplug interface and Cgroups, avoiding additional software overhead. Our results reveal that for the analyzed workloads, decreasing hardware resources does not always yield proportional performance losses. This method offers practical insights for designing cost-effective distributed storage systems, remaining general enough to be applied to other filesystems.",
+        "authors": [
+            "Niccolo Tosato",
+            "Isac Pasianotto",
+            "Ruggero Lot",
+            "Stefano Cozzini"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.26616v1",
+        "submit_date": "2026-09-22",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.26602v1": {
+        "title": "A Configurable Heuristic for the MLCS Problem",
+        "link": "http://arxiv.org/abs/2609.26602v1",
+        "abstract": "Motivation: The Multiple Longest Common Subsequence (MLCS) problem for an arbitrary number of sequences is an NP-hard problem in sequence analysis. Existing exact algorithms based on dynamic programming or MLCS-DAG pruning rapidly exhaust memory as sequence lengths and set sizes grow, while heuristic and hyper-heuristic approaches compromise solution quality and require heavy parameter tuning, respectively. Results: This paper presents the ARP heuristic that, for a given primary sequence, performs three key actions: (i) Adding-$Δ$s, which incrementally builds a solution by adding subsequences, called $Δ$s, of the primary sequence to an initial solution; (ii) Replacing-Subsequences, which enhances the diversity of the solution set via targeted replacement of subsequences common to all solutions; and (iii) Prioritizing groups of characters from the primary sequence that are likely to appear together in longer common subsequences. ARP allows the user to configure the degree of Replacements and Prioritization actions for carrying out quality-runtime tradeoff. Empirical evaluations on both synthetic and biological sequence sets demonstrate that ARP's fastest configuration AOnly finds significantly longer common subsequences than the BNMAS classical heuristic and its aggressive configuration attains solution quality comparable to state-of-the-art hyper-heuristic (UB-HH) while running 1.1$\\times$-1.7$\\times$ faster.",
+        "authors": [
+            "Farhana Akter Tumpa",
+            "Rebin Silva Valan Arasu",
+            "Rajiv Gupta"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.26602v1",
+        "submit_date": "2026-09-22",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.26476v1": {
+        "title": "Don't let your Memory defy you: Fragmentation-Aware Serverless Allocation with Elastic Memory Locality",
+        "link": "http://arxiv.org/abs/2609.26476v1",
+        "abstract": "Serverless platforms commonly rely on bundled, memory-centric configurations, where CPU capacity follows the specified memory size. Resource decoupling reduces this waste, but can create external fragmentation by producing diverse CPU-memory shapes that leave residual capacity stranded across nodes. Memory disaggregation and tiering can turn these resource holes into usable capacity by enabling elastic memory locality, where instances use different mixes of local and remote memory. In this paper, we present Memoryless, a fragmentation-aware resource manager that exposes memory locality as a serverless control-plane primitive. Memoryless jointly selects and places function variants that differ in their compute allocation and memory-locality ratio. This allows the scheduler to match instance shapes to fragmented node capacity while preserving SLOs. We implement Memoryless on top of Knative and evaluate it with trace-driven workloads. Compared to state-of-the-art serverless placement frameworks, Memoryless reduces node usage by up to 40% in steady state and 46% at peak, while keeping SLO violations within 3%. It also reduces CPU stranding by 44%, showing that elastic memory locality can convert fragmented node capacity into usable resources.",
+        "authors": [
+            "Achilleas Tzenetopoulos",
+            "Dimosthenis Masouros",
+            "Sotirios Xydis",
+            "Francky Catthoor",
+            "Dimitrios Soudris"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.26476v1",
+        "submit_date": "2026-09-22",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.26363v1": {
+        "title": "DHSched: Stateless Control for Stateful Real-Time Avatar Serving",
+        "link": "http://arxiv.org/abs/2609.26363v1",
+        "abstract": "Real-time avatar services run long-lived, GPU-backed sessions that transform a continuous text stream into speech, facial motion, rendered video, and RTC media. Elastic operation repeatedly reassigns these sessions across Workers. A reassignment updates shared placement state while the previous GPU runtime and RTC connection remain alive, opening a gap between control-plane assignment and execution authority. A stateful controller serializes ownership by retaining per-session authority, placing that state on the controller's scaling and failover path.\n  We present DHSched, a control plane that manages long-lived stateful sessions through stateless peer Dispatch replicas. DHSched externalizes session ownership as a generation identified by (WorkerID, epoch). Dispatch conditionally commits each generation. Infer-Controller claims and revalidates the same generation before releasing state-advancing input. A stale runtime loses execution authority even if it remains alive. DHSched ranks candidates from periodically refreshed load views while keeping capacity admission authoritative. Recovery advances the same generation path via source-epoch guards and source-independent reconstruction.\n  DHSched runs in our production avatar-serving stack, which reached 49,987 concurrent live sessions. On 10 June 2026, it completed 9,927 session migrations with no observed dual-owner conflicts or capacity overshoots. At the production peak, CreateLive latency was 98.3 ms at P99 and PushText latency was 16.5 ms at P99. Across 100,000 randomized ownership runs, assignment-time, claim-only, and WorkerID-only protocols permit stale execution, while DHSched records no dual-owner or stale-generation release.",
+        "authors": [
+            "Xin Wang",
+            "Haitong Zhang",
+            "Xianghong Li",
+            "Shumin Lin",
+            "Xianzheng Song",
+            "Lin Wang",
+            "Zhenyu Xu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.26363v1",
+        "submit_date": "2026-09-22",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling",
+            "video"
+        ],
+        "tldr": "Proposes DHSched, a stateless control plane preventing dual-owner conflicts and capacity overshoots during elastic scaling of stateful avatar sessions. Uses generation-based ownership (WorkerID, epoch) with conditional commits and revalidation. Achieves 0 conflicts/overshoots in 9,927 session migrations at 49,987 concurrent sessions.",
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.18886v2": {
+        "title": "Fluid Notarization: Verifiable Evolution of Concurrently Edited Structured Documents",
+        "link": "http://arxiv.org/abs/2609.18886v2",
+        "abstract": "Traditional blockchain-based document notarization follows a snapshot-oriented model in which each document revision is represented as an independent state anchored on-chain through a cryptographic reference. While effective for immutable artifacts, this approach becomes inadequate when documents evolve through collaborative editing. Concurrent modifications create divergent document versions that must be reconciled outside the notarization layer, while even minor changes require generating and distributing new document snapshots. Conversely, collaborative replication frameworks such as CRDTs provide deterministic reconciliation of concurrent updates, but do not inherently provide independently verifiable evidence of when contributions were published. This paper introduces Fluid Notarization, a notarization paradigm in which document evolution itself becomes the object of notarization. Rather than certifying isolated states, Fluid Notarization certifies a graph of causally related evolution artifacts generated by a JSON-native delta-CRDT. The proposed model builds upon Melda, which represents document changes as compact, content-addressed deltas linked through causal dependencies. Blockchain notarization is reduced to recording identifiers of these evolution artifacts, while synchronization, reconstruction, and conflict resolution remain entirely off-chain. The resulting architecture combines two complementary guarantees: deterministic convergence provided by the CRDT and independently auditable proof-of-existence, provenance, and publication evidence provided by the blockchain. A prototype implementation and validation scenario based on collaboratively edited electronic health records demonstrate the feasibility of the approach and highlight the advantages of notarizing document evolution rather than successive document snapshots.",
+        "authors": [
+            "Amos Brocco",
+            "Giuliano Gremlich",
+            "Roberto Guidi"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR"
+        ],
+        "id": "http://arxiv.org/abs/2609.18886v2",
+        "submit_date": "2026-09-22",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25949v1": {
+        "title": "Flux: Optimal Scheduling of Optical Circuit Switches for LLM Training",
+        "link": "http://arxiv.org/abs/2609.25949v1",
+        "abstract": "Optical Circuit Switching (OCS) offers high bandwidth density and energy efficiency for LLM training, but incurs a non-negligible reconfiguration delay. Prior work typically schedules optical circuit switches independently of compute, using aggregate traffic demand to determine which circuits to provision and when. We argue that this separation creates a fundamental inefficiency: reconfigurations that ignore the compute timeline can stall communication, resulting in low circuit utilization and large buffer requirements. In this paper, we present Flux, a scheduler that optimally schedules optical circuit switches based on the structure of the entire workload. Flux remains effective across a wide range of switching speeds by reusing circuits and amortizing reconfiguration delay behind compute and communication. We show that Flux reduces training iteration time by up to $10\\times$ and peak NIC buffer requirements by more than three orders of magnitude compared to traditional periodic schedulers.",
+        "authors": [
+            "Arno Troch",
+            "Seyyidahmed Lahmer",
+            "Abubakr Nada",
+            "Jeroen Famaey",
+            "Michael Peeters"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25949v1",
+        "submit_date": "2026-09-22",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Addresses optical circuit switch reconfiguration delays causing communication inefficiency in LLM training. Proposes Flux, a workload-aware scheduler that reuses circuits and amortizes reconfiguration behind compute. Achieves up to 10× faster training iterations and over 1000× reduction in peak NIC buffer.",
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25918v1": {
+        "title": "Hydrozoan: Latency-Adaptive DAG Consensus under Mixed Byzantine and Crash Faults",
+        "link": "http://arxiv.org/abs/2609.25918v1",
+        "abstract": "DAG-based consensus protocols can achieve great throughput and the optimal three-message-delay limit for n = 3f+1 consensus. While two-delay protocols exist, they pay with reduced resilience (requiring 5f+1-style committees) or rely on fallbacks that sacrifice the DAG's high throughput. This paper introduces Hydrozoan, the first DAG protocol with a dual commit path under a hybrid fault model of f Byzantine and c crashed validators, on n = 3f+c+2p+1 validators. Leaders commit in two message delays whenever at most p validators are faulty, and in three otherwise, with no extra messages, no view changes, and multiple leaders per round. Both paths are evaluated on the same DAG, using a novel graded indirect rule to reconcile them so that every honest validator reaches the same decision. We show that under geo-distributed conditions, which path is faster is a property of geography rather than the protocol, as rounds reaching a remote region cost far more than those that do not. The (f, c, p) knobs place the fast quorum where the deployment requires it, allowing a commit in two message delays. If misconfigured, Hydrozoan can still commit in three message delays: Hydrozoan commits on whichever path fires first. We also present Optimal-Hydrozoan, a variant that tolerates one more fault on the fast path, the first construction to match the known lower bound. The safety and liveness of both protocols are machine-checked in Lean 4. Our geo-distributed evaluation shows that Hydrozoan matches Mysticeti's throughput, commits ~25% faster when the fast quorum fits fast regions, and falls back to three message delays when it does not or past p faults, where existing two-delay protocols stall.",
+        "authors": [
+            "Qianyu Yu",
+            "Lefteris Kokoris-Kogias",
+            "Alberto Sonnino"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR"
+        ],
+        "id": "http://arxiv.org/abs/2609.25918v1",
+        "submit_date": "2026-09-22",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25817v1": {
+        "title": "Lizard: Bandwidth-Adaptive Real-Time Video Analytics through Content-Aware Packet Discarding at Last-Mile Edge Routers",
+        "link": "http://arxiv.org/abs/2609.25817v1",
+        "abstract": "The timeliness and accuracy of edge-based video analytics can be hindered by drastic reductions in available bandwidth (ABW) at last-mile edge routers, causing prolonged queuing delays. This work proposes Lizard, a system that leverages video-content-aware packet discarding to mitigate the negative effects of drastic ABW degradation that may frequently occur at a last-mile edge router by judiciously discarding packets that contain frame blocks less important to the analytics at the destination. To achieve this, we first devise a frame-block-aware RTP header extension to effectively decouple packet dependencies to encode frame blocks. Second, Lizard uses a priority-based feedback mechanism that dynamically evaluates packet priorities based on relative accuracy impacts. Third, we develop an adaptive phase-transition-based packet discarding strategy at the router to discard packets that represent unimportant blocks. Our evaluation of Lizard shows improvements over existing methods are substantial: 53.2% reduction in latency and 27.1% increase in analysis accuracy.",
+        "authors": [
+            "Shan Yu",
+            "Yu Chen",
+            "Yifan Qiao",
+            "Sheng Zhang",
+            "Ravi Netravali",
+            "Harry Xu"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25817v1",
+        "submit_date": "2026-09-22",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25560v1": {
+        "title": "Co-Fabric: Breaking Host-Domain Boundaries for Unified xPU Interconnection",
+        "link": "http://arxiv.org/abs/2609.25560v1",
+        "abstract": "Large-model parameters have grown beyond the capacity of a single xPU, dispersing across multiple xPUs spanning distinct host domains, where xPU-to-xPU communication dominates overall system efficiency. Existing scale-up interconnect remains inadequate: network-based solutions built on Ethernet--such as RoCE (RDMA over Converged Ethernet)--introduce specific message-semantics and protocol-stack characteristics, and rely on fragmented per-host addressing, while conventional host-based fabrics are confined to a single host domain and lack cross-host unified addressing. This paper presents Co-Fabric, a bus-based interconnect that, unlike conventional bus designs, breaks host-domain boundaries to deliver unified xPU interconnection for scale-up superpods. Co-Fabric makes three contributions: a streamlined four-layer protocol stack achieving nanosecond-scale processing latency with native reliability; a cross-domain scaling and P2P mechanism that routes using port identifiers embedded in the packet header; and a unified address space built on shadow-device auto-enumeration. On a 64-xPU 3D-Mesh system, Co-Fabric cuts inter-node communication latency by over 50% and improves bandwidth by 2-5x over RoCE, accelerating DeepSeek R1 inference by 30%-80%. Moreover, since its streamlined four-layer protocol stack and higher data-communication efficiency reduce protocol and processing overhead relative to the Ethernet-based RoCE stack, Co-Fabric cuts the cost and power of the interconnect itself by up to 80% and 5%, respectively. These results demonstrate Co-Fabric's advantage for AI computing centers.",
+        "authors": [
+            "Zhen Peng",
+            "Jiaming Huang",
+            "Chaofan Chen",
+            "Zhao Zhang",
+            "An Wu",
+            "Baoyang Liu",
+            "Xinglong Wang",
+            "Tanlong Ci",
+            "Jinfeng Li",
+            "Xueke Duan",
+            "Hao Wang",
+            "Xi Chen",
+            "Shunshun Zhang",
+            "Zhiyuan Su",
+            "Zhu Cao",
+            "Zhichong Dou",
+            "Shaohua Wu",
+            "Lu Jing",
+            "Yue Yuan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25560v1",
+        "submit_date": "2026-09-22",
+        "relevant": true,
+        "tags": [
+            "networking",
+            "serving",
+            "hardware"
+        ],
+        "tldr": "Addresses high communication overhead in distributed LLM inference across host domains. Proposes Co-Fabric, a bus-based interconnect with unified xPU addressing and streamlined protocols. Cuts latency by 50% and accelerates inference by up to 80% compared to RoCE.",
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25479v1": {
+        "title": "Adaptive and Cost-Efficient Joint Scheduling of UAV Routes and Analytics with Transit-Borne Fog",
+        "link": "http://arxiv.org/abs/2609.25479v1",
+        "abstract": "Unmanned Aerial Vehicles (UAVs) performing deadline-bound analytics over large rural areas cannot reliably offload workloads to sparse cellular base stations. We propose an approach that uses scheduled public buses as \\textit{mobile fogs}: a UAV hands off data to a bus during a halt, and the bus carries it until its route enters cellular coverage. Because a public bus follows a fixed route and timetable, a handover depends on \\textit{where} and \\textit{when} the bus next reaches a cellular zone, rather than how near the stop is. We formulate a Mission Scheduling Problem over this model, co-scheduling UAV routes with the placement of each analytics task on the UAV edge, a stationary fog, or a bus, under deadline, energy, and cost constraints. Our \\textit{Divide and Assign} (DA) heuristic selects the cheapest halt that still meets a task's deadline. Across 36 workload configurations in a rural region, derived from real cellular and transit data, DA achieves up to 20\\% higher utility than the strongest heuristic and up to 41\\% higher utility than the strongest adapted-prior scheduler, while incurring the lowest aggregate cost. The transit tier handles up to 71\\% of drop-offs, raises task completion to 100\\%, and reduces recharging cycles by up to 31\\%. Finally, in the presence of traffic variability, the adaptive variant recovers 93\\% of the utility the delays cost and maintains completion rates above 97\\%.",
+        "authors": [
+            "Suman Raj",
+            "Arindam Khanda",
+            "Gagana M D",
+            "Yogesh Simmhan",
+            "Sajal K. Das"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25479v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25463v1": {
+        "title": "Rollout Efficiency in Reinforcement Learning for Reasoning Large Language Models: A Taxonomy and Future Directions",
+        "link": "http://arxiv.org/abs/2609.25463v1",
+        "abstract": "Reasoning-oriented reinforcement learning enables large language models to solve mathematical, coding, and other multi-step tasks, but shifts a substantial portion of the training cost to rollout, where trajectories are generated for policy updates. Efficient rollout mechanisms are therefore essential to reduce this cost while maintaining the freshness, consistency, and statistical validity of training data. This survey provides a systematic taxonomy of recent research on rollout efficiency for reasoning-oriented reinforcement learning, classifying existing approaches from both mechanism and bottleneck perspectives. Based on this taxonomy, we analyze how different technique families address distinct sources of rollout inefficiency, examine opportunities and potential conflicts for combining them, identify gaps in the evaluation and reporting of efficiency gains, and discuss open challenges and future research directions.",
+        "authors": [
+            "Niloofar Gholipour",
+            "Marcos Assuncao",
+            "Gursimran Singh",
+            "Timothy Yu",
+            "Rajkumar Buyya",
+            "Julien Gascon-Samson",
+            "Zhenan Fan",
+            "Yong Zhang",
+            "Xiaojie Xu",
+            "Yaqiang Yao",
+            "Xiaolong Bai"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25463v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL",
+            "thinking"
+        ],
+        "tldr": "Surveys techniques to improve rollout efficiency in RL for reasoning LLMs, aiming to reduce training cost while maintaining data quality. Classifies methods by mechanism and bottleneck, and discusses gaps in efficiency evaluation reporting.",
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25451v1": {
+        "title": "Fast Recovery for LLM Serving via Decoupled Device Memory Lifetime in Dynamo",
+        "link": "http://arxiv.org/abs/2609.25451v1",
+        "abstract": "Large language model (LLM) inference replicas run across tightly coupled GPUs and serve traffic continuously for weeks. Hardware and software failures are therefore inevitable, and one worker failure can disrupt an entire replica. Recovery requires reinitializing the engine, taking minutes even when weights and compilation artifacts are cached. Production deployments overprovision serving capacity to mask this window. We argue that the dominant cost is loss of ready serving capacity, not request progress, so recovery should preserve initialized engine state rather than reconstruct it. We present fast recovery for Dynamo based on this principle. Snapshots capture an initialized engine once and restore it instead of reinitializing it. Analysis of 18 weeks of failures from the Dynamo cluster shows that most failures are device-preserving: the engine process fails while the GPU and its resident allocations remain intact. Our key insight is that independent engine processes can reuse the same GPU-resident state while keeping mutable execution state private. The GPU Memory Service (GMS) decouples device-memory ownership from engine processes, enabling engines to share and reattach surviving allocations without copying them. GMS preserves model weights and shares them read-only between replacement and Shadow Engines, avoiding weight reloads. A second initialized runtime on the same GPUs reduces recovery to promotion. Across four models on vLLM and SGLang, these mechanisms recover a failed replica in under 7 seconds, 13-29 times faster than a warm restart, using a fixed 4-8 GiB of device memory per GPU independent of model size. Replaying the production trace, we estimate they would reclaim 79% of GPU-hours lost to recovery.",
+        "authors": [
+            "Schwinn Saereesitthipitak",
+            "Mohammed Abdulwahhab",
+            "Hannah Zhang",
+            "Dan Feigin",
+            "Neelay Shah",
+            "Maksim Khadkevich",
+            "Itay Neeman",
+            "Vikram Sharma Mailthody",
+            "Wen-mei W. Hwu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25451v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Investigates fast recovery from failures in LLM inference serving. Proposes snapshots and GPU Memory Service to decouple device-memory ownership, enabling state reuse without reloading. Achieves recovery in under 7 seconds, 13-29x faster, reclaiming 79% of lost GPU-hours.",
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25443v1": {
+        "title": "ZeroGate: Trust-Preserving Fast Paths for Governed AI Agent Runtimes",
+        "link": "http://arxiv.org/abs/2609.25443v1",
+        "abstract": "Moving authorization earlier can shorten an agent's dispatch boundary without removing authorization work. It can also admit an action whose payload, authority, or relevant state has changed. ZeroGate separates exact-action approval from durable local admission: an issuer signs a short-lived ActionPass, and a trusted runtime adapter reconstructs the final action before a local gate checks its binding and consumes its nonce. A SQLite transaction couples nonce consumption, applicable quota updates, and an admission receipt. We state a conditional decision-preservation proposition: successful local admission implies that a specified synchronous policy would authorize the same action at the admission point, provided approval is sound, all policy dependencies are represented and current, observations are faithful, and consumption is atomic. The implementation alone establishes neither current-world freshness nor exactly-once remote effects. Evaluation separates authored semantic fixtures, controlled concurrency and crash experiments, and an Azure Blob study comparing synchronous and prepared execution through the same issuer and gate. Both modes mint an exact-action pass; lifecycle latency includes preparation and prepared-batch dwell. Across 4800 cloud attempts, prepared worker-admission-to-dispatch p95 ranges from 9.802 to 11.374 ms, versus 25.018 to 334.000 ms synchronously, across the tested concurrency levels. Prepared mean complete lifecycle is longer at every level: the boundary improvement is not a net speedup. The contribution is an explicit revalidation contract, a durable reference boundary, and an auditable comparison of where authorization cost is paid, not a new cryptographic primitive or a universal performance frontier.",
+        "authors": [
+            "Zexun Wang"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25443v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25442v1": {
+        "title": "WeightBridge: An Efficient Weight Transfer Library for Reinforcement Learning",
+        "link": "http://arxiv.org/abs/2609.25442v1",
+        "abstract": "Weight transfer - the propagation of updated parameters from trainers to rollout generators - is becoming an important performance bottleneck in reinforcement learning (RL) systems for LLMs. The central challenge is supporting the diverse trainer and rollout layouts and synchronization requirements of modern RL workloads without sacrificing efficiency. Existing solutions are efficient under some configurations but perform poorly or lack support under others. We present WeightBridge, a flexible, efficient weight-transfer library designed to deliver high performance across diverse RL configurations. WeightBridge first automatically extracts the correspondence between trainer and rollout weight layouts, then plans and executes redundancy-free and load-balanced weight transfer. It exposes a small, general API while coordinating workers across diverse synchronization modes. Across configurations spanning different models, parallelization layouts, and synchronization modes, WeightBridge reduces average GPU stall time by up to 42$\\times$ over the state-of-the-art open-source RL framework and achieves high performance in all settings. A coding agent was able to integrate WeightBridge into two different RL frameworks without manual guidance, demonstrating the generality and ease of use of its APIs.",
+        "authors": [
+            "Xuanlin Jiang",
+            "Samuel Hsia",
+            "Michael Kuchnik",
+            "Zachary DeVito",
+            "Minlan Yu",
+            "Carole-Jean Wu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2609.25442v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "RL",
+            "training"
+        ],
+        "tldr": "Addresses weight transfer bottlenecks in RL systems for LLMs. Develops WeightBridge, an API-driven library that auto-aligns trainer-rollout layouts and plans efficient synchronization. Reduces average GPU stall time by up to 42× over state-of-the-art frameworks across diverse configurations.",
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25437v1": {
+        "title": "Data center cooling choices shift water impacts across the grid: An integrated water-energy model for sustainable data center development",
+        "link": "http://arxiv.org/abs/2609.25437v1",
+        "abstract": "Data centers are being developed at an unprecedented pace, yet their energy and water impacts, and the spatial and temporal distribution of these impacts, remain poorly characterized. Data centers consume water for cooling (direct) and through electricity generation (indirect). Decisions on siting and cooling technology result in water-energy trade-offs that extend impacts beyond the facility's location. Existing assessment frameworks rely on facility efficiency metrics and average grid water intensity factors, suppressing the temporal impacts of data center load and generation availability. They also attribute indirect consumption to the facility's location rather than to the generators (and corresponding hydrologic regions) that respond to the added load, misattributing spatial impacts. To close this gap, we develop a computational model of the data center-energy-water nexus that links facility cooling and electricity demand with hourly economic dispatch, generator-level water consumption, and monthly subbasin depletion. Built on open-source data, the model resolves where and when water is consumed, and where this consumption compounds existing water risk or creates new risk. Using the model, we study different cooling configurations and proposed developments in the state of Michigan. Air-cooled data centers halve total water consumption relative to evaporative cooling, but increase electricity demand and raise indirect water consumption by one-third, shifting the water footprint from the facility to generators. Mapping these changes to subbasins reveals depletion increases beyond the data center sites, in regions that facility-level reporting may overlook. These results show that data center water and energy impacts cannot be assessed in isolation, motivating the need for integrated modeling to inform siting, design, and reporting practices.",
+        "authors": [
+            "Garrett Alston",
+            "Nancy Love",
+            "Rabab Haider"
+        ],
+        "categories": [
+            "eess.SY",
+            "cs.CY",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25437v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25415v1": {
+        "title": "Cloud, Edge, or Split? Profiling Onboard and Split Vision-Language Model Deployment for Drone AI",
+        "link": "http://arxiv.org/abs/2609.25415v1",
+        "abstract": "Vision-Language Models (VLMs) enable edge devices like unmanned aerial vehicles (UAVs) to interpret visual observations and reason about complex environments using natural-language instructions. However, their practical deployment remains challenging as onboard inference is constrained by limited computational, memory, and energy resources, whereas cloud-based inference introduces communication latency, bandwidth overhead, and dependence on network connectivity. To address these limitations, split computing offers a promising alternative by partitioning VLM inference between the resource-constrained UAVs and more capable remote servers. However, the performance trade-offs among fully onboard, cloud-based, and split-computing architectures for lightweight VLMs have not yet been systematically profiled. This paper benchmarks these three deployment paradigms using SmolVLM-256M as a representative lightweight VLM. We quantify their inference latency, computational resource utilization, communication overhead, and energy consumption across varying image resolutions and network conditions. Our results show that no deployment strategy is universally optimal; instead, the preferred strategy depends on the interaction between network conditions and input image resolution.",
+        "authors": [
+            "Zoha Azimi",
+            "Reza Farahani",
+            "Schahram Dustdar",
+            "Christian Timmerer"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25415v1",
+        "submit_date": "2026-09-21",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "serving",
+            "multi-modal"
+        ],
+        "tldr": "Profiles onboard, cloud, and split VLM deployment for drones using SmolVLM-256M. Benchmarks latency, compute, comms, and energy across resolutions and network conditions. Optimal strategy depends on network/resolution; no universal winner.",
+        "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.25082v1": {
+        "title": "Federating Quantum and Classical Computing: A Privacy-Preserving Hybrid Approach",
+        "link": "http://arxiv.org/abs/2609.25082v1",
+        "abstract": "Quantum machine learning (QML) is increasingly recognized as one of the most promising near-term applications of quantum computing, viewed as a next-frontier candidate beyond purely classical approaches. Hybrid quantum-classical models operationalize this potential by embedding a parameterized quantum circuit within a model where all other components remain classical-a design already applied to chemistry simulation, financial modeling, and image classification. However, their deployment in privacy-sensitive, multi-party settings is constrained by the need to avoid centralizing raw data and by the requirement that modern quantum circuits remain parameter-efficient to stay trainable at scale.\n  In this paper, we address these constraints by evaluating federated learning (FL) as a means of combining a hybrid quantum-classical active party with a classical passive party, using Sherpa.ai's Blind Vertical FL (SBVFL) protocol to avoid centralizing raw data, while drastically reducing communication. We construct the split multiplicative periodic parity (SMPP) benchmark, following common QML design practice. On this task, our simulations show that SBVFL raises accuracy from 0.7227 to 0.8757 compared to local training, closely approaching non-private centralized accuracy, and that the hybrid quantum-classical model achieves this with substantially fewer trainable parameters than the classical neural networks and random forest alternatives. These results show that FL enables high-performing, privacy-preserving quantum-classical collaboration without centralizing raw data.",
+        "authors": [
+            "Carlos Cano",
+            "Daniel M. Jimenez-Gutierrez",
+            "Diego Sal",
+            "Georgios Kellaris",
+            "Joaquin del Rio",
+            "Oleksii Sliusarenko",
+            "Xabi Uribe-Etxebarria"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.25082v1",
+        "submit_date": "2026-09-18",
+        "relevant": false,
+        "indexed_date": "2026-09-23"
     }
 }

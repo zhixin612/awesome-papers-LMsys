@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3186-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.22-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3194-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-23
+* `disaggregation` `serving` `agentic` [SARA: SLO-Aware Resource Allocation for Disaggregated Agentic LLM Services](http://arxiv.org/abs/2609.26763v1)
+  > **TL;DR**: SARA optimizes resource allocation for disaggregated agentic LLM serving to maximize goodput under cost. Models stages via queuing theory to derive resource requirements from SLOs, achieving 26.6% higher goodput and <5% SLO prediction error vs. baselines.
+* `serving` `scaling` `video` [DHSched: Stateless Control for Stateful Real-Time Avatar Serving](http://arxiv.org/abs/2609.26363v1)
+  > **TL;DR**: Proposes DHSched, a stateless control plane preventing dual-owner conflicts and capacity overshoots during elastic scaling of stateful avatar sessions. Uses generation-based ownership (WorkerID, epoch) with conditional commits and revalidation. Achieves 0 conflicts/overshoots in 9,927 session migrations at 49,987 concurrent sessions.
+* `training` `networking` [Flux: Optimal Scheduling of Optical Circuit Switches for LLM Training](http://arxiv.org/abs/2609.25949v1)
+  > **TL;DR**: Addresses optical circuit switch reconfiguration delays causing communication inefficiency in LLM training. Proposes Flux, a workload-aware scheduler that reuses circuits and amortizes reconfiguration behind compute. Achieves up to 10× faster training iterations and over 1000× reduction in peak NIC buffer.
+* `networking` `serving` `hardware` [Co-Fabric: Breaking Host-Domain Boundaries for Unified xPU Interconnection](http://arxiv.org/abs/2609.25560v1)
+  > **TL;DR**: Addresses high communication overhead in distributed LLM inference across host domains. Proposes Co-Fabric, a bus-based interconnect with unified xPU addressing and streamlined protocols. Cuts latency by 50% and accelerates inference by up to 80% compared to RoCE.
+* `training` `RL` `thinking` [Rollout Efficiency in Reinforcement Learning for Reasoning Large Language Models: A Taxonomy and Future Directions](http://arxiv.org/abs/2609.25463v1)
+  > **TL;DR**: Surveys techniques to improve rollout efficiency in RL for reasoning LLMs, aiming to reduce training cost while maintaining data quality. Classifies methods by mechanism and bottleneck, and discusses gaps in efficiency evaluation reporting.
+* `serving` [Fast Recovery for LLM Serving via Decoupled Device Memory Lifetime in Dynamo](http://arxiv.org/abs/2609.25451v1)
+  > **TL;DR**: Investigates fast recovery from failures in LLM inference serving. Proposes snapshots and GPU Memory Service to decouple device-memory ownership, enabling state reuse without reloading. Achieves recovery in under 7 seconds, 13-29x faster, reclaiming 79% of lost GPU-hours.
+* `RL` `training` [WeightBridge: An Efficient Weight Transfer Library for Reinforcement Learning](http://arxiv.org/abs/2609.25442v1)
+  > **TL;DR**: Addresses weight transfer bottlenecks in RL systems for LLMs. Develops WeightBridge, an API-driven library that auto-aligns trainer-rollout layouts and plans efficient synchronization. Reduces average GPU stall time by up to 42× over state-of-the-art frameworks across diverse configurations.
+* `edge` `serving` `multi-modal` [Cloud, Edge, or Split? Profiling Onboard and Split Vision-Language Model Deployment for Drone AI](http://arxiv.org/abs/2609.25415v1)
+  > **TL;DR**: Profiles onboard, cloud, and split VLM deployment for drones using SmolVLM-256M. Benchmarks latency, compute, comms, and energy across resolutions and network conditions. Optimal strategy depends on network/resolution; no universal winner.
+
 ### 2026-09-22
 * `serving` [Who Pays for the KV Cache? Attributing Shared AI Inference Spend Across Kubernetes and LLM Provider Bills](http://arxiv.org/abs/2609.24991v1)
   > **TL;DR**: Studies attribution of shared inference costs, particularly for KV cache, between Kubernetes and LLM billing systems. Introduces unalloc to merge cost data from sources like OpenCost and API providers. Finds 66% of GPU bill unowned due to missing leader pod labels in multi-pod deployments.
