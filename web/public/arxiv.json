@@ -165033,5 +165033,378 @@
         "submit_date": "2026-09-18",
         "relevant": false,
         "indexed_date": "2026-09-23"
+    },
+    "http://arxiv.org/abs/2609.28361v1": {
+        "title": "Flamingo: On Load Balancing in DAG-based Consensus Protocols",
+        "link": "http://arxiv.org/abs/2609.28361v1",
+        "abstract": "Distributed data management systems deployed in untrusted environments rely on Byzantine Fault-Tolerant (BFT) consensus protocols to tolerate malicious failures. DAG-based BFT protocols improve throughput by letting validators disseminate transactions concurrently and by scaling execution across multiple workers. However, imbalances in workload or resource capacity can still degrade performance significantly. This paper presents Flamingo, a load-balancing protocol for certified DAG-based BFT protocols that addresses imbalance at both the ordering and execution layers. At the ordering layer, Flamingo periodically migrates client accounts away from overloaded validators, adapting to skewed submissions and heterogeneous validator capacity while preserving correctness under Byzantine faults, with migrations taking effect only through the committed log. At the execution layer, Flamingo redistributes committed transactions across executor workers using a deterministic, order-preserving scheduler that balances load and minimizes cross-worker data movement, without centralized coordination or costly distributed commit. Built on top of Narwhal and Tusk, our prototype shows that Flamingo recovers throughput and latency under workload skew, validator heterogeneity, and shifting hotspots, adds negligible overhead when the system is balanced, and needs load balancing in both layers, since resolving only one shifts the bottleneck to the other.",
+        "authors": [
+            "Zhen Ping Khor",
+            "Garvit Gupta",
+            "Mohammad Javad Amiri",
+            "Boon Thau Loo"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DB"
+        ],
+        "id": "http://arxiv.org/abs/2609.28361v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.28179v1": {
+        "title": "GLASS: Architecture-Tuned, Composable, Device-Side Linear Algebra for Edge Robotics and Beyond",
+        "link": "http://arxiv.org/abs/2609.28179v1",
+        "abstract": "GPU robotics lacks the reusable numerical infrastructure of mature CPU stacks, instead relying on compiler frameworks that introduce overhead or repeatedly reimplementing numerical libraries. To address this, we introduce GLASS (GPU Linear Algebra Simple Subroutines), a header-only CUDA C++ library that provides thread-, warp-, block-, and NVIDIA-backed implementations of robotics-scale linear algebra and geometric computations under one composable device API. GLASS treats implementation choice, execution scope, and launch packing as architecture-specific placement decisions determined by offline measurement and resolved statically at compile time. This is critical as the best and worst placements differ by a median of 4.9x (max 81x), with 145 of 396 recommended placements changing between a Jetson AGX Orin and an RTX 5090, and 162 of 396 versus an AGX Xavier. These stakes are highest at the edge as GLASS's advantage over the best of PyTorch and JAX is as much as 73x on the Orin versus 12x on the RTX 5090. GLASS is released open source with independent numerical oracles and source-bound local-GPU test attestation. Finally, integrating GLASS with published robotics systems both exposed a pre-existing numerical bug and improved embedded runtimes by up to 1.5x.",
+        "authors": [
+            "Brian Plancher"
+        ],
+        "categories": [
+            "cs.RO",
+            "cs.DC",
+            "cs.MS"
+        ],
+        "id": "http://arxiv.org/abs/2609.28179v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27746v1": {
+        "title": "The KV Cache Working Set: Online Capacity Planning for LLM Inference Systems",
+        "link": "http://arxiv.org/abs/2609.27746v1",
+        "abstract": "Prefix caching is critical for efficient large language model (LLM) serving, particularly for agentic workloads that repeatedly invoke the model with a growing conversation and tool-use history. By reusing the key-value (KV) states of previously processed prefixes, prefix caching avoids redundant prefill computation. Its effectiveness, however, depends on retaining a sufficiently large set of KV cache states. Provisioning enough cache to preserve all historical KV states is prohibitively expensive and often unnecessary, whereas insufficient capacity can substantially degrade the cache hit rate. Determining the KV cache working set, defined as the minimum cache capacity required to achieve a target hit rate, is therefore essential for efficient cache provisioning and system design. We present KVSET, an online analyzer that estimates the KV cache working set of LLM serving workloads. KVSET uses the Mattson stack algorithm to efficiently estimate cache hit rates across a wide range of cache capacities. For each KV cache page, KVSET computes its LRU stack distance and compares it with the page number of each candidate capacity. This comparison determines whether the page would be a hit at each capacity without independently simulating every capacity configuration. KVSET therefore substantially reduces the computational and memory overhead of conventional capacity-by-capacity simulation and makes online working-set analysis practical. KVSET further determines the minimum cache capacity based on the maximum LRU depth among the prefix pages required to achieve the target hit rate. We validate KVSET using traces collected from production LLM workloads and show that its estimates closely match measurements from real cache deployments. The open-source implementation supports both online request processing and offline trace replay.",
+        "authors": [
+            "Luchang Li",
+            "Shuaishuai Wang",
+            "Zhao Ruan",
+            "Dongfang Li",
+            "Bozhao Gong"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.27746v1",
+        "submit_date": "2026-09-23",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Proposes KVSET for online capacity planning of KV cache in LLM inference. It uses Mattson's stack algorithm to estimate cache hit rates and required capacity without exhaustive simulations. Validation shows estimates match production deployments with reduced overhead.",
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27727v1": {
+        "title": "Sovereign Grassroots Currencies: A CBDC Architecture for Credit and Monetary Policy (Full Version)",
+        "link": "http://arxiv.org/abs/2609.27727v1",
+        "abstract": "A Central Bank Digital Currency (CBDC) is central-bank money in digital form, held by the public. Leading designs have two limitations: conversion from bank deposits into CBDC can accelerate deposit flight, requiring safeguards; the CBDC stays outside credit creation and monetary-policy operations.\n  Here we present a CBDC architecture that overcomes these limitations, based on grassroots currencies. It has three components: (1) Money: sovereign grassroots coins, which are digital debts of one unit of fiat currency issued by the central bank, constituting a direct CBDC; (2) Credit and Liquidity: non-sovereign grassroots coins, which are digital debts of one unit of the same fiat currency, redeemable at par, that can be issued by any person, natural or legal - adding credit; and (3) Interest: grassroots bonds, sovereign and non-sovereign - adding maturity, and with it interest, standard banking instruments, and the central bank's instruments of monetary policy.\n  The central bank can therefore lend, absorb liquidity, set its rates and buy and sell securities in the coins and bonds the public holds, choosing the counterparties and terms of its credit operations, and without converting bank deposits into newly issued central bank money on demand.\n  We prove that one unit of the fiat currency is the only arbitrage-free price of a grassroots coin whose issuer meets presentations, and argue that the central bank's lending rate and the rate on its own bonds bound what its counterparties pay and accept on comparable terms; the central bank can choose to deal with any counterparty, not just banks.",
+        "authors": [
+            "Ehud Shapiro"
+        ],
+        "categories": [
+            "econ.GN",
+            "cs.DC",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2609.27727v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.22991v2": {
+        "title": "Silent Failures Beyond the 32-Bit Index Range: A Differential Characterization of Large-Tensor Matrix Multiplication in PyTorch's MPS Backend",
+        "link": "http://arxiv.org/abs/2609.22991v2",
+        "abstract": "Apple Silicon machines with large unified memory make it possible to hold large tensors on a desktop GPU. However, we found that PyTorch's Metal Performance Shaders (MPS) backend silently returns wrong results for batched matrix multiplication with more than $2^{32}$ elements. torch bmm, including its wrappers matmul and eager attention, returns relative errors above 1 without an exception or a warning in every PyTorch release tested (2.4.1 to 2.14.0). We sweep bmm over dtypes, memory layouts, shapes and batch sizes around $2^{31}$ and $2^{32}$ elements, and judge every result against a float64 computation on the CPU. Three rules account for every outcome on 2.14.0. When the output exceeds $2^{32}$ elements and an operand is a transposed view, the entire output is wrong and equals a computation that ignores that operand's strides. Otherwise, a view with at least $2^{31}$ elements raises an exception, and a contiguous input above $2^{32}$ elements makes exactly the batches beyond that point wrong, equal to a computation whose index wraps at $2^{32}$. A slightly larger problem can thus turn an explicit error into a silent failure. The rules extend to the backward pass, where a correct forward pass can return silently wrong gradients. A second machine with another chip, under two macOS versions, reproduces all 6156 results, including the wrong values, and the same sweeps on an NVIDIA A100 are correct in all 2530 runs. In a public sentiment classifier, one oversized batch corrupts a third of the outputs, which collapse onto one class. All findings come from observable behavior, without access to the backend's closed-source kernels; we release the harness, raw results and a guard that stops any MPS operation touching $2^{32}$ or more elements at jniimi/mps-silent-failures (https://github.com/jniimi/mps-silent-failures).",
+        "authors": [
+            "Junichiro Niimi"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.22991v2",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27547v1": {
+        "title": "EBRL: Asynchronous Embodied RL by Multi-Grained Resource Management",
+        "link": "http://arxiv.org/abs/2609.27547v1",
+        "abstract": "Embodied reinforcement learning (RL) improves model capabilities with a pipeline of environment simulation, action generation, and model updates. These stages show heterogeneous CPU and GPU demands, making efficient resource utilization difficult. Recent systems overlap rollout (simulation and generation) with training for efficiency, but exclusive GPU allocation and synchronized barrier in rollout still leave substantial hardware resource waste. In this paper, we present EBRL, an asynchronous embodied RL training system with two core techniques. The asynchronous pipelined scheduler overlaps rollout and training, pipelines simulation and generation across environment groups, and carries out each environment independently, eliminating synchronization stalls. The fine-grained resource manager pools CPU cores and GPU streaming multiprocessors, and uses stage profiles and runtime feedback to adjust resource quotas and batch sizes to meet the shifting demands among stages. We implement EBRL on RLinf and evaluate it with four embodied policies and four simulation benchmarks across heterogeneous GPU testbeds. Experiments show that EBRL achieves 1.30-3.47 times the end-to-end rollout throughput and 2.5 times of training convergency compared to the SOTA embodied RL systems.",
+        "authors": [
+            "Liang Mi",
+            "Weijun Wang",
+            "Bowen Gao",
+            "Tianze Yu",
+            "Zixu Hao",
+            "Han Xiao",
+            "Xin Ding",
+            "Mingzhe Huang",
+            "Xin He",
+            "Lu Shi",
+            "Hao Wu",
+            "Haipeng Dai",
+            "Guihai Chen",
+            "Yunxin Liu",
+            "Ting Cao"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.27547v1",
+        "submit_date": "2026-09-23",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL"
+        ],
+        "tldr": "Addresses inefficient resource utilization in embodied RL training. Proposes EBRL, an asynchronous system with pipelined scheduling and fine-grained resource management. Achieves 1.30-3.47× higher end-to-end rollout throughput and 2.5× faster training convergence compared to SOTA.",
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27538v1": {
+        "title": "Backstitch: Restoring Request Causality Across a Production Microservice Fleet",
+        "link": "http://arxiv.org/abs/2609.27538v1",
+        "abstract": "A major video platform runs on thousands of microservices, each request propagating a context so downstream work can be traced and governed. At handoffs outside instrumented paths, e.g., custom queues and callbacks, the payload continues but the context does not, and the request still succeeds under existing tests. Such breaks are silent and widespread: 673 of 1,133 services carried at least one. Backstitch, a specialized agentic system, repairs them using the surviving execution as its reference: replay determines whether a suspicious call is request-correlated, source analysis reaches the responsible handoff, a bounded change restores its contract, and the same replay validates the fix. Repairs restore the causal chain without disturbing the work it describes: breaks at 240 of the repaired calls fell from 90.46% to 4.69%, and over 112 days the fleet's break rate more than halved.",
+        "authors": [
+            "Ziyue Dang",
+            "Qiuyu Wu",
+            "Haoyun Xu",
+            "Tongjue Wang",
+            "Yongqing Ling",
+            "Weihao Chen",
+            "Guangming Luo"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.27538v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27499v1": {
+        "title": "Distributed Stochastic Approximation Algorithms and Heavy-Tailed Age of Information",
+        "link": "http://arxiv.org/abs/2609.27499v1",
+        "abstract": "Algorithms in multi-agent systems such as federated learning, mobile robotic swarming, and consensus control can be designed and analyzed as distributed stochastic approximation algorithms. Such algorithms involve information exchanges between agents for various computations. The freshness of the information can be quantified using the Age of Information (AoI) metric. Consider robotic teams operating in highly obstructed geographical settings, such as subterranean or dense urban environments. Because of spatial disconnections, AoI has empirically been observed to be heavy-tailed with unbounded moments. However, most analyses assume AoI with bounded moments, creating a gap between theory and practice. To the best of our knowledge, ours is the first analysis under general heavy-tailed AoI with potentially infinite mean. We study the stability (almost sure boundedness of the distributed iterates) and convergence of multi-agent systems that are strictly dissipative in the scaling limit (system at ``infinity''). Examples include most gradient-based and consensus algorithms under the Robbins-Monro step-size regime.",
+        "authors": [
+            "Adrian Redder",
+            "Arunselvan Ramaswamy",
+            "Holger Karl"
+        ],
+        "categories": [
+            "math.OC",
+            "cs.DC",
+            "cs.MA",
+            "cs.NI",
+            "math.PR"
+        ],
+        "id": "http://arxiv.org/abs/2609.27499v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27482v1": {
+        "title": "CerebroSim: Scalable Whole-Brain Simulator at 100-Trillion-Synapse Scale on the LineShine Supercomputer",
+        "link": "http://arxiv.org/abs/2609.27482v1",
+        "abstract": "Building executable brain models is essential for moving neuroscience from description to mechanism and prediction. Human-brain-scale spiking simulation is constrained by highly irregular communication, multithreaded spike delivery, and the memory cost of sparse connectivity. We present CerebroSim, a scalable framework for whole-brain simulation. CerebroSim combines Delay-aware Spike Broadcast (DSB) for aggregated delay-aware communication, Race-free Synaptic Dynamics Computation (RSDC) for lock/atomic-free multithreaded delivery with HBM-aware optimization, and Sparse Synapse Storage Compression (3SC) for compact indexing with deterministic synapse regeneration. Using a model derived from magnetic resonance imaging and diffusion-weighted imaging, CerebroSim simulates 86 billion neurons and 100 trillion synapses on 18,432 nodes across 11.2 million cores of the LineShine Supercomputer, sustaining 24.44 PFlop/s, 91% weak-scaling efficiency, and 94% strong-scaling efficiency. This capability makes biologically constrained human-brain models practical for mechanistic studies of brain disorders and controlled in silico testing of intervention hypotheses.",
+        "authors": [
+            "Guangnan Feng",
+            "Tianxiang Lyu",
+            "Hao Huang",
+            "Honghui Liang",
+            "Jingjing Li",
+            "Zhiguang Chen",
+            "Yutong Lu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.27482v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27446v1": {
+        "title": "Quantum Reinforcement Learning for Cost and Delay Tradeoffs in Quantum Cloud Orchestration",
+        "link": "http://arxiv.org/abs/2609.27446v1",
+        "abstract": "Quantum cloud computing, delivered through the quantum-as-a-service (QaaS) model, provides access to quantum computing resources. However, applying uniform time-based pricing across fundamentally heterogeneous quantum resources significantly complicates task orchestration, particularly when addressing the tradeoff between execution costs and system performance. While heuristic methods rely on predefined scheduling rules, classical deep reinforcement learning (DRL) models may require more trainable parameters in this setting. Motivated by the potential of parameterised quantum circuits (PQCs) as compact function approximators, we propose QRLQ, a cost-delay-aware quantum cloud scheduling framework integrating PQCs with a dueling double deep Q-network (D3QN) to dynamically account for both cost and delay. Our simulation results show that QRLQ achieves lower mean cost and delay than the heuristic baselines, achieving a 5-11% lower mean cost relative to availability-based and rotation-based heuristics and reducing mean delay by 17% and 82% relative to the strongest and weakest heuristic baselines, respectively, while retaining execution fidelity within 2% of a fidelity-greedy policy. Compared with the classical DRL baseline, QRLQ achieves comparable scheduling performance while using 72% fewer trainable parameters. This work explores the feasibility of using QRL for task orchestration in quantum cloud environments and demonstrates its potential for cost-delay-aware quantum resource management.",
+        "authors": [
+            "An N. H. Phan",
+            "Dang Van Huynh",
+            "Muhammad Usman",
+            "Hoa T. Nguyen"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC",
+            "cs.ET",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2609.27446v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27249v1": {
+        "title": "From PyTorch to the NPU: LLM-Agent-Driven Model Conversion Across Heterogeneous Inference Runtimes",
+        "link": "http://arxiv.org/abs/2609.27249v1",
+        "abstract": "Edge AI model deployment is a multi-stage engineering process involving model conversion, operator compatibility handling, runtime integration, and precision verification. While prior work has demonstrated agent-based automation for Qualcomm AI Runtime, the broader edge inference runtime ecosystem, including Intel OpenVINO, Rockchip RKNN, NVIDIA TensorRT, and ONNX Runtime, presents distinct toolchains and optimization strategies.\n  This paper extends AIPC (AI Porting Conversion, an LLM agent-driven methodology for AI model deployment automation previously demonstrated on Qualcomm AI Runtime) to multi-runtime scenarios, proposing an LLM agent-driven approach for automated single-model-to-single-runtime deployment across heterogeneous inference backends, such as Intel OpenVINO, Rockchip RKNN, NVIDIA TensorRT, and ONNX Runtime. We decompose the edge AI deployment into standardized, verifiable stages, and inject runtime-specific domain knowledge into the agent execution flow through agent skills, auxiliary scripts, and staged verification loops.\n  Using representative vision models, we demonstrate that agent-based deployment can complete the conversion from a PyTorch model to its executable inference, targeting OpenVINO for x86/NPU, RKNN for RK3588, TensorRT for NVIDIA GPU, and ONNX Runtime for Qualcomm NPU with a focus on FP16 precision deployment feasibility verification. The contributions of this paper primarily lie in providing multi-runtime deployment engineering practice experience, toolchain mapping analysis, a layout-adaptation and inference-replacement layer that removes manual transpose insertion from the agent's repair burden, and an empirical characterization of agent deviation behavior under structured knowledge injection, rather than large-scale systematic benchmarking or cross-runtime operator repair strategy comparison.",
+        "authors": [
+            "Jianhao Su",
+            "Zhanwei Wu",
+            "Chia-Heng Tu",
+            "ShengTing Huang"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.27249v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27193v1": {
+        "title": "LayerCheck: Adaptive Layer-wise Checkpointing for Large Language Model Post-training",
+        "link": "http://arxiv.org/abs/2609.27193v1",
+        "abstract": "With the rising computational and monetary costs of training large language models (LLMs), checkpointing---periodically storing model states for recovery---becomes essential for fault tolerance. Conventional checkpointing entails a severe trade-off between checkpoint frequency (I/O overhead) and computational recovery (recovery time). State-of-the-art approaches mitigate this cost through pipelining checkpoint I/Os, differential checkpointing, or in-memory persistence, yet none leverage the distinct characteristics of LLM training dynamics, where model weight updates are non-uniformly distributed across transformer layers. This observation implies that saving all weights each time might not be efficient. Inspired by this observation, we present LayerCheck, a layer-wise adaptive checkpointing framework that selectively persists layers whose updates exceed a threshold. This design avoids periodic I/O bursts by distributing layer-wise checkpoint writes over time, resulting in smoother and more balanced I/O profiles. Upon recovery, LayerCheck reconstructs a mixed-timestamp composite model state by aggregating the most recently persisted versions of each layer together with their matching optimizer states. Under a bounded per-layer staleness guard, this introduces a controlled perturbation: under standard Adam assumptions it adds a bounded staleness term, and empirically the post-restart loss deviates from the failure-free trajectory by at most 0.54%. Empirical results on multiple open-source LLMs with different datasets further demonstrate that recovered models preserve the original convergence behavior and accuracy while substantially reducing checkpoint overheads. Specifically, LayerCheck achieves up to 22.6x reduction in total checkpoint size and 1.31x reduction in end-to-end training time compared to state-of-the-art systems, significantly lowering the cost of checkpointing.",
+        "authors": [
+            "Minqiu Sun",
+            "Xin Huang",
+            "Luanzheng Guo",
+            "Nathan R. Tallent",
+            "Kento Sato",
+            "Dong Dai"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.27193v1",
+        "submit_date": "2026-09-23",
+        "relevant": true,
+        "tags": [
+            "training",
+            "storage"
+        ],
+        "tldr": "Proposes LayerCheck, a layer-wise adaptive checkpointing framework that selectively persists transformer layers with significant updates to reduce I/O overhead in LLM training. Achieves up to 22.6x reduction in checkpoint size and 1.31x faster training with bounded error.",
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27189v1": {
+        "title": "ZOCheck: CPU-Shadow Checkpointing for Zeroth-Order LLM Fine-Tuning",
+        "link": "http://arxiv.org/abs/2609.27189v1",
+        "abstract": "Zeroth-order (ZO) optimization is an attractive option for memory-efficient LLM fine-tuning, but its fault tolerance remains underexplored. Unlike first-order training, ZO progress can be represented by lightweight seed-and-scalar step logs, yet naive log-only recovery still incurs replay cost that grows with training progress, and shortcut replay does not preserve the executed floating-point trajectory. We present ZOCheck, a fault-tolerant ZO training system that exploits this replayable structure through a CPU shadow process that continuously replays logged updates, materializes consistent recovery images off the GPU critical path, and persists them asynchronously. ZOCheck therefore combines non-blocking checkpointing during training with fast recovery from a near-current state. We also develop a cost model for choosing the snapshot policy under realistic failure rates. Experiments show that ZOCheck reduces checkpoint overhead by up to 219.7x and recovery latency by 1.55x on average compared with asynchronous full-state checkpointing, translating into up to 21.3x lower end-to-end wasted time across the evaluated failure rates, while preserving exact recovery behavior.",
+        "authors": [
+            "Minqiu Sun",
+            "Xin Huang",
+            "Luanzheng Guo",
+            "Nathan R. Tallent",
+            "Kento Sato",
+            "Dong Dai"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.27189v1",
+        "submit_date": "2026-09-23",
+        "relevant": true,
+        "tags": [
+            "training",
+            "offloading"
+        ],
+        "tldr": "Addresses checkpoint overhead in zeroth-order LLM fine-tuning. Proposes ZOCheck: a CPU shadow process for asynchronous replay and non-blocking persistence of recovery images. Achieves up to 219.7x lower checkpoint overhead and 21.3x reduced wasted time under failures while preserving exact recovery.",
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27085v1": {
+        "title": "Crossflow: Prefill-Decode Elasticity for Agentic LLM Serving",
+        "link": "http://arxiv.org/abs/2609.27085v1",
+        "abstract": "As serving capacity demand surpasses that of training, serving efficiency becomes increasingly important. Prefill-decode (P/D) disaggregation improves serving efficiency through specialization and isolation of the two phases. These benefits rest on a static partitioning. Phase demand, however, is not static. We observe that in a large LLM fleet the ratio of uncached input to output tokens has peak-to-mean ratios up to 4.7x at minute timescales, and that in a public agentic trace the hourly ratio spans a median 24.5x within a single day, while reassigning a replica takes tens of minutes. Agentic traffic sharpens the mismatch. Sizing each pool at its ninety-fifth percentile leaves up to 17% of cluster capacity unused; sizing below it converts the same imbalance into queueing and unrealized throughput. We present Crossflow, which makes this boundary elastic without changing node roles. Each decode node publishes a short-lived, revocable lease that bounds local-prefill compute, KV capacity, transfer work, and projected output. Across public and internal traces, Crossflow improves token throughput by 16.2-17.4% on geometric mean over static P/D, and by up to 43.4% at high load, while reducing mean TTFT at every evaluated point.",
+        "authors": [
+            "Yi Xu",
+            "Ehsan K. Ardestani",
+            "Wenyin Fu",
+            "Martin Schatz",
+            "Krishna Malladi",
+            "Zhan Shu",
+            "Adnan Aziz",
+            "Shobhit Kanaujia",
+            "Ajit Mathews",
+            "Chunqiang Tang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.27085v1",
+        "submit_date": "2026-09-22",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "disaggregation",
+            "agentic"
+        ],
+        "tldr": "Addresses inefficiency of static prefill-decode partitioning in LLM serving under dynamic agentic traffic. Proposes Crossflow, a mechanism using revocable leases for elastic resource allocation. Improves throughput by up to 43.4% at high load and reduces mean TTFT.",
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27040v1": {
+        "title": "EMA: Elastic and Performance Transparent Memory Across GPUs",
+        "link": "http://arxiv.org/abs/2609.27040v1",
+        "abstract": "Multi-GPU servers have become the standard building block of modern data centers, providing aggregated capacity through high-bandwidth interconnects. At the same time, workloads such as LLM inference exhibit highly dynamic memory demands, which can cause one GPU to exhaust its local memory while others remain underutilized. This mismatch motivates a model of elastic resource sharing across GPUs.\n  We present EMA, a memory sharing system that allows GPUs within a server to borrow and reclaim memory from each other, forming an elastic pool of capacity. EMA ensures performance transparency for both borrowers and lenders. For borrowers, prefetching hides remote access costs so that applications experience remote and local memory as indistinguishable in performance. For lenders, borrowed resources remain reclaimable on demand, guaranteeing that performance never falls below that of static partitioning. While our design focuses on memory, the same principle naturally extends to other GPU resources.\n  Our evaluation shows that EMA improves individual user throughput by up to 52%, achieves 96% of the throughput of a system provisioned with 2X capacity, and maintains latency similar to the static local baseline.",
+        "authors": [
+            "Yi Xu",
+            "Tian Xia",
+            "Ion Stoica"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.27040v1",
+        "submit_date": "2026-09-22",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "scaling"
+        ],
+        "tldr": "Addresses dynamic memory imbalance in multi-GPU servers for LLM inference by introducing EMA, an elastic memory sharing system with prefetching for transparent remote access and on-demand reclamation. Achieves up to 52% higher throughput and 96% of throughput of a 2X capacity system.",
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.26838v1": {
+        "title": "A Hybrid Rule-Based and AI-Augmented Framework for Automatic Failure Recovery in DevOps Deployments",
+        "link": "http://arxiv.org/abs/2609.26838v1",
+        "abstract": "Automatic failure recovery is another difficult area of DevOps deployments due to the complexity of the system, high workload and the limitations of the traditional rules-based or manual approach. This study proposes a hybrid model integrating deterministic, rule-based recovery with the assistance of machine learning by fault prediction to automatically monitor failures, identify, classify and recover failures in real time. To test the architecture, a distributed log dataset of 100,000 records was used for models such as Decision Tree, Random Forest, Logistic Regression, LightGBM, Autoencoder with BiLSTM. The Decision Tree had a strong performance in defect identification with an F1 score of 80.8%, recall of 80.0%, precision of 81.6%, and accuracy of 89.4%. An impressive 83.3% success rate was achieved by the automated recovery measures, resulting in a 94.6% decrease in mean time to recovery (MTTR), a 95.4% reduction in downtime, and annual savings of 7,462. The combination of explainable rule-based logic and adaptive AI prediction in the framework means it is more resilient, operationally efficient, and scalable, and an effective, autonomous approach to DevOps environments evaluated under controlled experimental conditions.",
+        "authors": [
+            "Raju Chowdhury",
+            "Aniruddha Singh Gautam",
+            "Apurv Ghai"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.26838v1",
+        "submit_date": "2026-09-21",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.27266v1": {
+        "title": "xTier: Intelligent Tiering for CXL-Enabled Memory",
+        "link": "http://arxiv.org/abs/2609.27266v1",
+        "abstract": "CXL-enabled memory expands server memory capacity, but introduces a page-placement problem: the operating system must decide which pages should reside in DRAM and which should reside on slower CXL memory. Existing systems make this tradeoff in one of two ways. Userspace controllers support flexible policies, but expose placement decisions to scheduler jitter and kernel-userspace crossing overhead. Kernel-space systems avoid this latency, but rely on fixed heuristics that must generalize across workloads.\n  We present xTier, a kernel-resident learned memory-tiering system. xTier attaches eBPF programs to PEBS events and uses a compact quantized MLP to score sampled pages inside the kernel at microsecond-scale latency. Rather than reacting to every candidate, xTier converges to a low-churn placement for the current workload phase, reduces sampling cost after convergence, and returns to a higher sampling cadence when the workload shifts.\n  We evaluate xTier on six memory-bound workloads at DRAM:CXL ratios from 1:5 to 1:25. The advantage grows as the DRAM budget tightens. At 1:15 and beyond, xTier is the fastest system in 14 of 18 configurations. Where it is not fastest, it trails the best baseline by 3.9% on average. It reaches this performance while moving 13% fewer pages in geometric mean, and 22% fewer at the tighter ratios. When a workload changes phase, xTier rebuilds its hot set in DRAM faster and more completely than any baseline.",
+        "authors": [
+            "Sriranga Ramaswamy",
+            "Yueqi Chen"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.27266v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-24"
     }
 }

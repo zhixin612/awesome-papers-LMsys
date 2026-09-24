@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3194-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3200-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-24
+* `serving` `scaling` [The KV Cache Working Set: Online Capacity Planning for LLM Inference Systems](http://arxiv.org/abs/2609.27746v1)
+  > **TL;DR**: Proposes KVSET for online capacity planning of KV cache in LLM inference. It uses Mattson's stack algorithm to estimate cache hit rates and required capacity without exhaustive simulations. Validation shows estimates match production deployments with reduced overhead.
+* `training` `RL` [EBRL: Asynchronous Embodied RL by Multi-Grained Resource Management](http://arxiv.org/abs/2609.27547v1)
+  > **TL;DR**: Addresses inefficient resource utilization in embodied RL training. Proposes EBRL, an asynchronous system with pipelined scheduling and fine-grained resource management. Achieves 1.30-3.47× higher end-to-end rollout throughput and 2.5× faster training convergence compared to SOTA.
+* `training` `storage` [LayerCheck: Adaptive Layer-wise Checkpointing for Large Language Model Post-training](http://arxiv.org/abs/2609.27193v1)
+  > **TL;DR**: Proposes LayerCheck, a layer-wise adaptive checkpointing framework that selectively persists transformer layers with significant updates to reduce I/O overhead in LLM training. Achieves up to 22.6x reduction in checkpoint size and 1.31x faster training with bounded error.
+* `training` `offloading` [ZOCheck: CPU-Shadow Checkpointing for Zeroth-Order LLM Fine-Tuning](http://arxiv.org/abs/2609.27189v1)
+  > **TL;DR**: Addresses checkpoint overhead in zeroth-order LLM fine-tuning. Proposes ZOCheck: a CPU shadow process for asynchronous replay and non-blocking persistence of recovery images. Achieves up to 219.7x lower checkpoint overhead and 21.3x reduced wasted time under failures while preserving exact recovery.
+* `serving` `disaggregation` `agentic` [Crossflow: Prefill-Decode Elasticity for Agentic LLM Serving](http://arxiv.org/abs/2609.27085v1)
+  > **TL;DR**: Addresses inefficiency of static prefill-decode partitioning in LLM serving under dynamic agentic traffic. Proposes Crossflow, a mechanism using revocable leases for elastic resource allocation. Improves throughput by up to 43.4% at high load and reduces mean TTFT.
+* `serving` `offloading` `scaling` [EMA: Elastic and Performance Transparent Memory Across GPUs](http://arxiv.org/abs/2609.27040v1)
+  > **TL;DR**: Addresses dynamic memory imbalance in multi-GPU servers for LLM inference by introducing EMA, an elastic memory sharing system with prefetching for transparent remote access and on-demand reclamation. Achieves up to 52% higher throughput and 96% of throughput of a 2X capacity system.
+
 ### 2026-09-23
 * `disaggregation` `serving` `agentic` [SARA: SLO-Aware Resource Allocation for Disaggregated Agentic LLM Services](http://arxiv.org/abs/2609.26763v1)
   > **TL;DR**: SARA optimizes resource allocation for disaggregated agentic LLM serving to maximize goodput under cost. Models stages via queuing theory to derive resource requirements from SLOs, achieving 26.6% higher goodput and <5% SLO prediction error vs. baselines.
