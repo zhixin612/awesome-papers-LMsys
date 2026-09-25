@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3200-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3207-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,22 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-25
+* `kernel` [KernelOPT: Dispatch-Aware Agentic Search for GPU Kernel Optimization](http://arxiv.org/abs/2609.30059v1)
+  > **TL;DR**: Proposes KernelOPT, a multi-agent system optimizing GPU kernel efficiency for compiled models. Targets Triton sub-kernels using LLM agents and a verification cascade to ensure performance and correctness. Achieves geometric mean speedups of 1.40× over torch.compile on Level 1 problems.
+* `kernel` `training` [KREX: Concurrent Kernel Benchmarking on Shared GPUs via Region-Granular Exclusivity](http://arxiv.org/abs/2609.30057v1)
+  > **TL;DR**: Addresses inefficient GPU utilization during LLM agent kernel benchmarking. Proposes KREX, a runtime enforcing exclusivity only within critical timing regions to allow concurrent execution elsewhere. Achieves up to 3.4× benchmarking throughput with sub-4% timing inflation.
+* `MoE` `serving` `kernel` [Weave: Fine-Grained Dynamic SM Scheduling in an MoE Megakernel for Compute-Communication Overlap](http://arxiv.org/abs/2609.21483v2)
+  > **TL;DR**: Optimizes MoE inference by addressing GPU resource wastage from static SM partitioning. Proposes Weave, a megakernel with runtime spatial-temporal scheduling that dynamically allocates SMs to communication/computation tasks based on per-layer routing results. Achieves 2.89× MoE-layer speedup on H100 GPUs.
+* `serving` `scaling` [Cross-Model Autoscaling for Shared LLM Serving](http://arxiv.org/abs/2609.29160v1)
+  > **TL;DR**: Proposes Token-service-share Rebalancing Engine (TRE) for autoscaling shared multi-model LLM serving. Uses Token Service Share (TSS) to guide cross-model GPU capacity rebalancing. Reduces P95 latency by 11.9-79.0% and P99 by 12.5-72.6% vs. state-of-the-art autoscaler.
+* `agentic` `serving` [MeshHeal: Two-Timescale Self-Healing for Gray Failures in Decentralized LLM Agent Networks](http://arxiv.org/abs/2609.29015v1)
+  > **TL;DR**: Addresses gray failures in decentralized LLM agent networks via MeshHeal, a two-timescale framework coupling peer review for output correction and degradation detection. Achieves 0.839 degraded-phase accuracy with 51k tokens per task versus baseline 0.807 accuracy using 115k tokens.
+* `serving` [When Fancy Eviction Fails: Rethinking Cache Replacement For LLM Prefix Reuse](http://arxiv.org/abs/2609.28870v1)
+  > **TL;DR**: Examines inefficient prefix-cache eviction in LLM serving. Proposes retaining recency-based policies with demotion for one-hit prefixes and compute-aware partial eviction. Evaluation on production traces shows complex policies offer little gain over LRU (<2% in compute-savings ratio).
+* `kernel` [KREX: Concurrent Kernel Benchmarking on Shared GPUs via Region-Granular Exclusivity](http://arxiv.org/abs/2609.30057v1)
+  > **TL;DR**: Optimizes GPU utilization for concurrent kernel benchmarking in LLM agents. Proposes KREX runtime with region-granular exclusivity, enforcing isolation in timing-critical regions while allowing concurrency elsewhere. Achieves 3.4× higher throughput with minimal timing inflation (<4% P95) across kernel durations.
+
 ### 2026-09-24
 * `serving` `scaling` [The KV Cache Working Set: Online Capacity Planning for LLM Inference Systems](http://arxiv.org/abs/2609.27746v1)
   > **TL;DR**: Proposes KVSET for online capacity planning of KV cache in LLM inference. It uses Mattson's stack algorithm to estimate cache hit rates and required capacity without exhaustive simulations. Validation shows estimates match production deployments with reduced overhead.

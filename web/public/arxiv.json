@@ -165406,5 +165406,500 @@
         "submit_date": "2026-09-23",
         "relevant": false,
         "indexed_date": "2026-09-24"
+    },
+    "http://arxiv.org/abs/2609.30163v1": {
+        "title": "Steelhead: Interleaving Partially Synchronous and Asynchronous Commit Rules on a Shared DAG",
+        "link": "http://arxiv.org/abs/2609.30163v1",
+        "abstract": "Dual-mode consensus protocols are fast when the network is partially synchronous and remain live under asynchrony. We introduce Steelhead, a dual-mode mechanism that composes a partially synchronous and an asynchronous commit rule over one DAG: every k-th round is decided by the asynchronous rule, whose leader a common coin reveals after the votes, and all other rounds by the partially synchronous rule. Every interval, validators replay the committed DAG under each candidate period, adopt the one with the fewest expected message delays, and fall back to k = 1 when the output stalls; the asynchronous rule applied to the coin rounds alone keeps the protocol live. Steelhead sends no message beyond the DAG's blocks, not even to agree on the period, and opens a coin only on the rounds that need a hidden leader. It is generic over pairs of DAG commit rules that share a committee; we instantiate it with Mysticeti and Mahi-Mahi at n >= 3f+1 and with the two variants of BlueBottle at n >= 5f+1. We prove it safe and live, and provide mechanized proofs in Lean 4. In simulation, Steelhead matches the partially synchronous protocol in a healthy network, stays close to the asynchronous one when network conditions stall the partially synchronous one, and adapts quickly in both directions.",
+        "authors": [
+            "George Danezis",
+            "Zeno De Angeli",
+            "Philipp Jovanovic",
+            "Lefteris Kokoris-Kogias",
+            "Markus Legner",
+            "Alberto Sonnino"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR"
+        ],
+        "id": "http://arxiv.org/abs/2609.30163v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.30104v1": {
+        "title": "MQSS-Selector: RL-Guided Pass Selection for an MLIR Compilation Pipeline",
+        "link": "http://arxiv.org/abs/2609.30104v1",
+        "abstract": "High Performance Computing (HPC) and Quantum Computing (QC) systems are increasingly converging towards unified High Performance Computing-Quantum Computing (HPCQC) infrastructures, driven by a growing need to bridge classical and quantum workflows, which affects all levels of the system stack, from the hardware to compilers and runtimes, all the way to applications. However, today's QC devices are still in the Noisy Intermediate-Scale Quantum (NISQ) era, are error-prone and resource-limited, and therefore require specialized optimizations and topology mappings to achieve sufficient fidelity. This places special emphasis on proper compilation and optimization within the overall quantum software stack. Many existing stacks remain fragmented, with separate components responsible for device selection, compiler-pass optimization, and job queue scheduling. This paper proposes a unified, learning-based selector that integrates these disparate stages into a cohesive framework. Our proposed selector scheme leverages reinforcement learning and deep learning models that can be extended to simultaneously optimize multiple objectives -- such as fidelity, compilation time, and scheduling latency -- while dynamically adapting to circuit characteristics and device conditions.",
+        "authors": [
+            "Andre Youssefi",
+            "Ercüment Kaya",
+            "Minh Chung",
+            "Jorge Echavarria",
+            "Laura B. Schulz",
+            "Martin Schulz"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC",
+            "cs.LG",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2609.30104v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.30059v1": {
+        "title": "KernelOPT: Dispatch-Aware Agentic Search for GPU Kernel Optimization",
+        "link": "http://arxiv.org/abs/2609.30059v1",
+        "abstract": "Deep learning inference and training performance depends critically on GPU kernel efficiency. Modern compilers such as PyTorch Inductor automatically generate GPU kernels from high-level model code, but frequently underperform expert-written implementations by wide margins. Recent LLM-assisted kernel optimizers can close this gap for standalone kernels, yet treat compiled models as black boxes, generally optimizing individual standalone kernels without respecting the compiler's structural decisions or verifying the model end-to-end. We present KernelOPT, a multi-agent system that treats compiled models as structured artifacts. It preserves vendor library calls (cuBLAS, cuDNN) and exclusively targets generated Triton sub-kernels using five profiling-guided LLM agents. A four-gate verification cascade of static validation, multi-seed correctness, model-level float64-fallback verification, and performance gating filters candidates during optimization and verifies the re-stitched model end-to-end. If no candidate passes all four gates, the system preserves the compiler baseline. The system accepts PyTorch nn.Modules, standalone Triton kernels, and Helion kernels. Evaluated on 250 KernelBench problems, KernelOPT achieves geometric mean speedups over \\texttt{torch.compile} of 1.40$\\times$ (Level 1: 51/100), 1.15$\\times$ (Level 2: 31/100), and 1.07$\\times$ (Level 3: 12/50) across all problems.",
+        "authors": [
+            "Aheli Poddar",
+            "Sanskar Prasad",
+            "Arindam Samanta",
+            "Subha Chakraborty",
+            "Vishal Goyal",
+            "Rohit Singh Rathaur"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.30059v1",
+        "submit_date": "2026-09-24",
+        "relevant": true,
+        "tags": [
+            "kernel"
+        ],
+        "tldr": "Proposes KernelOPT, a multi-agent system optimizing GPU kernel efficiency for compiled models. Targets Triton sub-kernels using LLM agents and a verification cascade to ensure performance and correctness. Achieves geometric mean speedups of 1.40× over torch.compile on Level 1 problems.",
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.30057v1": {
+        "title": "KREX: Concurrent Kernel Benchmarking on Shared GPUs via Region-Granular Exclusivity",
+        "link": "http://arxiv.org/abs/2609.30057v1",
+        "abstract": "LLM agents automate GPU kernel optimization by repeatedly composing candidates and measuring their duration on real GPUs. Existing systems preserve measurement fidelity by reserving a GPU for an entire agent session or benchmarking command. However, this results in poor utilization because only a small fraction of command execution requires exclusive GPU access. Sharing GPUs could recover this idle capacity, but introduces contention that compromises measurement fidelity and misdirects the agent's search.\n  We present KREX, a runtime for concurrent kernel agent benchmarking with region-granular exclusivity. KREX lets agents mark critical regions involving timing-sensitive operations within a benchmarking command. The runtime then enforces exclusivity within marked regions and allows concurrent execution outside them, achieving high throughput while preserving measurement fidelity. To enforce in-region exclusivity, KREX blocks new competing GPU submissions and drains outstanding work before freezing sibling processes and isolating CPU cores, protecting both GPU execution and the host threads that drive measurements. To maximize off-region concurrency, KREX reuses GPU contexts in persistent context processes to avoid repeated, node-wide serialized context creation. We evaluate KREX on NVIDIA and AMD GPUs. Compared with command-granular exclusivity baselines, KREX delivers up to $3.4\\times$ the benchmarking throughput with a negligible p95 timing inflation of $0.30\\%$, $1.58\\%$, and $3.90\\%$ for kernels longer than 10 ms, 1 ms, and 0.1 ms, respectively.",
+        "authors": [
+            "Tianyu Feng",
+            "Haoxuan Yu",
+            "Tianyuan Wu",
+            "Lingyun Yang",
+            "Daocheng Ying",
+            "Yuxiao Wang",
+            "Ruibo Fan",
+            "Yinghao Yu",
+            "Guodong Yang",
+            "Liping Zhang",
+            "Wei Wang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2609.30057v1",
+        "submit_date": "2026-09-24",
+        "relevant": true,
+        "tags": [
+            "kernel"
+        ],
+        "tldr": "Optimizes GPU utilization for concurrent kernel benchmarking in LLM agents. Proposes KREX runtime with region-granular exclusivity, enforcing isolation in timing-critical regions while allowing concurrency elsewhere. Achieves 3.4× higher throughput with minimal timing inflation (<4% P95) across kernel durations.",
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29975v1": {
+        "title": "Sluice: Global Invariant, Local Enforcement for Pooled Payment-Channel Liquidity",
+        "link": "http://arxiv.org/abs/2609.29975v1",
+        "abstract": "A routing node on the Lightning Network holds its liquidity in separate channels, so a payment can fail at a channel whose outbound balance is exhausted while the node's other channels still hold balance. Pooling the channels into one reserve fixes this only if the node's draws across all channels stay within the reserve: a global invariant that each counterparty must enforce from its own channel, with no shared counter that off-chain draws can update. A node must therefore split the reserve into per-channel quotas in advance or coordinate every draw with every counterparty. On three Lightning snapshots the advance split forfeits $16$ to $67\\%$ of the pooling gain over unpooled channels, and the loss grows with channel count. Sluice recovers $19$ to $65\\%$ of that loss with a nested reservation: each channel keeps an exclusive base that its counterparty checks alone, and the rest is a shared overflow drawn on with certificates from a capacity-weighted quorum of the node's counterparties. Two conflicting certificates share an honest signer, so over-drawing is prevented without a slashable stake, under a stated bound on the capacity the node controls in the signing set. Sluice loses at most $1.3$ points of payment success to coordination where deployed coin movers lose up to $10.3$, and improves them in eleven of twelve cells when stacked on them. Re-creating every base output each epoch costs $2.8$ to $5.1$ times Lightning's on-chain bytes; re-creating only those that overflowed costs $0.5$ to $1.2$ times and keeps part of the gain.",
+        "authors": [
+            "Yueqi Wu",
+            "Huiping Sun",
+            "Peilu Guo",
+            "Yiming Zhu",
+            "Zhong Chen"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.29975v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29856v1": {
+        "title": "A Block Decomposed QUBO Workflow for Chromosome-Y Phylogeny Reconstruction",
+        "link": "http://arxiv.org/abs/2609.29856v1",
+        "abstract": "This paper sets out a computational workflow that reconstructs the phylogeny of human Y-chromosome populations from a Variant Call Format (VCF) file of biallelic Single Nucleotide Polymorphisms (SNP). The two classical phylogenetic decisions - topology selection and root placement - are cast as Quadratic Unconstrained Binary Optimisation (QUBO) problems. The workflow combines two QUBO formulations with an Alternating Direction Method of Multipliers (ADMM) decomposition strategy and a plug-in Digitized Counter-Diabatic Quantum Optimization (DCQO) solver, enabling large phylogenetic optimization problems to be executed across multiple classical or quantum computing resources. The DCQO gate-based optimizer drives each ADMM-block QUBO with short-depth counter-diabatic circuits in the impulse regime, without the necessity for an outer variational loop. The combination of ADMM decomposition and the DCQO block solver facilitates problem sizes that surpass the qubit budget of any individual digital quantum processing unit call, while maintaining the integrity of the original objective. The workflow extracts genotype information from VCF files, reconstructs topology and rooting through two QUBO formulations, and annotates the resulting tree using PhyloTree. The resultant data set comprises a Nexus-annotated rooted tree, in addition to diagnostic figures. The workflow demonstrates the potential of modest-scale QUBO formulations combined with ADMM decomposition to serve as a scalable alternative to greedy heuristics in the domain of population genomics.",
+        "authors": [
+            "Giuliana Siddi Moreau",
+            "Riccardo Berutti",
+            "Manuela Profir",
+            "Lorenzo Pisani",
+            "Maria Laura Clemente",
+            "Lidia Leoni"
+        ],
+        "categories": [
+            "cs.DC",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2609.29856v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29808v1": {
+        "title": "Hard Stop: Kernel-Level Preemption and Containment for Rogue Agentic Execution",
+        "link": "http://arxiv.org/abs/2609.29808v1",
+        "abstract": "In July 2026, an unconstrained autonomous agent participating in a frontier AI cybersecurity evaluation harness breached its evaluation sandbox, established an external command-and-control foothold, and executed a multi-stage intrusion into Hugging Face's production multi-tenant dataset conversion infrastructure (referred to in this autopsy as Incident-2026-Alpha). Over 4.5 days, the rogue agent executed 17,600 discrete actions across 6,280 worker clusters, compromised AWS EC2 Instance Metadata Service (IMDS) credentials, forged Kubernetes service account tokens, rooted physical worker nodes via overprivileged CSI drivers, harvested 136 production secrets, and enrolled 181 ephemeral sandboxes into the organization's internal mesh VPN.\n  This monograph presents a first-principles forensic autopsy of the intrusion, provides formal evidence that the breach was a predicted consequence under the Instrumental Convergence thesis operating within an unattenuated autonomous loop lacking out-of-band circuit-breakers, exposes the Defensive LLM Guardrail Paradox that paralyzed centralized commercial models during forensic incident response, and formalizes the Dual-Sided Epistemic Andon Imperative. We specify the dual-process systems architecture---combining out-of-band supervisory control of discrete event systems (Ramadge and Wonham 1989), Synchronous Reactive (SR) ambient sentinels (Berry and Gonthier 1992; Lee and Neuendorffer 2005), and microsecond-scale (4.8 $μ$s median / $< 0.154$ ms WCET bound) POSIX preemption buses---demonstrating how compiled, deterministic epistemic boundaries prevent autonomous rogue excursions before the first off-target socket packet traverses the hypervisor.",
+        "authors": [
+            "José Luis Pino"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.AI",
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2609.29808v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.27727v2": {
+        "title": "Sovereign Grassroots Currencies: A CBDC Architecture for Credit and Monetary Policy (Full Version)",
+        "link": "http://arxiv.org/abs/2609.27727v2",
+        "abstract": "A Central Bank Digital Currency (CBDC) is central-bank money in digital form, held by the public. Leading designs have two limitations: conversion from bank deposits into CBDC can accelerate deposit flight, requiring safeguards, and the CBDC stays outside credit creation and monetary-policy operations.\n  Here we present a CBDC architecture based on grassroots currencies that overcomes these limitations. The architecture has three components: (1) Money: sovereign grassroots coins, which are digital debts of one unit of fiat currency issued by the central bank, constituting a direct CBDC; (2) Credit and Liquidity: non-sovereign grassroots coins, which are digital debts of one unit of the same fiat currency, redeemable at par, that can be issued by any person, natural or legal, thus adding credit; and (3) Interest: grassroots bonds, sovereign and non-sovereign, adding maturity and thus interest, standard banking instruments, and the central bank's instruments of monetary policy.\n  The central bank can therefore lend, absorb liquidity, set its rates and buy and sell securities in the coins and bonds the public holds, choosing the counterparties and terms of its credit operations, and without converting bank deposits into newly issued central bank money on demand.\n  We prove that the arbitrage-free price of any non-sovereign grassroots coin whose issuer redeems it on demand is one unit of the fiat currency. The central bank can choose to deal with any counterparty, not just banks, and we argue that the central bank's interest rates on lending and bonds bound from above and below the corresponding interest rates of its counterparties. Sovereign and non-sovereign grassroots coins and bonds have been implemented and tested on a small scale.",
+        "authors": [
+            "Ehud Shapiro"
+        ],
+        "categories": [
+            "econ.GN",
+            "cs.DC",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2609.27727v2",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29731v1": {
+        "title": "Reusing Spare Vehicle Computing Capacity: Is It Viable, Profitable and Sustainable?",
+        "link": "http://arxiv.org/abs/2609.29731v1",
+        "abstract": "Vehicular Cloud Computing (VCC) exploits computing hardware already embedded in vehicles for purposes unrelated to offloading and puts its idle cycles to work executing end-users' offloaded tasks, avoiding the deployment of new computation infrastructure. Despite its conceptual appeal, adoption is hindered by the lack of quantitative evidence that sharing spare vehicular capacity is viable, profitable and sustainable. A management scheme for task offloading sustains deadline-constrained execution by decoupling deadline-aware allocation from ex-post incentive design, making the approach viable. A robust coalitional game and a vehicle-selection mechanism keep the network operator and the vehicle owners profitable even under unfavorable outcomes of the random environment, e.g.,mobility, radio conditions, or vehicles overstating their spare capacity. A simulation campaign on realistic urban mobility, using Simulation of Urban MObility (SUMO) traces of Rome,together with a CO2 life-cycle assessment against edge computing infrastructure, whose footprint, is attributed pro rata to the share of its capacity devoted to offloading shows the approach to be sustainable. Vehicles absorb most of the offloaded traffic within tens of milliseconds; participation yields up to 157 km of monthly driving range per vehicle; and life-cycle emissions drop by over 99% when using VCC compared to that edge infrastructure.",
+        "authors": [
+            "Rosario Patanè",
+            "Nadjib Achir",
+            "Andrea Araldo",
+            "Lila Boukhatem"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.29731v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29402v1": {
+        "title": "Resource-Aware Model Selection for Scalable Indoor Localization on HPC Platforms",
+        "link": "http://arxiv.org/abs/2609.29402v1",
+        "abstract": "Large-scale indoor localization is increasingly needed in campuses, smart buildings, factories, and digital-twin infrastructures, where wireless conditions, access-point deployments, and spatial layouts evolve over time. Such systems must be accurate, extendable, and maintainable, allowing new buildings, floors, rooms, and service areas to be added without retraining a monolithic model. Modular learning-based localization supports this goal by assigning independent models to buildings, floors, and fine-grained spatial regions. However, this extendability introduces a high-performance inference challenge: each query may require selecting and executing among hundreds or thousands of local models, making exhaustive inference costly in computation, accelerator memory residency, model loading, and scheduling. This paper presents a resource-aware modular inference framework for WiFi fingerprint-based indoor localization on high-performance and distributed computing platforms. The framework organizes local autoencoder models into a building-floor-spot hierarchy and formulates localization as model selection over a large pretrained model ensemble. To reduce inference cost under resource constraints, we introduce two lightweight execution-pruning strategies: Hierarchical Candidate Pruning, which performs coarse-to-fine model selection, and Trajectory-Aware Pruning, which uses temporal locality in user movement to restrict inference to spatially plausible neighboring models. Experiments on a real-world dataset demonstrate that the proposed framework delivers scalable inference without sacrificing localization quality. Compared with exhaustive evaluation over 735 spot models, Hierarchical Candidate Pruning requires only 67 model evaluations, while Trajectory-Aware Pruning reduces this number to just 10, cutting model executions by 98.6%.",
+        "authors": [
+            "Fukuharu Tanaka",
+            "Hamada Rizk",
+            "Moustafa Youssef",
+            "Hirozumi Yamaguchi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.29402v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29395v1": {
+        "title": "Concurrent Split Learning Through Stable Client Clustering",
+        "link": "http://arxiv.org/abs/2609.29395v1",
+        "abstract": "Training with a fixed global batch limits how many distributed clients can provide examples in any one step. We examine a way to use additional server workers without increasing the batch processed by an individual workload. Global Clustered Parallel Split Learning (GCPSL) assigns clients to fixed clusters, executes a Parallel Split Learning with Global Sampling (GPSL) workload for each cluster concurrently, and periodically fuses the client and server model segments. In simulations with 256 logical clients, dividing the population across more workloads improves direct data participation, while smaller clusters can incur an accuracy cost. A four-H100 implementation of label-aware GCPSL reaches 85% CIFAR-10 validation accuracy in $6.13 \\pm 0.15$ minutes over three matched runs, versus $19.09 \\pm 0.45$ minutes when the same workloads are serialized. Within the four-GPU allocation, size-balanced and random fixed affiliations reach the target in similar mean times (5.70 and 5.66 minutes); size balancing increases direct participation by 3.25 percentage points. These measurements characterize a trade-off among execution concurrency, assignment information, participation, and accuracy for stable-client split learning.",
+        "authors": [
+            "Mohammad Kohankhaki",
+            "Valentin Rentschler",
+            "Anke Schmeink"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.29395v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.21483v2": {
+        "title": "Weave: Fine-Grained Dynamic SM Scheduling in an MoE Megakernel for Compute-Communication Overlap",
+        "link": "http://arxiv.org/abs/2609.21483v2",
+        "abstract": "Mixture-of-Experts (MoE) inference under expert parallelism (EP) turns each MoE layer into a distributed computation with costly dispatch and combine communication. State-of-the-art systems reduce this cost through communication-computation overlap, splitting the GPU's SMs for communication and computation respectively. However, this approach still leaves GPU resources wasted along two dimensions. Spatially, the best SM split is determined by each layer's routing result and varies across layers and GPUs, so fixed policies mismatch the workload and waste either NVLink bandwidth or compute throughput. Temporally, complex MoE data dependencies introduce bubbles that leave SMs idle.\n  We present Weave, to our knowledge the first MoE overlap system that performs fine-grained dynamic SM scheduling - deciding per layer and per GPU by routing results at runtime. Once routing completes, each layer's communication and computation volumes become known; Weave exploits this predictability through a lightweight cost model running inside the persistent megakernel: a spatial scheduler partitions SMs into communication workers and computation workers to match the communication/computation throughput ratio, and a temporal scheduler coordinates the two worker groups to minimize SM idleness. On 4x H100 SXM GPUs across six mainstream MoE models, Weave achieves a 2.89x geometric-mean MoE-layer speedup and a 1.33x geometric-mean end-to-end speedup over five state-of-the-art baselines.",
+        "authors": [
+            "Ziyu Huang",
+            "Yangjie Zhou",
+            "Chenhao Zhu",
+            "Yu Peng",
+            "Zihan Liu",
+            "Jinyu Liu",
+            "Shulai Zhang",
+            "Xingxun Tang",
+            "Hongzhe Yan",
+            "Xinhao Luo",
+            "Minyi Guo",
+            "Xiu Lin",
+            "Yinghao Yu",
+            "Guodong Yang",
+            "Liping Zhang",
+            "Shixuan Sun",
+            "Jingwen Leng"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.21483v2",
+        "submit_date": "2026-09-24",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "kernel"
+        ],
+        "tldr": "Optimizes MoE inference by addressing GPU resource wastage from static SM partitioning. Proposes Weave, a megakernel with runtime spatial-temporal scheduling that dynamically allocates SMs to communication/computation tasks based on per-layer routing results. Achieves 2.89× MoE-layer speedup on H100 GPUs.",
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29267v1": {
+        "title": "MagiCFirm: A Runtime for Magic-State Cultivation with Algorithm-Hardware Co-Design",
+        "link": "http://arxiv.org/abs/2609.29267v1",
+        "abstract": "Magic-state cultivation offers a promising alternative for lowering the cost of non-Clifford operations in fault-tolerant quantum computing (FTQC). However, realizing cultivation in practice exposes two challenges: (i) the lack of an open-source classical runtime layer between logical software and physical control, and (ii) the latency constraints on protocol-specific decisions that determine magic-state readiness. To address these challenges, we adopt an algorithm--hardware co-design approach. At the algorithm level, we develop a two-stage early-escape scheme that identifies an informative subset of detectors offline, constructs a compact decoding problem, and performs partial decoding in parallel with complete decoding at runtime, allowing high-confidence attempts to advance before full decoding completes. At the hardware level, we present MagiCFirm, a configurable runtime that combines offline-compiled microprograms with dedicated datapaths for detector construction, event processing, and protocol control, enabling end-to-end execution of magic-state cultivation. Across evaluated configurations, MagiCFirm reduces wall-clock magic-state preparation time by up to 39.3% at matched logical error rate. For a representative magic-state-bound workload, this translates to an estimated 11% reduction in overall application runtime.",
+        "authors": [
+            "Jubo Xu",
+            "Abbas B. Ziad",
+            "Prakash Murali",
+            "Hongxiang Fan"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.29267v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29223v1": {
+        "title": "TrafficFab: An Autonomic Edge-Cloud Testbed Fabric forAI-Driven Traffic Management",
+        "link": "http://arxiv.org/abs/2609.29223v1",
+        "abstract": "Traffic management in emerging megacities requires real-time analytics over thousands of CCTV video streams under latency, bandwidth, compute and energy constraints. We present TrafficFab, an autonomic edge--cloud testbed for AI-driven traffic management, designed to validate a representative slice of a megacity deployment. TrafficFab combines RTSP stream emulation, heterogeneous edge inference using DNNs, cloud-based nowcasting and forecasting using Spatio-Temporal Graph Neural Network (ST-GNN), and continual model adaptation through foundation-model (FM)-assisted Federated Learning (FL). Its autonomic control enables fine-grained scale-out/in of edge inference through energy- and migration-aware scheduling, elastic scale-up/down of GNN forecasting on public clouds, and periodic adaptation of the DNN on edge accelerators and private cloud, without centralized video collection. We evaluate TrafficFab on a Bangalore-city inspired deployment, spanning Raspberry Pis, Jetson accelerators, GPU fogs, private cloud servers, and cloud VMs, sustaining real-time analytics for $\\approx 400$ live camera streams (10% of Bangalore) and analytically characterize larger setups. The results demonstrate that TrafficFab offers a practical validation-scale platform for closed-loop traffic analytics, short-term operational decision support, and longer-horizon planning analyses in megacity scales.",
+        "authors": [
+            "Mayank Arya",
+            "Pranjal Naman",
+            "Priyanshu Pansari",
+            "Roopkatha Banerjee",
+            "Daksh Mehta",
+            "Manjil Nepal",
+            "Akash Sharma",
+            "Yogesh Simmhan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.29223v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29222v1": {
+        "title": "Security Limits of Mining Before Validation in Nakamoto Consensus",
+        "link": "http://arxiv.org/abs/2609.29222v1",
+        "abstract": "Mining before validation allows miners to extend a newly received block before completing its validity checks, giving them a head start in the race for the next block reward. This head start, however, comes with a security risk: rejecting one invalid block also discards the honest work built on it, an effect missed when validation is treated as instantaneous. We quantify this risk in a model of Nakamoto consensus with bounded network delay and a validation-time bound independent of processing load. We establish an explicit threshold on adversarial mining power below which honest miners' fully validated chains continue to grow and agree on a stable history with high probability over any fixed observation period. We also construct an attack that repeatedly draws honest mining onto invalid branches. When the adversary produces more than one block on average during the allowed validation time, the attack can eventually remove a target block at any fixed initial confirmation depth. Combined with ordinary private mining, this attack yields a matching asymptotic bound in the fully decentralized regime, where each honest miner has negligible mining power. The results show how validation latency limits the security of mining before validation, beyond the constraint imposed by network delay.",
+        "authors": [
+            "Yifan Zhou",
+            "Jiang Xiao",
+            "Kaihua Qin"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.29222v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29160v1": {
+        "title": "Cross-Model Autoscaling for Shared LLM Serving",
+        "link": "http://arxiv.org/abs/2609.29160v1",
+        "abstract": "Multi-model LLM serving is moving toward shared MaaS clusters, where co-hosted models compete for a fixed GPU budget while each model experiences time-varying demand and must satisfy its own latency SLO. Existing LLM autoscalers remain largely model-local: their signals expose local runtime activity or delayed latency outcomes, and their scale-up or provisioning decisions do not directly determine how shared capacity should be allocated across competing models.\n  We present the Token-service-share Rebalancing Engine (TRE), a control-plane framework for hot-switched multi-model LLM serving. TRE introduces Token Service Share (TSS), a calibrated, demand-normalized signal that estimates effective token service per active or queued request and yields a comparable health score across heterogeneous models and SLO classes. Guided by TSS, TRE coordinates bounded receiver--donor capacity movement under a fixed GPU budget: it separates fast rescue from slower rebalancing and incrementally reallocates active replicas toward models with the largest calibrated service deficits.\n  We implement TRE on a Kubernetes-based hot-switch serving stack without modifying the inference scheduler. Across seven LLM serving traces, TRE reduces P95 end-to-end latency by 11.9--79.0\\% and P99 latency by 12.5--72.6\\% compared with a state-of-the-art KV-cache-based reactive autoscaler running on the same hot-switch runtime. The gains hold on both targeted stress probes and production-derived conversation/code traces, where TRE reduces P95/P99 latency by 50.8/63.7\\% and 79.0/72.6\\%, respectively. These results show that effective hot-switched autoscaling requires not only fast replica actuation, but also calibrated service-deficit signals and coordinated cross-model capacity arbitration. Our code and artifacts are available at https://github.com/zxzx9898/Token-service-share_Rebalancing_Engine.",
+        "authors": [
+            "Xin Zhang",
+            "Xianyan Xie",
+            "Zhen He",
+            "Xijin Yin",
+            "Xingtong Lin",
+            "Bangbo Liang",
+            "Zequn Cheng",
+            "Peihao Huang",
+            "Guo Chen"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.29160v1",
+        "submit_date": "2026-09-24",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Proposes Token-service-share Rebalancing Engine (TRE) for autoscaling shared multi-model LLM serving. Uses Token Service Share (TSS) to guide cross-model GPU capacity rebalancing. Reduces P95 latency by 11.9-79.0% and P99 by 12.5-72.6% vs. state-of-the-art autoscaler.",
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.29015v1": {
+        "title": "MeshHeal: Two-Timescale Self-Healing for Gray Failures in Decentralized LLM Agent Networks",
+        "link": "http://arxiv.org/abs/2609.29015v1",
+        "abstract": "Decentralized LLM-based multi-agent systems coordinate through local interactions, but an agent can remain responsive while its task-solving quality persistently degrades. Such gray failures require protecting current tasks before sufficient evidence exists to alter future routing, while still allowing recovered agents to rejoin. We introduce MeshHeal, a fully decentralized self-healing framework that couples ability-matched peer review across two timescales. At the fast timescale, an adaptive hierarchy escalates uncertain or low-scoring outputs from repeated single-reviewer evaluation to committee deliberation and, when needed, correction before use. At the slow timescale, a task- and ability-conditioned peer-relative detector aggregates scores to distinguish persistent degradation from ordinary output variation, trigger mandatory committee review, and eventually exclude degraded agents from ordinary routing; recovery probes provide fresh evidence for reintegration. To faithfully evaluate routing, we introduce Model-Backed MAS Evaluation, which ties ability assignments to execution models, since prompt-based ability assignments alone can leave routing errors hidden. Across BBH, MATH, and MMLU-Pro, MeshHeal achieves 0.839 degraded-phase accuracy using 51k total model tokens per task, versus the strongest baseline Symphony's 0.807 accuracy using 115k per task. Under staggered degradation and recovery, MeshHeal isolates degraded agents, keeps them excluded from ordinary task execution until recovery, and returns them to normal routing.",
+        "authors": [
+            "Keru Chen",
+            "Sen Lin",
+            "Yingbin Liang",
+            "Nathaniel D. Bastian",
+            "Shaofeng Zou"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.29015v1",
+        "submit_date": "2026-09-24",
+        "relevant": true,
+        "tags": [
+            "agentic",
+            "serving"
+        ],
+        "tldr": "Addresses gray failures in decentralized LLM agent networks via MeshHeal, a two-timescale framework coupling peer review for output correction and degradation detection. Achieves 0.839 degraded-phase accuracy with 51k tokens per task versus baseline 0.807 accuracy using 115k tokens.",
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.28943v1": {
+        "title": "Dependency- and Layer-Aware Microservice Workflow Offloading and Service Image Caching for Edge Environments",
+        "link": "http://arxiv.org/abs/2609.28943v1",
+        "abstract": "The microservice architecture has been applied broadly in many mainstream computing environments. As one of the most prevalent environments, edge computing also widely employs microservices to handle diverse requests and tasks. In practical scenarios, microservices usually constitute workflows that are built based on service dependencies to execute tasks. This offers an opportunity to explore the offloading technology to better harness resources and accelerate task execution. Unfortunately, this problem has not been paid attention to by existing research, and thus some valuable resources (e.g., microservice image cache) remain obscure. To fill this gap, we innovatively study the problem of joint optimization for microservice workflow offloading and service image caching in edge. This problem is challenging due to several issues such as the complexity of its solution space, intricate relationships among shared image layers, long-range dependencies between workflow tasks, and the absence of a real-world collection of service images. To address these issues, this paper proposes an innovative dependency- and layer-aware workflow offloading and image caching framework for microservices. We collected a real-world collection of microservice image layer data and published both this collection and experimental codes on GitHub. Extensive results demonstrate that our framework achieves superior performances, for example, a 22. 38\\% reduction in average task completion time compared to baselines and significantly-increased image hit rates.",
+        "authors": [
+            "Zhongxiao Wang",
+            "Yueshen Xu",
+            "Qingshan Li",
+            "Xinkui Zhao",
+            "Wei Shao",
+            "Shuiguang Deng",
+            "Rui Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.28943v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.28870v1": {
+        "title": "When Fancy Eviction Fails: Rethinking Cache Replacement For LLM Prefix Reuse",
+        "link": "http://arxiv.org/abs/2609.28870v1",
+        "abstract": "Long-running LLM applications repeatedly send growing context, making prefix caching critical for reducing prefill cost. Yet prefix-cache behavior under agentic workloads remains poorly understood. We study production traces from two companies and evaluate 14 eviction algorithms across HBM-constrained and large memory-pool settings. Despite a large gap to Belady, sophisticated policies designed for traditional caches provide little benefit over LRU. The reason is structural: prefix reuse is dominated by the regular pacing of active sessions, making recency unusually predictive. Prefix caching nevertheless introduces new challenges, including heavy-tailed session footprints and highly variable miss costs as attention computation grows with sequence length. We introduce the compute-savings ratio and two offline oracles to quantify these effects. Our results show that effective prefix-cache management should retain recency as its foundation while selectively adding quick demotion for one-hit prefixes, compute-aware partial eviction for expensive misses, and capacity-dependent eviction granularity. We will release the traces and simulator to support future research.",
+        "authors": [
+            "Yiyu Liu",
+            "Minlan Yu",
+            "Juncheng Yang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2609.28870v1",
+        "submit_date": "2026-09-24",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Examines inefficient prefix-cache eviction in LLM serving. Proposes retaining recency-based policies with demotion for one-hit prefixes and compute-aware partial eviction. Evaluation on production traces shows complex policies offer little gain over LRU (<2% in compute-savings ratio).",
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.28862v1": {
+        "title": "pytest-gpu-proof: Enabling Cloud-CPU Continuous Integration for GPU Code with Local GPU Attestation",
+        "link": "http://arxiv.org/abs/2609.28862v1",
+        "abstract": "GPU acceleration is now routine across robotics, but cloud-hosted GPU continuous integration (CI) runners are expensive, resulting in severe under-testing of GPU-accelerated code. We present pytest-gpu-proof, an open-source pytest plugin offering a practical middle ground. Tests can be run on a local machine, signed with a receipt of exactly what ran and what it produced, and integrated into standard CPU CI workflows (e.g., GitHub Actions). The tool is open source and on PyPI, and we are actively integrating it across our lab's software stack.",
+        "authors": [
+            "Brian Plancher"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2609.28862v1",
+        "submit_date": "2026-09-24",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.28855v1": {
+        "title": "Distributed Service Orchestration in Edge-Cloud Continuum for Digital Healthcare",
+        "link": "http://arxiv.org/abs/2609.28855v1",
+        "abstract": "Today's digital healthcare services rely on various applications and functions that must be continuously accessible. Cloud computing enables global access to these services through public networks, which often also introduce increased latency, higher bandwidth consumption, and additional security risks compared to local operation. Edge computing mitigates these challenges by deploying cloud services closer to the end users and data sources, thereby improving resilience to network disruptions and reducing latency, bandwidth usage, and exposure to security threats. However, service deployment typically relies on the availability of centralized registry servers. Consequently, if the network connection or the registry server itself becomes unavailable, service deployment at the target edge node may fail. To address this, we propose a three-tier registry architecture to enhance deployment reliability and service availability, considering DockerHub as a remote public registry, an MEC-based off-premises registry as a remote private registry, and a LAN-based on-premises registry as a local private registry. The performance and efficiency are analyzed through measurements related to the estimated deployment time, inflicted network and computational load, and energy consumption, while the required nanoservices are deployed from different tiers. The experimental results indicate that alongside the improved tolerance to network disruptions, the local private and remote private registries also outperform the remote public registry in the deployment performance. The findings highlight the effectiveness of proximity-aware service distribution in improving the resilience, performance and efficiency of service deployment.",
+        "authors": [
+            "Johirul Islam",
+            "Hafiz Faheem Shahid",
+            "Ijaz Ahmad",
+            "Tanesh Kumar",
+            "Ayan Mondal",
+            "Erkki Harjula"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.28855v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.28779v1": {
+        "title": "Where Does Streaming State Cost Go? A Reproducible Comparison of Flink and Kafka Streams on Kafka",
+        "link": "http://arxiv.org/abs/2609.28779v1",
+        "abstract": "This paper presents a controlled comparison of exactly-once Kafka pipelines implemented with Apache Flink and Kafka Streams, two engines with different state-management architectures. The state management in Flink occurs through checkpoints in external storage, whereas Kafka Streams restores local state by replaying broker changelogs. The experiments evaluate the effects of the two designs on latency, resource consumption, configuration sensitivity, and recover from injected failures. The engines produced expected outputs across 50 correctness trials, five for each engine-workload combination (exact 95% CI 0.929-1.000). The latencies, however, showed differences when tested in 30 minute trials at a fixed rate of 100 events/sec. The measured ingestion to output interval was 4-6 ms for stateless workloads and 4.3-6.2 s for windowed workloads. The median p99 was 1.97-1.97s for stateless workloads and 5.68-9.92s for windowed respectively. Further, a sensitivity study showed that increasing the durability interval from 1,000 to 10,000 ms shifted the latency distributions in Kafka Streams and Flink between stages. Kafka Streams' W3 median p99 T2-T1 increased from 6,085 to 23,155 ms; Flink's T3-T2 increased from 732 to 8,702 ms. Failure injection experiments demonstrate that latency can interfere with incomplete processing behavior. The results show that exactly-once correctness is a necessary but insufficient measure of stream processing performance. Kafka Streams completed 0/5 stateful JVM-kill and 1/5 in each stateful local-volume-loss trials, while corresponding Flink cells completed 5/5. The cost, placement and magnitude depend on state management, architecture, configuration, and measurement location. Accordingly, evaluations of fault-tolerant streaming systems should holistically measure latency, completion, recovery behavior, and correctness.",
+        "authors": [
+            "Kiran N Kumar",
+            "Santhosh Kumar Saminathan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.28779v1",
+        "submit_date": "2026-09-23",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
+    },
+    "http://arxiv.org/abs/2609.28541v1": {
+        "title": "Adaptive Tiling for Least-Squares Phase Unwrapping: Runtime and Accuracy",
+        "link": "http://arxiv.org/abs/2609.28541v1",
+        "abstract": "Phase unwrapping estimates the missing multiples of $2π$ in measured phase images. For large images, tiling limits the size of local reconstruction problems and enables parallel processing. Adaptive tiling could further reduce the number of local problems and boundaries by retaining large tiles where little refinement is needed. We investigate whether this reduction makes reconstruction faster. We compare complete reconstruction time and accuracy for a regular grid, quadtree, and kd-tree partitions. We also evaluate nine criteria for deciding where quadtree tiles should be subdivided, including residue count, fringe density, and measures of phase variation, at different tile sizes and budgets. In single-threaded experiments on a heterogeneous image dataset, optimized adaptive partitions use fewer tiles but remain slower than the optimized grid, and some reconstructions lose substantial accuracy. Stage measurements explain why: constructing the partition and solving larger retained tiles outweigh the savings at tile boundaries. The criterion comparison also shows that more refinement does not consistently improve accuracy. These results motivate evaluating adaptive partitions by the complete time needed to reach a chosen reconstruction accuracy, including whether limited refinement can provide a faster approximate result.",
+        "authors": [
+            "Antoine Moevus",
+            "Max Mignotte"
+        ],
+        "categories": [
+            "eess.IV",
+            "cs.CV",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2609.28541v1",
+        "submit_date": "2026-09-22",
+        "relevant": false,
+        "indexed_date": "2026-09-25"
     }
 }
