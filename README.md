@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3207-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.25-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3216-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.09.28-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-09-28
+* `serving` `multi-modal` `disaggregation` [EAServe: Encode-Aware Disaggregated Serving for Multimodal Large Language Models](http://arxiv.org/abs/2609.31551v1)
+  > **TL;DR**: Addresses inefficient resource allocation in multimodal LLM serving with a three-stage (Encode-Prefill-Decode) pipeline. Proposes EAServe, featuring runtime micro-batching and partial offload with configuration optimization via HAS. Achieves 4.3× higher goodput than NVIDIA Dynamo and 1.7× than vLLM under SLOs.
+* `serving` `agentic` [DynBranch: Speculative Subgraph Reuse for Dynamic Agentic LLM Serving](http://arxiv.org/abs/2609.31047v1)
+  > **TL;DR**: Addresses latency in agentic LLM workflows due to branch-resolution barriers. Proposes DynBranch for speculative subgraph reuse before branch resolution, managed via a two-level controller. Reduces mean latency by up to 32% over prior systems on Qwen3-32B with 4x H200 GPUs.
+* `edge` `serving` `networking` [Predictive Rolling-Horizon Optimization for Commitment-Aware Model-Parallel Inference under Spatio-Temporal Edge Dynamics](http://arxiv.org/abs/2609.31018v1)
+  > **TL;DR**: Addresses commitment-aware scheduling for model-parallel inference on edge with spatio-temporal dynamics. Proposes PROMISE: predictive rolling-horizon optimization with certainty-equivalent ES-state rollout and CCT recovery. Experiments demonstrate robust performance across system scales and workloads.
+* `serving` `offloading` `quantization` [The KV Cache Is the New Memory Wall](http://arxiv.org/abs/2609.30854v1)
+  > **TL;DR**: KV cache becomes the memory bottleneck in long-context LLM inference. This systems study unifies compression techniques (quantization, eviction, paging, sharing, tiering) via analytical modeling. Beyond hardware-specific context lengths, KV compression achieves near-roofline bandwidth savings, but with quality degradation below 4-bit precision or for eviction.
+* `RL` `agentic` [WeEnv: The Environment for Agentic Reinforcement Learning at WeChat](http://arxiv.org/abs/2609.30766v1)
+  > **TL;DR**: WeEnv addresses the high environment tax in agentic RL by managing environments with layer packaging, on-demand initialization, and elastic provisioning. It reduces initialization by 5.6-14.2x, cutting its share of iteration time from 53.4% to 9.1%.
+* `serving` `offline` `networking` [Beyond the Last Truffula Tree: SustainAI - A Water-Aware, Closed-Loop Framework for Environmentally Accountable AI](http://arxiv.org/abs/2609.30747v1)
+  > **TL;DR**: Proposes SustainAI, a water-aware framework reducing LLM inference water footprint via regional routing and hallucination penalties. Uses real-time metering and stress-aware scheduling, showing 11× variation in consumption (0.0477–0.5360mL/inference) and optimizes resource use during batch processing tasks.
+* `edge` `multi-modal` `networking` [FRESHLATENT: Channel-Aware Latent Adaptation for Resource-Constrained Embodied VLM Perception](http://arxiv.org/abs/2609.30629v1)
+  > **TL;DR**: Proposes FreshLatent, a lightweight channel-aware adapter for robust split vision-language model perception under wireless resource constraints. It trains a power-normalized encoder-decoder while keeping VLM frozen, reducing edge latency by 7.7-9.9x and encoder parameters by 37-40x on Jetson AGX Xavier.
+* `serving` `edge` `networking` [Communication-Aware Model Distributed Inference via Latent Representation Compression](http://arxiv.org/abs/2609.30413v1)
+  > **TL;DR**: Optimizes communication costs in distributed edge inference via latent representation compression to meet strict QoS throughput targets. Proposes closed-form solutions and a stochastic dual descent algorithm that guarantee long-term delay constraints with bounded optimality gap. Verified in simulations and real edge experiments.
+* `agentic` `offloading` `kernel` [ActKV: Efficient LLM Agents through Action-Guided KV Cache Management](http://arxiv.org/abs/2609.31395v1)
+  > **TL;DR**: Addresses memory overhead in agentic LLM inference via ActKV, which compresses KV cache prioritizing action-critical entries with eviction policies and custom kernels. Achieves 98.53% accuracy using 25.98% peak memory and 3.97× token throughput.
+
 ### 2026-09-25
 * `kernel` [KernelOPT: Dispatch-Aware Agentic Search for GPU Kernel Optimization](http://arxiv.org/abs/2609.30059v1)
   > **TL;DR**: Proposes KernelOPT, a multi-agent system optimizing GPU kernel efficiency for compiled models. Targets Triton sub-kernels using LLM agents and a verification cascade to ensure performance and correctness. Achieves geometric mean speedups of 1.40× over torch.compile on Level 1 problems.
