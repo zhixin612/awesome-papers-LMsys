@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3255-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.09.29-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3270-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,38 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-01
+* `training` `MoE` [Heddle: Learning Structural Templates for Parallelism Planning on Heterogeneous GPU Clusters](http://arxiv.org/abs/2609.34244v2)
+  > **TL;DR**: Addressing dynamic GPU availability and hardware heterogeneity, Heddle learns structural templates offline for efficient parallelism planning in training large models on heterogeneous clusters, achieving up to 4.6x higher throughput on MoE models.
+* `kernel` `quantization` `training` [RLX: A Unified Multi-Backend Tensor Compiler and Distributed Runtime in Rust](http://arxiv.org/abs/2609.37916v1)
+  > **TL;DR**: Addresses end-to-end ML stack fragmentation by introducing RLX, a unified Rust tensor compiler and distributed runtime with multi-level IR. Supports 14 backends, quantized INT4/INT8 flows, and tensor/pipeline parallelism. Achieves 16.6ms latency for MiniLM (vs 26.7ms PyTorch) and 946k img/s MNIST training throughput.
+* `MoE` `serving` `networking` [Joint Effects of GPU Server Topology, Parallelism, and Congestion Control on MoE Inference: A Controlled Simulation Study](http://arxiv.org/abs/2609.37828v1)
+  > **TL;DR**: Investigates how server topology, parallelism, and congestion control affect MoE inference latency. Uses ASTRA-sim for simulating 32-GPU systems with Chakra traces. Finds that communication dominates (89.9-95.8% of time) and TP16EP2 is 3.68-4.35x slower than TP2EP16.
+* `quantization` [FP64 Is All You Want, INT8 Is All You Need, FP4/6/8 Is All You Have](http://arxiv.org/abs/2609.37693v1)
+  > **TL;DR**: Proposes combinatorial optimization of residue number systems to minimize low-precision GEMMs for emulating high-precision matrix products. Introduces FP6 and optimized FP8/FP4 schemes requiring fewer GEMMs. Achieves up to 83x speedup over native FP64 on Blackwell GPUs.
+* `serving` `scaling` `disaggregation` [SPLASH: Switching Parallel Layouts of Attention with Seamless Handoff for LLM Serving](http://arxiv.org/abs/2609.37626v1)
+  > **TL;DR**: Addresses inflexibility of static attention parallelization in LLM serving under dynamic workloads. Proposes SPLASH, a system that dynamically switches parallel layouts with minimal overhead via decoupled ownership parallelism. Achieves 1.3-1.73x throughput gains over fixed layouts when serving GLM-5.3 on B200 GPUs.
+* `serving` `scaling` [DScale: Scaling Block-Diffusion Speculative Decoding with Adaptive Verification](http://arxiv.org/abs/2609.37532v1)
+  > **TL;DR**: Addresses inefficiencies in block-diffusion speculative decoding at high concurrency. Proposes DScale with path-aware tiles, dynamic verify-length allocation, and fixed-address workspaces to reduce padding and improve throughput. Achieves 24.4-48.8% geometric-mean throughput gains and 30.8-52.5% decode-step time reduction.
+* `serving` `kernel` [vSkipper: Translating Dynamic Layer Skipping into LLM Serving Gains](http://arxiv.org/abs/2609.37062v1)
+  > **TL;DR**: Enables efficient integration of dynamic layer skipping in LLM serving engines. vSkipper virtualizes skipper decisions via token grouping and routed execution while preserving batching and KV caching. Reduces mean latency by 36.8% on GSM8K and increases throughput by 11.3% under saturation.
+* `LoRA` `RL` [CF-LoRA: Decoupled Factor Aggregation and Adaptation-Aware Client Clustering for Federated LoRA Fine-Tuning](http://arxiv.org/abs/2609.36986v1)
+  > **TL;DR**: Addresses inefficiencies in federated LoRA fine-tuning under heterogeneous client data. Proposes CF-LoRA with decoupled factor aggregation and adaptation-aware client clustering. Achieves highest average accuracy on language and vision tasks while communicating only one LoRA factor per round.
+* `training` `MoE` `networking` [Cobalt: Leveraging Expert Co-activation for Efficient Distributed MoE Training](http://arxiv.org/abs/2609.36959v1)
+  > **TL;DR**: Cobalt addresses distributed MoE training bottlenecks by leveraging expert co-activation for optimized expert layout and workload rebalancing. It reduces communication and improves load balancing, achieving up to 2.41x speedup and 75.74%-99.26% less cross-node traffic.
+* `serving` `diffusion` `networking` [Purlin: Separating Orchestration from the Datapath of Collectives](http://arxiv.org/abs/2609.36954v1)
+  > **TL;DR**: Proposes Purlin, decoupling orchestration from datapath in GPU collective communication to improve efficiency in distributed inference. Uses SNAC protocol for coordination and Atom for hardware-specific data movement. Achieves up to 5.14x latency speedups in collectives and 1.37x higher throughput in offline LLM serving.
+* `serving` `offloading` `agentic` [Efficient Agentic LLM Serving over SSD-based Sparse KV Storage](http://arxiv.org/abs/2609.36938v1)
+  > **TL;DR**: Addresses high latency in serving agentic LLMs with sparse attention due to on-demand KV cache loading from SSD. Proposes Janus, which predicts KV demand ahead via intermediate values and optimizes SSD I/O. Improves time to first token by 1.22-1.85× on average (up to 3.69×) while maintaining decode efficiency.
+* `serving` `RL` `scaling` [Reshaping Rollout Workloads for Asynchronous RL Post-Training on Heterogeneous Accelerators](http://arxiv.org/abs/2609.36899v1)
+  > **TL;DR**: Addresses scheduling tension between throughput and latency in RL post-training rollouts across heterogeneous clusters. Proposes CadenceRL to reshape workloads via pacing (shorter trajectories) and concentration (tail routing), plus late-bound KV preparation. Achieves 48% higher decode throughput and 64% lower P95 trajectory latency.
+* `quantization` `serving` `offloading` [Replay the Curvature: Accurate and Scalable NVFP4 Quantization for Large Language Model Inference](http://arxiv.org/abs/2609.36654v1)
+  > **TL;DR**: Addresses challenges in accurate and scalable quantization for large LLM inference with NVFP4. Proposes Schur Replay for replaying GPTQ updates during scale selection and efficient infrastructure with hierarchical offloading. Achieves 99.35-100.84% BF16 recovery and 15.17x per-layer time speedup on Qwen-397B.
+* `diffusion` `offline` [ParaAnya: Accelerating Parallel Diffusion Sampling with Plug-and-Play Output Caching](http://arxiv.org/abs/2609.36522v1)
+  > **TL;DR**: Addresses computational inefficiency in parallel diffusion sampling due to redundant evaluations. Proposes ParaAnya, an output cache for reusing function outputs at overlapping timesteps. Achieves up to 2.43× speedup and 70.1% NFE reduction on Stable Diffusion v1.5.
+* `training` `MoE` `kernel` [Mixture-of-Kittens: MoE Megakernel for NVL72s](http://arxiv.org/abs/2609.36070v1)
+  > **TL;DR**: Investigates performance issues of MoE training on scale-up GPU systems. Proposes Mixture-of-Kittens, a deterministic megakernel optimizing communication schemes and computation overlap. Delivers up to 2.37x throughput improvement over baselines.
+
 ### 2026-09-29
 * `serving` `networking` [Beyond Energy: When Sustainability Dimensions Reshape LLM Serving Decisions](http://arxiv.org/abs/2609.35569v1)
   > **TL;DR**: Investigates optimizing LLM serving across sustainability dimensions. Proposes PRISM to balance energy, carbon, water, and biodiversity through deployment choices. Achieves 50.2% reduction in median worst-case regret.
