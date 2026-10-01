@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3270-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-3284-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.10.01-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,36 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-01
+* `MoE` `serving` `networking` [Efficient Expert-Parallel Communication on PCIe-Connected Consumer GPUs](http://arxiv.org/abs/2609.40093v1)
+  > **TL;DR**: Addresses communication inefficiency in expert-parallel MoE inference on PCIe-connected GPUs via ThunderEP, which eliminates relay hops, employs DMA transfers to avoid contention, and reduces synchronization. Achieves up to 1.66× end-to-end speedup and 2.00×/1.53× for dispatch/combine over NCCL.
+* `training` `MoE` `scaling` [HAPMoE: Heterogeneity-Aware Automatic Parallelism Planning for Mixture-of-Experts Models Training](http://arxiv.org/abs/2609.39350v1)
+  > **TL;DR**: Addresses automatic parallelism planning for MoE training in heterogeneous clusters. Proposes HAPMoE with a lightweight cost model and efficient search in six-dimensional space. Achieves up to 3.2× throughput gain and completes planning within one minute.
+* `serving` `thinking` `agentic` [Taming Speculative Search for Test-Time Scaling in LLM Serving](http://arxiv.org/abs/2609.39334v1)
+  > **TL;DR**: Addresses system challenges in speculative execution for test-time computation scaling during LLM reasoning. Proposes SpecScale with early pruning, computation deduplication, and deferred verification techniques. Significantly improves throughput and latency while maintaining accuracy on MATH and Olympiad benchmarks.
+* `serving` `offloading` `storage` [Characterizing High Bandwidth Flash for LLM Serving](http://arxiv.org/abs/2609.39131v1)
+  > **TL;DR**: Addresses LLM serving memory bottlenecks with HBM-HBF-host storage and cache-aware scheduling, reducing completion time by up to 87% and extending flash write lifetime to 14.82 years.
+* `serving` `kernel` [Vosti: Specifying, Implementing, and Verifying Deterministic LLM Inference](http://arxiv.org/abs/2609.38981v1)
+  > **TL;DR**: Formalizes and verifies deterministic LLM inference across execution variations. Proposes Vosti, an engine with state-independent kernels and logical KV-cache binding, verified using Verus and Triton. Achieves bitwise-identical outputs and vLLM-comparable performance on decode workloads.
+* `agentic` `scaling` `storage` [Towards Efficient HPC Systems for Agents: Challenges and Opportunities](http://arxiv.org/abs/2609.38723v1)
+  > **TL;DR**: Investigates redesigning HPC systems for efficient support of AI agent workloads. Proposes co-design treating agents as first-class principals with facility-aware compute, storage, and memory optimizations. Agents (19.5% users) account for 55.8% job submissions and 42.7% GPU-hours.
+* `serving` [Preserving Provenance in Shared KV Caches for LLM Serving](http://arxiv.org/abs/2609.38706v1)
+  > **TL;DR**: Addresses unsafe token collisions in shared KV caches during LLM serving due to missing computational context. Introduces provenance binding into cache keys to prevent collisions, achieving minimal latency overhead (0.34 ms) and increased retention with provenance diversity.
+* `serving` `scaling` `offloading` [Cascadia: A Control-Plane-Free Alternative to Hyperconverged AI Infrastructure](http://arxiv.org/abs/2609.38697v1)
+  > **TL;DR**: Addresses LLM serving scalability without central control via Cascadia, a peer-to-peer mesh with gossip-based scheduling and KV-cache mobility. Achieves 4.06x throughput scaling on four nodes compared to single-node.
+* `agentic` `training` [SCLATE: a Substrate for Continual-Learning Agent Training and Evaluation](http://arxiv.org/abs/2609.32391v2)
+  > **TL;DR**: Investigates efficient scheduling for continual-learning agent training and evaluation. Proposes SCLATE, a substrate with hybrid simulated clock for event-driven execution, compressing idle time. Post-training reduces file reads by 6.8× and increases SWE-bench pass rate by 16.7 points.
+* `agentic` [Janus: Evidence-Before-Effect Sagas and Offline-Verifiable Provenance for Agentic LLMs](http://arxiv.org/abs/2609.38266v1)
+  > **TL;DR**: Addresses the need for verifiable and tamper-proof records of agentic LLM actions. Introduces Janus, a system implementing evidence-before-effect sagas where each step's proposal, verdict, and validation are logged in a signed, hash-chained record before effect release to ensure offline verifiability. In a lending workflow evaluation, it prevented 6 improper loan approvals (0 paid) that a plain agent executed.
+* `serving` `kernel` [Herschel: Continuous Optimization of Production LLM Inference through On-Demand Profiling](http://arxiv.org/abs/2609.40247v1)
+  > **TL;DR**: Addresses continuous optimization of production LLM inference by proposing Herschel, an on-demand profiling system that reconstructs operator executions to identify inefficiencies. Achieves low overhead (0.5% TTFT, 7% per token) and identified patterns in 23% of traces.
+* `agentic` `serving` [Capture the lifecycle: KV Cache management in ReAct Agents with KVTether](http://arxiv.org/abs/2609.39819v1)
+  > **TL;DR**: Addresses KV cache inefficiency in ReAct agent serving due to lifecycle blindness. KVTether captures runtime lifecycle states to prioritize cache management, reducing latency by up to 26.3% and task cost by 40.0% on average.
+* `serving` `thinking` [Taming Speculative Search for Test-Time Scaling in LLM Serving](http://arxiv.org/abs/2609.39334v1)
+  > **TL;DR**: Proposes SpecScale to accelerate speculative execution in LLM serving with early path pruning, computation deduplication, and deferred verification. Significantly improves throughput and latency on MATH and Olympiad benchmarks while preserving quality.
+* `agentic` `storage` [StateFork: Branchable Infrastructure for Agent Exploration](http://arxiv.org/abs/2609.38648v1)
+  > **TL;DR**: Addresses efficient state branching for exploratory terminal agents. Proposes StateFork, a logical control plane, and Waypoint, a checkpoint/restore substrate with filesystem layering and process checkpointing. Achieves up to 26% higher task accuracy and 70% faster exploration than other substrates.
+
 ### 2026-10-01
 * `training` `MoE` [Heddle: Learning Structural Templates for Parallelism Planning on Heterogeneous GPU Clusters](http://arxiv.org/abs/2609.34244v2)
   > **TL;DR**: Addressing dynamic GPU availability and hardware heterogeneity, Heddle learns structural templates offline for efficient parallelism planning in training large models on heterogeneous clusters, achieving up to 4.6x higher throughput on MoE models.
