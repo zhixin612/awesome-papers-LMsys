@@ -169917,5 +169917,26 @@
         "submit_date": "2026-09-29",
         "relevant": false,
         "indexed_date": "2026-10-01"
+    },
+    "http://arxiv.org/abs/2610.00714v1": {
+        "title": "MANTA: Machine Learning Augmented Tiering Advisor",
+        "link": "http://arxiv.org/abs/2610.00714v1",
+        "abstract": "Memory tiering has been used to expand memory capacity, particularly in datacenters, by combining fast DRAM with slower tiers, including CXL-attached memory. Its effectiveness depends on keeping useful pages in the fast tier, but existing heuristic policies can lag behind changing hot sets in phased or bursty workloads. To explore these limitations, we introduce ChOMP, a scalable offline optimizer that minimizes placement and bandwidth-sensitive migration costs. We then develop a trace-driven simulator that uses this reference to identify performance opportunities for online policies. Motivated by these results, MANTA predicts future page usefulness from runtime access features and integrates a lightweight learned model into ARMS. Across eight workloads on emulated CXL, MANTA achieves geometric-mean speedups over ARMS of 1.12$\\times$ and 1.08$\\times$ at 4~GB of fast memory on Linux 6.2 and 6.18, respectively; across six Optane workloads, it achieves 1.69$\\times$. On individual workloads, MANTA is up to 1.25$\\times$ faster than ARMS with emulated CXL on Linux 6.2, 1.21$\\times$ on Linux 6.18, and 5.6$\\times$ with Optane.",
+        "authors": [
+            "Johannes Freischuetz",
+            "Kiet Pham",
+            "Sujay Yadalam",
+            "Konstantinos Kanellis",
+            "Michael Swift",
+            "Shivaram Venkataraman"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.00714v1",
+        "submit_date": "2026-09-30",
+        "relevant": false,
+        "indexed_date": "2026-10-02"
     }
 }
