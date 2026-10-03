@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3284-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.01-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3292-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-03
+* `MoE` `offloading` `serving` [MoE-CORE: Coordinated Expert Offloading and Residency for Memory-Constrained MoE Inference](http://arxiv.org/abs/2610.01950v1)
+  > **TL;DR**: Addresses slow MoE inference on memory-constrained devices via coordinated expert offloading. Designs MoE-CORE with staged prefill, cache-aware residency, routing-history replacement, and prefetching. Achieves 38-45 ms/token vs vLLM Prefetch's 1269 ms/token on DeepSeek-V4.
+* `serving` `scaling` [ePACT: Energy-Performance-Aware Commitment Tracking for LLM Serving](http://arxiv.org/abs/2610.01784v1)
+  > **TL;DR**: Proposes ePACT to minimize energy-deviation costs from hourly commitments while meeting LLM serving SLOs. It uses a two-level controller that dynamically adjusts GPU capacity and clocks per request. Achieves 73.8-75.7% lower deviation costs than vLLM with near-vLLM SLO attainment.
+* `MoE` `training` `networking` [GPU-Initiated Communication: Dissecting Down to the Bone](http://arxiv.org/abs/2610.01380v1)
+  > **TL;DR**: Analyzes GPU-initiated communication performance for MoE training. Introduces mini-gda/mini-proxy minimal transports to dissect overheads and measure against libraries. Minimal path issues in 0.7μs, completes in 4.0μs; libraries add up to 4.6μs to issue time.
+* `MoE` `offloading` `serving` [RapidMoE: Exploiting Cross-Asymmetry via Adaptive Residual Offloading for Large-Scale MoE Inference](http://arxiv.org/abs/2610.01265v1)
+  > **TL;DR**: Addresses MoE inference inefficiency on heterogeneous platforms by proposing RapidMoE with adaptive bit-level residual offloading. Integrates data representation, routing strategy, and execution parallelism. Achieves up to 3.5x decoding and 2.1x prefill speedup over state-of-the-art systems.
+* `serving` `offloading` `agentic` [Serving a Revisable World: Versioned Execution for Interruptible Agents](http://arxiv.org/abs/2610.01160v1)
+  > **TL;DR**: Addresses handling revisions in LLM agent serving without obsolete effects and with efficient state reuse. Introduces versioned execution for coordinated revocation and state inheritance. Achieves median 17.1% reduction in revision-to-first-token latency.
+* `training` [Leto: Fast In-Place Recovery for LLM Training on Surviving Hardware](http://arxiv.org/abs/2610.00687v1)
+  > **TL;DR**: Tackles slow recovery after hardware failures in LLM training by designing Leto, which retains model state and prepares reusable state via shadow preinitialization with erasure protection. Achieves 3.6-6.5× faster recovery and up to 13.7 percentage point productive training time increase.
+* `training` `MoE` `networking` [MegaFlux: Skew-Resilient MoE Megakernels via Pipelined Expert Replication](http://arxiv.org/abs/2610.00671v1)
+  > **TL;DR**: Addresses GPU stragglers in MoE training from imbalanced token routing. Proposes MegaFlux, adding pipelined runtime expert replication to fused megakernels for overlapping communication with computation. Achieves 1.45× forward/1.28× backward speedups on 8 GPUs and hides up to 100% of communication overheads.
+* `MoE` [Redundancy Meets Synergy: Dependency-aware Expert Selection for MoE via Submodular Optimization](http://arxiv.org/abs/2610.00558v1)
+  > **TL;DR**: Addresses memory bottlenecks in MoE deployment via expert selection. Proposes DS-MoE, a difference-of-submodular optimization framework to account for redundancy and synergy among experts. Achieves superior performance over SOTA baselines.
+
 ### 2026-10-01
 * `MoE` `serving` `networking` [Efficient Expert-Parallel Communication on PCIe-Connected Consumer GPUs](http://arxiv.org/abs/2609.40093v1)
   > **TL;DR**: Addresses communication inefficiency in expert-parallel MoE inference on PCIe-connected GPUs via ThunderEP, which eliminates relay hops, employs DMA transfers to avoid contention, and reduces synchronization. Achieves up to 1.66× end-to-end speedup and 2.00×/1.53× for dispatch/combine over NCCL.
