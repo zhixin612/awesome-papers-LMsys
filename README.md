@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3292-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3304-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-05
+* `training` `scaling` [Cross-Facility LLM Pre-training on HPC: Elastic Aggregation, Data Leasing, and Queue-Aware Placement](http://arxiv.org/abs/2610.03457v1)
+  > **TL;DR**: Enables LLM pre-training across fragmented HPC facilities using elastic aggregation, data leasing (DARL), and queue-aware placement. Achieves constant communication overhead of 110s per round, reducing to 3.1% of wall time at 2000 local steps from 32% at 100 steps.
+* `training` `MoE` `networking` [RailWave: Adaptive Spatial and Temporal Scheduling for Expert-Parallel Communication](http://arxiv.org/abs/2610.03415v1)
+  > **TL;DR**: Addresses communication bottlenecks in expert-parallel MoE training. Proposes RailWave with adaptive spatial-temporal scheduling for traffic redistribution. Achieves up to 5.84x speedup on H800 GPUs.
+* `edge` `agentic` `serving` [EdgeAgent: Orchestrating On-Device LLM inference for End-User Multi-Agent Systems on CPU-GPU Unified Memory Architectures](http://arxiv.org/abs/2610.03394v1)
+  > **TL;DR**: Addresses inefficiencies in multi-agent LLM inference on edge UMAs due to memory contention and fragmented execution. Proposes EdgeAgent with UMA-aware tensor parallelism and dynamic agent scheduling via adaptive drafting and suspension. Achieves 1.77x speedup on Apple M4 under extreme tool-use latencies.
+* `agentic` `RL` `training` [VenusRL: A Fully Disaggregated Agentic RL System with Priority Scheduling and Scalable Interaction](http://arxiv.org/abs/2610.03286v1)
+  > **TL;DR**: Addresses agentic RL training inefficiency due to straggling trajectories and memory over-provisioning. Proposes VenusRL with priority-aware scheduling heuristics and memory-sharing sandbox manager using page aliasing and CoW. Achieves up to 4.24x training speedup and 89% cost reduction.
+* `kernel` [D2K-Bench: Can LLM Agents Turn Expert Designs into Efficient GPU Kernels?](http://arxiv.org/abs/2610.03226v1)
+  > **TL;DR**: Proposes D2K-Bench to measure how effectively LLM agents translate expert GPU kernel design guidance into efficient implementations. Benchmark with 26 tasks shows guidance elevates geometric mean speedup for three leading models from 1.69x to 2.49x on NVIDIA B200 GPUs.
+* `MoE` `serving` `disaggregation` [AFORE: Attention-FFN Disaggregation with Overlapped Reconfiguration of Experts](http://arxiv.org/abs/2610.03203v1)
+  > **TL;DR**: Addresses expert load imbalance in attention-FFN disaggregated MoE serving causing performance degradation. Designs AFORE, a system using microbatch-aware expert reconfiguration and overlapped migration to balance load. Achieves 10.1-17.6% higher throughput and 7.1-9.5% lower P95 latency versus baselines.
+* `serving` `agentic` `offloading` [Coda: Exploiting Admission Flexibility for Coding-Agent Serving](http://arxiv.org/abs/2610.03088v1)
+  > **TL;DR**: Addresses inefficient admission in serving LLM-based coding agents due to KV state heterogeneity and context length mismatches. Introduces Coda with readiness-informed admission (Tiered-Aging state) and Compatibility-Aware execution grouping, plus routing considering KV-residency. Achieves 70.5% average improvement in SLO-compliant throughput.
+* `serving` `disaggregation` `agentic` [ServeTwin: A Benchmark-Validated Simulator for Distributed LLM Architecture Exploration](http://arxiv.org/abs/2610.02732v1)
+  > **TL;DR**: Proposes ServeTwin, a simulator for distributed LLM serving that uses analytical timing to avoid hardware profiling, capturing scheduling, KV-cache evolution, and multi-turn agents. Validates with 3.6% mean error in throughput prediction.
+* `serving` `offloading` [WakeKV: Reactive, Reversible KV Residency for Heads That Change Their Minds](http://arxiv.org/abs/2610.02713v1)
+  > **TL;DR**: Addresses fixed KV-cache head classification inefficiency in LLM inference. Proposes WakeKV, a reactive residency policy that offloads underutilized heads to a recoverable CPU reservoir. Improves throughput on Mistral-7B in vLLM while maintaining LongBench quality.
+* `serving` `kernel` `scaling` [Beaver: Elastic GPU Sharing between ML and Latency-Critical vRAN Workloads](http://arxiv.org/abs/2610.02522v1)
+  > **TL;DR**: Beaver enables elastic GPU sharing between latency-critical vRAN and ML workloads via slot-based SM repartitioning and kernel rewriting to yield HBM bandwidth. On an H200, it maintains vRAN's p99.9 latency within 1.5ms while retaining 74% of Llama-3.3-70B serving throughput.
+* `RAG` `agentic` `serving` [Compound AI System Reliability: A Failure Taxonomy and Resilience Pattern Catalog from 150 Production Incidents](http://arxiv.org/abs/2610.02503v1)
+  > **TL;DR**: Analyzes 150 production incidents to construct a failure taxonomy for compound AI systems and proposes resilience patterns. Patterns like circuit breakers and quality gates measured via fault injection. Implementing three or more reduces MTTR by 71% versus baselines.
+* `serving` [Feature Freshness Budgets for Real-Time ML Inference Under Stream Lag](http://arxiv.org/abs/2610.02259v1)
+  > **TL;DR**: Addresses feature staleness in online ML inference causing skew. Defines freshness budgets per feature, validates staleness bounds via simulation (Kafka/Redis/PostgreSQL). Achieves 0.018 MAE in drop rate error by randomizing simulation phases.
+
 ### 2026-10-03
 * `MoE` `offloading` `serving` [MoE-CORE: Coordinated Expert Offloading and Residency for Memory-Constrained MoE Inference](http://arxiv.org/abs/2610.01950v1)
   > **TL;DR**: Addresses slow MoE inference on memory-constrained devices via coordinated expert offloading. Designs MoE-CORE with staged prefill, cache-aware residency, routing-history replacement, and prefetching. Achieves 38-45 ms/token vs vLLM Prefetch's 1269 ms/token on DeepSeek-V4.
