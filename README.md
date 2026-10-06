@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3304-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.05-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3325-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,50 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-06
+* `offline` `scaling` [One Global Beam Across Many GPUs: High-Throughput Beam Search at Billion-Record Frontier Scale](http://arxiv.org/abs/2610.06718v1)
+  > **TL;DR**: Proposes a distributed beam search system for massive-scale inference tasks by coordinating multiple GPUs without centralizing state. A GPU-centric pipeline with minimal CPU overhead achieves 74.75 million pairs/second on eight H200 GPUs at 2.9 billion effective beam size.
+* `serving` `scaling` [OrigaMIG: MIG-Aware VM Placement with a Neighborhood-Restricted BILP and Live Migration](http://arxiv.org/abs/2610.06646v1)
+  > **TL;DR**: Addresses resource fragmentation in MIG-based GPU clusters for multitenant VM placement. Proposes OrigaMIG, combining greedy placement with neighborhood-restricted BILP optimization via live migration. Reduces active PMs by up to 12.5%, migrates 29-49% fewer VMs, and minimizes energy per GPU-hour.
+* `edge` `serving` [DIALER: A Case for Improving Rare-Class Accuracy in Retraining-Free Edge Video Analytics](http://arxiv.org/abs/2610.06358v1)
+  > **TL;DR**: Improves rare-class accuracy in edge video analytics using vision foundation models without retraining. DIALER pre-builds correction pipelines offline and executes stages with idle GPU headroom at runtime. Achieves up to 14.0% rare-class accuracy gain with no interference to real-time inference.
+* `edge` `training` `kernel` [Fine-Tuning a 3B-Parameter LLM on a Smartphone: Characterizing Sustained Training](http://arxiv.org/abs/2610.06325v1)
+  > **TL;DR**: Studies sustainable fine-tuning of 3B LLMs on mobile devices, characterizing memory, time, and thermal constraints. Fixes an unreported kernel bug in MLX to accelerate backward pass, enabling 1.47x faster training with 33% less energy while maintaining personalization quality.
+* `edge` `multi-modal` [Lightweight and Resource-Efficient Perception for Robotic Guide Dogs](http://arxiv.org/abs/2610.03187v2)
+  > **TL;DR**: Addresses resource-efficient, lightweight on-device inference for robotic guide dogs. Fuses 360 camera and LiDAR for perception and uses a vision-language model for explanations. Achieves real-time performance under 55W and 83.8% accuracy on GuideDogQA, surpassing GPT-4o.
+* `agentic` `serving` `RL` [Serve Now or Improve Later? Scheduling Self-Evolution in Online Agent Systems](http://arxiv.org/abs/2610.06212v1)
+  > **TL;DR**: Investigates scheduling self-evolution tasks for online agents to optimize compute resources. Proposes LearnSched, a scheduler with state-aware actions and counterfactual rollout for reuse windows and recovery. Achieves higher net value by avoiding handoffs via longer execution windows in cold-recovery scenarios.
+* `serving` `offloading` `storage` [Characterizing High Bandwidth Flash for LLM Serving](http://arxiv.org/abs/2609.39131v2)
+  > **TL;DR**: Addresses memory bottlenecks in agentic LLM serving using high-bandwidth flash (HBF). Proposes a hierarchical storage system (HBM-HBF-host) and buffered cache-aware scheduling. Achieves 36.1-87.7% reduction in completion time and extends HBF write lifetime from 1.21 to 14.82 years.
+* `serving` `training` `offloading` [MOLT: A Fine-Grained GPU Memory Sharing System for LLM Serving with Opportunistic Fine-Tuning](http://arxiv.org/abs/2610.05748v1)
+  > **TL;DR**: MOLT addresses efficient GPU memory sharing for colocated LLM serving and opportunistic fine-tuning. It proposes fine-grained memory reclamation of individual activations during backward passes with recomputation. Achieves 99.7% SLO attainment and 1.9–3.3× more tuning work versus discard-based methods.
+* `agentic` `edge` `serving` [Nexus: An Execution Fabric for AI Agents Across Cloud, Edge, and Devices](http://arxiv.org/abs/2610.05709v1)
+  > **TL;DR**: Proposes Nexus for efficient, reliable distributed AI agent execution across cloud-edge, using persistent tasks and delegation. Achieves all workflows succeed, no duplicate appends, and faster task completion (median 3.88s) with 100% success in evaluations.
+* `kernel` [RESOLVE: Language-Agnostic Validation of GPU Kernels Through Testing, Reduction, and Proof](http://arxiv.org/abs/2610.05683v1)
+  > **TL;DR**: Introduces RESOLVE for validating AI-generated GPU kernels via nondeterminism testing, reduced-concurrency rewriting, and formal equivalence proof. Found four unreported issues in mega-kernels and enabled repair with minimal performance impact.
+* `hardware` `MoE` `kernel` [Measuring and Reducing Cross-Vendor Mismatch in Language Models](http://arxiv.org/abs/2610.05458v1)
+  > **TL;DR**: Study investigates cross-vendor GPU mismatch in LLM outputs traced to accumulation order in matrix instructions. Proposes selectively upcasting to FP32 (e.g., keeping MLPs in BF16) to reduce logit error. Achieves 94% of full FP32's error reduction at 1.3× runtime (vs 3× for full FP32).
+* `serving` [Characterizing Parallelism Strategies in LLM Inference: Fundamental Compute-Communication Trade-offs](http://arxiv.org/abs/2610.05305v1)
+  > **TL;DR**: Analyzes trade-offs among parallelism strategies for distributed LLM inference. Proposes an analytical framework modeling latency breakdown into computation, communication, and pipeline bubbles across prefill and decoding. Experimental validation confirms compute-communication trade-offs, guiding parallelism selection and system optimization.
+* `MoE` `serving` `kernel` [HiNa-MoE: High-Performance, Non-Intrusive MoE Inference on CPUs with Matrix Engines](http://arxiv.org/abs/2610.05123v1)
+  > **TL;DR**: Addresses efficient MoE inference on CPUs by minimizing weight staging latency. Introduces HiNa-MoE with a micro-kernel that fuses layout transforms, NUMA-aware partitioning, and matrix-matrix operations for decode phase, achieving up to 3.37x FFN kernel speedup and 2.09x end-to-end speedup over baselines.
+* `training` `networking` [CommuteProp: Decoupled Training for Communication Bound Split LLM Fine-Tuning](http://arxiv.org/abs/2610.05105v1)
+  > **TL;DR**: Addresses the sequential communication bottleneck in split learning for LLM fine-tuning. Proposes CommuteProp, an asynchronous algorithm that decouples training to overlap computation and communication. Achieves substantial throughput gains while maintaining accuracy.
+* `serving` `LoRA` [From Overloaded to Guaranteed: High-Throughput Multi-SLO Enforcement for LoRA-Assisted On-Premise LLM Deployment](http://arxiv.org/abs/2610.04956v1)
+  > **TL;DR**: Addresses SLO violations and low throughput when serving multiple LoRA-adapted models on resource-constrained on-premise servers. Introduces HALO with spatial multiplexing via GPU SM partitioning and an SLO-aware scheduler using request-level slack. Minimizes SLO violations and improves throughput over baselines.
+* `serving` `offloading` [Static Bootstrap Placement for Encrypted Language Model Decoding](http://arxiv.org/abs/2610.04912v1)
+  > **TL;DR**: Addresses high-latency secure token generation by enabling server-side decoding under homomorphic encryption. Proposes AR-HE with static bootstrap placement, work skipping, and encrypted caching. Reduces GPT-2 small token generation cost from 4715 to 544 seconds (8.7x) on H100 and lowers bootstraps from 11751 to 1072 per step.
+* `serving` [AID: A Framework for AI Infrastructure Dynamics](http://arxiv.org/abs/2610.04801v1)
+  > **TL;DR**: Proposes AID, a framework for modeling AI inference infrastructure states and decisions under partial observability. Introduces analytical error bounds for state prediction and controlled reduction. Validation protocol demonstrates improved state representation for caching, workload handling, and action policies.
+* `serving` `edge` [PhaseGate: Phase-Aware CPU Retrieval Scheduling for On-Device LLMs on Unified Memory](http://arxiv.org/abs/2610.04537v1)
+  > **TL;DR**: Mitigates CPU retrieval interference with GPU-based on-device LLM inference via phase-aware concurrency control. PHASEGATE adaptively limits CPU workers during prefill/decode phases. Achieves 2.0× retrieval throughput under backlog while maintaining p95 LLM latency within 1.25× baseline across diverse devices.
+* `kernel` [SyclKittens: A Tile Programming Model for Programmers and Coding Agents on Intel GPUs](http://arxiv.org/abs/2610.04277v1)
+  > **TL;DR**: Introduces SyclKittens, a tile programming model for Intel GPUs to simplify development of efficient kernels. Encodes hardware-aware methods for improved performance. Achieves 1.59x single-GPU and 2.91x multi-GPU speedups for Llama-3.1-8B inference against existing systems.
+* `sparse` `kernel` `training` [Beyond Masked Sparsity: SNACK Enables Truly Sparse Neural Networks on GPU](http://arxiv.org/abs/2610.04093v1)
+  > **TL;DR**: Proposes SNACK, a truly sparse GPU layer with custom COO-format SpMM kernel for efficient training and inference. Achieves 40% peak training memory reduction and 4.8x inference latency speedup on GPT-2 at 99% sparsity over masked dense baselines.
+* `storage` `training` [RetainZ: Reclaim-Time-Aware Placement for AI Checkpoints on Zoned SSDs](http://arxiv.org/abs/2610.05554v1)
+  > **TL;DR**: Addresses inefficient space utilization and high latency in AI checkpointing on ZNS SSDs. Proposes RetainZ, a storage backend that groups objects by explicit reclaim epochs to minimize deleted data and unused zone space. Reduces space waste by 41.7% and p99 checkpoint latency by 47.5% compared to ZenFS.
+
 ### 2026-10-05
 * `training` `scaling` [Cross-Facility LLM Pre-training on HPC: Elastic Aggregation, Data Leasing, and Queue-Aware Placement](http://arxiv.org/abs/2610.03457v1)
   > **TL;DR**: Enables LLM pre-training across fragmented HPC facilities using elastic aggregation, data leasing (DARL), and queue-aware placement. Achieves constant communication overhead of 110s per round, reducing to 3.1% of wall time at 2000 local steps from 32% at 100 steps.
