@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3325-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3342-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.07-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,42 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-07
+* `RL` `sparse` `networking` [NeMo-DCR: Bit-Exact Delta-Compressed Refit for Scalable Agentic RL at Trillion-Parameter Scale](http://arxiv.org/abs/2610.08430v1)
+  > **TL;DR**: Addresses the high latency of weight synchronization in agentic reinforcement learning by proposing NeMo-DCR, a bit-exact delta-compressed refit system with affine mappings and reliable overwrites. Achieves up to 40× faster refits, reducing transfer time from 87.5 min to 150 s for 1T-parameter models.
+* `serving` `agentic` `offloading` [Lachesis: Lifetime-Aware KV Cache Placement for Agent Serving across HBM and High-Bandwidth Flash](http://arxiv.org/abs/2610.08378v1)
+  > **TL;DR**: Reduces write wear on high-bandwidth flash for agentic LLM serving. Introduces Lachesis, a lifetime-aware KV cache placement layer between agent harness and serving engine. Extends HBF lifetime by 1.19-3.13x, achieving 5+ years endurance under SLO-driven continuous operation.
+* `edge` `serving` `offloading` [DySCo: Dynamic Sharding for Collaborative Edge-Cloud LLM Inference with Depth-Synchronized Batching](http://arxiv.org/abs/2610.08268v1)
+  > **TL;DR**: Proposes DySCo to reduce idle gaps and enable batching in edge-cloud LLM inference with dynamic model sharding and depth-synchronized batching (DSB). Introduces dyForward to run contiguous layer ranges without weight reloading and DSB to batch common suffixes. At concurrency eight, achieves 275% higher throughput than FIFO and reduces latency.
+* `offline` `networking` [One Global Beam Across Many GPUs: High-Throughput Beam Search at Billion-Record Frontier Scale](http://arxiv.org/abs/2610.06718v2)
+  > **TL;DR**: Addresses beam search at billion-record scale by distributing state across GPUs with minimal CPU communication, using one global reduction per key. Achieves 74.75 million parent-generator pairs per second on eight H200 GPUs at effective beam size 2.9 billion.
+* `serving` `scaling` [AID: A Framework for AI Infrastructure Dynamics](http://arxiv.org/abs/2610.04801v2)
+  > **TL;DR**: Proposes AID, a framework for modeling AI infrastructure dynamics across serving and resource processes. Introduces state representations supporting prediction and intervention under varying policies. Validation includes analytical results showing a lower bound on prediction error and exact state reduction conditions.
+* `agentic` `serving` `edge` [Do I Need the Cloud? Uncertainty-Aware Step-Level Handoff for Small Language Model Agents](http://arxiv.org/abs/2610.07816v1)
+  > **TL;DR**: Investigates efficient serving for SLM agents by escalating uncertain steps to cloud. Proposes STEPGATE with uncertainty scoring for step-level handoff. Achieves 69.0% trajectory success using only 30.0% cloud actions.
+* `serving` `RAG` [Persistent Memory in Multi-Agent LLM Inference: What It Costs, What It Buys, and When You Can Tell](http://arxiv.org/abs/2610.07782v1)
+  > **TL;DR**: Investigates memory reduction and accuracy impacts of persistent recall in multi-agent LLM inference. Proposes a decompositional architecture to bound active KV cache per agent. Achieves 14.3 MiB peak KV working set per query versus 35.5 MiB for single-pass.
+* `training` [FailBench: Evaluating Fault Tolerance Across Distributed Training Architectures](http://arxiv.org/abs/2610.07688v1)
+  > **TL;DR**: Evaluates crash-fault-tolerance mechanisms across distributed training architectures via FailBench, a unified harness testing seven architectures and eight mechanisms. Finds no universally best approach; in-memory replication restores in ~17 ms but exhibits 3.7%-176% overhead depending on architecture, guiding mechanism selection.
+* `training` `offloading` `MoE` [TRANSIT: Transparent Scale-in for Multi-Node LLM Training](http://arxiv.org/abs/2610.07593v1)
+  > **TL;DR**: Proposes TRANSIT, a transparent framework for multi-node LLM training that offloads to CPU DRAM via zero-copy interposition. It enables training with 50% fewer GPUs while maintaining over 90% baseline throughput and achieves up to 68% higher per-GPU throughput versus state-of-the-art alternatives.
+* `MoE` `RL` `networking` [NCCL M2N: A Layout- and Topology-Aware Collective for Distributed Tensor Resharding](http://arxiv.org/abs/2610.07516v1)
+  > **TL;DR**: Addresses inefficient weight resharding in distributed LLM training/RL. Proposes NCCL M2N, a layout-topology-aware collective that schedules hierarchical transfers and overlaps network with replication. Achieves 7.9x speedup in MoE layer transfers and 2.09x faster weight-sync in DeepSeek-V3 RL.
+* `serving` [Mosaic: GPU Sharing with Latency Guarantees through Kernel-Level Interference Prediction](http://arxiv.org/abs/2610.07504v1)
+  > **TL;DR**: Proposes Mosaic, a kernel-level GPU interference predictor that models thread-block placement, memory contention, and intra-SM contention using analytical and learned models to enable workload colocation without latency SLO violations. The scheduler MosaicSched uses this for admission control and SM partitioning, reducing prediction error up to 10x and maintaining p99 latency within SLO.
+* `training` `MoE` [Memory-Efficient Expert Routing for Distributed MoE Training](http://arxiv.org/abs/2610.07333v1)
+  > **TL;DR**: Addresses memory inefficiency in MoE training from top-k dispatch buffers. Proposes RelayMoE, a ring-based execution model routing tokens/experts incrementally with overlapped transfers. Achieves up to 2.02× higher throughput and 2.85× longer trainable sequences in full-model training.
+* `training` `networking` [Ofan: Optimal Load Balancing for AI Training](http://arxiv.org/abs/2610.07230v1)
+  > **TL;DR**: Solves inefficient load balancing causing high queueing and CCT inflation in distributed AI training networks. Introduces Ofan, a destination-aware scheme achieving O(1) queueing with pOfan for switch compatibility. Reduces CCT inflation by 16–39× in Llama-3 405B training with FSDP2.
+* `serving` `MoE` `kernel` [Cascadia: Resident 975B MoE Inference on Eleven AI PCs](http://arxiv.org/abs/2610.07219v1)
+  > **TL;DR**: Investigates serving 975B MoE model Inkling on distributed AI PCs. Designs custom engine with OpenVINO fused primitives and pipelining, reducing dense-layer call time from 8.1 to 4.5 ms. Achieves 60.29 aggregate decode tokens/s at 88 streams.
+* `networking` `training` `serving` [T-CCL: Resource Efficient and Performant Collective Communication using Tensor Memory Accelerator](http://arxiv.org/abs/2610.07098v1)
+  > **TL;DR**: Addresses SM resource overhead in collective communication for large models with T-CCL, a library offloading data movement and reductions to Tensor Memory Accelerator via pipelined asynchronous operations. Achieves up to 3.42x speedup over NCCL under resource constraints and 1.31x higher vLLM inference throughput.
+* `serving` `agentic` [Evaluating Inference Compute for Generative AI: A Framework for Enterprise Workloads](http://arxiv.org/abs/2610.07094v1)
+  > **TL;DR**: Analyzes how agentic LLM trajectories (sequential computation at batch size one) shift inference economics toward minimizing per-token latency. Proposes an evaluation framework using silicon-to-enterprise metrics, showing compounded reliability impacts (e.g., 2% per-step failure erases 2× decode advantage over 20 steps).
+* `agentic` `serving` [When Agent Context Goes Stale: Incoherence in Volatile Agent Context](http://arxiv.org/abs/2610.05281v2)
+  > **TL;DR**: Addresses agent errors due to stale tool observations in volatile environments. Proposes Concord, a coherence framework that links observations to sources, detects changes, and updates/annotates/suppresses stale context. Achieves consistent answers with 46.4% fewer tokens than the strongest non-oracle baseline.
+
 ### 2026-10-06
 * `offline` `scaling` [One Global Beam Across Many GPUs: High-Throughput Beam Search at Billion-Record Frontier Scale](http://arxiv.org/abs/2610.06718v1)
   > **TL;DR**: Proposes a distributed beam search system for massive-scale inference tasks by coordinating multiple GPUs without centralizing state. A GPU-centric pipeline with minimal CPU overhead achieves 74.75 million pairs/second on eight H200 GPUs at 2.9 billion effective beam size.
