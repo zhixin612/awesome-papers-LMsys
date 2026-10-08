@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3342-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.07-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3347-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.08-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-08
+* `agentic` [LOCAA: An Agentic System for Automated Lossy Compressor Tuning](http://arxiv.org/abs/2610.10487v1)
+  > **TL;DR**: Automates lossy compressor tuning for scientific data to avoid exhaustive search. LOCAA uses an LLM agent with tool integration, compressor-aware guidance, and persistent memory. Reduces average evaluation trials by 72.4% compared to binary search under quality constraints.
+* `training` `offloading` `scaling` [Fast and Memory Efficient Offload Training Framework with Hybrid XPU Computation](http://arxiv.org/abs/2610.09657v1)
+  > **TL;DR**: Addresses insufficient GPU memory in training large models by improving offloading efficiency. Proposes MemFerry with a scheduler and shadow model for hybrid GPU/DHA computation and dynamic gradient offloading. Achieves 1.68x faster training and 1.52x larger model than ZeRO-Offload on a single GPU.
+* `MoE` `serving` `networking` [Democratizing MoE inference on commodity GPUs with CoMoE](http://arxiv.org/abs/2610.09424v1)
+  > **TL;DR**: Proposes CoMoE for efficient MoE inference on commodity GPUs via host-centric routing, reducing communication redundancy and synchronization stalls. Achieves 1.46× throughput increase and comparable performance to A800 GPUs at 23.4% hardware cost.
+* `training` `MoE` `networking` [Expert Coupling in MoE Pretraining: Reducing All-to-All Overhead with Correlated Placement and Token Shuffling](http://arxiv.org/abs/2610.09372v1)
+  > **TL;DR**: Addresses the communication bottleneck in MoE training due to all-to-all collectives. Introduces correlated expert placement and token shuffling to exploit routing correlations, reducing cross-GPU communication. Achieves up to 2.63× reduction in all-to-all time and 1.41× faster training steps.
+* `serving` `multi-modal` `diffusion` [vLLM-Omni Technical Report: A Unified Serving Runtime for Omni-Modality Generation](http://arxiv.org/abs/2610.09307v1)
+  > **TL;DR**: Aims to unify fragmented serving for multi-stage omni-modality generation workloads. Proposes vLLM-Omni, a runtime with a single orchestrator managing stage pipelines, cross-stage streaming, and session-oriented control. Evaluations on multimodal CI setups show reduced overhead across TTS, video, and world-model tasks on H100/H200 systems.
+
 ### 2026-10-07
 * `RL` `sparse` `networking` [NeMo-DCR: Bit-Exact Delta-Compressed Refit for Scalable Agentic RL at Trillion-Parameter Scale](http://arxiv.org/abs/2610.08430v1)
   > **TL;DR**: Addresses the high latency of weight synchronization in agentic reinforcement learning by proposing NeMo-DCR, a bit-exact delta-compressed refit system with affine mappings and reliable overwrites. Achieves up to 40× faster refits, reducing transfer time from 87.5 min to 150 s for 1T-parameter models.
