@@ -173175,5 +173175,292 @@
         "submit_date": "2026-10-07",
         "relevant": false,
         "indexed_date": "2026-10-08"
+    },
+    "http://arxiv.org/abs/2610.10148v2": {
+        "title": "Reconciling Bottom-Up Metrics with Top-Down Reporting for Cloud Carbon Accounting",
+        "link": "http://arxiv.org/abs/2610.10148v2",
+        "abstract": "Organizations seeking to reduce the carbon footprint of their cloud applications must rely on two largely disconnected ways of measuring it, each with important limitations. Bottom-up metrics like Software Carbon Intensity (SCI) provide signals for carbon-aware optimization, but tenants lack the information needed to account for many provider-side overheads. Top-down reports by cloud providers provide a more comprehensive view of a tenant's carbon footprint but are coarse and methodologically opaque. Because the two approaches differ in scope and reporting frequency, the current state of the art treats them as decoupled: bottom-up metrics for optimization, top-down reports for corporate disclosure.\n  We argue that the two signals should be reconcilable. A per-workload metric whose improvements never surface in the provider's audited report will not be adopted for accountability at scale. We survey the state of the art in cloud carbon accounting and propose a vision for reconciled SCI (rSCI): a per-workload metric that re-anchors a bottom-up energy estimate to the cloud provider's top-down report through a residual. By decomposing and allocating this residual according to its physical drivers, rSCI can preserve operational incentives while also attributing idle capacity and embodied carbon to the workloads that drive them. We show that today's top-down reporting is still too coarse and methodologically inconsistent to support credible reconciliation and lay out concrete steps in provider reporting and standards to make it practical.",
+        "authors": [
+            "Philipp Wiesner",
+            "Loïc Lannelongue",
+            "Alexander Acker",
+            "Odej Kao"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.10148v2",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.11955v1": {
+        "title": "Capturing a Moving Target on Star Graphs by Two Communicating Mobile Agents",
+        "link": "http://arxiv.org/abs/2610.11955v1",
+        "abstract": "We study a problem of searching for a mobile target in an $m$-ray star graph, a natural generalization of linear search to multiple directions. The target is placed adversarially on one of the rays and may move with constant speed. We investigate a two-robot setting, where cooperation and communication play a central role. We study two communication models: the Face-to-Face (F2F) model, where robots communicate only upon meeting, and the Sender-Receiver (S/R) model, where communication is asymmetric. We focus on the {\\em away model}, in which the target moves {\\em away} from the origin with speed $v<1$.\n  We design search strategies that minimize the competitive ratio and analyze the problem under three knowledge assumptions: \\emph{NoDistance}, \\emph{NoSpeed}, and \\emph{NoKnowledge}. For each setting, we derive upper bounds on the competitive ratio and for some cases, we derive the lower bound. Our results highlight how the number of rays and the communication model influence the competitive ratio.",
+        "authors": [
+            "Khaled Jawhar",
+            "Evangelos Kranakis"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.11955v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.11875v1": {
+        "title": "NosRacer: Dynamic Detection of Race Conditions in On-Device Network Operating Systems",
+        "link": "http://arxiv.org/abs/2610.11875v1",
+        "abstract": "Commercial on-device network operating systems (NOSes) run complex control planes in production routers and switches, where configuration update tasks are executed by multiple loosely coupled components through asynchronous message passing. Such executions are prone to race conditions: the same ordered input commands may produce different outcomes when messages are delivered in different orders. The race conditions are difficult to expose because they often manifest only as subtle, delayed malfunctions. Existing static analysis techniques lack scalability and precision for large-scale industrial NOSes, while dynamic ones incur substantial system-execution cost when attempting to cover the space of asynchronous message interleavings.\n  To address the challenges above, we present NosRacer, a dynamic analysis framework for race condition detection in industrial-grade on-device NOSes. NosRacer uses a two-phase design. The concentration phase reduces analysis scope by leveraging the locality of configuration update tasks. Race condition detection is then limited to a small subset of involved components and crucial state variables, thereby reducing the detection cost. The perturbation phase proactively perturbs message asynchrony to increase the likelihood of executions with race-condition-exposing message interleavings. It keeps perturbation practical by grouping compatible perturbations for parallel execution and adaptively strengthening perturbations.\n  We implement NosRacer in a commercial, actively developed NOS. NosRacer is integrated into the existing testing factory and used to detect race conditions in 5 key control-plane components. NosRacer achieves 66% precision and detects 21 race conditions confirmed by developers as severe bugs, while keeping the detection overhead below 10%.",
+        "authors": [
+            "Runze Wu",
+            "Jingbo Zhai",
+            "Shanming Ping",
+            "Lingzhi Ouyang",
+            "Hua Duan",
+            "Qin Zou",
+            "Chengcheng Huang",
+            "Bingshe Liu",
+            "Xudong Lang",
+            "Xiaoxing Ma",
+            "Yu Huang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2610.11875v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.11821v1": {
+        "title": "Federated Zeroth-Order Optimization with Direction Aggregation and Variance Reduction",
+        "link": "http://arxiv.org/abs/2610.11821v1",
+        "abstract": "We study constrained nonsmooth nonconvex stochastic optimization in federated settings, where clients access only stochastic function evaluations. Existing federated zeroth-order methods primarily combine local zeroth-order updates with model averaging. However, they struggle with client drift induced by local projected updates and sampling variance in stochastic zeroth-order estimates. In this paper, we propose a federated zeroth-order framework based on direction aggregation, equipped with two local sampling schemes. Specifically, FedZOO constructs a local direction from a minibatch shared across multiple spherical queries, thereby controlling the stochastic errors arising from data sampling and gradient approximation. In contrast, FedVRZO forms its local estimator from independent sample--direction pairs, so that its sampling error is controlled directly by the number of sample--direction pairs. In both algorithms, clients compute the mean of the directions evaluated along their projected local trajectories, and the server performs a single projected update using the weighted aggregate of the client directions. Furthermore, we establish convergence guarantees for FedZOO and FedVRZO, respectively. Experiments on black-box adversarial attacks demonstrate the effectiveness of the proposed methods.",
+        "authors": [
+            "Qianlong Dang",
+            "Baosheng Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.11821v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.11805v1": {
+        "title": "New Contraction Bounds for Multidimensional Asymptotic Consensus in Dynamic Networks",
+        "link": "http://arxiv.org/abs/2610.11805v1",
+        "abstract": "This work studies the multidimensional asymptotic agreement problem in dynamic networks. We assume that nodes have $d$-dimensional inputs and need to converge arbitrarily close to each other's inputs while their vectors stay inside the convex hull of all inputs.\n  We present a new upper bound of $\\sqrt{2d/(3d+1)}$ on the contraction rate of asymptotic agreement in the non-split network model, where $d$ is the dimension of the input and $\\sqrt{2d/(3d+1)}\\rightarrow \\sqrt{2/3}\\approx 0.816$ for $d\\rightarrow\\infty$. To this end, we adapt the BallMidpoint algorithm (Melnyk, 2026) recently introduced for the all-to-all communication model. This algorithm lets the nodes choose the midpoint of the smallest enclosing ball of the received vectors. This bound is strictly worse than the $\\sqrt{1/2}\\approx 0.707$ contraction rate for fault-tolerant approximate agreement in all-to-all communication networks because the convex hulls of the nodes do not have a common intersection, and only intersect pairwise. Our bound improves over the previously best-known contraction rate of $\\sqrt{7/8}\\approx 0.935$ for dynamic networks via the MidExtremes algorithm (Függer and Nowak, 2018).\n  We present the first multi-dimensional lower bound of $2/3$ for the contraction of coordinate-free memoryless anonymous deterministic algorithms in non-split networks, for $d\\ge 8$. This result shows that the previously best-known lower bound of $1/2$ on the contraction rate for $n\\ge 3$ and $d=1$ is not tight in higher dimensions. If $n$ is infinite, we extend this lower bound to $\\sqrt{1/2\\cdot d/(d+1)}$, which converges to $\\sqrt{1/2}$ for $d\\rightarrow \\infty$. We further show that for a single round, the one-round contraction is at least $\\sqrt{\\frac{2d-2}{3d+7}}$, which converges to $\\sqrt{2/3}$ for $d\\rightarrow\\infty$, showing that the BallMidpoint strategy is asymptotically optimal for one round.",
+        "authors": [
+            "Zeremonienmeister Berber Aab",
+            "Darya Melnyk",
+            "Stefan Schmid"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.11805v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.06358v2": {
+        "title": "DIALER: A Case for Improving Rare-Class Accuracy in Retraining-Free Edge Video Analytics",
+        "link": "http://arxiv.org/abs/2610.06358v2",
+        "abstract": "Edge video analytics with lightweight models is prone to accuracy degradation due to persistent distributional shifts in live video streams. While continuous learning (CL) addresses such data drift, it heavily strains the limited compute resources of edge servers originally provisioned for inference. Our empirical study reveals that emerging vision foundation models (VFMs) offer a practical, retraining-free alternative that delivers high average accuracy with remarkable compute savings. However, VFMs frequently misclassify specific rare classes, which often represent critical objects, as visually similar common classes. We design DIALER, a system that exploits the spare compute cycles freed by retraining-free VFM inference to mitigate rare-class misclassifications. Specifically, DIALER pre-builds multi-stage correction pipelines for dominant rare-to-common confusion pairs offline. At runtime, it routes correction candidates to the corresponding pipelines and executes as many stages as idle GPU headroom permits. Evaluation on four real-world driving datasets shows that DIALER improves rare-class accuracy by up to 14.0% without interfering with real-time VFM inference for multi-stream analytics.",
+        "authors": [
+            "Dongyoon Ryu",
+            "Sungho Jeon",
+            "Xinyue Ma",
+            "Di Wang",
+            "Jonghyun Choi",
+            "Minjia Zhang",
+            "Myeongjae Jeon"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.06358v2",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.09618v2": {
+        "title": "Almost Optimal Constant-Round Approximation of Dominating Set in Graph Classes with Excluded Minors",
+        "link": "http://arxiv.org/abs/2610.09618v2",
+        "abstract": "For every fixed proper minor-closed class $\\mathscr C$ and every $ε>0$, we give a deterministic LOCAL algorithm that returns a dominating set of size at most $(2a(\\mathscr C)+1+ε)γ_f(G)$ on every $G\\in\\mathscr C$. Here $a(\\mathscr C)$ is the supremum edge-to-vertex ratio in $\\mathscr C$, and $γ_f(G)$ is the fractional domination number. The class also admits a deterministic $(1+ε)$-approximation for fractional dominating set and a randomized algorithm that always returns a dominating set and has expected size at most $(1+ε)γ(G)$. In each case, the number of rounds depends only on $\\mathscr C$ and $ε$. None of these algorithms requires the number of vertices or the maximum degree as part of the input.\n  For planar graphs, this gives the deterministic guarantee $(7+ε)γ_f(G)$. Together with the lower bound of Hilke, Lenzen and Suomela, it determines the infimum of the deterministic constant-round approximation ratios for planar minimum dominating set as $7$, settling a question that had remained open since their work. The corresponding infima, measured against the integral optimum, are $7$ for graphs of Euler genus at most any fixed $g\\ge0$, $2t-3$ for $K_t$-minor-free graphs with $3\\le t\\le9$, and $2r+1$ for graphs of treewidth or pathwidth at most any fixed $r\\ge1$. We also prove that, for every integer $r\\ge1$, no deterministic constant-round LOCAL algorithm achieves an approximation ratio below $2r+1$ on the $r$-th powers of paths, even when every vertex knows the number of vertices. This gives a new proof that the limiting constants are optimal for planar graphs, graphs of bounded treewidth or pathwidth, and $K_t$-minor-free graphs with $3\\le t\\le9$. For triangle-free planar graphs, the corresponding infimum is $5$.",
+        "authors": [
+            "Saeed Amiri",
+            "Sebastian Siebertz"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.DC",
+            "cs.DM"
+        ],
+        "id": "http://arxiv.org/abs/2610.09618v2",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.11260v1": {
+        "title": "LLM Agents as Resilience Engineers for Scientific Applications",
+        "link": "http://arxiv.org/abs/2610.11260v1",
+        "abstract": "Efficient checkpoint/restart support is essential for resilient HPC scientific applications, but implementing it requires substantial expertise: developers must identify recoverable state, choose globally consistent checkpoint points, and preserve application invariants during restart. We study whether frontier LLM coding agents can automate this process. We build a benchmark suite of 16 MPI applications spanning diverse domains, code sizes, and critical-state structures, and evaluate them with a no-human-in-the-loop generate--validate--revise pipeline for checkpoint/restart synthesis. Across the benchmark, the pipeline produces 41 working resilient implementations. Our results show that agent-driven resilience engineering is practical when critical state is visible or accessible through coherent abstractions: successful runs finish in under one hour on average, consume about 15M tokens, and produce implementations with negligible failure-free overhead and recovery efficiency comparable to human-written code. However, modularized and fragmented state remains a major limitation, with some failed attempts consuming over 100M tokens and 300 minutes without producing a working implementation.",
+        "authors": [
+            "Hai Duc Nguyen",
+            "Tekin Bicer",
+            "Kyle Chard",
+            "Ian Foster",
+            "Bogdan Nicolae"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.11260v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.11201v1": {
+        "title": "PageWeaver: KV-Guided Query Unions for Sparse Attention",
+        "link": "http://arxiv.org/abs/2610.11201v1",
+        "abstract": "Dynamic sparse attention limits the KV pages selected by each query, but a small support does not necessarily yield efficient GPU work. Query unions share page loads and populate Tensor Core tiles; their cost depends on which queries are grouped together. We present PageWeaver, an execution design that uses selected-page affinity to assemble query groups while preserving each query's original support and complete output ownership. A bounded GPU search produces query IDs, and an ID-aware two-CTA kernel consumes them without materializing reordered Q tensors or cross-page partial outputs. A direct KV-page union implementation provides a complementary design study of nonlocal reuse and reduction cost. With FP8 KV throughout, the H200 Union8 implementation achieves a 1.70x geometric-mean complete-call speedup over the measured FlashInfer path on six captures. Online regrouping further lowers latency by 3.26-7.66% on five selected 64K-context captures. Whole-model prefill throughput is 7.88-14.36% above the tested native path; the incremental regrouping benefit is smaller, with observed median gains of 0.47-0.73% at 32K/64K and regressions at 8K. A B300 comparison identifies cases where preparation cost and a stronger native kernel remove the advantage. These results separate execution-group reuse from the complete cost of exploiting it online.",
+        "authors": [
+            "Zhiyuan Li",
+            "Zihan Li",
+            "Zefang Yuan",
+            "Lei Wang",
+            "Hao Wang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.11201v1",
+        "submit_date": "2026-10-08",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "kernel",
+            "sparse"
+        ],
+        "tldr": "Optimizes sparse attention inference by grouping queries to share KV pages and using a custom GPU kernel. PageWeaver uses KV-page affinity and a two-CTA kernel without tensor reordering. Achieves 1.70x speedup over FlashInfer in prefill.",
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.11158v1": {
+        "title": "Zepp: Accelerating Distributed MoE Serving under Relaxed Balance Constraints",
+        "link": "http://arxiv.org/abs/2610.11158v1",
+        "abstract": "As Mixture-of-Experts (MoE) models continue to scale, serving them increasingly relies on expert parallelism (EP) across a growing number of devices. Yet skewed expert workloads create imbalance across computation, communication, and memory, making load balancing a central optimization objective in distributed MoE serving. We observe that balance is not free: operations introduced to balance one dimension can themselves be expensive or imbalanced. This motivates us to rethink balance as a constraint rather than an optimization objective. We present Zepp, which directly optimizes the bottleneck communication in distributed MoE serving subject to simplified balance constraints on physical resources, i.e., GPUs and NICs. Zepp progressively optimizes inter-node communication across placement, routing, and execution. It first places expert replicas to reduce token communication under GPU constraints, then reshapes communication flows through split and merge primitives under NIC constraints, and finally partitions and schedules ex- pert computation to overlap the resulting communication. To adapt to dynamic workloads, Zepp jointly coordinates computation, token communication, and expert-weight movement at each iteration. Together, these designs allow Zepp to pursue the most efficient execution rather than a single-dimension balanced one. We implement Zepp and evaluate it against 7 state-of-the-art MoE serving systems, achieving up to 6.68$\\times$ MoE layer speedup and a geometric mean speedup of 1.86$\\times$ over the fastest competing baseline.",
+        "authors": [
+            "Chang Chen",
+            "Andrew Yang",
+            "Tiancheng Chen",
+            "Jiangfei Duan",
+            "Xinwei Qiang",
+            "Zhongkai Yu",
+            "Xiang Fang",
+            "Yufei Ding"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.11158v1",
+        "submit_date": "2026-10-08",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Addresses load imbalance in distributed Mixture-of-Experts (MoE) serving under resource constraints. Proposes Zepp to optimize communication via placement, flow reshaping, and overlapped computation-execution. Achieves up to 6.68× MoE layer speedup versus baselines.",
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.11114v1": {
+        "title": "IAPRepair: In-Network Aggregation Enhanced Proactive Repair for Erasure-Coded Storage System",
+        "link": "http://arxiv.org/abs/2610.11114v1",
+        "abstract": "Erasure-coded storage provides fault tolerance with substantially lower storage overhead than full replication, but repairing lost or at-risk blocks requires intensive cross-node data transfer. Existing reactive repair schemes start only after a failure, while proactive schemes can move data before failure but commonly treat migration, reconstruction, and network aggregation as loosely coupled operations. As a result, receiver?side bottlenecks, heterogeneous available bandwidth, and limited programmable-switch state continue to constrain repair paral?lelism. This paper presents IAPRepair, an in-network aggre?gation enhanced proactive repair framework for erasure-coded storage. IAPRepair jointly constructs each repair batch, assigns reconstruction providers and replacement nodes according to normalized transmission loads, schedules migration around the remaining receive capacity, and selectively enables in-network aggregation for reconstruction blocks that would otherwise over?load healthy nodes. The selective design reduces receiver-side traffic while retaining migration parallelism and respecting a configurable switch-resource budget. We implement IAPRepair with a Tofino programmable switch and 16 storage nodes, and evaluate it using both a prototype testbed and large-scale simu?lations. Across coding parameters, block sizes, node populations, and multiple STF-node scenarios, IAPRepair reduces repair time by at least 47.83% compared with the evaluated state-of-the-art methods. The results demonstrate that coordinating proactive repair decisions with in-network processing is an effective way to improve repair efficiency under bandwidth heterogeneity.",
+        "authors": [
+            "Lei Liu",
+            "Yong Wang",
+            "Junqi Chen",
+            "Yangfan Liang",
+            "Qian He",
+            "Baokang Zhao"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.11114v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.10926v1": {
+        "title": "Adaptive Multi-Discriminator WGAN Framework for Resource-Constrained Internet of Vehicles Using Reinforcement Learning and Game Theory",
+        "link": "http://arxiv.org/abs/2610.10926v1",
+        "abstract": "Managing machine learning workloads as a network service introduces a resource-orchestration problem distinct from conventional model training; which nodes should be allocated to a task, how communication and computation budgets should be divided among them, and how service quality should be sustained as connectivity and node availability change with mobility. Deploying Generative Adversarial Networks (GANs) in Internet of Vehicles (IoV) environments is a demanding instance of this problem; resource constraints, dynamic network topologies, and competing optimization objectives mean that traditional GAN architectures cannot simultaneously achieve high accuracy, efficient resource use, low delay, and low communication overhead. This paper introduces an adaptive multi-discriminator Wasserstein GAN (MD-WGAN) framework that integrates reinforcement learning with game-theoretic coordination to address these challenges jointly. In our framework, roadside units host generators paired with Deep Q-Network (DQN) agents that select discriminator subsets and manage distributed training across mobile vehicular nodes, while a game-theoretic coordination step allocates training epochs between generators and discriminators. A unified optimization objective ties adversarial learning quality to resource efficiency, communication overhead, and latency under vehicular constraints, allowing the framework to continuously adapt its training behavior as network conditions change. Evaluation on real-world NGSIM trajectory data shows that the framework attains prediction accuracy comparable to state-of-the-art GAN baselines - the lowest RMSE (1.029) and MAE (0.894) among all evaluated methods - while markedly improving resource efficiency: average CPU utilization is reduced by roughly 28% and mean memory usage by roughly 6%, at competitive communication overhead and latency.",
+        "authors": [
+            "Farhoud Jafari Kaleibar",
+            "Amr M. Zaki",
+            "Marin Litoiu"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.10926v1",
+        "submit_date": "2026-10-07",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.10845v1": {
+        "title": "Real Long-Term Memory for AI: A 50-Million-Token Window That Is Faster and Cheaper Than Recompute",
+        "link": "http://arxiv.org/abs/2610.10845v1",
+        "abstract": "A large language model can only use the text that fits in its context window, and it recomputes its internal key-value (KV) state for a prompt every time the prompt is sent. We test a memory layer, the public package galahad-kv, that saves the KV state of each block of about 16,000 tokens to encrypted local NVMe disk and loads it back later, byte-exact, without recomputing it. We ran it on 50,000,000 tokens of real public text, served through vLLM on one NVIDIA H100, with Gemma 4 12B and Gemma 4 31B. Every block we probed was loaded back from the encrypted store with no recompute (100 of 100, at depths from 0 to 50M tokens) on both models. Loading a block was 2.8x to 4.3x faster than recomputing it and used 8.8x to 12.3x less GPU energy, and GPU memory stayed flat over the whole 50M-token stream. Asked about facts planted millions of tokens earlier, the 12B model gave the right answer 82 times out of 100 and the 31B model 98 times out of 100. Neither model made up an answer. The limits are as follows. This is reuse of stored state, not a wider attention window: one block is loaded at a time, and how well a question is answered depends on the model. Writing the memory is a one-time cost, and the store takes terabytes of local NVMe disk. We describe the test protocol, which is built to resist common ways of gaming long-context benchmarks, and give a single-GPU reproduction that uses public software and a free licence for the package.",
+        "authors": [
+            "Sietse Schelpe"
+        ],
+        "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.10845v1",
+        "submit_date": "2026-10-07",
+        "relevant": true,
+        "tags": [
+            "offloading",
+            "serving"
+        ],
+        "tldr": "Aims to reduce cost and latency of long-context LLM inference by offloading and reusing KV states via disk storage. Introduces galahad-kv, achieving 2.8-4.3× faster block loading and 8.8-12.3× lower GPU energy than recomputation for 50M-token streams with stable GPU memory.",
+        "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.12164v1": {
+        "title": "Mole: Tier-Specific Hotness Profiling Driven Memory Tiering for Multi-Tiered Memory Systems",
+        "link": "http://arxiv.org/abs/2610.12164v1",
+        "abstract": "Multi-tiered memory systems combine fast, small upper tiers with slow, large lower tiers to improve performance and cost efficiency. Existing designs, such as AutoTiering and MTM, rely on greedy promotion and stepwise demotion, which can intensify contention for limited capacity in faster tiers. We observe that promotions directly improve performance, whereas demotions primarily reclaim space. Based on this asymmetry, we propose Mole, a memory tiering system that separates promotion and demotion destinations. Mole employs staging demotion to move cold pages directly to the lowest tier, bypassing intermediate tiers, and targeted promotion to place hot pages in tiers that match their current hotness. The lowest tier serves as a staging area from which pages can be promoted when they become hot again. This separation preserves intermediate-tier capacity for promotions, reducing tier contention and migration failures. However, staging demotion requires timely identification of pages that become hot after demotion. To meet this requirement with low profiling overhead, Mole uses tier-specific profiling: it profiles the lowest tier at high frequency to detect reactivated hot pages, while profiling upper tiers at lower frequency to identify cold pages. Experimental results show that Mole reduces migration failures and improves performance under dynamic access patterns.",
+        "authors": [
+            "Mingyang Liu",
+            "Congming Gao",
+            "Xufeng Yang",
+            "Fang Wu",
+            "Youmin Chen",
+            "Renhui Chen",
+            "Jiwu Shu"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.12164v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-10"
     }
 }

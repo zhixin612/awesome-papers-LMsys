@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3347-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.08-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3350-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,14 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-10
+* `serving` `kernel` `sparse` [PageWeaver: KV-Guided Query Unions for Sparse Attention](http://arxiv.org/abs/2610.11201v1)
+  > **TL;DR**: Optimizes sparse attention inference by grouping queries to share KV pages and using a custom GPU kernel. PageWeaver uses KV-page affinity and a two-CTA kernel without tensor reordering. Achieves 1.70x speedup over FlashInfer in prefill.
+* `MoE` `serving` `networking` [Zepp: Accelerating Distributed MoE Serving under Relaxed Balance Constraints](http://arxiv.org/abs/2610.11158v1)
+  > **TL;DR**: Addresses load imbalance in distributed Mixture-of-Experts (MoE) serving under resource constraints. Proposes Zepp to optimize communication via placement, flow reshaping, and overlapped computation-execution. Achieves up to 6.68× MoE layer speedup versus baselines.
+* `offloading` `serving` [Real Long-Term Memory for AI: A 50-Million-Token Window That Is Faster and Cheaper Than Recompute](http://arxiv.org/abs/2610.10845v1)
+  > **TL;DR**: Aims to reduce cost and latency of long-context LLM inference by offloading and reusing KV states via disk storage. Introduces galahad-kv, achieving 2.8-4.3× faster block loading and 8.8-12.3× lower GPU energy than recomputation for 50M-token streams with stable GPU memory.
+
 ### 2026-10-08
 * `agentic` [LOCAA: An Agentic System for Automated Lossy Compressor Tuning](http://arxiv.org/abs/2610.10487v1)
   > **TL;DR**: Automates lossy compressor tuning for scientific data to avoid exhaustive search. LOCAA uses an LLM agent with tool integration, compressor-aware guidance, and persistent memory. Reduces average evaluation trials by 72.4% compared to binary search under quality constraints.
