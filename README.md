@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3350-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3364-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.12-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,36 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-12
+* `serving` `offloading` `sparse` [Adaptive DHiSparse: Speculative Decoding over a Load-Adaptive KV Hierarchy](http://arxiv.org/abs/2610.13708v1)
+  > **TL;DR**: Addresses KV memory exhaustion in long-context LLM serving. Proposes Adaptive DHiSparse, a load-adaptive hierarchical sparse KV cache with fused retrieval for speculative decoding. Achieves 1.45× higher throughput (793 tokens/s/GPU) than HiSparse at 100K context.
+* `kernel` [CompileMask: Bridging the Gap Between Expressiveness and Efficiency in Attention Masking](http://arxiv.org/abs/2610.13474v1)
+  > **TL;DR**: Addresses the expressiveness-efficiency trade-off in attention masking. Proposes CompileMask, a compiler that generates mask-specific preprocess kernels to produce compact Execution Descriptors for fast visibility checks. Achieves up to 3.8x speedup over prior methods.
+* `offloading` `serving` [Ember: Making Unified Virtual Memory Practical for Discrete-Memory GPUs](http://arxiv.org/abs/2610.13408v1)
+  > **TL;DR**: Improves GPU memory oversubscription without application changes via Ember, featuring hybrid address space, hardware-counter-driven region promotion, and batch eviction. Achieves 6.8-10.6x speedup over UVM at 1.5x oversubscription and 4.7-16x faster LLM token generation at sizes where manual placement fails.
+* `serving` `agentic` `kernel` [Taking Tokenization off the Host for Agentic LLM Serving](http://arxiv.org/abs/2610.13325v1)
+  > **TL;DR**: Addresses the tokenization bottleneck in TTFT for agentic LLM serving by developing GraphTok, a GPU tokenizer using replayable CUDA graphs. Achieves up to 2.4x lower mean TTFT and sustains 518 requests/s, 1.75x higher capacity than strong CPU tokenizers.
+* `training` `networking` [Capturing Electrical Windows Through Reconfigurable Optical Networks: Transfer-aware Scheduling of Multi-Region AI Data Centers](http://arxiv.org/abs/2610.13061v1)
+  > **TL;DR**: Proposes a transfer-aware scheduling framework for AI training migration across data centers to reduce electricity cost by optimizing optical circuit switching for checkpoint transfers. Combines day-ahead planning with real-time adjustments. Lowers grid purchase cost by 12.50% and boosts local renewable utilization by 2.724 percentage points.
+* `training` `scaling` [Execution-Feasible Dispatch of LLM Pre-training Loads for Renewable-Dominant AI Data Centers](http://arxiv.org/abs/2610.13047v1)
+  > **TL;DR**: Addresses efficient scheduling of LLM pre-training in renewable-powered AI data centers. Proposes a dispatch framework mapping workloads to checkpoint-aware 3D-parallel GPU modes with power constraints. Achieves 20.02% operating cost reduction and reduces curtailment from 1.077 to 0.014 MWh.
+* `MoE` `serving` `networking` [Zepp: Accelerating Distributed MoE Serving under Relaxed Balance Constraints](http://arxiv.org/abs/2610.11158v2)
+  > **TL;DR**: Optimizes distributed MoE serving under relaxed resource balance constraints by interleaving placement, routing, and execution adjustments to reduce communication bottlenecks. Achieves up to 6.68× MoE layer speedup over competing systems.
+* `training` `offloading` [SlackSwap: Bandwidth-Aware Activation Swapping and Recomputation for Memory-Efficient DNN Training](http://arxiv.org/abs/2610.13003v1)
+  > **TL;DR**: Addresses memory constraints in training large transformers via efficient activation swapping and recomputation. Proposes SlackSwap, which allocates host-link bandwidth to offload expensive-to-recompute tensors and recomputes others, with FIFO offloads and deadline-first prefetches. Achieves 96-100% of unlimited-memory throughput while using half the activation memory.
+* `serving` `edge` `networking` [Minions: A Dynamic and Distributed Virtual GPU Cloud Built on Idle Apple Silicon Devices](http://arxiv.org/abs/2610.12970v1)
+  > **TL;DR**: Proposes Minions, a distributed GPU cloud aggregating idle Apple Silicon devices for machine learning inference, to address centralized GPU cost and elasticity limitations. The system offers fault-tolerant task execution and efficient resource utilization, demonstrating practical transformation of idle devices into a cost-effective inference platform.
+* `MoE` `serving` `networking` [Democratizing MoE inference on commodity GPUs with CoMoE](http://arxiv.org/abs/2610.09424v2)
+  > **TL;DR**: Enables efficient MoE inference on commodity GPUs via novel host-centric routing. CoMoE minimizes inter-GPU communication with host-backed token multicast and fine-grained aggregation, achieving 1.46x throughput improvement at 23.4% hardware cost versus NVLink systems.
+* `networking` `serving` `training` [Deploying RDMA for Large-Scale Inference and Training Workloads](http://arxiv.org/abs/2610.12815v1)
+  > **TL;DR**: Addresses the challenges in deploying RDMA for efficient communication in distributed training and inference systems. Introduces ByteExpress, which includes RDMA-aware allocation and flow control. Reduces P99 model parameter push latency by up to 74.0% and CPU usage by 10.69%.
+* `serving` `offloading` [GPU-resident Execution for Timing-predictable Sensor Processing Systems](http://arxiv.org/abs/2610.13809v1)
+  > **TL;DR**: Addresses host-mediated latency jitter in GPU-accelerated sensor processing. Proposes a GPU-resident execution model that handles I/O and processing entirely on device without host wakeups. Achieves 7.3× lower jitter (0.66 ms vs 4.83 ms) for real-time camera pipelines.
+* `offloading` `serving` [Ember: Making Unified Virtual Memory Practical for Discrete-Memory GPUs](http://arxiv.org/abs/2610.13408v1)
+  > **TL;DR**: Investigates making GPU oversubscription practical on stock GPUs without hints or profiling. Introduces Ember, a UVM framework using hybrid address spaces, counter-driven region promotion, and eager reclamation for efficient data movement. Achieves up to 16x faster LLM token generation at sizes where manual placement fails.
+* `serving` `storage` `kernel` [PredictIO: Decoupling Workload Prediction from OS-Controlled Storage Prefetching](http://arxiv.org/abs/2610.12971v1)
+  > **TL;DR**: Addresses storage stalls during application loading like LLM model initialization. Proposes PredictIO, decoupling user-space access prediction from kernel-space prefetch execution. Reduces LLM model loading latency by 8.8-47.9% across workloads.
+
 ### 2026-10-10
 * `serving` `kernel` `sparse` [PageWeaver: KV-Guided Query Unions for Sparse Attention](http://arxiv.org/abs/2610.11201v1)
   > **TL;DR**: Optimizes sparse attention inference by grouping queries to share KV pages and using a custom GPU kernel. PageWeaver uses KV-page affinity and a two-CTA kernel without tensor reordering. Achieves 1.70x speedup over FlashInfer in prefill.

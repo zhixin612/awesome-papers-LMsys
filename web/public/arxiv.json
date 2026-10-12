@@ -173462,5 +173462,569 @@
         "submit_date": "2026-10-08",
         "relevant": false,
         "indexed_date": "2026-10-10"
+    },
+    "http://arxiv.org/abs/2610.13830v1": {
+        "title": "Scheduling in Cloud,Fog, and Edge Computing: A Comparative Analysis and Decision Framework for Technique Selection",
+        "link": "http://arxiv.org/abs/2610.13830v1",
+        "abstract": "The increasing heterogeneity and dynamism of cloud, fog, and edge computing make scheduling a challenging problem involving diverse resource capabilities, workload characteristics, latency and energy constraints, and competing optimization objectives. Although numerous scheduling methods have been proposed, existing reviews often provide fragmented coverage of computing environments, scheduling granularities, or technique families, offering limited guidance on selecting an appropriate approach for specific requirements. This review presents a comparative analysis of task, job, and workflow scheduling across the cloud, fog, and edge paradigms, covering heuristic, metaheuristic, learning-based, and hybrid techniques. Studies published between 2020 and 2026 are analyzed according to scheduling granularity, computing environment, optimization objectives, constraints, performance metrics, and evaluation tools. The analysis highlights trade-offs among computational efficiency, optimization capability, adaptability, and implementation complexity across technique families. Heuristic methods offer low computational overhead for relatively stable scheduling conditions, whereas metaheuristic methods are suited to complex and multi-objective optimization problems. Learning-based methods provide greater adaptability to dynamic and uncertain environments but introduce data, training, inference, and convergence requirements. Hybrid methods combine complementary capabilities but generally increase computational and implementation complexity. Based on these findings, a decision framework is developed to guide technique selection according to workload characteristics, environmental conditions, optimization objectives, resource constraints, and computational requirements.",
+        "authors": [
+            "Rana Ghazali",
+            "Douglas G. Down"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13830v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13809v1": {
+        "title": "GPU-resident Execution for Timing-predictable Sensor Processing Systems",
+        "link": "http://arxiv.org/abs/2610.13809v1",
+        "abstract": "Real-time embedded systems increasingly place GPU-accelerated processing of high-bandwidth sensor streams inside closed-loop systems, but the CPU (the host) remains the primary orchestrator of each iteration. The host observes sensor inputs, submits CUDA work, waits for completion, and commits actuation. This host-mediated path exposes the closed-loop end-to-end latency to I/O interrupts, host scheduler decisions, and CUDA API overheads even after common host-side mitigations such as GPU-memory RDMA or CPU core isolation. This paper presents GPU-resident Execution, a new execution model for real-time sensor processing pipelines that keeps I/O and GPU execution in a long-lived device-resident loop. Sensor inputs arrive in GPU memory, trigger GPU-side processing, and reach GPU-visible output endpoints without any host wakeups. We implement the model in the NVIDIA Holoscan C++ framework and provide reference components for building GPU-resident applications. We evaluate our system on NVIDIA GPUs and SoCs with inference, host-contention, multi-loop, and streaming camera workloads. On an industry-grade 1080p, 60 Hz real-time camera-to-display application, GPU-resident Execution reduces photon-to-display jitter from 4.83 ms to 0.66 ms (7.3x) relative to a CPU-driven GPU-memory RDMA baseline and reduces software-processing jitter from 1.70 ms to 0.01 ms (170x).",
+        "authors": [
+            "Soham Sinha",
+            "Rahul Choudhury",
+            "Shekhar Dwivedi",
+            "Gregory Lee",
+            "Gigon Bae",
+            "Anisha Goel",
+            "Elena Agostini",
+            "Patrick O'Grady",
+            "Yosi Levi",
+            "Mahdi Azizian"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.13809v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Addresses host-mediated latency jitter in GPU-accelerated sensor processing. Proposes a GPU-resident execution model that handles I/O and processing entirely on device without host wakeups. Achieves 7.3× lower jitter (0.66 ms vs 4.83 ms) for real-time camera pipelines.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13708v1": {
+        "title": "Adaptive DHiSparse: Speculative Decoding over a Load-Adaptive KV Hierarchy",
+        "link": "http://arxiv.org/abs/2610.13708v1",
+        "abstract": "Long-context serving runs out of KV memory before the hardware reaches its useful throughput. HiSparse stores history in host memory and fetches only the selected entries, but it uses one cache budget at every load and does not handle draft-model speculative decoding such as DSpark and DFlash2. We present Adaptive DHiSparse, which supports speculative decoding over hierarchical sparse KV and adapts residency to load. It protects the required working set, retains additional history while GPU memory is spare, and recovers the rest through exact fused retrieval. DSpark and DFlash2 keep their proposal and acceptance rules: queries share missing-row retrieval, draft KV uses a window-bounded ring, and verification staging is reused across layer groups. At 100K context and concurrency 128, GLM-5.3 with DFlash2 delivers 793 output tokens/s per decode GPU, 1.45$\\times$ HiSparse and 1.27$\\times$ non-speculative adaptive serving. Held to the same latency bounds as HiSparse, it sustains up to 4$\\times$ the concurrency and 2.3 to 3.7$\\times$ the output, depending on the per-token bound. On DeepSeek-V4.1-Flash at 500K context and concurrency 512, Adaptive DHiSparse with DSpark delivers 1.85$\\times$ the output of resident serving with DSpark. In a load step, optional residency reduces host fetches from 14.2% to 1.4% of selected rows at low load and releases memory under pressure.",
+        "authors": [
+            "Naji Alazhar",
+            "Wassel Alazhar"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.13708v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "sparse"
+        ],
+        "tldr": "Addresses KV memory exhaustion in long-context LLM serving. Proposes Adaptive DHiSparse, a load-adaptive hierarchical sparse KV cache with fused retrieval for speculative decoding. Achieves 1.45× higher throughput (793 tokens/s/GPU) than HiSparse at 100K context.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13704v1": {
+        "title": "Benchmarking Content-Defined Chunking Algorithms for Data Deduplication",
+        "link": "http://arxiv.org/abs/2610.13704v1",
+        "abstract": "Data deduplication relies on content-defined chunking (CDC) algorithms to decide where data is split. We observe that most CDC algorithms are modular: a base chunking algorithm fixes the byte-level cut-point condition, while high-level techniques (size normalization, min/max thresholds, caching) layer on top. Existing benchmarks conflate the two, obscuring which design choices actually drive performance. We isolate and evaluate eight state-of-the-art base chunking algorithms across four realistic workloads and four metrics: throughput, deduplication ratio, mean chunk size, and chunk-size variance. Further, we derive new formulas relating algorithm parameters to expected chunk size for AE, RAM, and MII. In doing so, we uncover a longstanding error in the widely-used AE parameterization reproduced across multiple papers and evaluation tools that produces chunks 13-39% smaller than intended and inflates AE's reported deduplication. Across our evaluation, AE is the most balanced base chunking algorithm across all four metrics, RAM's similarity to AE does not carry over to low-entropy data, and MII and PCI show limited advantages over simpler alternatives in storage-oriented workloads. We release all implementations, datasets, and analysis scripts as open source.",
+        "authors": [
+            "Marcel Gregoriadis",
+            "Leonhard Balduf",
+            "Björn Scheuermann",
+            "Johan Pouwelse"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13704v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13474v1": {
+        "title": "CompileMask: Bridging the Gap Between Expressiveness and Efficiency in Attention Masking",
+        "link": "http://arxiv.org/abs/2610.13474v1",
+        "abstract": "Modern attention workloads require diverse masking patterns whose boundaries depend on runtime metadata, yet efficient attention kernels natively support only a small set of patterns. Existing methods for supporting custom masks in these kernels face an expressiveness-efficiency trade-off. Predicate-based methods are expressive but incur substantial preprocessing and execution overhead, whereas interval-based methods execute efficiently but restrict expressiveness through a predefined interval count. We present CompileMask, which addresses this trade-off by connecting expressive mask specifications with efficient attention execution. We design a compiler that analyzes visibility rules during the offline stage and generates a mask-specific preprocess kernel. We further propose MaskSpec, a region-based DSL that lets users express these rules. During the online stage, the generated kernel reads batch metadata and produces a compact Execution Descriptor that lets the attention kernel efficiently check visibility by comparing element indices against precomputed endpoints. Experiments show that CompileMask achieves up to $3.8\\times$ speedup over state-of-the-art methods.",
+        "authors": [
+            "Hongzheng Li",
+            "Jiacheng Wan",
+            "Zhaolong Xing",
+            "Zhida Jiang",
+            "Yuanhang Yang",
+            "Junhua Shu",
+            "Jiaxing Wang",
+            "Xupeng Miao",
+            "Yingxia Shao",
+            "Zhen Chen",
+            "Ke Zhang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13474v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "kernel"
+        ],
+        "tldr": "Addresses the expressiveness-efficiency trade-off in attention masking. Proposes CompileMask, a compiler that generates mask-specific preprocess kernels to produce compact Execution Descriptors for fast visibility checks. Achieves up to 3.8x speedup over prior methods.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13408v1": {
+        "title": "Ember: Making Unified Virtual Memory Practical for Discrete-Memory GPUs",
+        "link": "http://arxiv.org/abs/2610.13408v1",
+        "abstract": "GPU working sets have outgrown GPU memory, so applications must oversubscribe it, keeping only hot data on the GPU. NVIDIA's Unified Virtual Memory (UVM) supports oversubscription, but its performance degrades once data exceeds the GPU's memory. This stems from its fault-driven data placement, wasting interconnect bandwidth, and underutilizing the GPU. This raises the question: can UVM oversubscription become practical on stock GPUs, exploiting GPU memory speed and minimizing wasted interconnect bandwidth, without placement hints, profiling runs, or application changes?\n  To this end, we present Ember, a UVM management framework for oversubscribed workloads. Ember introduces a hybrid address space; allocations start as mapped into host memory, omitting data migration. Ember's counter-driven region promotion uses GPU's hardware counters to fetch hot regions to the GPU, its decay-based eager reclamation proactively evicts cold regions in batches, while via online region re-placement, Ember tracks the hot set at runtime.\n  We implement Ember within NVIDIA's open-source UVM driver for unmodified applications and as a userspace variant on stock CUDA. At 1.5x oversubscription, it is 6.8-10.6x faster than UVM on six applications across three PCIe GPUs, and generates LLM tokens 4.7-16x faster at sizes where manual placement cannot run at all. Without a profiling run, it beats a profile-guided alternative by 2.1x on kernel time.",
+        "authors": [
+            "Senad-Leandro Lemes Galera",
+            "Michail Georgoulakis Misegiannis",
+            "Ferdinand Gruber",
+            "Jana Giceva",
+            "Dimitrios Stavrakakis"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13408v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "offloading",
+            "serving"
+        ],
+        "tldr": "Investigates making GPU oversubscription practical on stock GPUs without hints or profiling. Introduces Ember, a UVM framework using hybrid address spaces, counter-driven region promotion, and eager reclamation for efficient data movement. Achieves up to 16x faster LLM token generation at sizes where manual placement fails.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13396v1": {
+        "title": "ShoreKeeper: Accelerating Iterative Data Analytics in the Cloud via Distributed Recovery-Cost-Aware Caching",
+        "link": "http://arxiv.org/abs/2610.13396v1",
+        "abstract": "Large-scale data-intensive workloads powered by iterative graph or machine learning processing have an insatiable demand for memory due to the continuous generation of new intermediate data. Although existing caching strategies strive to keep performance-critical data in memory, they often fail in practice because they are limited to node-local memory management and assume high node availability. In this paper, we introduce ShoreKeeper, a framework that maximizes execution efficiency by treating cluster-wide memory as a unified, elastic pool. ShoreKeeper employs a global optimization model that maps distributed dataflows into a single graph abstraction to minimize the recovery cost of data evicted from cache across the cluster. To handle memory working sets and cluster capacities that fluctuate over time, ShoreKeeper employs a graph-pruning technique that permits the fast refinement of the caching plan. These optimizations allow ShoreKeeper to work seamlessly whether deployed on highly available VMs or cost-effective preemptible instances in the cloud. Our experiments show that ShoreKeeper consistently outperforms state-of-the-art systems.",
+        "authors": [
+            "Jongseop Lee",
+            "Minsu Sun",
+            "Xinyue Ma",
+            "Atul Sandur",
+            "Myeongjae Jeon"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13396v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13364v1": {
+        "title": "Stacked Intelligent Metasurface-Based MultiModal Feature Fusion for Collaborative Inference in Edge Networks",
+        "link": "http://arxiv.org/abs/2610.13364v1",
+        "abstract": "In navigating the challenges of computational and communication overhead within the 6G-era Collaborative Inference (CI), this paper explores the feasibility of employing Stacked Intelligent Metasurface (SIM) to perform CI, termed SIM-CI. The SIM functions as a physical computing unit, receiving multi-user Over-The-Air (OTA) aggregated features within the same spectrum. It thus executes the necessary spatial-frequency combining and inference in a single physical wave propagation.SIM-CI also incorporates a tri-heterogeneity robustness adapter to address the network heterogeneity, such as multi-modal data and user inference models, as well as a quality-aware contrastive approach that align features from different modalities and extraction levels into a unified feature space. Considering the heterogeneous and dynamic channels, we further integrate Channel State Information (CSI) as an additional input into the adapter design, enabling users' early perception of potential channel states. Moreover, to maximally mitigate the impact of channel variations, we design a new hybrid beamforming network that combines the robustness of model-driven pre-equalization with the adaptability of data-driven learning. Experimental results demonstrate the effectiveness of our SIM-CI compared to digital-domain inference, achieving 98.6\\% accuracy to conversional digital-domain CI approaches under various heterogeneous conditions, while reducing computational energy by 25\\% and requiring 75\\% fewer transmission time slots.",
+        "authors": [
+            "Yushi Wang",
+            "Zhengxin Yu",
+            "Guhan Zheng",
+            "Haris Pervaiz",
+            "Zheyi Chen",
+            "Shunqing Zhang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13364v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13325v1": {
+        "title": "Taking Tokenization off the Host for Agentic LLM Serving",
+        "link": "http://arxiv.org/abs/2610.13325v1",
+        "abstract": "Agentic workloads resend long contexts that barely change between calls. Prefix caching now skips most of their prefill, yet every request must still be tokenized in full before the cache can even be consulted. Tokenization, a CPU stage long treated as negligible, becomes the largest part of time-to-first-token (TTFT), and a frontend that tokenizes for a whole GPU fleet limits how many GPUs it can feed. We present GraphTok, a GPU tokenizer that runs the entire encoding pipeline, from pre-tokenization through byte-pair encoding (BPE) merging to token-ID assembly, as one replayable CUDA graph. GraphTok reproduces the reference token IDs bit-for-bit on GPT-2, Llama 3, Qwen 2.5, DeepSeek-V3, and Gemma 3, hands short inputs to a CPU engine where the GPU cannot win, and plugs into unmodified vLLM and NVIDIA Dynamo. GraphTok encodes one million GPT-2 tokens in 1.7-3.2 ms including data transfers, and on Llama 3 it is 4.7-6.0x faster than gigatoken, the strongest CPU tokenizer. On TokTier's own single-request benchmark, it is 2.6-3.9x faster than gigatoken and up to 18.1x faster than TokTier. In vLLM with a cached prefix, it lowers mean TTFT by 2.1-2.4x. The largest gain is capacity. Within a 2 s P99 target, one Dynamo frontend with GraphTok sustains 518 requests/s of 121k-token traffic, the busiest-hour load of 56 GPUs, against 296 with gigatoken and 18.5 with the default tokenizer. Across 121k to one million tokens, this is 1.75-2.5x the load gigatoken sustains, with a P99 up to 64x lower where gigatoken's tail breaks.",
+        "authors": [
+            "Mohammad Siavashi",
+            "Pascal Schwinte",
+            "Ali Banaei",
+            "Gerald Q. Maguire",
+            "Marco Chiesa",
+            "Dejan Kostić"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CL",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.13325v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic",
+            "kernel"
+        ],
+        "tldr": "Addresses the tokenization bottleneck in TTFT for agentic LLM serving by developing GraphTok, a GPU tokenizer using replayable CUDA graphs. Achieves up to 2.4x lower mean TTFT and sustains 518 requests/s, 1.75x higher capacity than strong CPU tokenizers.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13318v1": {
+        "title": "SnapShare: Isolation-Preserving Deduplication for Serverless Snapshots",
+        "link": "http://arxiv.org/abs/2610.13318v1",
+        "abstract": "The efficiency of serverless computing fundamentally depends on rapid function startup, a challenge increasingly addressed by restoring from virtual machine snapshots. However, because content deduplication techniques can open timing-channel attacks that leak sensitive tenant data, production platforms like AWS Lambda instead enforce strict, zero-sharing isolation between snapshots of different tenants. While secure, this isolation precludes the deduplication of common infrastructure components, wasting per-worker cache capacity and exacerbating cold-start latency through inefficient remote fetching. Our characterization reveals that non-sensitive, shareable infrastructure accounts for roughly 70% of a typical snapshot's contents and, on average, about 50% of its working set.\n  We present SnapShare, a cluster-wide snapshot management system that co-designs storage and caching to exploit this commonality without compromising sensitive data isolation. SnapShare classifies a snapshot page as shareable only when its full content matches that of a page from a provider-approved source; any non-matching content is treated as isolated private content. Common infrastructure components are selectively deduplicated and pinned across the cluster's worker nodes, while private data remains strictly isolated and is eagerly fetched as part of the tracked working set, falling back to on-demand retrieval only for pages that fall outside it. Implemented as an extension to Knative, SnapShare reduces end-to-end tail request slowdowns by 10-29% compared to traditional working-set and chunk-based platforms. It also reduces remote storage requirements by 39% and local cache footprints by 38%, reducing network retrieval payloads and bounding worst-case fetch delays by 10x.",
+        "authors": [
+            "Leonid Kondrashov",
+            "Likun Zhang",
+            "André Filipe do Pilar de Jesus",
+            "Hans Pistor",
+            "Marco Cali",
+            "Riccardo Mancini",
+            "Rodrigo Bruno",
+            "Dmitrii Ustiugov"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13318v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13307v1": {
+        "title": "Sustainable Cloud-Fog-Edge Systems for Smart Buildings: Algorithmic Adaptation under Memory Constraints and Dynamic Orchestration Strategies",
+        "link": "http://arxiv.org/abs/2610.13307v1",
+        "abstract": "The escalating environmental footprint of the Information and Communication Technol- ogy (ICT) sectorwith global Data Center electric- ity usage potentially reaching 3% by 2030 and the imperative for real-time responsiveness in smart buildings demand a foundational shift towards Edge Computing. This article proposes a holis- tic architectural and algorithmic approach for cre- ating autonomous, resilient, and privacy-preserving learning systems within smart buildings, advancing the core concept of the building itself as the data center. Our contributions, demonstrating originality compared to conventional centralized systems, are structured around three main pillars: 1) Validation of resilient data acquisition chains using the af- fordable Arduino ecosystem (Uno R4 WiFi/BME280) and secure persistence solutions including centralized archiving (Node-RED/MySQL) and secure remote transfer (Python/rsync/SSH). 2). The proposal of a lightweight, KOptim orchestration framework, inter- operable with the FIWARE standard, for the dynamic management of Service Level Agreements (SLA). 3) The adaptation and experimental valida- tion of the Generalized Hebbian Algorithm (GHA) for Principal Component Analysis (PCA) on low- power microcontrollers,We introduce and compare an iterative learning strategy using data buffers, featuring sorting and explicit preservation of extreme samples to maintain diversity. Experimental results on the high-dimensional Tour Perret sensor data confirm that this novel method, despite introducing a necessary temporal complexity of O(W log W ) due to sorting, achieves convergence and final result quality that is visually equivalent to processing the entire dataset in full memory, reliably identifying two distinct operational states.",
+        "authors": [
+            "Mamadou Sow",
+            "Christophe Cerin"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "math.NA"
+        ],
+        "id": "http://arxiv.org/abs/2610.13307v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13298v1": {
+        "title": "Multi-Source and Multi-Dimensional Information Fusion in Resource-Constrained Edge Networks",
+        "link": "http://arxiv.org/abs/2610.13298v1",
+        "abstract": "Multi-source semantic information fusion enables edge networks to support global inference using observations collected by distributed terminals. However, limited communication and computation resources restrict semantic uploading, leaving the edge server with incomplete tokens that differ in modality, semantic granularity, arrival time, and channel condition. The value of these tokens also depends on the complementary or redundant information provided by other terminals. In this paper, we propose a multi-source and multi-dimensional semantic information fusion framework that coordinates terminal uploading and edge-side fusion under resource constraints. We develop Hyper-Slot to combine semantic content with available token attributes through iterative token-to-slot assignment and slot-to-token feedback, producing a compact representation for global inference. To encourage useful semantic uploading, we further design a contribution-based incentive mechanism that uses Hyper-Slot assignments to evaluate information coverage and cross-type complementarity. A bi-level Stackelberg-Nash game determines the server reward pool and terminal transmission-quality strategies while accounting for computation and communication energy costs. Experiments on a tri-modal extension of COCO2014 and image-text retrieval on Flickr30K show that Hyper-Slot improves mAP by 3.66 percentage points and RSum by 15.9 points over the strongest evaluated baselines, respectively, while reducing the number of parameters by more than 80% compared with a naive concatenation-based fusion baseline.",
+        "authors": [
+            "Yushi Wang",
+            "Zhengxin Yu",
+            "Guhan Zheng",
+            "Wang Miao",
+            "Merouane Debbah"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CV"
+        ],
+        "id": "http://arxiv.org/abs/2610.13298v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13061v1": {
+        "title": "Capturing Electrical Windows Through Reconfigurable Optical Networks: Transfer-aware Scheduling of Multi-Region AI Data Centers",
+        "link": "http://arxiv.org/abs/2610.13061v1",
+        "abstract": "Artificial-intelligence data centers (AIDCs) can provide spatiotemporal load flexibility by migrating training workloads in response to regional electricity prices and renewable-energy (RE) availability. However, transfer-blind scheduling may overestimate migration benefits by overlooking transfer time or prevent training from resuming within renewable-rich or low-price windows when considering transfer time. This paper proposes a transfer-aware compute-electricity-network scheduling framework that coordinates training placement, checkpoint transmission, and optical circuit switching (OCS) to improve local RE utilization and reduce grid-purchase cost. A compact compute-electricity master problem generates candidate schedules using estimated transfer delays. The framework then schedules optical circuits, verifies checkpoint delivery under shared-link capacity constraints, and revises infeasible schedules using updated delay estimates. It integrates day-ahead planning, event-triggered intraday updates, and real-time dispatch. In a five-AIDC benchmark with equal completed work and network resources, the proposed method reduces the real-time grid purchase cost by 12.50% and increases the local RE utilization by 2.724 percentage points relative to static optical operation. Sensitivity and ablation analyses indicate that OCS is particularly beneficial when renewable-rich or low-price windows shift across sites and network bottlenecks hinder timely checkpoint delivery.",
+        "authors": [
+            "Xi Tong",
+            "Zijian Li",
+            "Xiaoyi Fan",
+            "Cong Zhang",
+            "Ershun Du",
+            "Qin Wang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13061v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Proposes a transfer-aware scheduling framework for AI training migration across data centers to reduce electricity cost by optimizing optical circuit switching for checkpoint transfers. Combines day-ahead planning with real-time adjustments. Lowers grid purchase cost by 12.50% and boosts local renewable utilization by 2.724 percentage points.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13047v1": {
+        "title": "Execution-Feasible Dispatch of LLM Pre-training Loads for Renewable-Dominant AI Data Centers",
+        "link": "http://arxiv.org/abs/2610.13047v1",
+        "abstract": "AI data centers (AIDCs) are emerging as large power-system loads, making their operational flexibility increasingly valuable. Existing studies often treat AIDC demand as continuously adjustable or generically delay-tolerant, which overstating the flexibility of large language model (LLM) pretraining. This paper proposes an execution-feasible dispatch framework for LLM pre-training in renewable-dominant AIDCs. LLM descriptors are first converted into checkpoint-domain daily workloads, then mapped to feasible 3D-parallel GPU modes with explicit throughput, GPU-capacity, memory, and IT-power limits. The resulting checkpoint- and mode-constrained load states are embedded into a day-ahead power dispatch model. Case studies on a 2048 GPUs AIDC with two LLaMA pretraining tasks show that checkpoint-aware 3D dispatch reduces operating cost by 20.02% and renewable curtailment from 1.077 to 0.014 MWh relative to fixed continuous training. Related results also show that checkpoint records alone do not create load flexibility,practical grid-interactive flexibility arises from checkpoint waiting combined with execution-feasible 3D-mode compensation.",
+        "authors": [
+            "Xi Tong",
+            "Ershun Du",
+            "Haiyang Jiang",
+            "Long Chen",
+            "Qin Wang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13047v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling"
+        ],
+        "tldr": "Addresses efficient scheduling of LLM pre-training in renewable-powered AI data centers. Proposes a dispatch framework mapping workloads to checkpoint-aware 3D-parallel GPU modes with power constraints. Achieves 20.02% operating cost reduction and reduces curtailment from 1.077 to 0.014 MWh.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.11158v2": {
+        "title": "Zepp: Accelerating Distributed MoE Serving under Relaxed Balance Constraints",
+        "link": "http://arxiv.org/abs/2610.11158v2",
+        "abstract": "As Mixture-of-Experts (MoE) models continue to scale, serving them increasingly relies on expert parallelism (EP) across a growing number of devices. Yet skewed expert workloads create imbalance across computation, communication, and memory, making load balancing a central optimization objective in distributed MoE serving. We observe that balance is not free: operations introduced to balance one dimension can themselves be expensive or imbalanced. This motivates us to rethink balance as a constraint rather than an optimization objective. We present Zepp, which directly optimizes the bottleneck communication in distributed MoE serving subject to simplified balance constraints on physical resources, i.e., GPUs and NICs. Zepp progressively optimizes inter-node communication across placement, routing, and execution. It first places expert replicas to reduce token communication under GPU constraints, then reshapes communication flows through split and merge primitives under NIC constraints, and finally partitions and schedules ex- pert computation to overlap the resulting communication. To adapt to dynamic workloads, Zepp jointly coordinates computation, token communication, and expert-weight movement at each iteration. Together, these designs allow Zepp to pursue the most efficient execution rather than a single-dimension balanced one. We implement Zepp and evaluate it against 7 state-of-the-art MoE serving systems, achieving up to 6.68$\\times$ MoE layer speedup and a geometric mean speedup of 1.86$\\times$ over the fastest competing baseline.",
+        "authors": [
+            "Chang Chen",
+            "Andrew Yang",
+            "Tiancheng Chen",
+            "Jiangfei Duan",
+            "Xinwei Qiang",
+            "Zhongkai Yu",
+            "Xiang Fang",
+            "Yufei Ding"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.11158v2",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Optimizes distributed MoE serving under relaxed resource balance constraints by interleaving placement, routing, and execution adjustments to reduce communication bottlenecks. Achieves up to 6.68× MoE layer speedup over competing systems.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13003v1": {
+        "title": "SlackSwap: Bandwidth-Aware Activation Swapping and Recomputation for Memory-Efficient DNN Training",
+        "link": "http://arxiv.org/abs/2610.13003v1",
+        "abstract": "Swapping saved activations to host memory once enabled GPUs to train models that exceeded their device-memory capacity when compute throughput and host-link bandwidth were roughly balanced. For example, on a 2015 Titan X, PCIe bandwidth was sufficient to offload all VGG-16 activations during the forward pass. This balance no longer holds. From the Titan X to the H100, peak training throughput increased by 141x, whereas host-link bandwidth improved by only 3.9x. On an A100, the host link can hide transfers for only 11-38% of the activations in the transformer models we study. Existing swapping approaches, such as vDNN, SuperNeurons, and SwapAdvisor, offload tensors according to memory requirements without explicitly respecting the available link-time budget, resulting in transfer-induced stalls; block checkpointing, in contrast, leaves the host link underutilized. We present SlackSwap, which treats host-link time as an explicit resource budget. Using a single profiled iteration, SlackSwap allocates the forward-pass link budget to tensors that are most expensive to recompute, resolves the remaining memory deficit by recomputing the least expensive tensors, and schedules FIFO offloads and earliest-deadline-first prefetches without per-layer synchronization barriers. In trace-driven simulations of BERT-Large, GPT-2 XL, and a Llama-7B-style model on an A100, SlackSwap retains 96-100% of unlimited-memory GPU throughput while using half the activation memory, achieving 1.10-1.11x the throughput of the best baseline. Its plans are within 0.5% of a genetic search over 6,600-14,000 candidate plans, while requiring less than 0.4 seconds to generate.",
+        "authors": [
+            "Hui Feng",
+            "Xun Zhou",
+            "Yuxin Wang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.13003v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "training",
+            "offloading"
+        ],
+        "tldr": "Addresses memory constraints in training large transformers via efficient activation swapping and recomputation. Proposes SlackSwap, which allocates host-link bandwidth to offload expensive-to-recompute tensors and recomputes others, with FIFO offloads and deadline-first prefetches. Achieves 96-100% of unlimited-memory throughput while using half the activation memory.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.12970v1": {
+        "title": "Minions: A Dynamic and Distributed Virtual GPU Cloud Built on Idle Apple Silicon Devices",
+        "link": "http://arxiv.org/abs/2610.12970v1",
+        "abstract": "The increasing demand for GPU-accelerated machine learning inference has exposed limitations in centralized GPU infrastructures, including high cost, limited elasticity, and long wait times under resource constraints. At the same time, modern Apple Silicon-based macOS devices are equipped with powerful GPUs that remain largely idle during normal usage. This paper presents Minions, a dynamic and distributed virtual GPU cloud that aggregates idle Apple Silicon GPUs across macOS devices to execute large-scale machine learning inference workloads. Minions enables teams to leverage existing hardware without requiring additional GPU procurement. The system provides flexible GPU inference task execution, fault tolerance, and efficient resource utilization. Our experience shows that idle macOS devices can be transformed into a practical distributed GPU inference platform in environments where centralized GPU resources are constrained.",
+        "authors": [
+            "Jianhua Li",
+            "Yun Xing",
+            "Girisha De Silva",
+            "Ryan Flint",
+            "Kai Yuan",
+            "Sean Suchter"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.12970v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "edge",
+            "networking"
+        ],
+        "tldr": "Proposes Minions, a distributed GPU cloud aggregating idle Apple Silicon devices for machine learning inference, to address centralized GPU cost and elasticity limitations. The system offers fault-tolerant task execution and efficient resource utilization, demonstrating practical transformation of idle devices into a cost-effective inference platform.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.09424v2": {
+        "title": "Democratizing MoE inference on commodity GPUs with CoMoE",
+        "link": "http://arxiv.org/abs/2610.09424v2",
+        "abstract": "Deploying Mixture-of-Experts (MoE) models relies heavily on Expert Parallelism, which generates intense inter-GPU communication. Consequently, state-of-the-art inference systems require high-bandwidth, P2P interconnects (e.g., NVLink) in datacenter GPUs to handle massive token routing, making deployment prohibitively expensive. Consumer GPUs offer comparable compute power at significantly lower cost, promising to democratize MoE inference for individuals and enable privacy-preserving local deployments. However, their bandwidth-limited (only weak PCIe bus bandwidth) and host-mediated interconnects (no P2P support) introduce severe communication bottlenecks.\n  We present CoMoE, a communication-efficient MoE inference system that resolves this mismatch through novel host-centric routing. Our key insight is that the unique communication topology provides the opportunity to elevate the host to an active routing hub, which can fundamentally reduce communication volume and eliminate global synchronization-induced stalls. Specifically, for token dispatch, we introduce host-backed token multicast to write shared tokens to the host exactly once, eliminating outbound transmission redundancy. For token combine, we propose a fine-grained, token-level aggregation mechanism using host staging buffers, which replaces rigid global synchronization and mitigates straggler effects. Evaluation on RTX 5090 GPUs shows that CoMoE improves inference throughput by up to 1.46x, approaching the performance of NVLink-capable A800 GPUs at only 23.4% of the hardware cost.",
+        "authors": [
+            "Ruwen Fan",
+            "Yuezhi Zu",
+            "Minhui Xie",
+            "Junru Li",
+            "Qingda Hu",
+            " Xinjun",
+            " Yang",
+            "Jiwu Shu",
+            "Youyou Lu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.09424v2",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Enables efficient MoE inference on commodity GPUs via novel host-centric routing. CoMoE minimizes inter-GPU communication with host-backed token multicast and fine-grained aggregation, achieving 1.46x throughput improvement at 23.4% hardware cost versus NVLink systems.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.12911v1": {
+        "title": "Coexponential Exploration in the Clef Programming Language",
+        "link": "http://arxiv.org/abs/2610.12911v1",
+        "abstract": "Clef was created as a concurrent programming language whose compiler tracks state ownership, waiting computations and request dependencies. We develop a coexponential account of stateful services and their client pools within this design. Delimited continuations retain the computation and resources needed to complete each interaction. These structures give our compiler premises for verifying service composition and preserving it through native lowering to multiple hardware targets.\n  We connect finite actor state transitions to the initial, service and final rules of a coexponential server. A separate operational account relates actor dispatch to single-use continuation frames. We prove state-ownership and reply preservation for that translation, give a finite communication-summary analysis, and circular-wait exclusion from the conditions needed. A further result identifies when changing service order preserves both state and replies.\n  Our Program Semantic Graph retains these facts through compilation. We are researching reusable proofs to confirm the ownership and communication interfaces, while our BAREWire implementation connects message meaning to its unboxed representation across respective endpoints. A distributed worker example preserves request identity across suspension, reordered replies and boundary conversion. Urschel's elimination-growth bounds supply quantitative premises for a solver service, whose accuracy and failure budget compose with the protocol contract.\n  The design we envision connects automatic structural analysis, reusable proof terms and native realization. Protocols determine the admissible interactions, continuations expose their storage requirements, and retained dependencies support differential compilation. Developers can express ordinary stateful services while the compiler carries the conditions for their correct composition across execution targets.",
+        "authors": [
+            "Houston Haynes"
+        ],
+        "categories": [
+            "cs.PL",
+            "cs.DC",
+            "cs.LO"
+        ],
+        "id": "http://arxiv.org/abs/2610.12911v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.12815v1": {
+        "title": "Deploying RDMA for Large-Scale Inference and Training Workloads",
+        "link": "http://arxiv.org/abs/2610.12815v1",
+        "abstract": "RDMA can reduce communication overhead in distributed machine learning systems, but realizing these benefits in production requires more than replacing TCP. Variable-size messages, concurrent connections, bursty incasts, and service failures introduce challenges that hardware offload alone cannot address. This paper reports our experience deploying ByteExpress, a software communication layer over hardware RDMA, in ByteDance's parameter-server-based inference and training systems. We present three lessons from the deployment: efficient RDMA requires buffer management across application and transport layers; scalable communication requires coordinated management of connections, receive capacity, and outstanding data; and service availability requires recovery above the transport layer. ByteExpress combines an RDMA-aware allocator, zero-copy transfers, QP multiplexing, receive-credit flow control, a software send window, and RPC-assisted recovery. In production inference, ByteExpress reduces mean and P99 model parameter fetch latency by 35.7% and 43.7%, respectively, and total CPU usage by 10.69% compared with kernel TCP. In training, ByteExpress reduces P99 model parameter push latency by up to 74.0% compared with TCP, with no PFC pauses observed at runtime.",
+        "authors": [
+            "Yibo Huang",
+            "Yi Cui",
+            "Yukai Huang",
+            "Huaping Zhou",
+            "Jiancong Tong",
+            "Zhaoyu Wu",
+            "Gen Miao",
+            "Haoran Wei",
+            "Boyan Ding",
+            "Zhuo Jiang",
+            "Jianxi Ye",
+            "Yibo Zhu",
+            "Chuanxiong Guo",
+            "Yang Xu",
+            "Jie Wu"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.NI",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2610.12815v1",
+        "submit_date": "2026-10-08",
+        "relevant": true,
+        "tags": [
+            "networking",
+            "serving",
+            "training"
+        ],
+        "tldr": "Addresses the challenges in deploying RDMA for efficient communication in distributed training and inference systems. Introduces ByteExpress, which includes RDMA-aware allocation and flow control. Reduces P99 model parameter push latency by up to 74.0% and CPU usage by 10.69%.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.12542v1": {
+        "title": "Equal-Budget Monte Carlo Tree Search versus Randomized-Restart List Scheduling for DAG Workflows: A Controlled Equal-Budget Computational Study",
+        "link": "http://arxiv.org/abs/2610.12542v1",
+        "abstract": "Monte Carlo Tree Search (MCTS) is often proposed for scheduling directed-acyclic-graph (DAG) workflows, yet most studies never run the comparison that could refute it - giving a much simpler method the same search effort. We run that comparison under a controlled protocol. All arms receive an identical budget - the same number of candidate schedules built and evaluated: an MCTS scheduling method, preregistered as the main arm; a randomized-restart list scheduler with no search tree as the control; and a textbook-UCT MCTS arm as a registered follow-up on the same domain. The analysis plan was locked before data collection; an independent checker confirmed all 768 confirmation-stage schedules valid with correct finish times. At the main budget of 2048 evaluated schedules, MCTS is 2.88% worse than the restarts (95% CI [-3.62%,-2.15%]; the 72 of 96 held-out instances with positive baseline-relative headroom). The deficit is not budget starvation: on the separate exploration pool restarts self-improve by 1.85% where MCTS gains 0.24%, and 700 of 720 of MCTS's first results are merely the warm start it was handed. The studied selection rule locks deterministically onto the first-expanded child, keeping its trials correlated while restarts draw gains from the tails; the causal link to makespan remains an inference. A structural map locates where the tree stops paying: restarts win on sparse irregular workflows, no difference is detectable on regular layered ones, and dense ones leave no room to improve. Swapping the rule for textbook UCT removes most of the deficit (-0.26%, 95% CI [-0.71%,+0.23%]) without reversing its sign. Results are confined to a controlled synthetic domain (N in {8,16,32} tasks, 2-8 processors, budgets up to 2048); we make no claim about larger budgets.",
+        "authors": [
+            "Yuyu Zhang"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.12542v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.13125v1": {
+        "title": "Characterizing CPU-GPU Memory Sharing over Unified Memory Architecture",
+        "link": "http://arxiv.org/abs/2610.13125v1",
+        "abstract": "Unified Memory Architecture (UMA) enables the CPU and GPU to share a single physical memory. However, its complexity and opacity often drive applications back to inefficient copying or to incorrect direct access that sacrifices performance or even correctness. This paper presents a comprehensive study of CPU-GPU memory sharing on UMA, covering correctness and performance across data-plane transmission and control-plane coordination on four platforms. It yields four findings that guide libumsh, a portable library that delivers correct and efficient memory sharing across platforms and extends to emerging ones (e.g., NVIDIA DGX Spark). Applied to nine real-world systems, libumsh reduces data-plane time by 16-75% and control-plane overhead by 7-90%.",
+        "authors": [
+            "Jinrong Yang",
+            "Zimeng Wang",
+            "Rong Chen",
+            "Haibo Chen"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.AR"
+        ],
+        "id": "http://arxiv.org/abs/2610.13125v1",
+        "submit_date": "2026-10-09",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.12971v1": {
+        "title": "PredictIO: Decoupling Workload Prediction from OS-Controlled Storage Prefetching",
+        "link": "http://arxiv.org/abs/2610.12971v1",
+        "abstract": "Storage stalls remain a significant source of application latency even on fast storage devices. Prefetching can hide part of this latency by fetching data before it is demanded, but general-purpose operating-system mechanisms typically infer future accesses from recent file offsets. This approach is ineffective when accesses are determined by workload structure, such as recurring sparse accesses during application launch, logical traversal in database scans, or model-layout metadata in LLM runtimes. Existing workload-aware prefetchers usually embed prediction logic inside individual applications and couple execution to application-level I/O paths, making policies difficult to reuse across workloads and systems. We present PredictIO, a programmable interface that separates workload prediction from prefetch execution. PredictIO delivers kernel-observed accesses and application hints to user-space policies, which express predictions as uniform page-range requests. A kernel-space executor validates, bounds, and filters these requests against cached and in-flight pages before issuing asynchronous prefetch I/O. We implement PredictIO for application launch, SQLite range scans, and LLM model loading. Across these workloads, PredictIO reduces latency by 5.3-26.3%, achieves up to 2.99x speedup for SQLite scans, and reduces LLM loading latency by 8.8-47.9%. We further show that a common prediction policy can be reused across SQLite and LMDB through lightweight adapters, that an application-integrated RocksDB readahead policy can be migrated while preserving its workload selectivity, and that the execution backend determines how much benefit migration provides for different access patterns and storage devices.",
+        "authors": [
+            "Jun Lu",
+            "Yancan Mao",
+            "Zhenya Ma",
+            "Sheng Yue",
+            "Yongjian Fu",
+            "Ju Ren"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.12971v1",
+        "submit_date": "2026-10-09",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "storage",
+            "kernel"
+        ],
+        "tldr": "Addresses storage stalls during application loading like LLM model initialization. Proposes PredictIO, decoupling user-space access prediction from kernel-space prefetch execution. Reduces LLM model loading latency by 8.8-47.9% across workloads.",
+        "indexed_date": "2026-10-12"
+    },
+    "http://arxiv.org/abs/2610.12695v1": {
+        "title": "Enabling Extended SGX Enclaves inside Confidential Virtual Machines",
+        "link": "http://arxiv.org/abs/2610.12695v1",
+        "abstract": "Confidential Virtual Machines (CVMs), such as AMD SEV-SNP, and process enclaves, such as Intel SGX, provide workload protection against cloud threats. However, they strongly differ in TCB, deployment cost and speed, peer workload protection, resource sharing, fine-grained isolation and attestation, and programming capabilities. Nesting process enclaves within CVMs offers an optimal solution and an opportunity to address long-standing SGX limitations: lack of intra-enclave protection, expensive transitions and exception paths, slow enclave cloning, and a restricted programming model that limits Library Operating Systems (LibOS).\n  This paper introduces TEEVisor, a CVM-resident architecture consisting of a security monitor and a kernel driver that leverages AMD SEV-SNP Virtual Machine Privilege Levels (VMPLs) to build hardware-protected, process-level enclaves inside a guest CVM with two modes: (1) an SGX binary compatibility mode to run unmodified SGX applications; and (2) a novel extended SGX~(eSGX) mode optimizing slow execution paths and offering richer enclave programming capabilities. On commercial AMD EPYC hardware, against native CVM execution, TEEVisor incurs under 5% overhead on compute- and memory-bound workloads, around 12% on I/O-heavy applications, and accelerates enclave cloning to a rate of 93~$μ$s/MB of enclave size, demonstrating that eSGX semantics inside a CVM are practical for production use.",
+        "authors": [
+            "Pamenas Kariuki",
+            "Dong Yiliang",
+            "Quoc Do Le",
+            "Christof Fetzer"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.12695v1",
+        "submit_date": "2026-10-08",
+        "relevant": false,
+        "indexed_date": "2026-10-12"
     }
 }
