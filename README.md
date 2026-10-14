@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3364-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.12-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3399-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.14-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,78 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-14
+* `serving` `MoE` [Revisiting Cauchy-Schwarz Norm Bounds for SDC Detection in LLM Inference](http://arxiv.org/abs/2610.18557v1)
+  > **TL;DR**: Proposes Cauchy-Schwarz Norm Bounds (CSNB) for low-overhead Silent Data Corruption (SDC) detection in LLM inference. CSNB reduces verification overhead by 87% and threshold determination overhead by 67% vs ABFT in dense layers while retaining 99% detection, but only 55% in MoE router gates.
+* `serving` `MoE` `scaling` [FastEEP: Fast Intra-Instance Elastic Scaling for Expert-Parallel MoE Serving](http://arxiv.org/abs/2610.18451v1)
+  > **TL;DR**: Proposes FastEEP for efficient intra-instance scaling of expert-parallel MoE serving via Partial Reuse, reusing runtime state and avoiding full instance teardown. Achieves 4.5x-11.7x faster scaling than vLLM-based methods.
+* `training` [A Distributed View from a Single GPU: RankLens for Distributed Training](http://arxiv.org/abs/2610.18009v1)
+  > **TL;DR**: Proposes RankLens, a single-GPU emulation system for distributed training analysis. Runs one survivor rank with recorded/estimated communication to preserve dependencies. Achieves <5% timing error and reduces resource requirements from cluster-scale to one GPU.
+* `serving` [Quota-Based Aging for Prediction-Guided Scheduling in LLM Serving](http://arxiv.org/abs/2610.17795v1)
+  > **TL;DR**: Addresses request scheduling in LLM serving for heterogeneous response lengths. Proposes Quota-Based Aging (QBA), combining prediction-guided short-first admission with quota-bounded aging. Substantially reduces tail latency for long requests while retaining mean-latency gains in event-driven simulations.
+* `training` `networking` [DisaggKD: Efficient Knowledge Distillation through Teacher-Student Disaggregation and a Fused Loss](http://arxiv.org/abs/2610.17644v1)
+  > **TL;DR**: Proposes DisaggKD for memory-efficient knowledge distillation via teacher-student disaggregation across nodes and a fused loss avoiding full logits. With streaming and prefetch ring, it matches loss and trains faster than colocated on 35B-to-9B distillation while avoiding OOM on larger models.
+* `edge` `offloading` `quantization` [Capacity over TFLOPS: Memory-Centric Deployment of Large Clinical Language Models on Consumer CPUs](http://arxiv.org/abs/2610.17551v1)
+  > **TL;DR**: Enables deployment of large clinical LLMs on consumer CPUs by offloading 4-bit quantized models to system RAM, avoiding GPU memory limits. Achieves 0.6-2.4 tokens/s inference on commodity hardware and reduces federated fine-tuning communication by 99.96% via 22.6 MB LoRA adapters.
+* `training` `MoE` [ATTUNE: Agentic Throughput Tuning for LLM Training](http://arxiv.org/abs/2610.17528v1)
+  > **TL;DR**: Automates tuning of training recipes to improve LLM training throughput. ATTUNE uses an agent that incrementally adjusts knobs with past lessons and a correctness gate. Achieves 33.9% mean throughput gain on GLM-4.5 (54.7% best) and beats other tuners with 4x gain at half GPU-hours.
+* `edge` `kernel` `serving` [GPU Goldmines: Tunable WebGPU Kernels for Edge LLM Inference](http://arxiv.org/abs/2610.17321v1)
+  > **TL;DR**: Addresses variable performance of WebGPU kernels in edge LLM inference via GPU Goldmines, an autotuning framework. Achieves 1.48x end-to-end speedup in prefill stage over llama.cpp WebGPU for chat workloads.
+* `training` `networking` [MCCL: Measurement-based Collective Communication Library](http://arxiv.org/abs/2610.17091v1)
+  > **TL;DR**: MCCL addresses degraded collective communication in distributed training by dynamically measuring GPU-to-GPU throughput and hot-swapping synthesized schedules during failures. Achieves up to 4.99x reduction in training time under persistent gray failures.
+* `kernel` `training` `serving` [FlashT2S: GPU-Accelerated Tensor-to-Spike Conversion Operators for Heterogeneous Neuromorphic LLM Backends](http://arxiv.org/abs/2610.17035v1)
+  > **TL;DR**: Addresses slow tensor-to-spike conversion bottlenecks in neuromorphic LLM backends during training and inference. Proposes FlashT2S with GPU-accelerated operators using architecture-aware optimizations. Achieves 850x average speedup and reduces large-scale conversions to tens of microseconds (10-99 us).
+* `training` `RL` [Mixture of GFlowNets](http://arxiv.org/abs/2610.17007v1)
+  > **TL;DR**: Investigates mode collapse in parallel GFlowNet training. Proposes Mixture of GFlowNets (MoG) with asynchronous policy communication and routing through a shared classifier. Achieves 39% mode coverage on genomic task at K=64 vs 20% for data-parallel training.
+* `training` `multi-modal` `edge` [MODAIC: Coordinated Asynchrony for Decentralized Multimodal Learning](http://arxiv.org/abs/2610.16987v1)
+  > **TL;DR**: Addresses training inefficiency in decentralized multimodal learning under bandwidth/compute heterogeneity. Proposes MODAIC with hierarchical asynchrony, load-aware update fetching, and consensus-aware peer selection. Improves worst-agent accuracy by 11.0 pp and reduces time-to-accuracy by 30%.
+* `MoE` `offloading` `hardware` [FORGE: Procedural Weight Generation for Sparse MoE Inference](http://arxiv.org/abs/2610.16890v1)
+  > **TL;DR**: Reduces HBM bandwidth bottlenecks in Sparse MoE inference via on-the-fly weight regeneration. Proposes the Rotor Generation Unit (RGU) that generates FFN weights from compact rotor parameters. Achieves 1.3-2.8x higher throughput and expands KV cache by 1.2-2.6x at ~0.9% SM area overhead.
+* `training` `serving` `networking` [Deploying RDMA for Distributed Inference and Training At Scale](http://arxiv.org/abs/2610.12815v2)
+  > **TL;DR**: Addresses production RDMA deployment challenges for distributed ML via ByteExpress, integrating RDMA-aware allocator, QP multiplexing, and RPC recovery. Reduces inference parameter fetch latency by 35.7% and CPU by 10.69% vs. kernel TCP, and training P99 push latency by up to 74.0%.
+* `training` `RL` `scaling` [Efficient Resource-Shiftable RL Post-training with Generative Rewards](http://arxiv.org/abs/2610.16866v1)
+  > **TL;DR**: Addresses inefficient static resource allocation in RL post-training for LLMs. Proposes PivotRL, a resource-shiftable system with dynamic reallocation based on runtime demands. Achieves 1.81-2.05× higher throughput over colocated deployment while preserving RL convergence.
+* `training` `video` `RL` [StageBreaker: Shifting Video RL Post-Training Scheduling from Stages down to Data Dependencies](http://arxiv.org/abs/2610.16691v1)
+  > **TL;DR**: Addresses inefficiencies in RL post-training for video models by introducing StageBreaker, a fine-grained scheduler enabling overlapping reward evaluation with policy training and merged trajectory replay. Achieves up to 1.41× speedup.
+* `agentic` `disaggregation` `serving` [Prorsa: Unleashing the Potential of Prefill-Decode Disaggregation in Agentic Reinforcement Learning](http://arxiv.org/abs/2610.16592v1)
+  > **TL;DR**: Addresses inefficient prefill-decode interference in agentic RL rollout via dynamic resource allocation. Prorsa forecasts prefill and decode demand to guide worker allocation and role switching, achieving 1.11x-4.05x speedup in trajectory completion over prefill-decode colocation.
+* `networking` [CALIPER: Calibrating HPC/AI Network Simulators](http://arxiv.org/abs/2610.16477v1)
+  > **TL;DR**: Proposes CALIPER, a calibration methodology for HPC/AI network simulators using hierarchical, constrained parameter optimization. Validated on up to 64-node systems, it achieves <5% mean prediction error for collective communication performance across scale-up/out networks.
+* `serving` `edge` `scaling` [Space AI Infrastructure: Where the Edge Meets the Orbital Cloud](http://arxiv.org/abs/2610.16395v1)
+  > **TL;DR**: Investigates orbital infrastructure design for global scalable AI inference. Proposes integrated space edge-cloud architecture with LEO constellations for proximity and sun-synchronous formation-flying satellites as space data centers. Supports data-center-scale foundation-model inference for millions of concurrent users worldwide.
+* `training` `networking` `scaling` [SP-Allreduce: Symmetric Tree Schedules for Tori and Beyond](http://arxiv.org/abs/2610.16387v1)
+  > **TL;DR**: SP-allreduce optimizes the allreduce communication primitive for distributed training on symmetric topologies via symmetric shortest-path trees, achieving full bandwidth optimality with fewer rounds. Experiments show up to 1.65x speedup over baselines on rectangular tori.
+* `video` `edge` `quantization` [HeteroVDiff: Pipelining Video Diffusion across Mobile NPU and GPU with Shared Weights](http://arxiv.org/abs/2610.16244v1)
+  > **TL;DR**: Addresses efficient on-device video generation throughput. Proposes HeteroVDiff, which shares weights in INT8 and pipelines denoising between GPU and NPU with a measured cut. Reduces weight memory by 48% and achieves 1.35x throughput of NPU-only on a Galaxy S25.
+* `training` `MoE` `networking` [A New Lens on Multi-GPU Communication: API-Level Memory Models for Portable Optimization](http://arxiv.org/abs/2610.16190v1)
+  > **TL;DR**: Proposes API-level memory models for device communication libraries to enable portable optimizations in multi-GPU systems. Defines formal relaxations supporting cache bypassing for network data. Improves expert-parallel communication workload by up to 1.18x, collective comms by 2.48x, and fused workloads by 1.77x.
+* `serving` [Lightweight Scheduling Policies for Continuously Batched LLLM Serving Across GPU Architectures](http://arxiv.org/abs/2610.15899v1)
+  > **TL;DR**: Investigates lightweight scheduling policies for LLM serving with continuous batching. Evaluates eight policies across 1,152 GPU-model-scheduler-workload runs. Finds aging shortest-prompt-first as the strongest practical baseline for L40S GPUs and mixed workloads, improving latency-throughput tradeoffs.
+* `serving` `offloading` [Native Dual Pools or Shared Paging? Memory Organization for Concurrent Hybrid LLM Serving](http://arxiv.org/abs/2610.15755v1)
+  > **TL;DR**: Investigates memory organization for concurrent hybrid attention-SSM LLM serving. Proposes and evaluates four memory schemes in a modified vLLM runtime. The cumulative refinement (S0-S1-S2) improves throughput by 1.5× and reduces tail completion time by 41% at the main operating point.
+* `training` `networking` [DualColl: Throughput-Optimal Bandwidth-Bound Collective Communications via Fractional Tree Packing](http://arxiv.org/abs/2610.15704v1)
+  > **TL;DR**: Addresses throughput optimization in bandwidth-bound collective communications for distributed training. Proposes DualColl, a fractional tree packing framework with a multiplicative-weights algorithm and a collective-tree oracle. Guarantees at least (1-ε)² of optimal AllReduce throughput.
+* `serving` `offloading` [Compositional Performance Modeling of LLM Inference Clusters with Hierarchical KV Caching](http://arxiv.org/abs/2610.15366v1)
+  > **TL;DR**: Proposes a compositional discrete-event simulator for LLM inference clusters with hierarchical KV caching, separating local costs from shared resources. Validated on Qwen models, achieving 1.34% and 6.36% mean absolute latency error for question answering and coding tasks.
+* `RAG` `serving` [Recall-Bounded Staleness for Filtered Multi-Tenant ANN Graph Indexes under Concurrent Updates](http://arxiv.org/abs/2610.15130v1)
+  > **TL;DR**: Addresses recall degradation in multi-tenant filtered vector search under concurrent updates. Proposes graph index with recall-bound theory, tenant-aware staging cache, and staleness ceiling scheduler. Achieves elimination of SLA violations and only 0.02 p.p. recall impact from merge reordering.
+* `training` [BSIPipe: Bidirectional Sequence-Level Interleaved Pipeline Parallelism for Long-Sequence Large Language Model Training](http://arxiv.org/abs/2610.14935v1)
+  > **TL;DR**: Addresses pipeline parallelism throughput limitations for long-sequence LLM training. Proposes BSIPipe, a bidirectional interleaved method with activation memory bounding and communication optimizations. Achieves 1.11×-1.13× speedup over SOTA baselines on GPT and LLaMA3.
+* `serving` `agentic` [AgentWeave: Efficient Distributed Agent Serving via Flow Decomposition](http://arxiv.org/abs/2610.14804v1)
+  > **TL;DR**: Addresses inefficiency in distributed agent serving due to imbalanced module latencies and request blocking. Proposes AgentWeave with flow decomposition and a flow-adaptive scheduler, improving throughput by 1.81x and reducing average latency by 2.45x.
+* `training` `MoE` `networking` [Accelerating MoE Training through Expert Placement and Replica Coordination](http://arxiv.org/abs/2610.14798v1)
+  > **TL;DR**: Addresses communication and load imbalance in distributed MoE training. Proposes PlaceMoE to jointly optimize expert layout and token-to-copy mapping, and overlaps gradient synchronization. Achieves up to 6.94x faster A2A and 1.74-2.33x end-to-end training speedups.
+* `agentic` `serving` [Energy-Aware Agentic Orchestration for Multi-Site Service Deployment](http://arxiv.org/abs/2610.14793v1)
+  > **TL;DR**: Assesses energy costs of LLM reasoning strategies in agentic orchestration. Compares single-shot, ReAct, and plan-and-execute methods on a multi-site Kubernetes testbed. Prefix caching reduces mean ReAct GPU energy consumption by 29.4%.
+* `serving` `disaggregation` `networking` [Vesta: Queueing-Aware LLM Scheduling for Real-World Workloads](http://arxiv.org/abs/2610.14686v1)
+  > **TL;DR**: Addresses LLM scheduling for agentic applications with KV cache reuse and queueing challenges. Proposes Vesta, a queueing-aware scheduler using stable cache holders and executor migration based on backlog and transfer costs. Achieves 14.0% higher throughput and 57.8% lower mean TTFT in PD-colocated deployments.
+* `serving` `networking` [Dissecting the Carbon-SLO Tension in Geo-Distributed LLM Serving](http://arxiv.org/abs/2610.14571v1)
+  > **TL;DR**: Investigates carbon-SLO trade-offs in geo-distributed LLM serving. Designs MILP-based carbon-aware schedulers leveraging temporal and spatial grid variations. Reduces carbon emissions by up to 60% with 3% average SLO violation under MLPerf constraints.
+* `agentic` `thinking` [A Self-Defining Operator for Distributed Applications](http://arxiv.org/abs/2610.14547v1)
+  > **TL;DR**: Aims to reduce token costs and improve efficiency for LLM-based agents in incident resolution. Proposes SDO, which distills experiences into playbooks and detectors to conditionally invoke LLMs. Achieves 52% reduction in resolution time and scales token cost linearly with incident count.
+* `hardware` `serving` [GMM: Generalized OS Memory Management for Programmable XPUs](http://arxiv.org/abs/2610.14532v1)
+  > **TL;DR**: Addresses fragmented XPU memory management by designing GMM, a generalized OS subsystem with logical mapping for universal NUMA-aware memory. Achieves up to 22.6x faster inference serving switch latency and 10% reduction in XPU memory utilization.
+
 ### 2026-10-12
 * `serving` `offloading` `sparse` [Adaptive DHiSparse: Speculative Decoding over a Load-Adaptive KV Hierarchy](http://arxiv.org/abs/2610.13708v1)
   > **TL;DR**: Addresses KV memory exhaustion in long-context LLM serving. Proposes Adaptive DHiSparse, a load-adaptive hierarchical sparse KV cache with fused retrieval for speculative decoding. Achieves 1.45× higher throughput (793 tokens/s/GPU) than HiSparse at 100K context.
