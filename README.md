@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3399-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.14-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3407-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.15-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-15
+* `serving` `edge` `offloading` [JointServe: Serving Multi-Model Agents on Memory-Constrained GPUs](http://arxiv.org/abs/2610.19822v1)
+  > **TL;DR**: Addresses efficient LLM agent serving in memory-constrained edge environments by unifying weight shard and KV cache memory management. JointServe uses prefetch, partial residency, and preemptive scheduling to reduce session completion time by up to 49% and achieve 76.8-100% SLO attainment.
+* `serving` [The Cost of Context: Profiling the Energy Footprint of Input Tokens in Large Language Models](http://arxiv.org/abs/2610.19819v1)
+  > **TL;DR**: Investigates energy costs of input tokens in LLM inference, focusing on long contexts. Through A100 telemetry profiling, reveals PagedAttention yields 8.9× energy efficiency gain at 112K tokens versus baselines, characterizing context scaling laws for sustainable deployment.
+* `serving` [Delta Tokenizer: Reference-Identical Tokenization of Session Deltas and Segment-Parallelism for Long Prompts on Multicore CPUs](http://arxiv.org/abs/2610.19801v1)
+  > **TL;DR**: Optimizes LLM serving tokenization by encoding deltas incrementally and parallelizing long prompts. Reduces tokenization time by 40x for session updates and 8.2x for long inputs. In SGLang, achieves median TTFT reduction by 59% at 100K tokens and 9.5-23x lower P99 TTFT.
+* `RAG` `serving` [A Self-Defining Operator for Distributed Applications](http://arxiv.org/abs/2610.14547v2)
+  > **TL;DR**: Addresses inefficiency of LLM-based agents in incident management by distilling experiences into reusable playbooks and detectors. SDO invokes LLMs only upon detector triggers, reducing token costs. Achieves 52% faster resolution for recurring faults compared to baseline methods.
+* `serving` `storage` [Native Dual Pools or Shared Paging? Memory Organization for Concurrent Hybrid LLM Serving](http://arxiv.org/abs/2610.15755v2)
+  > **TL;DR**: Explores memory organization for concurrent hybrid attention-SSM serving. Evaluates four strategies (paging/dual pools) in a modified vLLM runtime, showing iterative refinements improve throughput and tail completion time. Achieves cumulative performance gains in storage-efficient serving metrics.
+* `training` `MoE` [Beyond the Trial-and-Error Loop: Hybrid Projection and Automated Tuning for Distributed Training](http://arxiv.org/abs/2610.19423v1)
+  > **TL;DR**: Addresses the high cost of trial-and-error in distributed LLM training configuration via a hybrid projection engine and automated tuning agent. Achieves within 10% projection accuracy and discovers a configuration with 27% higher throughput for Mixtral 8x22B.
+* `serving` `scaling` [Scaling LLM Inference via Parallelism: Throughput-Latency Trade-off](http://arxiv.org/abs/2610.19405v1)
+  > **TL;DR**: Studies parallelism configuration (TP vs. PP) for LLM inference to optimize throughput-latency trade-offs under varying workloads and SLOs. Introduces parallelism operating regions via TTFT-ITL feasible sets and Pareto frontiers. Demonstrates PP-dominant configurations improve SLO attainment in long-context workloads.
+* `RAG` `serving` [CacheSmith: Accurate RAG Serving under Latency SLOs with Adaptive KV Reuse](http://arxiv.org/abs/2610.18925v1)
+  > **TL;DR**: Addresses performance-accuracy tradeoffs in RAG prefill via adaptive KV cache reuse. Introduces CacheSmith: a three-phase recomputation framework with SLO-aware batching and budget-driven patch planning. Achieves 27.5% higher quality-gated SLO attainment than baselines under varied workloads.
+
 ### 2026-10-14
 * `serving` `MoE` [Revisiting Cauchy-Schwarz Norm Bounds for SDC Detection in LLM Inference](http://arxiv.org/abs/2610.18557v1)
   > **TL;DR**: Proposes Cauchy-Schwarz Norm Bounds (CSNB) for low-overhead Silent Data Corruption (SDC) detection in LLM inference. CSNB reduces verification overhead by 87% and threshold determination overhead by 67% vs ABFT in dense layers while retaining 99% detection, but only 55% in MoE router gates.

@@ -175770,5 +175770,401 @@
         ],
         "tldr": "Addresses fragmented XPU memory management by designing GMM, a generalized OS subsystem with logical mapping for universal NUMA-aware memory. Achieves up to 22.6x faster inference serving switch latency and 10% reduction in XPU memory utilization.",
         "indexed_date": "2026-10-14"
+    },
+    "http://arxiv.org/abs/2610.20567v1": {
+        "title": "Prioritizing Microservice Requests via Retries",
+        "link": "http://arxiv.org/abs/2610.20567v1",
+        "abstract": "Cloud services rapidly shift towards independently-managed microservices architectures. This independence may lead to temporary microservices miscoordination, resulting in overloads and rejections of valuable transactions. This weakness may further be exploited by attackers to launch overload attacks inflicting performance and cost damages.\n  Retry operations are a key machinery aiming at overcoming seldom rejections. However, during overload periods they: a) Fail protecting valuable transactions from rejections, and b) Trigger large-scale performance-degrading retry storms.\n  We propose simple modifications in retry operations, overcoming these deficiencies by transforming retries into a rejection prioritization mechanism, DiffTry (Differential Retries). It is based on a simple, lightweight, distributed and stateless design and requires neither overload sensing nor microservices coordination.\n  We develop an analytical model capturing DiffTry's effectiveness for two services in tandem, then generalize it to networks of services. Our theoretical framework lets practitioners quantify, for a given network, the resulting prioritization and rejection rates, and yields formal guarantees that DiffTry substantially reduces the impact of both incidental and adversarial orchestrated overloads. We validate these predictions in simulation and on a live Kubernetes deployment, where DiffTry is a simple drop-in service-mesh plugin requiring no application changes; the measured rejection closely matches the analysis.",
+        "authors": [
+            "Ofek Lavi",
+            "Jhonatan Tavori",
+            "Hanoch Levy",
+            "Anat Bremler-Barr"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.20567v1",
+        "submit_date": "2026-10-14",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.16099v2": {
+        "title": "Substep Linearizability: Relaxing Atomicity While Preserving Sequential Specification",
+        "link": "http://arxiv.org/abs/2610.16099v2",
+        "abstract": "Linearizability is a standard correctness condition for concurrent objects. It takes a correct by construction sequential specification of a concurrent data structure, and produces a composable specification under atomic interleavings of operations. However, some operations like atomic exchangers are not specifiable atomically, making it difficult to reason compositionally about their specifications. Interval linearizability is the state of the art in relaxing linearizability's constraints. Formally it is a powerful framework, but it requires an interval-sequential specification of the target data structure, which we show is challenging to correctly generate or understand, even for simple operations on a single concurrent register. We propose substep linearizability, which we show is equivalent to interval linearizability using X-CCorrectness, a relaxed concurrency framework we created to compare existing linearizability semantics. We show that substep linearizability's sequential specifications are suitable for previously infeasible specification tasks, while being comparable in complexity to linearizability's sequential specifications. For evaluation, we model an atomic exchanger, a popular non-linearizable queue structure, and snapshot isolation between database transactions.",
+        "authors": [
+            "Finn Hackett",
+            "Evan Wrench",
+            "Ivan Beschastnikh",
+            "Yuanhao Wei"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.16099v2",
+        "submit_date": "2026-10-14",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.20354v1": {
+        "title": "Understanding NVIDIA Grace-Blackwell Unified Memory Through Placement-Controlled Microbenchmarks",
+        "link": "http://arxiv.org/abs/2610.20354v1",
+        "abstract": "NVIDIA Grace--Blackwell systems make CPU--GPU memory increasingly unified at the programming level, but unified addressability does not make the memory system uniform. A CUDA managed allocation on GB200 may be served from GPU-local HBM, accessed through host/system memory, demand-migrated, prefetched, reused after GPU access, or evicted and reloaded under capacity pressure. The problem is that these states share a programming interface while exercising different hardware paths and runtime mechanisms, making a single ``Unified Memory bandwidth'' number misleading.\n  This paper presents a placement-controlled microbenchmark study of CUDA Unified Memory on NVIDIA GB200, using GH200 as a Grace--Hopper baseline and GB10/DGX Spark as a validation platform. Our methodology separates local HBM access, host/system-memory access, explicit movement, managed first touch, prefetch, reuse, access-pattern sensitivity, oversubscription, and CPU--GPU handoff, then summarizes the observations with a measurement-calibrated model of compute, access, migration, eviction, synchronization, and handoff costs. On GB200, a 1~GB STREAM-style triad reaches 3963~GB/s from local HBM but 304~GB/s through host-mapped CPU/system memory; for a 256~MB streaming kernel, cold CPU-initialized managed memory reaches 14.1~GB/s, while managed prefetch and reuse reach 4606~GB/s and 4504~GB/s. Below the capacity boundary, prefetched and reused managed memory remain above 4.6~TB/s, but at 125\\% of CUDA-visible memory they fall to 968~GB/s and 1214~GB/s, showing that Grace--Blackwell unified memory must be understood through placement, access history, locality, reuse, and capacity pressure.",
+        "authors": [
+            "Nathan Graddon",
+            "Aaron Jarmusch",
+            "Sunita Chandrasekaran"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.20354v1",
+        "submit_date": "2026-10-14",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.14738v2": {
+        "title": "sGLP: Simulating People with Stochastic Agents",
+        "link": "http://arxiv.org/abs/2610.14738v2",
+        "abstract": "Grassroots platforms are designed to be owned, operated and governed by their participants, and thus are constituted from person-to-person smartphone apps that are run by the participants. A grassroots app is specified using a grassroots social contract, which is compiled through an abstraction cascade into a volition-guarded Grassroots Logic Program (vGLP), a multiagent concurrent logic programming language. A vGLP program in turn specifies a smartphone UI via which people express their volitions and thus control the app. Prudence dictates large-scale evaluation and testing of grassroots platforms prior to deployment, but using the many people needed to do that is a contradiction in terms. Hence another solution is needed.\n  Here, we present stochastic GLP (sGLP), designed to allow grassroots platforms to be simulated at scale from the vGLP programs that deploy them, with stochastic agents in place of people. sGLP is GLP with a rate extension for specifying stochastic behaviour. A stochastic agent is an sGLP program replacing both the vGLP UI and the person behind it. It is typed by the dual of the interactive type of the UI and specifies a stochastic profile of a person's behaviour.\n  We demonstrate sGLP on the grassroots social graph, with a population of men and women drawn from four stochastic profiles --- homophile or indifferent, wary or sociable --- and on grassroots currencies, with four profiles --- spenders or savers, cautious or generous --- and report what the mix of profiles does to the social graph that forms and to the currencies that circulate.\n  We prove that every run of a vGLP program in which sGLP agents replace the UI and the people behind it is a vGLP run. We implemented sGLP in GLP by Gillespie's method, and ran reproducible simulations with it.",
+        "authors": [
+            "Ehud Shapiro"
+        ],
+        "categories": [
+            "cs.MA",
+            "cs.DC",
+            "cs.HC",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2610.14738v2",
+        "submit_date": "2026-10-14",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.20029v1": {
+        "title": "TrimSO(2): Fast and Memory-Efficient Training of Equivariant Interatomic Potentials",
+        "link": "http://arxiv.org/abs/2610.20029v1",
+        "abstract": "Equivariant interatomic potentials enable accurate and efficient simulations of molecules and materials. Among them, models based on SO(2) convolutions reduce the cost of tensor products and achieve state-of-the-art accuracy, but their training remains time-consuming and memory-intensive. Existing training implementations materialize large edge tensors for representation transformations surrounding dense matrix multiplications, increasing memory usage and data movement. We observe that these transformations can be integrated into the model's existing dataflow, avoiding separate intermediate materialization. We introduce TrimSO(2), a fast and memory-efficient algorithm for SO(2)-based equivariant models. It realizes this principle through rotation on gather, recombination with activation, and inverse rotation on reduction, with support for the higher-order differentiation required for training. By avoiding intermediate materialization, TrimSO(2) delivers 2.71-16.73$\\times$ operator speedups across forward, backward, and double backward and reduces model-level high-bandwidth memory traffic by 3.81-9.88$\\times$. Finally, TrimSO(2) achieves 2.07-2.94$\\times$ training speedups and 1.53-3.16$\\times$ reductions in peak training memory over PyTorch implementations for official eSEN, UMA, and EquiformerV3 workloads on A100 and H100 GPUs.",
+        "authors": [
+            "Chen Wang",
+            "Yuanchang Zhou",
+            "Guangming Tan",
+            "Mingzhen Li",
+            "Weile Jia"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.20029v1",
+        "submit_date": "2026-10-14",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19822v1": {
+        "title": "JointServe: Serving Multi-Model Agents on Memory-Constrained GPUs",
+        "link": "http://arxiv.org/abs/2610.19822v1",
+        "abstract": "LLM agents are evolving from a single model calling tools to planners that orchestrate multiple expert models whose capabilities live in distinct weights. This shift breaks a hidden assumption of today's serving systems: that the working set of models fits in GPU memory. On the memory-constrained GPUs typical of private and edge deployments, naive whole-model swapping serializes weight transfer with computation and, without host-backed KV restoration, discards session state at a switch. We present JointServe, a serving system that treats weight shards and KV blocks as residency objects competing for one unified memory budget. JointServe exploits three structural properties of agent workloads (directed calls, gapped execution, and dual-state residency) to prepare models before they are called: an intent signal parsed from the caller's own output stream triggers prefetch during generation, partial k* residency reduces switching to incremental layers, and a preemptive transfer scheduler protects live-session KV with a guaranteed bandwidth share. A carve-out control step adjusts the weight/KV allocation as workload demands change. Evaluations show that JointServe reduces session completion time by 21.7% over the strongest whole-model swap baseline and stays usable in a crash regime where every whole-model swap baseline fails to finish (a 46-fold gap). On replayed SWE-bench, tau-bench, and OSWorld traces, it cuts session completion time by up to 49% and lifts SLO attainment from 2.8-24.5% to 76.8-100%.",
+        "authors": [
+            "Daijin Hu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.19822v1",
+        "submit_date": "2026-10-14",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "edge",
+            "offloading"
+        ],
+        "tldr": "Addresses efficient LLM agent serving in memory-constrained edge environments by unifying weight shard and KV cache memory management. JointServe uses prefetch, partial residency, and preemptive scheduling to reduce session completion time by up to 49% and achieve 76.8-100% SLO attainment.",
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19819v1": {
+        "title": "The Cost of Context: Profiling the Energy Footprint of Input Tokens in Large Language Models",
+        "link": "http://arxiv.org/abs/2610.19819v1",
+        "abstract": "The rapid adoption of Retrieval-Augmented Generation (RAG) and long-context LLMs has shifted the computational burden toward the prefill phase---the initial stage where the model processes all input tokens in parallel before generating a response---yet its energy impact remains poorly characterised. We investigate the contradiction between massive hardware-level power spikes and the sub-linear marginal cost of input tokens reported in system-level studies. Through high-resolution telemetry of Llama-3.1 and Qwen-2 models on NVIDIA A100 hardware, we identify the efficiency threshold where $O(n^2)$ attention complexity overcomes GPU parallelisation. Our results quantify how optimised memory orchestration (PagedAttention) delays this scaling bottleneck across three orders of context scaling, yielding up to an 8.9$\\times$ energy efficiency advantage at 112,000 tokens compared to standard baselines. Furthermore, we characterise the energy disparity between input and output tokens, demonstrating that optimised serving (vLLM) causes this ratio to narrow (from $\\approx$850$\\times$ to 750$\\times$) as context scales due to high decode efficiency, whereas unoptimised baselines show a much smaller, roughly constant gap ($\\approx$150--230$\\times$) because their prefill is itself expensive. This work establishes context-scaling laws that differentiate engine-level optimisations from inherent model constraints, providing an empirical framework for sustainable LLM deployment.",
+        "authors": [
+            "Boris Ruf",
+            "Marcin Detyniecki"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.19819v1",
+        "submit_date": "2026-10-14",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Investigates energy costs of input tokens in LLM inference, focusing on long contexts. Through A100 telemetry profiling, reveals PagedAttention yields 8.9× energy efficiency gain at 112K tokens versus baselines, characterizing context scaling laws for sustainable deployment.",
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19801v1": {
+        "title": "Delta Tokenizer: Reference-Identical Tokenization of Session Deltas and Segment-Parallelism for Long Prompts on Multicore CPUs",
+        "link": "http://arxiv.org/abs/2610.19801v1",
+        "abstract": "An agent that drives an LLM sends the model the same conversation again and again, and each turn adds only a little text at the end. Inference engines reuse the KV cache of the shared prefix, so only the new tokens pass through the model. However, tokenization has no such shortcut. The CPU front end of the serving engine converts every request back into token IDs from its first character, which lengthens the time to first token (TTFT) and consumes CPU on every turn.\n  We present Delta Tokenizer, a CPU tokenization front end that tokenizes only the delta between a request and the previous request of the same session. It retains the earlier token sequence, encodes again only the appended text and the short tail whose tokens the append could affect, and joins the two only at a position the tokenizer's splitting rules themselves cannot move, which keeps the result exact. For long requests with no state to reuse, it cuts the text where practical tokenizers already keep neighboring pieces independent, encodes the pieces on several cores at once, and concatenates the outputs into the reference encoding, exactly. A shared CPU pool schedules these chunks together with the short incremental updates, so an update runs between two chunks rather than behind an entire long job.\n  The incremental path shortens the tokenization of a session turn by roughly 40x relative to the Hugging Face reference tokenizer, and on 16 cores the chunk-parallel path encodes a four-million-character request 8.2x faster than a serial encode and 1.6-2.1x faster than LoPT. Inside SGLang, Delta Tokenizer reduces the median TTFT through the chat interface by 59% at 100K tokens and brings the P99 TTFT of agent sessions down 9.5x under load and 23x when long requests tie up the front end. Every output we checked matches the reference, among them 41.8 billion documents encoded by its fast encoder.",
+        "authors": [
+            "Zhenyu Zhang",
+            "Zhichao Cao"
+        ],
+        "categories": [
+            "cs.CL",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.19801v1",
+        "submit_date": "2026-10-14",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Optimizes LLM serving tokenization by encoding deltas incrementally and parallelizing long prompts. Reduces tokenization time by 40x for session updates and 8.2x for long inputs. In SGLang, achieves median TTFT reduction by 59% at 100K tokens and 9.5-23x lower P99 TTFT.",
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19778v1": {
+        "title": "Computational compressive imaging reconstruction with a simulated-annealing-based Ising solver",
+        "link": "http://arxiv.org/abs/2610.19778v1",
+        "abstract": "Computational compressive imaging, such as single-pixel imaging and lensless imaging, is a promising imaging technique, enabling the reconstruction of objects from under-sampled measurements through compressed sensing algorithms or deep learning methods. However, the demand for electronic computational resources grows rapidly when recovering high-resolution and multi-dimensional images and training neural networks with numerous parameters, which has become a bottleneck for the widespread adoption of this technique. Here, we propose a physics-driven reconstruction framework that formulates imaging inverse problems as Ising models and directly recovers target objects through the self-evolution of non-von Neumann Ising machines toward the ground state of the Hamiltonian. We employ a simulated-annealing-based Ising solver to demonstrate this proof-of-concept by reconstructing objects in both single-pixel imaging and a lensless diffuser camera at sampling rates ranging from 1% to 25%. By further incorporating a foreground-sparsity constraint and a smoothness constraint, the reconstruction quality of our method is comparable to or even better than that of mainstream algorithms. This approach has the potential to substantially reduce the electronic computational burden of inverse reconstruction, paving the way for real-time, low-power computational imaging.",
+        "authors": [
+            "Ze Zheng",
+            "Xiaoyan Wu",
+            "Hang Xu",
+            "Jingzheng Huang",
+            "Tailong Xiao",
+            "Guihua Zeng"
+        ],
+        "categories": [
+            "physics.optics",
+            "cs.CV",
+            "cs.DC",
+            "math-ph",
+            "physics.app-ph"
+        ],
+        "id": "http://arxiv.org/abs/2610.19778v1",
+        "submit_date": "2026-10-14",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19710v1": {
+        "title": "Dynamic 3-Coloring of Bipartite Graphs with Optimal Locality",
+        "link": "http://arxiv.org/abs/2610.19710v1",
+        "abstract": "We give a dynamic graph algorithm which maintains a 3-coloring in bipartite graphs under edge insertions such that the coloring only changes within a radius of $O(\\log n)$ around an inserted edge. In the context of locality theory in distributed graph algorithms, this gives an upper bound on the locality under the dynamic-LOCAL model. Our bound on the locality is tight, as the problem admits a matching $Ω(\\log n)$ lower bound in the stronger online-LOCAL model, by a result of Chang et al. [PODC 2024]. Thus, our result closes the gap between dynamic and online locality of this problem.",
+        "authors": [
+            "Yann Bourreau",
+            "Filippo Casagrande",
+            "Tim Göttlicher",
+            "Ananth Narayanan Karunattillam"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.19710v1",
+        "submit_date": "2026-10-14",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.14547v2": {
+        "title": "A Self-Defining Operator for Distributed Applications",
+        "link": "http://arxiv.org/abs/2610.14547v2",
+        "abstract": "To operate distributed applications with high availability, operators must rapidly diagnose and mitigate any incident. LLM-based agents can help, but unlike experienced human operators they do not improve as they handle more incidents. Each investigation starts from scratch, re-deriving likely causes and re-testing hypotheses even when a similar fault was resolved in the past. We present a self-defining operator (SDO) that improves with time by updating its operational behavior and memory. When SDO resolves an incident, it distills that experience into playbooks, which describe reusable diagnostic instructions for future incidents with similar faults, and detectors, scripts that take application telemetry as input and output relevant playbook(s). SDO continuously runs the detectors and invokes LLMs only when one fires, so its token cost scales with incident count rather than with operational time. Across 11 open-source microservice applications, SDO cuts resolution time by 52% on recurring faults while keeping per-incident cost low. SDO is open source at https://github.com/self-defining-systems/sdo.",
+        "authors": [
+            "Shihang Li",
+            "Thomas Anderson",
+            "Ratul Mahajan",
+            "Simon Peter",
+            "Luke Zettlemoyer"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2610.14547v2",
+        "submit_date": "2026-10-14",
+        "relevant": true,
+        "tags": [
+            "RAG",
+            "serving"
+        ],
+        "tldr": "Addresses inefficiency of LLM-based agents in incident management by distilling experiences into reusable playbooks and detectors. SDO invokes LLMs only upon detector triggers, reducing token costs. Achieves 52% faster resolution for recurring faults compared to baseline methods.",
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.15755v2": {
+        "title": "Native Dual Pools or Shared Paging? Memory Organization for Concurrent Hybrid LLM Serving",
+        "link": "http://arxiv.org/abs/2610.15755v2",
+        "abstract": "Hybrid attention-SSM serving combines growing attention KV with fixed-size recurrent and convolution state whose allocation units, reuse boundaries, and lifetimes differ. We implement four memory organizations in a modified vLLM runtime: a coarse shared-page baseline (S0), checkpoint-internal recurrent paging (S1), paging with convolution-slot packing (S2), and native dual pools (D0). Nine evaluation questions cover storage costs and serving behavior. The cumulative S0-S1-S2 refinement improves completed-output throughput and tail completion time at the main operating point. D0-S2 performance varies with memory budget, offered load, and admission headroom. Shared-prefix workloads yield larger stepwise gains; gains also persist in a no-sharing control with equal recorded input-work totals. State traces identify recurrent-checkpoint availability as the limit on joint reuse in the tested S2 runs. Extending producer-side checkpoint lifetime increases reusable depth at a fixed page budget. A fresh-seed SHARE/ISOLATE comparison estimates a positive retention interaction, with a primary confidence interval that includes zero. Retained-state continuation correctness remains unresolved. These findings motivate evaluating physical state representation together with request admission and checkpoint lifetime when designing memory management for concurrent hybrid-model serving.",
+        "authors": [
+            "Dongwook Kang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.15755v2",
+        "submit_date": "2026-10-14",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "storage"
+        ],
+        "tldr": "Explores memory organization for concurrent hybrid attention-SSM serving. Evaluates four strategies (paging/dual pools) in a modified vLLM runtime, showing iterative refinements improve throughput and tail completion time. Achieves cumulative performance gains in storage-efficient serving metrics.",
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19489v1": {
+        "title": "How the Dirty Set Moves: Characterizing Schedule Reuse in Incremental Sparse Matrix Multiplication",
+        "link": "http://arxiv.org/abs/2610.19489v1",
+        "abstract": "Sparse matrices, in which most entries are zero, are central to scientific simulation, graph analytics and machine learning, and their multiplication with dense inputs is a core parallel kernel. In many applications the matrix stays fixed while only a few input rows change per step, so the result can be updated from those rows alone, which we call the dirty set. Sparse kernels often add a second optimization based on the inspector-executor principle, in which a tiled schedule is prepared once and reused across calls. However, when this reuse remains profitable as the dirty set moves is not well characterized. In this paper, we show that retained tiled execution rarely beats direct CSC in incremental sparse matrix multiplication, although incremental execution itself remains highly profitable. Across 21 SuiteSparse matrices and controlled patterns of motion, a direct column-wise incremental update is 2.1-8.2x faster than the best of eight full-recomputation codes, among them Intel oneMKL and PyTorch. Yet the same direct update outperforms a tiled executor that retains tile preparation and caches assembled schedules in 779 of 837 workloads. Separating reuse into per-tile preparation and cached schedules shows that the benefit comes from preparation; extra cache capacity seldom helps because a tile set rarely returns after a different one has intervened. Tiling is faster only when tiles merge many entries into each output write, a structural property that we predicted before measurement and confirmed on four held-out matrices of the same family. These results show that the structure of the matrix and the motion of the dirty set, rather than the sophistication of the schedule, determine whether reuse is profitable. We anticipate that our methodology and guidelines will help developers decide when to build schedule reuse into incremental sparse runtimes.",
+        "authors": [
+            "Hunter Horne",
+            "Eric Spencer",
+            "Alex Henningfield",
+            "Arslan Bisharat"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.DC",
+            "cs.MS"
+        ],
+        "id": "http://arxiv.org/abs/2610.19489v1",
+        "submit_date": "2026-10-14",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19423v1": {
+        "title": "Beyond the Trial-and-Error Loop: Hybrid Projection and Automated Tuning for Distributed Training",
+        "link": "http://arxiv.org/abs/2610.19423v1",
+        "abstract": "Configuring distributed LLM training across hundreds of GPUs requires jointly optimizing tensor, pipeline, expert, context, and data parallelism alongside micro-batch size, recomputation, sharding, and overlap, a combinatorial space where memory legality can hinge on a single byte of activation accounting. Today, teams navigate it through expensive multi-node trial and error, burning GPU-hours on crashes and suboptimal recipes. We present Primus Projection, which closes this loop with two coupled components. First, a hybrid projection engine that measures what it can and simulates what it cannot: GPU microbenchmarks on as few as a single device capture compute kernels and any in-scope communication; a sub-node downscale-measure-upscale workflow analytically restores out-of-scope collectives, FSDP overlap, and the full pipeline schedule at the multi-node target. A pure simulation mode runs entirely on CPU, enabling pre-silicon planning without any GPU. Second, the Primus Tuning Agent treats the projection engine as a fast scoring oracle (seconds per candidate instead of tens of minutes) and uses it to drive an intelligent search over the configuration space. A deterministic seed planner sweeps single axes; an LLM investigation loop proposes cross-axis combinations the planner cannot reach, with an analytic memory pre-filter that rejects infeasible candidates before any GPU time is spent. Validated on Llama 3.1 (dense) and Mixtral 8x22B (MoE) across two GPU generations, all projections stay within ~10% of measured multi-node throughput, and fidelity holds at production scale: 4.7% error on DeepSeek V3 671B at 1,024 GPUs and 1.9% on Qwen3-235B-A22B at 256 GPUs. In a Mixtral 8x22B case study, the Primus Tuning Agent discovers a configuration delivering +27% throughput over the published 4-node BF16 reference at the same scale, in under 30 minutes of single-node exploration.",
+        "authors": [
+            "Anshu Raina",
+            "Peyman Razaghi",
+            "Yuankai Chen",
+            "Cheng Yao",
+            "Yao Fu",
+            "Vidushi Goyal",
+            "Devang Patel",
+            "Wen Xie",
+            "Zhenyu Gu",
+            "Emad Barsoum"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.19423v1",
+        "submit_date": "2026-10-14",
+        "relevant": true,
+        "tags": [
+            "training",
+            "MoE"
+        ],
+        "tldr": "Addresses the high cost of trial-and-error in distributed LLM training configuration via a hybrid projection engine and automated tuning agent. Achieves within 10% projection accuracy and discovers a configuration with 27% higher throughput for Mixtral 8x22B.",
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19405v1": {
+        "title": "Scaling LLM Inference via Parallelism: Throughput-Latency Trade-off",
+        "link": "http://arxiv.org/abs/2610.19405v1",
+        "abstract": "Large Language Model (LLM) serving systems must balance latency and throughput while efficiently utilizing distributed GPU resources. This challenge arises because inference consists of two fundamentally different phases: prefill, which determines time-to-first-token (TTFT), and decode, which determines inter-token latency (ITL). The use of tensor parallelism (TP), pipeline parallelism (PP), and hybrid configurations exposes different trade-offs between these latency dimensions, making the optimal parallelism configuration highly dependent on workload characteristics, latency requirements, and context length. Moreover, despite the widespread adoption of distributed inference, there is still limited understanding of how parallelism configurations should be selected under varying workload conditions and service-level objectives (SLO). In this paper, we develop a systematic framework for characterizing LLM inference parallelism via throughput-latency trade-offs, SLO-aware serving, and long-context scalability. We introduce the notion of parallelism operating regions by constructing TTFT-ITL feasible sets and Pareto frontiers across different workload compositions, thereby revealing a systematic transition from TP-dominant to PP-dominant configurations as workloads become increasingly prefill-heavy. We further formulate SLO-aware parallelism selection using goodput, showing that stringent TTFT requirements favor PP-dominated configurations, whereas relaxed latency constraints progressively shift the optimality toward TP-dominated configurations with higher serving capacity. Finally, we demonstrate that increasing context length fundamentally changes the relative advantages of parallelism configurations, with PP-dominant configurations exhibiting more favorable scalability and SLO attainment in the long-context regime.",
+        "authors": [
+            "Javad Mirzaei",
+            "Jeebak Mitra"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.19405v1",
+        "submit_date": "2026-10-14",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Studies parallelism configuration (TP vs. PP) for LLM inference to optimize throughput-latency trade-offs under varying workloads and SLOs. Introduces parallelism operating regions via TTFT-ITL feasible sets and Pareto frontiers. Demonstrates PP-dominant configurations improve SLO attainment in long-context workloads.",
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19308v1": {
+        "title": "Parallel Sparse Outputs for Tensor Compilers",
+        "link": "http://arxiv.org/abs/2610.19308v1",
+        "abstract": "Sparse tensor compilers are commonly used high-performance tools that optimize tensor algebra programs over notoriously complex sparse data structures. Despite the ever-increasing size and scale of sparse datasets, there exists astonishingly little research on developing a parallel sparse tensor compiler. Existing approaches fail to parallelize or make assumptions about access patterns or output formats that limit generality.\n  This paper presents Birdseed, the first tensor compiler to support all loop orderings over any standard sparse format in parallel. More specifically, Birdseed supports parallel sparse scatters and directly writes into list, bytemap, hash, and dense levels of fibertree sparse formats. Our approach exhibits asymptotic memory and time improvements over all previous work. We additionally demonstrate empirical speedups on challenging kernels to parallelize, such as histogram construction and SpMSpV.",
+        "authors": [
+            "Adrian Gushin",
+            "Pau Sum",
+            "Willow Ahrens"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.19308v1",
+        "submit_date": "2026-10-13",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19077v1": {
+        "title": "Federated Unlearning of Quantum Data via Classical Shadows",
+        "link": "http://arxiv.org/abs/2610.19077v1",
+        "abstract": "Quantum federated learning trains a quantum neural network (QNN) across nodes that hold quantum data, such as the states of quantum sensors. To forget data, unlearning methods for quantum models replay them, and federated unlearning from stored updates removes whole nodes only. Quantum data cannot be replayed, since a state is consumed when measured and cannot be cloned. We propose Shadow-based Data Erasure (SHADE), in which each node records a classical shadow of every training state, a few randomized single-qubit measurements taken at training time. The gradient and curvature of a QNN on a state are expectations of observables, so SHADE estimates them for the forget data from the shadows at any later parameters and removes their effect by a federated Newton correction. Only classical estimates cross the network. We prove that the shadow size needed for a target unlearning error grows exponentially in the size of the backward light cone of the measured observable and not in the number of qubits. In simulation with 50 nodes and on edge boards, SHADE matches the forget accuracy of retraining within 0.5 points, without replay and in under 0.2 s.",
+        "authors": [
+            "Zihao Ding",
+            "Jun Huang",
+            "Cong-cong Xing"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2610.19077v1",
+        "submit_date": "2026-10-13",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.19072v1": {
+        "title": "Tracing Knowledge Lineage for Federated Unlearning under Mutual Distillation",
+        "link": "http://arxiv.org/abs/2610.19072v1",
+        "abstract": "An edge server and nearby devices can train language models of different sizes together by mutual distillation. Federated unlearning (FU) and unlearning for large language models (LLMs) execute a removal request on one model. Under mutual distillation, however, the effect of the removed data has been copied into many students, and their uploads teach it back to the corrected teacher. We propose Holder-level Erasure via Replication-weighted Delta-closure (HERD), which decides which holders must be corrected. HERD records a knowledge lineage graph from the transfers that the server already performs and weights each edge by its transfer type. It computes how many times the residual at each holder will be copied and selects the cheapest set of holders whose correction bounds the cumulative residual after the request. A transfer guard and a rejoin rule cover the holders left uncorrected or offline. We prove that partial correction suffices only when the copy number of the lineage graph is below one, that averaging alone never reaches one, and that the correction set remains valid under link outages. On TOFU, HERD leaves 18% to 52% less cumulative residual than the strongest baseline at 6% to 12% of its correction cost.",
+        "authors": [
+            "Zihao Ding",
+            "Jun Huang",
+            "Guodong Wang"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.19072v1",
+        "submit_date": "2026-10-13",
+        "relevant": false,
+        "indexed_date": "2026-10-15"
+    },
+    "http://arxiv.org/abs/2610.18925v1": {
+        "title": "CacheSmith: Accurate RAG Serving under Latency SLOs with Adaptive KV Reuse",
+        "link": "http://arxiv.org/abs/2610.18925v1",
+        "abstract": "This paper presents CacheSmith, a KV cache reuse system for RAG prefill that maximizes quality-gated SLO attainment. While context caching lowers prefill latency by reusing precomputed KV states for retrieved chunks, it misses cross-chunk attention that a full prefill would compute over concatenated inputs. Prior selective recomputation schemes tackle this problem but enforce static, one-size-fits-all configurations that fail to effectively handle request heterogeneity or dynamic latency budgets. CacheSmith decomposes selective recomputation into a three-phase workflow of WarmUp, Probe, and Patch that can be dynamically configured to exploit a wide range of cost-accuracy trade-offs. At serving time, an SLO-aware scheduler in CacheSmith forms batches to mitigate inter-request interference during layer-by-layer prefill, while a budget-aware planner configures recomputation phases across the batch to maximize the number of requests satisfying both generation quality and latency targets. Both components make fast, solver-free decisions over profiled cost-accuracy bands. On four benchmarks across varying arrival rates and burstiness levels, CacheSmith improves quality-gated SLO attainment by up to 27.5%, over four state-of-the-art baselines.",
+        "authors": [
+            "Xinyue Ma",
+            "Damin Lee",
+            "Aashaka Shah",
+            "Myeongjae Jeon"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.18925v1",
+        "submit_date": "2026-10-13",
+        "relevant": true,
+        "tags": [
+            "RAG",
+            "serving"
+        ],
+        "tldr": "Addresses performance-accuracy tradeoffs in RAG prefill via adaptive KV cache reuse. Introduces CacheSmith: a three-phase recomputation framework with SLO-aware batching and budget-driven patch planning. Achieves 27.5% higher quality-gated SLO attainment than baselines under varied workloads.",
+        "indexed_date": "2026-10-15"
     }
 }
