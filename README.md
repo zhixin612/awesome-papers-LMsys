@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3407-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.15-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3417-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,28 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-16
+* `training` `kernel` `recommendation` [Architecting for Hardware Diversity: Meta's End-to-End Co-Design for High-Performance AI Training on AMD GPUs](http://arxiv.org/abs/2610.22230v1)
+  > **TL;DR**: Optimizes training throughput for large-scale recommendation models on AMD GPUs. Introduces hardware-model co-design, an analytical performance model for kernel selection, and extended agentic workflows. Achieves up to 1.5x improvement in training throughput over baseline.
+* `edge` `serving` `offloading` [Efficient KV Cache Migration for Geo-Distributed LLM Inference in Collaborative Edge Computing](http://arxiv.org/abs/2610.22172v1)
+  > **TL;DR**: Addresses KV cache migration challenges during overloads/failures in edge-based LLM inference. Proposes EdgeFlow, a hybrid scheme integrating direct transfer with activation recomputation via optimized scheduling. Achieves 45% lower migration time in geo-distributed experiments.
+* `training` `networking` [ETH: Data-Balanced Heterogeneous Pipeline Parallelism for Training Large Models](http://arxiv.org/abs/2610.22035v1)
+  > **TL;DR**: Addresses workload imbalance in pipeline-parallel training of large models on heterogeneous hardware. Proposes ETH, a system with hierarchical workload balancing and block-wise gradient aggregation. Achieves up to 2x training speedup and reduces configuration generation overhead by up to 56x.
+* `serving` `networking` `offline` [Exact Makespan Bounds and the GPipe Homogeneity Bias for Heterogeneous LLM Inference Pipelines](http://arxiv.org/abs/2610.21815v1)
+  > **TL;DR**: Derives exact makespan bounds for micro-batched LLM inference pipelines on heterogeneous GPUs, exposing GPipe's homogeneity bias. Models communication/compute interactions via closed-form formulas, validated with <10^-9 error on 1.6e5 configurations. Quantifies when balancing compute dominates communication optimization.
+* `RL` `training` `scaling` [ReFlow: Replay-Driven Decoupling for Efficient RL Post-Training](http://arxiv.org/abs/2610.21640v1)
+  > **TL;DR**: Enhances RL post-training efficiency for LLMs. Introduces ReFlow, a system with experience replay, elastic resource scaling, and adaptive scheduling. Achieves up to 2.06× training throughput improvement over state-of-the-art RL systems.
+* `serving` `MoE` `offloading` [When the KV Cache Is Slower Than the GPU: Scaling Remote KV Tiers for Context-Parallel Prefill](http://arxiv.org/abs/2610.21500v1)
+  > **TL;DR**: Optimizes remote KV cache offloading for LLM prefill to reduce tail latency. Designs sharded KV store, partitioned remote tier, and asynchronous loading. Achieves p99 latency drop from 83.32s to 0.67s and up to 34% throughput increase.
+* `serving` `edge` `quantization` [HyCo: Hybrid Drafting for Cost-Efficient Mobile-Cloud Speculative Decoding](http://arxiv.org/abs/2610.21436v1)
+  > **TL;DR**: Proposes HyCo, a mobile-cloud speculative decoding method that offloads drafting to mobile NPUs using multi-token prediction heads and quantization, reducing server GPU time by 38.6% on Spec-Bench and 29.2% on summarization compared to server-side MTP.
+* `training` [Coordination-Free Workload Regularization for Variable-Cost Distributed Training](http://arxiv.org/abs/2610.21162v1)
+  > **TL;DR**: Addresses idle time in synchronous data-parallel training caused by variable-cost records. Introduces BCL, a coordination-free data-loader that buffers and repartitions records into fixed-cardinality packs for balanced cost. Achieves up to 1.343x speedup over packed execution on internal workloads.
+* `serving` `offloading` [Characterizing Predictability-Latency Trade-offs of KV-Cache SSD Offloading in LMCache for LLM Serving Systems](http://arxiv.org/abs/2610.21249v1)
+  > **TL;DR**: Studies predictability-latency trade-offs in KV-cache SSD offloading for LLM serving. Compares two LMCache versions: buffered I/O with kernel page cache vs. prefix-aware deduplication with O_DIRECT. Finds O_DIRECT increases warm TTFT from 27ms to 93ms due to explicit SSD reads.
+* `serving` `offloading` `storage` [Range: Decoupling KV-Cache Reuse Granularity from Storage Work](http://arxiv.org/abs/2610.21241v1)
+  > **TL;DR**: Reduces time-to-first-token in LLM serving by minimizing per-object overheads when restoring offloaded KV-cache. Introduces Range: a storage engine that decouples reuse granularity via token metadata and batched GPU transfers. Achieves median TTFT of 1.79-1.80s across object counts, vs. LMCache's 2.12-3.01s.
+
 ### 2026-10-15
 * `serving` `edge` `offloading` [JointServe: Serving Multi-Model Agents on Memory-Constrained GPUs](http://arxiv.org/abs/2610.19822v1)
   > **TL;DR**: Addresses efficient LLM agent serving in memory-constrained edge environments by unifying weight shard and KV cache memory management. JointServe uses prefetch, partial residency, and preemptive scheduling to reduce session completion time by up to 49% and achieve 76.8-100% SLO attainment.
