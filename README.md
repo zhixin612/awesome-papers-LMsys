@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3417-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3425-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-19
+* `serving` `MoE` [Revisiting Cauchy-Schwarz Norm Bounds for SDC Detection in LLM Inference](http://arxiv.org/abs/2610.18557v2)
+  > **TL;DR**: Revisits Cauchy-Schwarz Norm Bounds (CSNB) for low-overhead SDC detection in LLM inference. For dense LLM linear layers, CSNB achieves 99% of ABFT's fault detection while reducing verification overhead by 87% and threshold overhead by 67%. For MoE routers, it only achieves 55%, making ABFT preferable.
+* `training` `serving` `hardware` [Agentic AI for Heterogeneous System Design Across Chip, Scale-Up, and Scale-Out Domains](http://arxiv.org/abs/2610.23724v1)
+  > **TL;DR**: Proposes ArchAgent, a hierarchical multi-agent framework using an LLM planner and analytical evaluator for heterogeneous system design for LLM training and serving. Decomposes design into chip, scale-up, and scale-out subproblems. Achieves 1.93x speedup under 1 MW power budget.
+* `training` `MoE` `scaling` [BaGuaLu-2: Taming Dynamic Memory Fluctuation for Efficient MoE Model Training over 10,000 GPUs](http://arxiv.org/abs/2610.23064v1)
+  > **TL;DR**: Addresses dynamic memory fluctuations that degrade MoE training efficiency. Proposes BaGuaLu-2 with fine-grained on-demand memory allocation and overhead offsets. Achieves 2 EFlops at 35% MFU for a 1040B model on 12,288 GPUs and up to 1.14x throughput gains.
+* `serving` `diffusion` `kernel` [DIFFLET: A Fast Inference Engine for Diffusion Transformer Models on AWS Trainium](http://arxiv.org/abs/2610.23047v1)
+  > **TL;DR**: Addresses inefficient inference for diffusion transformers due to varying pipelines and prompts. Proposes Difflet with shared compilation, attention splitting across cores, and step-wise caching using a probe. Achieves 1.2-4.3x faster denoiser steps via fused attention and 1.5-3.4x serving speedup from resident processes.
+* `MoE` `networking` [MailRail: Mitigating Incast Congestion with User-Space, Node-Based Flow Control](http://arxiv.org/abs/2610.22890v1)
+  > **TL;DR**: Addresses incast congestion in large-scale systems for Mixture-of-Experts and other irregular workloads. Introduces MailRail with user-space, node-based credit flow control using shared per-node pools to maintain credit availability. Achieves up to 1132x speedup over unconstrained execution at 4096:1 incast ratio.
+* `agentic` `quantization` `serving` [Understanding KV Residency in Production-Scale Agentic LLM Workloads](http://arxiv.org/abs/2610.22863v1)
+  > **TL;DR**: Characterizes memory demands for KV state retention in production agentic LLM workloads. Proposes multi-resolution retention (quantizing to int4) and deployment-aware routing to reduce GPU memory requirements. Under constrained memory, reduces recomputation rate from 63% (LRU) to 13.6% while increasing reuse.
+* `serving` `scaling` [Accelerated Dataflow: scaling inference in streaming data analytics with efficiency](http://arxiv.org/abs/2610.22731v1)
+  > **TL;DR**: Addresses poor GPU utilization for LLM inference in streaming data pipelines. Introduces autoscaling with heterogeneous worker pools and prefix-aware batching. Achieves 1.5-2x throughput gain, 75% peak resource savings, and 84% lower peak tail latency.
+* `edge` `quantization` `networking` [TRACE: Transformer Residual Activation Codebook Encoding for Communication-efficient Distributed Edge Inference](http://arxiv.org/abs/2610.22435v1)
+  > **TL;DR**: Addresses communication bottlenecks in distributed edge Transformer inference via vector quantization of activations to precompute key/value for lookup, enabling communication--computation overlap. Achieves up to 1.27x speedup and reduces communication overhead by 22,624x.
+
 ### 2026-10-16
 * `training` `kernel` `recommendation` [Architecting for Hardware Diversity: Meta's End-to-End Co-Design for High-Performance AI Training on AMD GPUs](http://arxiv.org/abs/2610.22230v1)
   > **TL;DR**: Optimizes training throughput for large-scale recommendation models on AMD GPUs. Introduces hardware-model co-design, an analytical performance model for kernel selection, and extended agentic workflows. Achieves up to 1.5x improvement in training throughput over baseline.
