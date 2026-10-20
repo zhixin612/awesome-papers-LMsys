@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3425-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.19-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3442-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.20-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,42 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-20
+* `training` `scaling` `networking` [GeoTrain: Energy-Aware Automatic Parallelism for Foundation Model Training on Heterogeneous Geo-Distributed Resources](http://arxiv.org/abs/2610.26178v1)
+  > **TL;DR**: Proposes GeoTrain for automatic parallelism in training foundation models on geo-distributed heterogeneous GPUs. It jointly optimizes GPU selection, layer partitioning, and pipeline configurations using a memetic algorithm. Reduces iteration time by up to 61.4% compared to state-of-the-art.
+* `serving` `edge` `networking` [CEMA-Router: Infrastructure-Aware Batch Routing for LLM Inference in Cloud-Edge Systems](http://arxiv.org/abs/2610.26171v1)
+  > **TL;DR**: Addresses efficient LLM inference batch routing in cloud-edge systems to jointly minimize quality loss, cost, energy, and completion time. Proposes CEMA-Router, a memetic algorithm-based optimizer with deployment-aware profiling. Achieves up to 86% reduced weighted objective for GSM8K.
+* `serving` `MoE` [Revisiting Cauchy-Schwarz Norm Bounds for SDC Detection in LLM Inference](http://arxiv.org/abs/2610.18557v3)
+  > **TL;DR**: Revisits Cauchy-Schwarz Norm Bounds (CSNB) for low-overhead SDC detection against hardware faults in LLM inference. For dense LLMs, CSNB achieves 99% of ABFT's fault detection with 87% lower verification overhead.
+* `training` [ETH: Data-Balanced Heterogeneous Pipeline Parallelism for Training Large Models](http://arxiv.org/abs/2610.22035v2)
+  > **TL;DR**: ETH optimizes heterogeneous pipeline training for large models with hierarchical workload balancing and block-wise gradient aggregation, achieving up to 2x speedup and 56x reduction in configuration overhead.
+* `serving` `RAG` `offloading` [StreamAhead: Real-Time Streaming Video Question Answering via Adaptive Precomputation](http://arxiv.org/abs/2610.25551v1)
+  > **TL;DR**: Addresses real-time streaming video QA latency-throughput tradeoffs via adaptive precomputation of video segments at multiple representation levels, completing KV caches only for retrieved segments. Achieves up to 10.4x lower TTFT while sustaining 30-57 FPS processing rates.
+* `serving` [ATEST: Adaptive Resource-Aware Test-Time Scaling for LLM Inference](http://arxiv.org/abs/2610.25519v1)
+  > **TL;DR**: Proposes ATEST, a test-time scaling framework that adapts per-query sampling based on answer stability and real-time GPU costs. The online variant learns step energy dynamically, stopping early to maximize accuracy within energy budgets. Achieves up to 48x energy reduction and 42x GPU time reduction compared to offline calibration.
+* `networking` `MoE` `scaling` [An Information-Geometric Framework for OCS-Reconfigurable Interconnect Topology in Large-Scale AI Clusters](http://arxiv.org/abs/2610.25173v1)
+  > **TL;DR**: Addresses optimization of OCS-reconfigurable topology in AI clusters to reduce communication costs. Proposes an information-geometric framework with KL divergence for wiring optimization and a threshold policy for traffic. Achieves O(√(ΓC V1 T)) regret and validates on MoE workloads.
+* `training` `offloading` [PlaneZip: Lossless Bit-Plane Compression of Training Activations Offloaded over PCIe](http://arxiv.org/abs/2610.25033v1)
+  > **TL;DR**: Reduces rematerialization overhead during training by compressing offloaded activations. PlaneZip's codec selects the smallest of multiple encodings per block and uses a predictive planner for compressed transfers. Achieves 1.71x BF16 compression and 47% lower overhead than a bandwidth-aware baseline without compression.
+* `serving` `kernel` [Conjugate Compilation: Self-Improving Agentic Co-Compilation for Speculative Decoding](http://arxiv.org/abs/2610.25012v1)
+  > **TL;DR**: Optimizes speculative decoding by jointly compiling draft and target models via agentic search and interleaved operand layouts. Achieves 1.37x geometric-mean speedup and 1.46x average GPU utilization improvement.
+* `serving` `edge` [TideKV: Delayed KV Eviction via Layer-Wise Chunked Prefill for Memory-Efficient Long-Context LLM Inference](http://arxiv.org/abs/2610.24499v1)
+  > **TL;DR**: Addresses high peak memory during long-context LLM prompt prefill. Proposes TideKV with layer-major delayed eviction: processes all chunks per layer, retains KV for the active layer, then evicts. Reduces transient memory by 83.89% at 64K context on A100, enabling longer contexts on resource-constrained platforms.
+* `serving` `scaling` [Koi: Evidence-Guided, Self-Calibrating Planning for Multi-Cloud, Heterogeneous LLM Inference Fleets](http://arxiv.org/abs/2610.24355v1)
+  > **TL;DR**: Addresses optimizing LLM inference deployments in multi-cloud heterogeneous clusters. Proposes Koi, a self-calibrating planner using causal graphs and deterministic tools to compose cluster-wide plans. Achieves 1.18x higher goodput and 20% lower $/token versus baselines.
+* `networking` `MoE` [SigmaTrace: Library-Agnostic Observability for CPU/GPU-Initiated RDMA Communication](http://arxiv.org/abs/2610.24328v1)
+  > **TL;DR**: Addresses the lack of fine-grained observability for RDMA communication (especially GPU-initiated) in large systems. Proposes SigmaTrace, a library-agnostic profiler using memory interposition to trace operations without patching. Adds only 1.3% overhead at 128 GPUs and under 2% at 1024 GPUs on NCCL AllReduce.
+* `serving` `networking` `scaling` [KVCompass: A Discovery Plane for Internet-Scale Prefix Cache Sharing in LLM Serving](http://arxiv.org/abs/2610.24179v1)
+  > **TL;DR**: Proposes KVCompass, a discovery plane for sharing KV caches across regions in distributed LLM serving. The system enables prefix lookup and request forwarding to workers balancing cache reuse, load, and network distance. Achieves 1.3-14× lower P99 TTFT and up to 4.7× higher throughput.
+* `kernel` [Merge Hulls Without Copying Vertices: GPU Isotonic Regression](http://arxiv.org/abs/2610.24038v1)
+  > **TL;DR**: Accelerates GPU isotonic regression by avoiding data copying via segment lists for parallel hull merges. Proves representation correctness and shows CUDA implementation speeds up merging by 17-276× on dense hulls. Achieves 1.6-9× faster training step in a compact model using Spearman loss.
+* `agentic` `serving` `scaling` [AgentLens: Framework-Aware Characterization and Resource Control for Heterogeneous LLM Agents](http://arxiv.org/abs/2610.25231v1)
+  > **TL;DR**: Addresses resource conflicts in co-located LLM agents. Proposes AgentLens, a framework-aware resource controller using offline fingerprints and online execution signals to coordinate memory via cgroup v2. Achieves 2.1–2.6× lower P95 allocation latency than static allocation at 90% memory budgets.
+* `serving` `storage` `kernel` [gKSM: GPU Memory Deduplication at Driver Layer for Serverless LLM Inference](http://arxiv.org/abs/2610.25219v1)
+  > **TL;DR**: Addresses duplicate GPU memory in serverless LLM inference via gKSM, a CPU-GPU collaborative framework with kernel-based hash computation and zero-copy deduplication. Reduces GPU memory usage by 59.8% and improves throughput by 2.15x under constrained workloads.
+* `serving` `multi-modal` `offloading` [Visual Cache Reuse for Efficient Multimodal Inference](http://arxiv.org/abs/2610.25136v1)
+  > **TL;DR**: Reduces VLM prefill latency by enabling approximate KV cache reuse with VisMemo, a system that uses entropy-aware candidate selection and differentiated cache management across GPU, CPU, and SSD storage. Reduces prefill latency by up to 48.3%.
+
 ### 2026-10-19
 * `serving` `MoE` [Revisiting Cauchy-Schwarz Norm Bounds for SDC Detection in LLM Inference](http://arxiv.org/abs/2610.18557v2)
   > **TL;DR**: Revisits Cauchy-Schwarz Norm Bounds (CSNB) for low-overhead SDC detection in LLM inference. For dense LLM linear layers, CSNB achieves 99% of ABFT's fault detection while reducing verification overhead by 87% and threshold overhead by 67%. For MoE routers, it only achieves 55%, making ABFT preferable.
