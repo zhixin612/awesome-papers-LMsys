@@ -178095,5 +178095,530 @@
         ],
         "tldr": "Reduces VLM prefill latency by enabling approximate KV cache reuse with VisMemo, a system that uses entropy-aware candidate selection and differentiated cache management across GPU, CPU, and SSD storage. Reduces prefill latency by up to 48.3%.",
         "indexed_date": "2026-10-20"
+    },
+    "http://arxiv.org/abs/2610.28620v1": {
+        "title": "Weight Placement Is Not Enough: Synchronization in Multi-Node CPU Decoding of Ternary LLMs",
+        "link": "http://arxiv.org/abs/2610.28620v1",
+        "abstract": "Ternary LLMs read only a few gigabytes per decoded token, yet on dual-socket servers with four NUMA nodes the fastest ternary runtime we found uses less than half of the memory bandwidth. Placing each weight on the node of the thread that reads it is necessary but not enough: in a decode engine with node-local weights that reuses ik_llama.cpp's kernels, threads on two generations of Xeon servers still spend 20-48% of each token waiting at synchronization points. Per-thread barrier traces show that most of the wait is for the slowest threads of each node; the barriers' own latency (microseconds each, but up to 12% of the token for the smallest model) and serial per-node work are smaller parts. On identical kernels, a Megatron-style column split beats a row-owned split without cross-node reductions in every configuration we measured, and isolating the number of barriers shows that most of its gain comes from its threads waiting less for each other and for their node leaders, and only a minority from having fewer barriers. Where decoding is DRAM-bound, the resulting engine is 1.5-2.1x faster than ik_llama.cpp with all cores and 1.5-1.9x faster than ik_llama.cpp at its fastest thread count (3.2x and 2.8x for a small model that runs from the L3 cache), at the same accuracy and with less energy per token.",
+        "authors": [
+            "Runguo Li",
+            "Dezhen Lu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.28620v1",
+        "submit_date": "2026-10-20",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "networking"
+        ],
+        "tldr": "Investigates synchronization bottlenecks in multi-node CPU decoding of ternary LLMs. Proposes a Megatron-style column split parallelization to avoid cross-node reductions and reduce barrier waits. Achieves up to 2.1x speedup over baseline with lower energy per token.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.28576v1": {
+        "title": "The Token-Energy Law of LLM Decode: Active Bytes and Realized Time Account for Joules per Token",
+        "link": "http://arxiv.org/abs/2610.28576v1",
+        "abstract": "Energy-efficient deployment of large language models requires understanding how model architecture, hardware, and serving settings shape energy per generated token. We introduce the Token-Energy Law, a compact, interpretable model of GPU-board energy per output token for dense, full-history decoding. It relates token energy to two core dimensions: active bytes and realized decode time. Active bytes describe logical byte demand per output, separating dense weights shared within a decode iteration from private key--value (KV) histories read and updated for each request. Realized decode time is the elapsed decode duration divided by the number of output tokens produced. We combine the two byte coordinates and time in a common affine form, with coefficients calibrated for each model and hardware/runtime configuration. This formulation explains how batching amortizes shared-weight work, longer attended histories increase private KV demand, and throughput determines the time-associated cost per output. Our experiments cover three models under BF16 decoding on NVIDIA Hopper and Blackwell GPUs, including two-GPU tensor parallelism on Hopper. Using fixed coefficients and observed decode time, held-out condition-mean energy estimates differ from measurements by at most 3.73%.",
+        "authors": [
+            "Chenxu Niu",
+            "Batuhan Sencer",
+            "Wei Zhang",
+            "Yong Chen"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.28576v1",
+        "submit_date": "2026-10-20",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Proposes the Token-Energy Law, an interpretable model predicting GPU energy per token in LLM decoding using active bytes and realized time to account for shared weights, KV history, and batching. Validation on three models shows prediction error under 3.73%.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.28545v1": {
+        "title": "Discount Yourself: Self-inclusive Freshness-weighted Gossip for Decentralised Learning under Client Outages",
+        "link": "http://arxiv.org/abs/2610.28545v1",
+        "abstract": "Decentralised federated learning (DFL) trains personalised models on devices that average with their neighbours rather than with a central server. Real devices, however, are often offline for hours or days, and a client returning from an outage can recover only by aggregating the models its neighbourhood holds. We observe that the stalest of these models is usually the client's own, a case that existing staleness-aware rules, which discount only the models a client receives, do not address. We formalise aggregation after an outage as estimating the state of a fully available network and derive three principles. First, the receiver must be discounted like any neighbour. Every rule that weights it at least as much as each neighbour has an error that grows without bound with the outage, whereas discounting all candidates by relative staleness keeps the error bounded. Second, staleness must be measured as inherited lag rather than age, since local training resets a model's age but not the lag it absorbed from stale neighbours. We introduce the effective lag, which tracks this quantity at the cost of one scalar per message. Third, the discount must be steep, because absorbed lag persists in every later round. These principles define Self-inclusive Freshness-weighted Gossip (SFG), a family of drop-in aggregation rules with the communication and computation of decentralised federated averaging, whose guarantees hold for the stale receiver itself. On three image benchmarks and eight outage processes, including real smartphone availability traces, the lag-based members SFG-L and SFG-Cut consistently outperform decentralised federated averaging and recent age-of-information rules, and ablations show that each principle is necessary. The analysis also explains why tuned limited merging from gossip learning is effective.",
+        "authors": [
+            "Qiyuan Wang",
+            "Ke Xiao",
+            "Christos Anagnostopoulos"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.28545v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.28500v1": {
+        "title": "BitMTP: When Multi-Token Prediction Meets Low-Bit Large Language Models",
+        "link": "http://arxiv.org/abs/2610.28500v1",
+        "abstract": "For efficient deployment of large language models (LLMs), methods of ultra-low-bit backbones reduce weight storage, memory traffic, and linear-layer execution cost, while multi-token prediction (MTP) methods reduce sequential decoding steps by predicting multiple future tokens in parallel. Although complementary, the direct combination of these methods cannot accelerate decoding at comparable quality: masked drafting lacks intermediate token input supplied in next-token training, while wider computation and causal key-value (KV) updates can offset the savings from fewer steps. To address these challenges, we propose BitMTP, an algorithm-system co-design framework for efficient MTP on ultra-low-bit LLM backbones. A joint next-token prediction and MTP objective equips a single model with both autoregressive (AR) generation and block-causal drafting. Confidence-only decoding, speculative-only decoding, and hybrid decoding provide different quality-throughput operating points without using separate draft and verifier models. Accepted-prefix alignment keeps the committed prefix, materialized causal KV boundary, and CUDA Graph replay state consistent for continued generation. BitMTP uses this contract to select width-specialized low-bit execution and reuse captured graphs over shared KV storage. On NVIDIA H20, BitMTP with hybrid decoding achieves five-task mean speedups of 2.2x on BitNet b1.58-2B and 2.1-2.4x on 1.7B-4B Bonsai models at comparable task quality. On RTX 3090 and Jetson Orin, it further achieves up to 2.0x in five-task mean throughput and 3.3x on MBPP+, respectively. These results demonstrate that BitMTP accelerates ultra-low-bit LLM generation across backbones, model sizes, and GPU types. The source code is released at https://github.com/PolyU-VCLab/BitMTP",
+        "authors": [
+            "Ning Zhang",
+            "Shihao Wang",
+            "Jinrui Zhang",
+            "Chaodong Xiao",
+            "Lei Zhang"
+        ],
+        "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.28500v1",
+        "submit_date": "2026-10-20",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "quantization"
+        ],
+        "tldr": "Addresses inefficiency in combining ultra-low-bit LLMs and multi-token prediction. BitMTP co-design features joint training, hybrid decoding, and CUDA Graph replay. Achieves 2.2-2.4x speedups on H20 for 2B-4B models without quality loss.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.28392v1": {
+        "title": "Budgeted Admission from Timestamped Capacity Records in Shared Clusters",
+        "link": "http://arxiv.org/abs/2610.28392v1",
+        "abstract": "A cluster admission gate can receive a capacity record that no longer matches current schedulability. We study one exogenous binary schedulability unit under a bound on the joint probability of admission and unavailability. For a symmetric Markov state, we derive the stationary admission frontier for a fixed observation delay and apply finite likelihood allocation to a delay-tagged delivered record. A one-sided exact binomial endpoint calibrates each fitted policy, and exact enumeration confirms the per-policy confidence target in every tested parameter cell. A separate deterministic guard charges every unresolved admission against the realized allowance and bounds unavailable-state admissions at every prefix under truthful outcome feedback. An executable admission procedure composes the allocation and guard. The controlled system binds source sampling, NATS delivery, randomized admission, Kubernetes objects, and API-derived outcomes in one append-only record. Independent audit finds no missing event, identity mismatch, or state mismatch in the completed functional block. A separate CPU request-accounting check preserves Job and Pod identity across an unschedulable-to-complete transition.",
+        "authors": [
+            "Andrew Bond",
+            "Syed Izhan Khilji"
+        ],
+        "categories": [
+            "cs.DC",
+            "math.PR"
+        ],
+        "id": "http://arxiv.org/abs/2610.28392v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.28096v1": {
+        "title": "KPage: Cross-Block Page Compaction for Hardware-Efficient Sparse Attention",
+        "link": "http://arxiv.org/abs/2610.28096v1",
+        "abstract": "Sparse attention reduces the computational cost of long-sequence video Transformers, but three-dimensional token layouts often leave selected blocks partially occupied, wasting physical tile capacity. We present KPage, a block-sparse attention scheme that packs valid 16-row K/V pages across logical-block boundaries into large tiles directly during loading, without materializing compacted tensors in high-bandwidth memory. KPage also routes Q blocks between 64x256 and 128x128 tiles to reduce query-side padding. Exact masking and K/V-owned page packing preserve the original sparse graph in forward and backward execution.\n  Across five representative workloads, KPage achieves 1.35x-2.06x bare forward-kernel speedup over NVIDIA Block-Sparse Attention (BSA), with a geometric mean of 1.77x. It is near parity for fully occupied blocks (1.03x) but achieves 2.29x geometric-mean speedup on 3D layouts with partial blocks. KPage reduces physical query-key pair capacity from 334.1G to 177.5G while preserving 160.6G useful interactions. Across eight layouts from open-source SSTA, STA, and VSA systems, KPage achieves 1.13x-4.25x forward and 1.02x-2.71x forward-plus-backward speedup over the strongest exact sparse baselines. With independent Q/K partitions, KPage also achieves 1.49x speedup over the strongest exact sparse baseline and 1.57x over BSA on the SVG2 Wan 14B/720p configuration. After compliance review, we will open-source KPage and submit a pull request to NVIDIA cuDNN Frontend.",
+        "authors": [
+            "Junwei Feng",
+            "Qiaorui Chen",
+            "Chenyu Liang",
+            "Zhen Guo",
+            "Jingyi Yang",
+            "Xiaoling Zhou",
+            "Jiahao Zhang",
+            "Dongliang Huang",
+            "Yiqiao Liao",
+            "Chengru Song"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.28096v1",
+        "submit_date": "2026-10-20",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "sparse",
+            "video"
+        ],
+        "tldr": "Addresses inefficient sparse attention for video Transformers due to partially occupied blocks. Proposes KPage, cross-block page compaction for K/V and adaptive Q routing without HBM materialization. Achieves 2.29x geometric-mean speedup on 3D layouts with partial blocks over BSA.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.28081v1": {
+        "title": "PULSE: Personalized Opportunistic Learning for Wearable Devices",
+        "link": "http://arxiv.org/abs/2610.28081v1",
+        "abstract": "Wearable devices increasingly support personalized health and well-being applications, but post-deployment data can differ substantially from those used for training, while purely local adaptation may be limited by the data available on a single device during real-world operation. Conventional federated and decentralized learning rely on recurrent communication and stable connectivity, whereas existing opportunistic approaches often exploit available encounters without adequately considering their utility, compatibility, or communication cost.\n  We propose PULSE, an event-driven framework for personalized opportunistic learning that treats each encounter as an online collaboration decision, selecting either no interaction or a promising nearby peer. Peer gradients are incorporated only when compatible with the local learning direction, while past interactions guide future peer selection. Across human activity recognition, fall detection, and stress recognition under synthetic and real contact traces, PULSE preserves or improves personalized classification performance, while reducing peer-assisted exchanges by 80-94% compared with opportunistic model averaging. On-device experiments further demonstrate its feasibility on wearable hardware: peer-assisted operations require limited energy, while the complete implementation occupies 149.8 KiB of RAM and 561.8 KiB of flash. The obtained results show that selective opportunistic collaboration can provide effective personalization while limiting communication and resource demands on constrained wearable devices.",
+        "authors": [
+            "Mattia Giovanni Campana",
+            "Dariush Salami",
+            "Hüseyin Yiğitler",
+            "Stephan Sigg"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.28081v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.27971v1": {
+        "title": "Execution-Time Validation of Context-Carrying Action Intents in Industrial Cyber-Physical Systems",
+        "link": "http://arxiv.org/abs/2610.27971v1",
+        "abstract": "In industrial cells, commands from learned policies, operators and schedulers reach the controller after inference, confirmation and transport, and the plant may have changed meanwhile, for instance by an operator pause. Such a command is released, or takes effect, when it is no longer correct. We call this the execution gap and ask which component should make the last check, and against which version of which state. The Action Intent Schema (AIS) is a contract in which a producer states how long its decision stays valid and what it assumes. The runtime XAIR rechecks each intent before release, can commit its authorization atomically in the context store, and can release it as a version-conditional command, which the controller executes only if its version of the state is unchanged. In controlled ablations with declared ground truth on emulated and physical cells, OpenPLC and ARM and RISC-V boards, a check on a replica always left an unprotected interval: a pause written from a few to over 100ms after submission escaped it. Only a check in the scan of a software controller, either a controller-local interlock or the version-conditional command, closed the interval for the state that controller owns; only the version-conditional command also refused commands after a pause that had been undone. A global version revoked up to every valid command under unrelated updates. Versions scoped to what the intent reads, or to the truth of its predicates, did not; with continuous signals on the variables the intent reads, only the latter avoided false revocations, though it burdens the store as predicates accumulate. On one embedded-board core, XAIR validated 148-168 intents/s.",
+        "authors": [
+            "Luca D'Agati",
+            "Giuseppe Tricomi",
+            "Fabio Orazio Mirto",
+            "Giovanni Merlino"
+        ],
+        "categories": [
+            "cs.PL",
+            "cs.CR",
+            "cs.DC",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2610.27971v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.27952v1": {
+        "title": "Unsupervised Head Network Personalization for Split Computing via Federated Learning",
+        "link": "http://arxiv.org/abs/2610.27952v1",
+        "abstract": "Split Computing (SC) is a distributed inference method designed for balancing computational load and reducing latency by partitioning a neural network into head and tail networks and deploying them across both a mobile device and a server, respectively. Due to the limited bandwidth and computational power of mobile devices, the head network is often replaced with a neural network that requires lower computational and communication resources. However, it is challenging to prepare a sufficient quantity and quality of labeled data on the mobile device side for training the replacement head network. Furthermore, the data prepared by mobile users often contains sensitive privacy information, making data aggregation difficult. In this paper, we propose a data-efficient head network training method for SC. This method utilizes federated learning and knowledge distillation to train the head network using a small amount of non-IID and unlabeled data from mobile devices, ensuring that the training datasets are not exposed. Moreover, by introducing personalization, we enhance the accuracy to levels comparable to or exceeding those of existing methods. The experimental evaluations demonstrate that, despite data constraints imposed only on our method, it achieves accuracy comparable to the baselines. Furthermore, it significantly reduces the communication requirements by 95% on mobile devices, with only a 3-5 percentage point drop in accuracy from the original model.",
+        "authors": [
+            "Yutaro Horikawa",
+            "Takayuki Nishio"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2610.27952v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.27930v1": {
+        "title": "Benchmarking CPU, GPU, and ML Power-Flow Solvers from 14 to 70,000 Buses",
+        "link": "http://arxiv.org/abs/2610.27930v1",
+        "abstract": "Learned surrogates for power-flow (PF) computation are usually motivated by speed, compared against a single CPU-based baseline. We show this comparison is fragile: across 7 open-source CPU-based solvers evaluated on identical inputs, throughput varies by roughly 2.5-3 orders of magnitude, so the choice of baseline alone can flip the conclusion. We build a benchmark spanning 9 physics-based solvers: 7 CPU-based and 2 GPU-based, including a new batched GPU solver, gumsim2grid - and 3 published ML surrogates, evaluated under a shared, independently implemented KCL-mismatch check across 15 grids from 14 to 70,000 buses. On the PF task itself, a sufficiently parallelized CPU solver or gpusim2grid matches or exceeds the throughput of the ML surrogates we test while remaining orders of magnitude more accurate; we find no evidence that these GNN-style surrogates are yet competitive for PF specifically, though prior work reports genuine gains on related but more combinatorial tasks such as optimal power flow or power grid control. Beyond this finding, we hope the benchmark suite, code and reference evaluator released at https://github.com/Grid2op/gpusim2grid helps close a broader reproducibility gap in this space, where batched GPU-based PF solvers are rarely open-sourced or evaluated against a common set of baselines.",
+        "authors": [
+            "Benjamin Donnot",
+            "Sami Tazi",
+            "Eva Boguslawski",
+            "Nourredine Henka"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2610.27930v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.27755v1": {
+        "title": "Evaluating Runtime Prediction and Conservative Walltime Policies in HPC Systems",
+        "link": "http://arxiv.org/abs/2610.27755v1",
+        "abstract": "Efficient use of large-scale supercomputing systems depends on accurate runtime estimation and walltime selection. To avoid premature termination, users often overestimate walltime, leading to poor resource utilization and reduced scheduling efficiency. This paper presents a predictor-agnostic framework for safe walltime recommendation in production HPC environments. Rather than proposing a new runtime prediction model, the primary contribution is the SAFE decision layer, which converts predicted runtimes into conservative bounded walltime recommendations suitable for deployment. Runtime prediction is therefore treated as a modular component within the proposed framework. We evaluate the approach using large-scale production job histories from the Fugaku and NREL Eagle supercomputers, comprising approximately 24M and 11M jobs, respectively. Runtime prediction performance is first evaluated using representative predictors, including linear regression, neural networks, and a neural ensemble. The proposed SAFE framework is then evaluated using the NN ensemble predictor. Experimental results indicate that similarity-aware prediction substantially improves runtime estimation for workloads similar to previous executions. When combined with the proposed conservative walltime recommendation policies, these improvements enable walltime gap reductions of approximately 20 - 26% while maintaining job termination rates below 1% across both systems.",
+        "authors": [
+            "Hector Romero Ugalde",
+            "Youssef Faqir-Rhazoui",
+            "Marlon Funk",
+            "Jesus Gorroñogoitia Cruz"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.27755v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.27651v1": {
+        "title": "Constrained Federated Reinforcement Learning for Secure Offloading in Vehicular Edge Computing",
+        "link": "http://arxiv.org/abs/2610.27651v1",
+        "abstract": "Vehicular Edge Computing (VEC) reduces latency for computation-intensive vehicular applications by offloading tasks to roadside edge servers. Real vehicular workloads, however, consist of dependent subtasks with stringent reliability needs, while the cross-region collaborative learning used to adapt offloading policies must stay robust to heterogeneous data and secure over open wireless channels. We propose CRAFT, a Constrained Reinforcement-based Adaptive Federated Task Offloading framework that casts Directed Acyclic Graph (DAG)-structured offloading and resource allocation as a Constrained Markov Decision Process. CRAFT couples centralized-critic policy learning with Lagrangian relaxation to explicitly regulate the long-term task-completion constraint, and uses two-tier federated aggregation with proximal regularization to jointly mitigate non-Independent and Identically Distributed (non-IID) drift and stabilize constraint adaptation. Confidentiality and integrity for federated parameter exchange are provided by post-quantum homomorphic encryption and lattice-based signatures with modest amortized overhead. On a Virtual Machine-based testbed over a realistic Melbourne Central Business District network with real computation kernels, CRAFT cuts weighted cost by up to 42% over state-of-the-art baselines, maintains a completion rate of around 96%, and adds 6.4% security overhead.",
+        "authors": [
+            "Zhiyu Wang",
+            "Muhammed F. Esgin",
+            "Mohammad Goudarzi"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.27651v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.24865v2": {
+        "title": "A mechanism for collective foraging: percolating recruitment cascades coupled to a maximum-entropy",
+        "link": "http://arxiv.org/abs/2610.24865v2",
+        "abstract": "Foraging recruitment is a contagion: an agent that finds a resource triggers a linear-threshold cascade, the model built for rumour and adoption spread on social networks, now embedded in space. Because activation is degree-normalized, the same rule that spreads the cascade also stifles it as neighbourhoods crowd, so the swarm aggregates on a resource and then releases to explore again. The cascade runs on the communication network, but acting on it moves agents in physical space, and that motion rewires the network: network and space are one coupled system, and this feedback, not any tuning, makes the coordination self-limiting. Because recruitment chains along the graph rather than reaching near neighbours alone, whether a discovery stays local or spans the swarm is a question of percolation. The swarm holds itself in a cascade window that is locally near-critical though globally subcritical, a self-organized, self-limiting drive-release cycle, sandpile-like but non-conservative. Nothing is tuned, yet behaviours that foraging biology documents separately emerge together: recruitment to discoveries, marginal-value patch-leaving, and Levy search with a switch to local exploitation. These follow from one least-committal principle, the resource field and the search both as maximum entropy, with Levy search matched to the field's sparsity and recruitment to its clustering, so active-matter order and optimal foraging appear as one system seen in two domains. The gains are real but conditional: up to 7.6x the harvest of solitary search when resources are sparse and clustered, shrinking to nothing when search is already easy. That sparse, clustered field is also the generic one, because resources almost inevitably aggregate, so one untuned rule should recur widely.",
+        "authors": [
+            "Galen J. Wilkerson"
+        ],
+        "categories": [
+            "physics.soc-ph",
+            "cs.DC",
+            "cs.SI",
+            "math-ph",
+            "physics.bio-ph"
+        ],
+        "id": "http://arxiv.org/abs/2610.24865v2",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.23047v2": {
+        "title": "DIFFLET: A Fast Inference Engine for Diffusion Transformer Models on AWS Trainium",
+        "link": "http://arxiv.org/abs/2610.23047v2",
+        "abstract": "On AWS Trainium2, every component of a diffusion model runs as a program compiled ahead of time for fixed shapes, while pipelines differ across models, prompt lengths across requests, and caching decisions across denoising steps. We present Difflet, a serving engine in which five model pipelines share one compilation backend, joint attention is split across cores by attention head, and a host controller decides at each denoising step whether to run the denoiser or reuse its earlier output. A small probe program computes the caching signal on the device and returns one number per step, and a resident model process keeps every program loaded across requests. Across five image and video model families, fused attention accelerates denoiser steps by 1.2-4.3x over the same framework using PyTorch/XLA attention, and at 32.8k visual tokens it is the only attention that compiles. On four of the five models, resident serving is 1.5-3.4x faster than standalone runs that reload weights from a warm file cache for each generation.",
+        "authors": [
+            "Bin Ma",
+            "Min Yu",
+            "Vijay Kodamalla",
+            "Jonny Liu",
+            "Da Li",
+            "Dong Li"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.23047v2",
+        "submit_date": "2026-10-20",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "diffusion",
+            "kernel"
+        ],
+        "tldr": "Develops Difflet, a serving engine for diffusion transformers on AWS Trainium, with shared compilation backend, attention splitting, and step-level caching decisions. Achieves 1.2-4.3x denoiser acceleration via fused attention and 1.5-3.4x faster serving via resident execution.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.27440v1": {
+        "title": "Learning-Theoretic Foundation for General Coded Computing: The Adversarial Setting",
+        "link": "http://arxiv.org/abs/2610.27440v1",
+        "abstract": "Adversarial workers pose a severe challenge in distributed computing systems by returning corrupted outputs that can substantially distort the recovered computations. Coded computing addresses this threat by introducing redundancy across worker assignments. Existing exact and approximate coded-computing methods typically handle adversarial outputs by explicitly locating and correcting or removing erroneous evaluations, which adds significant computational overhead at the master node. Moreover, existing analyses do not characterize how the recovery error scales with the number of workers and the adversarial budget.\n  In this paper, we develop an adversarially robust extension of general coded computing (GCC), a learning-theoretic approximate coded-computing framework that designs the encoder and decoder by minimizing an upper bound on the end-to-end recovery error. Rather than identifying corrupted workers, the proposed method uses smoothness regularization to limit the influence of their outputs. The resulting encoder and decoder can be implemented using smoothing splines with linear master-side complexity. We derive a non-asymptotic bound on the worst-case end-to-end approximation error by decomposing it into three components: (1) the encoder approximation error, (2) the decoder reconstruction error under fully honest results, and (3) the adversarial perturbation error. For maximum of $q\\geq 1$ adversarial workers among $N$ workers results in a worst-case error of order $\\mathcal{O}((q/N)^{6/5})$ with appropriate selection of smoothness parameter, demonstrating that the approximation error vanishes asymptotically whenever the number of adversaries grows sublinearly with the network size. Experiments on scalar computation and neural-network inference are consistent with the predicted convergence behavior.",
+        "authors": [
+            "Parsa Moradi",
+            "Hanzaleh Akbarinodehi",
+            "Mohammad Ali Maddah-Ali"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.27440v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.22722v2": {
+        "title": "LLM-Attack Suite: A Unified Red-Team Framework for Privacy Evaluation of Split and Distributed LLM Systems",
+        "link": "http://arxiv.org/abs/2610.22722v2",
+        "abstract": "Split language models keep input text on a client but send intermediate representations to a server. Attacks can reconstruct text from these messages. Comparing privacy evaluations is difficult when attackers see different messages, know different model weights or use different datasets and recovery measures. We present LLM-Attack Suite, a framework that records these choices and lets researchers check, compare and extend an evaluation. Compatible attacks reuse recorded messages, and their predictions are saved for independent scoring. The scoring rule requires a linked undefended reference before a defence can pass. Reports also identify attacks that remain untested. In a controlled GPT-2 experiment, adding gradients returned during training increased token recovery from 94.20% to 97.38% and exact-document recovery from 13.71% to 37.77%. The 95% interval for the token gain lay above the two-percentage-point threshold fixed before testing. This experiment is shared with a companion study; here it tests how the evaluation responds to a change in attacker access. Further studies measure how corpus choice and compression defences affect recovery, compare an adapted published attack with its reference implementation, and test the measurement code. The framework reports implementation checks separately from measured attack effectiveness. Each privacy claim should state the attacker, dataset and scoring rule, report its controls and identify untested attacks.",
+        "authors": [
+            "Georgios Politis",
+            "Evangelos Pappas"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.22722v2",
+        "submit_date": "2026-10-19",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.21436v2": {
+        "title": "HyCo: Hybrid Drafting for Cost-Efficient Mobile-Cloud Speculative Decoding",
+        "link": "http://arxiv.org/abs/2610.21436v2",
+        "abstract": "Device-cloud speculative decoding reduces server computation, but growing a deep draft tree with a small language model (SLM) requires repeated passes on a mobile neural processing unit (NPU). We present HyCo, which runs the server model's native multi-token prediction (MTP) head on the device to build a deep chain and uses one SLM pass to add alternative branches. The server returns the hidden state, input embedding, and key-value entries needed by the head instead of executing its sequential steps. Quantization, a restricted vocabulary, and a 1K-token window fit both drafters to the NPU. An ε-threshold rule additionally relaxes exact preservation of the verifier's sampling distribution. In single-client runs with a Galaxy S26 Ultra over LTE/5G, HyCo reduces server GPU time per output token relative to server-side MTP self-speculation by 38.6% on Spec-Bench and 29.2% on 32K-token summarization. With the same acceptance rule, three runs of each system on Spec-Bench show 9.0 percentage points more saving and 1.9x delivery speed than an SLM-only drafter. HyCo differs from Cloud+MTP by +0.2 judge-score points (paired 95% CI: -0.9 to +1.3); exploratory translation favors SpecEdge-ε. Without relaxation, HyCo exact saves 27.7% and 11.9% on the two datasets.",
+        "authors": [
+            "Hanbin Bae",
+            "Heejin Choi",
+            "Joohyung Lee",
+            "Byoung Jin Choi",
+            "Sangjun Park",
+            "Hoon-Young Cho"
+        ],
+        "categories": [
+            "cs.CL",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.21436v2",
+        "submit_date": "2026-10-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "edge",
+            "offloading"
+        ],
+        "tldr": "Proposes HyCo for mobile-cloud speculative decoding: hybrid drafting by offloading multi-token prediction head to device with one SLM pass, using quantization and relaxed sampling. Reduces server GPU time per token by up to 38.6% on Spec-Bench.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.27306v1": {
+        "title": "SweepANN: A GPU-Accelerated Large-K Approximate Vector Search for Drug Discovery",
+        "link": "http://arxiv.org/abs/2610.27306v1",
+        "abstract": "DrugCLIP places small molecules and protein pockets in one space, turning genome-wide drug discovery into large-K retrieval by vector proximity. A campaign fixes over 20K pockets in advance for one library of over 500M molecules. Each pocket keeps K = 500K candidates, 0.1% of the collection, versus 100 in ANN benchmarks. Missed hits never get tested, so mean recall must reach 99% relative to exact search. Large answers make IVF probe every list holding a result and graph search track K or more candidates, so costs grow with K. On our CPUs and GPUs, neither index family reaches the target without losing most of its edge over scanning.\n  SweepANN partitions compressed vectors across GPUs and scans each resident partition. One matrix multiplication scores each block for a whole query batch, reading it once. Several plans perform the K-dependent selection and merging of each query's K answers, each returning an exact top-K under compressed scoring. The window plan retains each query's best K from sampled blocks as its seed, and only rows above each seed's minimum score, shared once across GPUs, enter the buffers.\n  Four Blackwell GPUs (RTX PRO 6000) answer all 26,562 pockets with a resident time of about 61 seconds, excluding library loading, and 99.6% mean recall relative to exact FP32 search. DrugCLIP reports roughly 24 hours with eight A100 GPUs in its own campaign. On 500M rows, the window plan runs 1.41x faster than SweepANN's grouped plan in the same memory. Across 25M-500M rows and K of 10K-500K, all GPU IVF configurations meeting the recall target take 8.2-24x SweepANN's resident time. On DEEP1B's 1B vectors across eight GPUs, against SweepANN's exact full-score scan of uncompressed FP32 rows, the window plan cuts resident time by 5.4x and 3.2x at K = 100K and 500K. It also cuts per-GPU peak memory by 6.0x and 5.3x, losing 1.0 and 0.7 mean-recall points.",
+        "authors": [
+            "Zhenyu Zhang",
+            "Qi Lin",
+            "Nan Zhang",
+            "Zhichao Cao"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC",
+            "cs.IR"
+        ],
+        "id": "http://arxiv.org/abs/2610.27306v1",
+        "submit_date": "2026-10-19",
+        "relevant": true,
+        "tags": [
+            "RAG",
+            "offline"
+        ],
+        "tldr": "Addresses high-recall large-K approximate nearest neighbor search for billions of vectors. Proposes SweepANN, a GPU-accelerated partitioned scan method with a window plan for top-K selection. Achieves up to 24× faster resident time than IVF and 99.6% mean recall on 500M vectors using four GPUs.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.26991v1": {
+        "title": "3D-MoE: Complementarity-Guided Hardware-Software Co-Design for MoE Decode on 3D-Stacked NMP",
+        "link": "http://arxiv.org/abs/2610.26991v1",
+        "abstract": "Mixture-of-Experts (MoE) have become a mainstream way to scale Large Language Models (LLMs), because each token activates only a small subset of experts, reducing inference cost. However, MoE decode remains highly memory-bound and exhibits strongly skewed, time-varying expert loads. 3D-stacked DRAM near-memory processing (NMP) provides the bandwidth that decode demands, yet its tiled organization makes load balancing expensive: expert parallelism (EP) preserves locality but suffers from hotspot-induced imbalance, while more distributed strategies weaken locality and increase NoC traffic.\n  To address this locality-balance conflict, we observe that domain-specialized token routing creates offsetting expert-load fluctuations across decode steps, a property we call expert complementarity. Using this insight, we propose 3D-MoE, a hardware--software co-designed system for MoE decode on 3D-stacked NMP. 3D-MoE uses offline, one-time complementarity-guided grouping and locality-aware mapping to establish coarse-grained inter-group balance, handles residual intra-group hotspots through a lightweight Collaborative Memory-Network (CMN) that streams each hot expert's weight tiles once from its host DRAM channel to helper cores over a reconfigured local broadcast path, and uses cost-aware online remapping to remain robust to workload drift. Across MoE models, 3D-MoE achieves an average 4.63$\\times$ MoE-layer speedup over EP and improves end-to-end throughput by 1.58$\\times$--1.86$\\times$ over the strongest NMP baselines, with 2.11\\% additional logic-die area.",
+        "authors": [
+            "Yudong Pan",
+            "Lian Liu",
+            "Shixin Zhao",
+            "Yintao He",
+            "Kaiyan Chang",
+            "Tianhua Han",
+            "Chenyang Ai",
+            "Haonan Zhu",
+            "Mengdi Wang",
+            "Yinhe Han",
+            "Ying Wang"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.26991v1",
+        "submit_date": "2026-10-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "MoE",
+            "hardware"
+        ],
+        "tldr": "Addresses memory-bound and load-imbalanced MoE inference on 3D-stacked DRAM. Proposes 3D-MoE via complementarity-guided grouping, locality-aware mapping, and a hardware Collaborative Memory-Network. Achieves 4.63× MoE-layer speedup and 1.86× end-to-end throughput.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.26960v1": {
+        "title": "VS-Flash: Harnessing Vector Search with Computational Memory-Semantic Flash",
+        "link": "http://arxiv.org/abs/2610.26960v1",
+        "abstract": "As generative AI continues to evolve, retrieval-augmented generation (RAG) systems are driving rapid growth in vector database capacity requirements. As datasets outgrow host DRAM, vector databases rely on MMap-based serving over SSDs to extend capacity. However, high-fan-out ANN searches generate concurrent irregular accesses that contend for host memory and storage resources, degrading bulk throughput and inflating tail latency under mixed workloads. In this paper, we address these challenges through memory-semantic capacity and workload-aware compute placement. VS-Flash exposes flash as a large-capacity memory-semantic space and dynamically selects the execution engine according to runtime query and workload characteristics. It offloads throughput-oriented large-batch queries to a Computational Memory-Semantic Flash (CMS-Flash) device, while executing latency-sensitive small-batch queries on the host CPU. Both paths access the same resident segments, avoiding a separate host-DRAM replica. Across three billion-scale datasets, VS-Flash improves bulk-search throughput over vanilla Milvus by 36.8X on average, with up to a 57.4X improvement. Under mixed workloads, VS-Flash reduces the p99 latency of latency-sensitive requests by up to 24.8X while sustaining device-side bulk search. These results show that VS-Flash delivers scalable vector search beyond host DRAM capacity while jointly improving bulk throughput and small-request tail latency.",
+        "authors": [
+            "Donguk Kim",
+            "Sangjun Pae",
+            "Daeyoung Lee",
+            "Dong Kim"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.26960v1",
+        "submit_date": "2026-10-18",
+        "relevant": true,
+        "tags": [
+            "RAG",
+            "storage",
+            "offloading"
+        ],
+        "tldr": "Addresses performance degradation in vector search for RAG systems under mixed workloads. Proposes VS-Flash, which uses memory-semantic capacity and workload-aware compute offloading to flash devices. Achieves 36.8X average throughput gain and 24.8X lower tail latency compared to baseline.",
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.26953v1": {
+        "title": "From Last-Layer to Cross-Layer: One-Shot Joint Classifier Reconstruction for Federated Learning",
+        "link": "http://arxiv.org/abs/2610.26953v1",
+        "abstract": "Federated learning (FL) enables collaborative model training while preserving data privacy. However, non-independent and identically distributed (non-IID) data inevitably introduces classifier bias, leading to significant performance degradation. Existing studies primarily focus on calibrating or reconstructing the classifier after FL training to alleviate this bias. We find that the last-layer representations of the global model are often suboptimal for establishing a global decision boundary. Instead, classifiers constructed based on intermediate-layer representations can achieve superior performance. This finding provides a critical insight into overcoming the performance bottleneck inherent in existing paradigms. Nevertheless, identifying the optimal layer without auxiliary datasets or prior knowledge remains a formidable challenge. In this paper, we propose FLARE (Federated Cross-Layer Joint ClAssifier REconstruction) which rethinks classifier reconstruction from a cross-layer perspective and generalizes ridge regression to jointly exploit cross-layer representations, thereby surpassing the performance of any individual layer. Specifically, after FL training, clients perform only a single forward pass to extract class-conditional statistics from predefined layers. The server aggregates these statistics to construct a joint cross-layer ridge classifier, where an adaptive coupling coefficient regulates cross-layer correlations, thereby facilitating the integration of complementary discriminative information. Extensive experiments across 11 datasets, 8 model architectures, and diverse data heterogeneity scenarios demonstrate that FLARE, as a plug-and-play post-processing method, improves accuracy by 11.35% with only one additional communication round.",
+        "authors": [
+            "Zhenyan Liu",
+            "Hua Zhang",
+            "Haoran Gao",
+            "Huiyu Zhou",
+            "Zongliang Shen",
+            "Qi Li",
+            "Hongliang Zhu",
+            "Yongji Wang",
+            "Zian Tian"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.26953v1",
+        "submit_date": "2026-10-18",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.26945v1": {
+        "title": "Emulating DGEMM and ZGEMM with INT8 Matrix Engines on Intel Arc GPUs: Ozaki Scheme II on the Xe2 Architecture",
+        "link": "http://arxiv.org/abs/2610.26945v1",
+        "abstract": "Double-precision matrix multiplication, real (DGEMM) and complex (ZGEMM), dominates the run time of dense linear algebra and electronic-structure codes. On affordable GPUs, however, FP64 throughput is a small and shrinking fraction of the throughput of the low-precision matrix engines. Ozaki scheme II closes this gap by reducing a floating-point matrix product to a handful of exact INT8 products followed by a Chinese-remainder reconstruction; the number of products sets the accuracy. We present what is, to our knowledge, the first implementation of Ozaki scheme II for Intel GPUs. Written in SYCL on top of oneMKL, it runs entirely on the device and exposes the full BLAS dgemm/zgemm interface. Making the scheme fast on the Xe2 (Battlemage) architecture required keeping FP64 arithmetic out of all memory-bound kernels, a branch-free residue computation, an FP32 evaluation of the CRT quotient with a proven safety margin, 16-bit limb arithmetic in the reconstruction, and work-arounds for performance cliffs of the vendor INT8 GEMM. On an Intel Arc Pro B60 (24 GB) the emulated DGEMM reaches 17.3, 12.1 and 9.3 TFLOP/s with $s=8$, 12 and 16 moduli at $N=8192$, and up to 21.1 TFLOP/s overall, i.e. 12-28x the native FP64 DGEMM of the same board. The emulated ZGEMM, which uses the 3M form exactly in integer arithmetic, reaches up to 27.4 TFLOP/s and is 13.7-17.8x faster than native ZGEMM for $N\\ge4096$ at $s=16$. With $s\\ge16$ the results are correctly rounded for well-scaled inputs and, using an extended-width residue path ($s=20$-24), also for inputs with wide exponent ranges, whereas native DGEMM rounds only 2-13% of the entries correctly. We also report worst-case accuracy, phase breakdowns, energy, an ablation study, a comparison with Ozaki scheme I, and a validated performance model.",
+        "authors": [
+            "Rostislavs Rostovskis",
+            "Aleksandrs Platonenko"
+        ],
+        "categories": [
+            "cs.MS",
+            "cs.DC",
+            "math.NA"
+        ],
+        "id": "http://arxiv.org/abs/2610.26945v1",
+        "submit_date": "2026-10-18",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.28093v1": {
+        "title": "ClawMMU: Protection-Coherent Virtual Memory for Stateful LLM Agents",
+        "link": "http://arxiv.org/abs/2610.28093v1",
+        "abstract": "AI agents keep long-term memory, much of which comes from web pages and tool results. Agent harnesses, the software that runs the model, do not record who may act on this memory, so an instruction hidden in a fetched page can be treated as the user's own instruction. We propose ClawMMU, a protection layer that labels every piece of memory with its owner, scope, origins, and authority. ClawMMU checks these labels whenever content enters the model's context, is written to storage, returns from storage, or drives a tool call. Its central rule is that information may rise in authority, but authority never lifts itself. Because the checks depend on where content came from, not on what it says, memory attacks become classical protection faults that the harness stops even when the model is fooled.",
+        "authors": [
+            "Jinhao Hu",
+            "Bardia Mohammadi",
+            "Mofasshara Binte Rafique",
+            "Lars Henning Klein",
+            "Akhil Arora",
+            "Ashvin Goel",
+            "Laurent Bindschaedler"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.AI",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.28093v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.27636v1": {
+        "title": "CXLResume: Retained-State Checkpoint and Restore for In-Memory Services",
+        "link": "http://arxiv.org/abs/2610.27636v1",
+        "abstract": "Checkpointing and restoring an in-memory service typically require writing its memory pages to checkpoint images and refilling them at the destination. When application state already resides in shared memory that remains accessible after failover, copying those pages into and out of checkpoint images is unnecessary. We present CXLResume, a prototype that retains the service's main heap objects in shared memory while checkpointing the remaining execution state and mapping metadata. Checkpointing preserves the shared heap at the same freeze point as the serialized process state. During recovery, CXLResume remaps the same shared memory at its original virtual addresses before restoring execution, preserving direct pointers within and across shared and private memory. We evaluate CXLResume with Redis and Memcached using QEMU CXL functional emulation. At 6 GiB, CXLResume reduces combined checkpoint and restore time from 15.015 s to 0.242 s for Redis and from 19.770 s to 0.276 s for Memcached in the evaluated deployments. These results show that retaining shared application state removes large application heaps from the checkpoint data path and substantially reduces checkpoint and restore latency.",
+        "authors": [
+            "Haonan Li",
+            "Zhaoxiang Huang",
+            "Zhihao Zhang",
+            "Yiming Zhang"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.27636v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-21"
     }
 }

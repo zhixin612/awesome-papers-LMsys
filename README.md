@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3442-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.20-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3451-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.21-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-21
+* `serving` `networking` [Weight Placement Is Not Enough: Synchronization in Multi-Node CPU Decoding of Ternary LLMs](http://arxiv.org/abs/2610.28620v1)
+  > **TL;DR**: Investigates synchronization bottlenecks in multi-node CPU decoding of ternary LLMs. Proposes a Megatron-style column split parallelization to avoid cross-node reductions and reduce barrier waits. Achieves up to 2.1x speedup over baseline with lower energy per token.
+* `serving` [The Token-Energy Law of LLM Decode: Active Bytes and Realized Time Account for Joules per Token](http://arxiv.org/abs/2610.28576v1)
+  > **TL;DR**: Proposes the Token-Energy Law, an interpretable model predicting GPU energy per token in LLM decoding using active bytes and realized time to account for shared weights, KV history, and batching. Validation on three models shows prediction error under 3.73%.
+* `serving` `quantization` [BitMTP: When Multi-Token Prediction Meets Low-Bit Large Language Models](http://arxiv.org/abs/2610.28500v1)
+  > **TL;DR**: Addresses inefficiency in combining ultra-low-bit LLMs and multi-token prediction. BitMTP co-design features joint training, hybrid decoding, and CUDA Graph replay. Achieves 2.2-2.4x speedups on H20 for 2B-4B models without quality loss.
+* `kernel` `sparse` `video` [KPage: Cross-Block Page Compaction for Hardware-Efficient Sparse Attention](http://arxiv.org/abs/2610.28096v1)
+  > **TL;DR**: Addresses inefficient sparse attention for video Transformers due to partially occupied blocks. Proposes KPage, cross-block page compaction for K/V and adaptive Q routing without HBM materialization. Achieves 2.29x geometric-mean speedup on 3D layouts with partial blocks over BSA.
+* `serving` `diffusion` `kernel` [DIFFLET: A Fast Inference Engine for Diffusion Transformer Models on AWS Trainium](http://arxiv.org/abs/2610.23047v2)
+  > **TL;DR**: Develops Difflet, a serving engine for diffusion transformers on AWS Trainium, with shared compilation backend, attention splitting, and step-level caching decisions. Achieves 1.2-4.3x denoiser acceleration via fused attention and 1.5-3.4x faster serving via resident execution.
+* `serving` `edge` `offloading` [HyCo: Hybrid Drafting for Cost-Efficient Mobile-Cloud Speculative Decoding](http://arxiv.org/abs/2610.21436v2)
+  > **TL;DR**: Proposes HyCo for mobile-cloud speculative decoding: hybrid drafting by offloading multi-token prediction head to device with one SLM pass, using quantization and relaxed sampling. Reduces server GPU time per token by up to 38.6% on Spec-Bench.
+* `RAG` `offline` [SweepANN: A GPU-Accelerated Large-K Approximate Vector Search for Drug Discovery](http://arxiv.org/abs/2610.27306v1)
+  > **TL;DR**: Addresses high-recall large-K approximate nearest neighbor search for billions of vectors. Proposes SweepANN, a GPU-accelerated partitioned scan method with a window plan for top-K selection. Achieves up to 24× faster resident time than IVF and 99.6% mean recall on 500M vectors using four GPUs.
+* `serving` `MoE` `hardware` [3D-MoE: Complementarity-Guided Hardware-Software Co-Design for MoE Decode on 3D-Stacked NMP](http://arxiv.org/abs/2610.26991v1)
+  > **TL;DR**: Addresses memory-bound and load-imbalanced MoE inference on 3D-stacked DRAM. Proposes 3D-MoE via complementarity-guided grouping, locality-aware mapping, and a hardware Collaborative Memory-Network. Achieves 4.63× MoE-layer speedup and 1.86× end-to-end throughput.
+* `RAG` `storage` `offloading` [VS-Flash: Harnessing Vector Search with Computational Memory-Semantic Flash](http://arxiv.org/abs/2610.26960v1)
+  > **TL;DR**: Addresses performance degradation in vector search for RAG systems under mixed workloads. Proposes VS-Flash, which uses memory-semantic capacity and workload-aware compute offloading to flash devices. Achieves 36.8X average throughput gain and 24.8X lower tail latency compared to baseline.
+
 ### 2026-10-20
 * `training` `scaling` `networking` [GeoTrain: Energy-Aware Automatic Parallelism for Foundation Model Training on Heterogeneous Geo-Distributed Resources](http://arxiv.org/abs/2610.26178v1)
   > **TL;DR**: Proposes GeoTrain for automatic parallelism in training foundation models on geo-distributed heterogeneous GPUs. It jointly optimizes GPU selection, layer partitioning, and pipeline configurations using a memetic algorithm. Reduces iteration time by up to 61.4% compared to state-of-the-art.
