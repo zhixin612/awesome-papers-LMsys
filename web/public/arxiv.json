@@ -178620,5 +178620,392 @@
         "submit_date": "2026-10-20",
         "relevant": false,
         "indexed_date": "2026-10-21"
+    },
+    "http://arxiv.org/abs/2610.30114v1": {
+        "title": "The End of Consensus Research?",
+        "link": "http://arxiv.org/abs/2610.30114v1",
+        "abstract": "Consensus is a fundamental problem in distributed computing and at the core of state machine replication (SMR). Despite decades of active human research, discovering practical low-latency solutions to the problem is still open, as it requires combining protocol knowledge, correctness reasoning, implementation, and experimental evaluation. We report on how AI helped us discover A-greement, a new consensus protocol for geo-replicated state machines that significantly outperforms state-of-the-art solutions. Averaged across six deployments with 5 or 9 replicas, A-greement reduces the mean latency of a geo-distributed key-value store over the fastest baseline by 12.2% and 33.3% on write-heavy and read-heavy workloads, respectively, and matches the fastest baseline on read-only workloads. A-greement combines lease-authorized local reads, direct client learning for leader-ordered writes, and a fast fixed-quorum per-key write path, selected according to network topology and workload. At the heart of our discovery lies AI-greement, an agent harness for the \"autonomous\" discovery, implementation, experimentation, and verification of candidate protocols. AI-greement integrates (1) a concept-oriented protocol knowledge base, (2) a modular implementation skeleton, and (3) a Lean-based verification framework with reusable safety definitions, reference specifications, and proofs. AI-greement is of independent interest: its Lean formalization uncovers several previously unreported vulnerabilities in existing consensus protocols, and it provides guidelines on how domain-specific harnesses can turn general-purpose coding agents into effective tools for (distributed) computing research. Yet we argue that human consensus experts remain essential before, during, and after the search: agents reshape the researcher's role rather than end consensus research.",
+        "authors": [
+            "Clément Burgelin",
+            "Rachid Guerraoui",
+            "Zicong Hong",
+            "Yinan Hu",
+            "Anne-Marie Kermarrec",
+            "Rafael Pires",
+            "Rasmus Moorits Veski",
+            "Martijn de Vos"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2610.30114v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.30055v1": {
+        "title": "A Real-time tax compliance architecture for VAT split payments with Making Tax Smart and Open Banking",
+        "link": "http://arxiv.org/abs/2610.30055v1",
+        "abstract": "This paper presents Making Tax Smart with Open Banking (MTS-OB), a novel DLT-based architecture designed to integrate real-time VAT compliance into the existing payment system through split payments and Open Banking. Motivated by the substantial VAT gap, the research investigates how leveraging the informational value embedded within payment transactions can reduce the tax administration burden. MTS-OB, a proof-of-concept application built on R3 Corda, facilitates automated, real-time VAT split payments (VSP) without disrupting current payment infrastructure. MTS-OB integrates with existing banking systems via Open Banking APIs, enabling secure information management for VAT collection, reporting, analytics, and automated compliance enforcement. The system uses traditional bank deposit money as a real-time information sensor thereby extending its functionality to include \"money as a medium of real-time taxation\". Scalability testing demonstrates the system's ability to maintain operational stability under increasing transaction loads, illustrating its potential for real-world deployment. The key finding is the necessity of redefining money to include its informational value for real-time tax compliance, requiring a redesign of the money system while adhering to existing regulations and standards. This research demonstrates the feasibility of integrating tax functionality directly into payments, offering a path towards \"hard to get tax wrong\" compliance and a potential reduction in the VAT gap without compromising financial stability.",
+        "authors": [
+            "Panos Louvieris",
+            "George Ioannou",
+            "Gareth White"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.30055v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29988v1": {
+        "title": "Enumeration-based Triangle Counting on GPUs",
+        "link": "http://arxiv.org/abs/2610.29988v1",
+        "abstract": "Subgraph enumeration in partitioned graphs across distributed-memory systems is beset with challenges in balancing data movement with the local computation. Especially, counting the number of triangles induced by the closed wedges (i.e., length-3 cycles) is a measure of connectedness in a graph, but often limited by the significant search space caused by open wedges or length-2 paths (usually greater than the number of edges in a graph), which must be inspected to assess whether a particular wedge is closed. To mitigate triangle counting on massive graphs, distributed-memory partitioned-graph approaches are viable (i.e., assessing closed wedges independently within a partition), but load imbalance due to arbitrary communication can overshadow any gains from enhanced concurrency, owing to the inherent lack of structure in regular graphs.\n  In this paper, we discuss a distributed-memory exact graph triangle counting implementation, and assess its performance over billion-edge real-world graphs on contemporary scale-out and scale-up based NVIDIA GPU platforms (considering NVIDIA ``Ampere'' and ``Hopper'' architectures), depicting a scalability spectrum of multiple orders of magnitude. Comparisons with existing state-of-the-art approaches demonstrates up to 10$\\times$ improvements relative to distributed-memory CPU baseline, 2-100$\\times$ over single-GPU vendor-optimized NVIDIA RAPIDS cuGraph and 10-60\\% over multi-GPU $G^2$Miner, in terms of end-to-end execution times.",
+        "authors": [
+            "Sayan Ghosh"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29988v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29873v1": {
+        "title": "HAWK: Heterogeneity-Aware KV Cache Transfer for Efficient GPU-NPU Phase-Disaggregated LLM Inference",
+        "link": "http://arxiv.org/abs/2610.29873v1",
+        "abstract": "Large language model (LLM) inference exhibits distinct computational characteristics across its two phases: prefill is compute-intensive, whereas decode is more memory-bound. As a result, AI accelerators achieve varying levels of efficiency across the two phases. GPUs are well suited to prefill, but are often underutilized during decode. By contrast, NPUs can utilize their compute resources more effectively during decode. Motivated by this observation, we explore a heterogeneous architecture that integrates GPUs and NPUs, mapping prefill to GPUs and decode to NPUs to achieve high performance and efficiency. However, realizing such heterogeneous integration is challenging because LLM phase disaggregation requires KV cache transfer from prefill to decode (that is, from GPUs to NPUs), which is complicated by differences in inter-device communication mechanisms and KV cache tensor layouts.\n  To address this, we propose HAWK, a transfer mechanism that enables rapid KV cache transfer across heterogeneous devices. HAWK establishes a remote direct memory access (RDMA) path for direct cross-device transfers while handling inter-device tensor layout discrepancies as part of the transfer process. In particular, HAWK allocates tensor-layout-aware RDMA buffers on the NPU side to match the target tensor layout. Leveraging these buffers, HAWK orchestrates data transfer from a conventional contiguous GPU RDMA buffer to the corresponding NPU buffers, allowing transferred tensors to be consumed directly without additional data rearrangement while maintaining transfer efficiency. We implement and evaluate HAWK on a system built with commercially available GPUs and NPUs, demonstrating performance within 7.88% of a GPU-only system under the same SLO constraints while achieving up to 1.26$\\times$ higher power efficiency and 1.72$\\times$ higher cost efficiency.",
+        "authors": [
+            "Junhyeok Park",
+            "Jungeun Yoon",
+            "Kyungmin Kim",
+            "Hunsoon Lee",
+            "Shinyoung Ahn",
+            "Kangho Kim"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29873v1",
+        "submit_date": "2026-10-21",
+        "relevant": true,
+        "tags": [
+            "disaggregation",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Addresses inefficient KV cache transfer for heterogeneous GPU-NPU phase-disaggregated inference. Proposes HAWK, a tensor-layout-aware mechanism using RDMA for direct transfers. Achieves within 7.88% of GPU-only performance and 1.72× cost efficiency.",
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29820v1": {
+        "title": "UlaCache: Unified Logical Addressing for Sparse LLM Serving",
+        "link": "http://arxiv.org/abs/2610.29820v1",
+        "abstract": "Long contexts increase the memory cost of the key-value (KV) cache in large language model (LLM) inference. Sparse attention reduces attention computation and memory traffic by selecting historical tokens, but the retained KV cache must remain available for later decoding steps. We present UlaCache, a KV cache management system built around a unified logical address space spanning GPU KV pools and optional CPU memory. Stable logical references let the inference engine allocate and select KV independently of physical placement. Common allocation and sparse-access interfaces support data-parallel (DP) and tensor-parallel (TP) attention. For distributed storage, local GPU buffers retain selected KV across decoding steps, so only missing entries require transfers. When CPU storage is enabled, Parallel Bucketed LRU (PB-LRU) manages a GPU pool shared across requests. It updates recency metadata and selects eviction victims in parallel. UlaCache transfers KV and then updates the address mappings. With speculative decoding enabled under matched CPU and GPU memory budgets, UlaCache achieves peak decoding throughput speedups of 1.16 $\\times$ (DP) and 1.70 $\\times$ (TP) on H200, and 1.73 $\\times$ (DP) and 2.51 $\\times$ (TP) on B300, compared with the state-of-the-art baseline.",
+        "authors": [
+            "Isaac Zhu",
+            "Alan Cao",
+            "Hugh Yin",
+            "Rocky Wang",
+            "Orion Wang",
+            "Hscos Zhang",
+            "Jack Li",
+            "Jason Zhao"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29820v1",
+        "submit_date": "2026-10-21",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "sparse",
+            "offloading"
+        ],
+        "tldr": "Reduces memory costs in LLM inference KV cache for long contexts via UlaCache's unified logical addressing and GPU-CPU management with parallel bucketed LRU. Achieves up to 2.51× decoding throughput speedup on B300 GPUs.",
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.28620v2": {
+        "title": "Weight Placement Is Not Enough: Synchronization in Multi-Node CPU Decoding of Ternary LLMs",
+        "link": "http://arxiv.org/abs/2610.28620v2",
+        "abstract": "Ternary LLMs read only a few gigabytes per decoded token, yet on dual-socket servers with four NUMA nodes the fastest ternary runtime we found uses less than half of the memory bandwidth. Placing each weight on the node of the thread that reads it is necessary but not enough: in a decode engine with node-local weights that reuses ik_llama's kernels, threads on two generations of Xeon servers still spend 20-48% of each token waiting at synchronization points. Per-thread barrier traces show that most of the wait is for the slowest threads of each node; the barriers' own latency (microseconds each, but up to 12% of the token for the smallest model) and serial per-node work are smaller parts. On identical kernels, a Megatron-style column split beats a row-owned split without cross-node reductions in every configuration we measured, and isolating the number of barriers shows that most of its gain comes from its threads waiting less for each other and for their node leaders, and only a minority from having fewer barriers. Where decoding is DRAM-bound, the resulting engine is 1.5-2.1x faster than ik_llama with all cores and 1.5-1.9x faster than ik_llama at its fastest thread count (3.2x and 2.8x for a small model that runs from the L3 cache), at the same accuracy and with less energy per token.",
+        "authors": [
+            "Runguo Li",
+            "Dezhen Lu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.28620v2",
+        "submit_date": "2026-10-21",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "quantization",
+            "kernel"
+        ],
+        "tldr": "Addresses high synchronization overhead in multi-node CPU decoding of ternary LLMs. Proposes a columnar split of weights to minimize barrier waiting. Achieves 1.5-2.1× speedup over baseline with same accuracy and lower energy.",
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29592v1": {
+        "title": "Semantic-Aware Update Admission and Adaptive Byzantine Redundancy for Secure Computation Offloading in COIN-Enabled Metaverse Systems",
+        "link": "http://arxiv.org/abs/2610.29592v1",
+        "abstract": "Computing in the network (COIN) supports latency-sensitive Metaverse services, but blockchain commitment of persistent shared-state updates competes with application execution for limited resources. We consider the joint problem of deciding which updates to commit, how much Byzantine redundancy to provision, and where to execute Metaverse application tasks. We formulate this problem under resource, latency, and practical Byzantine fault tolerance (PBFT) constraints, accounting for update persistence and semantic significance. We develop a hierarchical redundancy-aware PBFT (R-PBFT) approach that decomposes the decision process into slot-wise computation offloading and sequential update-admission and redundancy control. We formulate the former as an identical-interest game and address the latter using a feasibility-filtered double deep Q-network (DDQN). Analytical downlink allocation accounts for the energy and delivery-feasibility effects of consensus latency. For fixed slot state and redundancy, we establish the game's exact-potential property and finite termination of strict sequential improvements. Feasible-action filtering enforces configured Byzantine redundancy and blockchain-budget constraints independently of learning. Numerical results show relative improvements of up to $46.7\\%$ in reward averaged across tested user loads and seeds over Minimum Secure, the strongest baseline on average. At the highest tested Byzantine bound, the secure timely-update ratio improves by $62.3\\%$ over the same baseline. Ablations assess the contributions of feasibility filtering and adaptive deferral.",
+        "authors": [
+            "Ibrahim Aliyu",
+            "Jaehyung Park",
+            "Jinsul Kim"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29592v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29544v1": {
+        "title": "RISK-KV: Quality-Aware Selective KV Cache Reconstruction for Distributed LLM Inference",
+        "link": "http://arxiv.org/abs/2610.29544v1",
+        "abstract": "Request migration and interruption recovery in distributed large language model (LLM) inference rely on historical key-value (KV) caches. Retaining or transferring a complete cache incurs substantial state overhead, whereas replaying historical tokens requires additional computation. This paper proposes RISK-KV, a quality-aware method for selective historical KV reconstruction in pretrained models. RISK-KV uses exact KV states on both sides of a target layer and cross-layer ridge regression to predict the missing layer's attention-projection input; it then folds in the original model's KV projection matrices to reduce predictor storage. Reconstruction risk is measured by the change in negative log-likelihood (NLL) caused by actual reconstruction, and low-overhead topology search with quality gating selects the layer groups to reconstruct. Independent tests on three language models show that representative recovery configurations omit 18.2 percent to 33.3 percent of historical KV, with perplexity changes below 0.5 percent. In a local request-recovery experiment with a 512-token history, RISK-KV achieves a 1.51 to 3.31 times speedup over full Token Replay. These results indicate that selective KV reconstruction can reduce historical cache overhead with small changes in predictive quality and improve request-recovery efficiency under the evaluated deployment conditions.",
+        "authors": [
+            "Wang Yuekai"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29544v1",
+        "submit_date": "2026-10-21",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Addresses high overhead of historical KV caches in distributed LLM inference recovery. Proposes RISK-KV, a quality-aware method using cross-layer ridge regression and topology search for selective KV reconstruction. Achieves 1.51x-3.31x speedup over Token Replay while reducing KV cache by 18.2-33.3%.",
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29503v1": {
+        "title": "Hard and Soft Real-Time DNN Inference Scheduling on Heterogeneous Multi-Accelerator Systems via Reinforcement Learning",
+        "link": "http://arxiv.org/abs/2610.29503v1",
+        "abstract": "We present a scheduling framework for heterogeneous multi-accelerator systems executing both hard real-time and soft real-time QoS-aware DNN inference workloads. The framework combines an online reinforcement learning (RL) scheduler with a deterministic runtime safety layer. The RL scheduler dynamically generates candidate schedules by jointly selecting sub-job priorities and accelerator assignments, while runtime certification guarantees that all HRT deadlines remain satisfied independently of the learned policy.\n  To enable runtime certification in heterogeneous precedence-constrained systems, we introduce a schedulability-preserving prefix replacement criterion based on machine-wise cuts. The proposed criterion guarantees that runtime-generated schedule prefixes preserve the existence of a feasible continuation without requiring complete finish-time dominance with respect to a feasible reference schedule.\n  Experimental results on heterogeneous DNN accelerator platforms show that the proposed framework preserves HRT schedulability while improving QoS-aware deadline satisfaction, client-level service quality, and accelerator utilization compared to state-of-the-art scheduling approaches.",
+        "authors": [
+            "Francesco Giulio Blanco",
+            "Enrico Russo",
+            "Giuseppe Ascia",
+            "Davide Patti",
+            "Maurizio Palesi"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29503v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29497v1": {
+        "title": "How Not to Be Censored: Inclusion Safety in Client-Led Consensus",
+        "link": "http://arxiv.org/abs/2610.29497v1",
+        "abstract": "Blockchain consensus protocols implicitly follow a client-server architecture: validators are the only active participants, while clients (i.e., users) merely submit transactions and rely on validators to include them. This abstraction obscures a fundamental question: what should a client do to guarantee the timely inclusion of its own transaction? We study this question by introducing a leaderless consensus protocol in which clients are active. We define inclusion safety: the guarantee that a client's transaction enters some of the blocks produced for an epoch, and that every block omitting it belongs to a fork that is eventually abandoned. Because every transaction carries a reference to a block of the previous epoch, clients help select the surviving fork. This yields two paths to inclusion: reaching sufficiently many honest replicas within an epoch, or relaying a block containing the transaction across epochs until the corresponding fork becomes canonical. In a generalized model spanning synchrony and asynchrony, the client's and the replicas' connectivity are substitutes for inclusion safety: it is achieved either if the client is well connected, or if the client is poorly connected but honest replicas communicate reliably, provided the client reaches at least one of them. However, the substitution is imperfect: when inclusion safety rests on the replicas' connectivity, it requires a longer epoch compared to when the client is well connected.",
+        "authors": [
+            "Yackolley Amoussou-Guenou",
+            "Andrea Canidio"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29497v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29489v1": {
+        "title": "Reorienting the Vector Axis: Restructuring FlashAttention for Long-Vector Processors",
+        "link": "http://arxiv.org/abs/2610.29489v1",
+        "abstract": "A Transformer is built around attention, whose cost grows with the square of the sequence length and dominates the layer on long sequences. FlashAttention made that cost manageable by tiling the attention matrix and updating the softmax as it goes, but almost all work since has targeted GPUs. On long-vector processors one vector register can hold up to 512 single-precision numbers. The savings of a vector instruction are proportional to how much of the register it uses, so the choice of which loop to vectorize is a first-order decision. We port PyTorch's CPU FlashAttention kernel to a RISC-V CPU with 2KB vector registers and find that it reaches 16.2% of peak floating-point throughput. The kernel walks each tile one query row at a time: the product against V is vectorized along the 64-element head dimension, the softmax's per-row maximum and sum are reductions that collapse a full register to a scalar, and the software exponential's polynomial coefficients compete with tile data for vector registers and cause spilling. We propose two techniques. The first transposes the score tile and the running output so that queries lie along the contiguous axis. The algorithm and its values are unchanged. A single parameter, the number of queries in a tile, now sets the vector length of every part of the kernel and can be matched to the machine. Both reductions also disappear. The second moves the polynomial's coefficients into scalar registers, removing the spills and cutting the softmax's vector memory instructions by 78.7%. On silicon the two together cut whole-kernel cycles by 1.84 to 2.08x at a head dimension of 64, raising floating-point utilization from 16.2% to 29.7% of peak. An FPGA of the same design ranks the changes identically and scores them higher, at 2.71x.",
+        "authors": [
+            "Emmanuel Irabor",
+            "Marc Casas"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.29489v1",
+        "submit_date": "2026-10-21",
+        "relevant": true,
+        "tags": [
+            "kernel"
+        ],
+        "tldr": "Improves FlashAttention efficiency on vector processors by reorienting tiles and optimizing softmax coefficient storage, reducing computation cycles by 1.84x-2.08x and increasing floating-point utilization to 29.7% from 16.2%.",
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29230v1": {
+        "title": "PQ-Vault: Provably Quantum-Safe Asset Custody for Unmodified Ethereum",
+        "link": "http://arxiv.org/abs/2610.29230v1",
+        "abstract": "A quantum computer could recover the key of any Ethereum account whose public key appears on chain. We prove that no sidechain or bridge that leaves Ethereum's rules unchanged can protect such accounts: their funds must move into a contract whose release condition relies only on quantum-safe primitives. We design \\emph{PQ-Vault}, a custody system for unmodified Ethereum combining this vault, a quantum-safe proof-of-stake sidechain whose checkpoints carry compact certificates, and an optimistic dispute protocol. We give the first security proof of compact certificates against quantum attackers and a matching attack: with classically chosen parameters, the guarantee falls from 128 to about 60 bits, and a simple rule restores it. We show that a common seed-update rule in hash-chain proof of stake lets an attacker steer chosen slots and profit from splitting its stake, and give an election whose steering gain and inclusion delay are provably bounded against quantum attackers. Since compressing certificates with a pairing-based SNARK breaks quantum security, we use fraud proofs that need a single signature check. For 65,536 validators, a certificate is 0.8 MB, 260 times smaller than all signatures, and verifies in about 20 ms; the vault accepts a checkpoint for about 420,000 gas.",
+        "authors": [
+            "Hassan Khodaiemehr",
+            "Khadijeh Bagheri",
+            "Chen Feng"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.CR",
+            "cs.DC",
+            "cs.IT"
+        ],
+        "id": "http://arxiv.org/abs/2610.29230v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29183v1": {
+        "title": "Resuming Vision-Language Inference across Onboard Interruptions",
+        "link": "http://arxiv.org/abs/2610.29183v1",
+        "abstract": "Executing vision-language models (VLMs) aboard low-Earth orbit satellites enables flexible processing of observation data without first downlinking it to the ground. On commercial off-the-shelf payloads, however, a request may span multiple execution windows: power and thermal constraints, fault-triggered reboots, and competing payload demands can interrupt inference before it completes. Each shutdown discards volatile activations and KV caches, forcing an unprotected request to repeat work after restart.\n  We present OrbitWeaver, a framework that preserves VLM inference progress across onboard interruptions through coordinated checkpointing and recovery. Its phase-aware checkpointing selects recovery boundaries according to the state lifetimes and computational characteristics of vision encoding, language-model prefill, and decoding, balancing storage traffic against recomputation. Its dependency-aware dynamic recovery schedules restoration from partially completed states across the layer and token-chunk dimensions. By overlapping checkpoint and weight reads with recomputation, it reduces restart latency; the recovery planner computes an optimal execution order under its scheduling model within 100 ms.\n  Experiments on satellite payload hardware using on-orbit telemetry traces show up to a 4.07-fold end-to-end speedup and a 3.56-fold reduction in SSD write volume over the evaluated baselines. A 72-hour deployment on two low-Earth orbit satellites demonstrates that OrbitWeaver retains inference progress and resumes execution across repeated bus-enforced shutdowns.",
+        "authors": [
+            "Xiaolong Huang",
+            "Yinyuan Zhang",
+            "Daliang Xu",
+            "Yun Ma",
+            "Qing Li",
+            "Mengwei Xu",
+            "Shangguang Wang",
+            "Gang Huang",
+            "Xuanzhe Liu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2610.29183v1",
+        "submit_date": "2026-10-21",
+        "relevant": true,
+        "tags": [
+            "offline",
+            "multi-modal",
+            "storage"
+        ],
+        "tldr": "Enables resuming vision-language inference across onboard interruptions on satellites. OrbitWeaver coordinates phase-aware checkpointing and dependency-aware recovery to overlap storage access with recomputation. Achieves 4.07× end-to-end speedup and 3.56× lower SSD writes over baselines.",
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.29178v1": {
+        "title": "Correlated Failures of AI Approval Monitors",
+        "link": "http://arxiv.org/abs/2610.29178v1",
+        "abstract": "Before an AI agent takes a consequential action, such as paying, messaging or changing code, several monitors check it. Their verdicts are combined by aggregating scores or by counting approvals, whatever inputs the monitors share. Monitors that share a base model or a poisoned input, however, may fail together. We borrow the fail-prone systems of distributed computing: lists of monitor sets that may fail together. A rule is safe if it executes no bad action and live if it blocks no good one. We measured twelve small open-weights monitors on payment approval under two pre-registered protocols. Without pre-registration, we also measured three closed frontier models (Claude Opus 5.5, GPT-6 Astra, Gemini 4 Argon) and the open DeepSeek-V3.2. Every reliable fooling of a monitor into approving a fraud came through an evidence source and reached only that source's readers. Fooling it into blocking a correct payment depended on injection resistance, a monitor's refusal to follow instructions planted in its data. Small models and DeepSeek obeyed such notes. The three closed models ignored them in all but one case, and Opus also resisted persuasion tailored to it. On new data, a rule that counts sources instead of votes blocked 0.9% of correct payments, against 7.4% for the best counting rule, at equal safety. The pre-registered worst-case test failed. One attack left the approvers on a single source, so no rule over the twelve language-model monitors survives every measured attack. Adding a rule engine, which cannot be persuaded, restored the condition for a safe and live rule on the measured attacks. Diversify the inputs, harden the monitors, count sources, not votes.",
+        "authors": [
+            "Luca Zanolini"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29178v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.28939v1": {
+        "title": "Koala: Non-disruptive Reconfiguration for Long-running Stateful Dataflows",
+        "link": "http://arxiv.org/abs/2610.28939v1",
+        "abstract": "Stateful dataflow systems must decide where state lives relative to the tasks that process it. For long-running applications that require frequent reconfiguration due to changes in resource allocation, partitioning, or task placement, this design choice presents a core trade-off between adaptability and performance. Co-locating state with computation ensures low latency at steady state but makes reconfiguration disruptive, as any change forces state migration. On the other hand, keeping state in an external store makes reconfiguration seamless, but incurs overhead on every access.\n  We present Koala, a reconfiguration protocol for distributed dataflow systems that retains the operational performance of embedded-state architectures while matching the disruption-free adaptability of external-state designs. Unlike prior protocols which relocate all state regardless of whether it will soon be accessed, Koala migrates state in a fine-grained, lazy manner. To achieve that, it employs a lightweight ownership transfer mechanism that safely decouples event routing from state location. We implement Koala in a new streaming dataflow system and evaluate it on real-world and synthetic benchmarks. When compared with the state-of-the-art protocol DRRS, Koala consumes backlog up to 23x faster and transfers 8.7x less state on average during reconfiguration.",
+        "authors": [
+            "Lei Huang",
+            "Sakshi Sharma",
+            "Chenxu Yu",
+            "Zikun Wang",
+            "Yuanli Wang",
+            "Zichen Zhu",
+            "John Liagouris",
+            "Vasiliki Kalavri"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.28939v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.28930v1": {
+        "title": "Amplified Pruning and Path Selectors for Deterministic Radio Gossiping",
+        "link": "http://arxiv.org/abs/2610.28930v1",
+        "abstract": "We study deterministic gossiping in unknown strongly connected directed radio networks with $n$ vertices, $m$ arcs, and distinct identifiers in $\\{1,\\ldots,N\\}$, where $N=n^{\\mathcal O(1)}$. Messages are unrestricted; collision detection is unavailable. Our protocol combines amplified reception certificates, adaptive pruning, and permutation selectors. Each pruning iteration costs $\\mathcal O(n\\log^2n\\log\\log n)$ rounds. A two-step quadratic contraction limits each receiver and each class of identical closed in-neighborhoods to $\\mathcal O(\\log\\log n)$ qualifying selections. Under an explicit degree-concentration condition, our protocol takes $\\mathcal O(m\\log^2n(\\log\\log n)^2)$ rounds. For directed regular graphs with common in- and out-degree $Δ$, our strategy achieves $\\widetilde{\\mathcal O}(\\min\\{n\\sqrtΔ,n^2/Δ\\})$, extending the identifier range of Wu and Chrobak and improving their high-degree bound. At completion entry, let $a\\ge1$ count original sources not yet credited as globally disseminated. Permutation selectors reduce our balanced completion budget by a factor of $\\log^{2/3}(a+1)$ relative to interleaved path selectors. Our geometric protocol attains $\\widetilde{\\mathcal O}(k^2+nτ+\\min\\{u^2,(nu)^{2/3}\\})$ for an original path cover of scale $k$, weight $τ$, and $u$ exceptions. Every graph also admits $\\widetilde{\\mathcal O}(\\min\\{n^{4/3},N+(mn)^{3/5}\\})$ rounds. Only $n,N$ are inputs. Within the stated graph classes and identifier ranges, these results answer the polynomial-identifier and average-degree questions of Wu and Chrobak. The unrestricted general-graph cases remain open.",
+        "authors": [
+            "Qin Xin"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.CC",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.28930v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.28867v1": {
+        "title": "Engineering Low-Latency, High-Throughput Quantum Decoders on NVIDIA GPUs",
+        "link": "http://arxiv.org/abs/2610.28867v1",
+        "abstract": "We design and optimize a quantum error correction (QEC) decoder for NVIDIA GPUs, combining Relay belief propagation, a state-of-the-art message-passing algorithm, with order-zero ordered statistics post-processing. Our implementation uses CUDA Graphs to control GPU execution, stops updates for converged samples, and collects unresolved samples in queues for post-processing. We optimize sparse traversal through coalesced message accesses, prefetching, and register reuse, and accelerate binary post-processing with warp-level collectives. In addition, mixed FP16-FP32 arithmetic and INT8 quantization reduce message storage and traffic while retaining accuracy using accumulators at higher precision. We evaluate surface, hypergraph product, and bivariate bicycle code workloads on NVIDIA A100 and GH200 data-center GPUs and a commodity RTX 5080. On the bivariate bicycle code at error probability 0.003, INT8 halves amortized decoding time relative to independently tuned FP32 with a negligible logical error rate increase on RTX 5080. With independent syndrome batches submitted back-to-back to concurrent decoder instances, RTX 5080 delivers 91% of GH200's highest measured throughput with an 8.9x shorter median submission-to-correction latency. The combination of performance optimization, mixed precision, INT8 quantization, and concurrent decoder instances opens a path toward QEC decoder clusters built from commodity GPUs.",
+        "authors": [
+            "Stefano Markidis",
+            "Luca Pennati",
+            "Ivy Peng"
+        ],
+        "categories": [
+            "cs.DC",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2610.28867v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.28805v1": {
+        "title": "SAT Sampling at Scale via GPU-based Boolean Constraint Propagation",
+        "link": "http://arxiv.org/abs/2610.28805v1",
+        "abstract": "Constrained-random verification tests hardware designs by sampling solutions of Boolean formulas. Existing samplers largely follow one of two approaches: CPU-based SAT samplers (e.g., CMSGen), which remain effective even at rare targets but offer limited throughput, and GPU-based gradient samplers, which achieve high throughput at high-probability targets but collapse at rare ones. We introduce Gpap-S, the first GPU sampler built on Boolean constraint propagation (BCP). At its core is Gpap, a new GPU engine for BCP that efficiently propagates many independent partial assignments concurrently on a shared Boolean formula. This capability allows Gpap-S to combine the rare-target robustness of SAT-based sampling with the throughput of GPU parallelism by exploring thousands of decide-and-propagate trajectories simultaneously. On the benchmark families used to evaluate prior GPU gradient samplers, Gpap-S is 2.2-18.7x faster at the high-probability targets considered in those evaluations. At rare targets, where those samplers often fail to generate any samples, Gpap-S achieves a geometric-mean speedup of roughly two orders of magnitude. Across all benchmarks, Gpap-S is also 83.4-1,571x faster than the CPU-based CMSGen. This throughput does not come at the expense of sample quality: under Barbarik, the statistical tester used to evaluate CMSGen, Gpap-S is accepted on every instance we test, as is CMSGen. We release Gpap as a reusable GPU library for high-throughput BCP.",
+        "authors": [
+            "Alexander Nadel",
+            "Yogev Shalmon",
+            "Ofer Strichman"
+        ],
+        "categories": [
+            "cs.LO",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.28805v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.28759v1": {
+        "title": "GPU-Accelerated Construction of the Gabriel Graph: Parallelization Strategies and Applications to Large-Margin Classification and Graph-Based Clustering",
+        "link": "http://arxiv.org/abs/2610.28759v1",
+        "abstract": "The Gabriel graph is a proximity graph widely used in computational geometry and geometric machine learning, underlying large-margin classifiers and, as we show in this work, density-aware clustering methods. Its construction, however, has cubic time complexity $O(N^3)$ in the naive formulation, which severely limits its use on datasets beyond a few thousand samples. This paper presents a set of GPU parallelization strategies, implemented in CUDA, that make Gabriel graph construction practical at scale. We introduce (i) an implicit closed-form mapping from a linear thread index to the corresponding vertex pair $(i,j)$, which removes the need for an explicit $O(N^2)$ adjacency structure and lets every thread locate its pair in constant time and constant memory; (ii) a two-pass, bitmask-based, atomically-compacted edge-list construction that produces a dense edge array proportional only to the number of edges actually found; and (iii) a thread-coarsening strategy in which each thread evaluates several candidate pairs, trading launch and scheduling overhead against load balance. We evaluate these strategies on the acceleration of a Gabriel-graph-based large-margin classifier (NN-clas) and on a novel Gabriel-graph clustering algorithm that identifies connected components on a residual graph and performs GPU-parallel Union-Find with hierarchical edge-based merging. On 14 public benchmark datasets, the GPU implementation reduces Gabriel graph construction time by two to nearly four orders of magnitude relative to a sequential CPU baseline (up to 8484x), without loss of classification accuracy, and the proposed clustering method is statistically competitive with DBSCAN on the topological validity index Dunn while eliminating the need for an explicit density radius parameter.",
+        "authors": [
+            "Diego Sanches Nere dos Santos",
+            "Luiz Carlos Bambirra Torres"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.28759v1",
+        "submit_date": "2026-10-20",
+        "relevant": false,
+        "indexed_date": "2026-10-22"
     }
 }

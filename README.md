@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3451-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.21-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3457-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.22-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-22
+* `disaggregation` `serving` `networking` [HAWK: Heterogeneity-Aware KV Cache Transfer for Efficient GPU-NPU Phase-Disaggregated LLM Inference](http://arxiv.org/abs/2610.29873v1)
+  > **TL;DR**: Addresses inefficient KV cache transfer for heterogeneous GPU-NPU phase-disaggregated inference. Proposes HAWK, a tensor-layout-aware mechanism using RDMA for direct transfers. Achieves within 7.88% of GPU-only performance and 1.72× cost efficiency.
+* `serving` `sparse` `offloading` [UlaCache: Unified Logical Addressing for Sparse LLM Serving](http://arxiv.org/abs/2610.29820v1)
+  > **TL;DR**: Reduces memory costs in LLM inference KV cache for long contexts via UlaCache's unified logical addressing and GPU-CPU management with parallel bucketed LRU. Achieves up to 2.51× decoding throughput speedup on B300 GPUs.
+* `serving` `quantization` `kernel` [Weight Placement Is Not Enough: Synchronization in Multi-Node CPU Decoding of Ternary LLMs](http://arxiv.org/abs/2610.28620v2)
+  > **TL;DR**: Addresses high synchronization overhead in multi-node CPU decoding of ternary LLMs. Proposes a columnar split of weights to minimize barrier waiting. Achieves 1.5-2.1× speedup over baseline with same accuracy and lower energy.
+* `serving` `offloading` [RISK-KV: Quality-Aware Selective KV Cache Reconstruction for Distributed LLM Inference](http://arxiv.org/abs/2610.29544v1)
+  > **TL;DR**: Addresses high overhead of historical KV caches in distributed LLM inference recovery. Proposes RISK-KV, a quality-aware method using cross-layer ridge regression and topology search for selective KV reconstruction. Achieves 1.51x-3.31x speedup over Token Replay while reducing KV cache by 18.2-33.3%.
+* `kernel` [Reorienting the Vector Axis: Restructuring FlashAttention for Long-Vector Processors](http://arxiv.org/abs/2610.29489v1)
+  > **TL;DR**: Improves FlashAttention efficiency on vector processors by reorienting tiles and optimizing softmax coefficient storage, reducing computation cycles by 1.84x-2.08x and increasing floating-point utilization to 29.7% from 16.2%.
+* `offline` `multi-modal` `storage` [Resuming Vision-Language Inference across Onboard Interruptions](http://arxiv.org/abs/2610.29183v1)
+  > **TL;DR**: Enables resuming vision-language inference across onboard interruptions on satellites. OrbitWeaver coordinates phase-aware checkpointing and dependency-aware recovery to overlap storage access with recomputation. Achieves 4.07× end-to-end speedup and 3.56× lower SSD writes over baselines.
+
 ### 2026-10-21
 * `serving` `networking` [Weight Placement Is Not Enough: Synchronization in Multi-Node CPU Decoding of Ternary LLMs](http://arxiv.org/abs/2610.28620v1)
   > **TL;DR**: Investigates synchronization bottlenecks in multi-node CPU decoding of ternary LLMs. Proposes a Megatron-style column split parallelization to avoid cross-node reductions and reduce barrier waits. Achieves up to 2.1x speedup over baseline with lower energy per token.
