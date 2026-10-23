@@ -179007,5 +179007,333 @@
         "submit_date": "2026-10-20",
         "relevant": false,
         "indexed_date": "2026-10-22"
+    },
+    "http://arxiv.org/abs/2610.31479v1": {
+        "title": "Evaluating the Applicability of LLM Inference Optimizations on Apple Silicon",
+        "link": "http://arxiv.org/abs/2610.31479v1",
+        "abstract": "Apple Silicon is among the most widely used platforms for local LLM inference, yet nearly all inference optimizations are designed and validated on server-class NVIDIA GPUs under batched serving workloads. Which optimizations retain their benefits when moved to Apple Silicon, and what determines their applicability? We evaluate four optimization families: KV-cache pruning, speculative decoding, ported GPU kernels, and post-training quantization. Experiments span four Apple machines under a common single-request decode workload, with matched RTX 4090 comparisons where possible. KV-cache pruning can reach up to 1.75 times end-to-end throughput on Apple but can reduce throughput on desktop NVIDIA GPUs. Under the common benchmark, all evaluated speculative decoding methods reduce throughput on Apple, despite reported 2-6 times gains on server GPUs. CUDA kernel designs transfer only partially: public Metal lacks asynchronous copy, and batch-one decode makes several serving-oriented mechanisms inapplicable, although transferable components yield up to 1.20 times decode throughput. Quantization gains vary by machine. Across four families, a reported speedup is not a portable property of a technique alone but a joint function of technique, runtime, hardware contract, and workload regime.",
+        "authors": [
+            "Kyrylo Yemets",
+            "Andrii Yaroshevych",
+            "Victor Muryn",
+            "Ostap Khomenko",
+            "Pavlo Kryven",
+            "Maksym Kmet",
+            "Maksym Shamrai",
+            "Mariya Hirna"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.31479v1",
+        "submit_date": "2026-10-22",
+        "relevant": true,
+        "tags": [
+            "sparse",
+            "quantization",
+            "kernel"
+        ],
+        "tldr": "Evaluates which LLM inference optimizations are portable to Apple Silicon. Tests KV-cache pruning, speculative decoding, kernel adaptations, and quantization on edge devices. KV-cache pruning yields up to 1.75× throughput gain on Apple hardware.",
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.31444v1": {
+        "title": "Procrustes-Bering-Sheaft: Automated Model Discovery and Virtual Crash Tests for Microservices",
+        "link": "http://arxiv.org/abs/2610.31444v1",
+        "abstract": "Procrustes-Bering-Sheaft automates lightweight model discovery and virtual crash tests for microservices. Each test estimates operation availability by Monte Carlo sampling of service and communication failures. Procrustes checks deployment and tracing evidence; Bering discovers dependencies and incorporates replica declarations; Sheaft evaluates declared operation-success conditions. Independent command-line interfaces exchange reusable, versioned artifacts. The toolchain extends an earlier graph-based approach with mandatory-call contracts, failure-tolerance sweeps, baseline comparison, component-importance analysis, and CI/CD gates. We demonstrate the workflow on one HTTP operation. Six controlled execution states exposed two mismatches between reachability and observed success; an explicit required-call predicate matched all six. Two modelled one-replica additions produced different decisions: recommendation retained an availability-target violation, whereas catalog restored the baseline estimate of 0.979900 and grid tolerance of 0.12. Analytical oracles and controlled tests verify the implementation; archived replay checks numerical continuity with two earlier studies.",
+        "authors": [
+            "Anatoly A. Krasnovsky"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.31444v1",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.31383v1": {
+        "title": "Pipelining vs. Combining in Aggregation Tasks",
+        "link": "http://arxiv.org/abs/2610.31383v1",
+        "abstract": "We study the aggregation task (convergecast) in networks in the case that the values to be aggregated do not fit in a single message. We assume that every node starts with an input value, and there is an aggregation operator that is commutative, associative, and length-preserving, i.e., the result of aggregating two values has the same length as each of the input values. Since values do not fit in a message, they are transferred in a ``train'' of pipelined messages, which must be terminated whenever we want to aggregate values. The goal is to minimize the makespan time of aggregating all values. We present general lower bounds on the problem and optimal algorithms for several prevalent parallel computing architectures, including the hypercube and complete bipartite graphs, under both the splittable and unsplittable flows models. We also present an $O(\\log n)$ approximation for general graphs in the unsplittable flows model.",
+        "authors": [
+            "Gabriel Marques Domingues",
+            "Claire Mathieu",
+            "Boaz Patt-Shamir"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2610.31383v1",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.31211v1": {
+        "title": "Evolving Federated Density Peak Clustering with Shuffler-Based Anonymization",
+        "link": "http://arxiv.org/abs/2610.31211v1",
+        "abstract": "In this paper, we present a novel one-shot federated clustering approach based on evolving fuzzy clustering and shuffler-based anonymization. In federated clustering, each round reveals additional model information to the server and can increase the opportunity to infer properties of local datasets, even when raw samples are never shared. Consequently, fewer client-server exchanges and unlinkability are important, so transmitted information cannot be attributed to any single client. Data-stream clustering algorithms, which learn in a single pass over the data, align well with the one-shot federated learning paradigm, where a single communication round can be sufficient. The proposed Evolving Federated Density Peak Clustering (eFDPC) method combines evolving fuzzy data-stream clustering and density peak clustering in a federated setting. Each client independently evolves micro-clusters from private data mini-batches through cluster addition and merging. To limit communication, density peak clustering is applied to the learned micro-clusters and only the selected peaks are transmitted, rather than the full local models. A shuffler-based layer is introduced between the clients and the server to anonymize contributions prior to reconstruction and global peak selection. We consider a peak-only variant, eFDPC-P, as well as eFDPC-G with server-side label propagation. Experiments on synthetic and real-world benchmark datasets show that eFDPC outperforms recent federated clustering baselines in one-shot settings and scales to higher-dimensional, non-IID data.",
+        "authors": [
+            "Miha Ožbot",
+            "Seiichi Ozawa",
+            "Igor Škrjanc"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CR",
+            "cs.DC",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2610.31211v1",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.31203v1": {
+        "title": "Almost tight distributed approximation for domination in sparse graph classes",
+        "link": "http://arxiv.org/abs/2610.31203v1",
+        "abstract": "We study distributed approximation of Minimum Dominating Set in a very general class of sparse graphs, extending near-optimal approximation results from the minor-free setting to bounded expansion. In more detail, for fixed $d$ and $\\varepsilon>0$, we give a new deterministic constant-round LOCAL algorithm for Minimum Dominating Set on graphs of maximum average degree at most $d$ and bounded depth-one shallow-minor density. Its approximation ratio is $d+1+\\varepsilon$, which is optimal up to $\\varepsilon$ for every even integer $d\\geq 2$. This improves on the recent results of Amiri and Siebertz by extending beyond proper minor-closed classes. From this algorithm, we derive almost-tight constant-round approximations for a number of graph classes. We get $(7+\\varepsilon)$-approximations for planar graphs and graphs of bounded Euler genus, and $(5+\\varepsilon)$-approximations for their triangle-free subclasses. This answers the $7+\\varepsilon$ question of Wawrzyniak positively, and matches the recent results of Amiri and Siebertz. We also apply our algorithm to classes of bounded queue-number or stack-number, obtaining bounds that are tight up to $\\varepsilon$. Additionally, we answer questions of Amiri and Siebertz about improving the dependence of the round complexity on $1/\\varepsilon$ and obtaining polynomial local computation for fixed parameters, when comparing the output to the usual domination number.",
+        "authors": [
+            "Timothé Picavet"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DM",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2610.31203v1",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.24865v3": {
+        "title": "A mechanism for collective foraging: percolating recruitment cascades coupled to a maximum-entropy field",
+        "link": "http://arxiv.org/abs/2610.24865v3",
+        "abstract": "Foraging recruitment is a contagion: an agent that finds a resource triggers a linear-threshold cascade, the model built for rumour and adoption spread on social networks, now embedded in space. Because activation is degree-normalized, the same rule that spreads the cascade also stifles it as neighbourhoods crowd, so the swarm aggregates on a resource and then releases to explore again. The cascade runs on the communication network, but acting on it moves agents in physical space, and that motion rewires the network: network and space are one coupled system, and this feedback, not any tuning, makes the coordination self-limiting. Because recruitment chains along the graph rather than reaching near neighbours alone, whether a discovery stays local or spans the swarm is a question of percolation. The swarm holds itself in a cascade window that is locally near-critical though globally subcritical, a self-organized, self-limiting drive-release cycle, sandpile-like but non-conservative. Nothing is tuned, yet behaviours that foraging biology documents separately emerge together: recruitment to discoveries, marginal-value patch-leaving, and Levy search with a switch to local exploitation. These follow from one least-committal principle, the resource field and the search both as maximum entropy, with Levy search matched to the field's sparsity and recruitment to its clustering, so active-matter order and optimal foraging appear as one system seen in two domains. The gains are real but conditional: up to 7.6x the harvest of solitary search when resources are sparse and clustered, shrinking to nothing when search is already easy. That sparse, clustered field is also the generic one, because resources almost inevitably aggregate, so one untuned rule should recur widely.",
+        "authors": [
+            "Galen J. Wilkerson"
+        ],
+        "categories": [
+            "physics.soc-ph",
+            "cs.DC",
+            "cs.SI",
+            "math-ph",
+            "physics.bio-ph"
+        ],
+        "id": "http://arxiv.org/abs/2610.24865v3",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.30923v1": {
+        "title": "Low-Latency MoE Inference in Space Data Centers: A Wireless-Power-Transfer Perspective",
+        "link": "http://arxiv.org/abs/2610.30923v1",
+        "abstract": "Space data centers (SpaceDCs) are emerging as platforms for large language models (LLMs), supported by continuous solar-energy harvesting and high-speed interconnections. The mixture-of-experts (MoE) architecture supports distributed LLM inference by deploying experts across satellites. However, skewed expert activation creates uneven computation power demands despite uniform solar-power supply at the dawn-dusk sun-synchronous orbit (SSO). Consequently, active experts remain power-constrained while harvested power at idle experts is underused. These reduce inference efficiency and increase latency. To address this supply-demand mismatch, we propose the SpaceWPT framework, which uses inter-satellite laser-based wireless power transfer (WPT) to redistribute harvested power. The key design challenge is to balance the computation demands of power-donating and power-receiving satellites under WPT losses: transferring more power accelerates computation at the receiver but leaves less power for the donor. After deriving design principles that simplify WPT control, we characterize the resulting latency tradeoff through a tractable surrogate of average inference latency. Minimizing the surrogate yields a novel two-sided water-filling strategy that determines whether each active expert donates, retains, or receives power according to the water level and its WPT link efficiency. Simulations with Mixtral-8x7B and Phi-3.5-MoE show up to 29.25% lower inference latency than without WPT, with larger gains under more compact formations and higher transfer efficiencies.",
+        "authors": [
+            "Haotian Zheng",
+            "Zhanwei Wang",
+            "Kaibin Huang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2610.30923v1",
+        "submit_date": "2026-10-22",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Addresses power supply-demand imbalance in MoE inference across satellites, which causes latency. Proposes SpaceWPT using inter-satellite laser-based power transfer and a two-sided water-filling strategy to redistribute energy. Achieves up to 29.25% lower inference latency compared to no WPT.",
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.29503v2": {
+        "title": "Hard and Soft Real-Time DNN Inference Scheduling on Heterogeneous Multi-Accelerator Systems via Reinforcement Learning",
+        "link": "http://arxiv.org/abs/2610.29503v2",
+        "abstract": "We present a scheduling framework for heterogeneous multi-accelerator systems executing both hard real-time and soft real-time QoS-aware DNN inference workloads. The framework combines an online reinforcement learning (RL) scheduler with a deterministic runtime safety layer. The RL scheduler dynamically generates candidate schedules by jointly selecting sub-job priorities and accelerator assignments, while runtime certification guarantees that all HRT deadlines remain satisfied independently of the learned policy.\n  To enable runtime certification in heterogeneous precedence-constrained systems, we introduce a schedulability-preserving prefix replacement criterion based on machine-wise cuts. The proposed criterion guarantees that runtime-generated schedule prefixes preserve the existence of a feasible continuation without requiring complete finish-time dominance with respect to a feasible reference schedule.\n  Experimental results on heterogeneous DNN accelerator platforms show that the proposed framework preserves HRT schedulability while improving QoS-aware deadline satisfaction, client-level service quality, and accelerator utilization compared to state-of-the-art scheduling approaches.",
+        "authors": [
+            "Francesco Giulio Blanco",
+            "Enrico Russo",
+            "Giuseppe Ascia",
+            "Davide Patti",
+            "Maurizio Palesi"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29503v2",
+        "submit_date": "2026-10-22",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "RL",
+            "scaling"
+        ],
+        "tldr": "Proposes scheduling of hard/soft real-time DNN inference on heterogeneous accelerators via RL and runtime certification. Achieves improved QoS deadline satisfaction, service quality, and utilization versus state-of-the-art schedulers while preserving hard real-time guarantees.",
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.30868v1": {
+        "title": "uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage",
+        "link": "http://arxiv.org/abs/2610.30868v1",
+        "abstract": "Data-intensive GPU applications increasingly rely on NVMe SSDs to extend GPU memory. NVIDIA GPU Direct Storage (GDS) enables direct SSD-GPU transfers via PCIe peer-to-peer DMA, eliminating host staging. However, GDS retains three key limitations: (1) its control path traverses the kernel for every I/O request, introducing software overhead; (2) its stream-ordered path imposes strict total ordering even when workloads only require batch-level ordering; and (3) its closed-source user-space engine hinders diagnosis and custom scheduling.\n  We present uGDS, https://github.com/ScaleX-IO/uGDS, an open-source user-space GPU Direct Storage library built on four principles: user-space control, unified cross-vendor abstraction, workload-aware scheduling, and end-to-end transparency. The host CPU manages the entire NVMe command lifecycle in user space, while payloads move via PCIe P2P DMA without consuming GPU compute. A minimal kernel module (ugds_drv.ko) is used only for one-time privileged setup. uGDS partitions hardware queues between synchronous and batch traffic, enforces DMA-safe buffer lifetimes, and provides cuFile-compatible synchronous, batched, and stream-ordered APIs with polling or interrupt completion on both NVIDIA CUDA and AMD HIP.\n  Evaluated on an A100 with a Samsung 990 PRO, uGDS achieves up to 12.12x GDS's batch-read bandwidth and 30.69x its batch-write bandwidth (8- and 4-KiB requests, batch size 128), and reduces 4-KiB synchronous write latency by 84.1% with two threads. Its stream-ordered path sustains 5.49 GiB/s on a single stream, where GDS retains only 40.8% of its synchronous bandwidth. In LMCache, uGDS reduces median time-to-first-token (TTFT) by up to 62.7% and raises serving goodput by 2.63x. On AMD, uGDS achieves up to 1.19x hipFile's synchronous-write bandwidth.",
+        "authors": [
+            "Jing Wei",
+            "Guanyi Chen",
+            "Qi Chen",
+            "Chuyu Zhang",
+            "Zheng Zhou",
+            "Chutian Wang",
+            "Jian Zhang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.30868v1",
+        "submit_date": "2026-10-22",
+        "relevant": true,
+        "tags": [
+            "storage",
+            "serving"
+        ],
+        "tldr": "uGDS addresses GPU Direct Storage (GDS) overheads by moving I/O control to user space with workload-specific scheduling. It eliminates kernel per-request overhead and offers unified cross-vendor APIs. In LLM serving (LMCache), it reduces median TTFT by up to 62.7%.",
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.30595v1": {
+        "title": "Temporal Liquidity Crossing for Blockchains: An EIP-1559 Extension for Admission Below the Base Fee",
+        "link": "http://arxiv.org/abs/2610.30595v1",
+        "abstract": "Transactions differ in how their value changes with execution time and relative position. Ethereum's EIP-1559 lets them compete through fee fields, but a fee bid gives no enforceable claim to an earlier position in the block, and no way to express willingness to accept a later one. Its base fee is a hard admission floor. We introduce temporal liquidity markets (TLM), a framework for crossing complementary temporal requirements: transactions seeking early-region execution (consumers) can fund transactions that opt into exclusion from that region (providers). Selected consumers complete within the early region and are ordered among themselves by authorization density, both validator-checked. In our block-local EIP-1559 extension, providers may be admitted below the base-fee floor. Under TLM regulation, funding-conditioned and capacity-capped provider gas is excluded from the ordinary EIP-1559 controller input. Counting it there instead raises the base fee and displaces ordinary demand at a positive base-fee fixed point. Exclusion lets the controller regulate ordinary demand at its original target and preserves the no-TLM ordinary allocation by construction; in synthetic experiments it raises total utilization with funded gas. Selected consumers pay their signed authorizations, which fund provider shortfalls; the surplus is burned. We state an adversary model with strategic senders and builders and prove eight properties under it, among them validator-checked rule validity, full burn of the base fee, and no subsidy. An inserted consumer bid cannot raise any other consumer's charge. With a provider fee-cap floor, a small, capped inclusion fee and a consumer allowance tied to funded provider gas by a large enough link ratio, no finite set of consumer bids or providers that the builder inserts raises its direct fee payoff.",
+        "authors": [
+            "Duanyang Dan Guo"
+        ],
+        "categories": [
+            "cs.GT",
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.30595v1",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.30587v1": {
+        "title": "Know When to Escalate: Critic-Guided Adaptive Execution for Cloud-Local Embodied Agents",
+        "link": "http://arxiv.org/abs/2610.30587v1",
+        "abstract": "Recent advances in foundation-model agents have enabled increasingly capable embodied systems for long-horizon planning and interaction. However, embodied agents require fast, closed-loop decisions as they continuously perceive and act on a changing environment. Deploying strong cloud agents leaves the platform idle for seconds between consecutive actions, while lightweight local models respond quickly but are more vulnerable to errors. Existing hierarchical architectures typically assign models fixed roles, whereas conventional model routers make stateless per-request decisions. We present CARE, a critic-guided adaptive execution framework that dynamically determines when to escalate control from a local executor to a stronger cloud model. A lightweight critic model monitors execution reliability and triggers escalation when local execution becomes unreliable; once escalated, control persists until the agent recovers, avoiding step-wise switching. To support such control transfer, a shared handoff memory maintains execution context and task-level progress across executors, enabling the model to intervene without restarting from scratch. Across diverse embodied benchmarks, CARE improves task success by 6.3-18.3 percentage points over the strongest evaluated collaboration baseline. CARE further approaches or exceeds Cloud-only success while reducing median time-between-action latency by 28.8-82.6%.",
+        "authors": [
+            "Wei Zhang",
+            "Lirong Xiang",
+            "Charles Fleming"
+        ],
+        "categories": [
+            "cs.RO",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.30587v1",
+        "submit_date": "2026-10-22",
+        "relevant": true,
+        "tags": [
+            "agentic",
+            "serving",
+            "edge"
+        ],
+        "tldr": "Investigates reducing latency in cloud-local embodied agents by adaptive model switching. Proposes CARE, with a critic monitoring reliability to escalate to cloud and shared memory for context. Improves task success by up to 18.3 points and reduces latency by 28.8-82.6% over baselines.",
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.30552v1": {
+        "title": "Repair Changes Which Layers to Remove: Exact Optima for Depth Pruning of Language Models",
+        "link": "http://arxiv.org/abs/2610.30552v1",
+        "abstract": "Depth pruning removes entire transformer layers to make large language models faster, and recent methods recover quality by replacing the removed layers with a training-free linear map. Which layers to remove, however, is chosen with heuristic scores whose distance from the best choice is unknown. We evaluate every subset of layer groups exactly (about 53,000 pruned models across four families, with and without repair) and find that the best layers to remove depend on the repair: linear repair absorbs the interaction among nearby layers and turns the optimum from a split layout into a contiguous block, so methods that choose layers without the repair miss the repaired optimum by up to 189%. We therefore select layers under the repair that will be applied. A greedy search at the cost of SLEB lowers perplexity by 20% to 66% relative to ReplaceMe on five models up to 27B parameters, and with a task objective it is up to 25 points more accurate given the same data. A second-order expansion of the loss yields a score that selects the repaired block from one forward and one backward pass of the intact model.",
+        "authors": [
+            "Jianchang Su",
+            "Dawei Xiang",
+            "Yifan Zhang",
+            "Wei Zhang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.30552v1",
+        "submit_date": "2026-10-22",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "kernel",
+            "sparse"
+        ],
+        "tldr": "Identifies limitations of heuristic layer removal in depth pruning for LLM inference speedup. Proposes repair-aware layer selection via greedy search and second-order scoring. Achieves 20-66% lower perplexity than ReplaceMe and up to 25% higher accuracy on 27B models.",
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.30409v1": {
+        "title": "Cambium: Participant-Built Commitment Roots for Shared Digital Infrastructure",
+        "link": "http://arxiv.org/abs/2610.30409v1",
+        "abstract": "Commitment services, such as timestamping, transparency logs and provenance registries, let a party prove that it bound itself to a record without publishing the record. Today an operator runs them, or a blockchain replaces the operator at the cost of network-wide agreement on every write. We present Cambium, a permissioned peer-to-peer service in which participants build each cycle's commitment root together, so that no single party decides which inputs the root includes. Fixed-size committees certify inputs and use a recursive-doubling merge, in which disjoint groups recompute every intermediate value, to spread root construction across all participants. A successful cycle costs each node $O(c\\log(n/c))$ messages for committee size $c$, and each node stores its own $O(\\log(n/c))$ proof per cycle, along with the $O(n)$ membership roster. A Go prototype on AWS with $c=4$, 8-256 nodes and simulated stragglers completes cycles in 12-148 ms and verifies proofs in under 1.5 ms, and demonstrates logarithmic growth. We show that conflicting certificates identify their signers, that a proof binds a signed input to its root, and that two conflicting roots both become final only if at least a third of the nodes are Byzantine, except with probability exponentially small in the number of committees. We also set out the membership, proof-availability and exclusion questions a community deploying Cambium must answer.",
+        "authors": [
+            "Mansoor \"Manny\" Ahmed",
+            "Dann Toliver",
+            "Ekaterina Pavlova"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.30409v1",
+        "submit_date": "2026-10-21",
+        "relevant": false,
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.31169v1": {
+        "title": "SARIA: Persistence-Aware KV Caching with Coordinated DRAM--SSD Reload for LLM Agents",
+        "link": "http://arxiv.org/abs/2610.31169v1",
+        "abstract": "Multi-turn LLM agents usually reuse long context prefixes, making key value (KV) caching crucial for reducing prefill latency. SSDs provide a low-cost extension to limited DRAM capacity but introduce two key challenges. Eagerly persisting all KV cache blocks incurs substantial write traffic and rapidly consumes finite SSD endurance. Meanwhile, the small number of SSDs provisioned in typical GPU servers limits aggregate reload bandwidth, making SSD-resident KV cache much slower to retrieve than that in DRAM and inflating prefill latency.\n  We present \\textsc{Saria} (Selective Admission and Reload for Inference Acceleration), a KV caching system that jointly manages DRAM and SSD by exploiting the session-level temporal locality of LLM agents to reduce SSD writes and accelerate cache reload. On the write path, \\textsc{Saria} uses eviction and reuse history to selectively persist KV cache blocks that exhibit reuse opportunities beyond their DRAM residency, avoiding unnecessary writes for KV cache already hosted in DRAM. On the read path, \\textsc{Saria} promotes selected SSD-hit KV cache blocks from GPU memory into DRAM after prefill, allowing subsequent reuse within the same session to reduce SSD read traffic while limiting DRAM contention. A transfer coordinator paces DRAM reads while SSD transfers are active, allowing both paths to make progress and efficiently share GPU ingress bandwidth.\n  We implement \\textsc{Saria} on LMCache MP and evaluate it using workloads from TraceLab and WEKA, covering both full-attention and hybrid-attention models. The results show that \\textsc{Saria} reduces SSD writes by 57.1--58.9\\% compared with popular full duplicate caching and the mean time to first token (TTFT) by 42.3--79.7\\% over DRAM-only caching.",
+        "authors": [
+            "Hui Li",
+            "Qihui Zhou",
+            "Xiao Yan",
+            "Shumeng Zhang",
+            "Zijie Dai",
+            "Zequn Gong",
+            "Mingcong Song",
+            "Guoping Long",
+            "Hongjie Si",
+            "James Cheng"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.31169v1",
+        "submit_date": "2026-10-22",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "agentic"
+        ],
+        "tldr": "SARIA optimizes KV caching for multi-turn LLM agents by selectively persisting and reloading cache blocks between DRAM and SSD. The design includes eviction-based persistence, in-memory promotion, and coordinated transfers. Reduces SSD writes by 57.1-58.9% and mean TTFT by 42.3-79.7%.",
+        "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.30813v1": {
+        "title": "Breaking the Coupling: Efficient Concurrency Fuzzing for Linux Kernel Data Race Detection",
+        "link": "http://arxiv.org/abs/2610.30813v1",
+        "abstract": "Detecting data races in the Linux kernel requires exploring both the input space and the thread-interleaving space. Existing kernel concurrency fuzzers couple these two searches by exploring interleavings during fuzzing, often spending substantial scheduling effort on inputs with little potential to trigger real races. In this paper, we present a new concurrency fuzzing paradigm that decouples concurrent-input generation from thread-interleaving exploration, enabling expensive scheduling to focus on promising inputs.\n  To identify inputs that warrant targeted scheduling, we introduce May Race Pairs (MRPs), which represent conflicting memory-access pairs observed within a dynamically determined time threshold. Our framework first generates and executes concurrent syscall groups without controlled scheduling, collecting MRPs to guide further input mutation and identify schedule-worthy inputs. It then uses a separate scheduling instance to explore targeted interleavings and confirm real data races. To improve the effectiveness of both stages, we incorporate LLM-assisted semantic mutation for generating diverse syscall groups, backpressure-guided dynamic threshold control for balancing candidate production and scheduling consumption, and history-aware context recovery, context-aware interleaving scheduling, and candidate MRP prioritization for efficient race confirmation.\n  We implement our framework for the Linux kernel and evaluate it on eight common kernel modules in Linux 6.17. It discovers 187 unique real-world data races, including 59 harmful races. Under the same testing budget, our approach detects substantially more data races than existing kernel concurrency fuzzers, including SegFuzz and CONZZER. These results demonstrate the effectiveness of decoupling concurrent-input generation from interleaving exploration and concentrating scheduling effort on promising candidates.",
+        "authors": [
+            "Cen Zhang",
+            "Jia-Ju Bai",
+            "Zi-Yu Zhang",
+            "Zuming Jiang"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.30813v1",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-23"
     }
 }

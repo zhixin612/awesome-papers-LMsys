@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3457-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.22-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3465-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-23
+* `sparse` `quantization` `kernel` [Evaluating the Applicability of LLM Inference Optimizations on Apple Silicon](http://arxiv.org/abs/2610.31479v1)
+  > **TL;DR**: Evaluates which LLM inference optimizations are portable to Apple Silicon. Tests KV-cache pruning, speculative decoding, kernel adaptations, and quantization on edge devices. KV-cache pruning yields up to 1.75× throughput gain on Apple hardware.
+* `MoE` `serving` `networking` [Low-Latency MoE Inference in Space Data Centers: A Wireless-Power-Transfer Perspective](http://arxiv.org/abs/2610.30923v1)
+  > **TL;DR**: Addresses power supply-demand imbalance in MoE inference across satellites, which causes latency. Proposes SpaceWPT using inter-satellite laser-based power transfer and a two-sided water-filling strategy to redistribute energy. Achieves up to 29.25% lower inference latency compared to no WPT.
+* `serving` `RL` `scaling` [Hard and Soft Real-Time DNN Inference Scheduling on Heterogeneous Multi-Accelerator Systems via Reinforcement Learning](http://arxiv.org/abs/2610.29503v2)
+  > **TL;DR**: Proposes scheduling of hard/soft real-time DNN inference on heterogeneous accelerators via RL and runtime certification. Achieves improved QoS deadline satisfaction, service quality, and utilization versus state-of-the-art schedulers while preserving hard real-time guarantees.
+* `storage` `serving` [uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage](http://arxiv.org/abs/2610.30868v1)
+  > **TL;DR**: Addresses GPU storage I/O bottlenecks for LLM inference via a user-space control path. uGDS offers workload-aware scheduling and kernel-minimal DMA transfers, achieving up to 30.69x batch-write bandwidth over GDS and reducing LMCache's median TTFT by 62.7% with 2.63x higher goodput.
+* `agentic` `serving` `edge` [Know When to Escalate: Critic-Guided Adaptive Execution for Cloud-Local Embodied Agents](http://arxiv.org/abs/2610.30587v1)
+  > **TL;DR**: Investigates reducing latency in cloud-local embodied agents by adaptive model switching. Proposes CARE, with a critic monitoring reliability to escalate to cloud and shared memory for context. Improves task success by up to 18.3 points and reduces latency by 28.8-82.6% over baselines.
+* `serving` `kernel` `sparse` [Repair Changes Which Layers to Remove: Exact Optima for Depth Pruning of Language Models](http://arxiv.org/abs/2610.30552v1)
+  > **TL;DR**: Identifies limitations of heuristic layer removal in depth pruning for LLM inference speedup. Proposes repair-aware layer selection via greedy search and second-order scoring. Achieves 20-66% lower perplexity than ReplaceMe and up to 25% higher accuracy on 27B models.
+* `serving` `offloading` `agentic` [SARIA: Persistence-Aware KV Caching with Coordinated DRAM--SSD Reload for LLM Agents](http://arxiv.org/abs/2610.31169v1)
+  > **TL;DR**: SARIA optimizes KV caching for multi-turn LLM agents by selectively persisting and reloading cache blocks between DRAM and SSD. The design includes eviction-based persistence, in-memory promotion, and coordinated transfers. Reduces SSD writes by 57.1-58.9% and mean TTFT by 42.3-79.7%.
+* `storage` `serving` [uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage](http://arxiv.org/abs/2610.30868v1)
+  > **TL;DR**: uGDS addresses GPU Direct Storage (GDS) overheads by moving I/O control to user space with workload-specific scheduling. It eliminates kernel per-request overhead and offers unified cross-vendor APIs. In LLM serving (LMCache), it reduces median TTFT by up to 62.7%.
+
 ### 2026-10-22
 * `disaggregation` `serving` `networking` [HAWK: Heterogeneity-Aware KV Cache Transfer for Efficient GPU-NPU Phase-Disaggregated LLM Inference](http://arxiv.org/abs/2610.29873v1)
   > **TL;DR**: Addresses inefficient KV cache transfer for heterogeneous GPU-NPU phase-disaggregated inference. Proposes HAWK, a tensor-layout-aware mechanism using RDMA for direct transfers. Achieves within 7.88% of GPU-only performance and 1.72× cost efficiency.
