@@ -179335,5 +179335,578 @@
         "submit_date": "2026-10-22",
         "relevant": false,
         "indexed_date": "2026-10-23"
+    },
+    "http://arxiv.org/abs/2610.30055v2": {
+        "title": "A Real-time tax compliance architecture for VAT split payments with Making Tax Smart and Open Banking",
+        "link": "http://arxiv.org/abs/2610.30055v2",
+        "abstract": "This paper presents Making Tax Smart with Open Banking (MTS-OB), a novel DLT-based architecture designed to integrate real-time VAT compliance into the existing payment system through split payments and Open Banking. Motivated by the substantial VAT gap, the research investigates how leveraging the informational value embedded within payment transactions can reduce the tax administration burden. MTS-OB, a proof-of-concept application built on R3 Corda, facilitates automated, real-time VAT split payments (VSP) without disrupting current payment infrastructure. MTS-OB integrates with existing banking systems via Open Banking APIs, enabling secure information management for VAT collection, reporting, analytics, and automated compliance enforcement. The system uses traditional bank deposit money as a real-time information sensor thereby extending its functionality to include \"money as a medium of real-time taxation\". Scalability testing demonstrates the system's ability to maintain operational stability under increasing transaction loads, illustrating its potential for real-world deployment. The key finding is the necessity of redefining money to include its informational value for real-time tax compliance, requiring a redesign of the money system while adhering to existing regulations and standards. This research demonstrates the feasibility of integrating tax functionality directly into payments, offering a path towards \"hard to get tax wrong\" compliance and a potential reduction in the VAT gap without compromising financial stability.",
+        "authors": [
+            "Panos Louvieris",
+            "George Ioannou",
+            "Gareth White"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.30055v2",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32844v1": {
+        "title": "On Latency-Optimal Implementations of the Timestamp Object",
+        "link": "http://arxiv.org/abs/2610.32844v1",
+        "abstract": "Timestamps are widely used in distributed algorithms to order operations. In this paper, we study the timestamp object (TS), which provides a single operation that returns strictly increasing integers. We ask two questions: What is the maximum resilience and the minimum latency of TS implementations in asynchronous message-passing systems, where latency is measured by worst-case message delay? We answer these questions under various types of failure: crash failures, and Byzantine failures with and without digital signatures. To do so, we give lower bounds and algorithms that determine (1) the optimal resilience of TS implementations under each type of failure, and (2) the optimal latency in all cases but one. Along the way, we introduce a new lower-bound proof technique called a cyclic chain argument, which constructs a cycle of indistinguishable schedules along which the returned timestamps must strictly increase, yielding a contradiction.",
+        "authors": [
+            "Aurojit Panda",
+            "Scott Shenker",
+            "Sam Toueg",
+            "Wen Zhang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.32844v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32803v1": {
+        "title": "Quantum Cadence: Post-Quantum Consensus with Multiple Concurrent Proposers",
+        "link": "http://arxiv.org/abs/2610.32803v1",
+        "abstract": "The consensus protocols of most high-performance blockchains use quorum certificates, which bundle the signatures of a quorum of validators. Signature schemes such as BLS can aggregate the signatures of a whole quorum into a single short signature, which keeps these certificates small. A large-scale quantum computer would break these schemes, and no post-quantum scheme with comparable aggregate size and aggregation time is known. Without aggregation, a certificate holds one large post-quantum signature per member of the quorum, so it becomes infeasible for each validator to broadcast certificates, as modern consensus protocols often require.\n  We present Quantum Cadence, a post-quantum consensus protocol with multiple concurrent proposers that avoids certificates altogether: every validator counts quorums among the messages it has received itself. Its safety and liveness do not even depend on signatures, although we add signatures to obtain accountability. Quantum Cadence builds on Cadence and replaces its slot consensus, Chorus, with Quantum Chorus, which keeps the optimal fast-path latency of Chorus: dissemination followed by two rounds of votes. When its fast path fails, Quantum Chorus runs Coda, our signature-free Byzantine agreement for multiple proposers. We also outline how the Conductor, which schedules the slots of Cadence, can be adapted to Quantum Cadence. In simulations with 200 validators, Quantum Chorus has a latency comparable to that of Chorus and scales better with the number of proposers.",
+        "authors": [
+            "Mohammad Mussadiq Jalalzai",
+            "Tobias Klenze",
+            "Jovan Komatovic"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.CR"
+        ],
+        "id": "http://arxiv.org/abs/2610.32803v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32765v1": {
+        "title": "Clean-label Poisoning Attack and Defense Game for Federated Learning in Vehicular Networks",
+        "link": "http://arxiv.org/abs/2610.32765v1",
+        "abstract": "This paper studies interactions between clean-label poisoning attack and defense in vehicular networks using federated learning (FL). Basic Safety Message (BSM) classification for anomaly detection is modeled as a distributed learning problem over a vehicular network with dynamic topology. As a critical threat to FL, a feature-space clean-label attack is introduced, wherein benign samples are perturbed toward malicious feature extremes, degrading class separability while preserving labels. To counter this, a feature-consistency relabeling defense is proposed to detect and relabel suspicious samples. A game-theoretic framework is developed to capture attack-defense interactions and characterize equilibrium strategies based on attack effectiveness and cost parameters. Results show that the attack scales effectively with compromised nodes, while the proposed defense keeps attack success low without degrading clean accuracy and shifts equilibrium regions toward attack-averse regimes.",
+        "authors": [
+            "Yalin E. Sagduyu",
+            "Tugba Erpek",
+            "Nathan Stephenson",
+            "Mengran Xue"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.AI",
+            "cs.DC",
+            "cs.LG",
+            "eess.SP"
+        ],
+        "id": "http://arxiv.org/abs/2610.32765v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32720v1": {
+        "title": "Migration as a Steady-State Execution Primitive: A Runtime for Virtual Stationarity in Low-Earth Orbit",
+        "link": "http://arxiv.org/abs/2610.32720v1",
+        "abstract": "Low Earth Orbit (LEO) satellite mega-constellations enable orbital edge computing for latency-critical geocentric applications, but satellite motion compresses line-of-sight communication windows to mere minutes. To maintain logical geographic proximity, a paradigm termed Virtual Stationarity (VS), applications must continuously migrate across passing satellites in the constellation. Traditional live migration mechanisms optimize individually initiated relocations or replication, but not the continuous handover between successive hosts that orbital motion requires. We reformulate live migration as a steady-state execution model and introduce a novel virtual stationarity runtime paradigm. We formalize the viability of continuous migration through a lightweight model capturing latency and availability service-level objectives (SLOs), continuous migration overhead, and the convergence bound of state replay. To satisfy these constraints, we derive a Virtual Stationarity Runtime (VSR) framework whose Migration Membrane combines Capability Virtualization and Continuous State Projection to rebind host resources and reconstruct evolving execution on a successor. Evaluation on physical heterogeneous hosts shows 95th-percentile downtime below 6 milliseconds across 300 recurrent handovers, migration time effectively invariant to memory-write rate, and no cumulative growth in migration time or continuation state. A 1,600-satellite simulation further confirms completion within orbital handover windows.",
+        "authors": [
+            "Daniel Kleebinder",
+            "Alireza Furutanpey",
+            "Stefan Nastic"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2610.32720v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32711v1": {
+        "title": "Beyond Hotness: High-Resolution Memory Characterization of Cloud and LLM Workloads for Tiered Memory with ARM SPE",
+        "link": "http://arxiv.org/abs/2610.32711v1",
+        "abstract": "Memory demands from data analytics and LLM workloads grow rapidly, driving up memory costs in cloud and data centers. Multi-tier memory has emerged as a promising solution to balance performance and cost. However, effectively leveraging it requires a deep understanding of workload memory behaviors. This work introduces a high-resolution memory characterization methodology for analyzing workload-specific opportunities for multi-tier memory usage. In response to the increasing deployment of ARM-based processors in data centers, we implement our methodology using the recent Statistical Profiling Extension (SPE) for ARM. By characterizing eight memory-intensive workloads from CloudSuite and LLM applications, we identify region-specific access patterns, evaluate the effectiveness of cloud-oriented cache hierarchies, and propose new metrics based on memory idle periods and latency profiles to determine suitable data placement for tiered memory.",
+        "authors": [
+            "Jie Ren",
+            "Ivy Peng"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.32711v1",
+        "submit_date": "2026-10-23",
+        "relevant": true,
+        "tags": [
+            "storage"
+        ],
+        "tldr": "Proposes a methodology for high-resolution memory characterization to enable cost-effective tiered memory systems for cloud and LLM workloads. Uses ARM SPE to profile memory, introduces metrics (idle periods and latency profiles) for data placement, and evaluates eight workloads, identifying region-specific access patterns.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32695v1": {
+        "title": "Tile-Based Decompression in Compiled GPU Engines",
+        "link": "http://arxiv.org/abs/2610.32695v1",
+        "abstract": "Modern GPUs reach record analytical performance only when a query's working set fits within its GPU memory budget, and that budget is under growing pressure: GPUs are partitioned and shared, working sets are outgrowing high-bandwidth memory (HBM), and HBM is a fixed on-device resource whose per-dollar capacity has stagnated across generations. Lightweight compression can relieve this pressure by shrinking both footprint and bandwidth demand, but existing GPU compressed-execution techniques either bind decompression to a specific execution model or materialize decompressed columns in HBM before query execution. We present a compression subsystem for compiled GPU query engines that treats decompression as a first-class physical operator. Compression-specific logic is isolated behind a narrow backend interface, so new GPU-oriented encodings can be added without rewriting downstream operators. We implement the design in Proteus and study where decompressed values should be materialized in the GPU memory hierarchy. Our compiler-integrated shared-memory strategy fuses cooperative tile decompression with tuple-at-a-time query execution inside a single generated GPU kernel, avoiding decompressed-column materialization in HBM. Compared with HeavyDB and Sirius on GPU-resident data, fused on-chip decompression achieves competitive query times while reducing the resident memory footprint by up to 4x and memory-bandwidth consumption by up to 6x.",
+        "authors": [
+            "Antonio Boffa",
+            "Ananya Gupta",
+            "Hamish Nicholson",
+            "Anastasia Ailamaki"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.32695v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32638v1": {
+        "title": "InferSlice: A Reference Architecture for SLO-driven LLM Inference over a Telco Wide-Area Network",
+        "link": "http://arxiv.org/abs/2610.32638v1",
+        "abstract": "LLM inference is increasingly deployed as a core service for enterprise and interactive applications, but sovereignty, compliance, latency and resource-locality requirements can limit the suitability of centralised cloud deployments. Telco operators offer geographically distributed compute and network infrastructure for addressing these constraints. However, existing LLM serving frameworks are designed for tightly coupled data centres and provide limited support for coordinating geographically distributed and heterogeneous resources. We present InferSlice, a reference architecture for Service-Level Objective (SLO)-driven LLM inference over a telco infrastructure, integrating network slicing, GPU partitioning, elastic serving and observability. Led by BT in collaboration with the University of Bristol and NVIDIA, and realised on the JOINER UK national-scale wide-area network (WAN), InferSlice is evaluated on service differentiation across tiers, elastic scale-out, client-edge bandwidth as a bottleneck, and the reach of tensor, pipeline, data parallelism, and prefill/decode disaggregation over the WAN. Our results show that, on a general-purpose telco network, tiers yield distinct latency-throughput regimes, and weight streaming shortens scale-out time. Replication is placement-insensitive but memory-bound; pipeline parallelism tolerates near- and mid-cross-site hops, while tensor parallelism and disaggregation fail beyond a single subnet hop. We share practical insights from operating SLO-driven inference on a telco network, lessons learned and open questions, and hope to encourage further research on distributed and heterogeneous LLM inference systems.",
+        "authors": [
+            "Juan Parra-Ullauri",
+            "Anthony Chiu",
+            "Hari Madhukumar",
+            "Zhaozhou Wu",
+            "Anderson Bravalheri",
+            "Alex Healing",
+            "Andy Corston-Petrie",
+            "Dimitra Simeonidou",
+            "Nektaria Efthymiou"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2610.32638v1",
+        "submit_date": "2026-10-23",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "networking",
+            "disaggregation"
+        ],
+        "tldr": "Proposes InferSlice for SLO-driven LLM inference over telco WAN. Integrates network slicing, GPU partitioning, and elastic serving. Results show weight streaming shortens scale-out time and pipeline parallelism tolerates near/mid-site hops.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32632v1": {
+        "title": "Toward Open ISA Supercomputing: A Comparative Study of RISC-V, Arm, and x86 Architectures on HPC Workloads",
+        "link": "http://arxiv.org/abs/2610.32632v1",
+        "abstract": "RISC-V is emerging as a candidate architecture for high-performance computing (HPC), but its competitiveness against established x86 and Arm processors remains difficult to assess because existing studies use different platforms, workloads, and methodologies, and rarely consider energy efficiency. Our work provides an evaluation of contemporary HPC RISC-V, Arm, and x86 processors using a common software stack and methodology. We characterize the Sophgo SG2044 and compare it with the NVIDIA Grace CPU Superchip and Intel Xeon Platinum 8480+ across four HPC benchmarks (STREAM, HPL, HPL-MxP, and HPCG) and four representative applications (iPIC3D, PLUTO, OpenFOAM, and llama.cpp). The version of HPL-MxP linked to OpenBLAS built and used for this work is made available as open-source software. The SG2044 reaches 8.02 GFLOP/s of FP64 performance and 7.8 GB/s of memory bandwidth per core, increasing to 294 GFLOP/s and 107 GB/s at 64 cores. L2-cache-aware process placement enables near-linear scaling up to 16 cores, beyond which memory-bandwidth saturation limits further gains. Across generations of RISC-V hardware, in the context of the Monte Cimone (MC) project, the SG2044-based MCv3 doubles both single-core performance and peak memory bandwidth relative to MCv2, while improving memory bandwidth, node-level FP64 performance, and energy efficiency by approximately 100x, 158x, and 10x, over MCv1. Against the Arm and x86 systems, the SG2044 shows 8-15x less absolute performance, reflecting its narrower vector resources and less advanced technology node, but delivers competitive scaling and energy efficiency on several workloads. Its most notable result is LLM decode, where 64-core execution provides the highest relative scaling and energy efficiency among the evaluated platforms while exceeding Intel in throughput. Our results show that RISC-V processors are closing the gap with the competition.",
+        "authors": [
+            "Emanuele Venieri",
+            "Giacomo Madella",
+            "Gabriele Ceccolini",
+            "Simone Manoni",
+            "Federico Ficarelli",
+            "Filippo Barbari",
+            "Jenny Lynn Almerol",
+            "Elisabetta Boella",
+            "Nitin Shukla",
+            "Simone Bnà",
+            "Luca Benini",
+            "Andrea bartolini"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.32632v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32583v1": {
+        "title": "GLP Networking API Specification",
+        "link": "http://arxiv.org/abs/2610.32583v1",
+        "abstract": "Multiagent deterministic GLP (madGLP) runs Grassroots Logic Programs (GLP) as agents that communicate solely by asynchronous message passing, and assumes fair delivery: every message sent is eventually delivered. Each agent runs on a person's smartphone, named by the person's public key. A grassroots platform depends on no global resource but the network, so agents must reach one another over Bluetooth Low Energy, on a local network, and across the Internet from behind NAT, via rendezvous servers anyone can run. What madGLP requires of such a network, and what the network requires of the platform, has not been specified. We specify the networking layer beneath madGLP. Anything that can be done in GLP is done in GLP: the layer provides only what GLP cannot reach - the network stack, the location service, application attestation, and cryptographic primitives. Three transport underlays share one interface. Over PAN and LAN, an agent advertises a rotating recognition token derived from its key and time slot, so a peer who knows the key recognises it before contact and nobody else can track it; whether it answers unrecognised contacts is a per-underlay trust level set by GLP. Over WAN, a rendezvous server is a static-address host running the headless layer and a GLP rendezvous agent that coordinates hole punching, relays no payload, and belongs to no social graph. On every underlay, peers establish a mutually authenticated Noise session from Ed25519 keys, then attest, bound to the handshake hash, that each runs the application published under its developer's key, verified against Apple's and Google's roots with no third party contacted. One message protocol, over UDP datagrams and GATT writes, provides the fair, unordered, atomic and authenticated delivery madGLP assumes.",
+        "authors": [
+            "Dan Bachar",
+            "Ehud Shapiro"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2610.32583v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32558v1": {
+        "title": "On the Expressiveness of Asynchronous Processes with Nested Session Types",
+        "link": "http://arxiv.org/abs/2610.32558v1",
+        "abstract": "Session types are a type-based approach to correct message-passing programs, where types specify protocols for channels and type checking guarantees communication correctness. Traditional session types express regular protocols only, which leaves out many protocols found in practice. Aiming at overcoming this limitation, Nested Session Types (NSTs) can specify nested recursive protocols. NSTs are known to be characterised by one-counter machines and deterministic context-free languages. In this paper, we study the expressiveness of ASP (Asynchronous Session Processes), the process model associated with NSTs as introduced by Das et al. We prove that AST is Turing complete by giving a correct encoding of two-counter machines into typed processes. Our encoding uses a non-trivial state-aware representation of counters and instructions that is neatly governed by NSTs.",
+        "authors": [
+            "Sjors Wortelboer",
+            "Dan Frumin",
+            "Jorge A. Pérez"
+        ],
+        "categories": [
+            "cs.PL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.32558v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32438v1": {
+        "title": "Data Quality Audit and Bivariate Temperature-Humidity Analysis of a Long-Term LoRaWAN Network: Anomaly Detection, PCA, Clustering and Machine Learning",
+        "link": "http://arxiv.org/abs/2610.32438v1",
+        "abstract": "Long-term environmental IoT/LPWAN deployments often aggregate heterogeneous data streams from diverse devices without systematic auditing of each variable's actual coverage prior to analysis-an increased risk when multiple sensor types coexist within the same network. This work proposes a C++17 processing pipeline applied to the Tour Perret LoRaWAN dataset (421 937 frames, June 2021--June 2023, 5 devices). A systematic coverage audit integrated into the extraction phase reveals that CO2 is completely missing (0% coverage) and pressure is reported only by an isolated base module (Wyres, 4.24% of the corpus), invalidating the initial hypothesis of a joint four-variable analysis. The analysis is refocused on the Temperature--Humidity pair, jointly available across 205{,}005 frames (95.76%) from 4 Elsys EMS sensors. The pipeline sequentially performs anomaly detection (modified Z-score, Isolation Forest), bivariate Principal Component Analysis, clustering (K-means, DBSCAN), and a multilayer perceptron predicting humidity from temperature and time, whose residuals serve as a detector for slow drift. On real-world data: Temperature--Humidity correlation r=-0.662, two-component PCA (PC1 =83.1% of variance), Isolation Forest detects 2.12% multivariate anomalies while univariate Z-score detects none, calibrated DBSCAN isolates 0.17% noise across 13 clusters, and the MLP achieves $R^2=0.672$ (RMSE =10.54%) in cross-validation. This work demonstrates that per-variable coverage auditing prior to modeling is a necessary methodological step for heterogeneous multi-sensor IoT datasets.",
+        "authors": [
+            "Mamadou Sow"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "physics.ao-ph",
+            "stat.ML"
+        ],
+        "id": "http://arxiv.org/abs/2610.32438v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32389v1": {
+        "title": "KnitTrans: Coordinated Trajectory Transfer for Effective and Efficient LLM Reinforcement Learning",
+        "link": "http://arxiv.org/abs/2610.32389v1",
+        "abstract": "Trajectory transfer from rollout to training affects both learning quality and system efficiency in large language model reinforcement learning (RL). Enforcing batch-wide training requirements can delay the admission of completed trajectories, resulting in higher architectural staleness: the additional parameter-version gap from disaggregated pipelining relative to colocated execution. Beyond admission, misalignment between data access and training consumption causes redundant movement and unnecessary waiting when transferring large trajectory payloads. We present KnitTrans, a system that coordinates the rollout-to-training path through three designs. First, constraint-preserving mini-batch admission allows flexibility in early mini-batch composition, while checking that enough capacity remains to satisfy the remaining quotas. Second, on-demand trajectory data access matches storage units to consumer assignments and overlaps micro-batch data preparation with computation. Third, multimodal encoding deduplication supports reuse across a mini-batch while preserving gradient contributions from all backbone micro-batches. Experiments show up to 93% lower architectural staleness than with train-batch admission, narrowing the learning-quality gap between disaggregated execution and colocated execution. On multimodal workloads, KnitTrans reduces transfer latency by two orders of magnitude and achieves a speedup of up to 5.8 times in transfer plus training over the baseline.",
+        "authors": [
+            "Bangjun Xiao",
+            "Chiheng Lou",
+            "Xiaodong Ji",
+            "Xiangwei Deng",
+            "Yikai Zhao",
+            "Gang Huang",
+            "Hailin Zhang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.32389v1",
+        "submit_date": "2026-10-23",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL",
+            "multi-modal"
+        ],
+        "tldr": "Addresses trajectory transfer inefficiencies in LLM reinforcement learning. Introduces KnitTrans with constraint-preserving admission, on-demand data access, and multimodal deduplication. Achieves up to 93% lower architectural staleness and 5.8× speedup in transfer plus training.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32247v1": {
+        "title": "MetaDB: Putting File-System Structure Back into Distributed Databases",
+        "link": "http://arxiv.org/abs/2610.32247v1",
+        "abstract": "Storage systems in production increasingly rely on distributed databases for metadata management, yet our experience at Baidu shows that treating a general-purpose database as a black box leaves substantial performance and efficiency untapped. File-system metadata exhibits directory-tree locality, differentiated consistency requirements, and clustered deletions that general-purpose databases largely ignore. We thus propose MetaDB, a metadata-aware distributed transactional database that serves as the shared metadata layer for Baidu's large-scale storage systems. MetaDB addresses three key mismatches between general-purpose databases and metadata workloads: Data Model Mismatch, Transaction Model Mismatch, and Storage Implementation Mismatch. To bridge these gaps, MetaDB combines (1) tree-topology-induced sharding and execution, (2) semantic-aware off-critical-path processing, and (3) a lifecycle-aware storage engine with in-memory MVCC and locality-aware compaction. MetaDB achieves 2.2x-4.1x the throughput of our previous general-purpose database and halves the number of metadata machines. Deployed in production at Baidu for over five years, MetaDB unifies metadata management across the company's storage fleet and scales to over 1,000 metadata nodes, tens of trillions of metadata records, and exabyte-scale storage in a single cluster.",
+        "authors": [
+            "Zebin Ren",
+            "Biao Cao",
+            "Kang Chen",
+            "Zhihui Yin",
+            "Qiushi Chen",
+            "Jielong Jian",
+            "Jiwei Xiong",
+            "Xinxing Wang",
+            "Yan Xing",
+            "Liguo Duan",
+            "Ran Zheng",
+            "Xianjun Meng",
+            "Zhenyu Hou"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.32247v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32215v1": {
+        "title": "Democratizing LLM Training with the Edge: Challenges, Systems, and the Road Ahead",
+        "link": "http://arxiv.org/abs/2610.32215v1",
+        "abstract": "The growing computational power of modern GPU data centers has let a few industrial giants train and deploy large language models (LLMs) on massive amounts of data. Yet the sheer scale of these models and their training data makes centralized development increasingly hard to sustain, and at the same time shuts out smaller institutions that hold relevant private data but lack comparable infrastructure. In this paper, we organize our positions on distributed LLM training around the pretraining and fine-tuning paradigms, covering federated learning, split learning, and decentralized approaches, and we assess their readiness for geo-distributed settings with heterogeneous hardware and unreliable connectivity. We then present a {\\em unified} system architecture built around a cloud-hosted parameter server that coordinates heterogeneous clients over outbound gRPC connections, reusing one communication, compression, and fault-tolerance stack for both pretraining and a family of fine-tuning methods. We validate the design with real geo-distributed experiments on GPT-2 Medium and Llama3-1B pretraining across multiple university sites, showing stable convergence under realistic conditions. Finally, we chart the road ahead, identifying open problems that span frontier model support, elastic fault tolerance, adaptive compression, federated alignment, privacy and trust, incentive design, and system--algorithm co-design, all of which must be addressed to make democratized LLM training a reality.",
+        "authors": [
+            "Ziyue Luo",
+            "Jiaxuan Cai",
+            "Cedric LeDenmat",
+            "Srijith Nair",
+            "Fatemeh Nourzad",
+            "Rohith Krishnan",
+            "Qinhang Wu",
+            "Jifan Zhang",
+            "Sungjae Lee",
+            "Zhe Li",
+            "Peiwen Qiu",
+            "Siddharth Shah",
+            "Rishabh Sharma",
+            "Sundararajan Srinivasan",
+            "Yinglun Xia",
+            "Xue Zheng",
+            "Zidong Liu",
+            "Bicheng Ying",
+            "Kaushik Chowdhury",
+            "Gauri Joshi",
+            "Yingbin Liang",
+            "Robert Nowak",
+            "Srinivasan Parthasarathy",
+            "Saurav Prakash",
+            "Balaraman Ravindran",
+            "Sanjay Shakkottai",
+            "Ness B. Shroff",
+            "Haibo Yang",
+            "Aylin Yener",
+            "Jia Liu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2610.32215v1",
+        "submit_date": "2026-10-23",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking"
+        ],
+        "tldr": "Proposes a unified system for distributed LLM training on the edge, using a cloud-based parameter server with a communication, compression, and fault-tolerance stack. Demonstrates stable convergence in pretraining GPT-2 Medium and Llama3-1B under heterogeneous geo-distributed conditions.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.29873v2": {
+        "title": "HAWK: Heterogeneity-Aware KV Cache Transfer for Efficient GPU-NPU Phase-Disaggregated LLM Inference",
+        "link": "http://arxiv.org/abs/2610.29873v2",
+        "abstract": "Large language model (LLM) inference exhibits distinct computational characteristics across its two phases: prefill is compute-intensive, whereas decode is more memory-bound. As a result, AI accelerators achieve varying levels of efficiency across the two phases. GPUs are well suited to prefill, but are often underutilized during decode. By contrast, NPUs can utilize their compute resources more effectively during decode. Motivated by this observation, we explore a heterogeneous architecture that integrates GPUs and NPUs, mapping prefill to GPUs and decode to NPUs to achieve high performance and efficiency. However, realizing such heterogeneous integration is challenging because LLM phase disaggregation requires KV cache transfer from prefill to decode (that is, from GPUs to NPUs), which is complicated by differences in inter-device communication mechanisms and KV cache tensor layouts.\n  To address this, we propose HAWK, a transfer mechanism that enables rapid KV cache transfer across heterogeneous devices. HAWK establishes a remote direct memory access (RDMA) path for direct cross-device transfers while handling inter-device tensor layout discrepancies as part of the transfer process. In particular, HAWK allocates tensor-layout-aware RDMA buffers on the NPU side to match the target tensor layout. Leveraging these buffers, HAWK orchestrates data transfer from a conventional contiguous GPU RDMA buffer to the corresponding NPU buffers, allowing transferred tensors to be consumed directly without additional data rearrangement while maintaining transfer efficiency. We implement and evaluate HAWK on a system built with commercially available GPUs and NPUs, demonstrating performance within 7.88% of a GPU-only system under the same SLO constraints while achieving up to 1.26$\\times$ higher power efficiency and 1.72$\\times$ higher cost efficiency.",
+        "authors": [
+            "Junhyeok Park",
+            "Jungeun Yoon",
+            "Kyungmin Kim",
+            "Hunsoon Lee",
+            "Shinyoung Ahn",
+            "Kangho Kim"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.29873v2",
+        "submit_date": "2026-10-23",
+        "relevant": true,
+        "tags": [
+            "disaggregation",
+            "offloading",
+            "networking"
+        ],
+        "tldr": "The paper addresses efficient KV cache transfer between GPUs and NPUs for phase-disaggregated LLM inference. It proposes HAWK, a transfer mechanism using tensor-layout-aware RDMA buffers to avoid data rearrangement. HAWK achieves performance within 7.88% of GPU-only systems with up to 1.72× higher cost efficiency.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.30868v2": {
+        "title": "uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage",
+        "link": "http://arxiv.org/abs/2610.30868v2",
+        "abstract": "Data-intensive GPU applications increasingly rely on NVMe SSDs to extend GPU memory. NVIDIA GPU Direct Storage (GDS) enables direct SSD-GPU transfers via PCIe peer-to-peer DMA, eliminating host staging. However, GDS retains three key limitations: (1) its control path traverses the kernel for every I/O request, introducing software overhead; (2) its stream-ordered path imposes strict total ordering even when workloads only require batch-level ordering; and (3) its closed-source user-space engine hinders diagnosis and custom scheduling.\n  We present uGDS, https://github.com/ScaleX-IO/uGDS, an open-source user-space GPU Direct Storage library built on four principles: user-space control, unified cross-vendor abstraction, workload-aware scheduling, and end-to-end transparency. The host CPU manages the entire NVMe command lifecycle in user space, while payloads move via PCIe P2P DMA without consuming GPU compute. A minimal kernel module is used only for one-time privileged setup. uGDS partitions hardware queues between synchronous and batch traffic, enforces DMA-safe buffer lifetimes, and provides cuFile-compatible synchronous, batched, and stream-ordered APIs with polling or interrupt completion on both NVIDIA CUDA and AMD HIP.\n  Evaluated on an A100 with a Samsung 990 PRO, uGDS achieves up to 12.12x GDS's batch-read bandwidth and 30.69x its batch-write bandwidth (8- and 4-KiB requests, batch size 128), and reduces 4-KiB synchronous write latency by 84.1% with two threads. Its stream-ordered path sustains 5.49 GiB/s on a single stream, where GDS retains only 40.8% of its synchronous bandwidth. In LMCache, uGDS reduces median time-to-first-token (TTFT) by up to 62.7% and raises serving goodput by 2.63x. On AMD, uGDS achieves up to 1.19x hipFile's synchronous-write bandwidth.",
+        "authors": [
+            "Jing Wei",
+            "Guanyi Chen",
+            "Qi Chen",
+            "Chuyu Zhang",
+            "Zheng Zhou",
+            "Chutian Wang",
+            "Jian Zhang"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.30868v2",
+        "submit_date": "2026-10-23",
+        "relevant": true,
+        "tags": [
+            "storage",
+            "serving"
+        ],
+        "tldr": "uGDS addresses high I/O overhead and inflexible ordering in GPU Direct Storage by moving control to user space and enabling batch-level scheduling. In LMCache, it reduces median time-to-first-token by up to 62.7% and increases serving goodput by 2.63x.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32057v1": {
+        "title": "HyScale: Scaling Long-Context Training for Learned Sparse Attention",
+        "link": "http://arxiv.org/abs/2610.32057v1",
+        "abstract": "We present HyScale, a long-context training system for learned sparse attention. Learned sparse attention is a promising architecture for million-token contexts, widely adopted in production since DeepSeek-V3.2. Selection, however, grows into the training bottleneck. For each query, it scores every previous token whereas sparse attention reads only $k$; worse, current systems materialize a full score table and repeat selection during recomputation. Our key insight is that the output of selection is not an activation, but rather a set of indices. Building on it, HyScale introduces HyTopK and selection replay. HyTopK finds each query's exact top-$k$ on the fly without a score table, while selection replay reuses forward-pass selection in recomputation. Together with holistic system optimizations tackling end-to-end training challenges, HyScale speeds up GLM-5.1 training on 1M-token sequences by 2.07$\\times$ over Megatron-LM on 512 H20 GPUs. It also speeds up the CSA layers of DeepSeek-V4-Flash and the QSA layers of Qwen3.8-Flash-Next by 2.01$\\times$ and 1.57$\\times$ at 1M tokens on 32 H800 GPUs.",
+        "authors": [
+            "Yangsheng Deng",
+            "Xinjing Huang",
+            "Yulong Wang",
+            "Yunzhuo Liu",
+            "Jun Hu",
+            "Shuyong Tang",
+            "Junchi Zeng",
+            "Mingji Han",
+            "Ray Ying",
+            "Key Zhang",
+            "Luo Mai"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.32057v1",
+        "submit_date": "2026-10-23",
+        "relevant": true,
+        "tags": [
+            "training",
+            "sparse",
+            "scaling"
+        ],
+        "tldr": "Addresses the computational bottleneck of token selection in learned sparse attention during long-context training. Introduces HyTopK for exact top-k scoring without materialization and selection replay to reuse indices. Achieves 2.07× faster GLM-5.1 training on 1M-token sequences using 512 H20 GPUs compared to Megatron-LM.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32027v1": {
+        "title": "Bounding Queue Waits for Fair Scheduling of Bursty HPC Workloads via Hierarchical Algorithms",
+        "link": "http://arxiv.org/abs/2610.32027v1",
+        "abstract": "HPC clusters are shared among many projects, each holding an allocation of node-hours, and ensuring fairness is becoming harder. Foundation models workflows and automated pipelines have made job submissions bursty and concentrated among a few heavy users, so occasional users absorb queueing delays created by frequent ones, with no indication of how long their jobs will wait. Existing schedulers either forget past usage, protect only the job at the head of the queue, or assume that running jobs can be preempted. We propose HyDRA, a Hybrid Deadline and Ranking-Aware scheduler that enforces fairness among users while bounding the queue wait of every job. HyDRA assigns each job a deadline on arrival based on its size, the priorities of its project and user, the current backlog, and how far its project and user are from their entitled share. It ranks waiting jobs by a priority score that grows with waiting time, serves jobs close to their deadlines first, and backfills a job only when no deadline, or fairness limit is violated. We evaluate HyDRA on workloads derived from a year of ALCF Polaris job traces, against conventional schedulers and variants inspired by PCS, Themis, and the PBS job-sort formula used at ALCF. HyDRA achieves $2\\times$ the project-level Jain's fairness of the best baseline, starts 47\\% of jobs by their deadlines compared with at most 36\\% for the baselines even for largest workloads, and lowers the 95th-\\%ile bounded slowdown by 4.2$\\times$ relative to the next best baseline, at a moderate cost in utilization.",
+        "authors": [
+            "Karaen Senthilkumar",
+            "Suman Raj",
+            "Maxime Gonthier",
+            "Kyle Chard",
+            "Donpaul Stephens",
+            "Ian Foster"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.32027v1",
+        "submit_date": "2026-10-23",
+        "relevant": true,
+        "tags": [
+            "training",
+            "scaling"
+        ],
+        "tldr": "Addresses unfair queue delays for bursty foundation model jobs in HPC clusters. Proposes HyDRA, a hybrid deadline-based scheduler that prioritizes jobs by backlog/shares, and backfills safely. Achieves 47% deadline compliance (vs 36% baselines) and 4.2× lower 95%-ile slowdown.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.32015v1": {
+        "title": "Scaling Graph Query Processing: Focused Exploration on Partitions Using Load Balancing",
+        "link": "http://arxiv.org/abs/2610.32015v1",
+        "abstract": "The focus of this paper is on query processing and not search (approximate or exact). The goal is to find all or k answers and the expressiveness of a query (as opposed to a search expression which is typically simpler) is considered important. Although SQL query processing has matured over the last several decades, query processing over graph data has not received the same attention. Only recently, systems, such as Neo4J, and others have started using graphs for data representation on a large scale. Their approaches and algorithms remain proprietary.\n  In this paper, we address the problem of answering graph queries and their efficient processing on arbitrary-sized graphs. We propose the partitioning of graphs and the use of the distributed paradigm to achieve efficiency and scalability. Our approach takes a subgraph as query input including wild cards and comparison operations. Our partitioned approach leverages focused exploration and distributed processing to achieve the desired parallelism and improve the response time. We also present heuristics to reduce the number of partitions loaded for query processing. We present our partitioning algorithm, distributed processing architecture used, and load balancing for computing query answers. We establish the correctness of the approach in the presence of partitions, compare heuristics for load balancing, and extensive experimental results over large synthetic and real-world graph data sets.",
+        "authors": [
+            "Harshit Modi",
+            "Abhishek Santra",
+            "Sharma Chakravarthy"
+        ],
+        "categories": [
+            "cs.DB",
+            "cs.DC",
+            "cs.IR"
+        ],
+        "id": "http://arxiv.org/abs/2610.32015v1",
+        "submit_date": "2026-10-23",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.31827v1": {
+        "title": "KVStream: Adaptive Parallel Storage Management for KV Caching in Large-Scale LLM Serving",
+        "link": "http://arxiv.org/abs/2610.31827v1",
+        "abstract": "Long-context LLM serving for agentic, coding, and document workloads reuses prefixes whose key-value (KV) cache outgrows GPU and host memory, putting storage I/O on the critical path of the inference step for retrieving prefixes. A single node-local NVMe absorbs all retrievals, while the parallel file system or cloud file store that nodes already mount carries almost no inference traffic. We cast prefix retrieval as aggregate-bandwidth scheduling across these tiers and present KVStream, a KV cache engine that batches a step's reads, defers writes behind the forward pass, replicates each chunk on every tier, and lets each tier adaptively claim the next unread chunks once it is free. Our performance model shows this routing attains the aggregate-bandwidth bound without prediction or tuning, whereas any static split misses it by a margin that grows as per-tier bandwidths drift or fluctuate. It also predicts that the time-to-first-token (TTFT) gain grows with load, as faster retrieval drains the queue, and disappears when host memory or arrival order keeps reuse in cache. Plugged into LMCache and evaluated on four models, six datasets, and up to 128 GPUs, KVStream retrieves within 5% of the bound, delivers up to 1.49$\\times$ higher offline throughput than LMCache, and lowers mean TTFT by up to 6.1$\\times$ under bursty arrivals.",
+        "authors": [
+            "Avinash Maurya",
+            "Jaiaid Mobin",
+            "Jie Ye",
+            "M. Mustafa Rafique",
+            "Franck Cappello",
+            "Bogdan Nicolae"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.31827v1",
+        "submit_date": "2026-10-22",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "storage",
+            "offloading"
+        ],
+        "tldr": "Addresses storage I/O bottlenecks in LLM serving for KV cache reuse. Presents KVStream, an adaptive storage manager that batches reads, defers writes, and dynamically routes requests across tiers for aggregate bandwidth. Achieves 1.49x higher throughput and 6.1x lower mean TTFT in bursty workloads.",
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.31814v1": {
+        "title": "SILMARILS-MV: Information-Theoretically Secure Multi-Verifier Signatures with Dealer-Free Key Issuance and Linear Aggregation for Permissioned Blockchains",
+        "link": "http://arxiv.org/abs/2610.31814v1",
+        "abstract": "Permissioned blockchains authenticate transactions, votes and quorum certificates with computationally secure signatures, and post-quantum replacements inflate consensus traffic by orders of magnitude. Information-theoretic alternatives have required a trusted authority, quantum channels, per-signature interaction, or single-use keys with bounded transfer. We present SILMARILS-MV, a multi-verifier unconditionally secure signature in which a signature is the vector $α= A\\,e(m)$ and each verifier holds a secret functional $c_i = Γ^T λ(x_i)$ derived from virtual anchors $Γ$ that nobody learns. Against unbounded adversaries corrupting up to $ω$ verifiers and any signers, and observing every decision, an honest verifier accepts a forged or invalid signature with probability at most $Q/q + 1/(q-1)$, a bound that is tight in its leading term. The scheme is strongly unforgeable, non-repudiable, transferable across unboundedly many hops, and linearly aggregatable. Keys are issued by the validators through perfectly secure MPC for $t < n/3$, without broadcast. To scale, we let the committee itself sign: in threshold notarization, finality certificates have constant size $32(ω+1)$ bytes and per-validator issuance cost no longer depends on $n$. Arbiter-verified keys give clients 32-byte signatures, robust redistribution supports membership changes and share refresh, and verifiers can be enrolled retroactively. A certificate verifies in 2.4 microseconds. In an analytic normal-case model at 1000 validators, threshold notarization needs 71 KiB of authentication traffic per validator per block, 22x less than ML-DSA-44 for admitted verifiers. In a Rust HotStuff prototype with 100 validators, SILMARILS-MV commits 2.8x more transactions per second than ML-DSA-44 with 67x less cryptographic CPU, and Monte-Carlo attacks match the bounds.",
+        "authors": [
+            "Khadijeh Bagheri",
+            "Hassan Khodaiemehr",
+            "Chen Feng"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC",
+            "cs.IT",
+            "quant-ph"
+        ],
+        "id": "http://arxiv.org/abs/2610.31814v1",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.31786v1": {
+        "title": "Not All Retained Clients Are Equal: Client Selection for Federated Unlearning",
+        "link": "http://arxiv.org/abs/2610.31786v1",
+        "abstract": "Federated unlearning (FU) aims to remove a designated target client's influence from a trained model without the prohibitive cost of retraining from scratch. Existing methods largely treat unlearning as a post-hoc, stateless operation, overlooking that client influence is path-dependent: contributions made during training, particularly during critical learning periods (CLPs), can have disproportionate and persistent effects. Moreover, knowledge overlap and intermittent client availability make relying on all retained clients inefficient and impractical. We introduce PDF, a path-dependent client-selection framework based on the insight that retained clients are not equally valuable for unlearning. During training, PDF maintains lightweight, target-agnostic, CLP-weighted histories summarizing each client's accumulated update direction and global-model alignment. Upon an unlearning request, these histories identify and rank retained clients that are globally informative yet weakly coupled to the target, enabling retraining-based unlearning with only the top-$k$ clients over a small number of rounds. Experiments on FMNIST, CIFAR-10, and CIFAR-100 under IID and non-IID settings show that PDF achieves effective forgetting and strong retained utility with substantially fewer retained clients. In particular, PDF achieves $0\\%$ forgetting accuracy with retraining-like MIA AUC on non-IID CIFAR-10, improves retained accuracy by up to $6.91$ percentage points over the strongest competing FU baseline on CIFAR-100, and reduces communication by approximately $69\\%$ and computation by $57$--$61\\%$ relative to Retrain.",
+        "authors": [
+            "Thanh Linh Nguyen",
+            "Quoc-Viet Pham"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.ET"
+        ],
+        "id": "http://arxiv.org/abs/2610.31786v1",
+        "submit_date": "2026-10-22",
+        "relevant": false,
+        "indexed_date": "2026-10-26"
+    },
+    "http://arxiv.org/abs/2610.29733v1": {
+        "title": "SAKURA: Serving Attention Key-Value State Under Rate Adaptation for Private Image Editing on Phones",
+        "link": "http://arxiv.org/abs/2610.29733v1",
+        "abstract": "Diffusion transformers are widely used in image-editing services. To preserve both efficiency and privacy, existing systems commonly rely on cloud-device collaboration. Keeping request-specific inference on the device avoids sending personal images and prompts to the cloud. These workloads often use common templates, such as in face swapping and virtual try-on, enabling KV state to be precomputed and reused across requests. However, this reusable state is large and scales with the number of templates, making it impractical to store all of them on mobile devices. Storing them in the cloud addresses this capacity issue, but cache transfer is placed onto the inference path and can even be slower than on-device computation, especially under fluctuating mobile networks.\n  We introduce SAKURA, a cloud-edge architecture that delivers reusable attention state to mobile devices under a bandwidth budget. It first uses a fine-grained token-importance-aware compression method to preserve image quality under limited transfer budgets. At runtime, SAKURA adaptively selects the cache representation for each upcoming shard based on network bandwidth. To enable efficient execution, we develop a pipelined runtime that overlaps cache transfer and reconstruction with on-device execution. We evaluate SAKURA using three editing tasks and two diffusion models, using a Snapdragon 8 Elite Gen 5 phone. SAKURA reduces latency by 1.82x and 3.27x over CacheGen adapted to DiT and on-device generation, respectively. It also reduces cache storage by 3.06x over uncompressed cache, while preserving image quality.",
+        "authors": [
+            "Shuncheng Jie",
+            "Desen Sun",
+            "Ri Hong",
+            "Yuyang Tian",
+            "Hong Zhang",
+            "Sihang Liu"
+        ],
+        "categories": [
+            "cs.SE",
+            "cs.AI",
+            "cs.DC",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2610.29733v1",
+        "submit_date": "2026-10-21",
+        "relevant": true,
+        "tags": [
+            "edge",
+            "diffusion",
+            "serving"
+        ],
+        "tldr": "Proposes SAKURA for efficient edge serving of diffusion transformers with reusable KV state. Uses adaptive token-importance-aware compression and pipelined runtime to overlap transfer and computation. Achieves 1.82-3.27x latency reduction and 3.06x cache storage savings.",
+        "indexed_date": "2026-10-26"
     }
 }

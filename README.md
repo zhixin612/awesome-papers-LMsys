@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3465-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3476-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.26-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,30 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-26
+* `storage` [Beyond Hotness: High-Resolution Memory Characterization of Cloud and LLM Workloads for Tiered Memory with ARM SPE](http://arxiv.org/abs/2610.32711v1)
+  > **TL;DR**: Proposes a methodology for high-resolution memory characterization to enable cost-effective tiered memory systems for cloud and LLM workloads. Uses ARM SPE to profile memory, introduces metrics (idle periods and latency profiles) for data placement, and evaluates eight workloads, identifying region-specific access patterns.
+* `serving` `networking` `disaggregation` [InferSlice: A Reference Architecture for SLO-driven LLM Inference over a Telco Wide-Area Network](http://arxiv.org/abs/2610.32638v1)
+  > **TL;DR**: Proposes InferSlice for SLO-driven LLM inference over telco WAN. Integrates network slicing, GPU partitioning, and elastic serving. Results show weight streaming shortens scale-out time and pipeline parallelism tolerates near/mid-site hops.
+* `training` `RL` `multi-modal` [KnitTrans: Coordinated Trajectory Transfer for Effective and Efficient LLM Reinforcement Learning](http://arxiv.org/abs/2610.32389v1)
+  > **TL;DR**: Addresses trajectory transfer inefficiencies in LLM reinforcement learning. Introduces KnitTrans with constraint-preserving admission, on-demand data access, and multimodal deduplication. Achieves up to 93% lower architectural staleness and 5.8× speedup in transfer plus training.
+* `training` `networking` [Democratizing LLM Training with the Edge: Challenges, Systems, and the Road Ahead](http://arxiv.org/abs/2610.32215v1)
+  > **TL;DR**: Proposes a unified system for distributed LLM training on the edge, using a cloud-based parameter server with a communication, compression, and fault-tolerance stack. Demonstrates stable convergence in pretraining GPT-2 Medium and Llama3-1B under heterogeneous geo-distributed conditions.
+* `disaggregation` `offloading` `networking` [HAWK: Heterogeneity-Aware KV Cache Transfer for Efficient GPU-NPU Phase-Disaggregated LLM Inference](http://arxiv.org/abs/2610.29873v2)
+  > **TL;DR**: The paper addresses efficient KV cache transfer between GPUs and NPUs for phase-disaggregated LLM inference. It proposes HAWK, a transfer mechanism using tensor-layout-aware RDMA buffers to avoid data rearrangement. HAWK achieves performance within 7.88% of GPU-only systems with up to 1.72× higher cost efficiency.
+* `storage` `serving` [uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage](http://arxiv.org/abs/2610.30868v2)
+  > **TL;DR**: Addresses overhead and inefficiency in GPU Direct Storage for SSD-GPU transfers. Introduces uGDS, a user-space library with workload-aware scheduling and direct DMA. Reduces median TTFT latency by 62.7% in LM inference serving.
+* `training` `sparse` `scaling` [HyScale: Scaling Long-Context Training for Learned Sparse Attention](http://arxiv.org/abs/2610.32057v1)
+  > **TL;DR**: Addresses the computational bottleneck of token selection in learned sparse attention during long-context training. Introduces HyTopK for exact top-k scoring without materialization and selection replay to reuse indices. Achieves 2.07× faster GLM-5.1 training on 1M-token sequences using 512 H20 GPUs compared to Megatron-LM.
+* `training` `scaling` [Bounding Queue Waits for Fair Scheduling of Bursty HPC Workloads via Hierarchical Algorithms](http://arxiv.org/abs/2610.32027v1)
+  > **TL;DR**: Addresses unfair queue delays for bursty foundation model jobs in HPC clusters. Proposes HyDRA, a hybrid deadline-based scheduler that prioritizes jobs by backlog/shares, and backfills safely. Achieves 47% deadline compliance (vs 36% baselines) and 4.2× lower 95%-ile slowdown.
+* `serving` `storage` `offloading` [KVStream: Adaptive Parallel Storage Management for KV Caching in Large-Scale LLM Serving](http://arxiv.org/abs/2610.31827v1)
+  > **TL;DR**: Addresses storage I/O bottlenecks in LLM serving for KV cache reuse. Presents KVStream, an adaptive storage manager that batches reads, defers writes, and dynamically routes requests across tiers for aggregate bandwidth. Achieves 1.49x higher throughput and 6.1x lower mean TTFT in bursty workloads.
+* `edge` `diffusion` `serving` [SAKURA: Serving Attention Key-Value State Under Rate Adaptation for Private Image Editing on Phones](http://arxiv.org/abs/2610.29733v1)
+  > **TL;DR**: Proposes SAKURA for efficient edge serving of diffusion transformers with reusable KV state. Uses adaptive token-importance-aware compression and pipelined runtime to overlap transfer and computation. Achieves 1.82-3.27x latency reduction and 3.06x cache storage savings.
+* `storage` `serving` [uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage](http://arxiv.org/abs/2610.30868v2)
+  > **TL;DR**: uGDS addresses high I/O overhead and inflexible ordering in GPU Direct Storage by moving control to user space and enabling batch-level scheduling. In LMCache, it reduces median time-to-first-token by up to 62.7% and increases serving goodput by 2.63x.
+
 ### 2026-10-23
 * `sparse` `quantization` `kernel` [Evaluating the Applicability of LLM Inference Optimizations on Apple Silicon](http://arxiv.org/abs/2610.31479v1)
   > **TL;DR**: Evaluates which LLM inference optimizations are portable to Apple Silicon. Tests KV-cache pruning, speculative decoding, kernel adaptations, and quantization on edge devices. KV-cache pruning yields up to 1.75× throughput gain on Apple hardware.
