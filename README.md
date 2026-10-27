@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3476-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.26-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3496-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.27-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,48 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-27
+* `video` `offloading` `quantization` [WorldPager: Zero-Stall Tiered Memory for Long-Horizon World Models on a Single Consumer GPU](http://arxiv.org/abs/2610.35529v1)
+  > **TL;DR**: Addresses capacity and stall limitations in long horizon video generation by interactive world models. Proposes WorldPager, a tiered memory hierarchy (GPU/DRAM/NVMe) storing int4 KV with prefetching and background writes. Generates 37.5 minutes of video with zero stalls at 9.5 FPS with constant host memory.
+* `training` `sparse` `kernel` [HyScale: Scaling Long-Context Training for Learned Sparse Attention](http://arxiv.org/abs/2610.32057v2)
+  > **TL;DR**: Addresses the token selection bottleneck in long-context training for learned sparse attention. Introduces HyScale with HyTopK (on-the-fly top-k without score table) and selection replay (reusing indices in backward). Achieves 2.07x end-to-end speedup for GLM-5.1 at 1M tokens on 512 GPUs vs Megatron-LM.
+* `serving` `networking` `scaling` [Governing Enterprise AI Traffic at Scale: Design and Operation of a Policy-Driven, Multi-Vendor LLM Gateway on Envoy](http://arxiv.org/abs/2610.35509v1)
+  > **TL;DR**: Proposes Cosmos LLM Gateway to manage enterprise LLM traffic across vendors with declarative policies. Employs Envoy-based architecture with in-proxy WebAssembly for low-overhead processing. Achieves median 4 ms overhead at 2,200 requests per second.
+* `serving` `kernel` [One Megakernel is Not Enough: Predicting Where to Cut for Streaming Inference](http://arxiv.org/abs/2610.35336v1)
+  > **TL;DR**: Investigates optimal megakernel composition for streaming inference to minimize latency and maximize throughput. Introduces a framework that predicts performance by simulating candidate designs from profiles and benchmarks. On NH-TTS at batch 32, reduces time-to-first-audio by 21.4% and increases throughput by 28% vs a monolith kernel.
+* `serving` `networking` [Context Is Not Free: Carbon-Aware LLM Routing for Multi-Turn LLM Web Services across Geo-Distributed Data Centers](http://arxiv.org/abs/2610.35230v1)
+  > **TL;DR**: Addresses carbon emissions in multi-turn LLM serving across geo-distributed data centers by accounting for KV cache recomputation costs when routing queries. Proposes CarbonRouter with a cache-aware cost model and a lightweight session gate for joint model/GPU/region selection. Achieves 16.1% average CO2 reduction relative to baselines.
+* `kernel` [Waypoint: Analytically Modeling GEMM for CPUs](http://arxiv.org/abs/2610.34914v1)
+  > **TL;DR**: Proposes Waypoint, an analytical model to automate optimal GEMM tiling for CPUs by modeling hardware interactions, enabling OPAM library to match state-of-the-art performance. Achieves 1.36-1.98× LLM inference speedups.
+* `kernel` `hardware` `offloading` [When and Why to Use TMA: A Workload-Grounded Characterization of Tensor Memory Acceleration on NVIDIA Hopper GPUs](http://arxiv.org/abs/2610.34907v1)
+  > **TL;DR**: Determines when Tensor Memory Accelerator (TMA) should be used for efficient GPU kernel memory access in LLM contexts. Empirically characterizes crossover points for TMA vs. alternatives in FlashAttention-3 paged-KV operations, showing latency reductions based on page size and datatype.
+* `training` `edge` `networking` [Democratizing LLM Training with the Edge: Challenges, Systems, and the Road Ahead](http://arxiv.org/abs/2610.32215v2)
+  > **TL;DR**: Addresses democratizing LLM training across geo-distributed edge devices. Introduces a unified system with cloud-hosted parameter server for communication, compression, and fault tolerance. Achieves stable convergence for GPT-2 Medium and Llama3-1B pretraining under realistic conditions.
+* `serving` `scaling` `edge` [HiLO: Towards Product-Level Graceful Degradation with a Quality-Aware, Load-Aware Control Framework](http://arxiv.org/abs/2610.34844v1)
+  > **TL;DR**: Addresses graceful degradation under overload for LLM inference systems. Proposes HiLO, a quality-aware controller that maps load to pre-validated degradation states across services. Bounds relevance drop to under 0.5 points during 2× peak load in production.
+* `RAG` [Failure-Resilient and Verifiable Distributed Approximate Nearest-Neighbor Retrieval](http://arxiv.org/abs/2610.34608v1)
+  > **TL;DR**: Ensures trustworthy distributed ANN retrieval by designing TrustANN, a middleware with verification, coordination, and recovery protocols. Attack success rate drops from 1.000 to 0.000 with 9.36% p95 latency overhead.
+* `storage` `multi-modal` `RAG` [Cross-Modal Data Co-Locality for Heterogeneous Storage Systems](http://arxiv.org/abs/2610.34595v1)
+  > **TL;DR**: Addresses cross-modal data locality in distributed vector stores to reduce query latency and data movement. Introduces Coloc, a storage-management layer using a cross-modal access graph and migration manager. Reduces data movement by 5.9x and migration time by 3.9x versus global reorganization.
+* `serving` `MoE` `kernel` [Speculative Decoding for Mixture-of-Experts Models: Expert Bytes, Kernel Bandwidth and the Best Draft Length](http://arxiv.org/abs/2610.34440v1)
+  > **TL;DR**: Optimizes speculative decoding for MoE models by deduplicating expert accesses to reduce kernel bandwidth. Designs a deduplicating engine that reads each expert once per pass instead of per token. Predicts and achieves time savings for 5-8 tokens per pass on modified hardware platforms.
+* `training` `RL` `networking` [ScaleRLT: Exact Log-Probabilities and Fast Deferred Rollouts for Reinforcement Learning on Looped Transformers](http://arxiv.org/abs/2610.34427v1)
+  > **TL;DR**: Addresses inefficiency and floating-point errors in RL training for looped transformers. Introduces hybrid log-probability with deferred rollout and CUDA graphs, plus ring communication for multi-node. Achieves up to 1.56× rollout throughput, 2.71× faster updates, and 90% GSM8K accuracy.
+* `serving` `scaling` [InferScale: Kubernetes-Native Predictive Autoscaling for SLO-Aware AI Inference](http://arxiv.org/abs/2610.34006v1)
+  > **TL;DR**: Proposes InferScale, a Kubernetes autoscaler using prediction and priority control for SLO-aware AI inference serving. Combines short-horizon forecasting and tenant-aware headroom to offset cold-start delays. Achieves 65.3% SLO compliance (+17.5% over baseline) and reduces priority-tier SLO deviation from 16.1 to 1.2 percentage points under contention.
+* `serving` `kernel` [ZipFusion: Fusing Lossless KV Decompression with Attention for Efficient LLM Decoding](http://arxiv.org/abs/2610.33719v1)
+  > **TL;DR**: Addresses inefficient KV cache handling in LLM decoding that consumes memory bandwidth. Proposes ZipFusion, fusing lossless compression with attention kernels to reconstruct values in registers, avoiding decompression overhead. Improves decode throughput by up to 26.3% over uncompressed systems with same memory.
+* `serving` `offloading` [DualPace: Decoupled Scheduling and Cooperative GPU--CPU Decoding for LLM Serving](http://arxiv.org/abs/2610.33501v1)
+  > **TL;DR**: Addresses GPU-gated limitations in CPU-offloaded LLM serving by proposing DualPace, a runtime with decoupled GPU/CPU scheduling engines enabling independent CPU-side decoding and cooperative dense-stage assistance. Achieves 11.5-90.6% higher throughput than vLLM while maintaining latency.
+* `serving` `offloading` `disaggregation` [LLMs in Cloud: A Discussion on Architecture, Orchestration, and Inference](http://arxiv.org/abs/2610.33475v1)
+  > **TL;DR**: Systematically reviews cloud LLM serving challenges, synthesizing cross-layer optimizations (disaggregation, KV cache offloading) for reducing memory and latency. Evaluates resilient architectures and formalizes Pareto trade-offs across throughput, latency, cost, and confidentiality to guide infrastructure improvements.
+* `MoE` `offloading` `serving` [COPE: Composable Performance Emulation for Mixture-of-Experts Offloading Policies](http://arxiv.org/abs/2610.33404v1)
+  > **TL;DR**: Addresses efficient selection of Mixture-of-Experts offloading policies for deployment. Presents COPE, a composable emulator that combines policy matrix design with virtual machine profiling to avoid runtime integration. Achieves 24-100% higher selection accuracy and 1.7x-6.8x lower prediction error.
+* `scaling` [LooseLeaf: Enabling Serverless GPUs for Computational Notebooks](http://arxiv.org/abs/2610.33275v1)
+  > **TL;DR**: Addresses inefficient GPU resource utilization in interactive notebook sessions. Proposes a serverless approach that preloads minimal cell state during user editing, allowing GPU reclaim after execution. Achieves 32-55% reduction in GPU-hours versus existing platforms while maintaining interactivity.
+* `hardware` `kernel` `offloading` [Operating System Support for Accelerators as First-Class Compute Elements in Heterogeneous Systems](http://arxiv.org/abs/2610.33380v1)
+  > **TL;DR**: Addresses OS inefficiencies in heterogeneous systems using accelerators. Proposes MEERKAT with virtual-memory-aware communication, lightweight invocation, and HA-aware scheduling. Achieves up to 260× faster communication and 2-6× performance improvement over conventional schedulers.
+
 ### 2026-10-26
 * `storage` [Beyond Hotness: High-Resolution Memory Characterization of Cloud and LLM Workloads for Tiered Memory with ARM SPE](http://arxiv.org/abs/2610.32711v1)
   > **TL;DR**: Proposes a methodology for high-resolution memory characterization to enable cost-effective tiered memory systems for cloud and LLM workloads. Uses ARM SPE to profile memory, introduces metrics (idle periods and latency profiles) for data placement, and evaluates eight workloads, identifying region-specific access patterns.
