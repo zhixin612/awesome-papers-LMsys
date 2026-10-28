@@ -180969,5 +180969,409 @@
         "submit_date": "2026-10-24",
         "relevant": false,
         "indexed_date": "2026-10-27"
+    },
+    "http://arxiv.org/abs/2610.37432v1": {
+        "title": "Request-Adaptive Execution for Efficient Hybrid LLM Inference",
+        "link": "http://arxiv.org/abs/2610.37432v1",
+        "abstract": "Hybrid large language models (LLMs) have emerged as a promising way to combine the modeling capability of the Attention mechanism with the efficiency of state space models (SSMs). However, most existing hybrid LLMs still inherit a static design philosophy: once the Attention-to-SSM layout is chosen, every request must follow the same hybrid execution. This one-layout-fits-all design is inefficient for real-world serving workloads, where different requests rely on contextual information in different ways.\n  This paper presents Morph, a serving system that co-designs the model architecture and runtime for request-adaptive hybrid LLM inference. Its model architecture pairs Attention and SSM layers within each block and uses prefill-oriented gating to select a request-specific layout that remains fixed throughout decoding. Its serving runtime preserves batching efficiency under divergent layer choices through selective batching and enables correct prefix reuse through hybrid-aware context caching. Experiments on six datasets show that Morph achieves a better quality-efficiency trade-off than existing static hybrid baselines. System-level evaluation further shows that Morph improves the serving throughput by up to 3.87x over baselines while substantially reducing inference latency.",
+        "authors": [
+            "Fahao Chen",
+            "Xuzhe Yan",
+            "Qi Zhang",
+            "Peng Li",
+            "Dongxiao Yu",
+            "Song Guo"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.37432v1",
+        "submit_date": "2026-10-27",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "sparse"
+        ],
+        "tldr": "Morph addresses static execution inefficiency in hybrid LLM inference. It introduces a request-adaptive architecture with gating and a serving runtime for selective batching and hybrid-aware caching. System evaluation shows up to 3.87x throughput improvement over baselines.",
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.37230v1": {
+        "title": "TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving",
+        "link": "http://arxiv.org/abs/2610.37230v1",
+        "abstract": "Agentic services alternate between model inference on clustered GPUs and external tools on distributed CPUs. In this scenario, existing systems (1) overlook tool-return readiness in service evaluation, wasting limited resources, and (2) use heuristic strategies to decide admission and placement on GPUs, resulting in suboptimal scheduling decisions. To bridge this gap, we present TAO, a tool-aware joint scheduling framework for LLM-based agentic serving. Its value interface combines near-term tool readiness, node-specific cache credit with time-aware decay, and token footprint; a dynamic program jointly selects and places waiting sessions under capacity constraints. Across the 12 reported model-workload-concurrency settings, TAO reduces latency by up to 26.8%, reduces mean time to first token (TTFT) by up to 36.3%, and increases decode throughput by up to 29.5% relative to the best evaluated state-of-the-art baseline for each metric.",
+        "authors": [
+            "Shuhuai Li",
+            "Shengdong Ye",
+            "Dongdong Ge",
+            "Yinyu Ye",
+            "Jianghao Lin"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.37230v1",
+        "submit_date": "2026-10-27",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic"
+        ],
+        "tldr": "Addresses inefficiency in LLM agentic serving due to tool-awareness gaps and heuristic scheduling. Proposes TAO, a joint scheduling framework using tool readiness, cache credit, and token footprints to optimize session placement. Achieves up to 26.8% latency reduction under diverse settings.",
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.37200v1": {
+        "title": "PipeLink: Contract-Guided Linking of GPU Kernel Components",
+        "link": "http://arxiv.org/abs/2610.37200v1",
+        "abstract": "The fastest machine-learning kernels are compositions of components, such as loaders, matrix-multiply mainloops, epilogues and communication stages, that run concurrently on one GPU streaming multiprocessor and share its on-chip memory, barriers, warps and registers. Because these components hard-code where they sit in this shared space, they cannot be compiled, shipped or replaced on their own: combining components from different sources means forking them by hand or keeping them in separate kernels. We present PipeLink, a contract-guided linker for GPU kernel components. Each component is compiled separately into an LTO object that carries a contract stating what it requires and what it promises; PipeLink checks the contracts against each other, relocates every component by solving one joint placement of the SM's resources, and generates the transfers between them, and the vendor LTO backend folds the result into constants. Across 51 configurations on Hopper and Blackwell GPUs, linked kernels run within 0.2% of the same sources compiled as one unit. Linking makes new compositions practical: a CuTe attention operator inside a ThunderKittens decode megakernel speeds up decoding by 2.16$\\times$, a four-owner MoE training megakernel matches the original monolith, one unchanged attention core yields sparse and context-parallel variants that outperform FlexAttention, vLLM and Transformer Engine, and a GEMM + SwiGLU composition whose consumer serves three GPU architectures runs 1.2$\\times$ faster on Blackwell than cuBLAS with a compiled activation.",
+        "authors": [
+            "Jize Guo",
+            "Xupeng Miao"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.37200v1",
+        "submit_date": "2026-10-27",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "MoE",
+            "serving"
+        ],
+        "tldr": "Proposes PipeLink, a contract-guided linker for GPU kernel components to enable modular composition without manual forking. Relocates and joins components with verified promises-requirements contracts. Achieves 0.2% overhead vs monolith kernels and up to 2.16× decoding speedup using attention cores.",
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.33647v2": {
+        "title": "Speeding up Log-Sum-Exp: Kernel Fusion at the Memory Wall, Integer Arithmetic at the Compute Wall",
+        "link": "http://arxiv.org/abs/2610.33647v2",
+        "abstract": "While the Log-Sum-Exp (LSE) function is a foundational numerical primitive for stable log-domain computation in modern machine learning, its fast and efficient computation on generic platforms (\\ie, CPUs and GPUs) has been underexplored, potentially creating execution bottlenecks for large workloads. On GPU, the de facto implementation $\\texttt{torch.logsumexp}$ dispatches a chain of nine sub-kernels per call, incurring redundant High Bandwidth Memory (HBM) traffic and launch overhead. On CPU, exp and log operations are hardware-hungry, limiting the computing efficiency. To address these bottlenecks, we propose two drop-in kernels to significantly accelerate LSE computation on both GPUs and CPUs: FuseLSE, a single-pass fused kernel that evaluates LSE's exp and log functions on the GPU's Special Function Unit (SFU); and IntLSE, which further replaces the LSE computation with approximated integer arithmetic for CPU computation. Our experiments, validated by benchmarks across workload sizes and hardware platforms, show that both kernels are ${\\sim}10-11\\times$ faster than PyTorch at small workloads and ${\\sim}6\\times$ faster on larger ones on GPUs, where the speed-up is attributed to reduced launch overhead and HBM traffic. On CPU, where no SFU is available, LSE computation dominates the cost, allowing IntLSE to gain ${\\sim}3-6\\times$ execution speed over FuseLSE.",
+        "authors": [
+            "Lingyun Yao",
+            "Martin Andraud",
+            "Niki Loppi",
+            "Andrea Pilzer",
+            "Anji Liu",
+            "Guy Van den Broeck",
+            "Martin Trapp"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.33647v2",
+        "submit_date": "2026-10-27",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "quantization"
+        ],
+        "tldr": "Optimizes Log-Sum-Exp (LSE) computation for ML workloads by introducing FuseLSE (GPU kernel fusion exploiting SFU) and IntLSE (CPU integer approximation). Achieves ~10–11× speedup on small GPU workloads and ~3–6× faster CPU execution versus PyTorch.",
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36822v1": {
+        "title": "Taming Multi-Dimensional Skew in Sparse Matrix Multiplication with Contention-Aware Scheduling [Technical Report]",
+        "link": "http://arxiv.org/abs/2610.36822v1",
+        "abstract": "Sparse general matrix-matrix multiplication (SpGEMM) is a key kernel in graph analytics, relational queries, and machine learning. Yet, its performance remains a significant challenge, due to the inherent sparsity and, more critically, the prevalent skew patterns often found in real-world workloads. This paper investigates this problem and demonstrates that an unbalanced workload distribution is the main culprit, harming performance through two co-existing root causes: first, multi-dimensional skew, where imbalance across computation cost, output density, and data locality cannot be captured by any single balancing metric; and second, cache contention, where dense substructures induce severe on-chip interference.\n  To that end, we propose adaptive morsel scheduling (AMS), a dynamic scheduling framework that decouples skew dimensions via fixed-result-size morsels and integrates contention-aware load balancing (CALB) and data-conscious simultaneous multithreading activator (SMTact) to alleviate cache-level contention, alongside a hybrid accumulation mechanism (HYB) that adaptively selects the best accumulator per morsel. Evaluations across matrix squaring, relational queries, graph analytics, and other sparse matrix kernels show that AMS significantly outperforms state-of-the-art methods on skewed workloads while maintaining comparable performance on non-skewed ones. These gains, along with improved bandwidth utilization, remain valid across a wide range of workloads and hardware systems.",
+        "authors": [
+            "Wentao Huang",
+            "Qiming Huang",
+            "Yunhong Ji",
+            "Mian Lu",
+            "Yuqiang Chen",
+            "Bingsheng He",
+            "Kian-Lee Tan"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DB"
+        ],
+        "id": "http://arxiv.org/abs/2610.36822v1",
+        "submit_date": "2026-10-27",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.34914v2": {
+        "title": "Waypoint: Analytically Modeling GEMM for CPUs",
+        "link": "http://arxiv.org/abs/2610.34914v2",
+        "abstract": "High-performance General Matrix Multiplication (GEMM) implementations rely on breaking down GEMM into carefully selected tiles to achieve peak performance. We present Waypoint, a new analytical model to automatically identify the optimal tile size for a given hardware and input matrix shape. Waypoint estimates the achievable performance for a given tile choice by capturing all the architectural effects including interactions with memory hierarchy, instruction-level parallelism, and multi-threading. Using the estimates as a proxy, we search through the space of possible tile sizes to identify the one that maximizes performance. Additionally, Waypoint helps hardware designers estimate realistic performance on experimental hardware optimizations. We build a new GEMM library OPAM for CPUs that uses Waypoint to automatically break down GEMM and achieve performance that matches state-of-the-art GEMM libraries and helps accelerate LLM inference on CPUs achieving $1.36 - 1.98 \\times$ speedups.",
+        "authors": [
+            "Srinidhi N",
+            "Sunanda Somwase",
+            "Hemant Kumar Chandrakant Chandavar",
+            "Eashan Dash",
+            "Varun Agrawal",
+            "Prakash Raghavendra"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2610.34914v2",
+        "submit_date": "2026-10-27",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "serving"
+        ],
+        "tldr": "Proposes Waypoint, an analytical model to automatically determine optimal tile sizes for GEMM on CPUs by capturing architectural effects. Used in OPAM, a GEMM library that matches state-of-the-art and accelerates LLM inference, achieving 1.36-1.98x speedups.",
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36636v1": {
+        "title": "Agar: What-If Analysis for Microservice Applications",
+        "link": "http://arxiv.org/abs/2610.36636v1",
+        "abstract": "Microservice operators must reason about how applications would behave under changes that have not yet occurred: different workloads, resource allocations, or SLO targets. Evaluating every alternative experimentally is expensive, but predicting such counterfactuals is difficult because microservices contain many interacting components. End-to-end models must learn behavior over a combinatorial space of conditions, but composing per-component predictors causes prediction errors to accumulate. We address this challenge by changing what each component model must predict. Rather than predicting exact values, we learn simple, interpretable bounds that contain every observed behavior while remaining tight enough to support useful end-to-end conclusions. We build AGAR, a counterfactual performance analysis tool that composes these models to answer end-to-end SLO-feasibility questions. This allows us to formulate autoscaling as a counterfactual query: what is the smallest resource allocation under which an SLO is met? Our evaluation demonstrates that across three microservice applications, AGAR's bounds are actionable: its derived autoscaler reduces CPU allocation by up to 36.8% over state-of-the-art horizontal autoscalers while satisfying application SLOs. Further, AGAR is able to predict operational cost given workload traces, provide guidance on which service's startup time to optimize and localize performance bugs within each application.",
+        "authors": [
+            "Saarth Deshpande",
+            "Neeraja J. Yadwadkar",
+            "Venkat Arun"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.36636v1",
+        "submit_date": "2026-10-27",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36589v1": {
+        "title": "InfraDev: Can Coding Agents Develop AI Infrastructure, and How Can We Tell?",
+        "link": "http://arxiv.org/abs/2610.36589v1",
+        "abstract": "Coding agents are beginning to develop the production-grade AI infrastructure that trains and serves large models, yet existing benchmarks cover only single kernels or single-GPU tasks, and grade with tests and prompts that misjudge both correct and incorrect patches. We introduce InfraDev, a benchmark of 36 tasks built from real-world pull requests to Megatron-LM, vLLM, and verl, covering infrastructure development for training, inference, and reinforcement learning. Each task asks an agent to reimplement a real change that spans many files and must run correctly across many GPUs. To grade such changes, we jointly synthesize hidden probes, which enforce the requirements the original tests leave unchecked, and a prompt that states every interface the probes call without revealing the solution. We also design a shared execution environment that reuses dependencies and artifacts across tasks, cutting storage by 52-57% and build time by 13-14% on Megatron-LM and vLLM. Across six frontier models, the best resolves only 38.9% of the tasks; the probes reject 32% of the submissions that pass every official test, and with the original pull request descriptions as prompts, no model resolves a single task. Failure analysis shows that structural and state errors dominate and that agents' own tests rarely check memory, time, or traffic. Turning these findings into an agent skill raises the resolved rate of a frontier model on the Megatron-LM tasks by 10.5%.",
+        "authors": [
+            "Yangshen Deng",
+            "Jiaqi Ruan",
+            "Yeqi Huang",
+            "Nick Lau",
+            "Guangming Sheng",
+            "Luo Mai"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.36589v1",
+        "submit_date": "2026-10-27",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36434v1": {
+        "title": "JustGoal: With Only a Goal, the AI Baseline Is Above the Expert Kernels",
+        "link": "http://arxiv.org/abs/2610.36434v1",
+        "abstract": "A small number of GPU kernels often determines the efficiency of large language model training and inference. High-performance kernel development typically relies on expert knowledge through manual implementation, collaboration with general-purpose models, or specialized agents equipped with domain knowledge, evaluation methods, and search workflows. We investigate how much value this knowledge provides as foundation models become stronger. We introduce JustGoal, a goal-only baseline in which a general-purpose agent receives only the optimization objective and constraints, without kernel-specific infrastructure, knowledge bases, or predefined workflows, and builds its own evaluation loop. On NVIDIA B200 GPUs, JustGoal outperforms open-source libraries on 8 of 10 operators, achieving per-operator geometric mean speedups of 1.14x to 2.34x. It also surpasses the fastest publicly released specialized-agent kernel on 5 of 9 operators with available comparisons. In a controlled same-model comparison using Fable 5.1 on single shapes, the KDA-0.5 harness reaches 0.95x of JustGoal's performance, while single-mechanism ablations show no consistent benefit from domain knowledge or predefined workflows. These results indicate that specialized machinery should be justified by clear gains over a same-model, same-scope goal-only baseline and reevaluated whenever the foundation model changes.",
+        "authors": [
+            "Yaojian Chen",
+            "Dazhi Peng",
+            "Zhui Zhu",
+            "Leshan Li",
+            "Haojun Sun",
+            "Yiyun Zheng",
+            "Qingfeng He",
+            "Shangzhan Li",
+            "Xianglong Deng",
+            "Yifei Shen",
+            "Shengye Xiang",
+            "Zhen Li",
+            "Lin Gan",
+            "Yuxuan Li",
+            "Xu Han",
+            "Zhiyuan Liu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.36434v1",
+        "submit_date": "2026-10-27",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "training"
+        ],
+        "tldr": "Investigates the necessity of expert knowledge for kernel development in LLM training and inference. Proposes JustGoal, a goal-only baseline using a general-purpose agent to autonomously build optimized kernels. Achieves geometric mean speedups of 1.14x-2.34x on 8/10 operators compared to open-source libraries on NVIDIA B200 GPUs.",
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36383v1": {
+        "title": "From Generation to Scoring: Scaling LLM-Based Semantic Labeling at LinkedIn",
+        "link": "http://arxiv.org/abs/2610.36383v1",
+        "abstract": "For efficiency, industrial large language model (LLM) labelers often pack many candidate labels into one prompt and generate a YES/NO answer for each, even when each decision depends only on the entity and one candidate. Generating these independent decisions as one answer list couples them, spends decoding on the list, and relies on the list being well-formed. In this paper, we present an end-to-end recipe that reformulates the labeler as semantic scoring, fine-tuning it on single-candidate prompts to return each decision as one answer-token score from a prefill-only pass. We also adapt Multiple-Item Scoring (MIS) to score hundreds of candidates in one sequence with attention masked between them. Deployed for profile qualification labeling at LinkedIn, semantic scoring changes at most 0.01% of decisions when candidates are reordered and matches the agreement with reference labels that packed generation reaches only with about 4.7x as many training pairs. The MIS-based stack raises throughput over the deployed stack by 1.24x offline and 1.9x in model serving under a one-second p99 latency target. For offline batch inference, we implement MIS-based scoring as a reusable, model-agnostic Ray Data API proposed for upstream adoption. Model serving uses MIS support contributed to SGLang.",
+        "authors": [
+            "Jian Sheng",
+            "Sriram Vasudevan",
+            "Sundara Raman Ramachandran",
+            "Yang Hu",
+            "Junyu Zhou",
+            "Xiaojing Ma",
+            "Haolan Qin",
+            "Tiffany Zhou",
+            "Vedant Vipul Jhaveri",
+            "Ashwini Bhingare",
+            "Chinmay Kini",
+            "Qing Lan",
+            "Xiaoqing Wang",
+            "Suleyman Cetintas",
+            "Fedor Borisyuk"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.IR"
+        ],
+        "id": "http://arxiv.org/abs/2610.36383v1",
+        "submit_date": "2026-10-26",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offline"
+        ],
+        "tldr": "Addresses inefficiency in LLM-based labeling from packing multiple candidates. Proposes semantic scoring with fine-tuned single-candidate prompts and MIS for batch processing. Achieves 1.9x higher serving throughput under p99 latency targets.",
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36370v1": {
+        "title": "IOSage: Detecting HPC I/O Bottleneck Patterns to Guide LLM Recommendations",
+        "link": "http://arxiv.org/abs/2610.36370v1",
+        "abstract": "HPC applications often leave much of their parallel file system's bandwidth unused, and turning their Darshan logs into concrete I/O fixes still requires a scarce I/O expert. Rule-based tools flag counters against thresholds set by experts, and in tools built on large language models (LLMs), such as ION and IOAgent, the LLM decides which bottlenecks a log contains. We present IOSage, in which a classifier trained on many labeled logs, not the LLM, makes that decision, since a single log gives an LLM no baseline for what is abnormal. The LLM receives the I/O bottleneck patterns the classifier detects, the job's configuration files, per-file Darshan evidence, and for each pattern a card built from benchmark training runs, and writes recommended changes. Applied by hand and measured in repeated paired runs, the changes IOSage names speed up median total wall time 4.38x for an openPMD kernel (4.02x on a second storage tier) and 1.42x for hourly WRF restarts. For 5 of the 6 application scenarios with a helpful change, IOSage with Claude Sonnet 4 names it, including the change for 10-minute WRF restarts (up to 1.93x faster); with GPT-4o and Llama 3.1 as well, the classifier and cards name more helpful changes than the LLM alone. On 78 benchmark test runs without a pattern, the LLM deciding alone proposes changes for 64; with the classifier, for 9. The classifier reaches 0.929 Micro-F1 on 488 labeled benchmark test runs (0.916 as the gate; 0.832 on the 158 from configurations and jobs outside training), above Drishti's rules, WisIO, and IOAgent's pipeline without its literature retrieval. On TraceBench's nine expert-labeled traces from production systems, it has the highest precision of the tools compared (0.82), with 2 false positives against 12 for the keyword-mapped LLM diagnoses shipped with TraceBench and 5 for Drishti, on the five issue labels that match registered patterns.",
+        "authors": [
+            "Mahdi Banisharif",
+            "Tabassum Mahmud",
+            "Ahmad Tarraf",
+            "Suren Byna",
+            "Ali Jannesari"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2610.36370v1",
+        "submit_date": "2026-10-26",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36339v1": {
+        "title": "INC-MoE: Overlapping In-Network Collectives and Expert Computation for Expert-Parallel Mixture-of-Experts Inference",
+        "link": "http://arxiv.org/abs/2610.36339v1",
+        "abstract": "In expert-parallel mixture-of-experts (MoE) serving, dispatch moves tokens to the accelerators hosting their selected experts, and combine returns expert outputs to each token's owner. Both operations lie on the critical path and can dominate MoE layer latency in multi-node deployments. We present INC-MoE, an expert-parallel MoE layer that offloads dispatch and combine to the network switch and overlaps both collectives with each other and with expert computation. Dispatch uses in-network AllGather through switch-side multicast, while combine uses in-network ReduceScatter through switch-side reduction. Both collectives use message semantics between the end hosts and the switch. Because the in-network collectives load opposite directions of each link, executing them concurrently reduces bandwidth-bound communication time by $(N-2)/(2(N-1))$ relative to concurrent ring-based collectives: 33% for four ranks and 43% for eight.\n  INC-MoE partitions tokens into bands and processes them through a three-stage AllGather-feed-forward network (FFN)-ReduceScatter pipeline inside a single persistent kernel. At steady state, role-specialized thread blocks gather the next band, compute the current band, and reduce the previous band concurrently, overlapping both collectives with each other and with computation using device-side synchronization. INC-MoE integrates as a drop-in replacement for the MoE layer of vLLM. We evaluate it in an emulated four-node scale-out deployment with a dedicated accelerator emulating an in-network computing (INC) switch. On OLMoE prefill with four-way expert parallelism, INC-MoE reduces time to first token (TTFT) by up to 33% and increases throughput by up to 50% relative to vLLM's default collective path, while matching its outputs.",
+        "authors": [
+            "John Stephan",
+            "Razvan Puscasu",
+            "Xu Yong",
+            "Ding Jiutao",
+            "Guan Zixuan"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.36339v1",
+        "submit_date": "2026-10-26",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Addresses communication bottlenecks in expert-parallel MoE inference by offloading dispatch and combine to network switch with in-network collectives and overlapping them with expert computation. Reduces time to first token by 33% and increases throughput by 50% over vLLM.",
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36329v1": {
+        "title": "Plenty of Room in the Middle: Revealing Opportunities on a GPU Cluster via Fine-Grained Monitoring",
+        "link": "http://arxiv.org/abs/2610.36329v1",
+        "abstract": "GPU clusters have become essential computing resources for AI and scientific research in academia and industry. However, their high cost and growing demand often result in long queueing delays. While previous monitoring efforts have operated at second- or minute-level frequencies, they primarily informed job-level scheduling for clusters and lacked the detail needed to optimize GPU-level utilization.\n  This paper presents an in-depth study of a university research GPU cluster, analyzing resource usage at 100 ms intervals. We have developed a lightweight monitoring tool that leverages Nvidia's DCGM library to capture fine-grained \"compute utilization\" metrics within GPUs. Deployed on a cluster with 89 nodes and 319 GPUs, our tool collected data over several months. This paper focuses on a 10-day period with 7,399 jobs submitted by 150 users from 12 departments. Our study reveals three key findings: (1) the GPU cluster exhibits significant underutilization, with over 70% of jobs using less than 20% of GPU memory and 50% averaging below 5% Streaming Multiprocessor (SM) utilization; (2) 80% of jobs have a drastic mismatch between their requested and actual durations, significantly limiting the scheduler's effectiveness; and (3) the multi-GPU jobs we examined show highly periodic communication patterns. These findings suggest there is plenty of room in the middle: substantial utilization gains are available through better job scheduling and GPU multitasking, independent of hardware or application improvements.\n  Our monitoring solution is available as open-source software at https://github.com/als244/gpu_server_monitoring.",
+        "authors": [
+            "Andrew Sheinberg",
+            "Samyak Gupta",
+            "Kai Li"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.36329v1",
+        "submit_date": "2026-10-26",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36001v1": {
+        "title": "Merkle-Tree-Based Verifiable Public Data Auditing for Cloud Object Storage Using Smart Contracts",
+        "link": "http://arxiv.org/abs/2610.36001v1",
+        "abstract": "Owners of data in cloud object storage cannot directly check whether the provider still keeps every object unchanged. Existing research mostly checks blocks inside files or relies on third-party auditors, and less attention has been given to checking each object against a public blockchain reference while measuring the cost. A full-data audit downloads every object and compares it with a saved hash list, which is slow and only as reliable as that list. We propose a public auditing system in which the SHA-256 hash of each object and its name forms a leaf of a Merkle tree, so the whole dataset is represented by one Merkle root. This root is stored in an Ethereum smart contract as a trusted public record, while the objects stay with the provider. An auditor downloads an object, rebuilds the root using a short Merkle proof and compares it with the stored root, marking the object as intact, modified or missing. In five experiments on an S3-compatible store and a local Hardhat blockchain (normal audit, single- and multiple-object tampering, deletion and scalability), the system detected 15 of 15 single modifications, 2,205 of 2,205 modified objects and 830 of 830 deleted objects with no false alarms. The proof needed only 14 hashes for 10,000 objects, so checking one object took about 10 ms and a 100-object sample about 150 ms regardless of dataset size, while a full audit of 10,000 objects (14.3 s) took about as long as downloading them (13.5 s). Storing the root cost 91,863 gas, 252 times less than storing 1,000 hashes on-chain. The system thus shows exactly which objects were modified or are missing, with its main savings coming from checking selected objects.",
+        "authors": [
+            "Siri Reddy Tadi",
+            "K. Gangadhara Rao",
+            "M. Venu Gopalachari",
+            "C. Chetann Reddy",
+            "Jaswanth Bhimireddy"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2610.36001v1",
+        "submit_date": "2026-10-26",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36436v1": {
+        "title": "USB Differentiated Service for Networked Cyber-Physical Systems",
+        "link": "http://arxiv.org/abs/2610.36436v1",
+        "abstract": "Cyber-physical systems are increasingly complex, requiring high throughput, low-latency data processing across multiple cores and compute devices. Additional functional safety challenges dictate the need for high system availability in the presence of failures. Together, these requirements are addressed using a network of compute nodes across which data processing, control and functional safety tasks are distributed. A key challenge is how to address the service requirements of independent data flows, spanning a set of hosts and I/O devices.\n  In this paper, we show how to develop connectivity between hosts using a custom xDCI gadget driver that uses USB interrupters to differentiate the processing of separate data flows. Our solution is the first to handle both isochronous and bulk communication at USB 3.0 transfer rates, with predictable bus latencies down to the granularity of a 125 microsecond microframe, which is sufficient for many CPS control operations. We present an end-to-end solution that couples the predictable execution of user-level tasks with interrupt processing and data communication, so that multiple virtual connections are able to share a common bus. This work is not only applicable to host networking but also device I/O, which makes it arguably desirable for CPS scenarios requiring short-range communication, such as in vehicle control area networks or robotics.",
+        "authors": [
+            "Anton Njavro",
+            "Rafiuddin Syed",
+            "Shriram Raja",
+            "Zhiyuan Ruan",
+            "Richard West"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.36436v1",
+        "submit_date": "2026-10-27",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.36347v1": {
+        "title": "Callosal: Rethinking the Kernel Page Cache for Disaggregated Storage and Memory",
+        "link": "http://arxiv.org/abs/2610.36347v1",
+        "abstract": "Classic distributed filesystems like NFS centralize filesystem operations on a server and use custom, filesystem-specific approaches for managing cache consistency across client nodes. This limits scalability, and it leads to weak consistency, ruling out applications that concurrently access and mutate shared files. Our key insight is that these legacy designs are now too storage-centric; with today's large memories, OS page caches do most of the \"heavy lifting\" in accessing data, not the filesystem and block storage layers.\n  In response to this, we present Callosal, a page cache for a cluster of machines that is centered on shared disaggregated memory. Rather than serializing operations through a filesystem server and using ad hoc caching like NFS, Callosal is built around the existing Linux page cache paths and is accelerated by RDMA and programmable switches. Callosal delivers the strong consistency that programs expect with local filesystems (like in ext4 and tmpfs) while avoiding the additional network access delays and bottlenecks that host-based solutions incur. We compare Callosal against NFS, CephFS, and local filesystems; often Callosal can provide caching performance similar to local filesystems while also scaling across nodes. For mixed read/write workloads, on average Callosal has 4.6x higher throughput than NFS when contention is not extreme, and it offers strong consistency guarantees like CephFS, while outperforming it. For a file-backed key-value store with 1% writes and uniform access, Callosal scales 1.7x across 4 nodes, while CephFS collapses across nodes.",
+        "authors": [
+            "James McMahon",
+            "Amit Samanta",
+            "Seung-seob Lee",
+            "Ryan Stutsman",
+            "Anurag Khandelwal"
+        ],
+        "categories": [
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2610.36347v1",
+        "submit_date": "2026-10-26",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
+    },
+    "http://arxiv.org/abs/2610.35999v1": {
+        "title": "safeL4: Rethinking Safe-Language-Based Single Address Space Microkernels",
+        "link": "http://arxiv.org/abs/2610.35999v1",
+        "abstract": "Microkernels provide good features such as high security, safety, and flexibility, but their reliance on hardware-based isolation leads to heavy performance overhead, limiting their widespread adoption. Although constructing single-address-space microkernels based on safe language-based isolation is a promising approach to addressing the performance issue, this approach still faces challenges in maintaining the principle of minimality and enforcing capability-based, fine-grained access control over system resources. We propose safeL4, an approach to constructing microkernels based on safe languages. It guarantees minimality through low-level abstractions for unsafe operations, and implements a capability system based on the safe language's object capabilities to achieve fine-grained access control over all operations on system resources. We implement a prototype system in Rust, and our evaluation results show that the primitives provided by safeL4 are, on average, 1.9$\\times$ faster than those of seL4.",
+        "authors": [
+            "Zheyuan Xu",
+            "Xiaobei Zhang",
+            "Zihan Li",
+            "Zekai Nie",
+            "Guangtao Zhu",
+            "Zhuang Lu",
+            "Qianying Zhang",
+            "Shijun Zhao",
+            "Haibo Chen",
+            "Rui Hou"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.CR",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2610.35999v1",
+        "submit_date": "2026-10-26",
+        "relevant": false,
+        "indexed_date": "2026-10-28"
     }
 }

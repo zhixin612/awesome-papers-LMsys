@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3496-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.27-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3504-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.28-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,24 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-28
+* `serving` `sparse` [Request-Adaptive Execution for Efficient Hybrid LLM Inference](http://arxiv.org/abs/2610.37432v1)
+  > **TL;DR**: Morph addresses static execution inefficiency in hybrid LLM inference. It introduces a request-adaptive architecture with gating and a serving runtime for selective batching and hybrid-aware caching. System evaluation shows up to 3.87x throughput improvement over baselines.
+* `serving` `agentic` [TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving](http://arxiv.org/abs/2610.37230v1)
+  > **TL;DR**: Addresses inefficiency in LLM agentic serving due to tool-awareness gaps and heuristic scheduling. Proposes TAO, a joint scheduling framework using tool readiness, cache credit, and token footprints to optimize session placement. Achieves up to 26.8% latency reduction under diverse settings.
+* `kernel` `MoE` `serving` [PipeLink: Contract-Guided Linking of GPU Kernel Components](http://arxiv.org/abs/2610.37200v1)
+  > **TL;DR**: Proposes PipeLink, a contract-guided linker for GPU kernel components to enable modular composition without manual forking. Relocates and joins components with verified promises-requirements contracts. Achieves 0.2% overhead vs monolith kernels and up to 2.16× decoding speedup using attention cores.
+* `kernel` `quantization` [Speeding up Log-Sum-Exp: Kernel Fusion at the Memory Wall, Integer Arithmetic at the Compute Wall](http://arxiv.org/abs/2610.33647v2)
+  > **TL;DR**: Optimizes Log-Sum-Exp (LSE) computation for ML workloads by introducing FuseLSE (GPU kernel fusion exploiting SFU) and IntLSE (CPU integer approximation). Achieves ~10–11× speedup on small GPU workloads and ~3–6× faster CPU execution versus PyTorch.
+* `kernel` `serving` [Waypoint: Analytically Modeling GEMM for CPUs](http://arxiv.org/abs/2610.34914v2)
+  > **TL;DR**: Proposes Waypoint, an analytical model to automatically determine optimal tile sizes for GEMM on CPUs by capturing architectural effects. Used in OPAM, a GEMM library that matches state-of-the-art and accelerates LLM inference, achieving 1.36-1.98x speedups.
+* `kernel` `training` [JustGoal: With Only a Goal, the AI Baseline Is Above the Expert Kernels](http://arxiv.org/abs/2610.36434v1)
+  > **TL;DR**: Investigates the necessity of expert knowledge for kernel development in LLM training and inference. Proposes JustGoal, a goal-only baseline using a general-purpose agent to autonomously build optimized kernels. Achieves geometric mean speedups of 1.14x-2.34x on 8/10 operators compared to open-source libraries on NVIDIA B200 GPUs.
+* `serving` `offline` [From Generation to Scoring: Scaling LLM-Based Semantic Labeling at LinkedIn](http://arxiv.org/abs/2610.36383v1)
+  > **TL;DR**: Addresses inefficiency in LLM-based labeling from packing multiple candidates. Proposes semantic scoring with fine-tuned single-candidate prompts and MIS for batch processing. Achieves 1.9x higher serving throughput under p99 latency targets.
+* `MoE` `serving` `networking` [INC-MoE: Overlapping In-Network Collectives and Expert Computation for Expert-Parallel Mixture-of-Experts Inference](http://arxiv.org/abs/2610.36339v1)
+  > **TL;DR**: Addresses communication bottlenecks in expert-parallel MoE inference by offloading dispatch and combine to network switch with in-network collectives and overlapping them with expert computation. Reduces time to first token by 33% and increases throughput by 50% over vLLM.
+
 ### 2026-10-27
 * `video` `offloading` `quantization` [WorldPager: Zero-Stall Tiered Memory for Long-Horizon World Models on a Single Consumer GPU](http://arxiv.org/abs/2610.35529v1)
   > **TL;DR**: Addresses capacity and stall limitations in long horizon video generation by interactive world models. Proposes WorldPager, a tiered memory hierarchy (GPU/DRAM/NVMe) storing int4 KV with prefetching and background writes. Generates 37.5 minutes of video with zero stalls at 9.5 FPS with constant host memory.
