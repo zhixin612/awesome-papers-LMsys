@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3504-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.28-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3523-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.10.30-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,46 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-10-30
+* `serving` [Only Accepted Tokens Count: An Energy Accounting of Speculative Decoding Under Latency Targets](http://arxiv.org/abs/2610.40287v1)
+  > **TL;DR**: Analyzes speculative decoding for energy efficiency in LLM serving under latency targets. Using production measurements on H100/H200 GPUs at batch sizes up to 64, finds verification dominates cost; large batches and low token acceptance increase energy per token, negating savings without high acceptance.
+* `serving` `scaling` [PhOSv1: Efficient Scaling of Model Sleeping on a Single Server for Autoscaling with GPU-Context Deduplication](http://arxiv.org/abs/2610.39999v1)
+  > **TL;DR**: Addresses the high GPU memory cost of keeping multiple models asleep for autoscaling. Proposes PhOSv1, which deduplicates GPU context via a central daemon and API remoting. Reduces GPU memory footprint substantially while matching vanilla vLLM's scale-up time.
+* `kernel` `quantization` [Speeding up Log-Sum-Exp: Kernel Fusion at the Memory Wall, Integer Arithmetic at the Compute Wall](http://arxiv.org/abs/2610.33647v3)
+  > **TL;DR**: Addresses slow Log-Sum-Exp computation by proposing FuseLSE (a fused GPU kernel) and IntLSE (integer-arithmetic CPU kernel). Achieves 6–11× GPU speedup over PyTorch and 3–6× CPU speedup over fused kernel implementation.
+* `RL` `agentic` `scaling` [Sandman: Building and Operating Sandboxes for Agentic Reinforcement Learning on Shared Kubernetes](http://arxiv.org/abs/2610.39711v1)
+  > **TL;DR**: Addresses managing bursty creation of sandbox environments for agentic RL training on shared Kubernetes. Proposes Sandman, a service using pods with daemons for sandbox lifecycle control. Scaled to 11,858 concurrent sandboxes and handled 3.1 million in production campaigns.
+* `training` `sparse` [Dobb: Shard-Local Preconditioning in Block-Diagonal Eigenbases](http://arxiv.org/abs/2610.39412v1)
+  > **TL;DR**: Addresses communication overhead in distributed training for matrix-aware optimizers. Proposes Dobb, a block-diagonal eigenbasis-based optimizer that computes updates locally within parameter shards without extra communication. Reduces optimizer step time from 124.1 ms to 9.2 ms under FSDP on 32 H100 GPUs for GPT-2 XL.
+* `hardware` `serving` `kernel` [Learning to Formulate: Agentic Hardware-Software Co-Design of AI Infrastructure through Progressive Optimization and Verification](http://arxiv.org/abs/2610.39380v1)
+  > **TL;DR**: Proposes Formulaic, an agentic hardware-software co-design flow for AI infrastructure using progressive optimization and verification. Achieves 1.075× faster execution of Qwen3-8B layers compared to SGLang.
+* `hardware` `training` `scaling` [When Does Heterogeneity Pay Off? Understanding GPU-WSE System Complementarity](http://arxiv.org/abs/2610.39222v1)
+  > **TL;DR**: Investigates system-level performance gains from GPU-WSE heterogeneous systems for AI workloads. Proposes hierarchical benchmarking and an analytical model to identify complementarity conditions and bottlenecks. Achieves practical translation of architectural diversity into performance gains.
+* `serving` `MoE` `disaggregation` [PDScope: Breaking the Prefill-Decode Seesaw for Memory-Bound MoE Inference](http://arxiv.org/abs/2610.39216v1)
+  > **TL;DR**: Addresses conflicting prefill (compute-bound) and decode (I/O-bound) resource demands in memory-bound MoE inference via phase decoupling. PDScope predicts expert activations, employs phase-specific scheduling, and optimizes I/O to achieve up to 10.3x prefill and 6.1x decode throughput gains over existing systems.
+* `training` [Rennala NSGD: Asynchronous Stochastic Optimization Beyond Euclidean Geometry](http://arxiv.org/abs/2610.38773v1)
+  > **TL;DR**: Proposes Rennala NSGD, a semi-asynchronous distributed optimizer for non-Euclidean nonconvex settings, providing wall-clock time guarantees under heterogeneous workers. For Euclidean geometry, it matches classical Rennala SGD complexity up to log factors, reducing dimension dependence from linear to logarithmic in some non-Euclidean cases.
+* `serving` `storage` `offloading` [FlatCake: A Flat KVCache Storage Architecture for LLM Serving](http://arxiv.org/abs/2610.38355v1)
+  > **TL;DR**: Proposes FlatCake, a flat KV storage architecture for LLM serving that stores blocks in session order on DRAM/SSD. Achieves 94% cache hit rate (vs 64% baseline), reducing mean TTFT by 1.6× and improving throughput by 1.6×.
+* `training` `networking` [The Endgame of FSDP Communication: Layout-Aware Collectives on Copy Engines, RDMA, and NVSwitch](http://arxiv.org/abs/2610.38228v1)
+  > **TL;DR**: Addresses inefficiencies in FSDP training, specifically layout conversion and communication overhead. Proposes TIDE, a zero-copy collective system using NVSwitch multicast, RDMA, and copy engines. Achieves up to 27.1% step time reduction in large LLM training.
+* `serving` `scaling` [GearUp: DAG-aware Acceleration for Serverless Inference Serving via Slack-guided Pre-loading](http://arxiv.org/abs/2610.38196v1)
+  > **TL;DR**: Proposes GearUp, a serverless DAG inference system that minimizes end-to-end latency by scheduling model loading during DAG slack time and reusing instances. Uses adaptive keep-alive to balance memory and cold starts. Reduces median latency by up to 75.9% and GPU memory by up to 83.9% versus baselines.
+* `serving` `disaggregation` [ConfluxServe: Reconciling Resource Utilization and Parallelism Efficiency across Prefill and Decode in LLM Serving](http://arxiv.org/abs/2610.37810v1)
+  > **TL;DR**: Addresses inefficient resource utilization in LLM serving due to divergent parallelism preferences of prefill and decode. Introduces Conflux Parallelism to co-execute both phases with different parallelism within a batch via operator-level heterogeneous paths. Achieves 1.26-1.62x goodput improvement.
+* `training` `MoE` `kernel` [LRMoE: Demand-Side Load Re-Calibration for Efficient MoE Training on Memory-Constrained Nodes](http://arxiv.org/abs/2610.37720v1)
+  > **TL;DR**: Proposes LRMoE to address memory bottlenecks in MoE training via backward load recalibration and workload balancing. Plans expert placement and retention quotas during forward, then selects token-expert pairs during backward to compact communication and grouped GEMMs. Achieves 21.2-44.8% faster training to fixed loss.
+* `serving` `offloading` `MoE` [Rimuru: Unified Memory Management for Modern LLM Serving via Elastic Expert Offloading](http://arxiv.org/abs/2610.40305v1)
+  > **TL;DR**: Proposes unified memory management for heterogeneous tensors in LLM serving via elastic expert offloading. Rimuru uses a shared page pool with memory views and a multi-level allocator for cross-type capacity reuse, plus a page-table-aware fused MoE kernel. Achieves up to 19.03x throughput and 98.1% TTFT reduction.
+* `serving` `scaling` [PhOSv1: Efficient Scaling of Model Sleeping on a Single Server for Autoscaling with GPU-Context Deduplication](http://arxiv.org/abs/2610.39999v1)
+  > **TL;DR**: Addresses GPU context duplication overhead in model sleeping for autoscaling. Proposes PhOSv1, which deduplicates contexts via API remoting to a central daemon. Reduces GPU memory footprint, improving multi-model serving performance while matching vanilla vLLM's scale-up time.
+* `serving` `storage` `offloading` [FlatCake: A Flat KVCache Storage Architecture for LLM Serving](http://arxiv.org/abs/2610.38355v1)
+  > **TL;DR**: Addresses inefficiencies in KV cache storage for LLM serving caused by tiered DRAM and SSD hierarchies. Proposes FlatCake, a flat architecture unifying media with session-contiguous placement and direct streaming. Achieves 94% cache hit rate (vs. 64%) and up to 2.4x reduction in mean TTFT.
+* `training` `quantization` `hardware` [LLM-PowerTrace: A Dataset of Time-Resolved GPU Power Traces for AI Compute](http://arxiv.org/abs/2610.38315v1)
+  > **TL;DR**: Presents an open dataset of per-GPU power traces (100 ms sampling) for LLM fine-tuning and inference, covering model sizes, quantization, parallelism, and request patterns. Enables modeling and forecasting of power dynamics for AI compute infrastructure with defined power-grid metrics and scaling laws.
+* `serving` [GearUp: DAG-aware Acceleration for Serverless Inference Serving via Slack-guided Pre-loading](http://arxiv.org/abs/2610.38196v1)
+  > **TL;DR**: Reduces DAG inference latency in serverless platforms via slack-guided pre-loading and instance reuse. Achieves up to 10x speedup over cold execution and reduces host memory by 94.6%.
+
 ### 2026-10-28
 * `serving` `sparse` [Request-Adaptive Execution for Efficient Hybrid LLM Inference](http://arxiv.org/abs/2610.37432v1)
   > **TL;DR**: Morph addresses static execution inefficiency in hybrid LLM inference. It introduces a request-adaptive architecture with gating and a serving runtime for selective batching and hybrid-aware caching. System evaluation shows up to 3.87x throughput improvement over baselines.
