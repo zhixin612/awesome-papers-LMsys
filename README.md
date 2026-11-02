@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3523-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.10.30-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3529-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.02-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,20 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-02
+* `quantization` `storage` [Where KV-Cache Error Lives in Looped Language Models: A Diagnostic Study of Ouro and Huginn](http://arxiv.org/abs/2610.41825v1)
+  > **TL;DR**: Examines how quantization errors in KV-cache impact looped language models. Introduces a cell-level allocator to optimize bit allocation, reducing storage to 25-48% of BF16 bytes while maintaining low KL divergence.
+* `training` `scaling` [MemX: Memory-Aware Automatic Parallelism for Cross-Vendor Heterogeneous GPU Training](http://arxiv.org/abs/2610.41525v1)
+  > **TL;DR**: MemX addresses automatic parallelism for training on heterogeneous GPU clusters, jointly optimizing iteration time and memory. Using lightweight profiling and a predictor, it reduces configuration search time to 26.5 seconds for 31,240 configs (vs. 17 days for profiling).
+* `serving` `agentic` `offloading` [HiState: Hierarchical Prefix Cache Management for Hybrid LLM Serving in Agentic Workloads](http://arxiv.org/abs/2610.41508v1)
+  > **TL;DR**: Addresses ineffective prefix caching in hybrid LLM serving for agentic workloads that modify and revisit contexts, leading to recomputation. Proposes HiState, which stores historical recurrent checkpoints on SSD while keeping KV entries in memory, with adaptive interval and unified eviction. Achieves up to 5.73× lower p99 TTFT than vLLM-Marconi.
+* `training` `recommendation` `sparse` [RecIS: Unifying Sparse and Dense Computation for Efficient Recommendation Training](http://arxiv.org/abs/2610.41457v1)
+  > **TL;DR**: Addresses inefficiencies in training large recommender models due to sparse-dense execution mismatch. Proposes RecIS with adaptive fusion, GPU embedding engine, and multistage pipelining to unify computation. Achieves up to 2.62× throughput improvement and 61.5% step latency reduction over baselines.
+* `serving` `networking` `disaggregation` [ARK: Avoiding Routing Collisions for KV Cache Transfer in Disaggregated LLM Inference](http://arxiv.org/abs/2610.41160v1)
+  > **TL;DR**: Addresses KV-cache transfer collisions in disaggregated LLM inference. Proposes ARK, a path reservation mechanism via coordinated source port selection to avoid ECMP hash collisions. Improves mean flow completion time by up to 27.3% and P95 by 34.0%, and reduces mean TTFT by up to 12.9%.
+* `training` `networking` [LLM Fine-Tuning Workloads: Characterization, Challenges, and Opportunities for Serverless AI](http://arxiv.org/abs/2610.40983v1)
+  > **TL;DR**: Characterizes LLM fine-tuning workloads in serverless clusters to address operational challenges. Using a large-scale profiling dataset (30K+ runs), it analyzes throughput, scaling, failure, and optimizations. Key finding: RoCE optimization improves inter-node deployment efficiency (e.g., 0.72 vs. 0.26 without) and can outweigh application-level optimizations.
+
 ### 2026-10-30
 * `serving` [Only Accepted Tokens Count: An Energy Accounting of Speculative Decoding Under Latency Targets](http://arxiv.org/abs/2610.40287v1)
   > **TL;DR**: Analyzes speculative decoding for energy efficiency in LLM serving under latency targets. Using production measurements on H100/H200 GPUs at batch sizes up to 64, finds verification dominates cost; large batches and low token acceptance increase energy per token, negating savings without high acceptance.
