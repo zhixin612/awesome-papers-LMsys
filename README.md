@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3529-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.02-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3562-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.03-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,74 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-03
+* `training` `edge` `offloading` [DynSL: Resource-Adaptive Model Training across Heterogeneous Edge Devices](http://arxiv.org/abs/2611.03209v1)
+  > **TL;DR**: Addresses efficient model training across resource-heterogeneous edge devices. Proposes DynSL, dynamic model layer allocation via system monitoring and optimization. Reduces training time by ∼30% over baselines without accuracy loss.
+* `serving` `networking` [Introducing Cluster Efficiency to LLM Serving: Pooling Economical Accelerators over Fast Interconnects](http://arxiv.org/abs/2611.02975v1)
+  > **TL;DR**: Investigates cost-efficient long-context LLM serving by pooling accelerators over fast interconnects. Introduces a serving stack using pipelined ring transfers, communication overlap, and device-side decode replay to minimize overhead. Achieves 1.07-2.24× tokens per dollar versus an eight-GPU server under three-year costs.
+* `serving` [Dispatch Control for Priority-Based, Multi-Tenant Workflows under Multi-Resource External Rate Limits](http://arxiv.org/abs/2611.02926v1)
+  > **TL;DR**: Addresses unfair resource allocation when calling rate-limited LLM APIs in multi-tenant workflows. Proposes Backpressure, a worker-side admission gate that checks costs atomically and queues denied calls with durable timers. Achieves 0.60 to 0.89 fairness improvement (Jain's index) and 8x tail latency reduction for high-priority tasks.
+* `training` `RL` [Rose: Efficient Embodied RL through Graph Optimization and GPU Compute Resource Control](http://arxiv.org/abs/2611.02705v1)
+  > **TL;DR**: Addresses low GPU utilization in embodied RL training due to coarse pipelining and SM contention. Introduces Rose, a system automating fine-grained overlap via graph transformations and slack-aware GPU resource management. Achieves 1.20-1.92x training throughput improvement and up to 39.3% higher SM activity.
+* `RAG` [OctEx: Billion-Scale Vector Search by Precomputed Lattice Neighbor Lists on GPUs](http://arxiv.org/abs/2611.02556v1)
+  > **TL;DR**: Introduces OctEx for efficient billion-scale vector search by precomputing lattice neighbor lists on GPUs. Replaces chained distance rounds with parallel reads from multiple projected copies and fixed wave processing. On four H100 GPUs, achieves 2.0-46.4x speedup vs CAGRA at 0.95-0.995 recall.
+* `serving` `disaggregation` `scaling` [When Cache Pressure Becomes a Trap: Metastability in Agent Serving](http://arxiv.org/abs/2611.02543v1)
+  > **TL;DR**: Addresses metastable cache collapse under traffic surges in LLM agent serving. Proposes Basin with fixed session priorities, context reservation, and adaptive admission. Achieves 1.20–1.70x higher goodput than Continuum on H200 deployments.
+* `serving` [Conditional Calibration Contracts under Coupled Load: A Branch-Aware Audit of Switched Inference](http://arxiv.org/abs/2611.02121v1)
+  > **TL;DR**: Investigates conditional calibration contracts for switched inference under bursty load. Combines load-coupled distillation, closed-loop replay, and Schmitt routing in a discrete-event simulator. Student p99 latency exceeds 1.5ms target with routing violation tails up to 17.5%.
+* `serving` [Fairway: Load-Aware KV Cache Reuse for LLM Prefill Scheduling](http://arxiv.org/abs/2611.02082v1)
+  > **TL;DR**: Addresses prefill scheduling efficiency and fairness for LLM requests with shared context. Proposes Fairway, an adaptive scheduler using a virtual dual lane model to balance KV cache reuse and request waiting time. Achieves up to 8.6x lower p99 TTFT and 6x lower median during load spikes than baselines.
+* `training` `kernel` [ReWY: Faster Gradient Computation for Delta-Rule Attention Family](http://arxiv.org/abs/2611.01940v1)
+  > **TL;DR**: Reduces backward computation for Delta-rule linear attention via an algebraic reformulation (ReWY) that eliminates unnecessary adjoints and matrix products. Achieves 1.15-1.81× geometric-mean backward speedups on NVIDIA GPUs under matched recomputation policies.
+* `serving` `networking` `scaling` [A Compute Center Anyone Can Join: A Peer-to-Peer System for AI Inference](http://arxiv.org/abs/2611.01865v1)
+  > **TL;DR**: Investigates decentralized AI inference using idle GPUs via a peer-to-peer market. Proposes Open Inference Market with 'earnings as collateral' to deter fraud through random audits. Under model, ~0.3 audits per worker per day prevent profitable cheating, improving scalability and cost.
+* `MoE` `serving` `offloading` [Apto: Self-Adaptive CPU-GPU Hybrid MoE Inference on Shared PCs](http://arxiv.org/abs/2611.01859v1)
+  > **TL;DR**: Enables adaptive CPU-GPU hybrid inference for MoE models under resource contention via dual-ended queue scheduling and tail racing. Achieves up to 5.97× prefill and 3.45× decode speedups over baselines with concurrent CPU loads.
+* `serving` [CacheWeave: Learning to Recompute for Efficient Position-Independent KV Caching](http://arxiv.org/abs/2611.01735v1)
+  > **TL;DR**: Mitigates accuracy loss from position-independent KV caching by selectively recomputing blocks. Proposes CacheWeave: an adapted backbone with a trainable block selector and runtime for GPU-based recomputation. Achieves up to 16.1x lower TTFT vs full prefill and 7.8x higher goodput under load with 1.6% accuracy loss.
+* `serving` `scaling` [GearUp: DAG-aware Acceleration for Serverless Inference Serving via Slack-guided Pre-loading](http://arxiv.org/abs/2610.38196v2)
+  > **TL;DR**: Addresses initialization overhead in serverless DAG-structured inference workflows. Introduces GearUp which leverages DAG slack time for pre-loading and reuses initialized instances with adaptive keep-alive. Reduces median end-to-end latency by 64.5-75.9% and achieves 4.2x strong scaling on four workers.
+* `serving` `agentic` `scaling` [Serving Agentic Robot Fleets: Workload Characterization, KV-Cache Thrashing, and Admission Control](http://arxiv.org/abs/2611.01404v1)
+  > **TL;DR**: Addresses serving challenges in agentic robot fleets with growing KV caches and tight action deadlines. Proposes admission control via static active-episode cap to mitigate KV-cache thrashing. Increases completed trace-program throughput from 1.30 to 5.55 episodes/min and restores brain throughput to 2.24 requests/s.
+* `offloading` `serving` `edge` [Layer-wise CPU-GPU Scheduling for LLM Inference on Memory-Limited Consumer GPUs](http://arxiv.org/abs/2611.01393v1)
+  > **TL;DR**: Addresses high inference latency from weight transfers for memory-exceeding LLMs on consumer GPUs. Proposes CPU layer execution with asynchronous weight transfer scheduling minimized via optimization formulation. Achieves 3.5x and 6.3x speedup for OPT-30B over baselines.
+* `serving` `scaling` [Token-as-a-Utility: A Model-Agnostic Architecture for Metering and Provisioning AI Inference Services](http://arxiv.org/abs/2611.01371v1)
+  > **TL;DR**: Proposes Token-as-a-Utility, a model-agnostic architecture for metering (RIUs), provisioning, and cost recovery in batched LLM inference serving. Integrates occupancy-indexed ratings and capacity leases. Reduces tenant mispricing from 7.36× to 1.06× under multi-tenant workloads.
+* `kernel` [Fast and Exact Relative-Position Attention via Structure-Aware Kernels](http://arxiv.org/abs/2611.01182v1)
+  > **TL;DR**: Optimizes relative-position attention by integrating it into a tiled kernel with offset-aware tiling and reused computations to avoid pairwise overhead. Achieves up to 128x peak memory reduction for 8K sequences.
+* `serving` [Multi-Turn Semantic Caching for Low-Cost LLM Serving](http://arxiv.org/abs/2611.01077v1)
+  > **TL;DR**: Addresses poor cache reuse prediction in multi-turn LLM serving. Proposes learning reuse risk from feedback and budgeted caching optimizers (CUCB-SC-MT/CLCB-LS-MT). Achieves 35-41% less generation cost and 19-35% latency reduction versus baselines with 1,000 cache entries.
+* `edge` `serving` [Ripple: Deadline-Aware CPU-GPU Sharing for Embodied Inference](http://arxiv.org/abs/2611.01067v1)
+  > **TL;DR**: Addresses GPU memory interference from LLM/VLM inference on time-critical CPU tasks in edge devices. Proposes Ripple, a co-scheduler using layer pausing and slack-based GPU-byte budgets to regulate interference. Achieves ≤2% CPU deadline misses and meets VLM deadlines while retaining LLM throughput.
+* `serving` `edge` `scaling` [Clockwork: Scheduling Compound AI Systems in Space Data Centers](http://arxiv.org/abs/2611.00909v1)
+  > **TL;DR**: Addresses how to schedule Compound AI workflows in LEO satellite data centers under latency SLOs and time-varying resources. Proposes Clockwork: Castor handles per-snapshot provisioning and Pollux optimizes time-varying schedules. Castor serves 81% of instances meeting 300 ms SLO; Pollux cuts costs by 56% on average.
+* `serving` `agentic` [LADS: Lease-Aware Delivery Scheduling of Tool Results for Language Model Agents](http://arxiv.org/abs/2611.00881v1)
+  > **TL;DR**: Addresses scheduling bottlenecks for tool-result delivery in LLM agents. Proposes LADS, a scheduler using lease-aware prioritization and bounded prefix leases to manage cache contention and enable earlier request resumption. Reduces mean workflow latency by 44.6% compared to FIFO under bursty conditions.
+* `diffusion` `video` `serving` [Wave Forcing: Towards Speed-of-Light Streaming Video Generation](http://arxiv.org/abs/2611.00859v1)
+  > **TL;DR**: Proposes Wave Forcing for efficient real-time streaming video generation. Utilizes multi-step denoising, causal attention, and Wave Parallelism with optimized runtime for parallelism and communication-computation overlap. Achieves 7.07x end-to-end throughput gain on eight H200 GPUs versus single-GPU baseline.
+* `diffusion` `video` `edge` [Running a 20B Video Diffusion Transformer on Consumer Hardware: A Deployment and Measurement Report for MiniMax H3 on Apple Silicon](http://arxiv.org/abs/2611.00843v1)
+  > **TL;DR**: Deploys a 20B-parameter video diffusion transformer on Apple Silicon via 8-bit quantization. Fixes deployment blockers and measures build time, memory (27.47 GiB peak), and render latency (4838.49 sec for 15-sec clip). Successfully completes 17 clips unattended in 26.49 hours with zero failures.
+* `RL` `quantization` `disaggregation` [When Shards Fly: Cross-Tensor In-Flight Conversion for Low-Latency, Low-Memory Weight Updates in Disaggregated RL](http://arxiv.org/abs/2611.00646v1)
+  > **TL;DR**: Addresses latency and memory overheads in synchronous weight updates for disaggregated RL training. Proposes ShardFly with coordinated transfer planning and fused execution for in-flight conversion and communication. Achieves 1.26–27.92× BF16 weight-update speedup and 5.49–6.71% throughput improvement in end-to-end Qwen3-30B-A3B GRPO.
+* `serving` `kernel` [Weights That Stay: On-Chip Megakernels for Serial Heads in Speculative Decoding](http://arxiv.org/abs/2611.00506v1)
+  > **TL;DR**: Addresses weight transfer overhead in speculative decoding's serial draft heads. Proposes persistent megakernels that keep projection weights on-chip for full draft walks, reusing resident weights across steps. Achieves up to 11.6× faster head steps and 12.3% higher throughput in SGLang.
+* `training` `RL` `agentic` [Sandman: A Sandbox Service for Production Agentic Reinforcement Learning](http://arxiv.org/abs/2610.39711v2)
+  > **TL;DR**: Manages stateful environment creation bursts for agentic RL training. Proposes Sandman, a sandbox service with a daemon for file/process persistence and automated cleanup. Achieves 44% faster sandbox creation time and 2.0 ms median command latency compared to baselines.
+* `serving` `kernel` [Understanding GPU Megakernels: Why Residency Can Mislead](http://arxiv.org/abs/2611.00495v1)
+  > **TL;DR**: Investigate how GPU residency misrepresents overlap opportunities in megakernels for LLM execution. Reconstruct megakernels as separate kernels with programmatic dependent launch to overlap startup and operand loading. Achieves 5.7% reduction in decode-step latency.
+* `serving` `offloading` `agentic` [Rethinking KV Cache Eviction for Agentic LLM Serving](http://arxiv.org/abs/2611.00391v1)
+  > **TL;DR**: Addresses inefficiency in KV cache eviction for agentic LLM workloads. Co-designs prefix eviction with suffix retention and GPU-CPU cache management to minimize recomputation. Reduces time-to-first-token by up to 76% and job completion time by up to 60%.
+* `hardware` [Characterizing Performance Tradeoffs in Heterogeneous GPU-Wafer-Scale Accelerator Systems](http://arxiv.org/abs/2610.39222v2)
+  > **TL;DR**: Investigates how to exploit architectural heterogeneity between GPUs and wafer-scale engines (WSEs) for AI systems. Proposes hierarchical benchmarking and an analytical model to characterize execution and identify when heterogeneity yields performance gains versus becoming a bottleneck. The model enables predicting system-level improvements.
+* `serving` [GearUp: DAG-aware Acceleration for Serverless Inference Serving via Slack-guided Pre-loading](http://arxiv.org/abs/2610.38196v2)
+  > **TL;DR**: Reduces end-to-end latency in serverless DAG inference by initializing ML nodes during DAG slack time and reusing instances, with adaptive keep-alive. Achieves median latency reductions of 64.5% and 75.9% versus SMIless, with up to 10x speedup over cold execution.
+* `serving` `edge` [Ripple: Deadline-Aware CPU-GPU Sharing for Embodied Inference](http://arxiv.org/abs/2611.01067v1)
+  > **TL;DR**: Addresses GPU memory interference between LLM/VLM inference and deadline-critical CPU tasks on edge devices. Proposes Ripple, a CPU-GPU co-scheduler with layer-based pausing and GPU-byte budgeting from CPU slack. Achieves ≤2% CPU deadline misses while meeting VLM deadlines.
+* `serving` `scaling` [RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale](http://arxiv.org/abs/2611.00967v1)
+  > **TL;DR**: Addresses building a reliable and evolvable LLM inference engine to reconcile rapid model evolution with production reliability. Proposes RTP-LLM with separation of model-specific execution and shared serving mechanisms. Processes hundreds of trillions of tokens daily, supporting ~100 models.
+* `edge` `quantization` `kernel` [BitLLM: Efficient Low-Bit, Conversion-Hiding LLM Decoding on Mobile GPUs](http://arxiv.org/abs/2611.00547v1)
+  > **TL;DR**: Seeks to enable efficient LLM inference on mobile devices by mitigating quantization conversion overhead and KV cache memory inefficiencies. Proposes BitLLM with adaptive KV cache layout and integer-native execution to defer conversions. Achieves up to 1.78× speedup and 88.9% lower energy per token.
+
 ### 2026-11-02
 * `quantization` `storage` [Where KV-Cache Error Lives in Looped Language Models: A Diagnostic Study of Ouro and Huginn](http://arxiv.org/abs/2610.41825v1)
   > **TL;DR**: Examines how quantization errors in KV-cache impact looped language models. Introduces a cell-level allocator to optimize bit allocation, reducing storage to 25-48% of BF16 bytes while maintaining low KL divergence.
