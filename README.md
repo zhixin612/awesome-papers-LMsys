@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3581-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-3592-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.11.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,30 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-05
+* `networking` `serving` [flash-comm: Self-Synchronizing Collective Communication for LLM Decoding](http://arxiv.org/abs/2611.06634v1)
+  > **TL;DR**: Reduces communication overhead in distributed LLM inference by fusing data transfers with readiness signaling. Proposes self-synchronizing blocks and an adaptive protocol selector to eliminate separate barriers. Cuts all-reduce latency by up to 43.7% and end-to-end token latency by up to 6.8% on 8 GPUs.
+* `storage` `training` [Chiron: Cache Management Empowered by LLM Intelligence for AI Workloads](http://arxiv.org/abs/2611.06179v1)
+  > **TL;DR**: Chiron addresses cache management for AI workloads with dynamically changing access patterns. It employs an LLM as an asynchronous advisor to recommend policies and a harness to execute them, avoiding direct LLM control costs. Reduces job completion time by 14.3-41.2% over baselines.
+* `serving` `offloading` [Shallow Encoding Emits Deep Memories](http://arxiv.org/abs/2611.06084v1)
+  > **TL;DR**: Addresses high compute and memory overhead in hybrid model serving by enabling shallow prompt processing and compressing recurrent states into low-rank representations. Proposes SEED for lightweight memory writes and bounded state compression. Achieves 1.2-1.4x higher serving throughput for Qwen3.8-Flash-Next on NVIDIA GB300 GPUs.
+* `MoE` `offloading` `disaggregation` [vExpert: Virtualizing Expert Storage for Adaptive Load Balancing in Distributed MoE Inference](http://arxiv.org/abs/2611.06057v1)
+  > **TL;DR**: Addresses dynamic load imbalance in distributed MoE inference due to static expert placement. Introduces vExpert using virtualized storage redundancy and a disaggregated manager for adaptive loading. Achieves up to 55% better load balance and 1.2x speedup.
+* `serving` [A Controlled Experimental Evaluation of Configuration and Cache Architecture in LLM Serving Engines](http://arxiv.org/abs/2611.05991v1)
+  > **TL;DR**: Evaluates configuration and cache architecture effects on LLM serving performance via controlled benchmarks of vLLM vs SGLang. Matched settings reduce latency gaps by 30-67% and reveal SGLang's 2.4-6.4x tail-latency advantage due to cache-aware scheduling at equal throughput.
+* `disaggregation` `kernel` `quantization` [Beyond Compression Ratio: High-Throughput KV Compression for Disaggregated LLM Serving](http://arxiv.org/abs/2611.04382v2)
+  > **TL;DR**: Addresses inefficient KV cache compression in disaggregated LLM serving under high-bandwidth networks. Proposes FastKVComp with fused kernels for distribution and quantization, and an extensible lossless backend. Achieves kernel speedup up to 5.9×, throughput over 500 GB/s, and reduces job time by up to 2.04×.
+* `training` `networking` [CHARM+: Cross-Hardware Attention with Re-Merge Multistream Mechanism](http://arxiv.org/abs/2611.05906v1)
+  > **TL;DR**: How to enhance distributed attention for LLM training on long sequences across hardware with bandwidth imbalance? CHARM+ reorganizes communications for intra-level parallelism and decouples cross-hardware transfers to eliminate synchronization overhead. Achieves up to 2.9x backward speedup on dual-node NVLink vs Ring-Attention.
+* `RL` `training` [Energy-Efficient Reinforcement Learning for Large Language Models](http://arxiv.org/abs/2611.05748v1)
+  > **TL;DR**: Investigates energy reduction in RL for LLMs during alternating generation and training. Proposes EE-RL, an online controller that dynamically adjusts GPU frequencies for each phase. Reduces GPU energy per token by up to 16.9% at modest throughput cost.
+* `diffusion` `serving` `quantization` [Runway Characters: Serving a 57B Video Diffusion Transformer for Real-Time Conversation](http://arxiv.org/abs/2611.05642v1)
+  > **TL;DR**: Addresses real-time serving challenges of a 57B video diffusion transformer for 24fps conversations. Proposes optimizations including ring KV cache, FP8 quantization once per write, and fused kernel for tensor-parallel all-reduce. Achieves per-chunk latency reduction from 240.9 ms to 147.4 ms (1.63× speed-up).
+* `training` `kernel` `hardware` [Unlocking Turing Tensor Cores: A Measured Throughput Account of From-Scratch Pre-training on a Single 22G RTX 2080 Ti](http://arxiv.org/abs/2611.05419v1)
+  > **TL;DR**: Addresses vendor throttling of FP16 matmul on RTX 2080 Ti. Develops kernel module (turing-unlock) to unlock hardware limits by modifying driver-level speed selectors. Achieves 11.8% higher training throughput (6,480 to 7,246 tok/s) and 9.0% wall time reduction for a 75.7M-parameter model.
+* `edge` `offloading` [UMLoad: Fast On-Demand Model Loading on Unified Memory Architecture](http://arxiv.org/abs/2611.04253v2)
+  > **TL;DR**: Addresses high model-loading latency in on-device AI with unified memory. Proposes UMLoad, a system decoupling logical/physical memory via on-demand reconstruction and GPU-assisted zeroing. Reduces time-to-first-token by 51.3%-59.3% and loading time by up to 71.9%.
+
 ### 2026-11-05
 * `serving` `kernel` `disaggregation` [What Sets the Serving Speed of Looped Language Models? Measurements and Optimizations Graded by Exactness](http://arxiv.org/abs/2611.05150v1)
   > **TL;DR**: Investigates serving bottlenecks in looped language models caused by per-layer overhead and small kernels. Proposes kernel fusion with exactness guarantees and prefill-decode disaggregation optimizations. Achieves up to 3.3x higher throughput and reduces KV commit tail latency from 2.8s to 16ms.
