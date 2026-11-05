@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3562-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.03-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3581-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.05-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,46 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-05
+* `serving` `kernel` `disaggregation` [What Sets the Serving Speed of Looped Language Models? Measurements and Optimizations Graded by Exactness](http://arxiv.org/abs/2611.05150v1)
+  > **TL;DR**: Investigates serving bottlenecks in looped language models caused by per-layer overhead and small kernels. Proposes kernel fusion with exactness guarantees and prefill-decode disaggregation optimizations. Achieves up to 3.3x higher throughput and reduces KV commit tail latency from 2.8s to 16ms.
+* `serving` `networking` `MoE` [Workload-Static Optical Circuit Switching For Scalable LLM Inference Decode](http://arxiv.org/abs/2611.05104v1)
+  > **TL;DR**: Reduces communication latency in LLM inference decode via workload-static optical circuit switches co-designed with model parallelism and topology-aware collective schedules. In a 576-accelerator domain serving MoE models, achieves up to 65% higher interactivity and 119% better energy efficiency over packet-switched fabrics.
+* `kernel` [ForgeKernel: Self-Evolving Kernels Catching and Surpassing Experts and Agents](http://arxiv.org/abs/2611.04998v1)
+  > **TL;DR**: Addresses the lack of cross-run knowledge accumulation in GPU kernel optimization. Proposes ForgeKernel, a self-evolving system that distills hardware decisions into reusable knowledge and iteratively seals validated kernels as references. Achieves geometric-mean performance gains of 10% on NVIDIA and 25.1% on Ascend GPUs.
+* `training` [TapeSAC: Automated, Pareto-Optimal Fine-Grained Memory Management for Large Model Training](http://arxiv.org/abs/2611.04897v1)
+  > **TL;DR**: Addresses Pareto-optimal trade-off between peak memory and recomputation in large model training. Introduces TapeSAC, which automates selective activation checkpointing via forward replay and memory-aware planning. On Qwen3.5-397B, achieves 2.7% faster training with 14% less memory than a hand-tuned policy.
+* `MoE` `serving` `offloading` [Accelerating Offloading-Based MoE Inference by Interleaving Concurrent Requests](http://arxiv.org/abs/2611.04794v1)
+  > **TL;DR**: Addresses inefficient GPU utilization in offloading-based MoE inference due to prefetching inaccuracies. Introduces Bevy, a runahead inference scheduler that batches ready requests and prioritizes lagging ones to fetch missing experts without prediction. Achieves up to 3.46× higher decode throughput than llama.cpp.
+* `serving` `sparse` `offloading` [LeanSparse: Memory-Efficient Serving for Native Sparse-Attention LLMs](http://arxiv.org/abs/2611.04671v1)
+  > **TL;DR**: Addresses high GPU memory demands in serving sparse-attention LLMs. Proposes LeanSparse, which streams layer histories during prefill and uses coarse-to-fine indexing during decode with reusable buffers. Achieves 2.95x more concurrent requests and 2.14x higher decode throughput at 950K context length over HiSparse.
+* `video` `edge` `quantization` [Running a 20B Video Diffusion Transformer on Consumer Hardware: A Deployment and Measurement Report for MiniMax H3 on Apple Silicon](http://arxiv.org/abs/2611.00843v2)
+  > **TL;DR**: Documents the deployment and measurement of a 20B video diffusion transformer on consumer Apple Silicon using 8-bit quantization. Key metrics: a 15.08s clip rendered in 4838.49s with peak memory 27.467GiB.
+* `serving` `edge` `storage` [EvoCache: Accelerating Browser Large Language Model Delivery with Public Cache Anchors](http://arxiv.org/abs/2611.04638v1)
+  > **TL;DR**: Proposes EvoCache, a browser-managed LLM delivery system using public cache anchors to reconstruct models without full downloads. Achieves 78.9% network traffic reduction and 64.2% page-ready time reduction.
+* `training` `kernel` [ReWY: Faster Backpropagation for Delta-Rule Attention - From 7 to 3 Matrix Multiplications](http://arxiv.org/abs/2611.01940v2)
+  > **TL;DR**: Reduces delta-rule attention backpropagation cost by algebraically reformulating the WY decomposition from 7 matrix multiplies to 3. ReWY eliminates redundant adjoint computations via triangular residuals and complementary reuse transformations. Achieves 1.15-1.81× geometric mean backward speedup on NVIDIA GPUs under recompute policies.
+* `training` `serving` `disaggregation` [LiquidCP: Decoupling Attention Tasks from Communication and Kernel Boundaries in Context Parallelism](http://arxiv.org/abs/2611.04401v1)
+  > **TL;DR**: Addresses inefficiencies in context parallelism for LLM training and inference, such as uneven token loads and step overhead. Proposes LiquidCP with decoupled Transfer-Compute-Reduction tasks, MegaRing for training/prefill via balanced placement and KV coalescing, and MegaDCP for decoding. Achieves 1.23× geometric-mean core-attention speedup forward and 1.22× TTFB speedup in vLLM serving.
+* `serving` `disaggregation` `kernel` [Beyond Compression Ratio: High-Throughput KV Compression for Disaggregated LLM Serving](http://arxiv.org/abs/2611.04382v1)
+  > **TL;DR**: Investigates how inefficient KV cache compression negates communication savings in disaggregated LLM serving. Proposes a fused distribution-quantization kernel and high-throughput lossless backend. Achieves 5.9× compression kernel speedup, 500+ GB/s compression throughput, and 2.04× job completion time reduction.
+* `MoE` `serving` `quantization` [GC-MoE: Overlapping Expert-Parallel Token Dispatch with FP8/FP4 Grouped GEMM via CUDA Green Contexts](http://arxiv.org/abs/2611.04222v1)
+  > **TL;DR**: Accelerates MoE inference by overlapping token dispatch and computation. Proposes GC-MoE, partitioning the GPU into communication and compute partitions via CUDA Green Contexts and using FP8/FP4 quantization. Achieves up to 1.353x speedup over baseline on H20 GPUs for DeepSeek-V4.1-Flash.
+* `serving` `quantization` `storage` [LoopKV: Loop-Aware KV Cache Compression for Serving Looped Transformers](http://arxiv.org/abs/2611.04137v1)
+  > **TL;DR**: Reduces KV cache memory in looped transformers via per-cell (loop,layer) quantization planning for storage efficiency. LoopKV profiles sensitivity to choose 2/4-bit storage or reuse, fetching low bits only when needed. Stores 35% less KV than KIVI-4, increasing goodput 1.7-2.2x under latency SLO.
+* `agentic` [The Agent Board: Kanban for Machines; Durable Coordination for Agents That Outlive the Conversation](http://arxiv.org/abs/2611.04100v1)
+  > **TL;DR**: Addresses durable coordination for multi-agent LLM workloads that persist beyond single interactions. Proposes the Agent Board, a kanban-inspired shared task table with a Board Keeper to match events and allocate agents. Wait cost remained flat with wait length, while naive polling cost increased 165-fold.
+* `serving` `disaggregation` `scaling` [ROCm InferaSim: Cut LLM Serving Trial Costs and Deploy the Best Configuration](http://arxiv.org/abs/2611.04032v1)
+  > **TL;DR**: Reduces trial costs for finding optimal LLM serving configurations. ROCm InferaSim predicts performance from minimal anchors using analytical scaling, benchmark reduction, and simulation. Uses 11 anchors (9.1 GPU-h) versus 204 GPU-h for 226 configs, achieving 8.1% median error on token time and within 5.5-12% of best throughput.
+* `LoRA` `serving` `RL` [EpiLoRA: Fusing Many LoRA Adapters into Low-Precision GEMMs for Serving and RL](http://arxiv.org/abs/2611.03899v1)
+  > **TL;DR**: Addresses inefficiency in multi-tenant LoRA serving and RL training by fusing adapter operations with GEMM kernels via an epilogue integration. Achieves up to 24% lower per-token latency in serving than vLLM and enables training 27B models on a single GPU.
+* `serving` [TRIAGE: Reliability- and Load-Conditioned Escalation for Two-Tier LLM Serving with a Semantic Evidence Judge](http://arxiv.org/abs/2611.01174v1)
+  > **TL;DR**: Addresses efficient two-tier LLM serving by escalating requests conditionally using reliability state and load-dependent cost. Introduces a semantic evidence judge for routing. Achieves 79.5% lower API cost for GPT-3.5 to GPT-4 cascade with only 3 pp performance gap.
+* `serving` `agentic` [ToolSched: Resource-Efficient Tool Scheduling for Shared-Host LLM Agents](http://arxiv.org/abs/2611.05269v1)
+  > **TL;DR**: Addresses resource contention for shared-host LLM agents. Proposes ToolSched, a scheduler using agent-provided resource hints and real-time monitoring to optimize command execution. Achieves 148.4% higher resource utilization and 29.4% increased throughput.
+* `edge` `serving` [UMLoad: Fast On-Demand Model Loading on Unified Memory Architecture](http://arxiv.org/abs/2611.04253v1)
+  > **TL;DR**: Reduces model loading latency for on-device AI via UMLoad, which decouples logical/physical memory and uses on-demand reconstruction and GPU-assisted page zeroing. Achieves up to 62.7% faster loading and 59.3% lower time-to-first-token vs. prior loaders.
+
 ### 2026-11-03
 * `training` `edge` `offloading` [DynSL: Resource-Adaptive Model Training across Heterogeneous Edge Devices](http://arxiv.org/abs/2611.03209v1)
   > **TL;DR**: Addresses efficient model training across resource-heterogeneous edge devices. Proposes DynSL, dynamic model layer allocation via system monitoring and optimization. Reduces training time by ∼30% over baselines without accuracy loss.
