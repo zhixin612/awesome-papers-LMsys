@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3592-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.05-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3606-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.06-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,36 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-06
+* `quantization` `offloading` [StrataFlux: Memory-Hierarchy-Native Low-Bit LLM Inference](http://arxiv.org/abs/2611.08363v1)
+  > **TL;DR**: StrataFlux addresses quantization's accuracy loss in LLM inference without stalling by co-designing refinement from RAM/SSD. It uses selective precision streaming, overlapping with computation. For 2-bit Llama-3.1-8B-Instruct, perplexity drops from 9.46 to 8.40 with 95.4% throughput retention versus the quantized baseline.
+* `serving` `diffusion` [Measured Coupling for Parallel Decoding in Diffusion Language Models](http://arxiv.org/abs/2611.08307v1)
+  > **TL;DR**: Proposes measuring token couplings via probes during forward pass for parallel decoding in diffusion language models, replacing mean-field penalties. This method reduces required decoding steps without extra training. On benchmarks, it uses fewer steps and is faster than mean-field, with 1.1-point average accuracy cost.
+* `offloading` `video` `multi-modal` [Precision - Preserving Subtensor Inference for a 22B Joint Audio - Video Generator under a Fixed GPU Working Set](http://arxiv.org/abs/2611.08023v1)
+  > **TL;DR**: Addresses GPU memory constraints for large audio-video transformer inference. Proposes PSI, a sub-block weight streaming runtime with managed state and reusable pages to preserve precision. Reduces peak memory from 8,578 MiB to 360 MiB while enabling full generation under 3 GiB memory cap.
+* `RL` `training` [SEER: A Scalable Event-Driven Runtime for Parallel Execution of Multi-Agent Reinforcement Learning Environments](http://arxiv.org/abs/2611.07996v1)
+  > **TL;DR**: Addresses the latency bottleneck in multi-agent RL environment execution during training. Introduces SEER, an event-driven runtime with a dual-layer event queue and preflight-guided thread-pool selection. Achieves up to 64.9% lower environment-execution latency on a wireless management workload.
+* `RAG` `networking` `scaling` [ZeroRAG: Adaptive Semantic Peer Routing for Decentralized Retrieval-Augmented Generation](http://arxiv.org/abs/2611.07928v1)
+  > **TL;DR**: Addresses centralized storage limitations in RAG with ZeroRAG, a decentralized peer routing using adaptive semantic walks. Achieves recall comparable to centralized systems, reduces network messages, and scales to 100,000 peers.
+* `hardware` `kernel` [Characterizing CUDA Locality Domains on Blackwell GPUs](http://arxiv.org/abs/2611.07535v1)
+  > **TL;DR**: Characterizes CUDA Locality Domains on Blackwell GPUs to mitigate cross-die latency via die-aware adaptations and kernel-level GPU driver fixes. Achieves up to 111.3% speedup in memory bandwidth and reduces GPU memory allocation overhead by 7x~10x.
+* `kernel` `quantization` [ZYFA: Speed and Accuracy of FP8 FlashAttention on AMD CDNA4](http://arxiv.org/abs/2611.07496v1)
+  > **TL;DR**: Optimizes FP8 attention kernels for AMD GPUs to enhance speed and accuracy. Proposes ZYFA with direct score-to-probability conversion, overlapped computation via ping-pong scheduling, and scaled rounding. Achieves up to 1.76x throughput improvement over vendor kernels with reduced error.
+* `training` `kernel` `MoE` [KOSMOS: Self-scheduling Persistent Kernels for Communication-Compute Overlap](http://arxiv.org/abs/2611.07477v1)
+  > **TL;DR**: Reduces training idle time by introducing self-scheduling persistent kernels that dynamically switch between communication and computation roles without predefined splits. KOSMOS fuses tensor/expert parallelism collectives with GEMMs and fully processes expert layers in one kernel launch. Achieves 1.10-1.83x end-to-end training speedup on AMD GPUs.
+* `serving` `scaling` [Not All Loops Cost the Same: Phase-Dependent Depth for Serving Looped Transformers](http://arxiv.org/abs/2611.07211v1)
+  > **TL;DR**: Proposes LoopDuet for phase-dependent depth allocation in looped transformers to decouple prefilling/decoding costs. Dynamically adjusts prefilling depth via queue-based controller and batches recurring tokens. Achieves 19% higher throughput at fixed accuracy and up to 1.35 EM gain under load.
+* `MoE` `disaggregation` `serving` [FastAFD: When Does Attention-FFN Disaggregation Pay on Rack-Scale NVLink?](http://arxiv.org/abs/2611.07149v1)
+  > **TL;DR**: Examines when attention-FFN disaggregation (AFD) boosts throughput for MoE models on rack-scale NVLink. Introduces FastAFD, an engine overlapping attention and MoE computations across microbatches. Achieves up to 1.17x higher decode throughput over wide expert parallelism.
+* `serving` `kernel` `hardware` [NUMA-Torch: Compiler-Driven NUMA-Aware LLM Prefill on Multi-Socket CPUs](http://arxiv.org/abs/2611.07105v1)
+  > **TL;DR**: Addresses LLM prefill throughput bottleneck from inefficient DRAM access on multi-socket CPUs. Introduces NUMA-aware Tensor Parallelism via compiler extensions to enforce data locality. Achieves up to 2.63x speedup on dual-socket platforms.
+* `training` `networking` [DMuon: Scaling Matrix Optimizers in Data Parallelism with Topology-Aware Matrix Ownership and Communication](http://arxiv.org/abs/2611.07084v1)
+  > **TL;DR**: Mitigates communication overhead of matrix optimizers in data-parallel training with topology-aware matrix ownership and communication scheduling. DMuon achieves 1.05× median training throughput of PyTorch FSDP2 on 256 GPUs.
+* `agentic` `serving` [The Two-Ledger Model: Transaction-Grain Cost Accounting for Multi-Agent AI Systems Across Clouds, Models, and Systems of Record](http://arxiv.org/abs/2611.06989v1)
+  > **TL;DR**: Addresses the lack of transaction-grain cost accounting in multi-agent AI systems. Proposes the Two-Ledger Model combining settlement and attribution ledgers with a correlation spine. Mid-flight gating reduces p99 transaction cost by up to 61% at a 2-4% false-pause rate.
+* `RL` `MoE` `training` [Resource-Efficient Reinforcement Learning Post-Training through Elastic Expert Parallelism](http://arxiv.org/abs/2611.06984v1)
+  > **TL;DR**: Addresses worker idleness after local response generation in RL post-training for mixture-of-experts. FlexFloor adapts scheduling and active workers using response history, then progressively releases resources. Achieves 65.40% more tokens per computing time and 52.74% higher throughput with minimal reward variation.
+
 ### 2026-11-05
 * `networking` `serving` [flash-comm: Self-Synchronizing Collective Communication for LLM Decoding](http://arxiv.org/abs/2611.06634v1)
   > **TL;DR**: Reduces communication overhead in distributed LLM inference by fusing data transfers with readiness signaling. Proposes self-synchronizing blocks and an adaptive protocol selector to eliminate separate barriers. Cuts all-reduce latency by up to 43.7% and end-to-end token latency by up to 6.8% on 8 GPUs.
