@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3606-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.06-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3624-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,44 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-10
+* `serving` `networking` `RAG` [Nebula: Distributed Position-Independent Caching for LLM Serving](http://arxiv.org/abs/2611.09474v1)
+  > **TL;DR**: Proposes Nebula, a distributed LLM serving framework for position-independent caching and parallel prefill. Uses optimistic accounting, ghost-hit feedback for cache tuning, and a prefill time model for scheduling. Reduces median TTFT by 61.4% and recovers 76.1% of tokens missed by prefix caching compared to baselines.
+* `serving` `quantization` `kernel` [MINE: Entropy-coded Memory-efficient Inference for Large Language Models](http://arxiv.org/abs/2611.09424v1)
+  > **TL;DR**: Proposes MINE, an entropy-coded inference engine for memory-bound single-stream LLM serving. Uses GPU-optimized dtANS-LLM compression with auto-tuned tensor parameters and vLLM integration. Achieves 2.52× speedup vs baselines on RTX 4060 Ti at 2.24 effective bits/weight.
+* `training` `multi-modal` [DataHelix: A CPU-GPU Co-Scheduling Data Plane for Multimodal Model Training](http://arxiv.org/abs/2611.09411v1)
+  > **TL;DR**: Addresses pipeline bubbles from heterogeneous CPU-GPU processing in synchronous multimodal training. Proposes DataHelix, a metadata-driven co-scheduling data plane with token-latent-aware batching and cost-gated rebalancing. Achieves 2.72x geometric-mean throughput over rank-local DataLoaders on 8 accelerators.
+* `training` `RL` `thinking` [RPEG: Training Reasoning Language Models Scalably and Cost-Effectively](http://arxiv.org/abs/2611.09207v1)
+  > **TL;DR**: Addresses scalability and cost challenges in training reasoning LLMs using reinforcement learning. Proposes RPEG, a graph-based system for joint pipeline structure and execution optimization with stage fusion, scheduling, and parallelism. Achieves up to 2.48x lower step latency and 30% higher hardware utilization.
+* `MoE` `RL` `training` [AdaFloor: Adaptive Floor Planning and Rank-Time Reuse for Long-Tail MoE RL Rollouts](http://arxiv.org/abs/2611.06984v2)
+  > **TL;DR**: Reduces dummy run in MoE RL rollouts via adaptive leases for idle ranks using KV-safe prediction and dynamic EP group resizing. Achieves 96.15% reduction in dummy run rank-seconds on DeepScaleR rollouts.
+* `training` `networking` [DMuon-2: Scaling Matrix Optimizers in Data Parallelism with Topology-Aware Matrix Ownership and Communication](http://arxiv.org/abs/2611.07084v2)
+  > **TL;DR**: Enables efficient matrix optimizers in data-parallel training. Designs DMuon with topology-aware matrix ownership and communication scheduling, balancing load across owners. On 256 GPUs, achieves median 1.05× throughput of FSDP2 and 2.1× vs gather-then-replicate baseline.
+* `edge` `serving` [UniExit: A Unified Latency-Aware Early-Exit Runtime for Heterogeneous Edge AI](http://arxiv.org/abs/2611.09159v1)
+  > **TL;DR**: Addresses latency variability in edge inference for Transformer/CNN workloads. Proposes UniExit runtime with dynamic early-exit decisions based on runtime-state latency prediction. Reduces redundant computation and energy consumption while improving deadline satisfaction over baselines.
+* `serving` `RAG` [DARIC: A Position-Independent KV Cache Reuse System with Distribution-Aware Recomputation](http://arxiv.org/abs/2611.09109v1)
+  > **TL;DR**: Proposes DARIC, a system-algorithm co-design for position-independent KV cache reuse that adaptively schedules token recomputation based on empirical KV deviation patterns. A lightweight architecture enables minimal overhead and preserves existing optimizations. Achieves 1.1×–4.5× TTFT speedup with negligible quality loss.
+* `MoE` `serving` `networking` [ISER-MoE: Dynamic In-Switch Replication of Hot Experts for Load Balancing in Expert-Parallel](http://arxiv.org/abs/2611.09008v1)
+  > **TL;DR**: Addresses load imbalance caused by hot experts in MoE serving layers. Proposes ISER-MoE, which uses in-switch multicast to GPU groups and overlapped scheduling. Achieves up to 17.4% throughput improvement in prefill serving of DeepSeek-V4-Pro.
+* `serving` [Capital Efficiency, Isolation, Risk, and Ruin in Generative AI Inference Serving Infrastructure](http://arxiv.org/abs/2611.08999v1)
+  > **TL;DR**: Addresses low capital efficiency in generative AI serving infrastructure due to heterogeneous request costs. Proposes workload isolation to group similar requests onto dedicated fleet replicas. Prevents expensive requests from degrading entire fleet efficiency, improving capital utilization.
+* `serving` `agentic` [Inside the Trap: A Renewal Law for Prefix-Cache Collapse in LLM Agent Serving](http://arxiv.org/abs/2611.08902v1)
+  > **TL;DR**: Analyzes a trap state in LLM agent serving where bursts cause prefix-cache misses and non-draining backlog. Proposes a session cap to restore cache reuse, rescuing 9/9 traps without session shedding and achieving operational recovery at the same load.
+* `training` `RL` `scaling` [Adaptive Scheduling Pipeline for Multi-Instance Asynchronous Reinforcement Learning](http://arxiv.org/abs/2611.08864v1)
+  > **TL;DR**: Addresses rollout underutilization in multi-instance asynchronous RL training of LLMs via Adaptive Scheduling Pipeline (ASP). ASP reduces three sources of bubbles through offline preprocessing, enabling efficient scaling. Achieves 3.22x higher throughput and reduces iteration time by 76.8% versus MindSpeed-RL.
+* `disaggregation` `quantization` `serving` [ReKV: Overlapping Quantized KV Transfer and Suffix Recomputation](http://arxiv.org/abs/2611.08770v1)
+  > **TL;DR**: Reduces handoff latency in prefill-decode disaggregation by overlapping transfer of quantized prefix KV cache and suffix recomputation. Achieves up to 3.65x lower latency over BF16 transfer for 8K context.
+* `serving` `kernel` [The GPU Needs an Operating System](http://arxiv.org/abs/2611.08720v1)
+  > **TL;DR**: Addresses low GPU utilization (6-11%) in model serving due to memory waits. Proposes a GPU OS that schedules urgent work and fills idle capacity with other tasks. Achieves under 2% slowdown when sharing the GPU and outperforms vLLM for a single request.
+* `quantization` `serving` [ResServe: Accurate and Efficient FP4 LLM Inference with Residue Compensation](http://arxiv.org/abs/2611.08713v1)
+  > **TL;DR**: Enhances FP4 LLM inference by introducing a residue compensation scheme to recover quantization losses using spare compute capacity, applying selective compensation during decoding. Achieves 22.4-53.3% lower latency than W4A8 while improving generation accuracy by 15.04% with NVFP4.
+* `agentic` `edge` [CPU Micro-Architectural Characteristic Sensitivity Study on CPU-Side Agentic Task Latency](http://arxiv.org/abs/2611.08697v1)
+  > **TL;DR**: Studies how CPU micro-architectural parameters (core/uncore frequencies, core count) affect agentic AI latency on edge devices. Uses TerminalBench for benchmarking on Intel CPUs. Increasing P-core frequency from 2.5 to 5.5 GHz yields 1.341× speedup for multi-agent inference.
+* `training` `MoE` [AutoParallel: Composable, PyTorch-Native Automatic Parallelism for Production Training](http://arxiv.org/abs/2611.08660v1)
+  > **TL;DR**: Automates parallelization planning for training large models in PyTorch. Proposes AutoParallel, a composable planner that searches parallel strategies and outputs native PyTorch programs. Achieves up to 18.3% higher throughput than expert recipes on dense, hybrid, and MoE models.
+* `serving` `offloading` `agentic` [MORTIS: Compiler-Guided KV-Cache Management for LLM Agent Programs](http://arxiv.org/abs/2611.08638v1)
+  > **TL;DR**: Optimizes KV-cache management for LLM agent inference by using compiler analysis of program variables to guide cache reordering, retention, and prefetching. Achieves up to 1.99x speedup in job completion time and 1.97x throughput gain over SGLang.
+
 ### 2026-11-06
 * `quantization` `offloading` [StrataFlux: Memory-Hierarchy-Native Low-Bit LLM Inference](http://arxiv.org/abs/2611.08363v1)
   > **TL;DR**: StrataFlux addresses quantization's accuracy loss in LLM inference without stalling by co-designing refinement from RAM/SSD. It uses selective precision streaming, overlapping with computation. For 2-bit Llama-3.1-8B-Instruct, perplexity drops from 9.46 to 8.40 with 95.4% throughput retention versus the quantized baseline.
