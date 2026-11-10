@@ -3,7 +3,7 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3624-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/total_papers-3649-blue?logo=gitbook)
 ![Static Badge](https://img.shields.io/badge/update-2026.11.10-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
@@ -24,6 +24,58 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-10
+* `MoE` `offloading` `serving` [Release Sooner, Expose Less: Offloading MoE Dispatch in NCCL-EP under Dual-Batch Overlap](http://arxiv.org/abs/2611.12362v1)
+  > **TL;DR**: Addresses exposed communication time in MoE dispatch under dual-batch overlap. Proposes offloading via GPU-Friendly Descriptors and host thread progression to hide network latency. Achieves up to 42% lower median TPOT in disaggregated vLLM serving.
+* `serving` `disaggregation` `agentic` [Evolving Infra: Agent-Adaptive LLM Serving at Scale](http://arxiv.org/abs/2611.12304v1)
+  > **TL;DR**: Addresses load imbalance and KV cache inefficiency in agentic LLM serving. Proposes Evolving Infra, decoupling compute and KV cache management for adaptive node switching, with online planning and agent-aware caching. Reduces mean latency by 4.1x and P95 TTFT by 14x.
+* `recommendation` `serving` [RecoGEM: A Serving System for Production-Scale Generative Recommendation](http://arxiv.org/abs/2611.12296v1)
+  > **TL;DR**: Addressing high serving costs and latency in generative recommendation (GR) due to autoregressive decoding over large item spaces. RecoGEM uses a runtime-engine decoupled architecture and optimizes execution for GR's short sequences. Achieves >1,000 QPS per instance, P99<35ms latency, and 2.88x throughput improvement.
+* `RL` [Adaptive Scheduling Pipeline for Multi-Instance Asynchronous Reinforcement Learning](http://arxiv.org/abs/2611.08864v2)
+  > **TL;DR**: Reduces rollout underutilization in RL for LLMs via the ASP offline scheduler. ASP addresses padding, skewness, and sorting bubbles to enhance throughput and scale efficiently. Achieves up to 3.22× end-to-end throughput gain over baselines and reduces training time from over three to two months in practice.
+* `serving` `kernel` `quantization` [MINE: Entropy-coded Memory-efficient Inference for Large Language Models](http://arxiv.org/abs/2611.09424v2)
+  > **TL;DR**: Proposes MINE, an entropy-coded memory-efficient inference engine using dtANS-LLM for GPU to optimize compression vs. latency in LLM single-stream decoding. Integrates with vLLM and auto-tunes per tensor and GPU, achieving up to 2.52× speedup on an RTX 4060 Ti.
+* `serving` `thinking` [Late but Valuable: Why Deadlines Change the Measured Value of LLM Reasoning](http://arxiv.org/abs/2611.11910v1)
+  > **TL;DR**: Investigates the impact of deadlines on LLM reasoning value in automated systems with fallback actions. Tests via synthetic decisions and request bursts, showing that under high load, thinking mode deadline compliance fell from 79.2% to 1.4% while total output tripled.
+* `serving` `MoE` `networking` [OverlapAdvisor: Modeling and Adapting Computation-Communication Overlap for Distributed MoE Serving](http://arxiv.org/abs/2611.11857v1)
+  > **TL;DR**: Addresses adaptive computation-communication overlap strategy selection for distributed MoE serving. Proposes OverlapAdvisor, which models overlap dependencies and enables configuration-aware scheduling. Achieves up to 1.59x kernel speedups and 31.7% end-to-end throughput improvement.
+* `hardware` `kernel` [Exploiting Native Hardware Heterogeneity: Custom GPSIMD Operators for Accelerating Emerging LLM Memory on AWS Trainium](http://arxiv.org/abs/2611.11820v1)
+  > **TL;DR**: Accelerates Engram memory computations for DeepSeek-V4.1-Flash by extending AWS Trainium support to custom GPSIMD operators. Introduces a toolchain compiling C++ operators for GPSIMD and injecting them into NEFF. Achieves up to 1.14× speedup in Engram computation during decode.
+* `serving` `storage` [Why Kubernetes Cannot Contain a Full Lazy-Pulling Cache: Two Impossibility Results and a Bounded, Honest Design for Model Serving](http://arxiv.org/abs/2611.11739v1)
+  > **TL;DR**: Addresses unbounded cache in Kubernetes lazy-pulling for model serving leading to failures. Designs a byte-budgeted cache with pass-through semantics for bound enforcement. Achieves zero errors reading 150.3 GB vs. baseline failing 273/280 files, with 18.5% higher completion cost.
+* `MoE` `serving` `offloading` [Ostinato: Fast CPU-GPU MoE Inference for Local Agents via Resident Experts in Every Forward Pass](http://arxiv.org/abs/2611.11533v1)
+  > **TL;DR**: Ostinato addresses MoE inference latency on CPU-GPU systems by splitting expert routes to compute most on the GPU, uploading cold experts once for long prefills, and using fixed-shape CUDA graphs for decodes. Reduces median wait after tool outputs by 22-55% and achieves 1.4-2.5x faster session completion.
+* `MoE` `serving` `kernel` [A Per-Step Load-Balancing Engine for Expert-Parallel MoE Serving](http://arxiv.org/abs/2611.11402v1)
+  > **TL;DR**: Addresses load imbalance in Mixture-of-Experts serving due to dynamic token routing. Introduces Relief, a hardware-efficient engine using bidirectional pairwise relaxation for per-step GPU load balancing. Achieves up to 37.3 percentage points higher effective utilization versus static placement.
+* `training` `MoE` `offloading` [OOM: Offload-Optimized Full-Parameter MoE Training via Memory-Execution Co-Design](http://arxiv.org/abs/2611.11364v1)
+  > **TL;DR**: Enables full-parameter MoE training by co-designing memory offloading and execution planning to fit GPU/host memory. Optimizes residency and workset partitioning via dependency-aware scheduling and retention. Achieves training 1M-token contexts and 122B models with up to 7.77x throughput and 3x less host memory than FSDP2.
+* `training` `networking` [NCCL-BOT: Closing the Loop on NCCL's Cost Model with Online Bandits](http://arxiv.org/abs/2611.11303v1)
+  > **TL;DR**: NCCL-BOT replaces NCCL's analytic cost model for collective communication selection with an online bandit tuner learning from latency measurements. It reduces contexts with >10% loss from 19 to 1 and p99 loss from 103% to 9.9% in distributed training scenarios.
+* `training` [FRESCO: A Novel Consistency Control for Asynchronous Pipeline Parallel Training](http://arxiv.org/abs/2611.11238v1)
+  > **TL;DR**: Resolves training instability in asynchronous pipeline parallelism by addressing gradient inconsistency via FRESCO, a constrained optimization method that minimizes update modifications to preserve activation subspaces. Achieves baseline loss with 43% fewer iterations, 30% less wall-clock time, and 8-921x lower memory overhead at depth 32.
+* `training` `networking` `scaling` [Network Contention State Aware Dynamic Optimizer for Accelerator Collective Communication Libraries](http://arxiv.org/abs/2611.10984v1)
+  > **TL;DR**: Addresses performance degradation of static collective communication heuristics under network contention. Proposes a dynamic optimizer with LSTM-based detector and DQN-based selector to adapt configurations. Achieves 36% lower AllReduce latency than NCCL and up to 65% speedups in AI workloads.
+* `agentic` `RL` `scaling` [Firepool: Brokering Warm GPU Capacity for Agentic and RL Workloads at LinkedIn](http://arxiv.org/abs/2611.10832v1)
+  > **TL;DR**: Addresses high startup latency for short agentic and RL GPU jobs by proposing Firepool, which brokers warm GPU pods with caller-bound reuse, standby pods in fractional shares, and queue-driven budgeting. Achieves up to 13x faster agent loop completion versus fresh pods.
+* `serving` `networking` [DICOMPUTE: An Economic and Privacy-Aware Framework for Distributed Artificial Intelligence Inference](http://arxiv.org/abs/2611.10804v1)
+  > **TL;DR**: Investigates when distributed inference reduces costs compared to centralized. Proposes DICOMPUTE, a framework with policy-constrained scheduling and full-cost modeling. Shows distributed is cheaper for divisible, latency-tolerant workloads on underutilized hardware.
+* `serving` `RL` [Detent: Batch-Invariant LLM Serving and RL Rollouts at Near-Stock Speed](http://arxiv.org/abs/2611.10611v1)
+  > **TL;DR**: Proposes Detent to enable batch-invariant LLM serving and RL rollouts at near-stock speeds by fixing critical batch-dependent values in kernel selection and tuning per workload. Achieves 1.04-1.17x per token latency in serving and 1.03x rollout time vs. stock, with bit reproducibility.
+* `video` `serving` `sparse` [OneReel: Efficient Multi-Scene Video Generation with Scene-Structured Attention](http://arxiv.org/abs/2611.10594v1)
+  > **TL;DR**: Addresses high cost of multi-scene video generation via scene-structured attention with bounded cross-scene sharing and packed kernels. Achieves 1.7-4.9x speedup over dense attention while improving text-following by 34 percentage points.
+* `LoRA` `kernel` `serving` [Reproducible LoRA Inference Through Deterministic Split-K Reduction](http://arxiv.org/abs/2611.10334v1)
+  > **TL;DR**: Addresses non-determinism in LoRA inference due to floating-point atomic additions in Split-K kernels. Proposes a deterministic Triton Split-K implementation that eliminates output variation with low latency overhead. Achieves 0% output variation (vs. 97.61% in atomic) and only 1.02-2.62% higher latency than atomic Split-K.
+* `serving` `agentic` `offloading` [PACE: Keeping the Right Tokens in the KV Cache Is Not Enough for Long-Horizon LLM Agents](http://arxiv.org/abs/2611.10240v1)
+  > **TL;DR**: Addresses accuracy drop in long-horizon LLM agents due to unretrievable tokens from large rotary distances despite high residency. Introduces PACE, a KV-cache engine with plan-aware retention and bounded token renumbering. Achieves 97% task success at 100K tokens vs 42% for H2O under a 2,048-token budget.
+* `training` `networking` [Halley: A Predictive Control Plane for Optical AI Data Center Networks](http://arxiv.org/abs/2611.04408v1)
+  > **TL;DR**: Addresses correlated failures in optical networks for AI training data centers. Proposes Halley, a predictive control plane with components (LightReserve, FoldFit, ThermaLead, TriageGuard) for proactive resource management. Improves effective goodput from 65.2% to 76.5% when a window exhausts spares.
+* `serving` `storage` [Why Kubernetes Cannot Contain a Full Lazy-Pulling Cache: Two Impossibility Results and a Bounded, Honest Design for Model Serving](http://arxiv.org/abs/2611.11739v1)
+  > **TL;DR**: Addresses unbounded and unaccounted cache causing failures in lazy-pulled model serving on Kubernetes. Proposes a byte-budgeted cache design with pass-through semantics for bounded storage and reliable reads. Achieves zero errors in reading 150.3 GB model vs. baseline's 273/280 failures at +18.5% completion cost.
+* `RL` `agentic` [BunshinRL: Splitting Live Agent Workspaces for Memory-Efficient Agentic RL](http://arxiv.org/abs/2611.10453v1)
+  > **TL;DR**: Addresses high memory and latency in agentic RL rollouts. Proposes BunshinRL with memory sharing, tool-prefix caching, speculative execution, and BunshinFork for live workspace forking. Achieves up to 43% peak memory, 51% total memory reduction, and 23% latency improvement.
+* `offloading` `storage` `serving` [The Storage View Of KV Cache: Characterizing Cache Behavior Across LLM Workloads](http://arxiv.org/abs/2611.10178v1)
+  > **TL;DR**: Addresses inefficient KV cache storage in LLM serving by characterizing behavior and proposing workload-specific signals. Trace-driven results show up to 22% higher within-session hits and 40% reduction in dead state.
+
 ### 2026-11-10
 * `serving` `networking` `RAG` [Nebula: Distributed Position-Independent Caching for LLM Serving](http://arxiv.org/abs/2611.09474v1)
   > **TL;DR**: Proposes Nebula, a distributed LLM serving framework for position-independent caching and parallel prefill. Uses optimistic accounting, ghost-hit feedback for cache tuning, and a prefill time model for scheduling. Reduces median TTFT by 61.4% and recovers 76.1% of tokens missed by prefix caching compared to baselines.
