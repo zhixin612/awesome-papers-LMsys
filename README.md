@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3649-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.10-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3664-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.11-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,38 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-11
+* `serving` [Can KV Cache Be Reused Across Model Updates? A DeepSeek-V4-Flash Case Study](http://arxiv.org/abs/2611.14051v1)
+  > **TL;DR**: Investigates reusing KV caches across language model updates to avoid recomputation. Evaluates cache reuse across DeepSeek-V4-Flash updates with Functional Cache Divergence for behavior difference. Achieves median time-to-first-token speedups of 2.10x--5.08x on three QA benchmarks.
+* `RL` `tuning` `offline` [Continual Instruction Tuning for LLM-ased Management of Continuum Resources](http://arxiv.org/abs/2611.10292v2)
+  > **TL;DR**: Proposes continual instruction tuning with replay for LLM-based resource management intent compilers to prevent catastrophic forgetting. Achieves retention of earlier intents comparable to simpler translators while handling intent rephrasing robustly in Cloud-Edge continuum simulations.
+* `serving` [Scaling Shapley Energy Attribution to Large LLM Batches](http://arxiv.org/abs/2611.13802v1)
+  > **TL;DR**: Addresses unfair energy attribution in batched LLM inference. Proposes StepSplit, which derives closed-form Shapley values by decomposing step energy into shared and request-specific components and includes CPU replay for continuous batching. Achieves 0.4-4.3% L1 error on static batching (vs 13.4-61.3%).
+* `serving` `agentic` `scaling` [Multi-Objective Scheduling of LLM-Based Multi-Agent Workflows in Cloud Computing](http://arxiv.org/abs/2611.13740v1)
+  > **TL;DR**: Addresses efficient scheduling of LLM-based multi-agent workflows in cloud to minimize makespan and cost. Proposes MO-SAIC with multi-objective schedulers. Achieves statistically significant gains in Pareto-optimal solutions.
+* `quantization` `MoE` `offloading` [Deterministic, Reproducible Inference in Exact Integer Arithmetic, and Verifiable Distributed Inference as Its Consequence](http://arxiv.org/abs/2611.13730v1)
+  > **TL;DR**: Addresses non-reproducible inference across environments. Proposes tritify, a runtime using exact integer arithmetic with offline quantization for deterministic execution. Achieves bit-identical outputs across CPU/GPU and networked machines, verified for a 106-billion-parameter MoE model.
+* `serving` `RL` [Darmok: Championship Cryptic Crossword Solving via Constraint Tightening and Resilient Orchestration](http://arxiv.org/abs/2611.13557v1)
+  > **TL;DR**: Solving unreliable LLM inference via resilient orchestration. Employs triple-model cross-verification, dictionary fallbacks, and backup paths to handle API failures. Achieved championship victory 3m13s faster than humans despite primary model slowdown, maintaining near-zero errors over 5 months.
+* `serving` `sparse` [ForeSpark: Joint Draft and Verification Budget Scheduling for Parallel Speculative Decoding](http://arxiv.org/abs/2611.13442v1)
+  > **TL;DR**: Reduces wasted drafting in parallel speculative LLM decoding by jointly scheduling draft and verification budgets per request via context-aware prediction and global sorting. Achieves up to 1.77x higher throughput than DSpark while maintaining output quality.
+* `serving` `offloading` [Placing LLM Lookup Tables by Per-Layer Prefetch Deadlines](http://arxiv.org/abs/2611.13413v1)
+  > **TL;DR**: Optimizes placement of Engram lookup tables for LLM serving using tiered storage with prefetch deadlines. SlackTier reduces host memory from 212 GiB to 34 GiB (84%) with ≤1.4% latency increase on NVMe. Freed memory used as KV cache boosts throughput by 36%.
+* `serving` `agentic` `offloading` [Bursts That Outlast Themselves: Persistent Degradation in Prefix-Cached Agent Serving](http://arxiv.org/abs/2611.13412v1)
+  > **TL;DR**: Examines metastable degradation in prefix-cached LLM agent serving under bursts. Proposes a budgeter to bound active sessions' resident KV cache demand within the pool. Prevents collapse in all tested runs, whereas uncontrolled systems degraded to ~10% hit ratio and half throughput.
+* `training` [Plumbline: When the Loss Lies, Validating LLM Training Correctly](http://arxiv.org/abs/2611.13393v1)
+  > **TL;DR**: Addresses silent/loud failures wasting LLM training resources. Proposes Plumbline, a validation system checking data-to-model integrity across frameworks. Found 61 problems (32 silent) across 3 frameworks and 5 models, fixing/reporting 42 upstream.
+* `serving` `networking` `disaggregation` [Decode Token Parallelism: Memory-Efficient Distributed Attention Parallelism for Scalable LLM Decoding](http://arxiv.org/abs/2611.13293v1)
+  > **TL;DR**: Addresses scalability of LLM decoding under high concurrency and long contexts. Proposes Decode Token Parallelism to decouple weight placement from attention ownership, reducing network traffic. Achieves up to 2.06× higher throughput than data parallelism on 64 GPUs.
+* `MoE` `serving` `networking` [One-Sided Expert-Parallel All-to-All for Mixture-of-Experts Inference over NVLink](http://arxiv.org/abs/2611.13188v1)
+  > **TL;DR**: Reduces MoE inference latency at small batch sizes by developing NVLinkOneSided, a one-sided all-to-all communication protocol avoiding metadata exchange. Features in-place grouped GEMMs and two sync methods (Fence/Sentinel). Achieves 1.2-3.0× faster dispatch/combine and up to 2.4× faster MoE layer than DeepEP.
+* `serving` `agentic` `offloading` [SHADOWPREFILL: Keeping Your Next Model Warm for Per-Step Model Routing in Agentic LLM Serving](http://arxiv.org/abs/2611.13176v1)
+  > **TL;DR**: Addresses latency and cost from KV cache losses in model switches for agentic LLM serving. Proposes SHADOWPREFILL, which prefills context on unchosen models using idle capacity to warm KV caches. Reduces switch-call latency by 8.5-21.4% and token cost by 22.5-46.1%.
+* `training` `LoRA` [RBLA+: Efficient Rank-Specific LoRA Adapter Extraction for Federated Fine-Tuning with Heterogeneous Clients](http://arxiv.org/abs/2611.12961v1)
+  > **TL;DR**: Proposes RBLA+ for efficient rank-specific LoRA adapter extraction in federated fine-tuning with heterogeneous clients, using compact QR/core-SVD to avoid dense matrix formation. Achieves lower extraction time than dense partial-SVD baseline in CPU benchmarks.
+* `edge` `hardware` `kernel` [EngineAgent: Agentizing On-Device LLM Inference Engines with Inference Stack Hierarchy Awareness and Hardware Abilities](http://arxiv.org/abs/2611.14356v1)
+  > **TL;DR**: Addresses automating LLM model enablement on on-device engines across heterogeneous hardware. Proposes EngineAgent with a hierarchy-aware engine index, builder for cross-layer changes, and auditor for validation and debugging. Achieves 75% end-to-end success rate versus 33.3% for baselines.
+
 ### 2026-11-10
 * `MoE` `offloading` `serving` [Release Sooner, Expose Less: Offloading MoE Dispatch in NCCL-EP under Dual-Batch Overlap](http://arxiv.org/abs/2611.12362v1)
   > **TL;DR**: Addresses exposed communication time in MoE dispatch under dual-batch overlap. Proposes offloading via GPU-Friendly Descriptors and host thread progression to hide network latency. Achieves up to 42% lower median TPOT in disaggregated vLLM serving.
