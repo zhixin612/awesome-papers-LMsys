@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3664-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.11-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3686-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.13-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,52 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-13
+* `agentic` `edge` `scaling` [Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon](http://arxiv.org/abs/2611.17294v1)
+  > **TL;DR**: Addresses idle GPU capacity during agent sessions for kernel generation with Metal Sandbox, which provides isolated execution and command-scheduling across Macs to run eligible commands in parallel. Achieves up to 2.05× command throughput gain and 22.3% reduction in batch elapsed time.
+* `hardware` [PACER: GPU Excursion Management for ML Workloads](http://arxiv.org/abs/2611.17206v1)
+  > **TL;DR**: Addresses intra-GPU performance variability due to power excursions in ML workloads including LLMs. Designs hardware and firmware mechanisms for consistent power management to reduce EDP peaks. Achieves 3-12% performance improvement over state-of-the-art GPU power management.
+* `serving` `MoE` `networking` [Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving](http://arxiv.org/abs/2611.17097v1)
+  > **TL;DR**: Addresses redundant weight storage in datacenter LLM serving. Proposes Optical Broadcast Memory (OBM), an optical fiber-based broadcast architecture for direct weight delivery with dynamic slack. Eliminates petabytes of HBM while maintaining competitive throughput and energy per token at 80,000 accelerators.
+* `MoE` `offloading` `serving` [Release Sooner, Expose Less: Offloading MoE Dispatch in NCCL-EP under Dual-Batch Overlap](http://arxiv.org/abs/2611.12362v2)
+  > **TL;DR**: Reduces MoE dispatch overhead by offloading NCCL send progression to host with GDA-KI Free Flow, hiding communication behind computation. Achieves 15-42% lower median TPOT in disaggregated vLLM serving compared to baselines.
+* `agentic` `RL` `offline` [Reducing Batch Makespan for LLM Agent Workloads through Inference-Environment Coordination](http://arxiv.org/abs/2611.16661v1)
+  > **TL;DR**: Reduces batch makespan for LLM agent tasks (e.g., RL rollouts) via coordinated optimizations: a workload-based resource model for memory allocation, trajectory-aware routing and scheduling for cache reuse, and Chain-Advancing Action Scheduling (CAAS) to prioritize long chains. Achieves 10.4% to 65.0% makespan reduction on benchmarks.
+* `training` [SS-HSDP: Efficient and Flexible Sharded Data Parallelism via Runtime-Update Decoupling](http://arxiv.org/abs/2611.16467v1)
+  > **TL;DR**: Proposes SS-HSDP, a training framework that decouples runtime parameters from update parameters via shared data views and hierarchical sharding, enabling flexible optimizer support and efficient data management. Achieves up to 21.7% higher Model FLOPs Utilization at 128 GPUs compared to baselines.
+* `serving` `agentic` `disaggregation` [Evolving Infra: Agent-Adaptive LLM Serving at Scale](http://arxiv.org/abs/2611.12304v2)
+  > **TL;DR**: Addresses inflexibility in prefill-decode disaggregated LLM serving for agentic workloads causing load imbalance and inefficient KV caching. Introduces Evolving Infra with decoupled compute allocation, adaptive online PD split planner, and agent-aware distributed KV manager. Achieves up to 4.1x lower mean latency and 14x lower P95 TTFT on GB300 GPUs.
+* `training` `RL` [LoCoJAX: Host-Local Coordination for Small-Model RL on TPUs](http://arxiv.org/abs/2611.16301v1)
+  > **TL;DR**: Addresses high host orchestration overhead in small-model RL training on TPUs. Proposes LoCoJAX with local rollout and reward processing and synchronous global training. Achieves 1.3-3.6x faster per step on Qwen3-0.6B and completes steps faster on 8 chips than a baseline on 64 chips for GSM8K.
+* `kernel` `serving` [MegaOps: A Kernel Overlapping Framework with PyTorch-like Modularity and Megakernel Performance](http://arxiv.org/abs/2611.16248v1)
+  > **TL;DR**: Proposes MegaOps, a kernel overlapping framework that schedules dependent kernels on separate CUDA streams with per-tile synchronization to remove barriers. Achieves 1.09x-1.10x LLM decode throughput of top baselines while maintaining kernel modularity.
+* `MoE` `serving` `quantization` [GC-MoE on SM120: Overlapping Expert-Parallel Token Dispatch with Warp-Level FP8xFP4 Block-Scaled MMA on Consumer Blackwell](http://arxiv.org/abs/2611.16219v1)
+  > **TL;DR**: Targets latency in expert-parallel MoE decoding on consumer Blackwell GPUs (SM120). Designs a warp-level FP8xFP4 block-scaled MMA kernel with token-tile dispatch and SM120-specific optimizations (scale selection, bulk-pull, deduplicating cache). Achieves 1.522x speedup over FlashInfer and 1.387x over Cake across 18 decode points.
+* `serving` `offloading` [Fast Serverless LLM Cold Starts by Sharing and Prewarming Startup Work](http://arxiv.org/abs/2611.16180v1)
+  > **TL;DR**: Addresses slow serverless LLM cold starts by sharing model weights/artifacts via CXL memory and prewarming containers with template processes. Cairn reduces redundant setup, achieving 4.1-5.2x faster cold starts and 64% lower median TTFT.
+* `training` `hardware` [Starscream: Reimagining LLM Sharding on AMD Instinct GPUs with GPU Partitioning](http://arxiv.org/abs/2611.15951v1)
+  > **TL;DR**: Addresses performance degradation of LLM sharding on partitioned GPUs due to memory redundancy, arithmetic intensity collapse, and communication overhead. Introduces Starscream, an intra-GPU sharding approach preserving kernel shapes, eliminating redundancy, and minimizing communication. Achieves up to 4× attention speedup and 1.43× GEMM speedup on AMD GPUs.
+* `serving` [Smart Model Routing for Order-of-Magnitude LLM Cost Reduction](http://arxiv.org/abs/2611.15911v1)
+  > **TL;DR**: Proposes a formal cost-quality optimization framework for smart model routing to reduce LLM inference costs. Routes queries to the cheapest adequate model using threshold policies. Achieves roughly 10x cost reduction under specific pricing and traffic assumptions when calibrated.
+* `MoE` `offloading` `serving` [Fewer Expert Transfers Without Changing Routing: Expert Eviction for MoE Offloading](http://arxiv.org/abs/2611.15842v1)
+  > **TL;DR**: Proposes expert eviction policy for MoE offloading by selecting experts whose next use is farthest in future. Reduces CPU-to-GPU expert copies by 2.1x versus LRU without quality loss, approaching within 3.5% of minimal copies possible.
+* `training` `MoE` [MoE Pretraining:Parallelism Layout Changes the Model, Not Quality](http://arxiv.org/abs/2611.15271v1)
+  > **TL;DR**: Investigates if parallelism layout changes during MoE model pretraining affect the model. Compares runs with different layouts and seeds, finding layout alters predictions 80% like seed changes and over 90% of routing decisions differ, due to near-tied experts.
+* `serving` `kernel` [Read Once, Answer Many: Parallel Prompting for Shared-Context LLM Inference](http://arxiv.org/abs/2611.15130v1)
+  > **TL;DR**: Addresses redundant KV cache reads during multi-question LLM inference. Proposes Parallel Prompting to decode questions as concurrent streams sharing document context per step with a lightweight attention mask. Achieves 3.7-6.0x speedup over SGLang on A100 and RTX A6000 GPUs.
+* `serving` `offloading` `agentic` [Recompute or Restore? Host-Tier KV for Multi-Model Agent Workflows on a Static-Graph NPU Serving Stack](http://arxiv.org/abs/2611.15126v1)
+  > **TL;DR**: Proposes host-tier KV cache restoration to avoid recomputation for shared prefixes in multi-model agent workflows. Implements scheduler-aware event modeling on a static-graph NPU. Improves SLO attainment from 9.4-22.8% to 99.8-100% under overload with 11.8-18.2% load gains.
+* `serving` `multi-modal` `agentic` [Scaling VLA Serving Under Robotic Execution Constraints](http://arxiv.org/abs/2611.14969v1)
+  > **TL;DR**: Investigates scaling VLA model inference for robotic fleets under execution constraints. Proposes XInfer, coordinating heterogeneous computation and parallelism while managing interference. Achieves 1.26-3.75x higher effective robot capacity than state-of-the-art systems.
+* `serving` `kernel` [SubGPU Pipelining: Intra-GPU Fine-Grained Spatial Parallelism for LLM Inference](http://arxiv.org/abs/2611.14904v1)
+  > **TL;DR**: Proposes intra-GPU fine-grained spatial parallelism (SubGPU Pipelining) to optimize resource utilization in LLM inference. Segments operator graphs across dedicated SM pools with microbatches, improving DRAM throughput efficiency to 83.6% of peak (+11.8% absolute) and reducing decoder iteration time by 10.33%.
+* `serving` `offloading` `storage` [SlipStream: Enabling HBF for GPU Systems by Mitigating the Latency and SRAM Overheads](http://arxiv.org/abs/2611.14776v1)
+  > **TL;DR**: Reduces HBF read latency overhead in LLM inference via SlipStream, a software-hardware prefetcher that stages weight-page demands with consumption-paced prefetching. Achieves 92.4% peak performance of ideal HBM-like HBF with 40 MB buffer, outperforming H3 (43.1%).
+* `RL` `training` `agentic` [BunshinRL: Whole-Workspace Forking for Agentic Reinforcement Learning Rollouts](http://arxiv.org/abs/2611.10453v2)
+  > **TL;DR**: Addresses high memory and latency in agentic RL rollouts. Proposes BunshinRL with whole-workspace forking (BunshinFork), memory sharing, tool-prefix caching, and speculative tool execution. Reduces peak memory by 43% and end-to-end latency by 23%.
+* `MoE` `edge` `offloading` [Tideway: Phase-Aware Tiered Memory Management for MoE Inference on Consumer Devices](http://arxiv.org/abs/2611.14848v1)
+  > **TL;DR**: Addresses the inefficiency of running large Mixture-of-Experts models on resource-limited consumer devices for inference. Proposes TIDEWAY, managing GPU VRAM and host RAM as a unified pool with phase-aware memory layouts for prefill and decode phases. Achieves up to 2.40x speedup in Time-to-First-Token.
+
 ### 2026-11-11
 * `serving` [Can KV Cache Be Reused Across Model Updates? A DeepSeek-V4-Flash Case Study](http://arxiv.org/abs/2611.14051v1)
   > **TL;DR**: Investigates reusing KV caches across language model updates to avoid recomputation. Evaluates cache reuse across DeepSeek-V4-Flash updates with Functional Cache Divergence for behavior difference. Achieves median time-to-first-token speedups of 2.10x--5.08x on three QA benchmarks.
