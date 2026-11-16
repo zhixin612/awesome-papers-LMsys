@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3686-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.13-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3695-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.16-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,26 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-16
+* `serving` `disaggregation` `agentic` [Callo: Serving Cache-Miss Requests with Speculative Decoding on Invalidated KV under Prefill-Decode Disaggregation](http://arxiv.org/abs/2611.18459v1)
+  > **TL;DR**: Addresses latency from frequent context edits in agent sessions with Callo, a disaggregated system using invalidated KV for speculative decoding and underutilized scheduling. Achieves 1.05-1.19x speedup over vLLM.
+* `serving` `networking` `kernel` [Compiling Specialized GPU-Initiated Networking](http://arxiv.org/abs/2611.18145v1)
+  > **TL;DR**: Proposes Obaleth, a compiler that integrates GPU-initiated networking into kernel IR to co-optimize communication and computation. Specializes transport code for memory and batching efficiency, achieving up to 1.29× faster request serving for Qwen3-235B in vLLM compared to DeepEP.
+* `training` `networking` `scaling` [Zero-SM NCCL: A Systematic Guide to Designing and Deploying SM-Free GPU Communication](http://arxiv.org/abs/2611.18075v1)
+  > **TL;DR**: Reduces GPU communication overhead by eliminating SM kernels in NCCL via CUDA stream operations and RDMA proxies. Cuts median GEMM slowdown from 33% to 4%, accelerating Megatron-LM's FSDP by up to 3.5% and pipeline parallelism by 15%.
+* `training` `RL` [TIDE: Reclaiming Lost Performance In On-Policy Reinforcement Learning](http://arxiv.org/abs/2611.17924v1)
+  > **TL;DR**: Addresses resource under-utilization in on-policy RL training of LLMs caused by long-tail rollouts. Proposes TIDE, which dynamically repurposes rollout GPUs for training and migrates rollouts to boost decoding throughput. Achieves 1.36× end-to-end speedup and up to 97% of optimal throughput.
+* `training` `offloading` `storage` [TailGuard-GDS: Tail-Safe Control of GPU Storage Data Movement](http://arxiv.org/abs/2611.17824v1)
+  > **TL;DR**: Addresses inefficient storage-to-GPU data movement in large-model training with offloading (e.g., ZeRO-3). Introduces TailGuard-GDS, a runtime that dynamically selects optimal I/O paths per application phase to minimize tail latency. Reduces training step p95 by up to 24.6% in ZeRO-3 workloads versus fixed paths.
+* `serving` `scaling` `networking` [Superfluid: Local AI Server for Distributed LLM Inference](http://arxiv.org/abs/2611.17753v1)
+  > **TL;DR**: Addresses distributed LLM inference across local devices with dynamic workloads. Proposes Superfluid, a scheduler enabling load balancing, prompt sharing, and fault tolerance across heterogeneous machines. Achieves 1.5s first-token latency during agent contention and scales throughput to 534 tok/s when adding/removing machines.
+* `serving` `scaling` [ForeSpark: Joint Draft and Verification Budget Scheduling for Parallel Speculative Decoding](http://arxiv.org/abs/2611.13442v2)
+  > **TL;DR**: Reduces waste in parallel speculative decoding by jointly scheduling draft and verification budgets per request. ForeSpark employs a context-aware estimator and lightweight scheduler, improving throughput by up to 1.77x over state-of-the-art DSpark and sustaining 1.51x higher request rate under SLOs.
+* `kernel` `hardware` `training` [AscendGYM: A Cost-Aware Kernel Optimization Benchmark for Real-World Workloads on Ascend NPUs](http://arxiv.org/abs/2611.17621v1)
+  > **TL;DR**: Proposes AscendGYM, a benchmark with 48 kernels to optimize NPU performance under real-world LLM training/inference workloads. Introduces STS metric for cost-aware kernel optimization, jointly evaluating speedup and token cost under budget constraints.
+* `training` `storage` [TailGuard-GDS: Tail-Safe Control of GPU Storage Data Movement](http://arxiv.org/abs/2611.17824v1)
+  > **TL;DR**: Optimizes data movement between NVMe storage and GPU memory during training. Proposes TailGuard-GDS, a runtime that selects optimal delivery plans per phase to minimize tail latency. Reduces FSDP step p95 latency by 18.4% and GPU-idle p95 by 25.3% versus fixed paths.
+
 ### 2026-11-13
 * `agentic` `edge` `scaling` [Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple Silicon](http://arxiv.org/abs/2611.17294v1)
   > **TL;DR**: Addresses idle GPU capacity during agent sessions for kernel generation with Metal Sandbox, which provides isolated execution and command-scheduling across Macs to run eligible commands in parallel. Achieves up to 2.05× command throughput gain and 22.3% reduction in batch elapsed time.

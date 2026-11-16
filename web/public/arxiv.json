@@ -189738,5 +189738,382 @@
         ],
         "tldr": "Addresses the inefficiency of running large Mixture-of-Experts models on resource-limited consumer devices for inference. Proposes TIDEWAY, managing GPU VRAM and host RAM as a unified pool with phase-aware memory layouts for prefill and decode phases. Achieves up to 2.40x speedup in Time-to-First-Token.",
         "indexed_date": "2026-11-13"
+    },
+    "http://arxiv.org/abs/2611.18459v1": {
+        "title": "Callo: Serving Cache-Miss Requests with Speculative Decoding on Invalidated KV under Prefill-Decode Disaggregation",
+        "link": "http://arxiv.org/abs/2611.18459v1",
+        "abstract": "Agent sessions may involve frequent context edits, which effectively invalidate cached KV state and force requests to wait for re-prefill before decoding. We present Callo, a disaggregated serving system that leverages invalidated KV for speculative drafts to reduce this latency, while verifying drafts against the exact KV after prefill before committing tokens. Callo makes effective use of decode resources by scheduling speculations during periods of underutilization and preempting speculations when drafts are likely to not be accepted. We evaluated Callo on a two-GPU testbed using SWE-agent sessions across three model families, observing all-request speedups of 1.05-1.19x over vLLM at moderate load. We demonstrate that these gains are also realized at scale through cluster-level simulations driven by real-world traces.",
+        "authors": [
+            "Jianjun Ou",
+            "Matthew Lentz"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2611.18459v1",
+        "submit_date": "2026-11-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "disaggregation",
+            "agentic"
+        ],
+        "tldr": "Addresses latency from frequent context edits in agent sessions with Callo, a disaggregated system using invalidated KV for speculative decoding and underutilized scheduling. Achieves 1.05-1.19x speedup over vLLM.",
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.18275v1": {
+        "title": "BPU-SpikeMM:Exact Matrix Multiplication via Spatio-Temporal Spike Encoding on Real Neuromorphic Hardware",
+        "link": "http://arxiv.org/abs/2611.18275v1",
+        "abstract": "Matrix multiplication is the dominant computational kernel in deep learning, yet its growing scale strains conventional von Neumann hardware in energy efficiency and bandwidth. Neuromorphic architectures offer a promising alternative, but mathematical equivalence between matrix multiplication and spiking computation does not guarantee direct execution on real neuromorphic hardware, as the specific hardware paradigm may still require additional data recovery, bit-weight reconstruction, or state readout after neuromorphic execution. This paper presents BPU-SpikeMM (Brain Processing Unit-based Spike Matrix Multiplication), an exact spatio-temporal spike encoding framework for matrix multiplication on real neuromorphic hardware. We prove the exact equivalence of spike-encoded matrix multiplication under the BPU execution paradigm, distinguish mathematical equivalence from native direct-readout equivalence on BPU hardware, and build a spatio-temporal offloading pipeline supporting multiple encoding schemes. Furthermore, we extend the framework to a multi-dimensional encoding design space and evaluate the applicability of different encodings on real BPU hardware in terms of correctness, temporal resource cost, spatial resource cost, and event-driven metrics. The results confirm native direct-readout equivalence across all evaluated encoding schemes and show that their applicability to BPU execution depends on joint trade-offs among temporal cost, spatial resource consumption, and event activity.",
+        "authors": [
+            "Rongyuan Guo",
+            "Yufeng Zhang",
+            "Haotian Wang",
+            "Canming Yao",
+            "Yuxiang Huan",
+            "Wangdong Yang",
+            "Kenli Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.18275v1",
+        "submit_date": "2026-11-13",
+        "relevant": false,
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.18145v1": {
+        "title": "Compiling Specialized GPU-Initiated Networking",
+        "link": "http://arxiv.org/abs/2611.18145v1",
+        "abstract": "Machine learning systems specialize computation to the workload and hardware, but communication remains in generic libraries whose device code and transport decisions are not visible to high-level compilers. We present Obaleth, a compiler that makes GPU-initiated communication part of a kernel's intermediate representation, co-optimizes it alongside computation, and lowers it to specialized transport code. Obaleth plans completions around buffer lifetimes and optimizes memory ordering, synchronization, and batching across NVIDIA and AMD GPUs. On H100 GPUs, Obaleth sends small messages up to 3.3$\\times$ faster, and on 256 GPUs runs all-to-all 1.25$\\times$ and 2.3$\\times$ faster than NVSHMEM and NCCL GIN, with much smaller memory and register use. In vLLM, it serves Qwen3-235B on 16 B200 GPUs and answers requests up to 1.29$\\times$ faster than with DeepEP.",
+        "authors": [
+            "Javid Baydamirli",
+            "Ismayil Ismayilov",
+            "Kaan Oktay",
+            "Didem Unat"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2611.18145v1",
+        "submit_date": "2026-11-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "networking",
+            "kernel"
+        ],
+        "tldr": "Proposes Obaleth, a compiler that integrates GPU-initiated networking into kernel IR to co-optimize communication and computation. Specializes transport code for memory and batching efficiency, achieving up to 1.29× faster request serving for Qwen3-235B in vLLM compared to DeepEP.",
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.18111v1": {
+        "title": "Multi-GPU Tridiagonal Partition Algorithm",
+        "link": "http://arxiv.org/abs/2611.18111v1",
+        "abstract": "This paper presents a multi-GPU version and a multi-GPU recursive version of the parallel partition method for systems of linear algebraic equations with tridiagonal coefficient matrices and their implementations in CUDA. Computational experiments on one and two GPU cards, for different system sizes and with different number of recursive steps are conducted. The results are analyzed and discussed.",
+        "authors": [
+            "Milena Veneva"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.18111v1",
+        "submit_date": "2026-11-13",
+        "relevant": false,
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.18075v1": {
+        "title": "Zero-SM NCCL: A Systematic Guide to Designing and Deploying SM-Free GPU Communication",
+        "link": "http://arxiv.org/abs/2611.18075v1",
+        "abstract": "GPU communication libraries such as NCCL use Streaming Multiprocessors (SMs) for data movement and synchronization, slowing overlapped computation at a cost that grows with interconnect bandwidth. We present Zero-SM NCCL, which communicates within and across scale-up domains without launching any SM kernel. It synchronizes through CUDA stream memory operations, moves data asynchronously with copy engines within a scale-up domain, and drives network RDMA from a stream-ordered CPU proxy. It supports data-movement collectives such as AllGather and AlltoAll, plus one-sided ncclPutSignal and ncclWaitSignal APIs. On GB200 NVL72 and B200 NVL8 systems, Zero-SM collectives reach up to 1.36x higher AllGather bandwidth than NCCL's legacy SM-based kernels and cut the median slowdown of overlapped GEMMs from 33% to 4%, at a higher latency per operation. In Megatron-LM training, they accelerate FSDP by up to 3.5%, and one-sided puts accelerate pipeline parallelism by up to 15%. Zero-SM communication is not a universal win, however. Through an end-to-end study across models and parallelism strategies, we show that it pays off for large transfers in GPU-bound workloads and for deep pipelines with large bubbles, but loses on small messages and host-bound workloads. We distill these findings into guidelines for enabling zero-SM communication in NCCL and building it into other libraries.",
+        "authors": [
+            "Zhenhao He",
+            "Siyuan Shen",
+            "Ke Wen",
+            "Prajwal Singhania",
+            "Shiqing Fan",
+            "Youngeun Kwon",
+            "Sangkug Lym",
+            "Vasudevan Rengasamy",
+            "Vishnuswaroop Ramesh",
+            "Yicheng Qiang",
+            "Craig Belusar",
+            "Jeff Hammond",
+            "Torsten Hoefler"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.18075v1",
+        "submit_date": "2026-11-13",
+        "relevant": true,
+        "tags": [
+            "training",
+            "networking",
+            "scaling"
+        ],
+        "tldr": "Reduces GPU communication overhead by eliminating SM kernels in NCCL via CUDA stream operations and RDMA proxies. Cuts median GEMM slowdown from 33% to 4%, accelerating Megatron-LM's FSDP by up to 3.5% and pipeline parallelism by 15%.",
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17989v1": {
+        "title": "The Exact Stabilization Time of Self-Stabilizing Coloring: Mean, Variance, and Distribution",
+        "link": "http://arxiv.org/abs/2611.17989v1",
+        "abstract": "The worst-case stabilization time of a self-stabilizing algorithm usually says little about its typical behavior beyond the order of magnitude. This paper revisits the classical self-stabilizing $Delta+1$ coloring algorithm with vertices activated at random, one at a time (the random central daemon). Considering the number of color changes as a random variable, we study its mean, variance and, on several families of graphs, its exact distribution. The analysis rests on a reduction: a vertex changes color, at most once, exactly when it is not a local maximum of a uniformly random labeling of the vertices, maxima being taken among the neighbors that share its initial color (the monochrome initial configuration is the slowest case). What can be predicted depends on what is known of the graph. The degree distribution (the view at distance one) gives the mean. The variance needs the view at distance two, in particular the triangles, and the full law needs the whole graph. We give closed-form results, from monochrome and from uniformly random initial configurations, on paths, cycles, random trees, Erdős-R{é}nyi graphs and bipartite random graphs. From a monochrome start, the mean stays within a factor two of the worst case, whereas the variance ranges from zero (disjoint cliques) to order $n^2$ (the star on $n$ vertices)..",
+        "authors": [
+            "{É}lie de Panafieu",
+            "Fabien Mathieu",
+            "Maria Gradinariu Potop-Butucaru",
+            "S{é}bastien Tixeuil"
+        ],
+        "categories": [
+            "cs.DC",
+            "math.CO",
+            "math.PR"
+        ],
+        "id": "http://arxiv.org/abs/2611.17989v1",
+        "submit_date": "2026-11-13",
+        "relevant": false,
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17924v1": {
+        "title": "TIDE: Reclaiming Lost Performance In On-Policy Reinforcement Learning",
+        "link": "http://arxiv.org/abs/2611.17924v1",
+        "abstract": "Synchronous, colocated RL post-training of large language models (LLMs) today suffers from severe under-utilization due to long-tail rollouts. Inference engines fall idle waiting for long-tail rollouts or decode at low, inefficient batch sizes. To address this, we present TIDE, an RL training system that preserves on-policy training semantics while recovering resource utilization. TIDE does so by two complementary techniques: (1) dynamically repurposing rollout GPUs for training while long-tail rollouts complete and (2) dynamically migrating rollouts between inference engines to boost decoding throughput. TIDE automatically determines the right time to repurpose rollout resources through an adaptive migration policy, obtaining performance improvements that generalize across multiple applications and hardware configurations without requiring bespoke configuration. In our evaluation, TIDE provides end-to-end speedups of up to 1.36x over colocated systems, outperforming all evaluated on-policy baselines and achieving up to 97% of optimal throughput.",
+        "authors": [
+            "Mathew Jacob",
+            "Morgan Borjigin-Wang",
+            "Kan Zhu",
+            "Po Hao Chen",
+            "Yi Pan",
+            "Andy Ruan",
+            "Nayani Modugula",
+            "Ethan Lavi",
+            "Luis Ceze",
+            "Malte Schwarzkopf",
+            "Akshay Narayan",
+            "Deepti Raghavan",
+            "Stephanie Wang"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2611.17924v1",
+        "submit_date": "2026-11-13",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL"
+        ],
+        "tldr": "Addresses resource under-utilization in on-policy RL training of LLMs caused by long-tail rollouts. Proposes TIDE, which dynamically repurposes rollout GPUs for training and migrates rollouts to boost decoding throughput. Achieves 1.36× end-to-end speedup and up to 97% of optimal throughput.",
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17850v1": {
+        "title": "OrbitWeaver: LLM Agent Planning with Simulation Feedback for Optically Interconnected Orbital GPU Clusters",
+        "link": "http://arxiv.org/abs/2611.17850v1",
+        "abstract": "Space-based data-center designs increasingly consider GPU computing formations connected by inter-satellite optical links. With limited neighboring connections, jobs assigned disjoint GPUs can still contend on shared relay paths. Rank placement and communication priorities jointly affect this contention and the readiness of downstream computation. We present OrbitWeaver, an offline large language model (LLM) agent planner that jointly optimizes rank placement and communication order. Guided by communication structure, execution dependencies, and simulation feedback, the agent constructs and refines plans that coordinate shared-link access with computation progress. This coordination reduces contention and dependency blocking, shortening mean job completion time (JCT). Simulation experiments on optically interconnected orbital GPU clusters show that OrbitWeaver reduces aggregate mean JCT by 6.2-33.5% relative to the state-of-the-art baselines CASSINI, Crux, and Symphony. These results demonstrate the value of LLM-guided planning for efficient concurrent computing in orbital GPU clusters.",
+        "authors": [
+            "Pengcheng Luo",
+            "Bowen Zhang"
+        ],
+        "categories": [
+            "cs.DC",
+            "eess.SY"
+        ],
+        "id": "http://arxiv.org/abs/2611.17850v1",
+        "submit_date": "2026-11-13",
+        "relevant": false,
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17827v1": {
+        "title": "SIMTurn: Lightweight Divergent Subgroup Scheduling for Intra-Warp Synchronization",
+        "link": "http://arxiv.org/abs/2611.17827v1",
+        "abstract": "Stack-based reconvergence enables efficient SIMT execution with a shared warp program counter and compact control-flow state. However, its fixed serialization of divergent paths can deadlock programs that rely on intra-warp synchronization: a spinning subgroup may prevent a resource-holding sibling from executing. Independent Thread Scheduling (ITS) enables finer-grained progress through per-thread execution state, but introduces additional hardware cost. We present SIMTurn, a lightweight compiler-hardware mechanism that enables forward progress among divergent subgroups while retaining stack-based reconvergence. SIMTurn combines a compiler-inserted yield instruction at potentially blocking loops with a bounded pool of resumable subgroups. The scheduler allows a waiting subgroup to yield to a sibling that can make progress, without requiring independent program counters for every thread. We implement SIMTurn in the compiler, simulator, and RTL on the open-source Vortex GPGPU and evaluate it against baseline IPDOM and per-thread ITS schemes. Across the evaluated GPU thread configurations, SIMTurn introduces only 17-24% scheduler-area overhead relative to IPDOM, compared with 39-91% for ITS, and stays within 8% of IPDOM on workloads that never need cross-subgroup progress. On kernels with genuine cross-subgroup parallelism, SIMTurn tracks ITS closely and is up to 2.7x faster than a software-serialized IPDOM baseline.",
+        "authors": [
+            "Nikhil Rout",
+            "Joe Samuel Rosh",
+            "Blaise Tine"
+        ],
+        "categories": [
+            "cs.AR",
+            "cs.DC",
+            "cs.PL"
+        ],
+        "id": "http://arxiv.org/abs/2611.17827v1",
+        "submit_date": "2026-11-13",
+        "relevant": false,
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17824v1": {
+        "title": "TailGuard-GDS: Tail-Safe Control of GPU Storage Data Movement",
+        "link": "http://arxiv.org/abs/2611.17824v1",
+        "abstract": "AI runtimes move state between NVMe storage and GPU memory on critical paths. GPUDirect Storage (GDS) removes host staging, yet our eight-H100 measurements show it is not consistently tail-optimal for semantically identical GPU-buffer operations. The preferred path varies with operation, request size, concurrency, placement, and resource contention; bandwidth and tail-latency winners can disagree. Frameworks specify what moves and when, while GPU I/O stacks expose mechanisms; neither combines phase semantics with measured tail behavior to choose a delivery plan.\n  We present TailGuard-GDS, a runtime that selects a semantically equivalent plan per application phase. It profiles plans varying backend, request shape, and placement, minimizes GPU-visible tail latency under phase constraints, and revisits decisions as conditions change. Resource reuse keeps policy lookup and switching at microsecond-scale overhead.\n  Integrated with PyTorch FSDP and DeepSpeed ZeRO-3, TailGuard reduces FSDP step p95 by 18.4% and GPU-idle p95 by 25.3% versus the strongest fixed path. Across five eight-GPU ZeRO-3 workloads, step p95 falls 7.9-24.6% versus fixed host staging and 28.4-42.6% versus fixed GDS. Against tuned DeepSpeed AIO, TailGuard reduces step p95 by 5.6% and raises estimated throughput by 6.1%.",
+        "authors": [
+            "Jiaqi Liu",
+            "Fan Yang",
+            "Xiaohang Shi",
+            "Xianzhe Zhang",
+            "Tao Jiang",
+            "Guojun Yuan",
+            "Zhan Wang",
+            "Guangming Tan"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2611.17824v1",
+        "submit_date": "2026-11-13",
+        "relevant": true,
+        "tags": [
+            "training",
+            "storage"
+        ],
+        "tldr": "Optimizes data movement between NVMe storage and GPU memory during training. Proposes TailGuard-GDS, a runtime that selects optimal delivery plans per phase to minimize tail latency. Reduces FSDP step p95 latency by 18.4% and GPU-idle p95 by 25.3% versus fixed paths.",
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17753v1": {
+        "title": "Superfluid: Local AI Server for Distributed LLM Inference",
+        "link": "http://arxiv.org/abs/2611.17753v1",
+        "abstract": "Running large language models (LLMs) on local devices keeps data private, removes per-token cost, cuts network latency, and keeps working without a connection. Two shifts now strain how such models are served. On one device, several agents share a locally served model with an interactive user. Across devices, a developer or small team often owns several capable machines from different vendors, which sit idle most of the day because every local server serves one runtime on one machine. We present Superfluid, an open-source LLM server built for local inference at both scales. On one device, Superfluid drives llama.cpp, MLX, or BaseRT in isolated worker processes through one scheduler that moves interactive requests ahead of agent work, computes a prompt shared by many requests once, and writes every token to a durable log before it reaches the client. Across devices, one Superfluid server turns a fleet of machines into a single API endpoint. Machines with different hardware serve copies of the same model, receive work according to their measured speed, and can join or fail under load without losing a request. For Qwen3.8-27B on an Apple M5 Pro, a chat sent while eight agents are working receives its first token in 1.5 s, against 291-612 s on llama-server, Ollama, and mlx_lm.server. On six machines from three chip vendors serving 64 simulated users for one hour, Superfluid answers all 5,041 requests while machines join one at a time and one is killed and rejoins; throughput grows from 112 to 534 tok/s and the median first-token time falls from 99 to 12 s. On twelve Mac Studio M3 Ultras it sustains 10,656 tok/s across 38,563 requests from 384 agents without a failure. Superfluid is available under the Apache-2.0 licence at https://github.com/basecompute/superfluid.",
+        "authors": [
+            "Prabod Rathnayaka",
+            "Isura Manchanayake",
+            "Srikandabala Kogul",
+            "Steve Siu",
+            "Fabian Waschkowski",
+            "Lukas Wesemann"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.CL"
+        ],
+        "id": "http://arxiv.org/abs/2611.17753v1",
+        "submit_date": "2026-11-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling",
+            "networking"
+        ],
+        "tldr": "Addresses distributed LLM inference across local devices with dynamic workloads. Proposes Superfluid, a scheduler enabling load balancing, prompt sharing, and fault tolerance across heterogeneous machines. Achieves 1.5s first-token latency during agent contention and scales throughput to 534 tok/s when adding/removing machines.",
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17659v1": {
+        "title": "INC-SRv6: In-Network Route Exploration and Fast Failover Using Segment Routing Headers in Dynamic UAV Networks",
+        "link": "http://arxiv.org/abs/2611.17659v1",
+        "abstract": "Unmanned aerial vehicle (UAV) networks require a network provisioning mechanism that guarantees delivery and latency quality of service (QoS) under dynamic conditions in next-generation airborne mesh networks by continuously learning and repairing multi-hop paths under rapid link turnover without flooding the control plane. This paper presents INC-SRv6, an in-network computing routing mechanism that repurposes the IPv6 Segment Routing Header (SRH) and its Segments Left (SL) pointer into a self-learning, fast-failover distributed control plane. Rather than treating the SRH as a static source-committed vector, INC-SRv6 uses the active SL pointer to partition the segment list in flight: slots ahead of SL provide capacity for hop-by-hop next-hop recording, while the suffix behind SL serves as an in-band multi-destination reachability vector. Through this dual-zone header discipline, transit routers extract distance-weighted reachability updates from arriving suffixes, gate admission by single-pass confidence with bounded binary probing, advance or reverse SL deterministically, and restore pre-transmission SRH state for local failover upon link loss. Simulations across 200-node 3D UAV networks show that under high-speed flight and repeated 20% relay outages, INC-SRv6 improves packet delivery over reactive routing (92.12% versus 89.12%) while cutting 95th-percentile tail delay from 121.26 to 8.84 ms and control packets by 35.8%, with a 4-byte compact uSID stride model reducing SRv6 control bytes by over 52%.",
+        "authors": [
+            "Zhiyuan Ren",
+            "Zhao Li"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.17659v1",
+        "submit_date": "2026-11-13",
+        "relevant": false,
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.13442v2": {
+        "title": "ForeSpark: Joint Draft and Verification Budget Scheduling for Parallel Speculative Decoding",
+        "link": "http://arxiv.org/abs/2611.13442v2",
+        "abstract": "Parallel drafters accelerate LLM decoding by proposing a whole block of draft tokens in a single forward pass, making them attractive for LLM serving. Recent systems optimize goodput (i.e., accepted tokens per second) because rejected drafts steal compute from other requests. However, these systems control only how many tokens are verified, so every request still drafts a full block. At high serving load, we find that drafting consumes up to 40% of step time, of which a majority is discarded because it is never verified. Yet, draft-length control from autoregressive drafters does not carry over, because a parallel drafter commits to its length before its single pass. Moreover, draft and verification lengths are coupled across the batch, so they must be selected jointly for every request while keeping the decision computationally cheap at every step. In this paper, we propose work-conserving speculation (WCS), a design that jointly allocates draft and verification budgets per request in LLM serving, and present ForeSpark as its prototype. ForeSpark realizes WCS with (i) a context-aware pre-draft estimator that predicts acceptance for every candidate length from the target model's context features, (ii) a lightweight joint draft-verify scheduler that selects both lengths through a global sort, and (iii) a post-draft budget distribution that spends verification on the most promising tokens. Implemented on vLLM, ForeSpark improves throughput by up to 1.77x over the state-of-the-art DSpark and by 2.49x over autoregressive decoding at a matched per-request generation rate, without changing the output distribution. It also tolerates higher load, sustaining up to 1.51x the request rate of DSpark under latency service level objectives (SLOs).",
+        "authors": [
+            "Jaeyong Song",
+            "Daniel Wang",
+            "Pratyush Patel",
+            "Jonny Kong",
+            "Preyas Shah",
+            "Shobhit Kanaujia"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2611.13442v2",
+        "submit_date": "2026-11-13",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Reduces waste in parallel speculative decoding by jointly scheduling draft and verification budgets per request. ForeSpark employs a context-aware estimator and lightweight scheduler, improving throughput by up to 1.77x over state-of-the-art DSpark and sustaining 1.51x higher request rate under SLOs.",
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17621v1": {
+        "title": "AscendGYM: A Cost-Aware Kernel Optimization Benchmark for Real-World Workloads on Ascend NPUs",
+        "link": "http://arxiv.org/abs/2611.17621v1",
+        "abstract": "Kernel optimization is essential for efficient large language model (LLM) training and inference on Ascend NPUs. Existing Ascend kernel benchmarks primarily focus on kernel generation, with less emphasis on the ability of agents to optimize existing implementations under input configurations drawn from real workloads. To address this requirement, we introduce AscendGYM, a benchmark whose initial suite comprises 48 kernels across three difficulty levels. Each kernel is paired with test cases whose data types and tensor shapes are collected from real-world training and inference tasks. Consequently, performance improvements on AscendGYM map directly to the corresponding workloads. In terms of usability, two evaluation modes are supported in AscendGYM: model evaluation and model-harness evaluation. The kernel optimization capabilities of both trained models and custom agents are allowed to be measured. It provides a complete execution environment that closely reproduces how Ascend kernels are invoked in practical pipelines. For model evaluation, it additionally includes a built-in harness equipped with search orchestration and experience accumulation. Finally, we propose a new metric, the Speedup-Token Score (STS), which quantifies performance gains relative to token cost. By jointly considering speedup and cost, STS enables the assessment of practical kernel optimization capability of a model or harness under an acceptable budget. AscendGYM is available at https://github.com/SLAI-AITP/AscendGYM.",
+        "authors": [
+            " AI Training Platform Team",
+            "Bingwei Zhang",
+            "Jing Li",
+            "Amir Abdullin",
+            "Sihang Chen",
+            "Xin Chen",
+            "Liangjun Feng",
+            "Yingmeng Gao",
+            "Tao Guo",
+            "Junjie Huang",
+            "Dongfang Li",
+            "Zhanglian Lin",
+            "Jiajun Liu",
+            "Zekun Liu",
+            "Zhengxuan Lu",
+            "Xiaodong Luo",
+            "Jian Meng",
+            "Ivan Nosov",
+            "Linyuan Qiu",
+            "Weijian Sun",
+            "Wanrui Yan",
+            "Binfan Zheng",
+            "Zhicheng Zhou",
+            "Baotian Hu",
+            "Min Zhang",
+            "Haizhou Li",
+            "Zhiquan Luo"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2611.17621v1",
+        "submit_date": "2026-11-13",
+        "relevant": true,
+        "tags": [
+            "kernel",
+            "hardware",
+            "training"
+        ],
+        "tldr": "Proposes AscendGYM, a benchmark with 48 kernels to optimize NPU performance under real-world LLM training/inference workloads. Introduces STS metric for cost-aware kernel optimization, jointly evaluating speedup and token cost under budget constraints.",
+        "indexed_date": "2026-11-16"
+    },
+    "http://arxiv.org/abs/2611.17565v1": {
+        "title": "Performance-Portable Exact Gaussian Process Regression in Python via SYCL and oneMath",
+        "link": "http://arxiv.org/abs/2611.17565v1",
+        "abstract": "Modern multi-vendor GPU environments force a choice between portable code and native performance. GPRat is an open-source Python library for exact Gaussian process regression built on the HPX asynchronous many-task runtime, tiled algorithms, and CPU/CUDA BLAS backends. We contribute a UXL Foundation oneMath backend with a hybrid HPX/SYCL design, extending GPRat to AMD and Intel GPUs. The new SYCL backend comes within 3% of native CUDA on an NVIDIA A30 at the largest problem size and outperforms the GPflow and GPyTorch libraries by up to 1.75x and 2.17x on the A30 and up to 1.79x and 4.62x on an AMD Instinct MI210. On an Intel Arc B580, a consumer-class card with FP64 throughput below our CPUs, the unmodified SYCL backend trails GPRat's CPU backend. Overall, oneMath's dispatch to vendor-native BLAS lets a single SYCL codebase match CUDA on NVIDIA and outperform established Python GP frameworks on AMD, without vendor-specific code.",
+        "authors": [
+            "Alexander Strack",
+            "Marcel Graf",
+            "Alexander Van Craen",
+            "Dirk Pflüger"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2611.17565v1",
+        "submit_date": "2026-11-12",
+        "relevant": false,
+        "indexed_date": "2026-11-16"
     }
 }
