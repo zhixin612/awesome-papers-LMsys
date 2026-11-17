@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3695-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.16-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3708-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.17-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,34 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-17
+* `training` `quantization` [CertiSum: Bitwise-Identical MXFP4 Training Across Platforms and Parallelism Layouts](http://arxiv.org/abs/2611.21584v1)
+  > **TL;DR**: Addresses non-determinism in MXFP4 training via CertiSum, which certifies FP32 accumulation and recomputes uncertified outputs to achieve bitwise invariance. Adds 11.8--60.5% training latency over non-exact MXFP4 but achieves up to 1.24× speedup over BF16 and 1.70× over deterministic BF16.
+* `serving` `multi-modal` `disaggregation` [A Matter of Stages: Energy-Latency Trade-offs in Multimodal LLM Serving](http://arxiv.org/abs/2611.21165v1)
+  > **TL;DR**: Studies how to optimize energy and latency for multimodal LLM serving via EPD disaggregation and GPU frequency scaling. Proposes a strategy for selecting efficient configurations under constraints. Disaggregation reduces GPU energy by up to 37.0% per request with near-identical throughput.
+* `serving` `networking` [Network-Native DNN Architecture Synthesis for Distributed Inference](http://arxiv.org/abs/2611.20824v1)
+  > **TL;DR**: Proposes synthesizing DNNs that match physical network topologies for distributed inference under communication and storage constraints. Develops LPAS, an LP-based algorithm, achieving 0.6% suboptimality gap. Network-native designs improve classification accuracy by up to 10.69% versus model-first baselines.
+* `serving` `MoE` `quantization` [Benchmarking LLM Inference on Desktop-Scale NVIDIA Grace Blackwell Clusters](http://arxiv.org/abs/2611.20289v1)
+  > **TL;DR**: Benchmarks LLM inference strategies on multi-GPU clusters using vLLM. Compares tensor parallelism (TP), pipeline parallelism, and replication to optimize throughput and latency. TP=2 achieves median 1.59x peak throughput gain and reduces inter-token latency to 0.52–0.73x of single-node while supporting various precisions and models.
+* `serving` `diffusion` `storage` [TileCache: Serving Multi-Round Diffusion Image Editing with Compressed Activation Caches](http://arxiv.org/abs/2611.20246v1)
+  > **TL;DR**: Addresses memory and bandwidth overheads in serving multi-round diffusion image editing with compressed activation caches and a balanced scheduler. Achieves over 2x request rate at 90% SLO and 2.4-4.5x faster edits while preserving quality.
+* `serving` `offloading` `thinking` [Making Preemption Productive in Long-Output LLM Serving](http://arxiv.org/abs/2611.20106v1)
+  > **TL;DR**: Addresses preemption-induced KV thrashing in long-output LLM serving by preserving preempted requests' work. Introduces Stint, storing fixed-length KV snapshots in CPU with fused gather/scatter kernels, age-based readmission, and victim selection. Achieves 50.7% lower p99 time per token and 12.0% higher throughput.
+* `serving` `kernel` `MoE` [High-Throughput Serving of Nemotron 3.5 Transcribe with Regime-Aware Megakernels and Kernel Fusion](http://arxiv.org/abs/2611.20095v1)
+  > **TL;DR**: Addresses efficient serving of Nemotron 3.5 Transcribe under dynamic batching by selecting between persistent megakernels and fused kernels per pass via offline-measured crossovers. Achieves peak throughput of 4,345x real time on H100, 1.39x faster than vLLM.
+* `training` `sparse` `networking` [SMELL: Sparsity-aware Memory Efficient Federated Fine-tuning for Long-context LLMs](http://arxiv.org/abs/2611.19349v1)
+  > **TL;DR**: Addresses memory and communication inefficiencies in federated fine-tuning for long-context LLMs. Proposes SMELL with sparse-consensus adaptations, reducing peak memory consumption by 88.35% compared to conventional fine-tuning at 16K context length.
+* `RL` `networking` `disaggregation` [LoCoJAX: Host-Local Coordination for Small-Model RL on TPUs](http://arxiv.org/abs/2611.16301v2)
+  > **TL;DR**: Addresses high coordination overhead in RL training for small models on TPUs. Proposes LoCoJAX with host-local rollout processing and disaggregation for overlapping workflows. Achieves 1.3-3.6x step speedup on Qwen3-0.6B benchmark.
+* `quantization` `disaggregation` `kernel` [NVFP4-MLA: Unified FP4 KV-Cache Storage and Attention Computation for Multi-Head Latent Attention](http://arxiv.org/abs/2611.18972v1)
+  > **TL;DR**: Addresses high KV-cache storage and attention computation costs in LLM serving. Co-designs FP4 quantization for both KV-cache storage and attention computation via selective residual compensation and 2D quantization blocks. Achieves 3.20x KV-cache compression, 2.82x attention kernel speedup, and 3.5x lower p90 time to first token.
+* `training` `MoE` `quantization` [Supercharging Olmo-core for Efficient and Scalable MoE Training](http://arxiv.org/abs/2611.18956v1)
+  > **TL;DR**: Addresses high costs in MoE training due to increased parameter size and infrastructure inefficiencies. Proposes a redesigned stack using distributed parallelism, pipeline, expert parallelism, and quantization with MXFP8. Achieves 858 TFLOP/s/GPU for 1.2 trillion parameters.
+* `scaling` `offline` `networking` [Coordinating Distributed AI Servers with Industrial Loads to Reduce Grid-Interconnection Needs](http://arxiv.org/abs/2611.18951v1)
+  > **TL;DR**: Reduces grid interconnection for distributed AI by co-locating servers at factories and coordinating AI workloads with production schedules. A joint optimization sizes CPU/GPU servers and schedules deadline-constrained tasks across factories. Achieves 60-98% less interconnection capacity than new data centers.
+* `serving` `offloading` `thinking` [Making Preemption Productive in Long-Output LLM Serving](http://arxiv.org/abs/2611.20106v1)
+  > **TL;DR**: Addresses unproductive request preemption (KV thrashing) in long-output LLM reasoning. Proposes Stint, which stores KV snapshots on CPU with contiguity-first allocation, fused kernels, and age-based readmission. Reduces p99 time per token by 50.7% and increases throughput by 12.0% over recomputation baselines.
+
 ### 2026-11-16
 * `serving` `disaggregation` `agentic` [Callo: Serving Cache-Miss Requests with Speculative Decoding on Invalidated KV under Prefill-Decode Disaggregation](http://arxiv.org/abs/2611.18459v1)
   > **TL;DR**: Addresses latency from frequent context edits in agent sessions with Callo, a disaggregated system using invalidated KV for speculative decoding and underutilized scheduling. Achieves 1.05-1.19x speedup over vLLM.
