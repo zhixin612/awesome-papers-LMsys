@@ -190775,5 +190775,319 @@
         "submit_date": "2026-11-11",
         "relevant": false,
         "indexed_date": "2026-11-17"
+    },
+    "http://arxiv.org/abs/2611.19669v2": {
+        "title": "IA-MoE: An Intensity-Aware Mixture of Experts for DNN Inference",
+        "link": "http://arxiv.org/abs/2611.19669v2",
+        "abstract": "In edge-cloud collaborative inference, the layers of a deep neural network (DNN) are placed on edge and cloud virtual machines (VMs) for every request, while the edge load and the cross-cloud bandwidth change over time. We propose IA-MoE, an intensity-aware Mixture of Experts (MoE) framework that scores each layer-VM pair by end-to-end delay and energy and places the layers one at a time on the best-scoring VM. Such greedy placement is myopic when trained on per-layer labels: offloading to the cloud slows the first offloaded layer while the gain appears only in later layers, so the policy keeps too many requests at the edge. Training on the remaining request time after each decision removes this myopia and reduces the mean delay by 12-56% on congested workloads. In CloudSimSDN simulations with three DNNs and two public request traces, IA-MoE has the lowest mean delay of all compared methods on congested VGG16 workloads, across cross-cloud bandwidths of 150-600 Mbps, fluctuating bandwidth and saturated edge servers. A random forest trained on the same label is 5-27% slower, and only a heuristic that sends whole requests to the cloud uses less energy, at up to 20 times the delay. When the edge is lightly loaded, offloading does not pay and simple heuristics perform as well. IA-MoE also beats a Double Deep Q-Network (DQN) agent with the same features in all 19 tested settings, with a mean delay lower by a factor of 1.3 to 10.5, and trains in minutes instead of hours.",
+        "authors": [
+            "Meiyan Zeng",
+            "Sasu Tarkoma",
+            "Xiaoli Liu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.19669v2",
+        "submit_date": "2026-11-17",
+        "relevant": false,
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.23053v1": {
+        "title": "SPICE: Sparse Parameter Gossip for LLM Pretraining",
+        "link": "http://arxiv.org/abs/2611.23053v1",
+        "abstract": "Pretraining language models across geographically distributed resources requires communication-efficient methods that operate under limited and variable internet bandwidth. Decentralized training replaces global collectives with peer exchanges, but full-model messages make larger peer neighborhoods costly. We introduce SPICE, which combines sparse parameter gossip with error feedback through corrected parameter values that remain directly interpretable as peer neighborhoods change. These sparse exchanges make broader neighborhoods affordable, achieving better training quality with less communication than the evaluated dense decentralized baselines. As the replica count grows, SPICEincreases the number of peers contacted while keeping individual messages sparse, limiting the quality degradation observed with dense gossip. Under bandwidth constraints, SPICE achieves higher training throughput than DDP and dense gossip, while sustaining throughput during transient link slowdowns.",
+        "authors": [
+            "Pietro Cagnasso",
+            "Daniele Kopyshevskiy",
+            "Edouard Oyallon",
+            "Eugene Belilovsky"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.23053v1",
+        "submit_date": "2026-11-17",
+        "relevant": true,
+        "tags": [
+            "training",
+            "sparse",
+            "networking"
+        ],
+        "tldr": "Proposes SPICE for efficient decentralized pretraining of LLMs using sparse parameter gossip and error feedback. Enables affordable broad peer neighborhoods with sparse exchanges. Achieves higher training throughput than DDP and dense gossip under bandwidth constraints and sustains throughput during slowdowns.",
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.23035v1": {
+        "title": "Storing the Gemma 4 K=V Cache Once: Exact Global-KV Memory Savings in a Paged Serving Engine with Unchanged Attention Kernels",
+        "link": "http://arxiv.org/abs/2611.23035v1",
+        "abstract": "In the global attention layers of Gemma 4 31B, the value is the normalized key projection, and the key is the value scaled by a fixed weight, with rotary position encoding on one quarter of its dimensions. The Gemma 4 report states that this design reduces the global KV cache by up to 37.5%, but the open serving engines that we checked still store a full key and a full value: 1,024 values per KV head and token. We store one 640-value row instead, exact in real arithmetic, and an unchanged paged attention kernel reads it through two overlapping strided views as its key cache and its value cache. In a vLLM prototype with the 16-bit 31B model, the outputs are bit-identical to an emulation of the same arithmetic on the stock cache, 2 of 432 final answers differ from the stock engine (within its run-to-run noise), and the steady decode KV memory per request falls by a factor of 1.34 to 1.40 at 32K to 64K tokens. On a prefill/decode pair of two A100 GPUs with NIXL transfer and CPU offload, a decode engine with a full 15 GiB pool ran 1.38 times the stock decode tokens per step for 16K-token prompts (repeated to 0.06%) and 1.24 times for 8K-token prompts; a model of the vLLM block pool predicted both ratios to within 1% (the engine was 0.7% to 0.9% higher) and matched the change between them. The eager decode throughput rose by 1.30 and 1.11 times, and on this path the compact engine gave the same output tokens as the emulation for 8 prompts at batch 1. The run-time prototype makes an eager step 4% to 9% slower at equal batch, and the method does not yet stack with an 8-bit KV cache at the default scale.",
+        "authors": [
+            "Kushagra Bainsla"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.23035v1",
+        "submit_date": "2026-11-17",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "storage"
+        ],
+        "tldr": "Proposes compact storage for Gemma 4's KV cache in serving by storing a single row accessed via overlapping views as key/value. In a vLLM prototype, reduces decode KV memory by 1.34-1.40x per request and increases eager decode throughput by up to 1.30x.",
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22967v1": {
+        "title": "CodeReel: Accelerating Code-to-Video Agents with Exact Frame Reuse and Blocking-Aware Scheduling",
+        "link": "http://arxiv.org/abs/2611.22967v1",
+        "abstract": "Coding agents make videos by writing and refining programs in a build--inspect--edit loop. A finished film costs a median of $2.85 in model calls and 11 minutes, over a third of that time in builds that block the agent. We find that much of this time is avoidable, for two reasons. First, 37.5% of the frames of a session's later films were drawn before, many shifted in time or inside an edited scene. Second, half of the builds stop at a check, where the agent needs only the verdict, but which builds stop is unknown until the checks finish. We present CodeReel, a training-free execution layer behind agents' existing commands. Exact frame reuse keys each frame by its drawing commands, regardless of its position in time, and reuses each frame whose key recurs. Blocking-aware scheduling runs the checks first and starts the render alongside them, at idle priority, unless the session's recent builds make a pass unlikely. Scheduling spends CPU to answer sooner and reuse returns it; exact keys let later versions use frames rendered for a failed one as the agent thinks. We introduce EditLoop, a benchmark of replayable agent sessions whose films are checked against renders from scratch. On it, CodeReel cuts the agent's wait by 36.3% against Rebuild, a warm pipeline with parallel rendering, and by 57.9% against Sequential, today's step-by-step pipeline. On time-shifting edits its reuse renders 43.9%, close to the 43.0% whose pixels are new, while Manim-style caching renders 99.8%. With real agents, the median wait per build is 0.62x Rebuild's in Claude Code, on topics never used in development, and 0.67x in Codex CLI. The gain holds for five models and two frameworks.",
+        "authors": [
+            "Junyi Shen",
+            "Yao Lu"
+        ],
+        "categories": [
+            "cs.MM",
+            "cs.AI",
+            "cs.CV",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22967v1",
+        "submit_date": "2026-11-17",
+        "relevant": true,
+        "tags": [
+            "video",
+            "agentic"
+        ],
+        "tldr": "Accelerates code-to-video agents by reducing redundant rendering and build blocking. Introduces exact frame reuse via command-keyed caching and scheduling that prioritizes checks alongside low-priority renders. Achieves 36.3% lower agent wait time versus Rebuild baseline on EditLoop benchmark.",
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22847v1": {
+        "title": "Similarity-Aware Client-Side Reordering for Server-Side Storage Compression in Distributed File Systems",
+        "link": "http://arxiv.org/abs/2611.22847v1",
+        "abstract": "As growing data volumes strain the capacity of distributed file systems, server-side storage compression transparently reduces disk usage, but its effectiveness is limited when similar blocks land in separate compression records and cannot share matches. We present a client-side reordering framework that transforms the physical block layout before persistence, so that related blocks are co-located within the same compression scope without replacing the existing storage-server compressor. It operates on bounded reordering windows, periodically selects among candidate layouts via lightweight compression of sampled data, and recovers the original logical order during reads with compact window-local metadata. We implement the framework in the SkyFS distributed file system, using the Zstandard (Zstd) compressor on the OpenZFS storage backend. Results on diverse datasets show that the framework reduces physical storage by up to 42.9% relative to logical-order writes, while achieving 94-108% of baseline sequential-read throughput and 91-99% of random-read IOPS. Client-side layout construction is the primary additional write cost, showing that adaptive similarity-aware reordering substantially improves storage efficiency with acceptable overhead.",
+        "authors": [
+            "Yuanhong Huang",
+            "Zicong Chen",
+            "Yili Ma",
+            "Jinwu Yang",
+            "Yulong Chen",
+            "Guangming Tan",
+            "Dingwen Tao"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22847v1",
+        "submit_date": "2026-11-17",
+        "relevant": false,
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22631v1": {
+        "title": "Byzantine Resilience of Robot Gathering under Round-Robin Scheduling",
+        "link": "http://arxiv.org/abs/2611.22631v1",
+        "abstract": "We study deterministic gathering of $n$ anonymous, oblivious mobile robots in the plane under round-robin scheduling with rigid movement, in the presence of $f$ Byzantine robots. Robots observe all robot positions with their multiplicities, while their local coordinate systems may change adversarially between activations. The goal is for all correct robots to gather at a single point in finite time and remain there forever. We analyze ToMax, a simple algorithm that moves to a point of maximum multiplicity and stays still if and only if its current position is the unique maximum. We prove that ToMax achieves gathering whenever $f\\le\\lfloor\\sqrt{n}/2\\rfloor$, establishing an $Ω(\\sqrt{n})$ lower bound on the achievable Byzantine resilience.",
+        "authors": [
+            "Fabian Frei",
+            "Yuichi Sudo",
+            "Koichi Wada"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22631v1",
+        "submit_date": "2026-11-17",
+        "relevant": false,
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22476v1": {
+        "title": "CheckCo: Checkpoint-Coordinated Load Balancingfor Skewed Event Streams at Scale",
+        "link": "http://arxiv.org/abs/2611.22476v1",
+        "abstract": "Event streams are rarely uniform: a few dominant keys can generate orders of magnitude more events than the rest, overloading the workers that receive them and capping throughput. We present CheckCo, a checkpoint-coordinated load-balancing algorithm built on a dynamic oracle that estimates per-key frequencies from the live stream, with no prior statistics. Workers count events per key locally; at each checkpoint barrier, the counts are merged into a partitioning function that divides each key into a number of splits roughly proportional to its estimated frequency and packs the splits onto workers, and this function routes the next checkpoint window. We derive approximation bounds on the resulting load imbalance from classical scheduling results and bound its total key fan-out. On a production pipeline processing over 100 billion events per day, the most loaded worker receives only 9.8% more events than the average over a day (imbalance ratio 1.10), against 8.03 for key-based routing in simulation; in simulation, CheckCo also needs less than half the fan-out of earlier partitioners that reach comparable balance. Shifts in the key distribution are reflected in routing from the next checkpoint on, and the load stays balanced through job restarts.",
+        "authors": [
+            "Muhammad Anis Uddin Nasir",
+            "Reza Sadraei"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22476v1",
+        "submit_date": "2026-11-17",
+        "relevant": false,
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22296v1": {
+        "title": "SpecSearch: Towards Hardware-Aware Efficient Speculative Decoding",
+        "link": "http://arxiv.org/abs/2611.22296v1",
+        "abstract": "Speculative decoding (SD) accelerates large language model (LLM) inference, but its optimal configuration depends jointly on workload characteristics, GPU hardware, and available memory. For example, on the RTX~5090, the state-of-the-art speculative drafter DFlash achieves $3.50\\times$ the throughput of autoregressive (AR) decoding at low concurrency, but only $0.76\\times$ at high concurrency with short outputs. We present SpecSearch, a hardware-aware search engine that jointly optimizes decoding strategy, draft length, and precision across workload--GPU pairs. Its analytical cost model captures memory and compute constraints to identify feasible configurations and narrow the search space for throughput optimization. Guided by this model, calibration measurements are collected from multiple GPUs. Using the measurements, a Jev-based predictor learns to select high-throughput decoding configurations on held-out GPUs without requiring deployment-GPU calibration. The predictor is parameter-efficiently trained on calibration data, while adapting a frozen Qwen3-4B using LoRA adapters and a linear correction layer. Across NVIDIA RTX~5090, H100, L40 and AMD MI300X GPUs, SpecSearch with full calibration achieves an average of $2.01\\times$ the throughput of AR and $1.36\\times$ the throughput of SD, both served by vLLM. The proposed Jev-based predictor closely matches this search performance with $1.30\\times$ throughput improvement over SD with vLLM, while eliminating the need for held-out GPU calibration. Additionally, it retains $97.36\\%$ of the throughput achieved by SpecSearch that utilizes full calibration.",
+        "authors": [
+            "Selin Yildirim",
+            "Ali Zeyrek",
+            "Deming Chen"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22296v1",
+        "submit_date": "2026-11-17",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "quantization",
+            "hardware"
+        ],
+        "tldr": "Optimizes speculative decoding configurations for LLM inference across hardware. Proposes SpecSearch with analytical cost modeling and adapted predictor using GPU calibration. Achieves average throughput improvement of 2.01× over auto-regressive decoding.",
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22280v1": {
+        "title": "XM-Sparse: High-Throughput Sparse-Attention LLM Serving over Scale-up Memory Pools",
+        "link": "http://arxiv.org/abs/2611.22280v1",
+        "abstract": "Sparse attention has been increasingly adopted by production LLMs for long-context inference, yet serving systems must still retain the full KV history, making GPU HBM capacity a key limit on serving concurrency. Existing systems offload the KV cache to host memory, but suffer from the limited bandwidth of PCIe and the limited capacity of host memory. Emerging scale-up memory pools (e.g., X-Mem) relieve both limits and open new opportunities for sparse-attention offloading. In this paper, we first conduct an in-depth analysis and reveal that, even with scale-up memory pools, decode throughput remains bounded by HBM capacity, as hot KV buffers and the fully resident indexer key (K-index) cache occupy substantial HBM. Moreover, the two caches exhibit distinct access patterns. Based on these insights, we present XM-Sparse, the first sparse-attention offloading system over scale-up memory expansion. The core idea of XM-Sparse is to offload both caches aggressively while matching each with an I/O mechanism tailored to its access pattern. Specifically, for dynamically selected KV entries, XM-Sparse fuses TMA-based retrieval with attention in a tile-level pipeline to hide on-demand retrieval latency. For predictable K-index accesses, it prefetches pages via SM-efficient GPU-initiated DMA and coordinates prefetching with latency-critical operations to avoid interfering with decoding. We have implemented XM-Sparse atop SGLang, and our experiments on DeepSeek-V3.2 and GLM-5.3 with an emulated scale-up memory pool show that XM-Sparse delivers up to 4.98$\\times$ and 4.52$\\times$ higher decode throughput than PCIe-based ECHO and HiSparse, respectively, and up to 1.34$\\times$ over a naive integration on the same platform, across 16K-1M contexts.",
+        "authors": [
+            "Yijun Sun",
+            "Xudong Liao",
+            "Zhuobin Huang",
+            "Kai Chen",
+            "Nikita Lazarev",
+            "Zhizhen Zhong"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2611.22280v1",
+        "submit_date": "2026-11-17",
+        "relevant": true,
+        "tags": [
+            "offloading",
+            "serving",
+            "sparse"
+        ],
+        "tldr": "Overcomes GPU HBM limits in sparse-attention LLM serving by offloading KV cache and K-index to scale-up memory pools. Uses tile-pipelined retrieval for KV and coordinated prefetching for index. Boosts decode throughput by 4.98× over ECHO.",
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22215v1": {
+        "title": "Communicate the Change: Efficient Expert Parallelism via Activation Compression",
+        "link": "http://arxiv.org/abs/2611.22215v1",
+        "abstract": "Scaling has driven the success of large language models (LLM), with sparse mixture-of-experts (MoE) architectures enabling greater parameter capacity without a proportional increase in computation. At large scales, MoE models rely on expert parallelism to distribute experts across devices. Each MoE layer requires two synchronous collective communication steps during inference: dispatching hidden states to the activated experts and combining the resulting expert outputs. As compute throughput has outpaced interconnect bandwidth, these synchronous collectives have become a major bottleneck to MoE scaling and efficiency. We address this challenge with EchoMoE, a lightweight architecture modification that retrofits existing MoE models, requiring approximately 8,500x fewer training tokens than full pretraining. Motivated by the observation that transformer blocks update the residual stream incrementally, we use a hidden state from an earlier layer as a reference and communicate only the compressed difference between it and the current state, rather than communicating each hidden state in full. EchoMoE periodically refreshes these reference states and transmits only the compressed differences synchronously, reducing the traffic on latency-critical paths without significant computational overhead. EchoMoE reduces inter-node communication volume by 58% and improves throughput by 22.6%, while preserving average performance within 3.8 percentage points across 18 benchmarks. EchoMoE further improves inference throughput by up to 2.38x over bandwidth-constrained Ethernet, paving the way for wide-area distributed inference. EchoMoE also tolerates quantization of the communicated representations without measurable quality loss. We release an efficient implementation for applying EchoMoE to pretrained MoE models, together with an inference integration for vLLM.",
+        "authors": [
+            "Fengyuan Liu",
+            "Jay Gala",
+            "Siva Reddy",
+            "Dzmitry Bahdanau"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22215v1",
+        "submit_date": "2026-11-17",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "networking"
+        ],
+        "tldr": "Addresses communication bottlenecks in MoE inference parallelism. Proposes EchoMoE, which compresses hidden state differences using reference activations. Reduces inter-node traffic by 58% and improves throughput by 22.6%, preserving accuracy.",
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22206v1": {
+        "title": "TAILROLL: Tail-Aware Rollout Acceleration for RL-Based LLM Post-Training",
+        "link": "http://arxiv.org/abs/2611.22206v1",
+        "abstract": "RL post-training of large language models (LLMs) is bottlenecked by rollout: heavy-tailed responses leave engines idle as each step waits for the longest response. Asynchronous training masks, but does not eliminate, idle time. We distinguish imbalance waste (uneven placement and decode contention) from straggler waste (waiting for the longest response). Tail length, not average load, often sets the step bound. We propose TAILROLL, an online scheduler integrated into an open-source RL framework. It combines stateless in-flight migration and sufficiency-gated termination. Migration moves decoding requests between engines at chunk boundaries and resumes them with one re-prefill under a freeness-based, cost-aware tail-balancing policy. Termination stops a response when its GRPO group has enough completed samples for advantage estimation, masking its partial output from the training loss. Across ten configurations, TAILROLL reduces rollout bubble ratio by 21% to 74% and cross-engine KV-cache imbalance by 44% to 79%. In end-to-end RL training, it cuts rollout time by 24% to 34%, full step time by 21% to 22% on long-CoT RL, and p95 request latency by 28% to 37%, while raising generation throughput by up to 33% with comparable or higher final reward.",
+        "authors": [
+            "Niloofar Gholipour",
+            "Marcos Assuncao",
+            "Timothy Yu",
+            "Gursimran Singh",
+            "Rajkumar Buyya",
+            "Julien Gascon-Samson",
+            "Zhenan Fan",
+            "Yong Zhang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22206v1",
+        "submit_date": "2026-11-17",
+        "relevant": true,
+        "tags": [
+            "training",
+            "RL"
+        ],
+        "tldr": "Addresses waste in RL post-training rollout due to long-tail responses causing idle time. Introduces TAILROLL with in-flight migration and sufficiency-gated termination. Reduces rollout bubble ratio by 21-74% and full step time by 21-22%.",
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22160v1": {
+        "title": "Collecting Infrastructure-Level Measures for Energy Analysis in Modern Computing Infrastructures",
+        "link": "http://arxiv.org/abs/2611.22160v1",
+        "abstract": "Modern HPC facilities are complex environments in which all components are tightly coupled; consequently, precisely modeling and accounting for energy consumption requires approaches that go beyond instrumenting individual compute nodes. Aiming for a cluster-wide vision, we designed a scalable data collection pipeline that aggregates fine-grained measurements from multiple subsystems-spanning component loads, software and hardware counters, sensors and energy-ensuring consistent sampling frequencies and synchronized data acquisition across the infrastructure. We present a dataset of comprehensive metrics collected at 1 Hz over one month from a production research data center supporting heterogeneous workloads, including HPC, Kubernetes services, and distributed storage. To illustrate what this approach makes possible in practice, we analyze two case studies-distributed I/O and large-language-model inference-showing how cluster-wide measurement reveals system-level dynamics missed by localized instrumentation. The proposed dataset and collection methodology provide a foundation for future work on predictive modeling, energy-aware resource management, and more efficient computing infrastructures.",
+        "authors": [
+            "Isac Pasianotto",
+            "Stefano Cozzini",
+            "Niccolo Tosato"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22160v1",
+        "submit_date": "2026-11-17",
+        "relevant": false,
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.21937v1": {
+        "title": "SLED: Sensor SLicing from Edge to Datacenter",
+        "link": "http://arxiv.org/abs/2611.21937v1",
+        "abstract": "Modern sensing systems generate large volumes of heterogeneous data streams from multiple sensor modalities, increasing reliance on datacenters for computation, artificial intelligence/superintelligence (AI/SI) inference, and AI/SI training. Each sensor stream may have different network and compute requirements depending on its type and data volume. However, current wireless systems typically allocate resources at the device level, leading to contention among co-located sensor streams, where bulk data transfers may starve latency-critical telemetry. To this end, this paper introduces Sensor Slicing (SL). SL provides deterministic, medium access control (MAC)-level isolation for individual sensors within a single user equipment (UE) in open radio access networks (O-RAN). Using agentic coding techniques, SL is implemented in two O-RAN-compliant packages, reducing development time by 400 times (2 h 40 min [OCUDU] vs. 6.5 weeks [OAI]), 228-fold fewer human prompts (4 vs. 913), and less than half the tokens (0.64B vs. 1.43B). An associated end-to-end framework, SLED, is implemented to establish per-sensor radio and network isolation across edge, campus, and remote high-performance computing (HPC) tiers. Over-the-air wireless experiments demonstrate that while conventional network slicing causes critical delays to increase more than 2,300-fold under high traffic load, SLED maintains stable latency. Scaling evaluations on the two RAN stacks show that throughput remains within 0.9% and 1.4% of expected allocations even as the number of sensor slices increases. The results demonstrate that SLED preserves latency-critical telemetry while effectively utilizing resources across the sensor-to-HPC pipeline. The SLED software and evaluation datasets are publicly available at https://github.com/UNL-CPN-Lab/SLED-Sensor-SLicing-from-Edge-to-Datacenter.",
+        "authors": [
+            "Alan Subedi",
+            "Avhishek Biswas",
+            "Apala Pramanik",
+            "Amlan Balabantaray",
+            "Mikhail Titov",
+            "Santosh Pitla",
+            "Ozgur Kilic",
+            "Mehmet C. Vuran"
+        ],
+        "categories": [
+            "cs.AI",
+            "cs.CE",
+            "cs.DC",
+            "cs.ET",
+            "cs.NI"
+        ],
+        "id": "http://arxiv.org/abs/2611.21937v1",
+        "submit_date": "2026-11-16",
+        "relevant": false,
+        "indexed_date": "2026-11-18"
+    },
+    "http://arxiv.org/abs/2611.22086v1": {
+        "title": "HyCoInfer: Cloud-Edge Collaborative Inference for Large Language Models on Heterogeneous GPU-FPGA Architectures",
+        "link": "http://arxiv.org/abs/2611.22086v1",
+        "abstract": "Large language model (LLM) serving relies predominantly on cloud GPUs, yet autoregressive decoding is memory-bound and often leaves their arithmetic units underutilized. Edge FPGAs offer attractive decoding efficiency, but are ill suited to sustaining a high-concurrency serving workload alone. This paper presents HyCoInfer, a heterogeneous cloud-edge serving system that assigns prefill to cloud GPUs and distributes decoding across cloud GPUs and edge FPGAs. The design addresses three barriers to practical offloading: capacity balancing across heterogeneous accelerators, the large KV cache crossing a constrained wide-area link, and the latency added by heterogeneous execution. HyCoInfer incorporates FPGA decode capacity into GPU prefill/decode role partitioning and places requests according to queue load, prompt length, and network state. It further combines layer-wise pipelined transfer, decoder-side precomputation, and bandwidth-adaptive KV cache compression based on residual vector quantization. We implement HyCoInfer using two NVIDIA V100 GPUs and an AMD Xilinx Alveo U280 and evaluate it over 100-1000 Mbps links. At 500 Mbps, HyCoInfer delivers up to 4.11 times the request goodput of cloud-only vLLM and reduces mean end-to-end latency by up to 61.1%. Across different network conditions and workloads, the system improves overall serving capacity, with the largest gains on communication-intensive tasks, and reduces per-request energy.",
+        "authors": [
+            "Zewen Huang",
+            "Xiangwen Zhuge",
+            "Yingkun Hu",
+            "Zheng Yang",
+            "Qiang Ma"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.AI"
+        ],
+        "id": "http://arxiv.org/abs/2611.22086v1",
+        "submit_date": "2026-11-17",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "edge",
+            "disaggregation"
+        ],
+        "tldr": "Proposes HyCoInfer, a cloud-edge collaborative LLM inference system that assigns prefill to GPUs and decoding to GPUs/FPGAs, with load balancing, pipelined transfer, precomputation, and compressed KV cache. Achieves 4.11× higher goodput and up to 61.1% lower latency than vLLM.",
+        "indexed_date": "2026-11-18"
     }
 }
