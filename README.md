@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3716-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.18-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3727-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.19-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,30 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-19
+* `MoE` `serving` `training` [Harvesting Expert-Parallel Bubbles for Fine-Tuning](http://arxiv.org/abs/2611.24496v1)
+  > **TL;DR**: BubbleTea leverages expert-parallel idle bubbles in MoE serving for fine-tuning by predicting per-GPU bubbles at every layer and filling with fine-tuning chunks reusing serving weights. Achieves 1.9-6.2x faster fine-tuning throughput than LLMStation while maintaining p90 inference latency within 10% of serving alone.
+* `serving` `hardware` `kernel` [A Runtime System for Mitigating Crossbar Port Contention on SM-Partitioned GPUs](http://arxiv.org/abs/2611.24458v1)
+  > **TL;DR**: Addresses crossbar port contention in GPU for latency-critical workloads. Proposes GPCPlace, a runtime system that dynamically chooses between spreading or packing via profiling and driver hooks. Achieves up to 1.15x average speedup over CUDA Green Contexts without degrading throughput.
+* `kernel` [Dissecting an Unexplored SASS Control-Code Field: Barrier Exemption and Programmable Warp Priority](http://arxiv.org/abs/2611.24437v1)
+  > **TL;DR**: Investigates an unexplored GPU SASS instruction field for barrier exemption and programmable warp priority. Develops a post-compilation binary optimizer to apply these optimizations without source changes. Achieves up to 31.9% kernel speedup and 3.6% end-to-end LLM inference acceleration in vLLM and llama.cpp.
+* `serving` [eFAIR: Fair LLM Serving under Hourly Electricity Commitments](http://arxiv.org/abs/2611.24119v1)
+  > **TL;DR**: Addresses fair LLM serving under hourly electricity constraints. Proposes eFAIR, an online scheduler that coordinates request dispatching, electricity budget allocation, and GPU frequency selection via normalized-throughput targets. Improves the tenth percentile normalized throughput by 28.0-31.0% over baselines while keeping electricity deviations below 0.26%.
+* `serving` `edge` `networking` [LEDGE: An Efficient Simulator for Distributed LLM Serving on Heterogeneous Edge Devices](http://arxiv.org/abs/2611.24085v1)
+  > **TL;DR**: LEDGE is a lightweight simulator for distributed LLM serving on heterogeneous edge devices. It constructs event graphs and uses calibrated performance models to explore partitions and placements without tensor execution, achieving 135.3× simulation speedup and below 3.6% latency MAPE.
+* `MoE` `serving` `offloading` [A Fast, Programmable GPU-to-CPU Invocation Layer for GPU-Initiated Communication](http://arxiv.org/abs/2611.23848v1)
+  > **TL;DR**: Addresses inefficiency in GPU-initiated communication for systems like LLM inference. Proposes KIWI, a programmable reverse-offload framework optimizing queue contention and proxy load balancing. KIWI-EP reduces time per output token in vLLM by up to 29% for MoE models.
+* `RL` `training` `scaling` [Local Coordination for Efficient Small-Model RL on TPUs](http://arxiv.org/abs/2611.16301v3)
+  > **TL;DR**: Addresses high coordination overhead for RL on small models in distributed TPUs. Proposes LoCoJax with local rollout per host and synchronous global training. Achieves up to 3.6x faster step times and completes tasks faster with fewer devices than baselines.
+* `training` `sparse` `kernel` [DexAttention: Distributed Sparse Attention through Rapid Online Planning and Persistent GPU Execution](http://arxiv.org/abs/2611.23512v1)
+  > **TL;DR**: Reduces overhead in distributed sparse attention training via fast online planning (GPU-accelerated clustering and greedy scheduling) coupled with persistent GPU kernels for task execution. Achieves 1.39× geometric mean training speedup and 2.11-2.37× speedups for video attention over baselines.
+* `serving` `training` `MoE` [Harvesting Expert-Parallel Bubbles for Fine-Tuning](http://arxiv.org/abs/2611.24496v1)
+  > **TL;DR**: Leverages expert-parallel bubbles in MoE serving for colocated fine-tuning. Introduces BubbleTea's per-layer bubble prediction and compiler-generated fine-grained task chunks without separate engines. Achieves 1.9-6.2× faster fine-tuning throughput than state-of-the-art with p90 inference latency within 10% of solo serving in 79% of workloads.
+* `kernel` `storage` `networking` [Neural Memory Orchestration](http://arxiv.org/abs/2611.23857v1)
+  > **TL;DR**: Addresses runtime inefficiencies from page faults in memory-heavy workloads. Proposes Overseer, a learned prefetching pipeline using eBPF collection, network-attached transformer predictors, and kernel enforcers. Reduces runtime by 35% for Hilbert traversal and 10x for dense matrix multiplication.
+* `serving` `agentic` `scaling` [Towards Fair Resource Sharing in Agentic LLM Serving](http://arxiv.org/abs/2611.23558v1)
+  > **TL;DR**: Addresses unfair resource contention in agentic LLM serving by defining agent-level fairness and introducing Duru, a cross-layer framework that uses monitored slowdown for admission control, scheduling, and autoscaling. Duru reduces 99th-percentile normalized slowdown by 44.4% (geo. mean) while maintaining 91.8-127.4% of SOTA throughput.
+
 ### 2026-11-18
 * `training` `sparse` `networking` [SPICE: Sparse Parameter Gossip for LLM Pretraining](http://arxiv.org/abs/2611.23053v1)
   > **TL;DR**: Proposes SPICE for efficient decentralized pretraining of LLMs using sparse parameter gossip and error feedback. Enables affordable broad peer neighborhoods with sparse exchanges. Achieves higher training throughput than DDP and dense gossip under bandwidth constraints and sustains throughput during slowdowns.
