@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3727-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.19-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3739-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.20-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,32 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-20
+* `serving` `offloading` [TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming](http://arxiv.org/abs/2611.26619v1)
+  > **TL;DR**: Optimizes LLM serving for hybrid architectures by transparent cache management and layer-wise streaming. Introduces GPU-host cache residency control, prefetching, and scheduling to reduce memory footprint. Improves agent P50 TTFT by 1.40–3.05× and reduces per-token latency by 20–59% versus baseline systems.
+* `serving` `agentic` `scaling` [Held While Waiting: What LLM Agent Sessions Reserve on Serverless and Agent Runtimes](http://arxiv.org/abs/2611.26480v1)
+  > **TL;DR**: Held While Waiting identifies resource inefficiency in LLM agent serving due to per-conversation environment reservations. Proposes two fixes: client-initiated closure and platform-level environment sharing. In simulation, 64 conversations sharing an environment reduced environments by 59x with 99% of replies delayed ≤40ms.
+* `serving` `agentic` [Aggron: Aggressive Compression of Agentic KV Caches during Head-of-Line Stalls in the Request Queue](http://arxiv.org/abs/2611.26435v1)
+  > **TL;DR**: Aggron addresses high memory demands of agentic LLMs by compressing KV caches via selective summarization during queue stalls. It utilizes idle resources via a dedicated queue with completion prediction, reducing P99 program latency by 27-31% and increasing throughput by 1.34-1.40x at high load.
+* `serving` `storage` [Storing the Gemma 4 K=V Cache Once: Exact Global-KV Memory Savings in a Paged Serving Engine with Unchanged Attention Kernels](http://arxiv.org/abs/2611.23035v2)
+  > **TL;DR**: Exploits Gemma 4's key-value duality for compact KV cache storage in vLLM through overlapping strided views without kernel changes, reducing decode memory per request by factors of 1.34-1.40 at 32K-64K tokens.
+* `serving` `sparse` `kernel` [Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining](http://arxiv.org/abs/2611.26268v1)
+  > **TL;DR**: Optimizes Mixture of Block Attention (MoBA) for long-context generation efficiency. Introduces LightningMoBA with dynamic routing (variable sparsity), KV-centric execution (reuse grouping), and runtime pipelining. Achieves 1.20-1.60x end-to-end generation speedup at matched retention.
+* `networking` `training` [Towards Scale-Up Networking: Challenges and Open Questions](http://arxiv.org/abs/2611.26156v1)
+  > **TL;DR**: Analyzes requirements for scale-up fabrics to address inter-accelerator communication bottlenecks in distributed training and inference. Proposes a framework to evaluate existing fabrics on trade-offs in performance, scalability, compatibility, and cost. Derives quantitative targets for domain scale, per-accelerator bandwidth, and collective latency.
+* `serving` `offloading` [Live Migration of Gated DeltaNet Requests: Exact Catch-Up and the Cost of Log Backlog](http://arxiv.org/abs/2611.26153v1)
+  > **TL;DR**: Addresses handoff latency during live migration of streaming LLM requests. Proposes exact token catch-up with snapshots, batched replay, and compact logs for state recovery. Reduces median handoff gap from 445--464 ms to ~81 ms using 32-step replay at 10 MB/s.
+* `quantization` `kernel` `serving` [AscMLA: Unlocking FP4 Efficiency for Long-Context MLA Decoding through Asymmetric Scaling](http://arxiv.org/abs/2611.26106v1)
+  > **TL;DR**: AscMLA reduces FP4 overhead in multi-head latent attention decoding. Uses asymmetric key/value scaling and pipelined scale delivery for direct FP4 processing. Achieves 38.2% lower cache memory and 1.35x speedup versus FP8 kernels.
+* `agentic` `serving` `offloading` [TripleKV: Predict, Prefetch, Protect -- KV Cache Management for AI Agents](http://arxiv.org/abs/2611.25112v1)
+  > **TL;DR**: Addresses high latency in LLM agent inference due to KV cache evictions. TripleKV prefetches KV blocks from SSD to DRAM using a tool-aware predictor and duplication elimination. Reduces critical-path SSD reads to under 10% and P95 TTFT by up to 49% compared to vLLM extension.
+* `serving` [Berth: SLO-Preserving GPU Sharing Without New Preemption](http://arxiv.org/abs/2611.25091v1)
+  > **TL;DR**: Addresses GPU underutilization during SLO-bound inference by sharing GPU with best-effort jobs. Proposes Berth, a user-space system that dynamically controls best-effort task feeding without stack modifications. Achieves near-isolated SLO performance and 2.7-3.5x higher best-effort throughput versus baselines.
+* `serving` `offloading` `sparse` [Twindex: Index Cache Offloading with Coarse-to-Fine Selection for Long-Context Sparse-Attention Serving](http://arxiv.org/abs/2611.25078v1)
+  > **TL;DR**: Addresses GPU memory bottleneck in long-context sparse-attention serving after KV offloading by moving indexer cache to host. Proposes Twindex with compact HBM index cache and coarse-to-fine candidate selection. Achieves 1.78x/1.62x/3.03x more concurrent requests and 1.44x/1.25x/2.54x higher decode throughput across models.
+* `serving` `offloading` `agentic` [TripleKV: Predict, Prefetch, Protect -- KV Cache Management for AI Agents](http://arxiv.org/abs/2611.25112v1)
+  > **TL;DR**: Addresses high KV cache retrieval latency in agentic LLMs under concurrency. Proposes TripleKV, a three-tier cache system that prefetches blocks during tool execution using tool-aware prediction and victim-cache. Cuts critical-path SSD reads from 45-76% to <10% and reduces P95 TTFT by up to 49% vs vLLM.
+
 ### 2026-11-19
 * `MoE` `serving` `training` [Harvesting Expert-Parallel Bubbles for Fine-Tuning](http://arxiv.org/abs/2611.24496v1)
   > **TL;DR**: BubbleTea leverages expert-parallel idle bubbles in MoE serving for fine-tuning by predicting per-GPU bubbles at every layer and filling with fine-tuning chunks reusing serving weights. Achieves 1.9-6.2x faster fine-tuning throughput than LLMStation while maintaining p90 inference latency within 10% of serving alone.

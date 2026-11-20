@@ -191714,5 +191714,466 @@
         "submit_date": "2026-11-17",
         "relevant": false,
         "indexed_date": "2026-11-19"
+    },
+    "http://arxiv.org/abs/2611.26619v1": {
+        "title": "TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming",
+        "link": "http://arxiv.org/abs/2611.26619v1",
+        "abstract": "Hybrid architectures have become mainstream among open-weight language models. Their global-attention and bounded-state layers maintain heterogeneous caches whose demands vary with context length and concurrency. We present TideCache, a serving system on CPU--GPU superchips with three components for allocating GPU memory among caches and managing their residency across GPU and host memory. The Transparent Cache Pool redistributes physical pages among cache components behind fixed virtual addresses, preserving cache layouts and backend interfaces. The Cache Streamer uses computation intervals provided by bounded-state layers to prefetch the next global-attention layer's prefix into GPU slots shared across global-attention layers, reducing GPU residency while overlapping layer-wise transfers with computation. Generated KV remains resident. The Request Scheduler selects resident or streamed execution and triggers capacity adjustments according to request size and queue state. Together, they let HBM released by streaming accommodate other cache components and additional requests. Implemented in SGLang and evaluated on GB300 and GH200 across seven model/platform configurations, TideCache completes up to 2.04x as many agent turns, reduces overall P50 per-token latency by 20--59%, and improves agent P50 TTFT by 1.40--3.05x compared with SGLang with HiCache.",
+        "authors": [
+            "Jinbin Luo",
+            "Xiaozhe Yao",
+            "Shang Yang",
+            "Zhijian Liu",
+            "Song Han",
+            "Qinghao Hu"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2611.26619v1",
+        "submit_date": "2026-11-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Optimizes LLM serving for hybrid architectures by transparent cache management and layer-wise streaming. Introduces GPU-host cache residency control, prefetching, and scheduling to reduce memory footprint. Improves agent P50 TTFT by 1.40–3.05× and reduces per-token latency by 20–59% versus baseline systems.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26526v1": {
+        "title": "Thinflow: Organizing HPC Benchmarking Campaigns as Rerunnable Directory Trees",
+        "link": "http://arxiv.org/abs/2611.26526v1",
+        "abstract": "A benchmarking campaign provides the measurements behind an HPC performance study: code variants are built, swept over core or node counts, and measured repeatedly. Moving such a campaign to another supercomputer or rerunning it months later requires work that is not part of the study itself. Job scripts are adapted to each supercomputer, and what exactly ran is often reconstructed afterwards. We present Thinflow, a small Bash engine for organizing HPC benchmarking campaigns as rerunnable directory trees of tasks and runs. A task is a directory with a short shell script next to the code. For each sweep, one command builds the code, runs the benchmarks, and plots the results. Thinflow derives the execution order from declared dependencies and writes it to a plain-text manifest. Per-supercomputer profiles submit the runs to a workload manager such as Slurm. Each run writes a provenance record of its environment, hardware, and parameters. The engine ships inside the campaign directory, so a campaign stays rerunnable without installing a separate tool and, once completed, may serve as a paper artifact. In a case study, we ran one campaign with identical task files on three Slurm partitions of two supercomputers, on up to 16 nodes. This strong-scaling study of matrix multiplication in C/OpenMP, C/MPI, and Julia/MPI comprises 37 task files with 217 non-comment lines. Its 455 benchmark runs recorded what differed per partition, chiefly profiles and command-line parameters. This suggests that such a campaign needs little structure beyond plain shell files.",
+        "authors": [
+            "Richard Schulze",
+            "Ari Rasch",
+            "Anna-Lena Roth",
+            "Jonas Posner"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.26526v1",
+        "submit_date": "2026-11-19",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26480v1": {
+        "title": "Held While Waiting: What LLM Agent Sessions Reserve on Serverless and Agent Runtimes",
+        "link": "http://arxiv.org/abs/2611.26480v1",
+        "abstract": "LLM agents spend nearly all their time waiting for the model. On Amazon Bedrock AgentCore, our agents waited a median of 2.7 seconds for each model reply, then computed for an estimated 5 to 40 milliseconds. AgentCore does not charge for CPU during the wait. But it reserves a separate environment, a virtual machine with its own memory, for every conversation, and keeps it reserved until the conversation is closed. So 1,000 conversations reserve 1,000 environments to do the work of 2 to 15 processor cores. A service runs out of environments long before it runs out of processing power.\n  The shortage has two causes, and each has a fix. An environment stays reserved after its conversation ends: in the customer-service benchmark we ran, a conversation lasts 33 seconds on average, but its environment is held for 15 minutes more unless the client closes it. And an environment serves only one conversation, which is mostly waiting: in our simulation, 64 conversations sharing one environment need 59 times fewer environments, and 99 of every 100 replies are delayed by at most 40 milliseconds.\n  The milliseconds are an estimate because they are hard to measure: a stubbed model, a timer around the model call, and steps run back to back each gave a plausible number that was too low. We show how to avoid all three. Of the two fixes, closing needs only the client. Sharing needs the platform, and of the agent runtimes we surveyed only one allows it, in part. They keep conversations apart because an agent runs tools, and sometimes code, chosen by a model. The open problem is to keep them apart without reserving an environment for each while it waits.",
+        "authors": [
+            "Mekhala Hithyshini Sreenivasa"
+        ],
+        "categories": [
+            "cs.PF",
+            "cs.DC",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2611.26480v1",
+        "submit_date": "2026-11-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic",
+            "scaling"
+        ],
+        "tldr": "Held While Waiting identifies resource inefficiency in LLM agent serving due to per-conversation environment reservations. Proposes two fixes: client-initiated closure and platform-level environment sharing. In simulation, 64 conversations sharing an environment reduced environments by 59x with 99% of replies delayed ≤40ms.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26451v1": {
+        "title": "StarMPI-SVD: Distributed-Memory Parallel Star-M Tensor SVD",
+        "link": "http://arxiv.org/abs/2611.26451v1",
+        "abstract": "The star-M tensor algebra generalizes the optimal compression guarantees of the matrix singular value decomposition (SVD) to higher-order tensors. The t-SVDM-I decomposition is computed using a set of invertible transformations and slice-wise truncated SVDs with a prescribed rank, and its adaptive, multirank variant t-SVDM-II can determine slice-wise ranks to satisfy a prescribed error tolerance. Existing implementations of these algorithms are limited to shared-memory environments, restricting their applicability to modern large-scale datasets. In this work, we present the first distributed-memory implementations of t-SVDM-I and t-SVDM-II, which are generalized to N-way tensors. To address computational and communication bottlenecks, we design asynchronous, non-blocking communication strategies for efficient data redistribution to obtain highly efficient key computational kernels. Strong-scaling experiments demonstrate the efficiency and scalability of our approach (at least 70% parallel efficiency on up to 128 nodes, or 6144 cores), and we apply the star-M compression techniques to a set of application datasets of size up to 768 GB.",
+        "authors": [
+            "Naman Pesricha",
+            "Grey Ballard",
+            "Srinivas Eswar",
+            "Md Taufique Hussain",
+            "Vishwas Rao",
+            "Phani Motamarri"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.26451v1",
+        "submit_date": "2026-11-19",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26436v1": {
+        "title": "When lies look like noise: certifying untrusted entanglement swapping",
+        "link": "http://arxiv.org/abs/2611.26436v1",
+        "abstract": "Entanglement swapping lets quantum repeaters distribute entanglement over long distances, a prerequisite for the quantum internet. We study its security in a noisy network whose intermediate nodes perform the quantum operations faithfully but may misreport the classical outcome that end users rely on. We show that the ideal functionality of entanglement swapping cannot be realised, because it gives the adversary no influence over the delivered state, whereas a node that relabels its report does have such influence. Including honest noise in the ideal setting does not help unless it also concedes a bounded fraction of misreported pairs. We therefore propose a cut-and-choose protocol that tests a random subset of pairs to certify the rest. Since no test can distinguish a misreport from readout noise, the protocol certifies the error above a pre-agreed minimum noise level, which is the misreport rate under our threat model. This yields a quality-of-service guarantee, in which a failure witnesses that the node did not deliver as agreed. Unlike verification schemes that consume the state they certify, the untested pairs remain available for use, with a finite-size guarantee. Certifying a 1% misreport rate on 10^6 pairs costs 10^4 to 1.7x10^5 test pairs, for minimum noise levels ranging from 0 to 5%. The main cost is memory, since 1% requires holding 10^5 to 10^6 pairs at once, far beyond the capacity of today's quantum memories. Verifying and releasing in blocks ties the memory to the block size at the cost of a weaker rate: a (10^4)-qubit memory certifies 14% on 4.7x10^5 delivered pairs.",
+        "authors": [
+            "Maria Gragera Garces",
+            "Chris Heunen",
+            "Mahesh K. Marina"
+        ],
+        "categories": [
+            "quant-ph",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.26436v1",
+        "submit_date": "2026-11-19",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26435v1": {
+        "title": "Aggron: Aggressive Compression of Agentic KV Caches during Head-of-Line Stalls in the Request Queue",
+        "link": "http://arxiv.org/abs/2611.26435v1",
+        "abstract": "LLM agents run long, multi-turn programs whose contexts grow at every step, and serving them is limited by KV cache capacity. To alleviate this limitation, systems use context compression techniques, which typically wait until the KV cache crosses a large threshold and then summarize large spans of history at once, either in the background while the agent progresses or on the critical path. These summarizations can be done using the same model running on the same engine, or using the same or a different model running on extra hardware. When running on the same engine, summarization competes with the requests being served for both compute and memory capacity.\n  To maximize the cost-effectiveness of summarization, this paper presents a new serving system called {\\em Aggron}. Aggron summarizes agentic requests at every turn and selectively summarizes only certain parts of the KV cache. As a result, Aggron retains accuracy and keeps summarization requests lightweight. Moreover, Aggron launches summarization requests from a separate {\\em Summarization Queue} while the corresponding agentic request whose KV cache we want to compress is stalled in the main request queue due to head-of-line stalls. The Summarization queue utilizes compute and memory capacity left over by the head-of-line stalls in the main queue. Further, to maximize efficiency, the server issues summarizations only when it predicts that they can complete before the corresponding agentic request will finally execute. In our evaluation, we compare Aggron to state-of-the-art asynchronous summarization. At high load, Aggron reduces P99 program latency by $27$--$31\\%$, and raises throughput by $1.34$--$1.40\\times$.",
+        "authors": [
+            "Rishabh Ravi",
+            "Tony Hong",
+            "Chen Wang",
+            "Yue Zhu",
+            "Mengmei Ye",
+            "Hubertus Franke",
+            "Fan Lai",
+            "Josep Torrellas"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR"
+        ],
+        "id": "http://arxiv.org/abs/2611.26435v1",
+        "submit_date": "2026-11-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "agentic"
+        ],
+        "tldr": "Aggron addresses high memory demands of agentic LLMs by compressing KV caches via selective summarization during queue stalls. It utilizes idle resources via a dedicated queue with completion prediction, reducing P99 program latency by 27-31% and increasing throughput by 1.34-1.40x at high load.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.23035v2": {
+        "title": "Storing the Gemma 4 K=V Cache Once: Exact Global-KV Memory Savings in a Paged Serving Engine with Unchanged Attention Kernels",
+        "link": "http://arxiv.org/abs/2611.23035v2",
+        "abstract": "In the global attention layers of Gemma 4 31B, the value is the normalized key projection, and the key is the value scaled by a fixed weight, with rotary position encoding on one quarter of its dimensions. The Gemma 4 report states that this design reduces the global KV cache by up to 37.5%, but the open serving engines that we checked still store a full key and a full value: 1,024 values per KV head and token. We store one 640-value row instead, exact in real arithmetic, and an unchanged paged attention kernel reads it through two overlapping strided views as its key cache and its value cache. In a vLLM prototype with the 16-bit 31B model, the outputs are bit-identical to an emulation of the same arithmetic on the stock cache, 2 of 432 final answers differ from the stock engine (within its run-to-run noise), and the steady decode KV memory per request falls by a factor of 1.34 to 1.40 at 32K to 64K tokens. On a prefill/decode pair of two A100 GPUs with NIXL transfer and CPU offload, a decode engine with a full 15 GiB pool ran 1.38 times the stock decode tokens per step for 16K-token prompts (repeated to 0.06%) and 1.24 times for 8K-token prompts; a model of the vLLM block pool predicted both ratios to within 1% (the engine was 0.7% to 0.9% higher) and matched the change between them. The eager decode throughput rose by 1.30 and 1.11 times, and on this path the compact engine gave the same output tokens as the emulation for 8 prompts at batch 1. The run-time prototype makes an eager step 4% to 9% slower at equal batch, and the method does not yet stack with an 8-bit KV cache at the default scale.",
+        "authors": [
+            "Kushagra Bainsla"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CL",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.23035v2",
+        "submit_date": "2026-11-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "storage"
+        ],
+        "tldr": "Exploits Gemma 4's key-value duality for compact KV cache storage in vLLM through overlapping strided views without kernel changes, reducing decode memory per request by factors of 1.34-1.40 at 32K-64K tokens.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.22476v2": {
+        "title": "CheckCo: Checkpoint-Coordinated Load Balancing for Skewed Event Streams at Scale",
+        "link": "http://arxiv.org/abs/2611.22476v2",
+        "abstract": "Event streams are rarely uniform: a few dominant keys can generate orders of magnitude more events than the rest, overloading the workers that receive them and capping throughput. We present CheckCo, a checkpoint-coordinated load-balancing algorithm built on a dynamic oracle that estimates per-key frequencies from the live stream, with no prior statistics. Workers count events per key locally; at each checkpoint barrier, the counts are merged into a partitioning function that divides each key into a number of splits roughly proportional to its estimated frequency and packs the splits onto workers, and this function routes the next checkpoint window. We derive approximation bounds on the resulting load imbalance from classical scheduling results and bound its total key fan-out. On a production pipeline processing over 100 billion events per day, the most loaded worker receives only 9.8% more events than the average over a day (imbalance ratio 1.10), against 8.03 for key-based routing in simulation; in simulation, CheckCo also needs less than half the fan-out of earlier partitioners that reach comparable balance. Shifts in the key distribution are reflected in routing from the next checkpoint on, and the load stays balanced through job restarts.",
+        "authors": [
+            "Muhammad Anis Uddin Nasir",
+            "Reza Sadraei"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.22476v2",
+        "submit_date": "2026-11-19",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26268v1": {
+        "title": "Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining",
+        "link": "http://arxiv.org/abs/2611.26268v1",
+        "abstract": "Mixture of Block Attention (MoBA) reduces long-context computation by selecting key-value (KV) blocks for each query. FlashMoBA implements MoBA efficiently but retains a fixed Top-k budget and query-centric schedule. Fixed Top-k applies one budget across different score distributions and couples routing to task granularity; query-range ownership fragments K/V reuse when several ranges select the same column. We present LightningMoBA, which co-designs selection and execution through dynamic routing, KV-centric ownership, and runtime pipelining. Dynamic routing thresholds MoBA's per-query block scores and directly emits variable-cardinality sparse metadata. KV-centric ownership groups selected rows by (query head, KV block) column, splits high-fanout columns into bounded tasks, and reuses each task's loaded KV tile. On Hopper, pipelining overlaps regular K/V transfers and irregular query gathers with Tensor Core computation. Together, these mechanisms decouple retention from GPU scheduling granularity. At matched Top-16 retention across five checkpoints, LightningMoBA accelerates end-to-end generation by 1.20 to 1.60x while raising mean RULER score from 74.42 to 75.28.",
+        "authors": [
+            "Yingqi Shi",
+            "Junru Lu",
+            "Yun Liu",
+            "Di Yin",
+            "Xing Sun"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.26268v1",
+        "submit_date": "2026-11-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "sparse",
+            "kernel"
+        ],
+        "tldr": "Optimizes Mixture of Block Attention (MoBA) for long-context generation efficiency. Introduces LightningMoBA with dynamic routing (variable sparsity), KV-centric execution (reuse grouping), and runtime pipelining. Achieves 1.20-1.60x end-to-end generation speedup at matched retention.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26266v1": {
+        "title": "Cooling Noisy Population Protocols -- Vanishing-Gain Averaging and Localisation under Persistent Errors",
+        "link": "http://arxiv.org/abs/2611.26266v1",
+        "abstract": "We study noise-tolerant coordination in anonymous population protocols whose agents interact in uniformly random pairs, maintain real-valued labels, and have no global clock. Each agent cools its updates using a gain $γ_k=(k+1)^{-p}$ computed from its own local interaction counter. First, for pairwise averaging with independent communication errors drawn from a fixed centred finite-variance distribution, we prove convergence with probability 1 to a common finite random value for every $1/2<p\\le1$, and derive convergence-rate exponents under the same assumptions. Second, for one-dimensional localisation with fixed non-degenerate Gaussian displacement errors, we show that the one-sided RightAlign rule rectifies centred noise and cannot stabilise; a signed update based on the relative-position discrepancy restores convergence to the true agents locations up to one finite random translation. Third, we analyse the setting in which both communication errors and displacement-measurement errors depend on the physical distance between the interacting devices. For additive independent Gaussian errors, the two sources combine into one centred effective error whose variance is the sum of the distance-dependent component variances. The signed updates protocol remains convergent for every fixed finite geometry, and the average combined variance determines the leading common-translation fluctuation. These results distinguish cooling-compatible signed corrections from one-sided updates that turn persistent noise into drift.",
+        "authors": [
+            "Leszek Gąsieniec",
+            "Łukasz Kuszner",
+            "Paul Spirakis",
+            "Grzegorz Stachowiak"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.26266v1",
+        "submit_date": "2026-11-19",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26156v1": {
+        "title": "Towards Scale-Up Networking: Challenges and Open Questions",
+        "link": "http://arxiv.org/abs/2611.26156v1",
+        "abstract": "The rapid growth of AI models and the widespread use of distributed training and inference have made inter-accelerator communication a critical system bottleneck. Scale-up fabrics address this bottleneck by combining high per-accelerator bandwidth with low and predictable latency over tightly coupled accelerator domains. However, the appropriate topology, protocol mechanisms, communication semantics, and system integration remain actively debated. We analyze the critical-path communication generated by parallelism strategies and derive the resulting requirements for domain scale, per-accelerator bandwidth, and collective completion latency. We then use these requirements as a framework to examine representative proprietary and open scale-up fabrics, revealing how their physical interconnects, topologies, protocols, and semantics make different trade-offs among performance, scalability, compatibility, and implementation cost. Moreover, based on this analysis and discussions with industry experts, we identify challenges and open problems in physical interconnects and switching, efficient communication, semantics, resource sharing and heterogeneous device interconnection. This paper provides a requirement-driven foundation for analyzing current scale-up fabrics and guiding the design of future systems.",
+        "authors": [
+            "Tingting Xu",
+            "Zixun Su",
+            "Xinyang Huang",
+            "Bowen Liu",
+            "Kun Tan",
+            "Dong Lin",
+            "Hao Wang",
+            "Yinben Xia",
+            "Weifeng Zhang",
+            "Binzhang Fu",
+            "Shuihai Hu",
+            "Kai Chen"
+        ],
+        "categories": [
+            "cs.NI",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.26156v1",
+        "submit_date": "2026-11-19",
+        "relevant": true,
+        "tags": [
+            "networking",
+            "training"
+        ],
+        "tldr": "Analyzes requirements for scale-up fabrics to address inter-accelerator communication bottlenecks in distributed training and inference. Proposes a framework to evaluate existing fabrics on trade-offs in performance, scalability, compatibility, and cost. Derives quantitative targets for domain scale, per-accelerator bandwidth, and collective latency.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26153v1": {
+        "title": "Live Migration of Gated DeltaNet Requests: Exact Catch-Up and the Cost of Log Backlog",
+        "link": "http://arxiv.org/abs/2611.26153v1",
+        "abstract": "Live migration of a streaming Gated DeltaNet (GDN) request requires recovering recurrent state at the correct token boundary on a worker with the same model weights. We adapt snapshots, batched replay, and token catch-up, and design a compact update-log migration path. Exact catch-up preserves native single-token decode and matches the applicable bitwise reference on the tested inputs. We use both a prior-based and a probe-calibrated selector to choose a path for user interruption, source release, or output rate. In 1,350 scheduled pure-GDN trials on two GPU deployments, compact logs achieved the shortest exact handoff gap in all 90 configurations, including 10 winners determined using a replay timeout bound. In the 80 complete configurations, exact catch-up always released the source earliest, while 32-step replay provided the highest output rate when arithmetic differences were allowed. At 10 MB/s, 32-step replay also reduced the median handoff gap from 445--464 ms for logs to about 81 ms across the two deployments. On 40 historical KV-aligned Qwen configurations, retrospective selection reduced the mean gap by 13.9% against the strongest scored simple rule under either numerical contract. We report initial whole-request hybrid results and specify how the joint KV and GDN policy will be evaluated.",
+        "authors": [
+            "Hanqing Yu",
+            "Jiaqi Yang",
+            "Si Wu",
+            "Feng Li",
+            "Xiuzhen Cheng",
+            "Pengfei Hu",
+            "Yongbo Yu"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.26153v1",
+        "submit_date": "2026-11-19",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading"
+        ],
+        "tldr": "Addresses handoff latency during live migration of streaming LLM requests. Proposes exact token catch-up with snapshots, batched replay, and compact logs for state recovery. Reduces median handoff gap from 445--464 ms to ~81 ms using 32-step replay at 10 MB/s.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.26106v1": {
+        "title": "AscMLA: Unlocking FP4 Efficiency for Long-Context MLA Decoding through Asymmetric Scaling",
+        "link": "http://arxiv.org/abs/2611.26106v1",
+        "abstract": "Long-context decoding repeatedly reads a growing KV cache. FP4 reduces cache storage and traffic but needs block scaling to handle its limited dynamic range. Applying FP4 to multi-head latent attention (MLA) requires reconciling different K/V scaling requirements on a shared latent. Existing approaches address this mismatch through dequantization or separate encodings, adding execution or storage overhead. We present AscMLA, which combines asymmetric K/V scaling with pipelined scale delivery to process a single FP4 payload directly. AscMLA uses 38.2% less cache memory than FP8 and achieves geometric-mean speedups of 1.35x over TRT-LLM's FP8 and 1.26x over CAKE's NVFP4 MLA kernels.",
+        "authors": [
+            "Zechun Zhou",
+            "Zhiyong Zheng",
+            "Xiaomin Zhang",
+            "Lin Ye",
+            "Han Li",
+            "Jingwei Sun",
+            "Guangzhong Sun",
+            "Jing Li"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.26106v1",
+        "submit_date": "2026-11-19",
+        "relevant": true,
+        "tags": [
+            "quantization",
+            "kernel",
+            "serving"
+        ],
+        "tldr": "AscMLA reduces FP4 overhead in multi-head latent attention decoding. Uses asymmetric key/value scaling and pipelined scale delivery for direct FP4 processing. Achieves 38.2% lower cache memory and 1.35x speedup versus FP8 kernels.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.25947v1": {
+        "title": "Matching Architecture to Workload: Comparing RISC-V Parallel Accelerators for Energy-Efficient Embedded Computing",
+        "link": "http://arxiv.org/abs/2611.25947v1",
+        "abstract": "Embedded computing demands high performance and energy efficiency across workloads with widely different computational characteristics. Choosing the most suitable execution model therefore requires a quantitative understanding of how each model maps to different workload classes. In this paper, we compare three execution models for energy-efficient embedded computing: scalar multicore, stream ing multicore, and vector processing. We use three open-source RISC-V accelerators as representative implementations: the PULP Cluster, the Snitch Cluster, and Spatz, respectively. Their open-source hardware and software stacks enable a controlled comparison based on implementations in the same 12 nm technology and a common benchmark suite. Our results reveal that no single execution model performs best across all workload classes. Spatz delivers the greatest benefits for regular and highly vectorizable compute-intensive applications, achieving up to 4.29x higher performance and 5.17x greater energy efficiency than the other architectures. However, its effectiveness strongly depends on the availability of data-level parallelism and regular computation and memory-access patterns, making it the most sensitive to workload characteristics. The Snitch Cluster performs particularly well on applications with limited parallelism and streamable memory-access patterns, providing up to 5.53x higher performance and 1.45x greater energy efficiency. Conversely, the PULP Cluster is most effective on irregular and control-dominated applications, achieving improvements of up to 5.66x in performance and 2.80x in energy efficiency. Compared with Spatz, however, the greater flexibility offered by PULP and Snitch comes at a non-negligible cost in terms of both area and power.",
+        "authors": [
+            "Luca Colombo",
+            "Luigi Ghionda",
+            "Amirhossein Kiamarzi",
+            "Yvan Tortorella",
+            "Riccardo Giunti",
+            "Niccolò Giuliani",
+            "Samuele Colmi",
+            "Angelo Garofalo",
+            "Giuseppe Tagliavini",
+            "Davide Rossi"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR"
+        ],
+        "id": "http://arxiv.org/abs/2611.25947v1",
+        "submit_date": "2026-11-19",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.25301v1": {
+        "title": "SplitReAlign: Partition-Aware Representation Realignment for Split Federated Unlearning",
+        "link": "http://arxiv.org/abs/2611.25301v1",
+        "abstract": "Split federated learning (SFL) distributes neural networks across clients and a server, coupling class-specific knowledge across their representations. This coupling complicates split federated unlearning (SFU), where class-wise forgetting must remove target knowledge while preserving retained utility under heterogeneous representation spaces and asymmetric update constraints. We propose SplitReAlign, a partition-aware representation realignment framework for class-wise SFU. It constructs endpoint-specific discriminative subspaces coordinated through a shared semantic anchor, selectively realigning forgotten representations while penalizing changes outside the active subspaces. To accommodate asymmetric update constraints, SplitReAlign leverages gradients through frozen servers for Client-only updates and fixed client-feature statistics for Server-only guidance, while Joint updates optimize both partitions. Experiments on CIFAR-10 and CIFAR-100 under heterogeneous client distributions demonstrate that SplitReAlign achieves the lowest average gap to retraining among all compared methods across six settings. Notably, Server-only achieves the closest agreement with retraining on both datasets, highlighting the effectiveness of partition-aware guidance under restricted updates.",
+        "authors": [
+            "Jia Chen",
+            "Yecheng Lv",
+            "Xinrong Hu",
+            "Jun Bai"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.25301v1",
+        "submit_date": "2026-11-18",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.25231v1": {
+        "title": "Release-Bound Withdrawal Authorization for Bitcoin Custody",
+        "link": "http://arxiv.org/abs/2611.25231v1",
+        "abstract": "A compromised cryptocurrency withdrawal backend can request signatures on unauthorized payments. Previously signed transactions may remain spendable after pause or become spendable again after a reorganization. Release-Bound Withdrawal Authorization (RBWA) orders permits against pause in a replicated journal and restores exposure when its closing evidence disappears from Bitcoin's active chain. An optional route delays large payouts and permits independent cold recovery. Direct payments confirm in one block on regtest, and staged payments confirm in three or seven at delays of two or six. After rollback, a replayed recovery can win or lose to an already exported mature payout. Authenticated receipts can revoke one signing lease in a shared wallet. In matched synthetic schedules, probes reduce permits through compromised leases from 20 to 9 out of 33, with one false fence. Two held-out HTTP workloads find equal fixed-threshold precision for boosted audit and probe-augmented detectors. The audit fields already expose the probe authentication outcome. Live tests verify an exact maintenance exception and add a file marker as a distinct source. The marker fences a compromised lease that RPC-only audit misses. Audit with the same file-read evidence also fences a reader who bypasses the probe. The results tie the benefit of active probing to which evidence the operator can obtain.",
+        "authors": [
+            "Jian Cui",
+            "Rui Zhu",
+            "Haixu Tang"
+        ],
+        "categories": [
+            "cs.CR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.25231v1",
+        "submit_date": "2026-11-18",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.25112v1": {
+        "title": "TripleKV: Predict, Prefetch, Protect -- KV Cache Management for AI Agents",
+        "link": "http://arxiv.org/abs/2611.25112v1",
+        "abstract": "LLM agents alternate between inference and tool execution, repeatedly reusing their growing context across calls. Under high concurrency, their combined key-value (KV) cache working set can reach hundreds of GiB, far exceeding GPU memory capacity. As idle KV cache blocks are evicted to slower storage tiers, returning agents incur expensive retrievals that stall inference.\n  To address this problem, we present \\emph{TripleKV}, a three-tier KV cache management system that hides the delays of these retrievals. %exploits tool execution to hide these delays. In agentic workloads, the KV blocks needed by the next inference request are known in advance; only the time of their reuse is uncertain. TripleKV uses a tool-aware latency predictor to estimate when each tool call will complete and prefetches the required KV blocks from SSD into host DRAM ahead of time. Unlike GPU prefetching, this avoids reserving scarce GPU memory and interfering with concurrent inference requests. To further improve DRAM utilization, TripleKV eliminates duplication of GPU-resident blocks in DRAM, and introduces a victim-cache mechanism that refills blocks from SSD upon their eviction from GPU memory.\n  Across data, web, and coding agents, TripleKV reduces the fraction of requests requiring critical-path SSD reads from 45--76\\% to under 10\\%. It also reduces P95 time to first token (TTFT) by up to 49\\% compared with vLLM extended with DRAM and SSD KV-cache tiers, and achieves 1.5-7$\\times$ lower P95 TTFT than recent agent-aware systems.",
+        "authors": [
+            "Shashwat Jaiswal",
+            "Chloe Alverti",
+            "Mengmei Ye",
+            "Chen Wang",
+            "Hubertus Franke",
+            "Fan Lai",
+            "Tianyin Xu",
+            "Josep Torrellas"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AR",
+            "cs.OS"
+        ],
+        "id": "http://arxiv.org/abs/2611.25112v1",
+        "submit_date": "2026-11-18",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "agentic"
+        ],
+        "tldr": "Addresses high KV cache retrieval latency in agentic LLMs under concurrency. Proposes TripleKV, a three-tier cache system that prefetches blocks during tool execution using tool-aware prediction and victim-cache. Cuts critical-path SSD reads from 45-76% to <10% and reduces P95 TTFT by up to 49% vs vLLM.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.25091v1": {
+        "title": "Berth: SLO-Preserving GPU Sharing Without New Preemption",
+        "link": "http://arxiv.org/abs/2611.25091v1",
+        "abstract": "Inference services keep GPUs reserved for their worst-case load, and most of that capacity sits idle. Filling it with best-effort work such as training is the obvious remedy, and latency is why it rarely happens: on a shared GPU, a request that must finish within milliseconds finds the best-effort job's kernels running or queued ahead of it. Spatial sharing cannot evict them, temporal sharing gives the request only its turn, and hardware partitioning protects it by idling what it does not use. Systems that keep both the SLO and the utilization have reached inside the stack (rewriting kernels, patching the driver, instrumenting the framework), which the operator of a closed GPU stack cannot do. This paper argues that reaching inside is unnecessary. The time-slicer built into commodity GPUs already preempts a running kernel within a fraction of a millisecond and switches the moment a context runs out of work; what it lacks is priority, and priority can be created from outside by controlling what the best-effort context has to run. Berth is a user-space system built on this observation: a preloaded shim feeds the best-effort job to the GPU only when no request needs it (feed control), a declared deadline reference extends the rule to continuous-batching LLM engines, and a shortened best-effort time slice, set without privileges, bounds what a long kernel can cost. Berth changes no application, framework, kernel or driver. Across 31 scenario points with MLPerf SLOs and 13 baselines, Berth meets SLOs within a few percentage points of running alone, above every baseline, with 2.7-3.5x the best-effort throughput of the strongest ones; beside LLM serving, it meets per-token targets for nearly every request while training keeps running. Sharing a closed GPU under SLOs needs no new preemption mechanism, only control over what the existing one sees.",
+        "authors": [
+            "Mohammadali Khodabandehlou",
+            "Mahdi Alizadeh",
+            "Lei Gao",
+            "Murali Annavaram",
+            "Bhaskar Krishnamachari"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.25091v1",
+        "submit_date": "2026-11-18",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Addresses GPU underutilization during SLO-bound inference by sharing GPU with best-effort jobs. Proposes Berth, a user-space system that dynamically controls best-effort task feeding without stack modifications. Achieves near-isolated SLO performance and 2.7-3.5x higher best-effort throughput versus baselines.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.25078v1": {
+        "title": "Twindex: Index Cache Offloading with Coarse-to-Fine Selection for Long-Context Sparse-Attention Serving",
+        "link": "http://arxiv.org/abs/2611.25078v1",
+        "abstract": "In long-context decoding, GPU memory (HBM) caps how many requests a GPU decodes at once. Sparse-attention models such as Qwen3.8-Flash-Next, DeepSeek V4.1-Flash and GLM-5.2 add an indexer: at every step it scores all past index entries with its own indexer cache, and attention reads the main KV of only the top-k entries. We find that once serving systems move the main KV to host memory, the indexer cache becomes the HBM bottleneck, at 63% of per-request HBM on Qwen and 75% on V4.1 at 1M tokens. Therefore, we introduce Twindex, which keeps only a compact copy of the indexer cache in HBM and the full indexer cache in host memory. At each step, the copy selects a larger candidate set, and the model's own indexer picks the top-k from the original rows of the candidates in host memory. The copy combines the shared component with the compressed residuals, both learned once offline. Twindex changes no model weights and runs inside CUDA graphs. At 1M tokens on modern GPUs, Twindex fits $1.78\\times$, $1.62\\times$ and $3.03\\times$ as many requests as KV offloading alone on Qwen, V4.1 and GLM-5.2, and reaches $1.44\\times$, $1.25\\times$ and $2.54\\times$ decode throughput when host memory does not limit the batch. Every request keeps its own index, and Qwen and GLM requests share prefix main KV in host memory. In our evaluations, mean benchmark scores are at most 3.1% below the baseline's.",
+        "authors": [
+            "Yuxuan Xia",
+            "Jiakun Fan",
+            "Han Meng",
+            "Hao Mark Chen",
+            "Shenji Wan",
+            "Dongsheng Yang"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.25078v1",
+        "submit_date": "2026-11-18",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "offloading",
+            "sparse"
+        ],
+        "tldr": "Addresses GPU memory bottleneck in long-context sparse-attention serving after KV offloading by moving indexer cache to host. Proposes Twindex with compact HBM index cache and coarse-to-fine candidate selection. Achieves 1.78x/1.62x/3.03x more concurrent requests and 1.44x/1.25x/2.54x higher decode throughput across models.",
+        "indexed_date": "2026-11-20"
+    },
+    "http://arxiv.org/abs/2611.21943v1": {
+        "title": "Beyond 4: Improved Competitive Traveling Repairperson",
+        "link": "http://arxiv.org/abs/2611.21943v1",
+        "abstract": "With $k\\geq 1$ repairpersons starting initially from a depot, we present a 3.877-competitive deterministic algorithm for the fundamental online traveling repairperson problem on an arbitrary metric. For the special class of zero-residual instances, we improve the ratio to $3+ε$ for every $ε>0$. We also extend these results to some variants of the related so-called online dial-a-ride problem. The state-of-the-art is the 4-competitive deterministic algorithm for both problems.",
+        "authors": [
+            "Bibek Maharjan",
+            "Gokarna Sharma"
+        ],
+        "categories": [
+            "cs.DS",
+            "cs.DC",
+            "cs.DM",
+            "cs.MA"
+        ],
+        "id": "http://arxiv.org/abs/2611.21943v1",
+        "submit_date": "2026-11-16",
+        "relevant": false,
+        "indexed_date": "2026-11-20"
     }
 }
