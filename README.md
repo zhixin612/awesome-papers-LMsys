@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3739-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.20-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3749-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.23-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,28 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-23
+* `MoE` `kernel` [Weave: Routing-Adaptive Runtime Warp Scheduling for MoE Megakernels](http://arxiv.org/abs/2611.27765v1)
+  > **TL;DR**: Addresses inefficient GPU resource allocation for MoE megakernels caused by static warp scheduling. Proposes Weave with runtime-adaptive spatial/temporal scheduling and a fused cost model leveraging routing statistics. Speeds up MoE layers by up to 1.97× over prior systems.
+* `MoE` `offloading` `quantization` [IsoMoE: Placement-Invariant Hybrid CPU-GPU MoE Inference with Lossless 12-bit Experts](http://arxiv.org/abs/2611.27604v1)
+  > **TL;DR**: Ensures expert placement-invariant outputs and efficiency in hybrid CPU-GPU MoE inference. Proposes IsoMoE with a GPU kernel mimicking CPU arithmetic, AVX-512 optimized CPU execution for lossless 12-bit experts, and a dual micro-batch pipeline. Achieves up to 1.54× decoding speedup.
+* `serving` [Isonomy: Isolating Every Request from Timing Side Channels at Nearly Full-Sharing Throughput in Multi-Instance LLM Prefill](http://arxiv.org/abs/2611.27596v1)
+  > **TL;DR**: Addresses timing side channels in shared prefix caching for LLM prefill. Proposes Isonomy with prediction/execution modes to isolate requests while retaining cache sharing. Achieves 0.98 of unprotected sharing's throughput at saturation for certain workloads.
+* `edge` `serving` `multi-modal` [AceVLN: Asynchronous Cloud Edge Deployment of VLNs via Latent Scheduling and Compensation](http://arxiv.org/abs/2611.27255v1)
+  > **TL;DR**: AceVLN addresses latency-induced navigation errors in cloud-edge vision-language models via critical subspace analysis for dynamic refresh scheduling and compensation. Achieves 1.7-2.4 percentage point higher success rates and 10% computation time reduction.
+* `RL` `training` [CTRL: Concurrent Training and Rollout for LLM Reinforcement Learning via GPU Co-Residency](http://arxiv.org/abs/2611.27119v1)
+  > **TL;DR**: Enables concurrent training and rollout in RL post-training for LLMs via GPU co-residency under CUDA MPS. CTRL shares each GPU between a learner and a rollout engine, using host memory for optimizer state and a publication gate to bound staleness. Achieves 1.11-2.24× higher throughput than baselines.
+* `quantization` `serving` [PLoQ: A Prompt-Specific Low-Rank Basis for 4-bit Quantization of LLM Activations](http://arxiv.org/abs/2611.27092v1)
+  > **TL;DR**: Proposes PLoQ, a prompt-adaptive low-rank basis method for 4-bit quantization of LLM activations without weight modification during inference. By extracting prompt-specific dominant activations per prefill, it recovers up to 46% perplexity loss versus state-of-the-art quantization and adds only 4%/8% overhead in prefill/decoding on Llama-3.1-8B at 8k tokens.
+* `serving` `agentic` `offloading` [Contexture: Runtime Context Eviction for High-Throughput Agent Serving](http://arxiv.org/abs/2611.26980v1)
+  > **TL;DR**: Addresses high KV cache demand in LLM agent serving caused by repeated history resending. Proposes Contexture, a runtime eviction system combining tool-execution info and global KV state to remove superseded tokens. Improves throughput under SLO by 20-73% over baselines.
+* `serving` `multi-modal` `scaling` [Analysis of Multi-Client Inference Techniques for Vision-Language-Action Models](http://arxiv.org/abs/2611.26944v1)
+  > **TL;DR**: Investigates how to serve multi-modal VLAs efficiently via multi-client techniques. Characterizes trade-offs of batching and co-execution for latency, throughput and hardware utilization. Reveals key challenges for future serving systems handling dynamic robotic workloads.
+* `serving` `training` `kernel` [Contention-Aware Flexible Execution for Machine Learning Workloads](http://arxiv.org/abs/2611.26840v1)
+  > **TL;DR**: Investigates contention slowdown in concurrent ML kernel execution. Proposes CAFEML, a flexible scheduler with heuristics for overlap anchors and resource allocation. Achieves up to 13% end-to-end speedup for inference and training on GPUs.
+* `serving` `agentic` `offloading` [Contexture: Runtime Context Eviction for High-Throughput Agent Serving](http://arxiv.org/abs/2611.26980v1)
+  > **TL;DR**: Addresses KV cache overload in LLM agent serving by runtime eviction of superseded tokens. Contexture separates full history from execution context using tool-origin tracking and global prefix management. Improves throughput under SLO by 20-73% over baselines and reduces GPU energy per session by up to 11%.
+
 ### 2026-11-20
 * `serving` `offloading` [TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming](http://arxiv.org/abs/2611.26619v1)
   > **TL;DR**: Optimizes LLM serving for hybrid architectures by transparent cache management and layer-wise streaming. Introduces GPU-host cache residency control, prefetching, and scheduling to reduce memory footprint. Improves agent P50 TTFT by 1.40–3.05× and reduces per-token latency by 20–59% versus baseline systems.
