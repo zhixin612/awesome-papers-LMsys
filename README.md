@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3749-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.23-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3767-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.24-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,44 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-24
+* `training` `MoE` [A Pipeline-Parallel System for Depth-Recurrent Models](http://arxiv.org/abs/2611.30581v1)
+  > **TL;DR**: Addresses pipeline parallelism for cyclic depth-recurrent models by proposing Loop-PP, which rebuilds schedules and communication for iterative stages. It lowers peak memory by up to 32.8% and increases throughput by 12.7% on 8B-60B MoE models.
+* `MoE` `serving` `kernel` [GC-MoE K3: A Green-Context Role Graph for Latent Mixture-of-Experts Decode](http://arxiv.org/abs/2611.30542v1)
+  > **TL;DR**: Optimizes MoE model inference by scheduling evaluation via CUDA Graphs and role partitioning to overlap computation and communication. Achieves mean speedups of 1.1324× over SGLang and 1.3651× over vLLM in single-layer graph replay latency.
+* `serving` `edge` `networking` [CGSpec: Consistency-Guided Speculative Decoding with Overlap-Aware Verification Scheduling for Edge-Cloud Inference](http://arxiv.org/abs/2611.30455v1)
+  > **TL;DR**: Accelerates edge-cloud LLM inference via speculative decoding by adapting draft targets via distribution divergence and scheduling verifiers based on client return times. Achieves 12.2% system throughput and 33.0% client throughput improvements over SOTA.
+* `serving` `LoRA` `agentic` [MotionServe: Efficient Multi-Robot Serving by Exploiting Robot Execution Slack](http://arxiv.org/abs/2611.30083v1)
+  > **TL;DR**: Optimizes shared-GPU serving of multiple robot VLA policies to prevent stalls. MotionServe with MotionExec (motion-based triggers) and SlackBatch (slack-aware batching) coordinates observations and GPU dispatch. At 96 robots, reduces mean stall per episode by up to 43.4% and improves task success by up to 8.98 percentage points.
+* `serving` `quantization` `kernel` [Fast 4-bit KV-Cache Decoding on Hopper GPUs: Why Existing Kernels Are Slow and How to Fix Them](http://arxiv.org/abs/2611.30027v1)
+  > **TL;DR**: Improves 4-bit KV-cache decoding for LLM inference by designing a GPU kernel that overlaps TMA producer warp with compute warpgroups and optimizes cache layout. Achieves 67-75% of H200's memory bandwidth and 1.12-1.64x speedup per step over FP8 for Llama-3.1-8B.
+* `serving` `offloading` `kernel` [Measuring GPU Memory Traffic on the NVIDIA GB10 Without C2C Telemetry](http://arxiv.org/abs/2611.29915v1)
+  > **TL;DR**: Proposes a method to measure GPU memory traffic without dedicated counters on NVIDIA GB10 systems. Uses CUPTI-sampled L2 sector counters to track bytes moved across NVLink C2C. Measures Mistral 7B inference consuming 13.47 GiB/token at 83% of specified memory bandwidth.
+* `serving` `agentic` [NoeVera: Can Knowledge Guide Experiments and Experiments Refine Knowledge?](http://arxiv.org/abs/2611.29255v1)
+  > **TL;DR**: Proposes NoeVera, an agentic knowledge system to optimize LLM serving configurations via evidence retrieval and simulation. Achieves within 5% of optimum in a median of 6-7 simulator calls versus 9 for Bayesian optimization.
+* `sparse` `offloading` `kernel` [Zarc: Exact Nearest Neighbors over a Billion Vectors in Seconds](http://arxiv.org/abs/2611.29252v1)
+  > **TL;DR**: Addresses slow exact k-nearest neighbor search critical for LLM sparse attention. Proposes Zarc, storing partial proofs in GPU memory and fetching full vectors from host for exact results. Reduces billion-vector query time from 5min to 1.1s and achieves up to 13.1x speedup in sparse attention.
+* `training` `RL` [ARC: Adaptive Rollout Control for Efficient Synchronous LLM Reinforcement Learning](http://arxiv.org/abs/2611.29156v1)
+  > **TL;DR**: Addresses inefficient idle time and wasted computation in synchronous RL training of LLMs. Proposes ARC with adaptive rollout control via partial sample evaluation and dynamic admission. Achieves 37.4% rollout time reduction and 50.1% throughput improvement over baselines.
+* `serving` `disaggregation` [When Does Decomposition Help? Empirical Study on Workload-Architecture Affinity in LLM Inference Serving](http://arxiv.org/abs/2611.29104v1)
+  > **TL;DR**: Investigates workload-architecture affinity in LLM inference serving. Empirically evaluates monolithic, tensor-parallel, pipeline-parallel, and disaggregated prefill/decode organizations. For 32K context workloads, pipeline parallelism reduces time to first token by 58-59% at non-stress rates.
+* `serving` `offloading` [HiPerfCC-KVCache: Accelerating Confidential LLM Serving with Hierarchical KV Caching](http://arxiv.org/abs/2611.28702v1)
+  > **TL;DR**: Addresses confidential LLM serving slowdowns during KV cache transfers under GPU protection. Designs HiPerfCC-KVCache with resource lifetime management, prioritized token readback, and parallel restores via auxiliary contexts. Achieves up to 2.72× throughput gain and 59% lower time to first token versus baseline.
+* `serving` `offloading` `sparse` [IndexerStage: Staging Indexer-K across Memory Tiers for Sparse-Attention LLM Serving](http://arxiv.org/abs/2611.28625v1)
+  > **TL;DR**: Addresses GPU memory constraints in sparse-attention LLM serving by staging Indexer-K state across memory tiers with joint admission control. Achieves up to 23.08% batch size increase and 1.14x decode throughput with minimal GPU storage overhead (0.65-0.70 GiB).
+* `agentic` `offloading` `serving` [TripleKV: Predict, Prefetch, Protect - KV Cache Management for AI Agents](http://arxiv.org/abs/2611.25112v2)
+  > **TL;DR**: Addresses KV cache retrieval delays in LLM agents by introducing TripleKV, a three-tier system using tool-aware latency prediction for prefetching from SSD to DRAM and victim caching. Achieves <10% critical-path SSD reads and up to 49% reduced P95 TTFT versus vLLM extensions.
+* `MoE` `serving` `offloading` [CCAMoE: Cache-Conditioned Adaptive Inference for Offloaded MoE](http://arxiv.org/abs/2611.28550v1)
+  > **TL;DR**: Addresses high latency in offloaded MoE inference by introducing CCAMoE, a runtime with cache-only drafting, draft-guided cache updates, and adaptive control to reduce expert transfer overhead. Achieves up to 2.33× decoding speedup.
+* `serving` `sparse` `kernel` [DisSparse: Pipelined Top-$p$ Sparse Attention for Long-Context LLM Serving](http://arxiv.org/abs/2611.28522v1)
+  > **TL;DR**: Addresses KV cache memory bottlenecks in long-context LLM serving via top-p sparse attention. Integrates into vLLM using a two-stream pipeline to decouple selection and efficient kernels for top-p/relocation. Achieves 1.17-1.80x block selection speedup and 8x batch size increase under same memory.
+* `serving` `offloading` `scaling` [GDNShift: Live Migration and Joint State Scheduling for Gated DeltaNet Inference](http://arxiv.org/abs/2611.26153v2)
+  > **TL;DR**: Addresses inefficiencies in live migration for streaming Gated DeltaNet inference via compact update logs and exact catch-up state recovery. Reduces mean handoff gap from 790.8 ms to 149.5 ms and source release time from 818.0 ms to 42.7 ms.
+* `agentic` `scaling` `serving` [TideSand: Performance-Accurate Sandbox Multiplexing for LLM Agents](http://arxiv.org/abs/2611.31118v1)
+  > **TL;DR**: Addresses resource contention in LLM agent sandbox environments. Proposes TideSand with agent-aware scheduling, speculative swapping, and selective rollback for efficient multiplexing. Achieves 3.8-10x higher throughput than strict reservation while maintaining tool-call fidelity, and reduces evaluation error by 19x.
+* `serving` `offloading` `agentic` [TripleKV: Predict, Prefetch, Protect - KV Cache Management for AI Agents](http://arxiv.org/abs/2611.25112v2)
+  > **TL;DR**: Addresses high latency in LLM agent inference caused by KV cache evictions to slow storage. Introduces TripleKV, a three-tier cache manager using tool-aware prediction and prefetching to hide SSD access. Reduces critical-path SSD reads to <10% (from 45-76%) and cuts P95 TTFT by up to 49% vs vLLM.
+
 ### 2026-11-23
 * `MoE` `kernel` [Weave: Routing-Adaptive Runtime Warp Scheduling for MoE Megakernels](http://arxiv.org/abs/2611.27765v1)
   > **TL;DR**: Addresses inefficient GPU resource allocation for MoE megakernels caused by static warp scheduling. Proposes Weave with runtime-adaptive spatial/temporal scheduling and a fused cost model leveraging routing statistics. Speeds up MoE layers by up to 1.97× over prior systems.
