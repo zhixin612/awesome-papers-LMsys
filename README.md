@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3767-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.24-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3785-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.25-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,44 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-25
+* `serving` `edge` `disaggregation` [Scalable Placement for Disaggregated LLM Serving on Heterogeneous Edge Fleets](http://arxiv.org/abs/2611.32881v1)
+  > **TL;DR**: Addresses efficient placement of disaggregated LLM serving pipelines on heterogeneous edge devices under bursty workloads. Proposes Spade, which uses dominance pruning and a congestion-aware knapsack formulation to optimize pipeline replication and model partitioning. Achieves 441ms planning time (vs. 2 hours) and prunes 99.6% of candidates.
+* `serving` `offloading` `scaling` [ModelLess: A Serverless System for Multi-Tier LLM Inference on Shared GPUs](http://arxiv.org/abs/2611.32634v1)
+  > **TL;DR**: Addressing GPU underutilization in multi-tier LLM inference via serverless scaling to zero with weight offloading and preemption protocols. Achieves 38% GPU-time savings on traces from 1,100 GPUs with fast sleep/wake recovery.
+* `MoE` `serving` `networking` [Breaking Routing And Inter-device Dependencies in Mixture-of-Experts](http://arxiv.org/abs/2611.32572v1)
+  > **TL;DR**: Addresses the sequential dependencies in MoE inference that limit communication-computation overlap. Proposes BRAID-MoE with laddered residuals and early routing to enable overlapping token dispatch and combine operations. Achieves up to 1.37× decode speedup on a converted Qwen3-30B-A3B model.
+* `agentic` `serving` `LoRA` [RePrism: Joint Request and Representation Scheduling for LLM Agent Serving](http://arxiv.org/abs/2611.32545v1)
+  > **TL;DR**: Addresses efficient serving for LLM agent workflows by jointly scheduling requests and prompt representations. Proposes RePrism with a scheduler and resource manager for GPU memory. Achieves 1.37x higher request throughput and 4.10x lower P95 session completion time versus S-LoRA.
+* `edge` `offloading` `serving` [Wi-Fi Enabled Edge Intelligence Framework for Smart City Traffic Monitoring using Low-Power IoT Cameras](http://arxiv.org/abs/2611.32517v1)
+  > **TL;DR**: Addresses ultra-low-latency processing for real-time traffic monitoring in smart cities. Proposes an edge AI framework using Wi-Fi-connected IoT cameras, deploying local inference or GPU-accelerated offloading to NVIDIA Jetson Nano. Offloading achieves near-realtime performance for complex models.
+* `kernel` `MoE` [Joule is FLOP: Optimizing Tensor-Core Kernels Beyond Latency Hiding at the GPU Power Wall](http://arxiv.org/abs/2611.32440v1)
+  > **TL;DR**: Proposes Joule, a framework for power-aware tensor-core kernel optimization accounting for energy-frequency coupling. Combines hardware event models to guide wide-tile kernel design and scheduling. Achieves 4.94% GEMM mean speedup on B200 over cuBLAS.
+* `offloading` `serving` [Norn: Context-Length-Aware Optimization of Weight and KV Cache Placement for Offloaded LLM Inference](http://arxiv.org/abs/2611.32295v1)
+  > **TL;DR**: Proposes context-length-aware dynamic offloading for LLM inference, adapting KV cache and weight placement with precomputed plan switching and chunked prefill. Achieves up to 16.8× lower latency than static baselines.
+* `training` `MoE` `scaling` [Generalized Tensor Parallelism: Powering Trillion-Parameter LLM Training at 10+ EFLOP/s](http://arxiv.org/abs/2611.32057v1)
+  > **TL;DR**: Proposes generalized tensor parallelism (GTP) to optimize LLM training by unifying parallel schemes and scheduling all-gathers per GEMM to hide communication. Achieves 13.0 model EFLOP/s on 12,288 GPUs for a 2T-parameter MoE model with up to 1.55x higher throughput than Megatron-FSDP.
+* `edge` `networking` `serving` [AceVLN: Asynchronous Cloud Edge Deployment of VLNs via Latent Scheduling and Compensation](http://arxiv.org/abs/2611.27255v2)
+  > **TL;DR**: Addresses latency-induced navigation errors in vision-language models for cloud-edge deployment. Proposes critical subspace mismatch tracking with entropy-guided refresh and continuity-guided compensation. Improves success rate by 1.7-2.4% while reducing FLOPs by 18.4-22.3%.
+* `training` `kernel` [FlashQLA: Efficient Context Parallelism for Gated DeltaNet](http://arxiv.org/abs/2611.32039v1)
+  > **TL;DR**: Addresses the limited parallelism in Gated DeltaNet for long contexts, where sequential dependencies constrain performance. Proposes FlashQLA, a context-parallel execution framework with decay-aware preparation, Dual CP for multi-GPU scaling, and kernel co-design. Achieves 4.4× overall speedup for forward+backward on 8 GPUs with 1M-token sequences.
+* `agentic` [Provenance-Isolated Epistemic Quorums: Execution-Bound Evidence Certification and Plausible-World Safety Gating in Agentic Control Planes](http://arxiv.org/abs/2611.32032v1)
+  > **TL;DR**: Addresses unsafe actions by agentic LLMs in production infrastructure. Proposes PIEQ, a certification layer using physical provenance isolation and safety gating to enforce preconditions and mutations. Achieves zero unsafe admissions and zero false-precondition commits in evaluations.
+* `training` [LIBRA: Runtime Co-Tuning of Batch Size and Parallelism for Time-Efficient LLM Training](http://arxiv.org/abs/2611.32008v1)
+  > **TL;DR**: Proposes LIBRA, a lightweight runtime framework that co-tunes batch size and parallelism for LLM training via hierarchical pruning and AGPE. Achieves 31.1% average reduction in time-to-convergence with only 0.3-3.5% runtime tuning overhead.
+* `serving` `MoE` `offloading` [RankServe: Rank-Aware CPU-GPU Scheduling for Memory-Constrained MoE Serving](http://arxiv.org/abs/2611.31869v1)
+  > **TL;DR**: Addresses high memory demands in MoE serving with low-rank compressed experts. Proposes RankServe, a CPU-GPU scheduling system that optimizes expert residency by cost-savings analysis and uses a variable-rank runtime. Achieves 1.69–2.29× TTFT and 1.71–2.48× TPOT speedups over baselines.
+* `agentic` `serving` [fork() for Agents: Agent Kernel for Non-blocking LLM Orchestration](http://arxiv.org/abs/2611.31727v1)
+  > **TL;DR**: Addresses wasteful recovery in LLM agent workflows during failures. Proposes Agent-Kernel with Sub-Graph Recovery for non-blocking rollback and context inheritance, preserving completed siblings. Achieves 100% recovery success versus 55% baseline and up to 12.7× parallelism speedup where structure permits.
+* `hardware` `training` [TokenJoule: Energy Modeling for Distributed Training and Inference of LLMs](http://arxiv.org/abs/2611.31509v1)
+  > **TL;DR**: Presents TokenJoule, an analytical tool for energy modeling of distributed training and inference of LLMs to guide hardware design. It models kernel sequences, memory staging, and collective activities. Achieves 3.0-6.8% A100 energy prediction error on 151 runs.
+* `training` `networking` `storage` [The Recycler: In-Transit Machine Learning on High-Fidelity Data from Simulation Campaigns as an Optimized Approach for Building Frontier Models](http://arxiv.org/abs/2611.31434v1)
+  > **TL;DR**: Addresses the bottleneck of storing high-fidelity simulation data by proposing an in-transit training workflow that streams data directly from parallel simulations to frontier model training. Replaces file I/O with direct streaming, enabling use of larger datasets and reducing computation time compared to traditional storage-based approaches.
+* `RAG` `storage` [KuroANN: Avoiding Unnecessary SSD Reads in High-Recall Filtered Vector Search](http://arxiv.org/abs/2611.32908v1)
+  > **TL;DR**: Addresses wasted I/O in filtered vector search by assigning SSD reads per query based on pre-known match counts. KuroANN uses offline thresholds to probe partitions and stop early, avoiding unnecessary reads. Achieves up to 34.5x higher throughput than PipeANN-Filter.
+* `agentic` [TimeTravelContainer: A Live Forking Sandbox for Stateful Agent Exploration](http://arxiv.org/abs/2611.32255v1)
+  > **TL;DR**: Addresses slow session cloning for LLM agents using stateful tools. Proposes TimeTravelContainer, a rootless container runtime that live-forks containers with copy-on-write, avoiding full serialization. Achieves 84.1x cloning speedup and 31-72% memory reduction.
+
 ### 2026-11-24
 * `training` `MoE` [A Pipeline-Parallel System for Depth-Recurrent Models](http://arxiv.org/abs/2611.30581v1)
   > **TL;DR**: Addresses pipeline parallelism for cyclic depth-recurrent models by proposing Loop-PP, which rebuilds schedules and communication for iterative stages. It lowers peak memory by up to 32.8% and increases throughput by 12.7% on 8B-60B MoE models.
