@@ -3,8 +3,8 @@
 
 # Daily Arxiv Papers (LMSys)
 
-![Static Badge](https://img.shields.io/badge/total_papers-3785-blue?logo=gitbook)
-![Static Badge](https://img.shields.io/badge/update-2026.11.25-red?logo=fireship)
+![Static Badge](https://img.shields.io/badge/total_papers-3790-blue?logo=gitbook)
+![Static Badge](https://img.shields.io/badge/update-2026.11.26-red?logo=fireship)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.DC-green)](https://arxiv.org/list/cs.DC/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.OS-green)](https://arxiv.org/list/cs.OS/recent)
 [![Static Badge](https://img.shields.io/badge/arXiv-cs.LG-green)](https://arxiv.org/list/cs.LG/recent)
@@ -24,6 +24,18 @@
 **🔖TAGS**:`serving` `training` `offline` `thinking` `RL` `MoE` `RAG` `video` `multi-modal` `sparse` `quantization` `offloading` `hardware` `storage` `kernel` `diffusion` `agentic` `edge` `networking`
 
 ---
+### 2026-11-26
+* `serving` `disaggregation` `quantization` [PipeAxes: Decoupling Compute and Communication Granularities for Pipeline-Parallel LLM Serving](http://arxiv.org/abs/2611.34615v1)
+  > **TL;DR**: Proposes PipeAxes for pipeline-parallel LLM serving, decoupling compute and communication granularities by running prefills in slices to interleave decodes, with INT4 compression and adaptive scheduling. Achieved reduced p95 time to first token from 129.8s to 512ms in a mixed workload.
+* `hardware` `kernel` [Libtt: A Compiler and Runtime for Tenstorrent Processors](http://arxiv.org/abs/2611.34273v1)
+  > **TL;DR**: Enables PyTorch and JAX execution on Tenstorrent hardware via a unified compiler/runtime stack based on PJRT. Implements extensive compiler optimizations and fixes for compatibility and performance. Runs frameworks like SGLang and TorchTitan, passing most JAX/TorchTPU tests.
+* `serving` `scaling` [CoordRoute: Coordinated Multi-Model Routing for Maximum Compute-Budget Utility](http://arxiv.org/abs/2611.34161v1)
+  > **TL;DR**: Proposes CoordRoute, a coordinated routing system for LLM serving under shared compute budgets. Uses relative demand prediction, lookahead solver, and runtime correction to maximize total satisfaction. Achieves 18.72% higher satisfaction than existing routers on Azure Conversation and BurstGPT traces.
+* `serving` [Asymmetric Speculative Decoding: Unlocking In-Context Learning in Draft Models](http://arxiv.org/abs/2611.34010v1)
+  > **TL;DR**: Addresses low token acceptance rates in speculative decoding that limit inference speedup. Proposes AsymSpec, which decouples prompts for draft and target models using in-context examples to transform drafting into simulation. Achieves up to 4.95× speedup over autoregressive decoding across reasoning and generation tasks.
+* `MoE` `serving` `disaggregation` [RankCast: Phase-Aware Rank Balancing in MoE Serving](http://arxiv.org/abs/2611.33542v1)
+  > **TL;DR**: Addresses load imbalance in MoE serving for disaggregated prefill and decode phases. Proposes RankCast, which reassigns tokens to less loaded ranks in prefill and closes experts on busiest ranks in decode. Achieves up to 19% higher prefill throughput and 10% lower decode latency per token.
+
 ### 2026-11-25
 * `serving` `edge` `disaggregation` [Scalable Placement for Disaggregated LLM Serving on Heterogeneous Edge Fleets](http://arxiv.org/abs/2611.32881v1)
   > **TL;DR**: Addresses efficient placement of disaggregated LLM serving pipelines on heterogeneous edge devices under bursty workloads. Proposes Spade, which uses dominance pruning and a congestion-aware knapsack formulation to optimize pipeline replication and model partitioning. Achieves 441ms planning time (vs. 2 hours) and prunes 99.6% of candidates.

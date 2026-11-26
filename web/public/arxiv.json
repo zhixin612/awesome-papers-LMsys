@@ -194306,5 +194306,274 @@
         "submit_date": "2026-11-23",
         "relevant": false,
         "indexed_date": "2026-11-25"
+    },
+    "http://arxiv.org/abs/2611.34818v1": {
+        "title": "Deep Reinforcement Learning for Multi-UAV Data Harvesting Under Variable Team Sizes and Agent Loss",
+        "link": "http://arxiv.org/abs/2611.34818v1",
+        "abstract": "Collecting data from wireless sensors can be challenging when limited communication infrastructure prevents them from offloading their measurements. In such settings, unmanned aerial vehicles (UAVs) can exploit their mobility to harvest data locally, while coordinated UAV teams can provide efficient and redundant coverage of remote areas. Multi-agent reinforcement learning (MARL) enables such teams to learn decentralized coordination policies. However, training separate policies for different team and sensor populations is costly, and fixed-population policies may be vulnerable to agent failures. This work proposes F-MADDPG, a flexible variant of Multi-Agent Deep Deterministic Policy Gradient (MADDPG) that supports data harvesting with varying numbers of wireless sensors and UAVs. The framework also accommodates unexpected catastrophic failures that permanently remove agents during a mission. We compare F-MADDPG with a MADDPG baseline that uses multilayer perceptrons (MLPs) and evaluate training strategies based on team-size sampling and exposure to agent terminations. The results show that F-MADDPG learns across the evaluated population sizes, completes missions faster than the baseline on average, benefits from inverse-cardinality team-size sampling compared with uniform sampling, remains effective after permanent agent losses, and gains no consistent benefit from exposure to failures during training.",
+        "authors": [
+            "Thiago de Souza Lamenza",
+            "Bruno José Olivieri de Souza",
+            "Markus Endler"
+        ],
+        "categories": [
+            "cs.LG",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.34818v1",
+        "submit_date": "2026-11-25",
+        "relevant": false,
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34615v1": {
+        "title": "PipeAxes: Decoupling Compute and Communication Granularities for Pipeline-Parallel LLM Serving",
+        "link": "http://arxiv.org/abs/2611.34615v1",
+        "abstract": "Pipeline parallelism can serve long-context language models on PCIe servers and across heterogeneous GPU clusters. Existing engines split prefill into token chunks to limit decode stalls. The chunk size also sets the GPU batch width and the size of activation transfers between stages. Small chunks reload model weights more often. Large chunks can keep the GPU and the link busy long enough to delay interactive requests.\n  PipeAxes runs wide prefill batches a few layers at a time so decodes can run between slices. A fused Triton Hadamard-INT4 codec compresses activations, which travel in independently sized row groups over parallel TCP sockets. The scheduler uses latency slack to choose batch width, slice depth, and row-group size. We evaluated PipeAxes in 97 replays covering 5,016 requests on A800, RTX 4090, and RTX 3090 GPUs. All 74 requests met their latency targets during a tenfold bandwidth swing. In a four-stage mixture-of-experts pipeline, PipeAxes served requests within their latency targets at 23.3x the rate of calibrated Revisit-PP and 4.44x the rate of Fixed-4096 with Express. In a mixed 64K-context workload, p95 time to first token for short requests fell from 129.8 s with native vLLM to 512 ms. With INT4 transport, MMLU accuracy rose by 0.06 percentage points and GSM8K accuracy fell by 0.46 percentage points relative to BF16.",
+        "authors": [
+            "Xiaoqiang Guo",
+            "Yifan Lin",
+            "Yang Liu",
+            "Jianan Zhang",
+            "Yingqi Peng",
+            "Jiamei Lv",
+            "Yi Gao",
+            "Wei Dong"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2611.34615v1",
+        "submit_date": "2026-11-25",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "disaggregation",
+            "quantization"
+        ],
+        "tldr": "Proposes PipeAxes for pipeline-parallel LLM serving, decoupling compute and communication granularities by running prefills in slices to interleave decodes, with INT4 compression and adaptive scheduling. Achieved reduced p95 time to first token from 129.8s to 512ms in a mixed workload.",
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34534v1": {
+        "title": "DéjàVu: Plurality Consensus by First Repetition",
+        "link": "http://arxiv.org/abs/2611.34534v1",
+        "abstract": "We analyze DéjàVu, a simple protocol for plurality consensus: in each synchronous round, each agent samples one uniformly random agent and adopts the first opinion it observes twice, resetting its memory after every adoption. The rule requires neither frequency counters nor knowledge of the population size or the number of opinions. It relies only on repetition detection, an ability documented in single neurons and reflected in the mere-exposure effect.\n  For a population of $n$ agents with $k$ initial opinions, let $M_0$ be the initial count of the plurality opinion (so $n/M_0 \\le k$) and $Δ_0$ its bias, the difference between $M_0$ and the count of the second most popular opinion. We prove that, whenever $Δ_0 = Ω(\\sqrt{M_0 \\log n})$, DéjàVu reaches consensus on the initial plurality opinion within $O(\\sqrt{n/M_0} \\log(e M_0 / Δ_0) + \\log\\log n)$ rounds with high probability. Moreover, we show that, for the same bias regime, DéjàVu is asymptotically never slower than the $h$-majority protocol, collecting its $h$ samples one per round, for every fixed choice of $h$, even one chosen optimally for the initial configuration. There are also initial configurations for which DéjàVu is asymptotically faster for every $h$.\n  The opinion counts alone do not determine the dynamics: each adoption depends on a hidden memory filled over many rounds while the population changed, and agents with older (hence fuller) memories tend to reset sooner, so an advantage held mostly by them can be lost. The few rigorous convergence results we are aware of for such dynamics concern only two opinions. We derive the exact law of the memories given the history of opinions and resets, and track how the plurality opinion's advantage is distributed across memory ages, giving more weight to recently reset agents as they are less likely to reset again soon.",
+        "authors": [
+            "Niccolò D'Archivio",
+            "George Giakkoupis",
+            "Frédéric Giroire",
+            "Emanuele Natale"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.34534v1",
+        "submit_date": "2026-11-25",
+        "relevant": false,
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34473v1": {
+        "title": "High-performance metapopulation models for epidemic emergencies: Scalability and performance of implicit and explicit mobility representations on CPUs and GPUs",
+        "link": "http://arxiv.org/abs/2611.34473v1",
+        "abstract": "Epidemics form a subclass of natural disasters impacting countries or entire continents, where suitable reactions might differ substantially across spatio-temporal dimensions. Spatially resolved models based on ordinary differential equations (ODEs) are an efficient modeling approach for large and distributed populations. Commonly referred to as metapopulation models, they allow a realistic representation of spatial heterogeneities and mobility. Yet, their application in epidemic settings under high time pressure requires efficient, parallelized implementations leveraging modern supercomputers. The different ways to represent mobility in metapopulation models affect both epidemic trajectories and computational costs. In contrast to implicit mobility modeling, where populations are coupled through transition and transmission intensities, explicit Lagrangian mobility tracks traveling subpopulations according to their home and current location. In this paper, we compare metapopulation models with implicit and explicit mobility. A four-patch experiment shows that the trajectories of both formulations remain close, but differences increase with the mobility cycle length. We present CPU- and GPU-based parallelizations and analyze fully connected networks with up to 16,384 patches on 128 CPU cores and NVIDIA A100 and H100 GPUs. Roofline analyses show near-maximum performance for the most time-consuming GPU subroutines and identify data reuse and the cost of mobility events as the main performance drivers. Our results show that mobility assumptions, event frequency, numerical solvers, and available hardware need to be considered together when developing metapopulation models for epidemic emergencies. In a synthesized setting with a disease outbreak in central Europe, we show how a worldwide pandemic with 12,865 patches and four billion state variables can be simulated in 24 seconds using GPUs.",
+        "authors": [
+            "Henrik Zunker",
+            "Carlotta Gerstein",
+            "Martin J. Kühn"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.34473v1",
+        "submit_date": "2026-11-25",
+        "relevant": false,
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34462v1": {
+        "title": "Same Seed, Different Top Prediction: Cross-Platform Reproducibility of AlphaFold 3 Inference on TPUs, GPUs, and CPUs",
+        "link": "http://arxiv.org/abs/2611.34462v1",
+        "abstract": "AlphaFold 3 returns the highest-ranked of several sampled structures and computes each prediction on one device. Computing centers may schedule them on different GPU types or CPU nodes. Floating-point results can differ between devices, so the same input and seed may return another structure. Neither AlphaFold 3's documentation nor its outputs warn of this. We measure how often the device changes the returned structure, and tell users what to report and how to make devices agree. We used identical inputs, weights, seeds, and settings on two Google tensor processing unit (TPU) generations (v5e, v6e), three NVIDIA GPUs (L4, A100, H100), and an Intel Xeon CPU. On 60 protein-ligand complexes, with five seeds each, switching TPU generations changed the top-ranked sample in 18.0% of 300 predictions. Recompiling never changed it on either TPU, but did so in 7.3% on the L4 GPU. Yet the structures barely moved. The top-ranked pose switched between correct and incorrect in 3.3% to 3.7% of predictions, against about 10% for a new seed. These switches nearly always came from one validity check, with the ligand within 2 angstroms. Follow-ups found the effect again on 72 new targets and between the TPUs and the CPU. Between the A100 and H100 it exceeded recompilation, although AlphaFold 3's developers verified its numerical accuracy on both. An exploratory analysis links the changes to near-tied candidates. We recommend reporting the device and every near-tied sample. A float32 trunk with full-precision matrix products made all five accelerators agree on nearly every prediction.",
+        "authors": [
+            "Lorenzo Pazienza"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.PF"
+        ],
+        "id": "http://arxiv.org/abs/2611.34462v1",
+        "submit_date": "2026-11-25",
+        "relevant": false,
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34273v1": {
+        "title": "Libtt: A Compiler and Runtime for Tenstorrent Processors",
+        "link": "http://arxiv.org/abs/2611.34273v1",
+        "abstract": "Libtt brings the PyTorch and JAX ecosystem to Tenstorrent hardware. It implements PJRT, the interface through which XLA-based frameworks drive Google's TPUs, so JAX runs on it directly, PyTorch runs through TorchTPU, and software written for TPUs carries over with no changes except replacing custom kernels. Built on Tenstorrent's open-source compiler and runtime, libtt ships the entire stack, from the compiler to the multi-chip runtime, as a single shared library. It contains extensive fixes to the upstream Tenstorrent software to make existing PyTorch and JAX code work out of the box, and extensive new compiler optimizations to make it fast. It passes most of the JAX and TorchTPU test suites and runs SGLang, TorchTitan, and Miles, covering serving, fine-tuning, and reinforcement learning.",
+        "authors": [
+            "Philipp Moritz",
+            "Sarah Dong"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2611.34273v1",
+        "submit_date": "2026-11-25",
+        "relevant": true,
+        "tags": [
+            "hardware",
+            "kernel"
+        ],
+        "tldr": "Enables PyTorch and JAX execution on Tenstorrent hardware via a unified compiler/runtime stack based on PJRT. Implements extensive compiler optimizations and fixes for compatibility and performance. Runs frameworks like SGLang and TorchTitan, passing most JAX/TorchTPU tests.",
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34185v1": {
+        "title": "A Local-Counting Approach for Distributed Induced Path Detection",
+        "link": "http://arxiv.org/abs/2611.34185v1",
+        "abstract": "A well-known application of the celebrated color-coding technique is fast detection of paths in a distributed setting with limited bandwidth, by propagating a signal along colorful paths [Even et al., DISC 2017]. However, since vertices of the same color are indistinguishable by this procedure, it cannot detect induced paths, as they appear the same as cycles.\n  We make the following observation. If, for a given edge, we \\emph{count} the number of such signals over all permutations of the random coloring that terminate at that edge, then we can separate an induced path from a cycle: an induced path contributes one to that count, while a cycle contributes two. Refining and generalizing this observation gives our \\emph{local-counting approach}, which allows us to separate induced paths from any other subgraph.\n  We establish the following end results, all improving upon the state of the art in their round complexities and refined detection variants.\n  * An $O(1)$-round algorithm for induced $P_4$ detection.\n  * $O(Δ)$-round algorithms for detection of induced $P_5$ and $P_6$.\n  * An $\\tilde{O}(n^{1/3})$-round algorithm for detection of induced $P_5$ in induced-$C_4$ free graphs.",
+        "authors": [
+            "Keren Censor-Hillel",
+            "Julian Ewaied"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.DS"
+        ],
+        "id": "http://arxiv.org/abs/2611.34185v1",
+        "submit_date": "2026-11-25",
+        "relevant": false,
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34161v1": {
+        "title": "CoordRoute: Coordinated Multi-Model Routing for Maximum Compute-Budget Utility",
+        "link": "http://arxiv.org/abs/2611.34161v1",
+        "abstract": "Model routing sends each request to one of several large language models (LLMs) of different sizes. In practice, requests share a fixed compute budget: a spending cap on rented model APIs or the capacity of a private GPU cluster. Most existing routers do not account for the total budget: each decides a request on its own, so per-request optima are not optimal overall. We advocate coordinated routing, which allocates the budget across requests to maximize its utility, their total satisfaction, along a predict-plan-rectify route: predict what each model would give and cost, plan the choice against later requests, and rectify it during generation. Each step faces a challenge: a request's gain from each model is uncertain before generation, later arrivals are unknown when a request must start, and observing answers during generation consumes the budget itself. CoordRoute addresses them with relative demand prediction, which compares candidate models through past requests that lead to the same routing choices; a lookahead solver, which charges each choice for what its compute could earn for later requests; and budget-aware runtime correction, which drops or upgrades in-flight requests at the same price, inspecting answers only when it pays off. On Azure Conversation and BurstGPT traces, CoordRoute improves total satisfaction by 18.72% over the strongest existing router.",
+        "authors": [
+            "Boning Huangfu",
+            "Boxiao Du",
+            "Chen Chen"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.34161v1",
+        "submit_date": "2026-11-25",
+        "relevant": true,
+        "tags": [
+            "serving",
+            "scaling"
+        ],
+        "tldr": "Proposes CoordRoute, a coordinated routing system for LLM serving under shared compute budgets. Uses relative demand prediction, lookahead solver, and runtime correction to maximize total satisfaction. Achieves 18.72% higher satisfaction than existing routers on Azure Conversation and BurstGPT traces.",
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34010v1": {
+        "title": "Asymmetric Speculative Decoding: Unlocking In-Context Learning in Draft Models",
+        "link": "http://arxiv.org/abs/2611.34010v1",
+        "abstract": "Speculative decoding addresses Large Language Model (LLM) inference latency by first drafting and then verifying in parallel. Yet practical speedups fall far short of theoretical bounds, especially on reasoning tasks. We identify the root cause as task isomorphism: existing methods provide identical prompts to both models, forcing the draft model to solve problems beyond its capacity. This produces high rejection rates that eliminate parallelization gains. We discover that acceptance rates increase monotonically during generation, revealing a latent in-context learning (ICL) effect wherein the draft model progressively aligns with the target distribution by learning from verified tokens. Controlled experiments with varying context window sizes confirm this improvement stems from ICL-driven alignment rather than token difficulty. Motivated by this finding, we propose Asymmetric Speculative Decoding (AsymSpec), a training-free framework that decouples the prompts provided to draft and target models. By supplying the draft model with task-relevant example solutions, we reformulate its objective from reasoning to simulation, amplifying the ICL effect from the first token. We prove AsymSpec produces exact samples and converges exponentially to the target distribution. Across reasoning, code generation, and summarization tasks, AsymSpec achieves 2.29$\\times$ to 4.95$\\times$ speedup over autoregressive decoding, outperforming standard speculative decoding without model retraining.",
+        "authors": [
+            "Guang Huang",
+            "Zeyi Wen"
+        ],
+        "categories": [
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.34010v1",
+        "submit_date": "2026-11-25",
+        "relevant": true,
+        "tags": [
+            "serving"
+        ],
+        "tldr": "Addresses low token acceptance rates in speculative decoding that limit inference speedup. Proposes AsymSpec, which decouples prompts for draft and target models using in-context examples to transform drafting into simulation. Achieves up to 4.95× speedup over autoregressive decoding across reasoning and generation tasks.",
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.33890v1": {
+        "title": "Privacy-Aware Adaptive Client Selection for Federated Retrieval-Augmented Generation",
+        "link": "http://arxiv.org/abs/2611.33890v1",
+        "abstract": "Federated retrieval-augmented generation retrieves evidence from distributed corpora. However, broadcasting queries to all clients increases the retrieval burden and query exposure. We present Privacy-Aware Adaptive Client Selection for Federated Retrieval-Augmented Generation (PACS-FedRAG), an online selector that takes into account perturbed semantic profiles along with evidence feedback, latency, payload cost, and exploration. In a ten-client setting where three clients are chosen, the archived end-to-end benchmark reports an evidence overlap of 0.372 and an answer accuracy of 0.287. The retrieval-only evaluation, on the other hand, reuses a full-broadcast baseline with a different fusion tie-breaking policy. Rank fusion across disjoint client corpora imposes an overlap ceiling of 0.375, limiting its interpretation as a relevance measure. Answer accuracy is below the fixed-label diagnostic of 0.645, and raw generator responses are unavailable for parser verification. Corrected baselines and a new answer-level evaluation are needed to assess whether quality is preserved. Selecting three clients reduces the number of query recipients by 70%. Profile perturbation does not provide confidentiality of queries or passages.",
+        "authors": [
+            "Ali Shams Saryazd",
+            "Abolfazl Gandomi"
+        ],
+        "categories": [
+            "cs.IR",
+            "cs.DC"
+        ],
+        "id": "http://arxiv.org/abs/2611.33890v1",
+        "submit_date": "2026-11-25",
+        "relevant": false,
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.33829v1": {
+        "title": "VoroPlex: A Python Framework for Multi-Threaded and Differentiable Voronoi Tessellation",
+        "link": "http://arxiv.org/abs/2611.33829v1",
+        "abstract": "Voronoi tessellations are widely used in computational physics, for example to measure local structure in particle systems and to generate meshes. We present VoroPlex, an open-source Python package for computing Voronoi tessellations in two and three dimensions. VoroPlex is built on the multi-threaded version of the C++ library Voro++, so that large tessellations can be computed in parallel. The package also makes the tessellation differentiable. Each Voronoi vertex is labeled by the generators that define it, and VoroPlex uses these labels to compute the derivative of the vertex with respect to the positions of these generators. PyTorch can therefore compute gradients of quantities such as cell areas, volumes, and interface areas with respect to the generator positions, so that these quantities can be optimized using standard gradient-based methods. The package also includes tools for extracting interfaces between groups of cells and for exporting meshes. For one million points using 28 threads, VoroPlex is 46 times faster than SciPy in 2D and 39 times faster in 3D. We demonstrate the package with three applications: centroidal Voronoi tessellations with a variable density, meshing of 2D shapes defined by signed distance functions, and the design of foams with a preferred cell orientation.",
+        "authors": [
+            "Peihang Lin",
+            "Shanmei Wanyan",
+            "Mucheng Zhu",
+            "Ying Jiang",
+            "Chris H. Rycroft",
+            "Chenfanfu Jiang",
+            "Jiayin Lu"
+        ],
+        "categories": [
+            "cs.CG",
+            "cs.DC",
+            "cs.LG",
+            "cs.MS"
+        ],
+        "id": "http://arxiv.org/abs/2611.33829v1",
+        "submit_date": "2026-11-25",
+        "relevant": false,
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.33542v1": {
+        "title": "RankCast: Phase-Aware Rank Balancing in MoE Serving",
+        "link": "http://arxiv.org/abs/2611.33542v1",
+        "abstract": "Modern large language model (LLM) inference increasingly adopts disaggregated architectures that separate Prefill (P) and Decode (D) phases. Meanwhile, Expert Parallelism (EP) has been widely adopted in large Mixture-of-Experts (MoE) model serving. However, load imbalance still slows down MoE inference because each layer must wait for the busiest EP rank. The main source of latency differs between prefill and decode. Prefill is compute-bound, and its MoE layers' latency is determined by the maximum token count of the busiest rank. At the same time, under moderate batch sizes, Decode is memory-bound, so the latency is dominated by the maximum active-expert count across ranks. To solve both problems under a unified framework, we present RankCast, a system that reduces rank-level maximum token counts during prefill and active-expert counts during decode. For every token, RankCast preserves the predicted Top-p experts and chooses the remaining k-p from its Top-L candidates (L > k). In prefill, RankCast yields a price per rank that steers flexible assignments to less loaded ranks. In decode, RankCast closes experts on the busiest ranks while preserving the constraints for each token. Both paths are implemented and tested in the state-of-the-art inference frameworks SGLang and DeepEP. We overlap RankCast's kernels with model execution and reuse the existing DeepEP communication channel for metadata transmission. On Qwen3-235B-A22B with EP=8 and Qwen3.5-397B-A17B with EP=16, RankCast removes over 75% of the busiest rank's excess prefill load, improves prefill input throughput by up to 19%, and reduces decode time per output token by up to 10%. The quality cost is below one percentage point.",
+        "authors": [
+            "Kaidi Fu",
+            "Xu-Hao Lu",
+            "Pingwei Sun",
+            "Jianchao Tan",
+            "Yuchen Xie",
+            "Xunliang Cai"
+        ],
+        "categories": [
+            "cs.DC",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "id": "http://arxiv.org/abs/2611.33542v1",
+        "submit_date": "2026-11-24",
+        "relevant": true,
+        "tags": [
+            "MoE",
+            "serving",
+            "disaggregation"
+        ],
+        "tldr": "Addresses load imbalance in MoE serving for disaggregated prefill and decode phases. Proposes RankCast, which reassigns tokens to less loaded ranks in prefill and closes experts on busiest ranks in decode. Achieves up to 19% higher prefill throughput and 10% lower decode latency per token.",
+        "indexed_date": "2026-11-26"
+    },
+    "http://arxiv.org/abs/2611.34142v1": {
+        "title": "Reproducer Synthesis for AI-Reported Bugs in the Linux Kernel",
+        "link": "http://arxiv.org/abs/2611.34142v1",
+        "abstract": "Agentic review systems are increasingly flagging suspected bugs in Linux kernel patches as textual reports. A maintainer who receives such reports needs further inspection to determine whether the report is true. The inspection requires understanding whether the bug can be triggered and, if necessary, manually constructing one. As a consequence, despite the excessive textual explanation, many reports go unanswered. In this paper, we argue that a runnable proof-of-concept (PoC) is the key information in such AI-generated kernel review reports. It is, however, challenging to automatically synthesize a valid and runnable PoC.\n  We present ReproCue, a framework that generates PoCs for AI-generated Linux kernel reviews. ReproCue replays the historical kernel bugs and learns one reproduction finite-state-machine (FSM) per subsystem from successful runs. An FSM records the steps a reproduction goes through, together with the requirements observed at each step. Given a new review, ReproCue follows the FSM of that subsystem, adjusting the PoC and the environment as execution shows what is missing. In 100 recent AI-generated reviews, ReproCue writes PoCs for 49 of them, compared with 10 for the current agentic reproducer and 9 for the state-of-the-art directed fuzzing. Excitingly, with our generated PoCs, Linux kernel maintainers confirmed 69.4% of them, much higher than 9.3% from Sashiko where only textual explanations are included, making AI reviews more actionable in practice.",
+        "authors": [
+            "Xiao Wu",
+            "Yunbo Ni",
+            "Hao Sun",
+            "Yuanyuan Yuan",
+            "Shaohua Li"
+        ],
+        "categories": [
+            "cs.OS",
+            "cs.AI",
+            "cs.SE"
+        ],
+        "id": "http://arxiv.org/abs/2611.34142v1",
+        "submit_date": "2026-11-25",
+        "relevant": false,
+        "indexed_date": "2026-11-26"
     }
 }
